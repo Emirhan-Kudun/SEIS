@@ -1,0 +1,11 @@
+{
+  "name": "@seis/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./design-system": "./src/design-system.ts",
+    "./data": "./src/data.json"
+  }
+}

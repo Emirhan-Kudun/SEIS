@@ -1,0 +1,8 @@
+{
+  "name": "SEIS Static Fallback Runtime Manifest",
+  "purpose": "Documents the low-dependency fallback surface for portfolio and runtime readiness.",
+  "safeStatuses": ["active", "configured", "needs_credentials", "unavailable"],
+  "publicRoutes": ["/", "/portfolio", "/drawings", "/case-studies", "/runtime", "/ops", "/contact"],
+  "apiRoutes": ["/api/health", "/api/runtime", "/api/connectors", "/api/skills", "/api/contact", "/api/briefs", "/api/activation-policy"],
+  "credentialRule": "Credentials are never stored in source files. Missing credentials produce needs_credentials state."
+}

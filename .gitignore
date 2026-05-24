@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+.vercel/
+.DS_Store
+__MACOSX/
+*.zip
+*.key
+*.enc
+.env
+.env.*
+!.env.example
+coverage/
+playwright-report/
+*.tsbuildinfo
+/runtime/

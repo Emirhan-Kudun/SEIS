@@ -1,0 +1,17 @@
+{
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build --workspace apps/site-next",
+  "outputDirectory": "apps/site-next/.next",
+  "headers": [
+    {
+      "source": "/drawings/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, immutable"
+        }
+      ]
+    }
+  ]
+}
