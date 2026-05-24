@@ -1,7 +1,14 @@
 import Link from "next/link";
 
 import { caseStudies, drawings, getDictionary, services, siteMeta, works } from "@seis/content";
-import { getMcpReadinessSnapshot, getRuntimeSnapshot } from "@seis/runtime";
+import {
+  getCinematicScenePresets,
+  getMcpReadinessSnapshot,
+  getSourceArchives,
+  getRuntimeSnapshot
+} from "@seis/runtime";
+
+import { BriefIntakeForm } from "./brief-intake-form";
 
 type PageMode = "portfolio" | "drawings" | "cases" | "runtime" | "ops" | "contact";
 
@@ -20,6 +27,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
   const dict = getDictionary("en");
   const runtime = getRuntimeSnapshot();
   const mcp = getMcpReadinessSnapshot();
+  const archives = getSourceArchives();
+  const scenePresets = getCinematicScenePresets();
 
   return (
     <main className="page-shell">
@@ -99,6 +108,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <p className="eyebrow">{dict.runtimeTitle}</p>
           <h1>Credential-aware active runtime without secret leakage.</h1>
           <RuntimeSummary />
+          <ScenePresetSummary />
           <McpSummary />
         </section>
       )}
@@ -108,6 +118,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <p className="eyebrow">{dict.opsTitle}</p>
           <h1>{dict.opsLead}</h1>
           <RuntimeSummary includeSkills />
+          <ScenePresetSummary />
+          <SourceArchiveSummary />
           <McpSummary expanded />
           <div className="api-list" aria-label="Runtime APIs">
             {[
@@ -116,6 +128,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               "/api/connectors",
               "/api/skills",
               "/api/mcp-readiness",
+              "/api/source-archives",
+              "/api/scene-presets",
               "/api/contact",
               "/api/briefs",
               "/api/activation-policy"
@@ -130,14 +144,12 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         <section className="section page-hero contact-page">
           <p className="eyebrow">{dict.contactTitle}</p>
           <h1>{dict.contactLead}</h1>
-          <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
-          <div className="card-grid compact">
-            {services.map((service) => (
-              <article className="work-card" key={service.id}>
-                <h2>{service.title}</h2>
-                <p>{service.summary}</p>
-              </article>
-            ))}
+          <div className="contact-layout">
+            <div className="contact-direct">
+              <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+              <p>{dict.briefReady}</p>
+            </div>
+            <BriefIntakeForm dictionary={dict} services={services} />
           </div>
         </section>
       )}
@@ -195,6 +207,54 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               <h2>{item.name}</h2>
               <p>{item.scope}</p>
               <small>{item.notes}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function ScenePresetSummary() {
+    return (
+      <section className="ops-block" aria-label="Cinematic scene presets">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">3D / Motion</p>
+            <h2>Cinematic scene presets</h2>
+          </div>
+          <p>Hero, showcase, reduced-motion and static fallback modes are explicit runtime metadata now.</p>
+        </div>
+        <div className="runtime-grid">
+          {scenePresets.map((preset) => (
+            <article className="runtime-card" data-status="active" key={preset.id}>
+              <p className="kicker">{preset.surface} / {preset.performance}</p>
+              <h2>{preset.name}</h2>
+              <p>{preset.notes}</p>
+              <span>{preset.motion}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function SourceArchiveSummary() {
+    return (
+      <section className="ops-block" aria-label="Source archive selection">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Sources / Archives</p>
+            <h2>Auditable source selection</h2>
+          </div>
+          <p>v4 is the portfolio baseline, infra-v1 is the runtime baseline, and v2/v3 remain reference history.</p>
+        </div>
+        <div className="runtime-grid">
+          {archives.map((archive) => (
+            <article className="runtime-card" data-status="active" key={archive.id}>
+              <p className="kicker">{archive.role}</p>
+              <h2>{archive.fileName}</h2>
+              <p>{archive.notes}</p>
+              <span>{archive.sha256.slice(0, 16)}...</span>
             </article>
           ))}
         </div>

@@ -39,6 +39,8 @@ The main production candidate is `apps/site-next`. The Vite app is a small previ
 - `/design-system` documents the calm cinematic UI principles and token groups.
 - `/api/activation-policy` explains what each runtime status means before a connector is activated.
 - `/api/mcp-readiness` exposes the generated `codex mcp list` readiness snapshot without secrets.
+- `/api/source-archives` exposes the selected zip archive metadata and hashes.
+- `/api/scene-presets` exposes the 3D/reduced-motion/static scene modes as runtime metadata.
 - `scripts/check-source-boundaries.mjs` prevents importing archive noise, zip files, encrypted credentials, and macOS metadata into source.
 - `scripts/collect-mcp-readiness.mjs` refreshes MCP readiness from the live Codex MCP list and compares it against the infra-v1 archive catalog.
 

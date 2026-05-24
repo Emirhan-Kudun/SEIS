@@ -67,6 +67,50 @@ export type SourceArchiveVersion = {
   notes: string;
 };
 
+export type CinematicScenePreset = {
+  id: string;
+  name: string;
+  surface: "hero" | "showcase" | "fallback";
+  motion: "standard" | "reduced";
+  performance: "mobile_safe" | "desktop_rich" | "static";
+  notes: string;
+};
+
+const cinematicScenePresets: CinematicScenePreset[] = [
+  {
+    id: "orbital-studio-hero",
+    name: "Orbital Studio Hero",
+    surface: "hero",
+    motion: "standard",
+    performance: "desktop_rich",
+    notes: "Full-bleed Three.js scene with drawing panels, light rings, pointer parallax and scroll camera drift."
+  },
+  {
+    id: "runtime-gallery-showcase",
+    name: "Runtime Gallery Showcase",
+    surface: "showcase",
+    motion: "standard",
+    performance: "mobile_safe",
+    notes: "Secondary WebGL scene for drawings, work cards and runtime status points with capped pixel ratio."
+  },
+  {
+    id: "reduced-motion-atmosphere",
+    name: "Reduced Motion Atmosphere",
+    surface: "hero",
+    motion: "reduced",
+    performance: "mobile_safe",
+    notes: "Same visual language with nearly static rotation for users who prefer reduced motion."
+  },
+  {
+    id: "static-fallback-gallery",
+    name: "Static Fallback Gallery",
+    surface: "fallback",
+    motion: "reduced",
+    performance: "static",
+    notes: "Dependency-light HTML/CSS fallback that preserves the portfolio and runtime story without WebGL."
+  }
+];
+
 type RegistryShape = {
   connectors: RegistryEntry[];
   skills: RegistryEntry[];
@@ -171,4 +215,8 @@ export function getMcpReadinessSnapshot(now = new Date()): McpReadinessSnapshot 
 
 export function getSourceArchives(): SourceArchiveVersion[] {
   return sourceArchives as SourceArchiveVersion[];
+}
+
+export function getCinematicScenePresets(): CinematicScenePreset[] {
+  return cinematicScenePresets;
 }

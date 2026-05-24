@@ -1,6 +1,8 @@
 import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
+import { services } from "@seis/content";
+
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
@@ -41,6 +43,19 @@ async function appendRuntimeRecord(fileName: string, payload: Record<string, unk
   await mkdir(runtimeDirectory, { recursive: true });
   await appendFile(target, `${JSON.stringify(payload)}\n`, "utf8");
   return path.relative(workspaceRoot(), target);
+}
+
+export function GET() {
+  return Response.json({
+    fields: ["name", "email", "service", "scope", "timeline", "budget", "priority", "goal"],
+    required: ["goal"],
+    services: services.map((service) => ({
+      id: service.id,
+      title: service.title
+    })),
+    storage: "local_jsonl",
+    externalDeliveryConfigured: Boolean(process.env.CONTACT_ENDPOINT)
+  });
 }
 
 export async function POST(request: Request) {
