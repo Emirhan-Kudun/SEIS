@@ -1,13 +1,24 @@
 import Link from "next/link";
 
-import { caseStudies, drawings, getDictionary, services, siteMeta, works } from "@seis/content";
+import {
+  behanceEmbeds,
+  caseStudies,
+  drawings,
+  getDictionary,
+  services,
+  siteMeta,
+  softwareLanguages,
+  works
+} from "@seis/content";
 import {
   getCinematicScenePresets,
+  getDeploymentTargets,
   getMcpReadinessSnapshot,
   getSourceArchives,
   getRuntimeSnapshot
 } from "@seis/runtime";
 
+import { BehanceEmbedPanel } from "./behance-embed-panel";
 import { BriefIntakeForm } from "./brief-intake-form";
 
 type PageMode = "portfolio" | "drawings" | "cases" | "runtime" | "ops" | "contact";
@@ -29,6 +40,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
   const mcp = getMcpReadinessSnapshot();
   const archives = getSourceArchives();
   const scenePresets = getCinematicScenePresets();
+  const deploymentTargets = getDeploymentTargets();
 
   return (
     <main className="page-shell">
@@ -59,6 +71,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               </article>
             ))}
           </div>
+          <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
         </section>
       )}
 
@@ -109,6 +122,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <h1>Credential-aware active runtime without secret leakage.</h1>
           <RuntimeSummary />
           <ScenePresetSummary />
+          <LanguageSummary />
           <McpSummary />
         </section>
       )}
@@ -118,6 +132,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <p className="eyebrow">{dict.opsTitle}</p>
           <h1>{dict.opsLead}</h1>
           <RuntimeSummary includeSkills />
+          <DeploymentSummary />
+          <LanguageSummary />
           <ScenePresetSummary />
           <SourceArchiveSummary />
           <McpSummary expanded />
@@ -130,6 +146,9 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               "/api/mcp-readiness",
               "/api/source-archives",
               "/api/scene-presets",
+              "/api/deployment-targets",
+              "/api/behance",
+              "/api/software-languages",
               "/api/contact",
               "/api/briefs",
               "/api/activation-policy"
@@ -231,6 +250,54 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               <h2>{preset.name}</h2>
               <p>{preset.notes}</p>
               <span>{preset.motion}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function DeploymentSummary() {
+    return (
+      <section className="ops-block" aria-label="Deployment targets">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Deploy / Persistence</p>
+            <h2>{dict.deployTitle}</h2>
+          </div>
+          <p>{dict.deployLead}</p>
+        </div>
+        <div className="runtime-grid">
+          {deploymentTargets.map((target) => (
+            <article className="runtime-card" data-status={target.status} key={target.id}>
+              <p className="kicker">{target.category} / {target.status}</p>
+              <h2>{target.name}</h2>
+              <p>{target.scope}</p>
+              <span>{target.targetUrl}</span>
+              <small>{target.safety}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function LanguageSummary() {
+    return (
+      <section className="ops-block" aria-label="Software language registry">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Stack / Languages</p>
+            <h2>{dict.languagesTitle}</h2>
+          </div>
+          <p>{dict.languagesLead}</p>
+        </div>
+        <div className="language-grid">
+          {softwareLanguages.map((language) => (
+            <article className="language-card" data-status={language.status} key={language.id}>
+              <p className="kicker">{language.layer} / {language.status}</p>
+              <h2>{language.name}</h2>
+              <p>{language.role}</p>
             </article>
           ))}
         </div>

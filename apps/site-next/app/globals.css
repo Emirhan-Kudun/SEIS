@@ -90,6 +90,8 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-mono), monospace;
   font-size: 0.7rem;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 .nav-links a:hover,
 .language-switcher button:hover,
@@ -135,6 +137,67 @@ img { max-width: 100%; display: block; }
   height: 100%;
   min-height: calc(100svh - var(--nav-h));
 }
+.cinematic-fallback-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 64% 42%, rgba(214, 177, 111, 0.28), transparent 18%),
+    radial-gradient(circle at 78% 58%, rgba(143, 213, 200, 0.16), transparent 20%),
+    linear-gradient(120deg, rgba(240, 236, 228, 0.05), transparent 44%);
+}
+.fallback-orbit,
+.fallback-core,
+.fallback-frame {
+  position: absolute;
+  display: block;
+}
+.fallback-orbit {
+  right: clamp(2rem, 8vw, 9rem);
+  top: 16%;
+  width: clamp(260px, 45vw, 720px);
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(214, 177, 111, 0.42);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(-18deg);
+  animation: fallbackDrift 24s linear infinite;
+}
+.fallback-orbit-two {
+  border-color: rgba(143, 213, 200, 0.24);
+  transform: rotateX(58deg) rotateZ(32deg);
+  animation-duration: 32s;
+}
+.fallback-core {
+  right: clamp(8rem, 23vw, 25rem);
+  top: 42%;
+  width: clamp(84px, 10vw, 154px);
+  aspect-ratio: 1 / 0.72;
+  background: linear-gradient(135deg, rgba(240, 214, 159, 0.72), rgba(77, 54, 23, 0.28));
+  clip-path: polygon(50% 0, 100% 38%, 78% 100%, 22% 100%, 0 38%);
+  box-shadow: 0 0 90px rgba(214, 177, 111, 0.2);
+}
+.fallback-frame {
+  width: clamp(72px, 9vw, 132px);
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(240, 236, 228, 0.18);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.72;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+}
+.fallback-frame span {
+  position: absolute;
+  left: 0.45rem;
+  bottom: 0.35rem;
+  color: var(--ivory);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.64rem;
+}
+.fallback-frame:nth-of-type(4) { right: 7%; top: 19%; transform: rotate(-8deg); }
+.fallback-frame:nth-of-type(5) { right: 28%; top: 16%; transform: rotate(6deg); }
+.fallback-frame:nth-of-type(6) { right: 14%; top: 49%; transform: rotate(10deg); }
+.fallback-frame:nth-of-type(7) { right: 38%; top: 52%; transform: rotate(-5deg); }
+.fallback-frame:nth-of-type(8) { right: 25%; top: 34%; transform: rotate(3deg); }
 .cinematic-vignette {
   position: absolute;
   inset: 0;
@@ -159,6 +222,7 @@ img { max-width: 100%; display: block; }
   line-height: 0.9;
   margin: 0.4rem 0 1.45rem;
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 .hero-copy p,
 .contact-section p,
@@ -336,6 +400,72 @@ img { max-width: 100%; display: block; }
   font-size: 0.84rem;
 }
 
+.behance-section,
+.language-section {
+  width: 100%;
+  max-width: none;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+.behance-section {
+  background:
+    linear-gradient(120deg, rgba(214, 177, 111, 0.09), transparent 30%),
+    linear-gradient(180deg, #0a0a09, #15130f);
+}
+.behance-grid,
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.language-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.behance-card,
+.language-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.038);
+  padding: clamp(0.95rem, 1.5vw, 1.15rem);
+}
+.behance-card h3,
+.language-card h2,
+.language-card h3 {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.42rem, 2.2vw, 2.2rem);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+.behance-card p,
+.language-card p {
+  color: var(--muted);
+}
+.behance-card pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  background: rgba(8, 8, 7, 0.62);
+  color: var(--ivory-2);
+  padding: 0.8rem;
+  min-height: 118px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+.behance-card .secondary-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+.language-card[data-status="active"] {
+  border-color: rgba(143, 213, 200, 0.38);
+}
+.language-card[data-status="planned"] {
+  border-color: rgba(214, 177, 111, 0.34);
+}
+
 .studio-section {
   position: relative;
 }
@@ -361,6 +491,42 @@ img { max-width: 100%; display: block; }
   height: 100%;
   min-height: 420px;
 }
+.showcase-fallback-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(214, 177, 111, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(143, 213, 200, 0.09), transparent 40%);
+}
+.showcase-fallback-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(62vw, 620px);
+  aspect-ratio: 1 / 0.52;
+  border: 1px solid rgba(214, 177, 111, 0.36);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+.showcase-fallback-panel {
+  position: absolute;
+  width: clamp(82px, 12vw, 142px);
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: end start;
+  border: 1px solid rgba(240, 236, 228, 0.16);
+  background-position: center;
+  background-size: cover;
+  color: var(--ivory);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  padding: 0.45rem;
+}
+.showcase-fallback-panel:nth-of-type(2) { left: 18%; top: 20%; transform: rotate(-7deg); }
+.showcase-fallback-panel:nth-of-type(3) { left: 42%; top: 10%; transform: rotate(4deg); }
+.showcase-fallback-panel:nth-of-type(4) { right: 20%; top: 28%; transform: rotate(8deg); }
+.showcase-fallback-panel:nth-of-type(5) { left: 34%; bottom: 12%; transform: rotate(-3deg); }
 .studio-rail {
   position: relative;
   z-index: 1;
@@ -597,6 +763,8 @@ img { max-width: 100%; display: block; }
   .card-grid,
   .card-grid.compact,
   .runtime-grid,
+  .behance-grid,
+  .language-grid,
   .metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -619,6 +787,10 @@ img { max-width: 100%; display: block; }
   .page-hero h1 {
     font-size: clamp(2.65rem, 15vw, 4.45rem);
   }
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 10.8vw, 3.25rem);
+    line-height: 0.98;
+  }
   .hero-panel strong,
   .section h2 {
     font-size: clamp(2.25rem, 12vw, 3.8rem);
@@ -628,6 +800,8 @@ img { max-width: 100%; display: block; }
   .card-grid.compact,
   .drawing-grid,
   .runtime-grid,
+  .behance-grid,
+  .language-grid,
   .metrics,
   .studio-rail,
   .form-grid {
@@ -651,4 +825,9 @@ img { max-width: 100%; display: block; }
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@keyframes fallbackDrift {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
 }

@@ -99,6 +99,16 @@ article, .runtime {
   background: var(--surface);
   padding: 1rem;
 }
+.embed-card pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  color: #d7cbb9;
+  padding: 0.75rem;
+  font-size: 0.72rem;
+}
 .drawings {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));

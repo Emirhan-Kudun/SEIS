@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 const galleryTextures = [
@@ -35,6 +35,7 @@ function disposeMaterial(material: THREE.Material | THREE.Material[]) {
 
 export function CinematicHeroScene() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [hasWebGlFallback, setHasWebGlFallback] = useState(false);
 
   useEffect(() => {
     const targetCanvas = canvasRef.current;
@@ -44,14 +45,35 @@ export function CinematicHeroScene() {
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x090908, 0.045);
-
-    const renderer = new THREE.WebGLRenderer({
+    const contextAttributes = {
       alpha: true,
       antialias: true,
-      canvas: stableCanvas,
       preserveDrawingBuffer: true,
-      powerPreference: "high-performance"
-    });
+      powerPreference: "high-performance" as WebGLPowerPreference
+    };
+    const webGlContext = stableCanvas.getContext("webgl2", contextAttributes)
+      || stableCanvas.getContext("webgl", contextAttributes);
+
+    if (!webGlContext) {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
+
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        canvas: stableCanvas,
+        context: webGlContext as WebGLRenderingContext,
+        preserveDrawingBuffer: true,
+        powerPreference: "high-performance"
+      });
+    } catch {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
+
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.25 : 1.65));
 
@@ -294,7 +316,20 @@ export function CinematicHeroScene() {
 
   return (
     <div className="cinematic-scene" aria-hidden="true">
-      <canvas ref={canvasRef} />
+      {hasWebGlFallback ? (
+        <div className="cinematic-fallback-scene">
+          <span className="fallback-orbit fallback-orbit-one" />
+          <span className="fallback-orbit fallback-orbit-two" />
+          <span className="fallback-core" />
+          {galleryTextures.map((src, index) => (
+            <span className="fallback-frame" style={{ backgroundImage: `url(${src})` }} key={src}>
+              <span>{index + 1}</span>
+            </span>
+          ))}
+        </div>
+      ) : (
+        <canvas ref={canvasRef} />
+      )}
       <div className="cinematic-vignette" />
     </div>
   );

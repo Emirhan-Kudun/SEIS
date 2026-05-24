@@ -1,0 +1,65 @@
+[
+  {
+    "id": "local-production-preview",
+    "name": "Local production preview",
+    "category": "preview",
+    "statusOverride": "active",
+    "scope": "Serves the current built site locally for browser validation.",
+    "requiresEnv": [],
+    "targetUrl": "http://localhost:4173",
+    "command": "npm run start --workspace apps/site-next",
+    "persistence": "local",
+    "safety": "Read-only preview; no external deploy or credential access.",
+    "notes": "Useful for layout, API and 3D smoke checks before any remote publish."
+  },
+  {
+    "id": "github-origin",
+    "name": "GitHub origin branch",
+    "category": "source-control",
+    "statusOverride": "needs_credentials",
+    "scope": "Keeps the single SEIS branch recoverable outside the machine once GitHub auth is ready.",
+    "requiresEnv": [],
+    "targetUrl": "git@github.com:emirhankudun/emirhan-kudun-portfolio.git",
+    "command": "gh auth status -h github.com && git push -u origin codex/seis-ux-cinematic-premium-foundation",
+    "persistence": "remote-git",
+    "safety": "Push is blocked until GitHub CLI authentication is confirmed.",
+    "notes": "Current flow intentionally stops when gh auth is not logged in."
+  },
+  {
+    "id": "vercel-preview",
+    "name": "Vercel preview deployment",
+    "category": "hosting",
+    "scope": "Preview or production deployment for emirhankudun.com after CLI/auth setup.",
+    "requiresEnv": ["VERCEL_TOKEN", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID"],
+    "targetUrl": "https://emirhankudun.com",
+    "command": "npm i -g vercel && vercel deploy",
+    "persistence": "managed-hosting",
+    "safety": "Requires explicit user confirmation before deploy and does not store Vercel secrets in source.",
+    "notes": "Ready by configuration; remains needs_credentials until Vercel auth/env is present."
+  },
+  {
+    "id": "custom-server",
+    "name": "Custom server handoff",
+    "category": "hosting",
+    "scope": "Copies a production build or static fallback to a selected external server.",
+    "requiresEnv": ["DEPLOY_HOST", "DEPLOY_USER", "DEPLOY_PATH"],
+    "targetUrl": "ssh://${DEPLOY_USER}@${DEPLOY_HOST}${DEPLOY_PATH}",
+    "command": "rsync -az --delete apps/site-next/.next/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}",
+    "persistence": "custom-server",
+    "safety": "Never runs without a concrete host, path, auth method and separate confirmation.",
+    "notes": "Prepared so the site does not get lost, but server credentials must stay outside git."
+  },
+  {
+    "id": "static-fallback-archive",
+    "name": "Static fallback archive",
+    "category": "rollback",
+    "statusOverride": "active",
+    "scope": "Dependency-light HTML/CSS/JS version for emergency publishing and rollback.",
+    "requiresEnv": [],
+    "targetUrl": "apps/static-fallback/index.html",
+    "command": "open apps/static-fallback/index.html",
+    "persistence": "filesystem",
+    "safety": "No build server required; can be hosted by any static file server.",
+    "notes": "Preserves the portfolio story, Behance codes, runtime summary and contact route."
+  }
+]

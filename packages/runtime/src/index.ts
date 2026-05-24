@@ -1,4 +1,5 @@
 import registry from "./registry.json";
+import deploymentTargets from "./deployment-targets.json";
 import mcpReadiness from "./mcp-readiness.generated.json";
 import sourceArchives from "./source-archives.json";
 
@@ -76,6 +77,13 @@ export type CinematicScenePreset = {
   notes: string;
 };
 
+export type DeploymentTarget = RuntimeConnector & {
+  targetUrl: string;
+  command: string;
+  persistence: "local" | "remote-git" | "managed-hosting" | "custom-server" | "filesystem";
+  safety: string;
+};
+
 const cinematicScenePresets: CinematicScenePreset[] = [
   {
     id: "orbital-studio-hero",
@@ -116,7 +124,12 @@ type RegistryShape = {
   skills: RegistryEntry[];
 };
 
+type DeploymentTargetEntry = Omit<DeploymentTarget, "status" | "lastChecked"> & {
+  statusOverride?: RuntimeStatus;
+};
+
 const typedRegistry = registry as RegistryShape;
+const typedDeploymentTargets = deploymentTargets as DeploymentTargetEntry[];
 
 function hasEnv(env: NodeJS.ProcessEnv | Record<string, string | undefined>, key: string): boolean {
   return Boolean(env[key] && String(env[key]).trim().length > 0);
@@ -219,4 +232,24 @@ export function getSourceArchives(): SourceArchiveVersion[] {
 
 export function getCinematicScenePresets(): CinematicScenePreset[] {
   return cinematicScenePresets;
+}
+
+export function getDeploymentTargets(
+  env: NodeJS.ProcessEnv | Record<string, string | undefined> = process.env,
+  now = new Date()
+): DeploymentTarget[] {
+  return typedDeploymentTargets.map((target) => ({
+    id: target.id,
+    name: target.name,
+    category: target.category,
+    status: resolveStatus(target, env),
+    scope: target.scope,
+    requiresEnv: target.requiresEnv,
+    lastChecked: now.toISOString(),
+    notes: target.notes,
+    targetUrl: target.targetUrl,
+    command: target.command,
+    persistence: target.persistence,
+    safety: target.safety
+  }));
 }

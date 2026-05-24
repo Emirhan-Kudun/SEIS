@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import {
+  behanceEmbeds,
   caseStudies,
   drawings,
   getDictionary,
@@ -10,12 +11,14 @@ import {
   resolveLocale,
   services,
   siteMeta,
+  softwareLanguages,
   works,
   type Locale
 } from "@seis/content";
 import { getMcpReadinessSnapshot, getRuntimeSnapshot } from "@seis/runtime";
 
 import { BriefIntakeForm } from "./brief-intake-form";
+import { BehanceEmbedPanel } from "./behance-embed-panel";
 import { CinematicHeroScene } from "./cinematic-hero-scene";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 
@@ -150,8 +153,12 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         </div>
       </section>
 
+      <section className="section behance-section" id="behance">
+        <BehanceEmbedPanel dictionary={dictionary} embeds={behanceEmbeds} compact />
+      </section>
+
       <section className="section gallery-section" id="drawings">
-        <p className="eyebrow">04 / Drawing Archive</p>
+        <p className="eyebrow">05 / Drawing Archive</p>
         <h2>{dictionary.drawingsTitle}</h2>
         <div className="featured-strip" aria-label="Featured drawings">
           {featuredDrawings.map((drawing) => (
@@ -175,7 +182,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section" id="cases">
-        <p className="eyebrow">05 / Case Studies</p>
+        <p className="eyebrow">06 / Case Studies</p>
         <h2>{dictionary.casesTitle}</h2>
         <div className="stack">
           {caseStudies.map((study) => (
@@ -191,7 +198,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section runtime-band" id="runtime">
-        <p className="eyebrow">06 / Active Runtime</p>
+        <p className="eyebrow">07 / Active Runtime</p>
         <h2>{dictionary.runtimeTitle}</h2>
         <div className="metrics">
           <article><span>Total</span><strong>{runtime.summary.total}</strong></article>
@@ -227,8 +234,27 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         </div>
       </section>
 
+      <section className="section language-section" id="software-languages">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">08 / Polyglot Branch</p>
+            <h2>{dictionary.languagesTitle}</h2>
+          </div>
+          <p>{dictionary.languagesLead}</p>
+        </div>
+        <div className="language-grid">
+          {softwareLanguages.map((language) => (
+            <article className="language-card" data-status={language.status} key={language.id}>
+              <p className="kicker">{language.layer} / {language.status}</p>
+              <h3>{language.name}</h3>
+              <p>{language.role}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section contact-section" id="contact">
-        <p className="eyebrow">07 / Contact</p>
+        <p className="eyebrow">09 / Contact</p>
         <h2>{dictionary.contactTitle}</h2>
         <p>{dictionary.contactLead}</p>
         <div className="contact-layout">

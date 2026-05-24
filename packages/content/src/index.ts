@@ -48,6 +48,24 @@ export type DrawingItem = {
   featured?: boolean;
 };
 
+export type BehanceEmbedItem = {
+  id: string;
+  title: string;
+  url: string;
+  category: string;
+  notes: string;
+  embedCode: string;
+  featured?: boolean;
+};
+
+export type SoftwareLanguageItem = {
+  id: string;
+  name: string;
+  layer: string;
+  role: string;
+  status: "active" | "planned";
+};
+
 export type SeisContent = {
   locales: Locale[];
   site: SiteMeta;
@@ -56,6 +74,8 @@ export type SeisContent = {
   works: WorkItem[];
   caseStudies: CaseStudy[];
   drawings: DrawingItem[];
+  behanceEmbeds: BehanceEmbedItem[];
+  softwareLanguages: SoftwareLanguageItem[];
 };
 
 export const content = rawContent as SeisContent;
@@ -77,3 +97,5 @@ export const services = content.services;
 export const works = content.works;
 export const caseStudies = content.caseStudies;
 export const drawings = content.drawings;
+export const behanceEmbeds = content.behanceEmbeds;
+export const softwareLanguages = content.softwareLanguages;

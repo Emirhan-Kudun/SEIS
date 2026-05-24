@@ -23,6 +23,13 @@ This project treats runtime activation as a status model, not as automatic exter
 - The script reads `codex mcp list`, compares it with the infra-v1 MCP catalog, and writes `packages/runtime/src/mcp-readiness.generated.json`.
 - The script is intentionally read-only. It does not call connector tools, deploy, send messages, move money, mutate remote systems, or write outside the readiness snapshot.
 
+## Deployment Readiness
+
+- Check `/api/deployment-targets` before any publish attempt.
+- `github-origin`, `vercel-preview`, and `custom-server` stay `needs_credentials` until their auth or environment values exist.
+- Server upload commands are documented but not run automatically; they need a concrete target and separate confirmation.
+- The static fallback stays available as a low-dependency rollback path.
+
 ## Guardrails
 
 - Never commit tokens, keys, encrypted credentials, or generated service exports.

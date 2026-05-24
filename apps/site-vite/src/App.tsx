@@ -1,13 +1,23 @@
 import { useMemo, useState } from "react";
 
-import { drawings, getDictionary, locales, services, works, type Locale } from "@seis/content";
-import { getMcpReadinessSnapshot, getRuntimeSnapshot } from "@seis/runtime";
+import {
+  behanceEmbeds,
+  drawings,
+  getDictionary,
+  locales,
+  services,
+  softwareLanguages,
+  works,
+  type Locale
+} from "@seis/content";
+import { getDeploymentTargets, getMcpReadinessSnapshot, getRuntimeSnapshot } from "@seis/runtime";
 
 export function App() {
   const [locale, setLocale] = useState<Locale>("tr");
   const dict = getDictionary(locale);
   const runtime = useMemo(() => getRuntimeSnapshot({}, new Date("2026-05-23T00:00:00.000Z")), []);
   const mcp = useMemo(() => getMcpReadinessSnapshot(new Date("2026-05-23T00:00:00.000Z")), []);
+  const deploymentTargets = useMemo(() => getDeploymentTargets({}, new Date("2026-05-23T00:00:00.000Z")), []);
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 6);
 
   return (
@@ -62,6 +72,17 @@ export function App() {
         ))}
       </section>
 
+      <section className="grid">
+        {behanceEmbeds.slice(0, 3).map((embed) => (
+          <article className="embed-card" key={embed.id}>
+            <small>{embed.category}</small>
+            <h2>{embed.title}</h2>
+            <p>{embed.notes}</p>
+            <pre><code>{embed.embedCode}</code></pre>
+          </article>
+        ))}
+      </section>
+
       <section className="runtime">
         <h2>{dict.runtimeTitle}</h2>
         <p>
@@ -71,6 +92,26 @@ export function App() {
         <p>
           {mcp.summary.total} MCP surfaces / {mcp.summary.skippedWithReason} skipped with reason
         </p>
+      </section>
+
+      <section className="grid">
+        {softwareLanguages.map((language) => (
+          <article key={language.id}>
+            <small>{language.layer} / {language.status}</small>
+            <h2>{language.name}</h2>
+            <p>{language.role}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="runtime">
+        <h2>{dict.deployTitle}</h2>
+        <p>{dict.deployLead}</p>
+        <ul>
+          {deploymentTargets.map((target) => (
+            <li key={target.id}>{target.name}: {target.status}</li>
+          ))}
+        </ul>
       </section>
     </main>
   );

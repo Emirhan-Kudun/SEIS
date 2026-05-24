@@ -38,6 +38,13 @@
       "studioMetricThree": "Secret-free ops",
       "mcpTitle": "MCP readiness matrisi",
       "mcpLead": "Tum connector, plugin ve skill yuzeyleri durum olarak gorunur; yazma ve deploy islemleri hedef/onay olmadan tetiklenmez.",
+      "behanceTitle": "Behance embed kodlari ve dis portfolyo",
+      "behanceLead": "Behance yuzeyi profile, secili islere ve guvenli embed kodlarina ayrilir; gercek proje URL'leri geldikce ayni kayitlar guncellenir.",
+      "behanceOpen": "Behance ac",
+      "languagesTitle": "Cok dilli yazilim katmani",
+      "languagesLead": "Branch; TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell ve API yuzeylerini tek governance altinda tasir.",
+      "deployTitle": "Server ve yayin hazirligi",
+      "deployLead": "Local preview, GitHub, Vercel ve custom server hedefleri credential-aware durumda tutulur; secrets kaynak dosyalara yazilmaz.",
       "contactTitle": "Yeni bir sistemi birlikte netlestirelim",
       "contactLead": "Branding, editorial, UI/UX visual design, 3D ve dijital sistem projeleri icin kisa ama net bir brief yeterli.",
       "briefTitle": "Gelismis brief",
@@ -85,6 +92,13 @@
       "studioMetricThree": "Secret-free ops",
       "mcpTitle": "MCP readiness matrix",
       "mcpLead": "Every connector, plugin and skill surface is visible as status; write and deploy actions never run without a target and explicit approval.",
+      "behanceTitle": "Behance embed codes and external portfolio",
+      "behanceLead": "The Behance layer keeps profile, selected work links and safe embed codes ready; exact project URLs can replace these records later.",
+      "behanceOpen": "Open Behance",
+      "languagesTitle": "Polyglot software layer",
+      "languagesLead": "The branch carries TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell and API surfaces under one governance model.",
+      "deployTitle": "Server and publish readiness",
+      "deployLead": "Local preview, GitHub, Vercel and custom server targets stay credential-aware; secrets are never written into source files.",
       "contactTitle": "Let us clarify the next system",
       "contactLead": "A precise brief is enough for branding, editorial, UI/UX visual design, 3D and digital system work.",
       "briefTitle": "Advanced brief",
@@ -132,6 +146,13 @@
       "studioMetricThree": "Ops sans secrets",
       "mcpTitle": "Matrice readiness MCP",
       "mcpLead": "Chaque connector, plugin et skill apparait comme statut; aucune action d'ecriture ou deploy sans cible ni approbation.",
+      "behanceTitle": "Codes embed Behance et portfolio externe",
+      "behanceLead": "La couche Behance garde le profil, les liens de travaux et les codes embed prets; les URLs finales peuvent remplacer ces entrees.",
+      "behanceOpen": "Ouvrir Behance",
+      "languagesTitle": "Couche logicielle polyglotte",
+      "languagesLead": "La branche porte TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell et APIs sous une meme gouvernance.",
+      "deployTitle": "Readiness serveur et publication",
+      "deployLead": "Local preview, GitHub, Vercel et serveur custom restent credential-aware; aucun secret n'est ecrit dans le code source.",
       "contactTitle": "Clarifions le prochain systeme",
       "contactLead": "Un brief precis suffit pour branding, editorial, UI/UX visual design, 3D et systemes digitaux.",
       "briefTitle": "Brief avance",
@@ -179,6 +200,13 @@
       "studioMetricThree": "Ops senza segreti",
       "mcpTitle": "Matrice readiness MCP",
       "mcpLead": "Ogni connector, plugin e skill appare come stato; nessuna azione write o deploy senza target e approvazione.",
+      "behanceTitle": "Codici embed Behance e portfolio esterno",
+      "behanceLead": "Il layer Behance tiene pronti profilo, link dei lavori e codici embed sicuri; gli URL finali possono sostituire questi record.",
+      "behanceOpen": "Apri Behance",
+      "languagesTitle": "Layer software poliglotta",
+      "languagesLead": "Il branch porta TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell e API sotto una sola governance.",
+      "deployTitle": "Readiness server e pubblicazione",
+      "deployLead": "Local preview, GitHub, Vercel e server custom restano credential-aware; i segreti non entrano nei file sorgente.",
       "contactTitle": "Chiariamo il prossimo sistema",
       "contactLead": "Un brief preciso basta per branding, editorial, UI/UX visual design, 3D e sistemi digitali.",
       "briefTitle": "Brief avanzato",
@@ -226,6 +254,13 @@
       "studioMetricThree": "Secret-free Ops",
       "mcpTitle": "MCP Readiness Matrix",
       "mcpLead": "Jeder Connector, jedes Plugin und jeder Skill erscheint als Status; keine Write- oder Deploy-Aktion ohne Ziel und Zustimmung.",
+      "behanceTitle": "Behance Embed-Codes und externes Portfolio",
+      "behanceLead": "Die Behance Ebene halt Profil, Work-Links und sichere Embed-Codes bereit; finale Projekt-URLs konnen diese Eintrage ersetzen.",
+      "behanceOpen": "Behance offnen",
+      "languagesTitle": "Polyglotte Software-Ebene",
+      "languagesLead": "Der Branch tragt TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, Shell und API-Flachen unter einer Governance.",
+      "deployTitle": "Server- und Publish-Readiness",
+      "deployLead": "Local Preview, GitHub, Vercel und Custom Server bleiben credential-aware; Secrets werden nicht in Source-Dateien geschrieben.",
       "contactTitle": "Klaren wir das nachste System",
       "contactLead": "Ein praziser Brief reicht fur Branding, Editorial, UI/UX Visual Design, 3D und digitale Systeme.",
       "briefTitle": "Erweiterter Brief",
@@ -370,5 +405,114 @@
     { "id": "renk-09", "title": "Renk 09", "src": "/drawings/renk-09.jpg", "tone": "Color structure" },
     { "id": "renk-10", "title": "Renk 10", "src": "/drawings/renk-10.jpg", "tone": "Dense color rhythm" },
     { "id": "renk-11", "title": "Renk 11", "src": "/drawings/renk-11.jpg", "tone": "Color rhythm", "featured": true }
+  ],
+  "behanceEmbeds": [
+    {
+      "id": "behance-profile",
+      "title": "Emirhan Kudun Behance Profile",
+      "url": "https://www.behance.net/emirhankudun",
+      "category": "External portfolio",
+      "notes": "Canonical Behance surface for drawings, brand systems and visual explorations.",
+      "embedCode": "<iframe title=\"Emirhan Kudun Behance Profile\" src=\"https://www.behance.net/emirhankudun\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\" sandbox=\"allow-scripts allow-same-origin allow-popups\"></iframe>",
+      "featured": true
+    },
+    {
+      "id": "behance-selected-works",
+      "title": "Selected Works Embed Slot",
+      "url": "https://www.behance.net/emirhankudun",
+      "category": "Selected works",
+      "notes": "Replace this URL with the final Behance project URL when the exact project page is chosen.",
+      "embedCode": "<iframe title=\"Selected Works on Behance\" src=\"https://www.behance.net/emirhankudun\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\" sandbox=\"allow-scripts allow-same-origin allow-popups\"></iframe>",
+      "featured": true
+    },
+    {
+      "id": "behance-drawing-archive",
+      "title": "Drawing Archive Embed Slot",
+      "url": "https://www.behance.net/emirhankudun",
+      "category": "Drawing archive",
+      "notes": "Designed for a future dedicated Behance drawing project without changing the site architecture.",
+      "embedCode": "<iframe title=\"Drawing Archive on Behance\" src=\"https://www.behance.net/emirhankudun\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\" sandbox=\"allow-scripts allow-same-origin allow-popups\"></iframe>",
+      "featured": true
+    },
+    {
+      "id": "behance-seis-system",
+      "title": "SEIS System Case Embed Slot",
+      "url": "https://www.behance.net/emirhankudun",
+      "category": "SEIS system",
+      "notes": "Reserved for a cinematic case page that can later document the SEIS runtime and design system.",
+      "embedCode": "<iframe title=\"SEIS System on Behance\" src=\"https://www.behance.net/emirhankudun\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\" sandbox=\"allow-scripts allow-same-origin allow-popups\"></iframe>"
+    }
+  ],
+  "softwareLanguages": [
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "layer": "Core app and contracts",
+      "role": "Typed content, runtime registries, API response shapes and form validation boundaries.",
+      "status": "active"
+    },
+    {
+      "id": "tsx-react",
+      "name": "TSX / React",
+      "layer": "Interface system",
+      "role": "Cinematic sections, reusable portfolio surfaces, advanced brief form and page composition.",
+      "status": "active"
+    },
+    {
+      "id": "next-app-router",
+      "name": "Next.js App Router",
+      "layer": "Production web runtime",
+      "role": "Public routes, metadata, server APIs, deployment readiness and runtime observability.",
+      "status": "active"
+    },
+    {
+      "id": "node-runtime",
+      "name": "Node.js",
+      "layer": "Local runtime",
+      "role": "Content checks, runtime checks, local JSONL intake and build orchestration.",
+      "status": "active"
+    },
+    {
+      "id": "webgl-three",
+      "name": "Three.js / WebGL",
+      "layer": "3D motion",
+      "role": "Full-bleed orbital hero, secondary gallery showcase, cinematic depth and reduced-motion fallback.",
+      "status": "active"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "layer": "Visual system",
+      "role": "Editorial rhythm, responsive layout, accessibility states and static fallback styling.",
+      "status": "active"
+    },
+    {
+      "id": "html",
+      "name": "HTML",
+      "layer": "Static fallback",
+      "role": "Low-dependency rollback surface that preserves portfolio, runtime and contact essentials.",
+      "status": "active"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "layer": "Registries",
+      "role": "Portable content, MCP readiness, source archive, deployment and static fallback manifests.",
+      "status": "active"
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "layer": "Operations",
+      "role": "Low-power checks, git preflight, server handoff commands and bounded deployment scripts.",
+      "status": "active"
+    },
+    {
+      "id": "sql-cms-adapters",
+      "name": "SQL / CMS adapters",
+      "layer": "Future persistence",
+      "role": "Prepared path for moving local brief JSONL into database, CMS or email delivery later.",
+      "status": "planned"
+    }
   ]
 }

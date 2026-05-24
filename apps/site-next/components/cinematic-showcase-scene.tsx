@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 const showcaseImages = [
@@ -21,6 +21,7 @@ function disposeMaterial(material: THREE.Material | THREE.Material[]) {
 
 export function CinematicShowcaseScene() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [hasWebGlFallback, setHasWebGlFallback] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,13 +29,34 @@ export function CinematicShowcaseScene() {
     const stableCanvas = canvas as HTMLCanvasElement;
 
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const renderer = new THREE.WebGLRenderer({
+    const contextAttributes = {
       alpha: true,
       antialias: true,
-      canvas: stableCanvas,
       preserveDrawingBuffer: true,
-      powerPreference: "high-performance"
-    });
+      powerPreference: "high-performance" as WebGLPowerPreference
+    };
+    const webGlContext = stableCanvas.getContext("webgl2", contextAttributes)
+      || stableCanvas.getContext("webgl", contextAttributes);
+
+    if (!webGlContext) {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
+
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        canvas: stableCanvas,
+        context: webGlContext as WebGLRenderingContext,
+        preserveDrawingBuffer: true,
+        powerPreference: "high-performance"
+      });
+    } catch {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.2 : 1.55));
 
@@ -187,7 +209,18 @@ export function CinematicShowcaseScene() {
 
   return (
     <div className="showcase-scene" aria-hidden="true">
-      <canvas ref={canvasRef} />
+      {hasWebGlFallback ? (
+        <div className="showcase-fallback-scene">
+          <span className="showcase-fallback-ring" />
+          {showcaseImages.map((src, index) => (
+            <span className="showcase-fallback-panel" style={{ backgroundImage: `url(${src})` }} key={src}>
+              {index + 1}
+            </span>
+          ))}
+        </div>
+      ) : (
+        <canvas ref={canvasRef} />
+      )}
     </div>
   );
 }
