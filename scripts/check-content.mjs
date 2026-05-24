@@ -11,6 +11,11 @@ const requiredDictionaryKeys = [
   "behanceTitle",
   "behanceLead",
   "behanceOpen",
+  "behanceVisualsTitle",
+  "behanceVisualsLead",
+  "qaTitle",
+  "qaLead",
+  "socialTitle",
   "languagesTitle",
   "languagesLead",
   "deployTitle",
@@ -51,6 +56,22 @@ if (!Array.isArray(content.behanceEmbeds) || content.behanceEmbeds.length < 3) {
   errors.push("Expected at least 3 Behance embed records.");
 }
 
+if (!Array.isArray(content.behanceVisuals) || content.behanceVisuals.length < 6) {
+  errors.push("Expected at least 6 Behance visual records.");
+}
+
+for (const visual of content.behanceVisuals || []) {
+  if (!visual.id || !visual.title || !visual.category || !visual.image || !visual.href) {
+    errors.push("Behance visual item is missing required fields.");
+  }
+  if (!visual.href.startsWith("https://www.behance.net/")) {
+    errors.push(`${visual.id}: Behance visual href must stay on behance.net.`);
+  }
+  if (!visual.image.startsWith("https://mir-s3-cdn-cf.behance.net/")) {
+    errors.push(`${visual.id}: Behance visual image must use the Behance CDN.`);
+  }
+}
+
 for (const embed of content.behanceEmbeds || []) {
   if (!embed.id || !embed.title || !embed.url || !embed.category || !embed.embedCode) {
     errors.push("Behance embed is missing required fields.");
@@ -61,6 +82,14 @@ for (const embed of content.behanceEmbeds || []) {
   if (!embed.embedCode.includes("<iframe") || !embed.embedCode.includes("sandbox=")) {
     errors.push(`${embed.id}: embedCode must include a sandboxed iframe.`);
   }
+}
+
+if (!Array.isArray(content.socialLinks) || content.socialLinks.length < 4) {
+  errors.push("Expected at least 4 social links.");
+}
+
+if (!Array.isArray(content.contactQa) || content.contactQa.length < 4) {
+  errors.push("Expected at least 4 contact Q&A records.");
 }
 
 if (!Array.isArray(content.softwareLanguages) || content.softwareLanguages.length < 8) {
@@ -92,4 +121,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceEmbeds.length} Behance embeds, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);
+console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceVisuals.length} Behance visuals, ${content.behanceEmbeds.length} Behance embeds, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);

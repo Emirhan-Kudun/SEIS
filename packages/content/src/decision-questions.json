@@ -58,7 +58,7 @@
       "Full-stack tarafi tasarimin yaninda ne kadar gorunur olsun?",
       "Yazilim yetenekleri acik teknoloji listesiyle mi gosterilsin?",
       "UI/UX, branding, editorial, 3D, AI sistemleri ayri hizmetler mi olsun?",
-      "Case study'lerde surec detayli mi, kisa premium ozet mi?",
+      "Proje anlatimlarinda surec detayli mi, kisa premium ozet mi?",
       "Projelerde fiyat/calisma modeli gorunsun mu?",
       "CV/deneyim bolumu eklensin mi?"
     ]
@@ -71,7 +71,7 @@
       "Cizimler ayri sanat galerisi mi, portfolyonun parcasi mi?",
       "Her is icin problem/surec/sonuc formati ister misin?",
       "Is kartlari daha gorsel mi, daha metin odakli mi?",
-      "Proje detay sayfalari uzun case study mi, kisa sinematik sayfa mi?",
+      "Proje detay sayfalari uzun anlatim mi, kisa sinematik galeri mi?",
       "Selected Works sayisi az ve seckin mi, cok ve kapsamli mi?",
       "Henuz tamamlanmamis isleri concept / exploration olarak gostermek ister misin?",
       "Kod projeleri ve tasarim projeleri ayrilmali mi?",
@@ -100,7 +100,7 @@
     "title": "Sayfa Yapisi",
     "questions": [
       "Ana sayfa tek uzun sinematik deneyim mi olsun?",
-      "Ayri sayfalar korunmali mi: /portfolio, /drawings, /case-studies, /runtime, /ops, /contact?",
+      "Ayri sayfalar korunmali mi: /portfolio, /drawings, /runtime, /ops, /contact?",
       "Navbar sabit mi, scroll ile gizlenen sinematik bir nav mi?",
       "Dil secici ustte gorunur mu, menu icinde mi?",
       "Contact sayfasi basit email-first mi, gelismis brief formu mu?",

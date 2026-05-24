@@ -48,7 +48,8 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
         <Link href="/" className="brand">Emirhan Kudun</Link>
         <div className="nav-links">
           <Link href="/portfolio">Portfolio</Link>
-          <Link href="/case-studies">Case studies</Link>
+          <Link href="/#behance">Behance</Link>
+          <Link href="/drawings">Drawings</Link>
           <Link href="/contact">Contact</Link>
         </div>
       </nav>
@@ -68,7 +69,7 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
             <h2>Execution Logic</h2>
             <p>
               This detail route turns a selected work card into a shareable project surface with metadata,
-              canonical URL and enough structure for a deeper visual case page later.
+              canonical URL and enough structure for a deeper visual gallery page later.
             </p>
           </section>
         </div>

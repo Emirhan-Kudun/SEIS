@@ -1,13 +1,19 @@
 {
-  "locales": ["tr", "en", "fr", "it", "de"],
+  "locales": [
+    "tr",
+    "en",
+    "fr",
+    "it",
+    "de"
+  ],
   "site": {
     "domain": "https://emirhankudun.com",
     "author": "Emirhan Kudun",
     "email": "emirhan@kudun.com",
     "city": "Istanbul",
     "country": "TR",
-    "title": "Emirhan Kudun - SEIS Cinematic Portfolio",
-    "description": "Cinematic Behance-forward portfolio for premium visual systems, UI/UX, branding, drawings, 3D motion and calm digital publishing."
+    "title": "Emirhan Kudun - UI-UX Digital Lab Portfolio",
+    "description": "Cinematic Behance and drawing-forward portfolio for premium UI/UX, branding, 3D motion and calm digital publishing."
   },
   "dictionary": {
     "tr": {
@@ -15,7 +21,6 @@
       "navPortfolio": "Portfolyo",
       "navBehance": "Behance",
       "navDrawings": "Cizimler",
-      "navCases": "Case study",
       "navDesign": "Tasarim sistemi",
       "navContact": "Iletisim",
       "heroEyebrow": "Creative Technologist / Premium Designer / SEIS Founder",
@@ -28,7 +33,6 @@
       "servicesTitle": "Hizmetler net, sistem derin",
       "worksTitle": "Secili isler ve sistemler",
       "drawingsTitle": "Tam cizim arsivi",
-      "casesTitle": "Case study sistemi",
       "runtimeTitle": "Behance galeri katmani",
       "studioTitle": "3D galeri, cizimler ve Behance akisi ayni sinematik sahnede",
       "studioLead": "Secili cizimler, Behance vitrin kodlari ve proje kartlari WebGL sahnesinde daha guclu, daha hareketli ve premium bir galeri dili kurar.",
@@ -61,14 +65,18 @@
       "briefAccepted": "Brief kaydi alindi.",
       "briefError": "Brief kaydedilemedi. Email fallback aktif.",
       "opsTitle": "Behance Portfolio Console",
-      "opsLead": "Behance, cizimler ve secili isler public vitrinde sade sekilde raporlanir."
+      "opsLead": "Behance, cizimler ve secili isler public vitrinde sade sekilde raporlanir.",
+      "behanceVisualsTitle": "Behance gorselleri ve cizim vitrini",
+      "behanceVisualsLead": "Behance profilindeki gorsel isler ve mevcut cizimler ana sayfa ile portfolyo icinde birlikte gorunur.",
+      "qaTitle": "Q&A ve hizli netlestirme",
+      "qaLead": "Baslamadan once en sik sorulan noktalar: kapsam, teslim, Behance, cizim arsivi ve 3D performans.",
+      "socialTitle": "Sosyal baglantilar"
     },
     "en": {
       "navHome": "Home",
       "navPortfolio": "Portfolio",
       "navBehance": "Behance",
       "navDrawings": "Drawings",
-      "navCases": "Case studies",
       "navDesign": "Design system",
       "navContact": "Contact",
       "heroEyebrow": "Creative Technologist / Premium Designer / SEIS Founder",
@@ -81,7 +89,6 @@
       "servicesTitle": "Clear services, deep systems",
       "worksTitle": "Selected work and systems",
       "drawingsTitle": "Complete drawing archive",
-      "casesTitle": "Case study system",
       "runtimeTitle": "Behance gallery layer",
       "studioTitle": "3D gallery, drawings and Behance flow in one cinematic scene",
       "studioLead": "Selected drawings, Behance embed slots and project cards form a stronger, more animated premium WebGL gallery language.",
@@ -114,14 +121,18 @@
       "briefAccepted": "Brief captured.",
       "briefError": "Brief could not be saved. Email fallback remains available.",
       "opsTitle": "Behance Portfolio Console",
-      "opsLead": "Behance, drawings and selected work are reported through a clean public showcase."
+      "opsLead": "Behance, drawings and selected work are reported through a clean public showcase.",
+      "behanceVisualsTitle": "Behance visuals and drawing showcase",
+      "behanceVisualsLead": "Visual works from the Behance profile and the drawing archive are visible together on the homepage and portfolio page.",
+      "qaTitle": "Q&A and quick clarification",
+      "qaLead": "The common starting points: scope, delivery, Behance, drawing archive and 3D performance.",
+      "socialTitle": "Social links"
     },
     "fr": {
       "navHome": "Accueil",
       "navPortfolio": "Portfolio",
       "navBehance": "Behance",
       "navDrawings": "Dessins",
-      "navCases": "Etudes",
       "navDesign": "Design system",
       "navContact": "Contact",
       "heroEyebrow": "Creative Technologist / Designer Premium / Fondateur SEIS",
@@ -134,7 +145,6 @@
       "servicesTitle": "Services clairs, systemes profonds",
       "worksTitle": "Travaux et systemes selectionnes",
       "drawingsTitle": "Archive complete de dessins",
-      "casesTitle": "Systeme de cas",
       "runtimeTitle": "Couche galerie Behance",
       "studioTitle": "Galerie 3D, dessins et flux Behance dans une scene cinematographique",
       "studioLead": "Les dessins, slots Behance et cartes projet forment un langage WebGL premium plus fort et plus anime.",
@@ -167,14 +177,18 @@
       "briefAccepted": "Brief enregistre.",
       "briefError": "Brief non enregistre. Le fallback email reste actif.",
       "opsTitle": "Console Portfolio Behance",
-      "opsLead": "Behance, dessins et travaux selectionnes restent visibles dans une vitrine claire."
+      "opsLead": "Behance, dessins et travaux selectionnes restent visibles dans une vitrine claire.",
+      "behanceVisualsTitle": "Visuels Behance et vitrine de dessins",
+      "behanceVisualsLead": "Les travaux Behance et les dessins existants apparaissent ensemble sur la page daccueil et le portfolio.",
+      "qaTitle": "Q&A et clarification rapide",
+      "qaLead": "Les points de depart: portee, livraison, Behance, archive de dessins et performance 3D.",
+      "socialTitle": "Liens sociaux"
     },
     "it": {
       "navHome": "Home",
       "navPortfolio": "Portfolio",
       "navBehance": "Behance",
       "navDrawings": "Disegni",
-      "navCases": "Case study",
       "navDesign": "Design system",
       "navContact": "Contatto",
       "heroEyebrow": "Creative Technologist / Designer Premium / Founder SEIS",
@@ -187,7 +201,6 @@
       "servicesTitle": "Servizi chiari, sistemi profondi",
       "worksTitle": "Lavori e sistemi selezionati",
       "drawingsTitle": "Archivio disegni completo",
-      "casesTitle": "Sistema case study",
       "runtimeTitle": "Layer galleria Behance",
       "studioTitle": "Galleria 3D, disegni e flusso Behance in una scena cinematografica",
       "studioLead": "Disegni selezionati, slot Behance e card progetto creano un linguaggio WebGL premium piu forte e piu animato.",
@@ -220,14 +233,18 @@
       "briefAccepted": "Brief registrato.",
       "briefError": "Brief non salvato. Il fallback email resta attivo.",
       "opsTitle": "Console Portfolio Behance",
-      "opsLead": "Behance, disegni e lavori selezionati restano visibili in una vetrina chiara."
+      "opsLead": "Behance, disegni e lavori selezionati restano visibili in una vetrina chiara.",
+      "behanceVisualsTitle": "Visual Behance e vetrina disegni",
+      "behanceVisualsLead": "I lavori visuali Behance e larchivio disegni sono visibili insieme in homepage e portfolio.",
+      "qaTitle": "Q&A e chiarimento rapido",
+      "qaLead": "I punti iniziali: scope, consegna, Behance, archivio disegni e performance 3D.",
+      "socialTitle": "Link social"
     },
     "de": {
       "navHome": "Start",
       "navPortfolio": "Portfolio",
       "navBehance": "Behance",
       "navDrawings": "Zeichnungen",
-      "navCases": "Case Studies",
       "navDesign": "Design System",
       "navContact": "Kontakt",
       "heroEyebrow": "Creative Technologist / Premium Designer / SEIS Founder",
@@ -240,7 +257,6 @@
       "servicesTitle": "Klare Services, tiefe Systeme",
       "worksTitle": "Ausgewahlte Arbeiten und Systeme",
       "drawingsTitle": "Vollstandiges Zeichenarchiv",
-      "casesTitle": "Case Study System",
       "runtimeTitle": "Behance Galerie-Ebene",
       "studioTitle": "3D Galerie, Zeichnungen und Behance Flow in einer filmischen Szene",
       "studioLead": "Ausgewahlte Zeichnungen, Behance Slots und Projektkarten bilden eine starkere, bewegtere Premium WebGL Galerie.",
@@ -273,7 +289,12 @@
       "briefAccepted": "Brief wurde erfasst.",
       "briefError": "Brief konnte nicht gespeichert werden. Email-Fallback bleibt aktiv.",
       "opsTitle": "Behance Portfolio Console",
-      "opsLead": "Behance, Zeichnungen und ausgewahlte Arbeiten bleiben in einer klaren Vitrine sichtbar."
+      "opsLead": "Behance, Zeichnungen und ausgewahlte Arbeiten bleiben in einer klaren Vitrine sichtbar.",
+      "behanceVisualsTitle": "Behance Visuals und Zeichnungs-Vitrine",
+      "behanceVisualsLead": "Behance Arbeiten und das Zeichenarchiv erscheinen gemeinsam auf Startseite und Portfolio.",
+      "qaTitle": "Q&A und schnelle Klarung",
+      "qaLead": "Die wichtigsten Startpunkte: Umfang, Lieferung, Behance, Zeichenarchiv und 3D Performance.",
+      "socialTitle": "Social Links"
     }
   },
   "services": [
@@ -316,7 +337,7 @@
       "tag": "Behance Bridge",
       "title": "Behance Portfolio Bridge",
       "summary": "A public-facing bridge for Behance profile, selected works and embed-ready portfolio slots.",
-      "impact": "Keeps external portfolio links, drawing projects and future Behance case pages coherent inside the site."
+      "impact": "Keeps external portfolio links, drawing projects and future Behance project pages coherent inside the site."
     },
     {
       "id": "cinematic-drawing-gallery",
@@ -347,59 +368,134 @@
       "impact": "Helps users find critical actions without overstimulation."
     }
   ],
-  "caseStudies": [
-    {
-      "slug": "portfolio-behance-unification",
-      "year": "2026",
-      "role": "Design systems, frontend architecture, portfolio publishing",
-      "title": "Unifying portfolio storytelling with Behance and drawing presence",
-      "challenge": "The source archives contained strong design material, multilingual copy and drawing assets, but also duplicate builds and generated noise.",
-      "process": ["Select canonical content", "Separate visitor experience from internal operations", "Prioritize Behance and drawing surfaces", "Keep static fallback for rollback"],
-      "solution": "A workspace with shared content, a Next.js production site, Vite preview, static fallback and Behance-ready portfolio records.",
-      "outcome": "The site can communicate design quality with a stronger public gallery while preserving maintainable publishing paths."
-    },
-    {
-      "slug": "calm-interface-governance",
-      "year": "2026",
-      "role": "UX direction, accessibility, content modeling",
-      "title": "Designing a calm interface for dense creative material",
-      "challenge": "Portfolio archives, drawings and external profile links can become visually noisy and cognitively expensive.",
-      "process": ["Group material by category", "Prioritize public-facing proof", "Use restrained cards and direct labels", "Respect reduced motion"],
-      "solution": "A calm gallery architecture that summarizes Behance, drawings and service paths without dashboard overload.",
-      "outcome": "Visitors can understand the creative range quickly, then move into a brief or external portfolio with less friction."
-    },
-    {
-      "slug": "cinematic-3d-performance",
-      "year": "2026",
-      "role": "3D art direction, motion governance, frontend performance",
-      "title": "Making 3D motion feel cinematic without exhausting the interface",
-      "challenge": "The site needed stronger 3D and motion, but the SEIS philosophy requires calm pacing, accessibility and thermal restraint.",
-      "process": ["Cap pixel ratio", "Pause offscreen canvases", "Use reduced-motion branches", "Keep geometry procedural and lightweight"],
-      "solution": "A two-scene Three.js system: a full-bleed cinematic hero and a smaller gallery showcase for drawings, works and Behance signals.",
-      "outcome": "The experience feels more premium and memorable while staying testable on desktop and mobile."
-    }
-  ],
   "drawings": [
-    { "id": "karakalem-01", "title": "Karakalem 01", "src": "/drawings/karakalem-01.jpg", "tone": "Graphite opening study", "featured": true },
-    { "id": "karakalem-02", "title": "Karakalem 02", "src": "/drawings/karakalem-02.jpg", "tone": "Graphite study", "featured": true },
-    { "id": "karakalem-03", "title": "Karakalem 03", "src": "/drawings/karakalem-03.jpg", "tone": "Line and shadow", "featured": true },
-    { "id": "karakalem-04", "title": "Karakalem 04", "src": "/drawings/karakalem-04.jpg", "tone": "Quiet study" },
-    { "id": "karakalem-05", "title": "Karakalem 05", "src": "/drawings/karakalem-05.jpg", "tone": "Soft graphite structure" },
-    { "id": "karakalem-06", "title": "Karakalem 06", "src": "/drawings/karakalem-06.jpg", "tone": "Light and contour" },
-    { "id": "karakalem-07", "title": "Karakalem 07", "src": "/drawings/karakalem-07.jpg", "tone": "Focused line study" },
-    { "id": "karakalem-08", "title": "Karakalem 08", "src": "/drawings/karakalem-08.jpg", "tone": "Shadow rhythm" },
-    { "id": "karakalem-09", "title": "Karakalem 09", "src": "/drawings/karakalem-09.jpg", "tone": "Final graphite note" },
-    { "id": "renk-01", "title": "Renk 01", "src": "/drawings/renk-01.jpg", "tone": "Selected color work", "featured": true },
-    { "id": "renk-02", "title": "Renk 02", "src": "/drawings/renk-02.jpg", "tone": "Warm color field" },
-    { "id": "renk-03", "title": "Renk 03", "src": "/drawings/renk-03.jpg", "tone": "Chromatic gesture" },
-    { "id": "renk-04", "title": "Renk 04", "src": "/drawings/renk-04.jpg", "tone": "Warm composition", "featured": true },
-    { "id": "renk-05", "title": "Renk 05", "src": "/drawings/renk-05.jpg", "tone": "Chromatic balance", "featured": true },
-    { "id": "renk-06", "title": "Renk 06", "src": "/drawings/renk-06.jpg", "tone": "Visual texture" },
-    { "id": "renk-07", "title": "Renk 07", "src": "/drawings/renk-07.jpg", "tone": "Layered color study" },
-    { "id": "renk-08", "title": "Renk 08", "src": "/drawings/renk-08.jpg", "tone": "Quiet chroma" },
-    { "id": "renk-09", "title": "Renk 09", "src": "/drawings/renk-09.jpg", "tone": "Color structure" },
-    { "id": "renk-10", "title": "Renk 10", "src": "/drawings/renk-10.jpg", "tone": "Dense color rhythm" },
-    { "id": "renk-11", "title": "Renk 11", "src": "/drawings/renk-11.jpg", "tone": "Color rhythm", "featured": true }
+    {
+      "id": "karakalem-01",
+      "title": "Karakalem 01",
+      "src": "/drawings/karakalem-01.jpg",
+      "tone": "Graphite opening study",
+      "featured": true
+    },
+    {
+      "id": "karakalem-02",
+      "title": "Karakalem 02",
+      "src": "/drawings/karakalem-02.jpg",
+      "tone": "Graphite study",
+      "featured": true
+    },
+    {
+      "id": "karakalem-03",
+      "title": "Karakalem 03",
+      "src": "/drawings/karakalem-03.jpg",
+      "tone": "Line and shadow",
+      "featured": true
+    },
+    {
+      "id": "karakalem-04",
+      "title": "Karakalem 04",
+      "src": "/drawings/karakalem-04.jpg",
+      "tone": "Quiet study"
+    },
+    {
+      "id": "karakalem-05",
+      "title": "Karakalem 05",
+      "src": "/drawings/karakalem-05.jpg",
+      "tone": "Soft graphite structure"
+    },
+    {
+      "id": "karakalem-06",
+      "title": "Karakalem 06",
+      "src": "/drawings/karakalem-06.jpg",
+      "tone": "Light and contour"
+    },
+    {
+      "id": "karakalem-07",
+      "title": "Karakalem 07",
+      "src": "/drawings/karakalem-07.jpg",
+      "tone": "Focused line study"
+    },
+    {
+      "id": "karakalem-08",
+      "title": "Karakalem 08",
+      "src": "/drawings/karakalem-08.jpg",
+      "tone": "Shadow rhythm"
+    },
+    {
+      "id": "karakalem-09",
+      "title": "Karakalem 09",
+      "src": "/drawings/karakalem-09.jpg",
+      "tone": "Final graphite note"
+    },
+    {
+      "id": "renk-01",
+      "title": "Renk 01",
+      "src": "/drawings/renk-01.jpg",
+      "tone": "Selected color work",
+      "featured": true
+    },
+    {
+      "id": "renk-02",
+      "title": "Renk 02",
+      "src": "/drawings/renk-02.jpg",
+      "tone": "Warm color field"
+    },
+    {
+      "id": "renk-03",
+      "title": "Renk 03",
+      "src": "/drawings/renk-03.jpg",
+      "tone": "Chromatic gesture"
+    },
+    {
+      "id": "renk-04",
+      "title": "Renk 04",
+      "src": "/drawings/renk-04.jpg",
+      "tone": "Warm composition",
+      "featured": true
+    },
+    {
+      "id": "renk-05",
+      "title": "Renk 05",
+      "src": "/drawings/renk-05.jpg",
+      "tone": "Chromatic balance",
+      "featured": true
+    },
+    {
+      "id": "renk-06",
+      "title": "Renk 06",
+      "src": "/drawings/renk-06.jpg",
+      "tone": "Visual texture"
+    },
+    {
+      "id": "renk-07",
+      "title": "Renk 07",
+      "src": "/drawings/renk-07.jpg",
+      "tone": "Layered color study"
+    },
+    {
+      "id": "renk-08",
+      "title": "Renk 08",
+      "src": "/drawings/renk-08.jpg",
+      "tone": "Quiet chroma"
+    },
+    {
+      "id": "renk-09",
+      "title": "Renk 09",
+      "src": "/drawings/renk-09.jpg",
+      "tone": "Color structure"
+    },
+    {
+      "id": "renk-10",
+      "title": "Renk 10",
+      "src": "/drawings/renk-10.jpg",
+      "tone": "Dense color rhythm"
+    },
+    {
+      "id": "renk-11",
+      "title": "Renk 11",
+      "src": "/drawings/renk-11.jpg",
+      "tone": "Color rhythm",
+      "featured": true
+    }
   ],
   "behanceEmbeds": [
     {
@@ -434,7 +530,7 @@
       "title": "SEIS Visual System Embed Slot",
       "url": "https://www.behance.net/emirhankudun",
       "category": "SEIS system",
-      "notes": "Reserved for a cinematic case page that can later document the SEIS visual identity and design system.",
+      "notes": "Reserved for a cinematic gallery page that can later document the SEIS visual identity and design system.",
       "embedCode": "<iframe title=\"SEIS System on Behance\" src=\"https://www.behance.net/emirhankudun\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\" sandbox=\"allow-scripts allow-same-origin allow-popups\"></iframe>"
     }
   ],
@@ -508,6 +604,158 @@
       "layer": "Future persistence",
       "role": "Prepared path for moving local brief JSONL into database, CMS or email delivery later.",
       "status": "planned"
+    }
+  ],
+  "behanceVisuals": [
+    {
+      "id": "social-media-post",
+      "title": "Social Media post",
+      "category": "Social visual design",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg",
+      "href": "https://www.behance.net/gallery/245560201/Social-Media-post",
+      "notes": "Current Behance project thumbnail selected for the main cinematic portfolio surface.",
+      "featured": true
+    },
+    {
+      "id": "global-warming-poster",
+      "title": "Global Warming Poster",
+      "category": "Poster design",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg",
+      "href": "https://www.behance.net/gallery/205108621/Global-Warming-Poster",
+      "notes": "Poster work from the public Behance profile, used as a strong editorial visual signal.",
+      "featured": true
+    },
+    {
+      "id": "italy-gift-cup",
+      "title": "Italy Gift Coffee Cup Set",
+      "category": "Product mockup",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/7e2c7e205105339.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg",
+      "href": "https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set",
+      "notes": "Product and packaging visual from Behance.",
+      "featured": true
+    },
+    {
+      "id": "turkish-mythology-posters",
+      "title": "Turkish mythology theater posters",
+      "category": "Illustration poster",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/91d11d182702163.Y3JvcCwyNDAwLDE4NzcsMCw3MTI.jpg",
+      "href": "https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters",
+      "notes": "Illustrative poster work from the profile archive.",
+      "featured": true
+    },
+    {
+      "id": "agustos-outdoor-poster",
+      "title": "30 Agustos Outdoor Poster",
+      "category": "Outdoor poster",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/99bc2a181320969.Y3JvcCwxMTkxLDkzMSwxMDMsMA.jpg",
+      "href": "https://www.behance.net/gallery/181320969/30-Agustos-Beldeport-Outdoor-Poster",
+      "notes": "Outdoor campaign thumbnail for the portfolio grid.",
+      "featured": true
+    },
+    {
+      "id": "social-responsibility-project",
+      "title": "Social Responsibility Project",
+      "category": "Sustainability visual",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/4ea235178412361.Y3JvcCwxOTk5LDE1NjQsMCwyMTc.jpg",
+      "href": "https://www.behance.net/gallery/178412361/Social-Responsibility-Project",
+      "notes": "Social responsibility and environment visual from Behance.",
+      "featured": true
+    },
+    {
+      "id": "victory-day-banner",
+      "title": "Beldeport 30 Agustos Banner",
+      "category": "Banner design",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/7977da178216053.64e992f26b54e.jpg",
+      "href": "https://www.behance.net/gallery/178216053/Beldeport-30-Agustos-Victory-Day-Banner",
+      "notes": "Victory Day banner design from the Behance profile."
+    },
+    {
+      "id": "wonder-woman-book-cover",
+      "title": "Wonder Woman Book Cover 2",
+      "category": "Book cover",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/77db5a178126385.Y3JvcCwyNTU2LDIwMDAsMjIxLDA.jpg",
+      "href": "https://www.behance.net/gallery/178126385/Wonder-Woman-Book-Cover-2",
+      "notes": "Book cover visual for the editorial layer."
+    },
+    {
+      "id": "foreign-education-outdoor",
+      "title": "Foreign Education Outdoor Poster",
+      "category": "Outdoor poster",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/72e55d178124789.Y3JvcCw0NDE4LDM0NTYsMzgyLDA.jpg",
+      "href": "https://www.behance.net/gallery/178124789/Foreign-Education-Outdoor-Poster",
+      "notes": "Outdoor education poster from Behance."
+    },
+    {
+      "id": "poligon-illustration",
+      "title": "Poligon Illustration",
+      "category": "Illustration",
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/404/d0cdf6177929021.Y3JvcCwyNDgwLDE5MzksMCw3ODU.jpg",
+      "href": "https://www.behance.net/gallery/177929021/Poligon-Illustration",
+      "notes": "Illustration project thumbnail from the Behance profile."
+    }
+  ],
+  "socialLinks": [
+    {
+      "id": "behance",
+      "label": "Behance",
+      "href": "https://www.behance.net/emirhankudun",
+      "mark": "Be"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "href": "https://www.youtube.com/channel/UCfrSLi2oSqyITgNxxZbcC4Q",
+      "mark": "YT"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/emirhankudun/",
+      "mark": "IG"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/emirhan-kudun/",
+      "mark": "in"
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "href": "mailto:emirhan@kudun.com",
+      "mark": "@"
+    }
+  ],
+  "contactQa": [
+    {
+      "id": "project-start",
+      "question": "Projeye baslamak icin ne lazim?",
+      "answer": "Kisa hedef, marka/urun baglami, varsa Behance ya da referans linkleri, zaman araligi ve beklenen teslim formatlari yeterli."
+    },
+    {
+      "id": "deliverables",
+      "question": "Teslimatlar nasil olur?",
+      "answer": "UI/UX ekranlari, marka gorselleri, poster/editorial tasarim, 3D web sahnesi, statik yayina hazir dosyalar veya frontend uygulama olarak planlanabilir."
+    },
+    {
+      "id": "behance-drawings",
+      "question": "Behance ve cizimler birlikte kullanilir mi?",
+      "answer": "Evet. Behance gorselleri is kaniti, cizimler ise sanatsal arka plan olarak ayni portfolyo hikayesinin icinde birlikte gorunur."
+    },
+    {
+      "id": "timeline",
+      "question": "Zaman planini nasil netlestiriyoruz?",
+      "answer": "Brief formundaki oncelik, kapsam ve zaman bilgisine gore once hizli bir kapsam cevabi, sonra parcalanmis teslim plani cikarilir."
+    },
+    {
+      "id": "cinematic-3d",
+      "question": "3D animasyon siteyi agirlastirir mi?",
+      "answer": "Sahne premium ve hareketli tutulur; ama DPR siniri, reduced-motion destegi ve fallback yuzeyleriyle performans korunur."
+    },
+    {
+      "id": "communication",
+      "question": "Iletisim nereden ilerler?",
+      "answer": "En temiz yol email ve brief formu. Sosyal linkler kesif icin durur; proje netlestirme email uzerinden tutulur."
     }
   ]
 }

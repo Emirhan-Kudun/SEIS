@@ -1,12 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { caseStudies, siteMeta, works } from "@seis/content";
+import { siteMeta, works } from "@seis/content";
 
 const staticRoutes = [
   "",
   "/portfolio",
   "/drawings",
-  "/case-studies",
   "/contact"
 ];
 
@@ -15,8 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteMeta.domain.replace(/\/$/, "");
   const routes = [
     ...staticRoutes,
-    ...works.map((work) => `/portfolio/${work.id}`),
-    ...caseStudies.map((study) => `/case-studies/${study.slug}`)
+    ...works.map((work) => `/portfolio/${work.id}`)
   ];
 
   return routes.map((route) => ({

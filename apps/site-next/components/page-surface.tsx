@@ -2,27 +2,26 @@ import Link from "next/link";
 
 import {
   behanceEmbeds,
-  caseStudies,
+  behanceVisuals,
   drawings,
   getDictionary,
   services,
-  siteMeta,
   works
 } from "@seis/content";
 
 import { BehanceEmbedPanel } from "./behance-embed-panel";
+import { BehanceVisualGrid } from "./behance-visual-grid";
 import { BriefIntakeForm } from "./brief-intake-form";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
-import { DecisionQuestionsPanel } from "./decision-questions-panel";
+import { ContactHub } from "./contact-hub";
 
-type PageMode = "portfolio" | "drawings" | "cases" | "contact";
+type PageMode = "portfolio" | "drawings" | "contact";
 
 const navItems = [
   ["/", "Home"],
   ["/portfolio", "Portfolio"],
   ["/#behance", "Behance"],
   ["/drawings", "Drawings"],
-  ["/case-studies", "Case studies"],
   ["/contact", "Contact"]
 ] as const;
 
@@ -60,6 +59,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               ))}
             </div>
           </div>
+          <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <div className="featured-strip" aria-label="Portfolio drawing selection">
             {featuredDrawings.map((drawing) => (
@@ -101,42 +101,14 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         </section>
       )}
 
-      {mode === "cases" && (
-        <section className="section page-hero">
-          <p className="eyebrow">{dict.casesTitle}</p>
-          <h1>Case studies that explain visual decisions, gallery structure and client-facing outcomes.</h1>
-          <div className="stack">
-            {caseStudies.map((study) => (
-              <article className="case-card" key={study.slug}>
-                <p className="kicker">{study.year} / {study.role}</p>
-                <h2>{study.title}</h2>
-                <p>{study.challenge}</p>
-                <ol>
-                  {study.process.map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ol>
-                <p><strong>Solution:</strong> {study.solution}</p>
-                <p><strong>Outcome:</strong> {study.outcome}</p>
-                <Link className="text-link" href={`/case-studies/${study.slug}`}>Open case detail</Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-
       {mode === "contact" && (
         <section className="section page-hero contact-page">
           <p className="eyebrow">{dict.contactTitle}</p>
           <h1>{dict.contactLead}</h1>
           <div className="contact-layout">
-            <div className="contact-direct">
-              <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
-              <p>{dict.briefReady}</p>
-            </div>
+            <ContactHub dictionary={dict} />
             <BriefIntakeForm dictionary={dict} services={services} />
           </div>
-          <DecisionQuestionsPanel />
         </section>
       )}
     </main>

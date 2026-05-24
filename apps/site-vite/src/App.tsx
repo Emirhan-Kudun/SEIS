@@ -2,10 +2,14 @@ import { useState } from "react";
 
 import {
   behanceEmbeds,
+  behanceVisuals,
+  contactQa,
   drawings,
   getDictionary,
   locales,
   services,
+  siteMeta,
+  socialLinks,
   works,
   type Locale
 } from "@seis/content";
@@ -67,6 +71,25 @@ export function App() {
         ))}
       </section>
 
+      <section className="visuals">
+        <div>
+          <small>Behance / Visuals</small>
+          <h2>{dict.behanceVisualsTitle}</h2>
+          <p>{dict.behanceVisualsLead}</p>
+        </div>
+        <div className="visual-grid">
+          {behanceVisuals.map((item) => (
+            <a className="visual-card" href={item.href} target="_blank" rel="noreferrer" key={item.id}>
+              <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" />
+              <span>
+                <small>{item.category}</small>
+                <strong>{item.title}</strong>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section className="grid">
         {behanceEmbeds.slice(0, 3).map((embed) => (
           <article className="embed-card" key={embed.id}>
@@ -76,6 +99,31 @@ export function App() {
             <pre><code>{embed.embedCode}</code></pre>
           </article>
         ))}
+      </section>
+
+      <section className="contact-preview">
+        <div>
+          <small>Q&A / Contact</small>
+          <h2>{dict.qaTitle}</h2>
+          <p>{dict.qaLead}</p>
+          <a className="mail-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+          <div className="social-links">
+            {socialLinks.map((link) => (
+              <a href={link.href} target={link.href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer" key={link.id}>
+                <span>{link.mark}</span>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="qa-grid">
+          {contactQa.map((item) => (
+            <article key={item.id}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );

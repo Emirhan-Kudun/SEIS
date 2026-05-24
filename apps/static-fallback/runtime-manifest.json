@@ -2,7 +2,7 @@
   "name": "SEIS Static Fallback Portfolio Manifest",
   "purpose": "Documents the low-dependency fallback surface for Behance, drawings and portfolio publishing.",
   "safeStatuses": ["active", "configured", "needs_credentials", "unavailable", "skipped_with_reason"],
-  "publicRoutes": ["/", "/portfolio", "/drawings", "/case-studies", "/contact"],
+  "publicRoutes": ["/", "/portfolio", "/drawings", "/contact"],
   "apiRoutes": ["/api/health", "/api/behance", "/api/decision-questions", "/api/contact", "/api/briefs"],
   "externalEmbeds": ["https://www.behance.net/emirhankudun"],
   "deploymentTargets": ["local-production-preview", "github-origin", "vercel-preview", "custom-server", "static-fallback-archive"],

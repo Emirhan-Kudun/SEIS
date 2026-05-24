@@ -346,6 +346,7 @@ img { max-width: 100%; display: block; }
 .editorial-section .drawing-card,
 .editorial-section .featured-drawing,
 .editorial-section .portfolio-behance-callout,
+.editorial-section .behance-visual-card,
 .editorial-section .portfolio-drawing-card {
   background: rgba(255, 255, 255, 0.45);
   border-color: var(--line-dark);
@@ -356,6 +357,7 @@ img { max-width: 100%; display: block; }
 .editorial-section .drawing-card span,
 .editorial-section .featured-drawing figcaption,
 .editorial-section .portfolio-behance-callout p,
+.editorial-section .behance-visual-card small,
 .editorial-section .portfolio-drawing-card figcaption {
   color: var(--muted-dark);
 }
@@ -376,7 +378,6 @@ img { max-width: 100%; display: block; }
 }
 .card-grid.compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .work-card,
-.case-card,
 .runtime-card,
 .metrics article {
   border: 1px solid var(--line);
@@ -386,8 +387,6 @@ img { max-width: 100%; display: block; }
 }
 .work-card h2,
 .work-card h3,
-.case-card h2,
-.case-card h3,
 .runtime-card h2,
 .runtime-card h3 {
   font-family: var(--font-display), serif;
@@ -396,7 +395,6 @@ img { max-width: 100%; display: block; }
   margin: 0.5rem 0;
 }
 .work-card p,
-.case-card p,
 .runtime-card p,
 .runtime-card small,
 .work-card span,
@@ -422,6 +420,76 @@ img { max-width: 100%; display: block; }
   background:
     linear-gradient(120deg, rgba(214, 177, 111, 0.09), transparent 30%),
     linear-gradient(180deg, #0a0a09, #15130f);
+}
+.behance-visuals {
+  min-width: 0;
+  margin-bottom: 1.15rem;
+}
+.behance-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.behance-visuals[data-compact="true"] .behance-visual-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.behance-visual-card {
+  position: relative;
+  min-width: 0;
+  min-height: clamp(220px, 23vw, 340px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.038);
+  color: var(--text);
+  text-decoration: none;
+  isolation: isolate;
+  animation: floatingGalleryCard 8s ease-in-out infinite;
+}
+.behance-visual-card:nth-child(2n) {
+  animation-delay: -2.4s;
+}
+.behance-visual-card:nth-child(3n) {
+  animation-delay: -4.8s;
+}
+.behance-visual-card img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.08);
+  transform: scale(1.02);
+  transition: transform 700ms ease, filter 700ms ease;
+}
+.behance-visual-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(8, 8, 7, 0.04), rgba(8, 8, 7, 0.76));
+}
+.behance-visual-card:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.05) contrast(1.12);
+}
+.behance-visual-card span {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.82rem;
+}
+.behance-visual-card small {
+  color: var(--ivory-2);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+.behance-visual-card strong {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1;
 }
 .behance-grid,
 .language-grid {
@@ -473,7 +541,7 @@ img { max-width: 100%; display: block; }
 
 .portfolio-feature-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 0.46fr) minmax(0, 1fr);
   gap: 0.75rem;
   margin: 1rem 0 1.2rem;
 }
@@ -495,6 +563,7 @@ img { max-width: 100%; display: block; }
 }
 .portfolio-drawing-strip {
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.65rem;
   min-width: 0;
@@ -735,11 +804,6 @@ img { max-width: 100%; display: block; }
   display: grid;
   gap: 0.75rem;
 }
-.case-card ol {
-  color: var(--muted);
-  padding-left: 1.2rem;
-}
-
 .runtime-band {
   background:
     linear-gradient(135deg, rgba(143, 213, 200, 0.1), transparent 34%),
@@ -865,15 +929,84 @@ img { max-width: 100%; display: block; }
 
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.48fr) minmax(320px, 0.82fr);
+  grid-template-columns: minmax(0, 0.62fr) minmax(320px, 0.78fr);
   gap: 1rem;
   align-items: start;
+}
+.contact-hub {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
 }
 .contact-direct,
 .brief-form {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.035);
   padding: clamp(1rem, 2vw, 1.35rem);
+}
+.social-block {
+  margin-top: 1.25rem;
+}
+.social-block h3,
+.qa-panel h3 {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.55rem, 3vw, 2.7rem);
+  line-height: 1;
+  margin: 0.35rem 0 0.85rem;
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.social-icon-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  padding: 0.46rem 0.62rem;
+  text-decoration: none;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+.social-mark {
+  width: 34px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(214, 177, 111, 0.44);
+  color: var(--accent);
+  font-size: 0.68rem;
+}
+.qa-panel {
+  min-width: 0;
+}
+.qa-panel > p {
+  color: var(--muted);
+}
+.qa-list {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+.qa-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.9rem;
+}
+.qa-card h4 {
+  margin: 0 0 0.42rem;
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  line-height: 1;
+}
+.qa-card p {
+  margin: 0;
+  color: var(--muted);
 }
 .contact-page .primary-link,
 .contact-section .primary-link { margin-top: 1.25rem; }
@@ -932,6 +1065,8 @@ img { max-width: 100%; display: block; }
   .portfolio-feature-layout,
   .runtime-grid,
   .behance-grid,
+  .behance-visual-grid,
+  .behance-visuals[data-compact="true"] .behance-visual-grid,
   .language-grid,
   .metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -974,6 +1109,8 @@ img { max-width: 100%; display: block; }
   .portfolio-drawing-strip,
   .runtime-grid,
   .behance-grid,
+  .behance-visual-grid,
+  .behance-visuals[data-compact="true"] .behance-visual-grid,
   .language-grid,
   .metrics,
   .studio-rail,

@@ -4,21 +4,22 @@ import { useEffect, useMemo, useState } from "react";
 
 import {
   behanceEmbeds,
-  caseStudies,
+  behanceVisuals,
   drawings,
   getDictionary,
   locales,
   resolveLocale,
   services,
-  siteMeta,
   works,
   type Locale
 } from "@seis/content";
 
 import { BriefIntakeForm } from "./brief-intake-form";
 import { BehanceEmbedPanel } from "./behance-embed-panel";
+import { BehanceVisualGrid } from "./behance-visual-grid";
 import { CinematicHeroScene } from "./cinematic-hero-scene";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
+import { ContactHub } from "./contact-hub";
 
 type ShellMode = "home";
 
@@ -27,7 +28,6 @@ const nav = [
   ["#portfolio", "navPortfolio"],
   ["#behance", "navBehance"],
   ["#drawings", "navDrawings"],
-  ["#cases", "navCases"],
   ["#contact", "navContact"]
 ] as const;
 
@@ -143,6 +143,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
             <p>{dictionary.behanceLead}</p>
             <a className="text-link" href="#behance">{dictionary.behanceOpen}</a>
           </div>
+          <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} compact showHeading={false} />
           <div className="portfolio-drawing-strip" aria-label="Portfolio drawing highlights">
             {portfolioDrawings.map((drawing) => (
               <figure className="portfolio-drawing-card" key={`portfolio-${drawing.id}`}>
@@ -166,6 +167,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section behance-section" id="behance">
+        <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} />
         <BehanceEmbedPanel dictionary={dictionary} embeds={behanceEmbeds} compact />
       </section>
 
@@ -193,32 +195,12 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         </div>
       </section>
 
-      <section className="section" id="cases">
-        <p className="eyebrow">06 / Case Studies</p>
-        <h2>{dictionary.casesTitle}</h2>
-        <div className="stack">
-          {caseStudies.map((study) => (
-            <article className="case-card" key={study.slug}>
-              <p className="kicker">{study.year} / {study.role}</p>
-              <h3>{study.title}</h3>
-              <p>{study.challenge}</p>
-              <p><strong>Solution:</strong> {study.solution}</p>
-              <p><strong>Outcome:</strong> {study.outcome}</p>
-              <a className="text-link" href={`/case-studies/${study.slug}`}>Case detail</a>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section contact-section" id="contact">
-        <p className="eyebrow">07 / Contact</p>
+        <p className="eyebrow">06 / Contact</p>
         <h2>{dictionary.contactTitle}</h2>
         <p>{dictionary.contactLead}</p>
         <div className="contact-layout">
-          <div className="contact-direct">
-            <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
-            <p>{dictionary.briefReady}</p>
-          </div>
+          <ContactHub dictionary={dictionary} />
           <BriefIntakeForm dictionary={dictionary} services={services} />
         </div>
       </section>

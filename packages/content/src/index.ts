@@ -29,22 +29,21 @@ export type WorkItem = {
   impact: string;
 };
 
-export type CaseStudy = {
-  slug: string;
-  year: string;
-  role: string;
-  title: string;
-  challenge: string;
-  process: string[];
-  solution: string;
-  outcome: string;
-};
-
 export type DrawingItem = {
   id: string;
   title: string;
   src: string;
   tone: string;
+  featured?: boolean;
+};
+
+export type BehanceVisualItem = {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+  href: string;
+  notes: string;
   featured?: boolean;
 };
 
@@ -66,16 +65,31 @@ export type SoftwareLanguageItem = {
   status: "active" | "planned";
 };
 
+export type SocialLinkItem = {
+  id: string;
+  label: string;
+  href: string;
+  mark: string;
+};
+
+export type QuestionAnswerItem = {
+  id: string;
+  question: string;
+  answer: string;
+};
+
 export type SeisContent = {
   locales: Locale[];
   site: SiteMeta;
   dictionary: Record<Locale, LocalizedDictionary>;
   services: ServiceItem[];
   works: WorkItem[];
-  caseStudies: CaseStudy[];
   drawings: DrawingItem[];
+  behanceVisuals: BehanceVisualItem[];
   behanceEmbeds: BehanceEmbedItem[];
   softwareLanguages: SoftwareLanguageItem[];
+  socialLinks: SocialLinkItem[];
+  contactQa: QuestionAnswerItem[];
 };
 
 export const content = rawContent as SeisContent;
@@ -95,7 +109,9 @@ export function getDictionary(locale: string | undefined | null): LocalizedDicti
 export const siteMeta = content.site;
 export const services = content.services;
 export const works = content.works;
-export const caseStudies = content.caseStudies;
 export const drawings = content.drawings;
+export const behanceVisuals = content.behanceVisuals;
 export const behanceEmbeds = content.behanceEmbeds;
 export const softwareLanguages = content.softwareLanguages;
+export const socialLinks = content.socialLinks;
+export const contactQa = content.contactQa;
