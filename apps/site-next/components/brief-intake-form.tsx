@@ -73,7 +73,7 @@ export function BriefIntakeForm({
       </div>
       <label>
         <span>{dictionary.briefScope}</span>
-        <input name="scope" placeholder="Brand, website, 3D, runtime, ops..." />
+        <input name="scope" placeholder="Brand, website, Behance, drawings, 3D..." />
       </label>
       <label>
         <span>{dictionary.briefMessage}</span>

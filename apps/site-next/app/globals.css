@@ -200,6 +200,9 @@ img { max-width: 100%; display: block; }
 .fallback-frame:nth-of-type(6) { right: 14%; top: 49%; transform: rotate(10deg); }
 .fallback-frame:nth-of-type(7) { right: 38%; top: 52%; transform: rotate(-5deg); }
 .fallback-frame:nth-of-type(8) { right: 25%; top: 34%; transform: rotate(3deg); }
+.fallback-frame:nth-of-type(9) { right: 50%; top: 28%; transform: rotate(-10deg); }
+.fallback-frame:nth-of-type(10) { right: 5%; top: 67%; transform: rotate(7deg); }
+.fallback-frame:nth-of-type(11) { right: 45%; top: 70%; transform: rotate(-2deg); }
 .cinematic-vignette {
   position: absolute;
   inset: 0;
@@ -215,6 +218,7 @@ img { max-width: 100%; display: block; }
 .hero-copy {
   align-self: center;
   max-width: 980px;
+  animation: cinematicCopyIn 1200ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 .hero-copy h1,
 .page-hero h1,
@@ -280,6 +284,7 @@ img { max-width: 100%; display: block; }
   align-content: end;
   gap: 0.75rem;
   box-shadow: 0 32px 90px rgba(0, 0, 0, 0.36);
+  animation: cinematicPanelIn 1400ms 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 .hero-panel strong {
   font-family: var(--font-display), serif;
@@ -339,7 +344,9 @@ img { max-width: 100%; display: block; }
 }
 .editorial-section .work-card,
 .editorial-section .drawing-card,
-.editorial-section .featured-drawing {
+.editorial-section .featured-drawing,
+.editorial-section .portfolio-behance-callout,
+.editorial-section .portfolio-drawing-card {
   background: rgba(255, 255, 255, 0.45);
   border-color: var(--line-dark);
   color: var(--text-dark);
@@ -347,7 +354,9 @@ img { max-width: 100%; display: block; }
 .editorial-section .work-card p,
 .editorial-section .work-card span,
 .editorial-section .drawing-card span,
-.editorial-section .featured-drawing figcaption {
+.editorial-section .featured-drawing figcaption,
+.editorial-section .portfolio-behance-callout p,
+.editorial-section .portfolio-drawing-card figcaption {
   color: var(--muted-dark);
 }
 .gallery-section {
@@ -461,6 +470,63 @@ img { max-width: 100%; display: block; }
   align-items: center;
   margin-top: 0.25rem;
 }
+
+.portfolio-feature-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0 1.2rem;
+}
+.portfolio-behance-callout {
+  border: 1px solid var(--line-dark);
+  padding: clamp(1rem, 1.8vw, 1.4rem);
+  display: grid;
+  align-content: end;
+  min-height: 360px;
+  background:
+    linear-gradient(135deg, rgba(214, 177, 111, 0.18), rgba(255,255,255,0.48)),
+    repeating-linear-gradient(90deg, rgba(24,21,18,0.035) 0 1px, transparent 1px 38px);
+}
+.portfolio-behance-callout h3 {
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 0.95;
+  margin: 0.55rem 0 0.85rem;
+}
+.portfolio-drawing-strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.65rem;
+  min-width: 0;
+}
+.portfolio-drawing-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.48);
+  animation: floatingGalleryCard 7s ease-in-out infinite;
+}
+.portfolio-drawing-card:nth-child(2n) {
+  animation-delay: -2.2s;
+}
+.portfolio-drawing-card:nth-child(3n) {
+  animation-delay: -4.4s;
+}
+.portfolio-drawing-card img {
+  width: 100%;
+  min-height: 260px;
+  aspect-ratio: 3 / 5;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.06);
+}
+.portfolio-drawing-card figcaption {
+  min-height: 44px;
+  padding: 0.68rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
 .language-card[data-status="active"] {
   border-color: rgba(143, 213, 200, 0.38);
 }
@@ -529,6 +595,8 @@ img { max-width: 100%; display: block; }
 .showcase-fallback-panel:nth-of-type(3) { left: 42%; top: 10%; transform: rotate(4deg); }
 .showcase-fallback-panel:nth-of-type(4) { right: 20%; top: 28%; transform: rotate(8deg); }
 .showcase-fallback-panel:nth-of-type(5) { left: 34%; bottom: 12%; transform: rotate(-3deg); }
+.showcase-fallback-panel:nth-of-type(6) { right: 36%; bottom: 18%; transform: rotate(5deg); }
+.showcase-fallback-panel:nth-of-type(7) { left: 9%; bottom: 22%; transform: rotate(-10deg); }
 .studio-rail {
   position: relative;
   z-index: 1;
@@ -542,6 +610,13 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--line);
   background: rgba(8, 8, 7, 0.54);
   backdrop-filter: blur(12px);
+  animation: floatingGalleryCard 8s ease-in-out infinite;
+}
+.studio-tile:nth-child(2n) {
+  animation-delay: -2.6s;
+}
+.studio-tile:nth-child(3n) {
+  animation-delay: -5.1s;
 }
 .studio-tile img {
   width: 100%;
@@ -806,6 +881,7 @@ img { max-width: 100%; display: block; }
   .hero-panel { min-height: 280px; max-width: 680px; }
   .card-grid,
   .card-grid.compact,
+  .portfolio-feature-layout,
   .runtime-grid,
   .behance-grid,
   .language-grid,
@@ -813,6 +889,7 @@ img { max-width: 100%; display: block; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .drawing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .portfolio-drawing-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section-heading,
   .mcp-preview,
   .contact-layout,
@@ -845,6 +922,8 @@ img { max-width: 100%; display: block; }
   .card-grid,
   .card-grid.compact,
   .drawing-grid,
+  .portfolio-feature-layout,
+  .portfolio-drawing-strip,
   .runtime-grid,
   .behance-grid,
   .language-grid,
@@ -876,4 +955,39 @@ img { max-width: 100%; display: block; }
 @keyframes fallbackDrift {
   from { rotate: 0deg; }
   to { rotate: 360deg; }
+}
+
+@keyframes cinematicCopyIn {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(0.98);
+    filter: blur(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cinematicPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(46px) rotateX(7deg);
+    filter: blur(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes floatingGalleryCard {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.35deg);
+  }
 }

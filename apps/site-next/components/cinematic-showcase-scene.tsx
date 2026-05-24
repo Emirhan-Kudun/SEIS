@@ -7,7 +7,9 @@ const showcaseImages = [
   "/drawings/karakalem-01.jpg",
   "/drawings/renk-11.jpg",
   "/drawings/renk-04.jpg",
-  "/drawings/karakalem-03.jpg"
+  "/drawings/karakalem-03.jpg",
+  "/drawings/renk-05.jpg",
+  "/drawings/karakalem-08.jpg"
 ];
 
 function disposeMaterial(material: THREE.Material | THREE.Material[]) {
@@ -79,14 +81,15 @@ export function CinematicShowcaseScene() {
 
       const material = new THREE.MeshBasicMaterial({
         map: texture,
-        opacity: 0.78,
+        opacity: 0.84,
         side: THREE.DoubleSide,
         transparent: true
       });
       const mesh = new THREE.Mesh(planeGeometry, material);
       const angle = index / showcaseImages.length * Math.PI * 2;
-      mesh.position.set(Math.cos(angle) * 2.9, Math.sin(index * 1.4) * 0.52, Math.sin(angle) * 1.75);
+      mesh.position.set(Math.cos(angle) * 3.2, Math.sin(index * 1.25) * 0.68, Math.sin(angle) * 1.95);
       mesh.rotation.set(0.08, -angle + Math.PI * 0.5, (index - 1.5) * 0.05);
+      mesh.scale.setScalar(index % 2 === 0 ? 1.08 : 0.9);
       root.add(mesh);
       return mesh;
     });
@@ -100,6 +103,16 @@ export function CinematicShowcaseScene() {
     const ring = new THREE.Mesh(ringGeometry, ringMaterial);
     ring.rotation.x = Math.PI * 0.52;
     root.add(ring);
+
+    const secondRingMaterial = new THREE.MeshBasicMaterial({
+      color: 0x8fd5c8,
+      opacity: 0.22,
+      transparent: true
+    });
+    const secondRing = new THREE.Mesh(ringGeometry, secondRingMaterial);
+    secondRing.rotation.set(Math.PI * 0.38, 0.2, Math.PI * 0.12);
+    secondRing.scale.setScalar(1.26);
+    root.add(secondRing);
 
     const gridGeometry = new THREE.BufferGeometry();
     const gridPositions: number[] = [];
@@ -116,13 +129,33 @@ export function CinematicShowcaseScene() {
     const grid = new THREE.LineSegments(gridGeometry, gridMaterial);
     root.add(grid);
 
+    const particleGeometry = new THREE.BufferGeometry();
+    const particleCount = window.innerWidth < 760 ? 140 : 280;
+    const particlePositions = new Float32Array(particleCount * 3);
+    for (let index = 0; index < particleCount; index += 1) {
+      const angle = Math.random() * Math.PI * 2;
+      const radius = 2.1 + Math.random() * 4.8;
+      particlePositions[index * 3] = Math.cos(angle) * radius;
+      particlePositions[index * 3 + 1] = (Math.random() - 0.5) * 3.1;
+      particlePositions[index * 3 + 2] = Math.sin(angle) * radius - 0.7;
+    }
+    particleGeometry.setAttribute("position", new THREE.BufferAttribute(particlePositions, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0xf0d79f,
+      opacity: 0.26,
+      size: 0.02,
+      transparent: true
+    });
+    const particles = new THREE.Points(particleGeometry, particleMaterial);
+    root.add(particles);
+
     const nodeGeometry = new THREE.SphereGeometry(0.045, 12, 12);
-    const statusMaterials = [0x94b88f, 0xd6b16f, 0xd98b74].map((color) => (
-      new THREE.MeshBasicMaterial({ color, opacity: 0.74, transparent: true })
+    const glowMaterials = [0xf0d79f, 0xd6b16f, 0x8fd5c8, 0xf6e8c9].map((color) => (
+      new THREE.MeshBasicMaterial({ color, opacity: 0.78, transparent: true })
     ));
-    const nodes = statusMaterials.map((material, index) => {
+    const nodes = glowMaterials.map((material, index) => {
       const node = new THREE.Mesh(nodeGeometry, material);
-      node.position.set(-1.2 + index * 1.2, 1.55 - index * 0.12, -0.55);
+      node.position.set(-1.8 + index * 1.2, 1.55 - Math.sin(index) * 0.26, -0.55);
       root.add(node);
       return node;
     });
@@ -153,17 +186,20 @@ export function CinematicShowcaseScene() {
       resize();
       const seconds = time * 0.001;
       const motionScale = reduceMotionQuery.matches ? 0.08 : 1;
-      root.rotation.y = seconds * 0.16 * motionScale + pointerX * 0.12;
-      root.rotation.x = pointerY * -0.04;
-      ring.rotation.z = seconds * 0.12 * motionScale;
-      grid.position.z = Math.sin(seconds * 0.22) * 0.2 * motionScale;
+      root.rotation.y = seconds * 0.24 * motionScale + pointerX * 0.16;
+      root.rotation.x = pointerY * -0.055 + Math.sin(seconds * 0.22) * 0.025 * motionScale;
+      ring.rotation.z = seconds * 0.2 * motionScale;
+      secondRing.rotation.z = -seconds * 0.15 * motionScale;
+      particles.rotation.y = seconds * 0.075 * motionScale;
+      grid.position.z = Math.sin(seconds * 0.36) * 0.26 * motionScale;
 
       panels.forEach((panel, index) => {
-        panel.position.y += Math.sin(seconds * 0.42 + index) * 0.0009 * motionScale;
+        panel.position.y += Math.sin(seconds * 0.66 + index) * 0.0013 * motionScale;
+        panel.rotation.z += Math.sin(seconds * 0.32 + index) * 0.00045 * motionScale;
       });
 
       nodes.forEach((node, index) => {
-        const pulse = 1 + Math.sin(seconds * 1.6 + index) * 0.16 * motionScale;
+        const pulse = 1 + Math.sin(seconds * 2.1 + index) * 0.24 * motionScale;
         node.scale.setScalar(pulse);
       });
 
@@ -199,10 +235,13 @@ export function CinematicShowcaseScene() {
       textures.forEach((texture) => texture.dispose());
       ringGeometry.dispose();
       ringMaterial.dispose();
+      secondRingMaterial.dispose();
       gridGeometry.dispose();
       gridMaterial.dispose();
+      particleGeometry.dispose();
+      particleMaterial.dispose();
       nodeGeometry.dispose();
-      statusMaterials.forEach((material) => material.dispose());
+      glowMaterials.forEach((material) => material.dispose());
       renderer.dispose();
     };
   }, []);

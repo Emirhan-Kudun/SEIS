@@ -1,5 +1,5 @@
 (() => {
-  const runtime = document.querySelector(".runtime");
-  if (!runtime) return;
-  runtime.dataset.checkedAt = new Date().toISOString();
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+  hero.dataset.readyAt = new Date().toISOString();
 })();

@@ -8,7 +8,10 @@ const galleryTextures = [
   "/drawings/karakalem-02.jpg",
   "/drawings/renk-05.jpg",
   "/drawings/karakalem-03.jpg",
-  "/drawings/renk-01.jpg"
+  "/drawings/renk-01.jpg",
+  "/drawings/karakalem-01.jpg",
+  "/drawings/renk-04.jpg",
+  "/drawings/karakalem-08.jpg"
 ];
 
 function buildRibbonMaterial(color: string, opacity: number) {
@@ -111,13 +114,13 @@ export function CinematicHeroScene() {
     studio.add(innerCore);
 
     const ringGeometry = new THREE.TorusGeometry(2.18, 0.012, 12, 180);
-    const rings = [0, 1, 2, 3].map((index) => {
+    const rings = [0, 1, 2, 3, 4, 5].map((index) => {
       const ring = new THREE.Mesh(
         ringGeometry,
-        buildRibbonMaterial(index % 2 === 0 ? "#d6b16f" : "#f0d79f", 0.62 - index * 0.08)
+        buildRibbonMaterial(index % 2 === 0 ? "#d6b16f" : "#f0d79f", 0.66 - index * 0.07)
       );
       ring.rotation.set(index * 0.74, index * 0.58, index * 0.38);
-      ring.scale.setScalar(1 + index * 0.29);
+      ring.scale.setScalar(1 + index * 0.22);
       studio.add(ring);
       return ring;
     });
@@ -132,25 +135,28 @@ export function CinematicHeroScene() {
 
       const material = new THREE.MeshBasicMaterial({
         map: texture,
-        opacity: 0.62,
+        opacity: 0.74,
         side: THREE.DoubleSide,
         transparent: true
       });
       const card = new THREE.Mesh(cardGeometry, material);
       const angle = index / galleryTextures.length * Math.PI * 2;
-      card.position.set(Math.cos(angle) * 3.9, (index - 2) * 0.36, Math.sin(angle) * 1.15 - 0.35);
+      const normalizedIndex = index - (galleryTextures.length - 1) / 2;
+      card.position.set(Math.cos(angle) * 4.25, normalizedIndex * 0.24, Math.sin(angle) * 1.55 - 0.35);
       card.rotation.set(0.16 * Math.sin(angle), -angle + Math.PI * 0.5, 0.05 * index);
+      card.scale.setScalar(index % 2 === 0 ? 1.08 : 0.92);
       gallery.add(card);
       return card;
     });
 
     const nodeGeometry = new THREE.SphereGeometry(0.035, 12, 12);
-    const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x8fd5c8, transparent: true, opacity: 0.72 });
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x8fd5c8, transparent: true, opacity: 0.22 });
+    const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0xf0d79f, transparent: true, opacity: 0.78 });
+    const lineMaterial = new THREE.LineBasicMaterial({ color: 0xf0d79f, transparent: true, opacity: 0.2 });
     const nodes: THREE.Mesh[] = [];
     const linePositions: number[] = [];
-    for (let index = 0; index < 18; index += 1) {
-      const angle = index / 18 * Math.PI * 2;
+    const nodeCount = window.innerWidth < 760 ? 20 : 30;
+    for (let index = 0; index < nodeCount; index += 1) {
+      const angle = index / nodeCount * Math.PI * 2;
       const radius = 4.6 + (index % 3) * 0.34;
       const y = Math.sin(index * 1.7) * 1.34;
       const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
@@ -169,7 +175,7 @@ export function CinematicHeroScene() {
     constellation.add(connectorLines);
 
     const particleGeometry = new THREE.BufferGeometry();
-    const particleCount = 260;
+    const particleCount = window.innerWidth < 760 ? 280 : 520;
     const positions = new Float32Array(particleCount * 3);
     for (let index = 0; index < particleCount; index += 1) {
       const radius = 3.4 + Math.random() * 6.6;
@@ -191,13 +197,39 @@ export function CinematicHeroScene() {
     );
     scene.add(particles);
 
+    const tealParticleGeometry = new THREE.BufferGeometry();
+    const tealParticleCount = window.innerWidth < 760 ? 90 : 180;
+    const tealPositions = new Float32Array(tealParticleCount * 3);
+    for (let index = 0; index < tealParticleCount; index += 1) {
+      const radius = 2.2 + Math.random() * 5.8;
+      const angle = Math.random() * Math.PI * 2;
+      tealPositions[index * 3] = Math.cos(angle) * radius;
+      tealPositions[index * 3 + 1] = (Math.random() - 0.5) * 3.6;
+      tealPositions[index * 3 + 2] = Math.sin(angle) * radius - 1.4;
+    }
+    tealParticleGeometry.setAttribute("position", new THREE.BufferAttribute(tealPositions, 3));
+    const tealParticles = new THREE.Points(
+      tealParticleGeometry,
+      new THREE.PointsMaterial({
+        color: 0x8fd5c8,
+        opacity: 0.18,
+        size: 0.018,
+        transparent: true
+      })
+    );
+    scene.add(tealParticles);
+
     const keyLight = new THREE.PointLight(0xf3ce8a, 6.4, 18);
     keyLight.position.set(3.2, 2.6, 3.8);
     scene.add(keyLight);
 
-    const rimLight = new THREE.PointLight(0x76d7c4, 2.2, 18);
+    const rimLight = new THREE.PointLight(0x76d7c4, 3.1, 18);
     rimLight.position.set(-3.8, -0.9, 3.4);
     scene.add(rimLight);
+
+    const lowSweep = new THREE.PointLight(0xd6b16f, 2.4, 16);
+    lowSweep.position.set(-1.6, -2.4, 4.2);
+    scene.add(lowSweep);
 
     const ambient = new THREE.AmbientLight(0xc7ad78, 0.42);
     scene.add(ambient);
@@ -247,24 +279,27 @@ export function CinematicHeroScene() {
       camera.position.z = 9.6 - depthShift * 1.28;
       camera.lookAt(0, 0.04, 0);
 
-      studio.rotation.y = seconds * 0.18 * motionScale + pointerX * 0.1 + depthShift * 0.28;
-      studio.rotation.x = Math.sin(seconds * 0.22) * 0.09 * motionScale - pointerY * 0.04;
-      gallery.rotation.y = -seconds * 0.07 * motionScale - depthShift * 0.38;
-      gallery.position.y = Math.sin(seconds * 0.16) * 0.1 * motionScale;
-      constellation.rotation.y = seconds * 0.05 * motionScale + depthShift * 0.46;
-      particles.rotation.y = seconds * 0.024 * motionScale;
+      studio.rotation.y = seconds * 0.28 * motionScale + pointerX * 0.13 + depthShift * 0.36;
+      studio.rotation.x = Math.sin(seconds * 0.34) * 0.12 * motionScale - pointerY * 0.05;
+      gallery.rotation.y = -seconds * 0.15 * motionScale - depthShift * 0.54;
+      gallery.position.y = Math.sin(seconds * 0.28) * 0.16 * motionScale;
+      constellation.rotation.y = seconds * 0.11 * motionScale + depthShift * 0.58;
+      particles.rotation.y = seconds * 0.052 * motionScale;
+      tealParticles.rotation.y = -seconds * 0.037 * motionScale;
+      lowSweep.position.x = Math.sin(seconds * 0.7) * 3.2;
 
-      core.rotation.y = seconds * 0.26 * motionScale;
-      innerCore.rotation.x = -seconds * 0.34 * motionScale;
-      innerCore.rotation.z = seconds * 0.24 * motionScale;
+      core.rotation.y = seconds * 0.42 * motionScale;
+      innerCore.rotation.x = -seconds * 0.54 * motionScale;
+      innerCore.rotation.z = seconds * 0.38 * motionScale;
 
       rings.forEach((ring, index) => {
-        ring.rotation.z += (0.0018 + index * 0.0007) * motionScale;
-        ring.rotation.x += (0.001 + index * 0.0005) * motionScale;
+        ring.rotation.z += (0.0027 + index * 0.0009) * motionScale;
+        ring.rotation.x += (0.0015 + index * 0.0006) * motionScale;
       });
 
       cards.forEach((card, index) => {
-        card.position.y += Math.sin(seconds * 0.34 + index) * 0.0008 * motionScale;
+        card.position.y += Math.sin(seconds * 0.58 + index) * 0.0014 * motionScale;
+        card.rotation.z += Math.sin(seconds * 0.28 + index) * 0.00035 * motionScale;
       });
 
       renderer.render(scene, camera);
@@ -310,6 +345,8 @@ export function CinematicHeroScene() {
       lineMaterial.dispose();
       particleGeometry.dispose();
       disposeMaterial(particles.material);
+      tealParticleGeometry.dispose();
+      disposeMaterial(tealParticles.material);
       renderer.dispose();
     };
   }, []);
