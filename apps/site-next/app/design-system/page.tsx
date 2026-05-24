@@ -5,7 +5,7 @@ import { designPrinciples, designTokenGroups } from "@seis/content/design-system
 
 export const metadata: Metadata = {
   title: "Design System",
-  description: "SEIS design system principles, tokens and calm interface governance."
+  description: "SEIS design system principles, tokens and calm interface direction."
 };
 
 export default function DesignSystemPage() {
@@ -17,15 +17,15 @@ export default function DesignSystemPage() {
         </Link>
         <div className="nav-links">
           <Link href="/portfolio">Portfolio</Link>
-          <Link href="/runtime">Runtime</Link>
-          <Link href="/ops">Ops</Link>
+          <Link href="/#behance">Behance</Link>
+          <Link href="/drawings">Drawings</Link>
           <Link href="/contact">Contact</Link>
         </div>
       </nav>
 
       <section className="section page-hero">
         <p className="eyebrow">SEIS Design System</p>
-        <h1>Calm cinematic rules for a premium portfolio runtime.</h1>
+        <h1>Calm cinematic rules for a premium Behance-forward portfolio.</h1>
         <p>
           This surface documents the visual and interaction rules that keep the website expressive without becoming noisy.
         </p>

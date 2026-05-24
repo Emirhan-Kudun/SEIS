@@ -7,41 +7,28 @@ import {
   getDictionary,
   services,
   siteMeta,
-  softwareLanguages,
   works
 } from "@seis/content";
-import {
-  getCinematicScenePresets,
-  getDeploymentTargets,
-  getMcpReadinessSnapshot,
-  getSourceArchives,
-  getRuntimeSnapshot
-} from "@seis/runtime";
 
 import { BehanceEmbedPanel } from "./behance-embed-panel";
 import { BriefIntakeForm } from "./brief-intake-form";
+import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { DecisionQuestionsPanel } from "./decision-questions-panel";
 
-type PageMode = "portfolio" | "drawings" | "cases" | "runtime" | "ops" | "contact";
+type PageMode = "portfolio" | "drawings" | "cases" | "contact";
 
 const navItems = [
   ["/", "Home"],
   ["/portfolio", "Portfolio"],
+  ["/#behance", "Behance"],
   ["/drawings", "Drawings"],
   ["/case-studies", "Case studies"],
-  ["/design-system", "Design system"],
-  ["/runtime", "Runtime"],
-  ["/ops", "Ops"],
   ["/contact", "Contact"]
 ] as const;
 
 export function PageSurface({ mode }: { mode: PageMode }) {
   const dict = getDictionary("en");
-  const runtime = getRuntimeSnapshot();
-  const mcp = getMcpReadinessSnapshot();
-  const archives = getSourceArchives();
-  const scenePresets = getCinematicScenePresets();
-  const deploymentTargets = getDeploymentTargets();
+  const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 8);
 
   return (
     <main className="page-shell">
@@ -60,8 +47,28 @@ export function PageSurface({ mode }: { mode: PageMode }) {
 
       {mode === "portfolio" && (
         <section className="section page-hero">
-          <p className="eyebrow">{dict.worksTitle}</p>
-          <h1>Selected visual systems, editorial structures and calm interface work.</h1>
+          <p className="eyebrow">Behance / Drawings / Portfolio</p>
+          <h1>Behance, drawing archive and selected visual systems in one cinematic portfolio.</h1>
+          <div className="studio-showcase portfolio-3d-showcase">
+            <CinematicShowcaseScene />
+            <div className="portfolio-3d-cards" aria-label="Animated drawing gallery">
+              {featuredDrawings.slice(0, 6).map((drawing) => (
+                <figure className="portfolio-3d-card" key={`motion-${drawing.id}`}>
+                  <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+                  <figcaption>{drawing.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
+          <div className="featured-strip" aria-label="Portfolio drawing selection">
+            {featuredDrawings.map((drawing) => (
+              <figure className="featured-drawing" key={drawing.id}>
+                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+                <figcaption>{drawing.title}</figcaption>
+              </figure>
+            ))}
+          </div>
           <div className="card-grid">
             {works.map((work) => (
               <article className="work-card" key={work.id}>
@@ -73,7 +80,6 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               </article>
             ))}
           </div>
-          <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
         </section>
       )}
 
@@ -98,7 +104,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       {mode === "cases" && (
         <section className="section page-hero">
           <p className="eyebrow">{dict.casesTitle}</p>
-          <h1>Case studies that explain decisions, not just outcomes.</h1>
+          <h1>Case studies that explain visual decisions, gallery structure and client-facing outcomes.</h1>
           <div className="stack">
             {caseStudies.map((study) => (
               <article className="case-card" key={study.slug}>
@@ -114,51 +120,6 @@ export function PageSurface({ mode }: { mode: PageMode }) {
                 <p><strong>Outcome:</strong> {study.outcome}</p>
                 <Link className="text-link" href={`/case-studies/${study.slug}`}>Open case detail</Link>
               </article>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {mode === "runtime" && (
-        <section className="section page-hero">
-          <p className="eyebrow">{dict.runtimeTitle}</p>
-          <h1>Credential-aware active runtime without secret leakage.</h1>
-          <RuntimeSummary />
-          <ScenePresetSummary />
-          <LanguageSummary />
-          <McpSummary />
-        </section>
-      )}
-
-      {mode === "ops" && (
-        <section className="section page-hero">
-          <p className="eyebrow">{dict.opsTitle}</p>
-          <h1>{dict.opsLead}</h1>
-          <RuntimeSummary includeSkills />
-          <DeploymentSummary />
-          <LanguageSummary />
-          <DecisionQuestionsPanel />
-          <ScenePresetSummary />
-          <SourceArchiveSummary />
-          <McpSummary expanded />
-          <div className="api-list" aria-label="Runtime APIs">
-            {[
-              "/api/health",
-              "/api/runtime",
-              "/api/connectors",
-              "/api/skills",
-              "/api/mcp-readiness",
-              "/api/source-archives",
-              "/api/scene-presets",
-              "/api/deployment-targets",
-              "/api/behance",
-              "/api/software-languages",
-              "/api/decision-questions",
-              "/api/contact",
-              "/api/briefs",
-              "/api/activation-policy"
-            ].map((api) => (
-              <Link key={api} href={api}>{api}</Link>
             ))}
           </div>
         </section>
@@ -180,158 +141,4 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       )}
     </main>
   );
-
-  function RuntimeSummary({ includeSkills = false }: { includeSkills?: boolean }) {
-    const items = includeSkills ? [...runtime.connectors, ...runtime.skills] : runtime.connectors;
-
-    return (
-      <>
-        <div className="metrics" aria-label="Runtime summary">
-          <article><span>Total</span><strong>{runtime.summary.total}</strong></article>
-          <article><span>Active</span><strong>{runtime.summary.active}</strong></article>
-          <article><span>Configured</span><strong>{runtime.summary.configured}</strong></article>
-          <article><span>Needs credentials</span><strong>{runtime.summary.needsCredentials}</strong></article>
-          <article><span>Unavailable</span><strong>{runtime.summary.unavailable}</strong></article>
-        </div>
-        <div className="runtime-grid">
-          {items.map((item) => (
-            <article className="runtime-card" data-status={item.status} key={`${item.category}-${item.id}`}>
-              <p className="kicker">{item.category} / {item.status}</p>
-              <h2>{item.name}</h2>
-              <p>{item.scope}</p>
-              <span>{item.requiresEnv.length ? item.requiresEnv.join(", ") : "No credential required"}</span>
-              <small>{item.notes}</small>
-            </article>
-          ))}
-        </div>
-      </>
-    );
-  }
-
-  function McpSummary({ expanded = false }: { expanded?: boolean }) {
-    return (
-      <section className="ops-block" aria-label="MCP readiness">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">MCP / Readiness</p>
-            <h2>{dict.mcpTitle}</h2>
-          </div>
-          <p>{dict.mcpLead}</p>
-        </div>
-        <div className="metrics">
-          <article><span>Total</span><strong>{mcp.summary.total}</strong></article>
-          <article><span>Active</span><strong>{mcp.summary.active}</strong></article>
-          <article><span>Configured</span><strong>{mcp.summary.configured}</strong></article>
-          <article><span>Needs credentials</span><strong>{mcp.summary.needsCredentials}</strong></article>
-          <article><span>Skipped</span><strong>{mcp.summary.skippedWithReason}</strong></article>
-        </div>
-        <div className="runtime-grid">
-          {mcp.items.slice(0, expanded ? 36 : 12).map((item) => (
-            <article className="runtime-card" data-status={item.status} key={item.id}>
-              <p className="kicker">{item.archiveStatus} / {item.auth}</p>
-              <h2>{item.name}</h2>
-              <p>{item.scope}</p>
-              <small>{item.notes}</small>
-            </article>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  function ScenePresetSummary() {
-    return (
-      <section className="ops-block" aria-label="Cinematic scene presets">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">3D / Motion</p>
-            <h2>Cinematic scene presets</h2>
-          </div>
-          <p>Hero, showcase, reduced-motion and static fallback modes are explicit runtime metadata now.</p>
-        </div>
-        <div className="runtime-grid">
-          {scenePresets.map((preset) => (
-            <article className="runtime-card" data-status="active" key={preset.id}>
-              <p className="kicker">{preset.surface} / {preset.performance}</p>
-              <h2>{preset.name}</h2>
-              <p>{preset.notes}</p>
-              <span>{preset.motion}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  function DeploymentSummary() {
-    return (
-      <section className="ops-block" aria-label="Deployment targets">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Deploy / Persistence</p>
-            <h2>{dict.deployTitle}</h2>
-          </div>
-          <p>{dict.deployLead}</p>
-        </div>
-        <div className="runtime-grid">
-          {deploymentTargets.map((target) => (
-            <article className="runtime-card" data-status={target.status} key={target.id}>
-              <p className="kicker">{target.category} / {target.status}</p>
-              <h2>{target.name}</h2>
-              <p>{target.scope}</p>
-              <span>{target.targetUrl}</span>
-              <small>{target.safety}</small>
-            </article>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  function LanguageSummary() {
-    return (
-      <section className="ops-block" aria-label="Software language registry">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Stack / Languages</p>
-            <h2>{dict.languagesTitle}</h2>
-          </div>
-          <p>{dict.languagesLead}</p>
-        </div>
-        <div className="language-grid">
-          {softwareLanguages.map((language) => (
-            <article className="language-card" data-status={language.status} key={language.id}>
-              <p className="kicker">{language.layer} / {language.status}</p>
-              <h2>{language.name}</h2>
-              <p>{language.role}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  function SourceArchiveSummary() {
-    return (
-      <section className="ops-block" aria-label="Source archive selection">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Sources / Archives</p>
-            <h2>Auditable source selection</h2>
-          </div>
-          <p>v4 is the portfolio baseline, infra-v1 is the runtime baseline, and v2/v3 remain reference history.</p>
-        </div>
-        <div className="runtime-grid">
-          {archives.map((archive) => (
-            <article className="runtime-card" data-status="active" key={archive.id}>
-              <p className="kicker">{archive.role}</p>
-              <h2>{archive.fileName}</h2>
-              <p>{archive.notes}</p>
-              <span>{archive.sha256.slice(0, 16)}...</span>
-            </article>
-          ))}
-        </div>
-      </section>
-    );
-  }
 }

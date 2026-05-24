@@ -19,10 +19,10 @@ export const designPrinciples: DesignPrinciple[] = [
     signal: "The first viewport should feel premium before it explains itself."
   },
   {
-    id: "calm-runtime",
-    title: "Calm runtime visibility",
-    summary: "Operational data is visible, but grouped by readiness so the interface avoids dashboard overload.",
-    signal: "Status should reduce uncertainty, not create new work."
+    id: "calm-gallery",
+    title: "Calm gallery visibility",
+    summary: "Behance, drawings, and project material stay visible without turning the interface into a dashboard.",
+    signal: "The gallery should reduce uncertainty, not create new work."
   },
   {
     id: "humane-motion",
@@ -55,8 +55,8 @@ export const designTokenGroups: DesignTokenGroup[] = [
     values: ["44px targets", "visible focus", "reduced motion", "email-first contact"]
   },
   {
-    id: "runtime",
-    label: "Runtime",
-    values: ["active", "configured", "needs_credentials", "unavailable"]
+    id: "portfolio-state",
+    label: "Portfolio state",
+    values: ["Behance", "drawings", "selected work", "contact"]
   }
 ];

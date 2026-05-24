@@ -49,7 +49,8 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyDetailPag
         <div className="nav-links">
           <Link href="/case-studies">Case studies</Link>
           <Link href="/portfolio">Portfolio</Link>
-          <Link href="/runtime">Runtime</Link>
+          <Link href="/#behance">Behance</Link>
+          <Link href="/drawings">Drawings</Link>
         </div>
       </nav>
       <article className="section page-hero detail-article">
