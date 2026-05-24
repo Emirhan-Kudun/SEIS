@@ -1,4 +1,5 @@
 import { getDeploymentTargets, getMcpReadinessSnapshot, getSourceArchives, getRuntimeSnapshot } from "@seis/runtime";
+import { getDecisionQuestionCount } from "@seis/content/decision-questions";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ export function GET() {
     summary: snapshot.summary,
     mcpSummary: mcp.summary,
     sourceArchiveCount: archives.length,
-    deploymentTargetCount: deploymentTargets.length
+    deploymentTargetCount: deploymentTargets.length,
+    decisionQuestionCount: getDecisionQuestionCount()
   });
 }

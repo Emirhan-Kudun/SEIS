@@ -44,6 +44,21 @@ vercel deploy
 
 For a custom server, confirm the exact host, user, path and artifact strategy before running any upload command. A safe first target is the static fallback because it has the smallest dependency surface.
 
+Dry-run helper:
+
+```bash
+export DEPLOY_HOST=example.com
+export DEPLOY_USER=deploy
+export DEPLOY_PATH=/var/www/emirhankudun.com
+npm run deploy:static:dry-run
+```
+
+Live helper, only after the dry-run output is correct:
+
+```bash
+npm run deploy:static:live
+```
+
 ## Safety Rules
 
 - Build and check locally before publishing.

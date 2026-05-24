@@ -16,7 +16,9 @@
     "check:content": "node scripts/check-content.mjs",
     "check:runtime": "node scripts/check-runtime.mjs",
     "check:source-boundaries": "node scripts/check-source-boundaries.mjs",
-    "collect:mcp-readiness": "node scripts/collect-mcp-readiness.mjs"
+    "collect:mcp-readiness": "node scripts/collect-mcp-readiness.mjs",
+    "deploy:static:dry-run": "bash scripts/deploy-static.sh",
+    "deploy:static:live": "bash scripts/deploy-static.sh --live"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",

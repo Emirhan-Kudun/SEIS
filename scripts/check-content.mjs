@@ -3,7 +3,9 @@ import path from "node:path";
 
 const root = process.cwd();
 const contentPath = path.join(root, "packages/content/src/data.json");
+const decisionQuestionsPath = path.join(root, "packages/content/src/decision-questions.json");
 const content = JSON.parse(fs.readFileSync(contentPath, "utf8"));
+const decisionQuestions = JSON.parse(fs.readFileSync(decisionQuestionsPath, "utf8"));
 const requiredLocales = ["tr", "en", "fr", "it", "de"];
 const requiredDictionaryKeys = [
   "behanceTitle",
@@ -74,9 +76,20 @@ for (const language of content.softwareLanguages || []) {
   }
 }
 
+const decisionQuestionCount = decisionQuestions.reduce((total, group) => total + group.questions.length, 0);
+if (decisionQuestionCount !== 100) {
+  errors.push(`Expected exactly 100 decision questions, found ${decisionQuestionCount}.`);
+}
+
+for (const group of decisionQuestions) {
+  if (!group.id || !group.title || !Array.isArray(group.questions) || group.questions.length !== 10) {
+    errors.push(`${group.id || "unknown"}: decision question group must have 10 questions.`);
+  }
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
 
-console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceEmbeds.length} Behance embeds, ${content.softwareLanguages.length} software languages.`);
+console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceEmbeds.length} Behance embeds, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);

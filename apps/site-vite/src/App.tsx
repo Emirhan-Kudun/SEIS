@@ -10,6 +10,7 @@ import {
   works,
   type Locale
 } from "@seis/content";
+import { getDecisionQuestionCount } from "@seis/content/decision-questions";
 import { getDeploymentTargets, getMcpReadinessSnapshot, getRuntimeSnapshot } from "@seis/runtime";
 
 export function App() {
@@ -18,6 +19,7 @@ export function App() {
   const runtime = useMemo(() => getRuntimeSnapshot({}, new Date("2026-05-23T00:00:00.000Z")), []);
   const mcp = useMemo(() => getMcpReadinessSnapshot(new Date("2026-05-23T00:00:00.000Z")), []);
   const deploymentTargets = useMemo(() => getDeploymentTargets({}, new Date("2026-05-23T00:00:00.000Z")), []);
+  const decisionQuestionCount = getDecisionQuestionCount();
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 6);
 
   return (
@@ -112,6 +114,11 @@ export function App() {
             <li key={target.id}>{target.name}: {target.status}</li>
           ))}
         </ul>
+      </section>
+
+      <section className="runtime">
+        <h2>Decision ledger</h2>
+        <p>{decisionQuestionCount} questions are packaged for API, docs and future intake flows.</p>
       </section>
     </main>
   );

@@ -80,7 +80,8 @@ img { max-width: 100%; display: block; }
 .nav-links a,
 .language-switcher button,
 .secondary-link,
-.api-list a {
+.api-list a,
+.text-link {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.035);
   color: var(--muted);
@@ -96,7 +97,8 @@ img { max-width: 100%; display: block; }
 .nav-links a:hover,
 .language-switcher button:hover,
 .language-switcher button.active,
-.secondary-link:hover {
+.secondary-link:hover,
+.text-link:hover {
   border-color: rgba(214, 177, 111, 0.56);
   color: var(--text);
 }
@@ -695,6 +697,48 @@ img { max-width: 100%; display: block; }
   gap: 0.5rem;
   margin-top: 1.5rem;
 }
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 0.95rem;
+}
+
+.detail-shell .top-nav {
+  position: sticky;
+}
+.detail-article .primary-link {
+  margin-top: 1.25rem;
+}
+.detail-grid,
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.detail-grid section,
+.question-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035);
+  padding: clamp(0.95rem, 1.5vw, 1.15rem);
+}
+.detail-grid h2,
+.question-card h3 {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.42rem, 2.4vw, 2.35rem);
+  line-height: 1;
+  margin: 0.4rem 0 0.75rem;
+}
+.detail-grid p,
+.detail-grid li,
+.question-card h3 {
+  color: var(--muted);
+}
+.decision-panel .secondary-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+}
 
 .contact-layout {
   display: grid;
@@ -771,7 +815,9 @@ img { max-width: 100%; display: block; }
   .drawing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section-heading,
   .mcp-preview,
-  .contact-layout {
+  .contact-layout,
+  .detail-grid,
+  .question-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -20,6 +20,7 @@ import {
 
 import { BehanceEmbedPanel } from "./behance-embed-panel";
 import { BriefIntakeForm } from "./brief-intake-form";
+import { DecisionQuestionsPanel } from "./decision-questions-panel";
 
 type PageMode = "portfolio" | "drawings" | "cases" | "runtime" | "ops" | "contact";
 
@@ -68,6 +69,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
                 <h2>{work.title}</h2>
                 <p>{work.summary}</p>
                 <span>{work.impact}</span>
+                <Link className="text-link" href={`/portfolio/${work.id}`}>Open project detail</Link>
               </article>
             ))}
           </div>
@@ -110,6 +112,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
                 </ol>
                 <p><strong>Solution:</strong> {study.solution}</p>
                 <p><strong>Outcome:</strong> {study.outcome}</p>
+                <Link className="text-link" href={`/case-studies/${study.slug}`}>Open case detail</Link>
               </article>
             ))}
           </div>
@@ -134,6 +137,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <RuntimeSummary includeSkills />
           <DeploymentSummary />
           <LanguageSummary />
+          <DecisionQuestionsPanel />
           <ScenePresetSummary />
           <SourceArchiveSummary />
           <McpSummary expanded />
@@ -149,6 +153,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               "/api/deployment-targets",
               "/api/behance",
               "/api/software-languages",
+              "/api/decision-questions",
               "/api/contact",
               "/api/briefs",
               "/api/activation-policy"
@@ -170,6 +175,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
             </div>
             <BriefIntakeForm dictionary={dict} services={services} />
           </div>
+          <DecisionQuestionsPanel />
         </section>
       )}
     </main>

@@ -148,6 +148,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
               <h3>{work.title}</h3>
               <p>{work.summary}</p>
               <span>{work.impact}</span>
+              <a className="text-link" href={`/portfolio/${work.id}`}>Project detail</a>
             </article>
           ))}
         </div>
@@ -192,6 +193,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
               <p>{study.challenge}</p>
               <p><strong>Solution:</strong> {study.solution}</p>
               <p><strong>Outcome:</strong> {study.outcome}</p>
+              <a className="text-link" href={`/case-studies/${study.slug}`}>Case detail</a>
             </article>
           ))}
         </div>

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "identity-positioning",
+    "title": "Kimlik Ve Konumlandirma",
+    "questions": [
+      "Emirhan Kudun markasi disaridan ilk bakista nasil hissedilmeli?",
+      "Kendini oncelikle tasarimci, full-stack gelistirici, creative technologist, SEIS kurucusu veya hibrit biri olarak mi gostermek istiyorsun?",
+      "Portfolyo daha cok musteri kazanmak icin mi, prestij icin mi, yatirim/is ortakligi icin mi?",
+      "Hedef kisi kim: ajans, startup, kurumsal sirket, sanat/yaratici cevre, global musteri?",
+      "Site ilk 5 saniyede hangi cumleyi dusundurmeli?",
+      "SEIS ziyaretciye acikca anlatilmali mi, yoksa gizemli premium bir sistem gibi mi durmali?",
+      "Kisisel marka mi onde olsun, SEIS ekosistemi mi?",
+      "Turkiye pazari mi global pazar mi oncelikli?",
+      "Site daha sanatsal mi, daha profesyonel mi, yoksa ikisinin dengesi mi?",
+      "Emirhan Kudun'un en guclu farki nedir?"
+    ]
+  },
+  {
+    "id": "visual-language",
+    "title": "Gorsel Dil",
+    "questions": [
+      "Genel atmosfer karanlik sinematik mi, acik premium mu?",
+      "Siyah/altin gibi luks bir palet mi, daha notr editorial palet mi?",
+      "Renkler sicak mi soguk mu hissettirsin?",
+      "Tipografi daha moda/editorial mi, teknoloji/sistem mi?",
+      "Buyuk basliklar cok iddiali mi, sakin ve kontrollu mu?",
+      "Arka planlar duz mu, dokulu/film grain/isik katmanli mi?",
+      "Cizimlerin site atmosferinde merkez rolu olsun mu?",
+      "Gorseller tam ekran ve dramatik mi, galeri duzeninde kontrollu mu?",
+      "Daha minimal mi, daha yogun kompozisyonlu mu?",
+      "Site luks ajans, sanatci portfolyosu veya AI-native sistem gibi mi hissettirsin?"
+    ]
+  },
+  {
+    "id": "three-d-motion",
+    "title": "3D Ve Animasyon",
+    "questions": [
+      "3D hero sahnesinde ne gorunmeli: soyut form, cizimlerden olusan galeri, mimari uzay, veri/sistem agi?",
+      "3D sahne surekli mi hareket etsin, scroll ile mi degissin?",
+      "Mouse hareketi sahneyi etkilemeli mi?",
+      "Mobilde 3D azaltilsin mi, ayni guclte mi kalsin?",
+      "Animasyonlar yavas ve sinematik mi, daha enerjik mi?",
+      "Kamera gecisleri film fragmani gibi mi, sakin galeri gibi mi?",
+      "3D objeler is kartlariyla etkilesime girsin mi?",
+      "Cizimler 3D mekanda sergilensin mi?",
+      "Runtime/MCP sistemi 3D ag gibi gorunsun mu?",
+      "Maksimum performans mi, maksimum gorsel etki mi oncelikli?"
+    ]
+  },
+  {
+    "id": "content",
+    "title": "Icerik",
+    "questions": [
+      "Ana dil Turkce mi Ingilizce mi acilsin?",
+      "TR/EN/FR/IT/DE dilleri hepsi tam aktif mi olsun?",
+      "Hakkinda bolumu kisisel hikaye mi, profesyonel manifesto mu?",
+      "Hizmetler net paketler gibi mi, yaratici disiplinler gibi mi sunulsun?",
+      "Full-stack tarafi tasarimin yaninda ne kadar gorunur olsun?",
+      "Yazilim yetenekleri acik teknoloji listesiyle mi gosterilsin?",
+      "UI/UX, branding, editorial, 3D, AI sistemleri ayri hizmetler mi olsun?",
+      "Case study'lerde surec detayli mi, kisa premium ozet mi?",
+      "Projelerde fiyat/calisma modeli gorunsun mu?",
+      "CV/deneyim bolumu eklensin mi?"
+    ]
+  },
+  {
+    "id": "portfolio-work",
+    "title": "Portfolyo Ve Isler",
+    "questions": [
+      "Hangi isler en ustte gorunmeli?",
+      "Cizimler ayri sanat galerisi mi, portfolyonun parcasi mi?",
+      "Her is icin problem/surec/sonuc formati ister misin?",
+      "Is kartlari daha gorsel mi, daha metin odakli mi?",
+      "Proje detay sayfalari uzun case study mi, kisa sinematik sayfa mi?",
+      "Selected Works sayisi az ve seckin mi, cok ve kapsamli mi?",
+      "Henuz tamamlanmamis isleri concept / exploration olarak gostermek ister misin?",
+      "Kod projeleri ve tasarim projeleri ayrilmali mi?",
+      "GitHub linkleri acikca gosterilsin mi?",
+      "Gorsel uretim/cizim surecin sergilensin mi?"
+    ]
+  },
+  {
+    "id": "runtime-mcp",
+    "title": "SEIS Runtime Ve MCP",
+    "questions": [
+      "/ops sayfasi herkese acik mi, daha gizli/teknik bir sayfa mi?",
+      "MCP/skill/plugin listesi ziyaretciye gosterilsin mi?",
+      "Runtime daha teknik dashboard mu, premium sistem vitrini mi?",
+      "Connector durumlari detayli mi, sade ozet mi?",
+      "needs_credentials gibi teknik ifadeler aynen gorunsun mu?",
+      "Harici servisler icin credential eksikleri acikca raporlansin mi?",
+      "MCP tarafi gercek operasyon konsolu gibi mi calissin?",
+      "Write/deploy/message gibi riskli araclar sadece manuel onayla mi kalsin?",
+      "Runtime bilgileri SEO'dan gizlensin mi?",
+      "SEIS'i gelecekte ayri urun/platform gibi buyutmek istiyor musun?"
+    ]
+  },
+  {
+    "id": "page-structure",
+    "title": "Sayfa Yapisi",
+    "questions": [
+      "Ana sayfa tek uzun sinematik deneyim mi olsun?",
+      "Ayri sayfalar korunmali mi: /portfolio, /drawings, /case-studies, /runtime, /ops, /contact?",
+      "Navbar sabit mi, scroll ile gizlenen sinematik bir nav mi?",
+      "Dil secici ustte gorunur mu, menu icinde mi?",
+      "Contact sayfasi basit email-first mi, gelismis brief formu mu?",
+      "Ana sayfada cizimler kacinci bolumde gelsin?",
+      "Runtime bolumu ana sayfada kucuk preview mu, buyuk bolum mu?",
+      "Footer sade mi, manifesto gibi guclu mu?",
+      "Blog/notlar bolumu ister misin?",
+      "Tasarim sistemi sayfasi ziyaretciye acik olsun mu?"
+    ]
+  },
+  {
+    "id": "interaction-ux",
+    "title": "Etkilesim Ve UX",
+    "questions": [
+      "Sayfa gecisleri animasyonlu mu olsun?",
+      "Hover efektleri belirgin mi, cok sakin mi?",
+      "Scroll deneyimi normal mi, sahne sahne sinematik mi?",
+      "Klavye erisilebilirligi kesin oncelik mi?",
+      "Reduced motion modunda site cok sadelessin mi?",
+      "Mobil deneyim masaustu kadar dramatik mi olsun?",
+      "Loading ekrani ister misin?",
+      "3D yuklenirken fallback gorsel olsun mu?",
+      "Ses/muzik kesinlikle olmasin mi?",
+      "Kullaniciyi yormayan maksimum hareket seviyesi ne?"
+    ]
+  },
+  {
+    "id": "technical-architecture",
+    "title": "Teknik Mimari",
+    "questions": [
+      "Ana uretim sitesi Next.js mi kalsin?",
+      "Vite preview mutlaka kalsin mi?",
+      "Static fallback korunmali mi?",
+      "Icerik JSON/TypeScript paketinde mi kalsin, ileride CMS'e hazir mi olsun?",
+      "Gorsel optimizasyon icin mevcut JPG'ler mi, WebP/AVIF donusumu mu?",
+      "Yeni dependency ekleme konusunda ne kadar serbest olayim?",
+      "Three.js yeterli mi, react-three-fiber ister misin?",
+      "Animasyon icin Framer Motion/GSAP ekleyelim mi?",
+      "API tarafi sadece local/status mu, gercek kayit sistemi mi?",
+      "Contact/brief formu dosyaya mi yazsin, sadece email yonlendirsin mi?"
+    ]
+  },
+  {
+    "id": "github-publish-governance",
+    "title": "GitHub, Yayin Ve Yonetim",
+    "questions": [
+      "Tek branch adi kesin codex/ux-cinematic-premium-foundation olsun mu?",
+      "Ilk commit buyuk foundation commit mi, yoksa kucuk parcalara bolunsun mu?",
+      "GitHub push icin sen gh auth login yapacak misin?",
+      "Vercel deploy hedefi var mi?",
+      "Domain emirhankudun.com olarak mi kaliyor?",
+      "README daha teknik mi, daha marka/premium sunumlu mu?",
+      "Docs klasoru sade mi kalsin, SEIS governance genislesin mi?",
+      "Guvenlik notlari ve credential politikasi gorunur olsun mu?",
+      "Yayin oncesi mutlaka browser screenshot dogrulamasi ister misin?",
+      "Bu isin sonunda en onemli basari olcutu ne: guzellik, hiz, profesyonellik, 3D etki, runtime gucu, GitHub duzeni, yoksa hepsi?"
+    ]
+  }
+]
