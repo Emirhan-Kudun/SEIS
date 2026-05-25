@@ -17,6 +17,7 @@
     "check:runtime": "node scripts/check-runtime.mjs",
     "check:source-boundaries": "node scripts/check-source-boundaries.mjs",
     "collect:mcp-readiness": "node scripts/collect-mcp-readiness.mjs",
+    "github:preflight": "node scripts/origin-push-preflight.mjs",
     "deploy:static:dry-run": "bash scripts/deploy-static.sh",
     "deploy:static:live": "bash scripts/deploy-static.sh --live"
   },

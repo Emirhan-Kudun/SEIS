@@ -20,10 +20,10 @@
     "scope": "Keeps the single SEIS branch recoverable outside the machine once GitHub auth is ready.",
     "requiresEnv": [],
     "targetUrl": "git@github.com:emirhankudun/emirhan-kudun-portfolio.git",
-    "command": "gh auth status -h github.com && git push -u origin codex/seis-ux-cinematic-premium-foundation",
+    "command": "npm run github:preflight && GIT_TERMINAL_PROMPT=0 git push -u origin codex/seis-ux-cinematic-premium-foundation",
     "persistence": "remote-git",
     "safety": "Push is blocked until GitHub CLI authentication is confirmed.",
-    "notes": "Current flow intentionally stops when gh auth is not logged in."
+    "notes": "Current flow intentionally stops when origin, branch cleanliness or gh auth is not ready."
   },
   {
     "id": "vercel-preview",

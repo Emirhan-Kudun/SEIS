@@ -30,9 +30,11 @@ DEPLOY_PATH=
 For GitHub, authenticate interactively:
 
 ```bash
+git remote add origin git@github.com:emirhankudun/emirhan-kudun-portfolio.git # only if origin is missing
 gh auth login -h github.com
 gh auth status -h github.com
-git push -u origin codex/seis-ux-cinematic-premium-foundation
+npm run github:preflight
+GIT_TERMINAL_PROMPT=0 git push -u origin codex/seis-ux-cinematic-premium-foundation
 ```
 
 For Vercel, the CLI path is:
@@ -63,6 +65,7 @@ npm run deploy:static:live
 
 - Build and check locally before publishing.
 - Keep `main` untouched until a reviewable branch is pushed.
+- Run `npm run github:preflight` before any GitHub push.
 - Do not run deploy, write, payment, message or server mutation actions without a concrete target and separate confirmation.
 - Treat missing credentials as `needs_credentials`, not as a crash.
 - Keep the static fallback publishable even if the Next.js runtime is unavailable.
