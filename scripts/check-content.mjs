@@ -61,11 +61,17 @@ if (!Array.isArray(content.behanceVisuals) || content.behanceVisuals.length < 6)
 }
 
 for (const visual of content.behanceVisuals || []) {
-  if (!visual.id || !visual.title || !visual.category || !visual.image || !visual.href) {
+  if (!visual.id || !visual.projectId || !visual.title || !visual.category || !visual.image || !visual.href || !visual.embedUrl || !visual.embedCode) {
     errors.push("Behance visual item is missing required fields.");
   }
   if (!visual.href.startsWith("https://www.behance.net/")) {
     errors.push(`${visual.id}: Behance visual href must stay on behance.net.`);
+  }
+  if (!visual.embedUrl.startsWith(`https://www.behance.net/embed/project/${visual.projectId}`)) {
+    errors.push(`${visual.id}: Behance visual embedUrl must use the official project embed route.`);
+  }
+  if (!visual.embedCode.includes(visual.embedUrl) || !visual.embedCode.includes("<iframe")) {
+    errors.push(`${visual.id}: Behance visual embedCode must include its iframe embedUrl.`);
   }
   if (!visual.image.startsWith("https://mir-s3-cdn-cf.behance.net/")) {
     errors.push(`${visual.id}: Behance visual image must use the Behance CDN.`);
@@ -73,14 +79,17 @@ for (const visual of content.behanceVisuals || []) {
 }
 
 for (const embed of content.behanceEmbeds || []) {
-  if (!embed.id || !embed.title || !embed.url || !embed.category || !embed.embedCode) {
+  if (!embed.id || !embed.projectId || !embed.title || !embed.url || !embed.embedUrl || !embed.category || !embed.embedCode) {
     errors.push("Behance embed is missing required fields.");
   }
   if (!embed.url.startsWith("https://www.behance.net/")) {
     errors.push(`${embed.id}: Behance URL must stay on behance.net.`);
   }
-  if (!embed.embedCode.includes("<iframe") || !embed.embedCode.includes("sandbox=")) {
-    errors.push(`${embed.id}: embedCode must include a sandboxed iframe.`);
+  if (!embed.embedUrl.startsWith(`https://www.behance.net/embed/project/${embed.projectId}`)) {
+    errors.push(`${embed.id}: embedUrl must use the official Behance project embed route.`);
+  }
+  if (!embed.embedCode.includes(embed.embedUrl) || !embed.embedCode.includes("<iframe")) {
+    errors.push(`${embed.id}: embedCode must include the Behance iframe embedUrl.`);
   }
 }
 

@@ -39,18 +39,24 @@ export type DrawingItem = {
 
 export type BehanceVisualItem = {
   id: string;
+  projectId: string;
   title: string;
   category: string;
   image: string;
   href: string;
+  embedUrl: string;
+  embedCode: string;
   notes: string;
   featured?: boolean;
 };
 
 export type BehanceEmbedItem = {
   id: string;
+  projectId: string;
   title: string;
   url: string;
+  embedUrl: string;
+  aspectRatio: string;
   category: string;
   notes: string;
   embedCode: string;

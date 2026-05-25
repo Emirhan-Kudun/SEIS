@@ -1,4 +1,5 @@
 import type { BehanceEmbedItem, LocalizedDictionary } from "@seis/content";
+import type { CSSProperties } from "react";
 
 type BehanceEmbedPanelProps = {
   dictionary: LocalizedDictionary;
@@ -24,6 +25,15 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
             <p className="kicker">{embed.category}</p>
             <h3>{embed.title}</h3>
             <p>{embed.notes}</p>
+            <div className="behance-embed-frame" style={{ "--embed-aspect": embed.aspectRatio } as CSSProperties}>
+              <iframe
+                src={embed.embedUrl}
+                title={`${embed.title} live Behance embed`}
+                loading="lazy"
+                allow="clipboard-write *; fullscreen *;"
+                allowFullScreen
+              />
+            </div>
             <pre aria-label={`${embed.title} embed code`}>
               <code>{embed.embedCode}</code>
             </pre>
