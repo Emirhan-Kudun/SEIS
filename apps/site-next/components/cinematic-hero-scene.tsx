@@ -113,6 +113,28 @@ export function CinematicHeroScene() {
     const innerCore = new THREE.Mesh(innerGeometry, innerMaterial);
     studio.add(innerCore);
 
+    const haloGeometry = new THREE.RingGeometry(1.08, 1.22, 96);
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xf0d79f,
+      opacity: 0.16,
+      side: THREE.DoubleSide,
+      transparent: true
+    });
+    const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+    halo.rotation.set(Math.PI * 0.52, 0.18, 0);
+    studio.add(halo);
+
+    const tealHaloMaterial = new THREE.MeshBasicMaterial({
+      color: 0x8fd5c8,
+      opacity: 0.1,
+      side: THREE.DoubleSide,
+      transparent: true
+    });
+    const tealHalo = new THREE.Mesh(haloGeometry, tealHaloMaterial);
+    tealHalo.rotation.set(Math.PI * 0.42, -0.24, Math.PI * 0.16);
+    tealHalo.scale.setScalar(1.32);
+    studio.add(tealHalo);
+
     const ringGeometry = new THREE.TorusGeometry(2.18, 0.012, 12, 180);
     const rings = [0, 1, 2, 3, 4, 5].map((index) => {
       const ring = new THREE.Mesh(
@@ -173,6 +195,30 @@ export function CinematicHeroScene() {
     lineGeometry.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
     const connectorLines = new THREE.LineSegments(lineGeometry, lineMaterial);
     constellation.add(connectorLines);
+
+    const beamGeometry = new THREE.BufferGeometry();
+    const beamPositions: number[] = [];
+    const beamCount = window.innerWidth < 760 ? 10 : 18;
+    for (let index = 0; index < beamCount; index += 1) {
+      const angle = index / beamCount * Math.PI * 2;
+      const radius = 2.8 + (index % 4) * 0.42;
+      beamPositions.push(
+        Math.cos(angle) * radius,
+        -1.7 + Math.sin(index * 0.7) * 0.38,
+        Math.sin(angle) * 1.8 - 1.8,
+        Math.cos(angle + 0.34) * (radius + 2.4),
+        1.5 + Math.cos(index * 0.6) * 0.5,
+        Math.sin(angle + 0.34) * 2.4 - 2.6
+      );
+    }
+    beamGeometry.setAttribute("position", new THREE.Float32BufferAttribute(beamPositions, 3));
+    const beamMaterial = new THREE.LineBasicMaterial({
+      color: 0xd6b16f,
+      opacity: 0.13,
+      transparent: true
+    });
+    const cinematicBeams = new THREE.LineSegments(beamGeometry, beamMaterial);
+    scene.add(cinematicBeams);
 
     const particleGeometry = new THREE.BufferGeometry();
     const particleCount = window.innerWidth < 760 ? 280 : 520;
@@ -286,11 +332,17 @@ export function CinematicHeroScene() {
       constellation.rotation.y = seconds * 0.11 * motionScale + depthShift * 0.58;
       particles.rotation.y = seconds * 0.052 * motionScale;
       tealParticles.rotation.y = -seconds * 0.037 * motionScale;
+      cinematicBeams.rotation.y = -seconds * 0.045 * motionScale + depthShift * 0.22;
+      cinematicBeams.rotation.z = Math.sin(seconds * 0.24) * 0.035 * motionScale;
       lowSweep.position.x = Math.sin(seconds * 0.7) * 3.2;
 
       core.rotation.y = seconds * 0.42 * motionScale;
       innerCore.rotation.x = -seconds * 0.54 * motionScale;
       innerCore.rotation.z = seconds * 0.38 * motionScale;
+      halo.rotation.z = seconds * 0.18 * motionScale;
+      tealHalo.rotation.z = -seconds * 0.14 * motionScale;
+      halo.scale.setScalar(1 + Math.sin(seconds * 1.1) * 0.04 * motionScale + depthShift * 0.1);
+      tealHalo.scale.setScalar(1.32 + Math.cos(seconds * 0.9) * 0.05 * motionScale);
 
       rings.forEach((ring, index) => {
         ring.rotation.z += (0.0027 + index * 0.0009) * motionScale;
@@ -334,6 +386,9 @@ export function CinematicHeroScene() {
       coreMaterial.dispose();
       innerGeometry.dispose();
       innerMaterial.dispose();
+      haloGeometry.dispose();
+      haloMaterial.dispose();
+      tealHaloMaterial.dispose();
       ringGeometry.dispose();
       rings.forEach((ring) => disposeMaterial(ring.material));
       cardGeometry.dispose();
@@ -343,6 +398,8 @@ export function CinematicHeroScene() {
       nodeMaterial.dispose();
       lineGeometry.dispose();
       lineMaterial.dispose();
+      beamGeometry.dispose();
+      beamMaterial.dispose();
       particleGeometry.dispose();
       disposeMaterial(particles.material);
       tealParticleGeometry.dispose();

@@ -9,7 +9,9 @@ const showcaseImages = [
   "/drawings/renk-04.jpg",
   "/drawings/karakalem-03.jpg",
   "/drawings/renk-05.jpg",
-  "/drawings/karakalem-08.jpg"
+  "/drawings/karakalem-08.jpg",
+  "/drawings/renk-01.jpg",
+  "/drawings/renk-10.jpg"
 ];
 
 function disposeMaterial(material: THREE.Material | THREE.Material[]) {
@@ -114,6 +116,16 @@ export function CinematicShowcaseScene() {
     secondRing.scale.setScalar(1.26);
     root.add(secondRing);
 
+    const thirdRingMaterial = new THREE.MeshBasicMaterial({
+      color: 0xf6e8c9,
+      opacity: 0.14,
+      transparent: true
+    });
+    const thirdRing = new THREE.Mesh(ringGeometry, thirdRingMaterial);
+    thirdRing.rotation.set(Math.PI * 0.62, -0.18, -Math.PI * 0.08);
+    thirdRing.scale.setScalar(1.54);
+    root.add(thirdRing);
+
     const gridGeometry = new THREE.BufferGeometry();
     const gridPositions: number[] = [];
     for (let i = -4; i <= 4; i += 1) {
@@ -148,6 +160,28 @@ export function CinematicShowcaseScene() {
     });
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     root.add(particles);
+
+    const rayGeometry = new THREE.BufferGeometry();
+    const rayPositions: number[] = [];
+    for (let index = 0; index < 14; index += 1) {
+      const angle = index / 14 * Math.PI * 2;
+      rayPositions.push(
+        Math.cos(angle) * 1.2,
+        -1.48 + Math.sin(index) * 0.16,
+        Math.sin(angle) * 0.72 - 0.72,
+        Math.cos(angle) * 4.6,
+        1.24 + Math.cos(index * 0.65) * 0.32,
+        Math.sin(angle) * 2.4 - 1.2
+      );
+    }
+    rayGeometry.setAttribute("position", new THREE.Float32BufferAttribute(rayPositions, 3));
+    const rayMaterial = new THREE.LineBasicMaterial({
+      color: 0xd6b16f,
+      opacity: 0.11,
+      transparent: true
+    });
+    const rays = new THREE.LineSegments(rayGeometry, rayMaterial);
+    root.add(rays);
 
     const nodeGeometry = new THREE.SphereGeometry(0.045, 12, 12);
     const glowMaterials = [0xf0d79f, 0xd6b16f, 0x8fd5c8, 0xf6e8c9].map((color) => (
@@ -190,7 +224,10 @@ export function CinematicShowcaseScene() {
       root.rotation.x = pointerY * -0.055 + Math.sin(seconds * 0.22) * 0.025 * motionScale;
       ring.rotation.z = seconds * 0.2 * motionScale;
       secondRing.rotation.z = -seconds * 0.15 * motionScale;
+      thirdRing.rotation.z = seconds * 0.11 * motionScale;
       particles.rotation.y = seconds * 0.075 * motionScale;
+      rays.rotation.y = -seconds * 0.052 * motionScale;
+      rays.position.y = Math.sin(seconds * 0.44) * 0.08 * motionScale;
       grid.position.z = Math.sin(seconds * 0.36) * 0.26 * motionScale;
 
       panels.forEach((panel, index) => {
@@ -236,10 +273,13 @@ export function CinematicShowcaseScene() {
       ringGeometry.dispose();
       ringMaterial.dispose();
       secondRingMaterial.dispose();
+      thirdRingMaterial.dispose();
       gridGeometry.dispose();
       gridMaterial.dispose();
       particleGeometry.dispose();
       particleMaterial.dispose();
+      rayGeometry.dispose();
+      rayMaterial.dispose();
       nodeGeometry.dispose();
       glowMaterials.forEach((material) => material.dispose());
       renderer.dispose();

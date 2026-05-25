@@ -446,6 +446,8 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
   isolation: isolate;
   animation: floatingGalleryCard 8s ease-in-out infinite;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
+  transition: border-color 450ms ease, box-shadow 450ms ease, transform 450ms ease;
 }
 .behance-visual-card:nth-child(2n) {
   animation-delay: -2.4s;
@@ -474,6 +476,11 @@ img { max-width: 100%; display: block; }
 .behance-visual-card:hover img {
   transform: scale(1.08);
   filter: saturate(1.05) contrast(1.12);
+}
+.behance-visual-card:hover {
+  border-color: rgba(214, 177, 111, 0.52);
+  box-shadow: 0 36px 92px rgba(0, 0, 0, 0.28);
+  transform: translateY(-3px);
 }
 .behance-visual-card span {
   display: grid;
@@ -711,6 +718,8 @@ img { max-width: 100%; display: block; }
   color: var(--text);
   text-decoration: none;
   isolation: isolate;
+  box-shadow: 0 28px 84px rgba(0, 0, 0, 0.18);
+  transition: border-color 450ms ease, box-shadow 450ms ease, transform 450ms ease;
 }
 .site-shell .portfolio-index-card {
   border-color: var(--line-dark);
@@ -735,8 +744,28 @@ img { max-width: 100%; display: block; }
   z-index: -1;
   background: linear-gradient(180deg, rgba(9, 9, 8, 0.03), rgba(9, 9, 8, 0.82));
 }
+.portfolio-index-card::before {
+  content: attr(data-source);
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  border: 1px solid rgba(240, 236, 228, 0.16);
+  background: rgba(8, 8, 7, 0.48);
+  color: var(--ivory-2);
+  padding: 0.24rem 0.42rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
 .portfolio-index-card:hover img {
   transform: scale(1.045);
+}
+.portfolio-index-card:hover {
+  border-color: rgba(214, 177, 111, 0.52);
+  box-shadow: 0 38px 100px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
 }
 .portfolio-index-card[data-source="work"]::after {
   background:
