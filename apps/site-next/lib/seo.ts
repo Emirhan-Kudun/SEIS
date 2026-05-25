@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { siteMeta } from "@seis/content";
+import { behanceVisuals, siteMeta, socialLinks, works } from "@seis/content";
 
 const siteName = "Emirhan Kudun Portfolio";
-const defaultImage = "/favicon.svg";
+const defaultImage = "/drawings/renk-11.jpg";
 
 export function absoluteUrl(path = "/") {
   const base = siteMeta.domain.replace(/\/$/, "");
@@ -56,6 +56,10 @@ export function buildPageMetadata({
 
 export function portfolioStructuredData() {
   const base = siteMeta.domain.replace(/\/$/, "");
+  const sameAs = socialLinks
+    .map((link) => link.href)
+    .filter((href) => href.startsWith("https://"));
+  const featuredBehance = behanceVisuals.filter((item) => item.featured).slice(0, 6);
 
   return [
     {
@@ -64,6 +68,7 @@ export function portfolioStructuredData() {
       name: siteMeta.author,
       url: base,
       email: siteMeta.email,
+      sameAs,
       address: {
         "@type": "PostalAddress",
         addressLocality: siteMeta.city,
@@ -101,7 +106,43 @@ export function portfolioStructuredData() {
         "@type": "Person",
         name: siteMeta.author
       },
+      image: featuredBehance.map((item) => item.image),
       genre: ["Portfolio", "UI/UX", "Branding", "Drawing", "Cinematic web"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Selected Behance and portfolio works",
+      url: absoluteUrl("/portfolio"),
+      numberOfItems: featuredBehance.length + works.length,
+      itemListElement: [
+        ...featuredBehance.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: item.href,
+          name: item.title,
+          item: {
+            "@type": "CreativeWork",
+            name: item.title,
+            url: item.href,
+            image: item.image,
+            genre: item.category
+          }
+        })),
+        ...works.map((work, index) => ({
+          "@type": "ListItem",
+          position: featuredBehance.length + index + 1,
+          url: absoluteUrl(`/portfolio/${work.id}`),
+          name: work.title,
+          item: {
+            "@type": "CreativeWork",
+            name: work.title,
+            url: absoluteUrl(`/portfolio/${work.id}`),
+            genre: work.tag,
+            abstract: work.summary
+          }
+        }))
+      ]
     }
   ];
 }

@@ -54,13 +54,19 @@ export const metadata: Metadata = {
     url: siteMeta.domain,
     title: siteMeta.title,
     description: siteMeta.description,
-    siteName: "Emirhan Kudun Portfolio"
+    siteName: "Emirhan Kudun Portfolio",
+    images: [
+      {
+        url: "/drawings/renk-11.jpg",
+        alt: "Emirhan Kudun portfolio drawing preview"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: siteMeta.title,
     description: siteMeta.description,
-    images: ["/favicon.svg"]
+    images: ["/drawings/renk-11.jpg"]
   },
   alternates: {
     canonical: "/",
