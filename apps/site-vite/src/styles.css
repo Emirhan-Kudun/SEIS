@@ -65,7 +65,7 @@ h1 {
   line-height: 0.9;
   margin: 0.5rem 0 1.5rem;
 }
-.hero span, article p, .runtime p, .visuals p, .contact-preview p {
+.hero span, article p, .runtime p, .visuals p, .contact-preview p, .lab-preview p {
   color: var(--muted);
 }
 .hero-metrics {
@@ -100,7 +100,8 @@ article, .runtime {
   padding: 1rem;
 }
 .visuals,
-.contact-preview {
+.contact-preview,
+.lab-preview {
   display: grid;
   gap: 1rem;
   padding: 3rem 0;
@@ -220,7 +221,37 @@ figcaption {
   line-height: 1;
   margin: 0 0 0.5rem;
 }
+.lab-grid,
+.quality-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.quality-mini-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.lab-grid h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+.quality-mini-grid strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
 @media (max-width: 780px) {
-  .grid, .drawings, .hero-metrics, .visual-grid, .contact-preview { grid-template-columns: 1fr; }
+  .grid,
+  .drawings,
+  .hero-metrics,
+  .visual-grid,
+  .contact-preview,
+  .lab-grid,
+  .quality-mini-grid {
+    grid-template-columns: 1fr;
+  }
   .nav { align-items: flex-start; flex-direction: column; padding: 1rem 0; }
 }

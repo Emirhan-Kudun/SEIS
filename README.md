@@ -1,13 +1,13 @@
 # SEIS Premium Portfolio + Active Runtime
 
-Calm, cinematic 3D portfolio system for Emirhan Kudun with Behance visuals, real Behance project iframe embeds, complete drawing archive, Q&A contact intake, deployment readiness, and a credential-aware SEIS runtime layer kept behind dedicated technical routes.
+Calm, cinematic 3D portfolio system for Emirhan Kudun with Behance visuals, real Behance project iframe embeds, complete drawing archive, long-term development lab, Q&A contact intake, deployment readiness, and a credential-aware SEIS runtime layer kept behind dedicated technical routes.
 
 ## Structure
 
 - `apps/site-next` - production Next.js App Router site and API routes.
 - `apps/site-vite` - lightweight React/Vite preview using the same content package.
 - `apps/static-fallback` - standalone HTML/CSS/JS fallback for low-dependency rollback.
-- `packages/content` - shared portfolio content, translations, drawings, Behance visuals, official Behance project embed codes, social links, Q&A, software language metadata, and SEO metadata.
+- `packages/content` - shared portfolio content, translations, drawings, Behance visuals, official Behance project embed codes, evolution tracks, quality standards, social links, Q&A, software language metadata, and SEO metadata.
 - `packages/runtime` - connector, skill, plugin, deployment target, and health status registry.
 - `runtime/` - ignored local JSONL capture directory for contact and brief submissions.
 
@@ -44,6 +44,7 @@ The main production candidate is `apps/site-next`. The Vite app is a small previ
 - `/api/scene-presets` exposes the 3D/reduced-motion/static scene modes as runtime metadata.
 - `/api/deployment-targets` exposes local, GitHub, Vercel, custom server and static fallback publish targets.
 - `/api/behance` exposes Behance project visuals and official `/embed/project` iframe code snippets for the portfolio layer.
+- `/api/evolution` exposes the long-term portfolio development tracks and quality standards.
 - `/api/software-languages` exposes the active and planned polyglot branch stack.
 - `/api/decision-questions` exposes the 100-question decision ledger so strategy decisions do not get lost in chat.
 - `/portfolio/[id]` provides shareable detail pages for selected works; legacy study URLs redirect back to the portfolio surface.

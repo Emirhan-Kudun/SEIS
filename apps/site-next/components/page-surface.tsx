@@ -4,7 +4,9 @@ import {
   behanceEmbeds,
   behanceVisuals,
   drawings,
+  evolutionTracks,
   getDictionary,
+  qualityStandards,
   services,
   works
 } from "@seis/content";
@@ -14,14 +16,16 @@ import { BehanceVisualGrid } from "./behance-visual-grid";
 import { BriefIntakeForm } from "./brief-intake-form";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
+import { EvolutionRoadmap } from "./evolution-roadmap";
 
-type PageMode = "portfolio" | "drawings" | "contact";
+type PageMode = "portfolio" | "drawings" | "lab" | "contact";
 
 const navItems = [
   ["/", "Home"],
   ["/portfolio", "Portfolio"],
   ["/#behance", "Behance"],
   ["/drawings", "Drawings"],
+  ["/lab", "Lab"],
   ["/contact", "Contact"]
 ] as const;
 
@@ -98,6 +102,12 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               </figure>
             ))}
           </div>
+        </section>
+      )}
+
+      {mode === "lab" && (
+        <section className="section page-hero lab-page">
+          <EvolutionRoadmap dictionary={dict} tracks={evolutionTracks} standards={qualityStandards} />
         </section>
       )}
 

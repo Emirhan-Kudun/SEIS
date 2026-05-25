@@ -87,6 +87,17 @@ article, .runtime, .contact, .behance {
   background: rgba(255, 255, 255, 0.035);
   padding: 1rem;
 }
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.lab-grid h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  line-height: 1;
+  margin: 0.45rem 0;
+}
 .behance-visuals {
   padding: clamp(4rem, 9vw, 8rem) 0;
   border-top: 1px solid var(--line);
@@ -252,6 +263,7 @@ article, .runtime, .contact, .behance {
   .hero-metrics,
   .embed-grid,
   .visual-grid,
+  .lab-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }

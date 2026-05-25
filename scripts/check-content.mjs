@@ -16,12 +16,18 @@ const requiredDictionaryKeys = [
   "qaTitle",
   "qaLead",
   "socialTitle",
+  "navLab",
+  "evolutionTitle",
+  "evolutionLead",
+  "qualityTitle",
+  "qualityLead",
   "languagesTitle",
   "languagesLead",
   "deployTitle",
   "deployLead"
 ];
 const validLanguageStatuses = new Set(["active", "planned"]);
+const validEvolutionStatuses = new Set(["live", "next", "planned"]);
 
 const errors = [];
 
@@ -101,6 +107,32 @@ if (!Array.isArray(content.contactQa) || content.contactQa.length < 4) {
   errors.push("Expected at least 4 contact Q&A records.");
 }
 
+if (!Array.isArray(content.evolutionTracks) || content.evolutionTracks.length < 4) {
+  errors.push("Expected at least 4 evolution track records.");
+}
+
+for (const track of content.evolutionTracks || []) {
+  if (!track.id || !track.title || !track.timeframe || !track.summary || !Array.isArray(track.focus)) {
+    errors.push("Evolution track is missing required fields.");
+  }
+  if (!validEvolutionStatuses.has(track.status)) {
+    errors.push(`${track.id}: invalid evolution status ${track.status}`);
+  }
+  if ((track.focus || []).length < 2) {
+    errors.push(`${track.id}: expected at least 2 focus items.`);
+  }
+}
+
+if (!Array.isArray(content.qualityStandards) || content.qualityStandards.length < 4) {
+  errors.push("Expected at least 4 quality standard records.");
+}
+
+for (const standard of content.qualityStandards || []) {
+  if (!standard.id || !standard.title || !standard.metric || !standard.summary) {
+    errors.push("Quality standard is missing required fields.");
+  }
+}
+
 if (!Array.isArray(content.softwareLanguages) || content.softwareLanguages.length < 8) {
   errors.push("Expected at least 8 software language records.");
 }
@@ -130,4 +162,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceVisuals.length} Behance visuals, ${content.behanceEmbeds.length} Behance embeds, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);
+console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceVisuals.length} Behance visuals, ${content.behanceEmbeds.length} Behance embeds, ${content.evolutionTracks.length} evolution tracks, ${content.qualityStandards.length} quality standards, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);

@@ -84,6 +84,22 @@ export type QuestionAnswerItem = {
   answer: string;
 };
 
+export type EvolutionTrackItem = {
+  id: string;
+  title: string;
+  timeframe: string;
+  status: "live" | "next" | "planned";
+  summary: string;
+  focus: string[];
+};
+
+export type QualityStandardItem = {
+  id: string;
+  title: string;
+  metric: string;
+  summary: string;
+};
+
 export type SeisContent = {
   locales: Locale[];
   site: SiteMeta;
@@ -96,6 +112,8 @@ export type SeisContent = {
   softwareLanguages: SoftwareLanguageItem[];
   socialLinks: SocialLinkItem[];
   contactQa: QuestionAnswerItem[];
+  evolutionTracks: EvolutionTrackItem[];
+  qualityStandards: QualityStandardItem[];
 };
 
 export const content = rawContent as SeisContent;
@@ -121,3 +139,5 @@ export const behanceEmbeds = content.behanceEmbeds;
 export const softwareLanguages = content.softwareLanguages;
 export const socialLinks = content.socialLinks;
 export const contactQa = content.contactQa;
+export const evolutionTracks = content.evolutionTracks;
+export const qualityStandards = content.qualityStandards;

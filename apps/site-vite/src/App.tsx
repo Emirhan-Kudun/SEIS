@@ -5,8 +5,10 @@ import {
   behanceVisuals,
   contactQa,
   drawings,
+  evolutionTracks,
   getDictionary,
   locales,
+  qualityStandards,
   services,
   siteMeta,
   socialLinks,
@@ -121,6 +123,31 @@ export function App() {
             <article key={item.id}>
               <h3>{item.question}</h3>
               <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="lab-preview">
+        <div>
+          <small>Lab / Long-term</small>
+          <h2>{dict.evolutionTitle}</h2>
+          <p>{dict.evolutionLead}</p>
+        </div>
+        <div className="lab-grid">
+          {evolutionTracks.map((track) => (
+            <article key={track.id}>
+              <small>{track.status} / {track.timeframe}</small>
+              <h3>{track.title}</h3>
+              <p>{track.summary}</p>
+            </article>
+          ))}
+        </div>
+        <div className="quality-mini-grid">
+          {qualityStandards.map((standard) => (
+            <article key={standard.id}>
+              <strong>{standard.title}</strong>
+              <p>{standard.metric}</p>
             </article>
           ))}
         </div>

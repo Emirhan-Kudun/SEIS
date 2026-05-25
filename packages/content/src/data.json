@@ -70,7 +70,12 @@
       "behanceVisualsLead": "Behance profilindeki gorsel isler ve mevcut cizimler ana sayfa ile portfolyo icinde birlikte gorunur.",
       "qaTitle": "Q&A ve hizli netlestirme",
       "qaLead": "Baslamadan once en sik sorulan noktalar: kapsam, teslim, Behance, cizim arsivi ve 3D performans.",
-      "socialTitle": "Sosyal baglantilar"
+      "socialTitle": "Sosyal baglantilar",
+      "navLab": "Lab",
+      "evolutionTitle": "Uzun sureli gelisim laboratuvari",
+      "evolutionLead": "Bu portfolyo tek seferlik bir vitrin degil; Behance, cizimler, 3D, servisler ve yayin hazirligi kontrollu fazlarla buyuyen bir yaratıcı sistemdir.",
+      "qualityTitle": "Kalite omurgasi",
+      "qualityLead": "Her yeni ekleme gorsel etki, performans, erisilebilirlik ve yayin guvenligiyle birlikte kontrol edilir."
     },
     "en": {
       "navHome": "Home",
@@ -126,7 +131,12 @@
       "behanceVisualsLead": "Visual works from the Behance profile and the drawing archive are visible together on the homepage and portfolio page.",
       "qaTitle": "Q&A and quick clarification",
       "qaLead": "The common starting points: scope, delivery, Behance, drawing archive and 3D performance.",
-      "socialTitle": "Social links"
+      "socialTitle": "Social links",
+      "navLab": "Lab",
+      "evolutionTitle": "Long-term development lab",
+      "evolutionLead": "This portfolio is not a one-off showcase; Behance, drawings, 3D, services and publishing readiness grow through controlled phases.",
+      "qualityTitle": "Quality spine",
+      "qualityLead": "Every addition is checked against visual impact, performance, accessibility and publish safety."
     },
     "fr": {
       "navHome": "Accueil",
@@ -182,7 +192,12 @@
       "behanceVisualsLead": "Les travaux Behance et les dessins existants apparaissent ensemble sur la page daccueil et le portfolio.",
       "qaTitle": "Q&A et clarification rapide",
       "qaLead": "Les points de depart: portee, livraison, Behance, archive de dessins et performance 3D.",
-      "socialTitle": "Liens sociaux"
+      "socialTitle": "Liens sociaux",
+      "navLab": "Lab",
+      "evolutionTitle": "Laboratoire de developpement long terme",
+      "evolutionLead": "Ce portfolio nest pas une vitrine unique; Behance, dessins, 3D, services et publication evoluent par phases controlees.",
+      "qualityTitle": "Colonne qualite",
+      "qualityLead": "Chaque ajout est verifie avec impact visuel, performance, accessibilite et securite de publication."
     },
     "it": {
       "navHome": "Home",
@@ -238,7 +253,12 @@
       "behanceVisualsLead": "I lavori visuali Behance e larchivio disegni sono visibili insieme in homepage e portfolio.",
       "qaTitle": "Q&A e chiarimento rapido",
       "qaLead": "I punti iniziali: scope, consegna, Behance, archivio disegni e performance 3D.",
-      "socialTitle": "Link social"
+      "socialTitle": "Link social",
+      "navLab": "Lab",
+      "evolutionTitle": "Laboratorio di sviluppo a lungo termine",
+      "evolutionLead": "Questo portfolio non e una vetrina singola; Behance, disegni, 3D, servizi e publishing crescono per fasi controllate.",
+      "qualityTitle": "Spina dorsale qualita",
+      "qualityLead": "Ogni aggiunta viene controllata su impatto visivo, performance, accessibilita e sicurezza di pubblicazione."
     },
     "de": {
       "navHome": "Start",
@@ -294,7 +314,12 @@
       "behanceVisualsLead": "Behance Arbeiten und das Zeichenarchiv erscheinen gemeinsam auf Startseite und Portfolio.",
       "qaTitle": "Q&A und schnelle Klarung",
       "qaLead": "Die wichtigsten Startpunkte: Umfang, Lieferung, Behance, Zeichenarchiv und 3D Performance.",
-      "socialTitle": "Social Links"
+      "socialTitle": "Social Links",
+      "navLab": "Lab",
+      "evolutionTitle": "Langfristiges Entwicklungslabor",
+      "evolutionLead": "Dieses Portfolio ist keine einmalige Vitrine; Behance, Zeichnungen, 3D, Services und Publishing wachsen in kontrollierten Phasen.",
+      "qualityTitle": "Qualitatsrueckgrat",
+      "qualityLead": "Jede Erweiterung wird gegen visuelle Wirkung, Performance, Barrierefreiheit und Publish-Sicherheit geprueft."
     }
   },
   "services": [
@@ -867,6 +892,94 @@
       "id": "communication",
       "question": "Iletisim nereden ilerler?",
       "answer": "En temiz yol email ve brief formu. Sosyal linkler kesif icin durur; proje netlestirme email uzerinden tutulur."
+    }
+  ],
+  "evolutionTracks": [
+    {
+      "id": "behance-gallery-system",
+      "title": "Behance gallery system",
+      "timeframe": "Live foundation",
+      "status": "live",
+      "summary": "Real Behance project visuals and iframe embed codes are now treated as first-class portfolio content.",
+      "focus": [
+        "Project embed hygiene",
+        "Visual grid rhythm",
+        "External profile continuity"
+      ]
+    },
+    {
+      "id": "drawing-archive-expansion",
+      "title": "Drawing archive expansion",
+      "timeframe": "Next refinement",
+      "status": "next",
+      "summary": "The drawing archive will evolve from a simple gallery into a curated visual research layer with stronger grouping and captions.",
+      "focus": [
+        "Featured sets",
+        "Material notes",
+        "Mobile gallery pacing"
+      ]
+    },
+    {
+      "id": "cinematic-motion-pass",
+      "title": "Cinematic motion pass",
+      "timeframe": "Next refinement",
+      "status": "next",
+      "summary": "3D motion can grow through stronger scene transitions while keeping reduced-motion and mobile performance intact.",
+      "focus": [
+        "Scroll-reactive camera",
+        "GPU-safe particles",
+        "Reduced-motion parity"
+      ]
+    },
+    {
+      "id": "contact-intake-routing",
+      "title": "Contact and brief routing",
+      "timeframe": "Planned",
+      "status": "planned",
+      "summary": "Brief capture remains local and email-first today, with a clean adapter path for database or mail delivery later.",
+      "focus": [
+        "Local JSONL safety",
+        "Email fallback",
+        "Future adapter boundary"
+      ]
+    },
+    {
+      "id": "publishing-readiness",
+      "title": "Publishing readiness",
+      "timeframe": "Planned",
+      "status": "planned",
+      "summary": "GitHub, Vercel and custom server publishing stay credential-aware so deployments do not require secrets in source.",
+      "focus": [
+        "Auth preflight",
+        "Vercel CLI path",
+        "Static fallback archive"
+      ]
+    }
+  ],
+  "qualityStandards": [
+    {
+      "id": "visual-impact",
+      "title": "Cinematic visual impact",
+      "metric": "Behance + drawings visible before deep navigation",
+      "summary": "The portfolio should immediately show real work, drawing material and atmospheric depth without becoming noisy."
+    },
+    {
+      "id": "performance",
+      "title": "Performance discipline",
+      "metric": "Build passes, mobile-safe 3D, lazy external media",
+      "summary": "3D and iframe embeds are allowed, but they must be lazy, bounded and supported by simpler fallback surfaces."
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessible motion and structure",
+      "metric": "Semantic sections, reduced-motion support, keyboard paths",
+      "summary": "The cinematic layer should never block reading, navigation, forms or assistive technologies."
+    },
+    {
+      "id": "publish-safety",
+      "title": "Publish safety",
+      "metric": "No secrets in source, auth checked before push/deploy",
+      "summary": "Deployment targets remain explicit and credential-aware, with rollback through static fallback and scoped commits."
     }
   ]
 }

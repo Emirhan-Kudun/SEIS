@@ -6,8 +6,10 @@ import {
   behanceEmbeds,
   behanceVisuals,
   drawings,
+  evolutionTracks,
   getDictionary,
   locales,
+  qualityStandards,
   resolveLocale,
   services,
   works,
@@ -20,6 +22,7 @@ import { BehanceVisualGrid } from "./behance-visual-grid";
 import { CinematicHeroScene } from "./cinematic-hero-scene";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
+import { EvolutionRoadmap } from "./evolution-roadmap";
 
 type ShellMode = "home";
 
@@ -28,6 +31,7 @@ const nav = [
   ["#portfolio", "navPortfolio"],
   ["#behance", "navBehance"],
   ["#drawings", "navDrawings"],
+  ["#lab", "navLab"],
   ["#contact", "navContact"]
 ] as const;
 
@@ -195,8 +199,12 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         </div>
       </section>
 
+      <section className="section evolution-section" id="lab">
+        <EvolutionRoadmap dictionary={dictionary} tracks={evolutionTracks} standards={qualityStandards} compact />
+      </section>
+
       <section className="section contact-section" id="contact">
-        <p className="eyebrow">06 / Contact</p>
+        <p className="eyebrow">07 / Contact</p>
         <h2>{dictionary.contactTitle}</h2>
         <p>{dictionary.contactLead}</p>
         <div className="contact-layout">
