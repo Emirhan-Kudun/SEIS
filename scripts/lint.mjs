@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const ignored = new Set([".git", "node_modules", ".next", "dist", "__MACOSX"]);
+const ignored = new Set([".git", ".serena", "node_modules", ".next", "dist", "__MACOSX"]);
 const extensions = new Set([".ts", ".tsx", ".js", ".mjs", ".css", ".html", ".json", ".md"]);
 const errors = [];
 
