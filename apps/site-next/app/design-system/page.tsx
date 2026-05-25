@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { getDictionary } from "@seis/content";
 import { designPrinciples, designTokenGroups } from "@seis/content/design-system";
 
 import { buildPageMetadata } from "../../lib/seo";
@@ -12,17 +13,19 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function DesignSystemPage() {
+  const dict = getDictionary("tr");
+
   return (
     <main className="page-shell">
-      <nav className="top-nav" aria-label="Primary navigation">
+      <nav className="top-nav" aria-label={dict.primaryNavigationLabel}>
         <Link href="/" className="brand">
           Emirhan Kudun
         </Link>
         <div className="nav-links">
-          <Link href="/portfolio">Portfolio</Link>
-          <Link href="/#behance">Behance</Link>
-          <Link href="/drawings">Drawings</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/portfolio">{dict.navPortfolio}</Link>
+          <Link href="/#behance">{dict.navBehance}</Link>
+          <Link href="/drawings">{dict.navDrawings}</Link>
+          <Link href="/contact">{dict.navContact}</Link>
         </div>
       </nav>
 

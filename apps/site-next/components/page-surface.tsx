@@ -64,7 +64,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
   return (
     <main className="page-shell" id="page-main-content">
       <a href="#page-content" className="skip-link">{dict.skipContent}</a>
-      <nav className="top-nav" aria-label="Primary navigation">
+      <nav className="top-nav" aria-label={dict.primaryNavigationLabel}>
         <Link href="/" className="brand">
           Emirhan Kudun
         </Link>

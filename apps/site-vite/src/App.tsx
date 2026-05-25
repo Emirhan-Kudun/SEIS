@@ -171,7 +171,7 @@ export function App() {
 
       <section className="portfolio-index">
         <div>
-          <small>Portfolio / Index</small>
+          <small>{dict.portfolioIndexEyebrow}</small>
           <h2>{dict.portfolioIndexTitle}</h2>
           <p>{dict.portfolioIndexLead}</p>
         </div>
@@ -205,7 +205,7 @@ export function App() {
 
       <section className="contact-preview">
         <div>
-          <small>Q&A / Contact</small>
+          <small>{dict.qaEyebrow}</small>
           <h2>{dict.qaTitle}</h2>
           <p>{dict.qaLead}</p>
           <a className="mail-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>

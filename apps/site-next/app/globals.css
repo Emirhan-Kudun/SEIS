@@ -1715,7 +1715,9 @@ summary:focus-visible {
 .qa-list {
   display: grid;
   gap: 0.65rem;
-  margin-top: 0.85rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 .qa-card {
   border: 1px solid var(--line);

@@ -83,21 +83,23 @@ export function ContactHub({ dictionary }: ContactHubProps) {
           </div>
         </div>
       </div>
-      <section className="qa-panel" aria-label={dictionary.qaTitle}>
-        <p className="eyebrow">Q&A</p>
-        <h3>{dictionary.qaTitle}</h3>
+      <section className="qa-panel" id="contact-qa" aria-labelledby="contact-qa-title">
+        <p className="eyebrow">{dictionary.qaEyebrow}</p>
+        <h3 id="contact-qa-title">{dictionary.qaTitle}</h3>
         <p>{dictionary.qaLead}</p>
-        <div className="qa-list" role="list">
+        <ul className="qa-list">
           {contactQa.map((item, index) => (
-            <details className="qa-card" key={item.id} open={index === 0} name="contact-qa">
-              <summary>
-                <span>{item.question}</span>
-                <span className="qa-toggle" aria-hidden="true" />
-              </summary>
-              <p>{item.answer}</p>
-            </details>
+            <li key={item.id}>
+              <details className="qa-card" open={index === 0} name="contact-qa">
+                <summary>
+                  <span>{item.question}</span>
+                  <span className="qa-toggle" aria-hidden="true" />
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </div>
   );

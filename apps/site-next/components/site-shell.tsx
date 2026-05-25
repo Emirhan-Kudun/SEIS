@@ -74,7 +74,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
   return (
     <main className="site-shell" data-mode={mode} id="main-content">
       <a href="#portfolio" className="skip-link">{dictionary.skipPortfolio}</a>
-      <nav className="top-nav" aria-label="Primary navigation">
+      <nav className="top-nav" aria-label={dictionary.primaryNavigationLabel}>
         <a href="#home" className="brand" aria-label="Emirhan Kudun home">
           Emirhan Kudun
         </a>
@@ -85,7 +85,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
             </a>
           ))}
         </div>
-        <div className="language-switcher" aria-label="Language selector">
+        <div className="language-switcher" aria-label={dictionary.languageSelectorLabel}>
           {locales.map((item) => (
             <button
               className={item === locale ? "active" : ""}
