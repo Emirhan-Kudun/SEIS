@@ -66,6 +66,21 @@ export type BehanceEmbedItem = {
   featured?: boolean;
 };
 
+export type PortfolioIndexSource = "behance" | "drawing" | "work";
+
+export type PortfolioIndexItem = {
+  id: string;
+  source: PortfolioIndexSource;
+  title: string;
+  category: string;
+  summary: string;
+  href: string;
+  image?: string;
+  featured?: boolean;
+  external?: boolean;
+  sortIndex: number;
+};
+
 export type SoftwareLanguageItem = {
   id: string;
   name: string;
@@ -144,3 +159,48 @@ export const socialLinks = content.socialLinks;
 export const contactQa = content.contactQa;
 export const evolutionTracks = content.evolutionTracks;
 export const qualityStandards = content.qualityStandards;
+
+export function buildPortfolioIndex(): PortfolioIndexItem[] {
+  const behanceItems = behanceVisuals.map((item, index): PortfolioIndexItem => ({
+    id: `behance-${item.id}`,
+    source: "behance",
+    title: item.title,
+    category: item.category,
+    summary: item.notes,
+    href: item.href,
+    image: item.image,
+    featured: item.featured,
+    external: true,
+    sortIndex: index + 1
+  }));
+
+  const drawingItems = drawings.map((drawing): PortfolioIndexItem => ({
+    id: `drawing-${drawing.id}`,
+    source: "drawing",
+    title: drawing.title,
+    category: drawing.category,
+    summary: `${drawing.tone} / ${drawing.archiveRole}`,
+    href: "/drawings",
+    image: drawing.src,
+    featured: drawing.featured,
+    sortIndex: 100 + drawing.sortIndex
+  }));
+
+  const workItems = works.map((work, index): PortfolioIndexItem => ({
+    id: `work-${work.id}`,
+    source: "work",
+    title: work.title,
+    category: work.tag,
+    summary: `${work.summary} ${work.impact}`,
+    href: `/portfolio/${work.id}`,
+    featured: index < 4,
+    sortIndex: 200 + index
+  }));
+
+  return [...behanceItems, ...drawingItems, ...workItems].sort((a, b) => {
+    if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1;
+    return a.sortIndex - b.sortIndex;
+  });
+}
+
+export const portfolioIndex = buildPortfolioIndex();

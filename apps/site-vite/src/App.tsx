@@ -8,6 +8,7 @@ import {
   evolutionTracks,
   getDictionary,
   locales,
+  portfolioIndex,
   qualityStandards,
   services,
   siteMeta,
@@ -88,6 +89,29 @@ export function App() {
               <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" />
               <span>
                 <small>{item.category}</small>
+                <strong>{item.title}</strong>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="portfolio-index">
+        <div>
+          <small>Portfolio / Index</small>
+          <h2>{dict.portfolioIndexTitle}</h2>
+          <p>{dict.portfolioIndexLead}</p>
+        </div>
+        <div className="portfolio-index-grid">
+          {portfolioIndex.slice(0, 12).map((item) => (
+            <a className="portfolio-index-card" data-source={item.source} href={item.href} key={item.id}>
+              {item.image ? (
+                <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" />
+              ) : (
+                <span className="portfolio-index-monogram">{item.title.slice(0, 2)}</span>
+              )}
+              <span>
+                <small>{item.source} / {item.category}</small>
                 <strong>{item.title}</strong>
               </span>
             </a>

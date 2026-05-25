@@ -9,6 +9,7 @@ import {
   evolutionTracks,
   getDictionary,
   locales,
+  portfolioIndex,
   qualityStandards,
   resolveLocale,
   services,
@@ -24,6 +25,7 @@ import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
+import { PortfolioIndex } from "./portfolio-index";
 
 type ShellMode = "home";
 
@@ -169,6 +171,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
             </article>
           ))}
         </div>
+        <PortfolioIndex dictionary={dictionary} items={portfolioIndex} compact />
       </section>
 
       <section className="section behance-section" id="behance">

@@ -1,0 +1,125 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+import type { LocalizedDictionary, PortfolioIndexItem } from "@seis/content";
+
+type PortfolioIndexProps = {
+  dictionary: LocalizedDictionary;
+  items: PortfolioIndexItem[];
+  compact?: boolean;
+};
+
+type PortfolioFilter = "all" | "featured" | PortfolioIndexItem["source"];
+
+const sourceLabel: Record<PortfolioIndexItem["source"], string> = {
+  behance: "Behance",
+  drawing: "Drawing",
+  work: "Work"
+};
+
+function countFor(filter: PortfolioFilter, items: PortfolioIndexItem[]) {
+  if (filter === "all") return items.length;
+  if (filter === "featured") return items.filter((item) => item.featured).length;
+  return items.filter((item) => item.source === filter).length;
+}
+
+export function PortfolioIndex({ dictionary, items, compact = false }: PortfolioIndexProps) {
+  const [activeFilter, setActiveFilter] = useState<PortfolioFilter>("all");
+  const [query, setQuery] = useState("");
+  const filters = useMemo(
+    () => [
+      { id: "all" as const, label: dictionary.portfolioFilterAll },
+      { id: "featured" as const, label: dictionary.portfolioFilterFeatured },
+      { id: "behance" as const, label: dictionary.portfolioFilterBehance },
+      { id: "drawing" as const, label: dictionary.portfolioFilterDrawings },
+      { id: "work" as const, label: dictionary.portfolioFilterWork }
+    ],
+    [dictionary]
+  );
+
+  const visibleItems = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    const filtered = items.filter((item) => {
+      const matchesFilter =
+        activeFilter === "all" ||
+        (activeFilter === "featured" ? item.featured : item.source === activeFilter);
+      const matchesQuery =
+        !normalizedQuery ||
+        [item.title, item.category, item.summary, item.source].some((value) =>
+          value.toLowerCase().includes(normalizedQuery)
+        );
+
+      return matchesFilter && matchesQuery;
+    });
+
+    return compact ? filtered.slice(0, 12) : filtered;
+  }, [activeFilter, compact, items, query]);
+
+  return (
+    <section className="portfolio-index" data-compact={compact} aria-labelledby="portfolio-index-title">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Portfolio / Index</p>
+          <h2 id="portfolio-index-title">{dictionary.portfolioIndexTitle}</h2>
+        </div>
+        <p>{dictionary.portfolioIndexLead}</p>
+      </div>
+
+      <div className="portfolio-index-controls">
+        <div className="portfolio-index-filters" aria-label="Portfolio index filters">
+          {filters.map((filter) => (
+            <button
+              aria-pressed={activeFilter === filter.id}
+              className={activeFilter === filter.id ? "active" : ""}
+              key={filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              type="button"
+            >
+              <span>{filter.label}</span>
+              <strong>{countFor(filter.id, items)}</strong>
+            </button>
+          ))}
+        </div>
+        <label className="portfolio-search">
+          <span>{dictionary.portfolioSearchLabel}</span>
+          <input
+            aria-label={dictionary.portfolioSearchLabel}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={dictionary.portfolioSearchPlaceholder}
+            type="search"
+            value={query}
+          />
+        </label>
+      </div>
+
+      {visibleItems.length > 0 ? (
+        <div className="portfolio-index-grid">
+          {visibleItems.map((item) => (
+            <a
+              className="portfolio-index-card"
+              data-source={item.source}
+              href={item.href}
+              key={item.id}
+              rel={item.external ? "noreferrer" : undefined}
+              target={item.external ? "_blank" : undefined}
+            >
+              {item.image ? (
+                <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" />
+              ) : (
+                <span className="portfolio-index-monogram">{item.title.slice(0, 2)}</span>
+              )}
+              <span className="portfolio-index-card-copy">
+                <small>{sourceLabel[item.source]} / {item.category}</small>
+                <strong>{item.title}</strong>
+                <em>{dictionary.portfolioOpenItem}</em>
+              </span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p className="portfolio-index-empty">{dictionary.portfolioIndexEmpty}</p>
+      )}
+    </section>
+  );
+}

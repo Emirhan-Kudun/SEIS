@@ -80,7 +80,18 @@
       "drawingFilterFeatured": "Secili",
       "drawingFilterGraphite": "Karakalem",
       "drawingFilterColor": "Renk",
-      "drawingArchiveLead": "Cizimler artik filtrelenebilir bir arsiv gibi calisir; secili isler, karakalem etutler ve renk calismalari ayni sistemde okunur."
+      "drawingArchiveLead": "Cizimler artik filtrelenebilir bir arsiv gibi calisir; secili isler, karakalem etutler ve renk calismalari ayni sistemde okunur.",
+      "portfolioIndexTitle": "Birlesik portfolyo indeksi",
+      "portfolioIndexLead": "Behance projeleri, cizimler ve secili isler tek filtrelenebilir yuzeyde toplanir; portfolyo uzun vadede kaybolmadan genisler.",
+      "portfolioFilterAll": "Tum portfolyo",
+      "portfolioFilterFeatured": "Secili",
+      "portfolioFilterBehance": "Behance",
+      "portfolioFilterDrawings": "Cizimler",
+      "portfolioFilterWork": "Isler",
+      "portfolioSearchLabel": "Portfolyo ara",
+      "portfolioSearchPlaceholder": "Behance, poster, cizim, marka...",
+      "portfolioOpenItem": "Ac",
+      "portfolioIndexEmpty": "Bu filtrede henuz sonuc yok."
     },
     "en": {
       "navHome": "Home",
@@ -146,7 +157,18 @@
       "drawingFilterFeatured": "Featured",
       "drawingFilterGraphite": "Graphite",
       "drawingFilterColor": "Color",
-      "drawingArchiveLead": "The drawing surface now behaves like a filterable archive: featured work, graphite studies and color explorations stay in one system."
+      "drawingArchiveLead": "The drawing surface now behaves like a filterable archive: featured work, graphite studies and color explorations stay in one system.",
+      "portfolioIndexTitle": "Unified portfolio index",
+      "portfolioIndexLead": "Behance projects, drawings and selected work live in one filterable surface so the portfolio can grow without losing structure.",
+      "portfolioFilterAll": "All portfolio",
+      "portfolioFilterFeatured": "Featured",
+      "portfolioFilterBehance": "Behance",
+      "portfolioFilterDrawings": "Drawings",
+      "portfolioFilterWork": "Work",
+      "portfolioSearchLabel": "Search portfolio",
+      "portfolioSearchPlaceholder": "Behance, poster, drawing, brand...",
+      "portfolioOpenItem": "Open",
+      "portfolioIndexEmpty": "No results in this filter yet."
     },
     "fr": {
       "navHome": "Accueil",
@@ -212,7 +234,18 @@
       "drawingFilterFeatured": "Selection",
       "drawingFilterGraphite": "Graphite",
       "drawingFilterColor": "Couleur",
-      "drawingArchiveLead": "La surface de dessins devient une archive filtrable: selection, etudes graphite et couleur restent dans un meme systeme."
+      "drawingArchiveLead": "La surface de dessins devient une archive filtrable: selection, etudes graphite et couleur restent dans un meme systeme.",
+      "portfolioIndexTitle": "Index portfolio unifie",
+      "portfolioIndexLead": "Projets Behance, dessins et travaux selectionnes vivent dans une surface filtrable pour grandir sans perdre la structure.",
+      "portfolioFilterAll": "Tout le portfolio",
+      "portfolioFilterFeatured": "Selection",
+      "portfolioFilterBehance": "Behance",
+      "portfolioFilterDrawings": "Dessins",
+      "portfolioFilterWork": "Travaux",
+      "portfolioSearchLabel": "Rechercher portfolio",
+      "portfolioSearchPlaceholder": "Behance, poster, dessin, marque...",
+      "portfolioOpenItem": "Ouvrir",
+      "portfolioIndexEmpty": "Aucun resultat pour ce filtre."
     },
     "it": {
       "navHome": "Home",
@@ -278,7 +311,18 @@
       "drawingFilterFeatured": "Selezionati",
       "drawingFilterGraphite": "Grafite",
       "drawingFilterColor": "Colore",
-      "drawingArchiveLead": "La sezione disegni diventa un archivio filtrabile: lavori selezionati, studi a grafite e colore restano nello stesso sistema."
+      "drawingArchiveLead": "La sezione disegni diventa un archivio filtrabile: lavori selezionati, studi a grafite e colore restano nello stesso sistema.",
+      "portfolioIndexTitle": "Indice portfolio unificato",
+      "portfolioIndexLead": "Progetti Behance, disegni e lavori selezionati vivono in una superficie filtrabile per crescere senza perdere struttura.",
+      "portfolioFilterAll": "Tutto il portfolio",
+      "portfolioFilterFeatured": "Selezione",
+      "portfolioFilterBehance": "Behance",
+      "portfolioFilterDrawings": "Disegni",
+      "portfolioFilterWork": "Lavori",
+      "portfolioSearchLabel": "Cerca portfolio",
+      "portfolioSearchPlaceholder": "Behance, poster, disegno, brand...",
+      "portfolioOpenItem": "Apri",
+      "portfolioIndexEmpty": "Nessun risultato per questo filtro."
     },
     "de": {
       "navHome": "Start",
@@ -344,7 +388,18 @@
       "drawingFilterFeatured": "Ausgewahlt",
       "drawingFilterGraphite": "Graphit",
       "drawingFilterColor": "Farbe",
-      "drawingArchiveLead": "Die Zeichnungsflache wird zu einem filterbaren Archiv: Auswahl, Graphitstudien und Farbarbeiten bleiben in einem System."
+      "drawingArchiveLead": "Die Zeichnungsflache wird zu einem filterbaren Archiv: Auswahl, Graphitstudien und Farbarbeiten bleiben in einem System.",
+      "portfolioIndexTitle": "Einheitlicher Portfolio-Index",
+      "portfolioIndexLead": "Behance-Projekte, Zeichnungen und ausgewahlte Arbeiten liegen in einer filterbaren Oberflache, damit das Portfolio strukturiert wachsen kann.",
+      "portfolioFilterAll": "Ganzes Portfolio",
+      "portfolioFilterFeatured": "Auswahl",
+      "portfolioFilterBehance": "Behance",
+      "portfolioFilterDrawings": "Zeichnungen",
+      "portfolioFilterWork": "Arbeiten",
+      "portfolioSearchLabel": "Portfolio suchen",
+      "portfolioSearchPlaceholder": "Behance, Poster, Zeichnung, Marke...",
+      "portfolioOpenItem": "Offnen",
+      "portfolioIndexEmpty": "Keine Ergebnisse fur diesen Filter."
     }
   },
   "services": [

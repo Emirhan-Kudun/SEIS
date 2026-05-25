@@ -6,6 +6,7 @@ import {
   drawings,
   evolutionTracks,
   getDictionary,
+  portfolioIndex,
   qualityStandards,
   services,
   works
@@ -18,6 +19,7 @@ import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
+import { PortfolioIndex } from "./portfolio-index";
 
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
 
@@ -66,6 +68,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           </div>
           <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
+          <PortfolioIndex dictionary={dict} items={portfolioIndex} />
           <div className="featured-strip" aria-label="Portfolio drawing selection">
             {featuredDrawings.map((drawing) => (
               <figure className="featured-drawing" key={drawing.id}>
