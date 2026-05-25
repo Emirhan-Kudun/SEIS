@@ -45,6 +45,20 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
   const dictionary = useMemo(() => getDictionary(locale), [locale]);
   const featuredDrawings = useMemo(() => drawings.filter((drawing) => drawing.featured).slice(0, 8), []);
   const portfolioDrawings = useMemo(() => drawings.filter((drawing) => drawing.featured).slice(0, 6), []);
+  const studioTiles = useMemo(() => [
+    ...behanceVisuals.filter((item) => item.featured).slice(0, 2).map((item) => ({
+      id: `behance-${item.id}`,
+      image: item.image,
+      title: item.title,
+      meta: `Behance / ${item.category}`
+    })),
+    ...featuredDrawings.slice(0, 2).map((drawing) => ({
+      id: `drawing-${drawing.id}`,
+      image: drawing.src,
+      title: drawing.title,
+      meta: `Drawing / ${drawing.category}`
+    }))
+  ], [featuredDrawings]);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("seis-locale");
@@ -131,11 +145,14 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         </div>
         <div className="studio-showcase">
           <CinematicShowcaseScene />
-          <div className="studio-rail" aria-label="Featured drawing orbit">
-            {featuredDrawings.slice(0, 4).map((drawing) => (
-              <article className="studio-tile" key={drawing.id}>
-                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
-                <span>{drawing.title}</span>
+          <div className="studio-rail" aria-label="Featured Behance and drawing orbit">
+            {studioTiles.map((tile) => (
+              <article className="studio-tile" key={tile.id}>
+                <img src={tile.image} alt={`${tile.title} - ${tile.meta}`} loading="lazy" />
+                <span>
+                  <small>{tile.meta}</small>
+                  {tile.title}
+                </span>
               </article>
             ))}
           </div>

@@ -37,6 +37,22 @@ const navItems = [
 export function PageSurface({ mode }: { mode: PageMode }) {
   const dict = getDictionary("en");
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 8);
+  const motionPortfolioCards = [
+    ...behanceVisuals.filter((item) => item.featured).slice(0, 3).map((item) => ({
+      id: `behance-${item.id}`,
+      image: item.image,
+      title: item.title,
+      meta: `Behance / ${item.category}`,
+      source: "behance"
+    })),
+    ...featuredDrawings.slice(0, 3).map((drawing) => ({
+      id: `drawing-${drawing.id}`,
+      image: drawing.src,
+      title: drawing.title,
+      meta: `Drawing / ${drawing.category}`,
+      source: "drawing"
+    }))
+  ];
 
   return (
     <main className="page-shell">
@@ -59,11 +75,14 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <h1>Behance, drawing archive and selected visual systems in one cinematic portfolio.</h1>
           <div className="studio-showcase portfolio-3d-showcase">
             <CinematicShowcaseScene />
-            <div className="portfolio-3d-cards" aria-label="Animated drawing gallery">
-              {featuredDrawings.slice(0, 6).map((drawing) => (
-                <figure className="portfolio-3d-card" key={`motion-${drawing.id}`}>
-                  <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
-                  <figcaption>{drawing.title}</figcaption>
+            <div className="portfolio-3d-cards" aria-label="Animated Behance and drawing gallery">
+              {motionPortfolioCards.map((card) => (
+                <figure className="portfolio-3d-card" data-source={card.source} key={card.id}>
+                  <img src={card.image} alt={`${card.title} - ${card.meta}`} loading="lazy" />
+                  <figcaption>
+                    <strong>{card.title}</strong>
+                    <span>{card.meta}</span>
+                  </figcaption>
                 </figure>
               ))}
             </div>
