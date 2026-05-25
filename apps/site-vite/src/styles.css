@@ -100,6 +100,7 @@ article, .runtime {
   padding: 1rem;
 }
 .visuals,
+.collections,
 .portfolio-index,
 .contact-preview,
 .lab-preview {
@@ -147,6 +148,58 @@ article, .runtime {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.15rem, 2vw, 1.75rem);
   line-height: 1;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.collection-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  min-height: 100%;
+}
+.collection-grid article[data-accent="gold"] { --collection-accent: var(--accent); }
+.collection-grid article[data-accent="teal"] { --collection-accent: var(--accent-2); }
+.collection-grid article[data-accent="ivory"] { --collection-accent: var(--ivory); }
+.collection-media {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.62fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 230px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--graphite);
+}
+.collection-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent, rgba(9, 9, 8, 0.62)),
+    radial-gradient(circle at 18% 16%, rgba(214, 177, 111, 0.2), transparent 36%);
+  pointer-events: none;
+}
+.collection-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 115px;
+  object-fit: cover;
+}
+.collection-media img:first-child {
+  grid-row: 1 / span 2;
+}
+.collection-grid h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1;
+}
+.collection-grid small {
+  color: var(--collection-accent);
 }
 .portfolio-index-grid {
   display: grid;
@@ -308,6 +361,7 @@ figcaption span {
   .drawings,
   .hero-metrics,
   .visual-grid,
+  .collection-grid,
   .portfolio-index-grid,
   .contact-preview,
   .lab-grid,

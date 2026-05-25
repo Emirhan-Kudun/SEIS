@@ -6,6 +6,7 @@ import {
   drawings,
   evolutionTracks,
   getDictionary,
+  portfolioCollections,
   portfolioIndex,
   qualityStandards,
   services,
@@ -19,6 +20,7 @@ import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
+import { PortfolioCollections } from "./portfolio-collections";
 import { PortfolioIndex } from "./portfolio-index";
 
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
@@ -66,6 +68,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               ))}
             </div>
           </div>
+          <PortfolioCollections dictionary={dict} collections={portfolioCollections} />
           <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <PortfolioIndex dictionary={dict} items={portfolioIndex} />

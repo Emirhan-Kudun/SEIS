@@ -8,6 +8,7 @@ import {
   evolutionTracks,
   getDictionary,
   locales,
+  portfolioCollections,
   portfolioIndex,
   qualityStandards,
   services,
@@ -92,6 +93,28 @@ export function App() {
                 <strong>{item.title}</strong>
               </span>
             </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="collections">
+        <div>
+          <small>{dict.portfolioCollectionsEyebrow}</small>
+          <h2>{dict.portfolioCollectionsTitle}</h2>
+          <p>{dict.portfolioCollectionsLead}</p>
+        </div>
+        <div className="collection-grid">
+          {portfolioCollections.slice(0, 3).map((collection) => (
+            <article data-accent={collection.accent} key={collection.id}>
+              <div className="collection-media">
+                {collection.images.slice(0, 3).map((image) => (
+                  <img src={image} alt={collection.title} loading="lazy" key={image} />
+                ))}
+              </div>
+              <small>{collection.tone}</small>
+              <h3>{collection.title}</h3>
+              <p>{collection.summary}</p>
+            </article>
           ))}
         </div>
       </section>

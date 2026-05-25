@@ -9,6 +9,7 @@ import {
   evolutionTracks,
   getDictionary,
   locales,
+  portfolioCollections,
   portfolioIndex,
   qualityStandards,
   resolveLocale,
@@ -25,6 +26,7 @@ import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
+import { PortfolioCollections } from "./portfolio-collections";
 import { PortfolioIndex } from "./portfolio-index";
 
 type ShellMode = "home";
@@ -143,6 +145,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       <section className="section editorial-section" id="portfolio">
         <p className="eyebrow">03 / Portfolio</p>
         <h2>{dictionary.worksTitle}</h2>
+        <PortfolioCollections dictionary={dictionary} collections={portfolioCollections} compact />
         <div className="portfolio-feature-layout" aria-label="Behance and drawing portfolio highlights">
           <div className="portfolio-behance-callout">
             <p className="eyebrow">Behance / Portfolio</p>

@@ -106,6 +106,10 @@ article, .runtime, .contact, .behance {
   padding: clamp(4rem, 9vw, 8rem) 0;
   border-top: 1px solid var(--line);
 }
+.collections {
+  padding: clamp(4rem, 9vw, 8rem) 0;
+  border-top: 1px solid var(--line);
+}
 .visual-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -184,6 +188,61 @@ article, .runtime, .contact, .behance {
   color: var(--accent);
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 0.68rem;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.collection-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  min-height: 100%;
+}
+.collection-grid article[data-accent="gold"] { --collection-accent: var(--accent); }
+.collection-grid article[data-accent="teal"] { --collection-accent: #8fd5c8; }
+.collection-grid article[data-accent="ivory"] { --collection-accent: #ede6d8; }
+.collection-media {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.62fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 230px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #181b1d;
+}
+.collection-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent, rgba(9, 9, 8, 0.62)),
+    radial-gradient(circle at 18% 16%, rgba(214, 177, 111, 0.2), transparent 36%);
+  pointer-events: none;
+}
+.collection-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 115px;
+  object-fit: cover;
+}
+.collection-media img:first-child {
+  grid-row: 1 / span 2;
+}
+.collection-grid h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1;
+}
+.collection-grid small {
+  color: var(--collection-accent);
+}
+.collection-grid p {
+  margin: 0;
 }
 .embed-grid {
   display: grid;
@@ -327,6 +386,7 @@ article, .runtime, .contact, .behance {
   .embed-grid,
   .visual-grid,
   .index-grid,
+  .collection-grid,
   .lab-grid,
   .contact-grid {
     grid-template-columns: 1fr;

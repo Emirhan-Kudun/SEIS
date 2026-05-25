@@ -81,6 +81,17 @@ export type PortfolioIndexItem = {
   sortIndex: number;
 };
 
+export type PortfolioCollectionItem = {
+  id: string;
+  title: string;
+  summary: string;
+  tone: string;
+  href: string;
+  images: string[];
+  proof: string[];
+  accent: "gold" | "teal" | "ivory";
+};
+
 export type SoftwareLanguageItem = {
   id: string;
   name: string;
@@ -127,6 +138,7 @@ export type SeisContent = {
   drawings: DrawingItem[];
   behanceVisuals: BehanceVisualItem[];
   behanceEmbeds: BehanceEmbedItem[];
+  portfolioCollections: PortfolioCollectionItem[];
   softwareLanguages: SoftwareLanguageItem[];
   socialLinks: SocialLinkItem[];
   contactQa: QuestionAnswerItem[];
@@ -154,6 +166,7 @@ export const works = content.works;
 export const drawings = content.drawings;
 export const behanceVisuals = content.behanceVisuals;
 export const behanceEmbeds = content.behanceEmbeds;
+export const portfolioCollections = content.portfolioCollections;
 export const softwareLanguages = content.softwareLanguages;
 export const socialLinks = content.socialLinks;
 export const contactQa = content.contactQa;

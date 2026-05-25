@@ -91,7 +91,12 @@
       "portfolioSearchLabel": "Portfolyo ara",
       "portfolioSearchPlaceholder": "Behance, poster, cizim, marka...",
       "portfolioOpenItem": "Ac",
-      "portfolioIndexEmpty": "Bu filtrede henuz sonuc yok."
+      "portfolioIndexEmpty": "Bu filtrede henuz sonuc yok.",
+      "portfolioCollectionsTitle": "Portfolyo koleksiyonlari",
+      "portfolioCollectionsLead": "Website artik tek bir vitrin degil; Behance isleri, cizimler, marka/editorial sistemler ve 3D web dili uzun sure korunacak koleksiyonlara ayrilir.",
+      "portfolioCollectionsEyebrow": "Portfolio / Collections",
+      "portfolioCollectionProof": "Kanit",
+      "portfolioCollectionOpen": "Koleksiyonu ac"
     },
     "en": {
       "navHome": "Home",
@@ -168,7 +173,12 @@
       "portfolioSearchLabel": "Search portfolio",
       "portfolioSearchPlaceholder": "Behance, poster, drawing, brand...",
       "portfolioOpenItem": "Open",
-      "portfolioIndexEmpty": "No results in this filter yet."
+      "portfolioIndexEmpty": "No results in this filter yet.",
+      "portfolioCollectionsTitle": "Portfolio collections",
+      "portfolioCollectionsLead": "The website now works as more than a showcase: Behance work, drawings, brand/editorial systems and 3D web language are grouped into durable collections.",
+      "portfolioCollectionsEyebrow": "Portfolio / Collections",
+      "portfolioCollectionProof": "Proof",
+      "portfolioCollectionOpen": "Open collection"
     },
     "fr": {
       "navHome": "Accueil",
@@ -245,7 +255,12 @@
       "portfolioSearchLabel": "Rechercher portfolio",
       "portfolioSearchPlaceholder": "Behance, poster, dessin, marque...",
       "portfolioOpenItem": "Ouvrir",
-      "portfolioIndexEmpty": "Aucun resultat pour ce filtre."
+      "portfolioIndexEmpty": "Aucun resultat pour ce filtre.",
+      "portfolioCollectionsTitle": "Collections portfolio",
+      "portfolioCollectionsLead": "Le site depasse la simple vitrine: Behance, dessins, systemes marque/editorial et langage web 3D sont organises en collections durables.",
+      "portfolioCollectionsEyebrow": "Portfolio / Collections",
+      "portfolioCollectionProof": "Preuve",
+      "portfolioCollectionOpen": "Ouvrir"
     },
     "it": {
       "navHome": "Home",
@@ -322,7 +337,12 @@
       "portfolioSearchLabel": "Cerca portfolio",
       "portfolioSearchPlaceholder": "Behance, poster, disegno, brand...",
       "portfolioOpenItem": "Apri",
-      "portfolioIndexEmpty": "Nessun risultato per questo filtro."
+      "portfolioIndexEmpty": "Nessun risultato per questo filtro.",
+      "portfolioCollectionsTitle": "Collezioni portfolio",
+      "portfolioCollectionsLead": "Il sito non e solo una vetrina: Behance, disegni, sistemi brand/editorial e linguaggio web 3D sono organizzati in collezioni durevoli.",
+      "portfolioCollectionsEyebrow": "Portfolio / Collections",
+      "portfolioCollectionProof": "Prova",
+      "portfolioCollectionOpen": "Apri"
     },
     "de": {
       "navHome": "Start",
@@ -399,7 +419,12 @@
       "portfolioSearchLabel": "Portfolio suchen",
       "portfolioSearchPlaceholder": "Behance, Poster, Zeichnung, Marke...",
       "portfolioOpenItem": "Offnen",
-      "portfolioIndexEmpty": "Keine Ergebnisse fur diesen Filter."
+      "portfolioIndexEmpty": "Keine Ergebnisse fur diesen Filter.",
+      "portfolioCollectionsTitle": "Portfolio-Kollektionen",
+      "portfolioCollectionsLead": "Die Website ist mehr als ein Showcase: Behance-Arbeiten, Zeichnungen, Brand/Editorial-Systeme und 3D-Websprache werden in langlebige Kollektionen gegliedert.",
+      "portfolioCollectionsEyebrow": "Portfolio / Collections",
+      "portfolioCollectionProof": "Nachweis",
+      "portfolioCollectionOpen": "Offnen"
     }
   },
   "services": [
@@ -1120,6 +1145,80 @@
       "title": "Publish safety",
       "metric": "No secrets in source, auth checked before push/deploy",
       "summary": "Deployment targets remain explicit and credential-aware, with rollback through static fallback and scoped commits."
+    }
+  ],
+  "portfolioCollections": [
+    {
+      "id": "behance-campaigns",
+      "title": "Behance Campaign Systems",
+      "summary": "Poster, social and campaign visuals presented as a polished proof wall for client-facing portfolio review.",
+      "tone": "Campaign proof / visual communication",
+      "href": "#behance",
+      "images": [
+        "https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg",
+        "https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg",
+        "https://mir-s3-cdn-cf.behance.net/projects/404/7e2c7e205105339.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg"
+      ],
+      "proof": [
+        "10 Behance projects indexed",
+        "Official embed codes ready",
+        "External portfolio links preserved"
+      ],
+      "accent": "gold"
+    },
+    {
+      "id": "drawing-archive",
+      "title": "Drawing Archive Studio",
+      "summary": "Graphite and color works become an authored visual research archive instead of a loose image dump.",
+      "tone": "Drawing archive / visual research",
+      "href": "#drawings",
+      "images": [
+        "/drawings/karakalem-01.jpg",
+        "/drawings/renk-11.jpg",
+        "/drawings/renk-04.jpg"
+      ],
+      "proof": [
+        "20 drawings categorized",
+        "Featured studies separated",
+        "Graphite and color filters"
+      ],
+      "accent": "ivory"
+    },
+    {
+      "id": "cinematic-web",
+      "title": "Cinematic Web Portfolio",
+      "summary": "The portfolio website itself is treated as a design object: 3D motion, editorial flow and calm interaction in one system.",
+      "tone": "Website system / 3D motion",
+      "href": "#studio",
+      "images": [
+        "/drawings/renk-05.jpg",
+        "/drawings/karakalem-03.jpg",
+        "/drawings/renk-10.jpg"
+      ],
+      "proof": [
+        "Full-bleed Three.js hero",
+        "Second 3D showcase scene",
+        "Reduced-motion fallback"
+      ],
+      "accent": "teal"
+    },
+    {
+      "id": "identity-editorial",
+      "title": "Identity And Editorial Systems",
+      "summary": "Brand, typography, interface rhythm and editorial hierarchy are grouped as one premium service surface.",
+      "tone": "Branding / UI UX / editorial",
+      "href": "#services",
+      "images": [
+        "https://mir-s3-cdn-cf.behance.net/projects/404/91d11d182702163.Y3JvcCwyNDAwLDE4NzcsMCw3MTI.jpg",
+        "/drawings/karakalem-02.jpg",
+        "https://mir-s3-cdn-cf.behance.net/projects/404/99bc2a181320969.Y3JvcCwxMTkxLDkzMSwxMDMsMA.jpg"
+      ],
+      "proof": [
+        "Clear service structure",
+        "Selected work cards",
+        "Multilingual portfolio copy"
+      ],
+      "accent": "gold"
     }
   ]
 }

@@ -1,13 +1,13 @@
 # SEIS Premium Portfolio + Active Runtime
 
-Calm, cinematic 3D portfolio system for Emirhan Kudun with Behance visuals, real Behance project iframe embeds, a unified portfolio index, filterable drawing archive, long-term development lab, Q&A contact intake, deployment readiness, and a credential-aware SEIS runtime layer kept behind dedicated technical routes.
+Calm, cinematic 3D portfolio system for Emirhan Kudun with Behance visuals, real Behance project iframe embeds, durable portfolio collections, a unified portfolio index, filterable drawing archive, long-term development lab, Q&A contact intake, deployment readiness, and a credential-aware SEIS runtime layer kept behind dedicated technical routes.
 
 ## Structure
 
 - `apps/site-next` - production Next.js App Router site and API routes.
 - `apps/site-vite` - lightweight React/Vite preview using the same content package.
 - `apps/static-fallback` - standalone HTML/CSS/JS fallback for low-dependency rollback.
-- `packages/content` - shared portfolio content, translations, drawings, Behance visuals, official Behance project embed codes, unified portfolio index data, evolution tracks, quality standards, social links, Q&A, software language metadata, and SEO metadata.
+- `packages/content` - shared portfolio content, translations, drawings, Behance visuals, official Behance project embed codes, durable portfolio collection data, unified portfolio index data, evolution tracks, quality standards, social links, Q&A, software language metadata, and SEO metadata.
 - `packages/runtime` - connector, skill, plugin, deployment target, and health status registry.
 - `runtime/` - ignored local JSONL capture directory for contact and brief submissions.
 

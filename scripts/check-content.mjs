@@ -37,6 +37,11 @@ const requiredDictionaryKeys = [
   "portfolioSearchPlaceholder",
   "portfolioOpenItem",
   "portfolioIndexEmpty",
+  "portfolioCollectionsTitle",
+  "portfolioCollectionsLead",
+  "portfolioCollectionsEyebrow",
+  "portfolioCollectionProof",
+  "portfolioCollectionOpen",
   "languagesTitle",
   "languagesLead",
   "deployTitle",
@@ -122,6 +127,32 @@ for (const embed of content.behanceEmbeds || []) {
   }
 }
 
+if (!Array.isArray(content.portfolioCollections) || content.portfolioCollections.length < 4) {
+  errors.push("Expected at least 4 portfolio collection records.");
+}
+
+for (const collection of content.portfolioCollections || []) {
+  if (!collection.id || !collection.title || !collection.summary || !collection.tone || !collection.href) {
+    errors.push("Portfolio collection is missing required fields.");
+  }
+  if (!Array.isArray(collection.images) || collection.images.length < 3) {
+    errors.push(`${collection.id}: portfolio collection needs at least 3 images.`);
+  }
+  for (const image of collection.images || []) {
+    const isLocalDrawing = image.startsWith("/drawings/");
+    const isBehanceImage = image.startsWith("https://mir-s3-cdn-cf.behance.net/");
+    if (!isLocalDrawing && !isBehanceImage) {
+      errors.push(`${collection.id}: invalid collection image ${image}`);
+    }
+  }
+  if (!Array.isArray(collection.proof) || collection.proof.length < 3) {
+    errors.push(`${collection.id}: portfolio collection needs at least 3 proof items.`);
+  }
+  if (!["gold", "teal", "ivory"].includes(collection.accent)) {
+    errors.push(`${collection.id}: invalid portfolio collection accent ${collection.accent}`);
+  }
+}
+
 if (!Array.isArray(content.socialLinks) || content.socialLinks.length < 4) {
   errors.push("Expected at least 4 social links.");
 }
@@ -185,4 +216,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceVisuals.length} Behance visuals, ${content.behanceEmbeds.length} Behance embeds, ${content.evolutionTracks.length} evolution tracks, ${content.qualityStandards.length} quality standards, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);
+console.log(`Content check passed: ${content.locales.length} locales, ${content.works.length} works, ${content.drawings.length} drawings, ${content.behanceVisuals.length} Behance visuals, ${content.behanceEmbeds.length} Behance embeds, ${content.portfolioCollections.length} portfolio collections, ${content.evolutionTracks.length} evolution tracks, ${content.qualityStandards.length} quality standards, ${content.softwareLanguages.length} software languages, ${decisionQuestionCount} decision questions.`);

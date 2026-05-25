@@ -42,7 +42,6 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
                 title={`${embed.title} live Behance embed`}
                 loading="lazy"
                 allow="clipboard-write *; fullscreen *;"
-                allowFullScreen
               />
             </div>
             <pre aria-label={`${embed.title} embed code`}>
