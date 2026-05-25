@@ -96,7 +96,10 @@
       "portfolioCollectionsLead": "Website artik tek bir vitrin degil; Behance isleri, cizimler, marka/editorial sistemler ve 3D web dili uzun sure korunacak koleksiyonlara ayrilir.",
       "portfolioCollectionsEyebrow": "Portfolio / Collections",
       "portfolioCollectionProof": "Kanit",
-      "portfolioCollectionOpen": "Koleksiyonu ac"
+      "portfolioCollectionOpen": "Koleksiyonu ac",
+      "portfolioPageEyebrow": "Behance / Cizimler / Portfolyo",
+      "portfolioPageTitle": "Behance isleri, cizim arsivi ve secili gorsel sistemler tek sinematik portfolyoda.",
+      "drawingPageTitle": "Cizim arsivi sakin bir gorsel arastirma katmani olarak sunulur."
     },
     "en": {
       "navHome": "Home",
@@ -178,7 +181,10 @@
       "portfolioCollectionsLead": "The website now works as more than a showcase: Behance work, drawings, brand/editorial systems and 3D web language are grouped into durable collections.",
       "portfolioCollectionsEyebrow": "Portfolio / Collections",
       "portfolioCollectionProof": "Proof",
-      "portfolioCollectionOpen": "Open collection"
+      "portfolioCollectionOpen": "Open collection",
+      "portfolioPageEyebrow": "Behance / Drawings / Portfolio",
+      "portfolioPageTitle": "Behance work, drawing archive and selected visual systems in one cinematic portfolio.",
+      "drawingPageTitle": "Drawing archive as a quiet visual research layer."
     },
     "fr": {
       "navHome": "Accueil",
@@ -260,7 +266,10 @@
       "portfolioCollectionsLead": "Le site depasse la simple vitrine: Behance, dessins, systemes marque/editorial et langage web 3D sont organises en collections durables.",
       "portfolioCollectionsEyebrow": "Portfolio / Collections",
       "portfolioCollectionProof": "Preuve",
-      "portfolioCollectionOpen": "Ouvrir"
+      "portfolioCollectionOpen": "Ouvrir",
+      "portfolioPageEyebrow": "Behance / Dessins / Portfolio",
+      "portfolioPageTitle": "Behance, archive de dessins et systemes visuels selectionnes dans un portfolio cinematographique.",
+      "drawingPageTitle": "Archive de dessins comme couche calme de recherche visuelle."
     },
     "it": {
       "navHome": "Home",
@@ -342,7 +351,10 @@
       "portfolioCollectionsLead": "Il sito non e solo una vetrina: Behance, disegni, sistemi brand/editorial e linguaggio web 3D sono organizzati in collezioni durevoli.",
       "portfolioCollectionsEyebrow": "Portfolio / Collections",
       "portfolioCollectionProof": "Prova",
-      "portfolioCollectionOpen": "Apri"
+      "portfolioCollectionOpen": "Apri",
+      "portfolioPageEyebrow": "Behance / Disegni / Portfolio",
+      "portfolioPageTitle": "Behance, archivio disegni e sistemi visivi selezionati in un portfolio cinematografico.",
+      "drawingPageTitle": "Archivio disegni come livello calmo di ricerca visiva."
     },
     "de": {
       "navHome": "Start",
@@ -424,7 +436,10 @@
       "portfolioCollectionsLead": "Die Website ist mehr als ein Showcase: Behance-Arbeiten, Zeichnungen, Brand/Editorial-Systeme und 3D-Websprache werden in langlebige Kollektionen gegliedert.",
       "portfolioCollectionsEyebrow": "Portfolio / Collections",
       "portfolioCollectionProof": "Nachweis",
-      "portfolioCollectionOpen": "Offnen"
+      "portfolioCollectionOpen": "Offnen",
+      "portfolioPageEyebrow": "Behance / Zeichnungen / Portfolio",
+      "portfolioPageTitle": "Behance-Arbeiten, Zeichnungsarchiv und ausgewahlte visuelle Systeme in einem filmischen Portfolio.",
+      "drawingPageTitle": "Zeichnungsarchiv als ruhige Ebene visueller Forschung."
     }
   },
   "services": [

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { PageSurface } from "../../components/page-surface";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Selected portfolio work by Emirhan Kudun."
+  title: "Portfolyo",
+  description: "Emirhan Kudun Behance isleri, cizimler ve secili gorsel sistemler."
 };
 
 export default function PortfolioPage() {

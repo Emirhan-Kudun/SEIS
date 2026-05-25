@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { PageSurface } from "../../components/page-surface";
 
 export const metadata: Metadata = {
-  title: "Drawings",
-  description: "Selected hand-drawn archive by Emirhan Kudun."
+  title: "Cizimler",
+  description: "Emirhan Kudun secili cizim arsivi."
 };
 
 export default function DrawingsPage() {

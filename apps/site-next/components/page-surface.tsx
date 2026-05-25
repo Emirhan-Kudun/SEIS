@@ -26,16 +26,16 @@ import { PortfolioIndex } from "./portfolio-index";
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
 
 const navItems = [
-  ["/", "Home"],
-  ["/portfolio", "Portfolio"],
-  ["/#behance", "Behance"],
-  ["/drawings", "Drawings"],
-  ["/lab", "Lab"],
-  ["/contact", "Contact"]
+  ["/", "navHome"],
+  ["/portfolio", "navPortfolio"],
+  ["/#behance", "navBehance"],
+  ["/drawings", "navDrawings"],
+  ["/lab", "navLab"],
+  ["/contact", "navContact"]
 ] as const;
 
 export function PageSurface({ mode }: { mode: PageMode }) {
-  const dict = getDictionary("en");
+  const dict = getDictionary("tr");
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 8);
   const motionPortfolioCards = [
     ...behanceVisuals.filter((item) => item.featured).slice(0, 3).map((item) => ({
@@ -61,9 +61,9 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           Emirhan Kudun
         </Link>
         <div className="nav-links">
-          {navItems.map(([href, label]) => (
+          {navItems.map(([href, key]) => (
             <Link key={href} href={href}>
-              {label}
+              {dict[key]}
             </Link>
           ))}
         </div>
@@ -71,8 +71,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
 
       {mode === "portfolio" && (
         <section className="section page-hero">
-          <p className="eyebrow">Behance / Drawings / Portfolio</p>
-          <h1>Behance, drawing archive and selected visual systems in one cinematic portfolio.</h1>
+          <p className="eyebrow">{dict.portfolioPageEyebrow}</p>
+          <h1>{dict.portfolioPageTitle}</h1>
           <div className="studio-showcase portfolio-3d-showcase">
             <CinematicShowcaseScene />
             <div className="portfolio-3d-cards" aria-label="Animated Behance and drawing gallery">
@@ -91,7 +91,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <PortfolioIndex dictionary={dict} items={portfolioIndex} />
-          <div className="featured-strip" aria-label="Portfolio drawing selection">
+          <div className="featured-strip" aria-label={dict.drawingsTitle}>
             {featuredDrawings.map((drawing) => (
               <figure className="featured-drawing" key={drawing.id}>
                 <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
@@ -106,7 +106,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
                 <h2>{work.title}</h2>
                 <p>{work.summary}</p>
                 <span>{work.impact}</span>
-                <Link className="text-link" href={`/portfolio/${work.id}`}>Open project detail</Link>
+                <Link className="text-link" href={`/portfolio/${work.id}`}>{dict.portfolioOpenItem}</Link>
               </article>
             ))}
           </div>
@@ -116,7 +116,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       {mode === "drawings" && (
         <section className="section page-hero">
           <p className="eyebrow">{dict.drawingsTitle}</p>
-          <h1>Drawing archive as a quiet visual research layer.</h1>
+          <h1>{dict.drawingPageTitle}</h1>
           <p>{dict.drawingArchiveLead}</p>
           <DrawingArchive dictionary={dict} drawings={drawings} />
         </section>
