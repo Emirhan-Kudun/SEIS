@@ -8,7 +8,7 @@ export function ContactHub({ dictionary }: ContactHubProps) {
   return (
     <div className="contact-hub">
       <div className="contact-direct">
-        <p className="eyebrow">Direct / Contact</p>
+        <p className="eyebrow">{dictionary.contactDirectEyebrow}</p>
         <h3 className="contact-direct-title">{siteMeta.city}, {siteMeta.country}</h3>
         <p className="contact-direct-lead">{dictionary.briefReady}</p>
         <div className="contact-direct-actions">

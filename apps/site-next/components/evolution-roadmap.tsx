@@ -20,7 +20,7 @@ export function EvolutionRoadmap({ dictionary, tracks, standards, compact = fals
     <div className="evolution-roadmap" data-compact={compact}>
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Lab / Long-term</p>
+          <p className="eyebrow">{dictionary.evolutionEyebrow}</p>
           <h2>{dictionary.evolutionTitle}</h2>
         </div>
         <p>{dictionary.evolutionLead}</p>
@@ -43,7 +43,7 @@ export function EvolutionRoadmap({ dictionary, tracks, standards, compact = fals
       {!compact && (
         <div className="quality-panel">
           <div>
-            <p className="eyebrow">Quality</p>
+            <p className="eyebrow">{dictionary.qualityEyebrow}</p>
             <h3>{dictionary.qualityTitle}</h3>
             <p>{dictionary.qualityLead}</p>
           </div>

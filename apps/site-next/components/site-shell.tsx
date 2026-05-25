@@ -72,7 +72,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
 
   return (
     <main className="site-shell" data-mode={mode} id="main-content">
-      <a href="#portfolio" className="skip-link">Skip to portfolio</a>
+      <a href="#portfolio" className="skip-link">{dictionary.skipPortfolio}</a>
       <nav className="top-nav" aria-label="Primary navigation">
         <a href="#home" className="brand" aria-label="Emirhan Kudun home">
           Emirhan Kudun
@@ -123,7 +123,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section" id="services">
-        <p className="eyebrow">01 / Services</p>
+        <p className="eyebrow">{dictionary.servicesEyebrow}</p>
         <h2>{dictionary.servicesTitle}</h2>
         <div className="card-grid compact">
           {services.map((service) => (
@@ -138,14 +138,14 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       <section className="section studio-section" id="studio">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / Cinematic Gallery</p>
+            <p className="eyebrow">{dictionary.studioEyebrow}</p>
             <h2>{dictionary.studioTitle}</h2>
           </div>
           <p>{dictionary.studioLead}</p>
         </div>
         <div className="studio-showcase">
           <CinematicShowcaseScene />
-          <div className="studio-rail" aria-label="Featured Behance and drawing orbit">
+          <div className="studio-rail" aria-label={dictionary.studioRailLabel}>
             {studioTiles.map((tile) => (
               <article className="studio-tile" key={tile.id}>
                 <img src={tile.image} alt={`${tile.title} - ${tile.meta}`} loading="lazy" decoding="async" />
@@ -160,18 +160,18 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section editorial-section" id="portfolio">
-        <p className="eyebrow">03 / Portfolio</p>
+        <p className="eyebrow">{dictionary.portfolioEyebrow}</p>
         <h2>{dictionary.worksTitle}</h2>
         <PortfolioCollections dictionary={dictionary} collections={portfolioCollections} compact />
-        <div className="portfolio-feature-layout" aria-label="Behance and drawing portfolio highlights">
+        <div className="portfolio-feature-layout" aria-label={dictionary.portfolioDrawingHighlightsLabel}>
           <div className="portfolio-behance-callout">
-            <p className="eyebrow">Behance / Portfolio</p>
+            <p className="eyebrow">{dictionary.behancePortfolioEyebrow}</p>
             <h3>{dictionary.behanceTitle}</h3>
             <p>{dictionary.behanceLead}</p>
             <a className="text-link" href="#behance">{dictionary.behanceOpen}</a>
           </div>
           <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} compact showHeading={false} />
-          <div className="portfolio-drawing-strip" aria-label="Portfolio drawing highlights">
+          <div className="portfolio-drawing-strip" aria-label={dictionary.portfolioDrawingHighlightsLabel}>
             {portfolioDrawings.map((drawing) => (
               <figure className="portfolio-drawing-card" key={`portfolio-${drawing.id}`}>
                 <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
@@ -187,7 +187,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
               <h3>{work.title}</h3>
               <p>{work.summary}</p>
               <span>{work.impact}</span>
-              <a className="text-link" href={`/portfolio/${work.id}`}>Project detail</a>
+              <a className="text-link" href={`/portfolio/${work.id}`}>{dictionary.projectDetailOpen}</a>
             </article>
           ))}
         </div>
@@ -200,10 +200,10 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section gallery-section" id="drawings">
-        <p className="eyebrow">05 / Drawing Archive</p>
+        <p className="eyebrow">{dictionary.drawingArchiveEyebrow}</p>
         <h2>{dictionary.drawingsTitle}</h2>
         <p>{dictionary.drawingArchiveLead}</p>
-        <div className="featured-strip" aria-label="Featured drawings">
+        <div className="featured-strip" aria-label={dictionary.featuredDrawingsLabel}>
           {featuredDrawings.map((drawing) => (
             <figure className="featured-drawing" key={`featured-${drawing.id}`}>
               <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
@@ -219,7 +219,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section contact-section" id="contact">
-        <p className="eyebrow">07 / Contact</p>
+        <p className="eyebrow">{dictionary.contactEyebrow}</p>
         <h2>{dictionary.contactTitle}</h2>
         <p>{dictionary.contactLead}</p>
         <div className="contact-layout">

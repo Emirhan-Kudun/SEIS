@@ -25,7 +25,7 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
     <div className="behance-panel" data-compact={compact}>
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Behance / Embed</p>
+          <p className="eyebrow">{dictionary.behanceEmbedEyebrow}</p>
           <h2>{dictionary.behanceTitle}</h2>
         </div>
         <p>{dictionary.behanceLead}</p>
@@ -49,7 +49,7 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
             </pre>
             <div className="embed-actions">
               <button className="secondary-link" onClick={() => void copyEmbedCode(embed)} type="button">
-                {copiedId === embed.id ? "Copied" : "Copy embed"}
+                {copiedId === embed.id ? dictionary.copied : dictionary.copyEmbed}
               </button>
               <a className="secondary-link" href={embed.url} target="_blank" rel="noreferrer">
                 {dictionary.behanceOpen}

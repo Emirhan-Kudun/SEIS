@@ -20,7 +20,7 @@ export function BehanceVisualGrid({
       {showHeading && (
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Behance / Visuals</p>
+            <p className="eyebrow">{dictionary.behanceVisualsEyebrow}</p>
             <h2>{dictionary.behanceVisualsTitle}</h2>
           </div>
           <p>{dictionary.behanceVisualsLead}</p>

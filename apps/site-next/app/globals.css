@@ -111,6 +111,7 @@ summary:focus-visible {
 .nav-links a:hover,
 .language-switcher button:hover,
 .language-switcher button.active,
+.nav-links a[aria-current="page"],
 .secondary-link:hover,
 .text-link:hover {
   border-color: rgba(214, 177, 111, 0.56);

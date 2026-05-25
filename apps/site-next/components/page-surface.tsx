@@ -26,12 +26,12 @@ import { PortfolioIndex } from "./portfolio-index";
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
 
 const navItems = [
-  ["/", "navHome"],
-  ["/portfolio", "navPortfolio"],
-  ["/#behance", "navBehance"],
-  ["/drawings", "navDrawings"],
-  ["/lab", "navLab"],
-  ["/contact", "navContact"]
+  ["/", "navHome", "home"],
+  ["/portfolio", "navPortfolio", "portfolio"],
+  ["/#behance", "navBehance", "behance"],
+  ["/drawings", "navDrawings", "drawings"],
+  ["/lab", "navLab", "lab"],
+  ["/contact", "navContact", "contact"]
 ] as const;
 
 export function PageSurface({ mode }: { mode: PageMode }) {
@@ -55,14 +55,15 @@ export function PageSurface({ mode }: { mode: PageMode }) {
   ];
 
   return (
-    <main className="page-shell">
+    <main className="page-shell" id="page-main-content">
+      <a href="#page-content" className="skip-link">{dict.skipContent}</a>
       <nav className="top-nav" aria-label="Primary navigation">
         <Link href="/" className="brand">
           Emirhan Kudun
         </Link>
         <div className="nav-links">
-          {navItems.map(([href, key]) => (
-            <Link key={href} href={href}>
+          {navItems.map(([href, key, itemMode]) => (
+            <Link key={href} href={href} aria-current={itemMode === mode ? "page" : undefined}>
               {dict[key]}
             </Link>
           ))}
@@ -70,15 +71,15 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       </nav>
 
       {mode === "portfolio" && (
-        <section className="section page-hero">
+        <section className="section page-hero" id="page-content">
           <p className="eyebrow">{dict.portfolioPageEyebrow}</p>
           <h1>{dict.portfolioPageTitle}</h1>
           <div className="studio-showcase portfolio-3d-showcase">
             <CinematicShowcaseScene />
-            <div className="portfolio-3d-cards" aria-label="Animated Behance and drawing gallery">
+            <div className="portfolio-3d-cards" aria-label={dict.portfolioMotionGalleryLabel}>
               {motionPortfolioCards.map((card) => (
                 <figure className="portfolio-3d-card" data-source={card.source} key={card.id}>
-                  <img src={card.image} alt={`${card.title} - ${card.meta}`} loading="lazy" />
+                  <img src={card.image} alt={`${card.title} - ${card.meta}`} loading="lazy" decoding="async" />
                   <figcaption>
                     <strong>{card.title}</strong>
                     <span>{card.meta}</span>
@@ -94,7 +95,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <div className="featured-strip" aria-label={dict.drawingsTitle}>
             {featuredDrawings.map((drawing) => (
               <figure className="featured-drawing" key={drawing.id}>
-                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
                 <figcaption>{drawing.title}</figcaption>
               </figure>
             ))}
@@ -114,7 +115,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       )}
 
       {mode === "drawings" && (
-        <section className="section page-hero">
+        <section className="section page-hero" id="page-content">
           <p className="eyebrow">{dict.drawingsTitle}</p>
           <h1>{dict.drawingPageTitle}</h1>
           <p>{dict.drawingArchiveLead}</p>
@@ -123,13 +124,13 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       )}
 
       {mode === "lab" && (
-        <section className="section page-hero lab-page">
+        <section className="section page-hero lab-page" id="page-content">
           <EvolutionRoadmap dictionary={dict} tracks={evolutionTracks} standards={qualityStandards} />
         </section>
       )}
 
       {mode === "contact" && (
-        <section className="section page-hero contact-page">
+        <section className="section page-hero contact-page" id="page-content">
           <p className="eyebrow">{dict.contactTitle}</p>
           <h1>{dict.contactLead}</h1>
           <div className="contact-layout">

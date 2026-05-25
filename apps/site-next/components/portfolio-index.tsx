@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 
 import type { LocalizedDictionary, PortfolioIndexItem } from "@seis/content";
 
@@ -12,12 +12,6 @@ type PortfolioIndexProps = {
 
 type PortfolioFilter = "all" | "featured" | PortfolioIndexItem["source"];
 
-const sourceLabel: Record<PortfolioIndexItem["source"], string> = {
-  behance: "Behance",
-  drawing: "Drawing",
-  work: "Work"
-};
-
 function countFor(filter: PortfolioFilter, items: PortfolioIndexItem[]) {
   if (filter === "all") return items.length;
   if (filter === "featured") return items.filter((item) => item.featured).length;
@@ -27,6 +21,12 @@ function countFor(filter: PortfolioFilter, items: PortfolioIndexItem[]) {
 export function PortfolioIndex({ dictionary, items, compact = false }: PortfolioIndexProps) {
   const [activeFilter, setActiveFilter] = useState<PortfolioFilter>("all");
   const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query);
+  const sourceLabel: Record<PortfolioIndexItem["source"], string> = {
+    behance: "Behance",
+    drawing: dictionary.portfolioSourceDrawing,
+    work: dictionary.portfolioSourceWork
+  };
   const filters = useMemo(
     () => [
       { id: "all" as const, label: dictionary.portfolioFilterAll },
@@ -39,7 +39,7 @@ export function PortfolioIndex({ dictionary, items, compact = false }: Portfolio
   );
 
   const visibleItems = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = deferredQuery.trim().toLowerCase();
     const filtered = items.filter((item) => {
       const matchesFilter =
         activeFilter === "all" ||
@@ -54,20 +54,20 @@ export function PortfolioIndex({ dictionary, items, compact = false }: Portfolio
     });
 
     return compact ? filtered.slice(0, 12) : filtered;
-  }, [activeFilter, compact, items, query]);
+  }, [activeFilter, compact, deferredQuery, items]);
 
   return (
     <section className="portfolio-index" data-compact={compact} aria-labelledby="portfolio-index-title">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Portfolio / Index</p>
+          <p className="eyebrow">{dictionary.portfolioIndexEyebrow}</p>
           <h2 id="portfolio-index-title">{dictionary.portfolioIndexTitle}</h2>
         </div>
         <p>{dictionary.portfolioIndexLead}</p>
       </div>
 
       <div className="portfolio-index-controls">
-        <div className="portfolio-index-filters" aria-label="Portfolio index filters">
+        <div className="portfolio-index-filters" aria-label={dictionary.portfolioIndexFiltersLabel}>
           {filters.map((filter) => (
             <button
               aria-pressed={activeFilter === filter.id}
@@ -101,11 +101,12 @@ export function PortfolioIndex({ dictionary, items, compact = false }: Portfolio
               data-source={item.source}
               href={item.href}
               key={item.id}
+              aria-label={`${item.title} - ${sourceLabel[item.source]} / ${item.category}`}
               rel={item.external ? "noreferrer" : undefined}
               target={item.external ? "_blank" : undefined}
             >
               {item.image ? (
-                <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" />
+                <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" decoding="async" />
               ) : (
                 <span className="portfolio-index-monogram">{item.title.slice(0, 2)}</span>
               )}
