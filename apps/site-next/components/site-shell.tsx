@@ -27,6 +27,7 @@ import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
 import { PortfolioCollections } from "./portfolio-collections";
+import { PortfolioDiscoveryFlow } from "./portfolio-discovery-flow";
 import { PortfolioIndex } from "./portfolio-index";
 
 type ShellMode = "home";
@@ -163,6 +164,13 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         <p className="eyebrow">{dictionary.portfolioEyebrow}</p>
         <h2>{dictionary.worksTitle}</h2>
         <PortfolioCollections dictionary={dictionary} collections={portfolioCollections} compact />
+        <PortfolioDiscoveryFlow
+          dictionary={dictionary}
+          behanceVisuals={behanceVisuals}
+          drawings={drawings}
+          works={works}
+          compact
+        />
         <div className="portfolio-feature-layout" aria-label={dictionary.portfolioDrawingHighlightsLabel}>
           <div className="portfolio-behance-callout">
             <p className="eyebrow">{dictionary.behancePortfolioEyebrow}</p>

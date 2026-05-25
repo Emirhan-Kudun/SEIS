@@ -57,48 +57,51 @@ export function BriefIntakeForm({
       onSubmit={submitBrief}
     >
       <h3>{dictionary.briefTitle}</h3>
-      <div className="form-grid">
+      <fieldset className="brief-fieldset" disabled={isSending}>
+        <legend className="sr-only">{dictionary.briefTitle}</legend>
+        <div className="form-grid">
+          <label>
+            <span>{dictionary.briefName}</span>
+            <input name="name" required autoComplete="name" />
+          </label>
+          <label>
+            <span>{dictionary.briefEmail}</span>
+            <input name="email" type="email" required autoComplete="email" />
+          </label>
+          <label>
+            <span>{dictionary.briefService}</span>
+            <select name="service" defaultValue="ui-ux">
+              {services.map((service) => (
+                <option key={service.id} value={service.id}>{service.title}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>{dictionary.briefTimeline}</span>
+            <input name="timeline" placeholder="2-6 weeks" />
+          </label>
+          <label>
+            <span>{dictionary.briefBudget}</span>
+            <input name="budget" placeholder="Discovery / scoped / open" />
+          </label>
+          <label>
+            <span>{dictionary.briefPriority}</span>
+            <select name="priority" defaultValue="calm">
+              <option value="calm">Calm planning</option>
+              <option value="near">Near-term launch</option>
+              <option value="urgent">Urgent repair</option>
+            </select>
+          </label>
+        </div>
         <label>
-          <span>{dictionary.briefName}</span>
-          <input name="name" required autoComplete="name" />
+          <span>{dictionary.briefScope}</span>
+          <input name="scope" placeholder="Brand, website, Behance, drawings, 3D..." />
         </label>
         <label>
-          <span>{dictionary.briefEmail}</span>
-          <input name="email" type="email" required autoComplete="email" />
+          <span>{dictionary.briefMessage}</span>
+          <textarea name="goal" required minLength={12} rows={5} />
         </label>
-        <label>
-          <span>{dictionary.briefService}</span>
-          <select name="service" defaultValue="ui-ux">
-            {services.map((service) => (
-              <option key={service.id} value={service.id}>{service.title}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          <span>{dictionary.briefTimeline}</span>
-          <input name="timeline" placeholder="2-6 weeks" />
-        </label>
-        <label>
-          <span>{dictionary.briefBudget}</span>
-          <input name="budget" placeholder="Discovery / scoped / open" />
-        </label>
-        <label>
-          <span>{dictionary.briefPriority}</span>
-          <select name="priority" defaultValue="calm">
-            <option value="calm">Calm planning</option>
-            <option value="near">Near-term launch</option>
-            <option value="urgent">Urgent repair</option>
-          </select>
-        </label>
-      </div>
-      <label>
-        <span>{dictionary.briefScope}</span>
-        <input name="scope" placeholder="Brand, website, Behance, drawings, 3D..." />
-      </label>
-      <label>
-        <span>{dictionary.briefMessage}</span>
-        <textarea name="goal" required minLength={12} rows={5} />
-      </label>
+      </fieldset>
       <button
         aria-describedby="brief-form-status"
         className="primary-link"

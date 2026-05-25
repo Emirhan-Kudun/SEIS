@@ -21,6 +21,7 @@ import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
 import { PortfolioCollections } from "./portfolio-collections";
+import { PortfolioDiscoveryFlow } from "./portfolio-discovery-flow";
 import { PortfolioIndex } from "./portfolio-index";
 
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
@@ -37,6 +38,12 @@ const navItems = [
 export function PageSurface({ mode }: { mode: PageMode }) {
   const dict = getDictionary("tr");
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 8);
+  const portfolioStats = [
+    { label: dict.navBehance, value: behanceVisuals.length.toString(), detail: dict.behanceVisualsEyebrow },
+    { label: dict.navDrawings, value: drawings.length.toString(), detail: dict.drawingArchiveEyebrow },
+    { label: dict.portfolioCollectionsTitle, value: portfolioCollections.length.toString(), detail: dict.portfolioCollectionsEyebrow },
+    { label: "Embed", value: behanceEmbeds.length.toString(), detail: dict.behanceEmbedEyebrow }
+  ];
   const motionPortfolioCards = [
     ...behanceVisuals.filter((item) => item.featured).slice(0, 3).map((item) => ({
       id: `behance-${item.id}`,
@@ -74,6 +81,15 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         <section className="section page-hero" id="page-content">
           <p className="eyebrow">{dict.portfolioPageEyebrow}</p>
           <h1>{dict.portfolioPageTitle}</h1>
+          <div className="portfolio-proof-strip" aria-label={dict.portfolioPageEyebrow}>
+            {portfolioStats.map((stat) => (
+              <article key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+                <small>{stat.detail}</small>
+              </article>
+            ))}
+          </div>
           <div className="studio-showcase portfolio-3d-showcase">
             <CinematicShowcaseScene />
             <div className="portfolio-3d-cards" aria-label={dict.portfolioMotionGalleryLabel}>
@@ -89,6 +105,12 @@ export function PageSurface({ mode }: { mode: PageMode }) {
             </div>
           </div>
           <PortfolioCollections dictionary={dict} collections={portfolioCollections} />
+          <PortfolioDiscoveryFlow
+            dictionary={dict}
+            behanceVisuals={behanceVisuals}
+            drawings={drawings}
+            works={works}
+          />
           <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <PortfolioIndex dictionary={dict} items={portfolioIndex} />

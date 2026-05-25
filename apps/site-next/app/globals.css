@@ -374,7 +374,8 @@ summary:focus-visible {
 .editorial-section .featured-drawing,
 .editorial-section .portfolio-behance-callout,
 .editorial-section .behance-visual-card,
-.editorial-section .portfolio-drawing-card {
+.editorial-section .portfolio-drawing-card,
+.editorial-section .portfolio-flow-card {
   background: rgba(255, 255, 255, 0.45);
   border-color: var(--line-dark);
   color: var(--text-dark);
@@ -385,7 +386,9 @@ summary:focus-visible {
 .editorial-section .featured-drawing figcaption,
 .editorial-section .portfolio-behance-callout p,
 .editorial-section .behance-visual-card small,
-.editorial-section .portfolio-drawing-card figcaption {
+.editorial-section .portfolio-drawing-card figcaption,
+.editorial-section .portfolio-flow-card p,
+.editorial-section .portfolio-flow-card small {
   color: var(--muted-dark);
 }
 .gallery-section {
@@ -622,6 +625,146 @@ summary:focus-visible {
   grid-template-columns: minmax(280px, 0.46fr) minmax(0, 1fr);
   gap: 0.75rem;
   margin: 1rem 0 1.2rem;
+}
+.portfolio-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: clamp(1rem, 2.4vw, 1.8rem) 0;
+}
+.portfolio-proof-strip article {
+  min-width: 0;
+  display: grid;
+  gap: 0.18rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(214, 177, 111, 0.08), transparent 52%),
+    rgba(255, 255, 255, 0.035);
+  padding: clamp(0.8rem, 1.5vw, 1rem);
+}
+.portfolio-proof-strip strong {
+  color: var(--accent);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+.portfolio-proof-strip span,
+.portfolio-proof-strip small {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+.portfolio-proof-strip span {
+  color: var(--text);
+}
+.portfolio-proof-strip small {
+  color: var(--muted);
+}
+.portfolio-flow {
+  min-width: 0;
+  margin: clamp(1.2rem, 3vw, 2.4rem) 0;
+  padding: clamp(1rem, 2vw, 1.4rem) 0;
+  border-top: 1px solid var(--line-dark);
+}
+.portfolio-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.portfolio-flow-card {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(170px, 0.72fr) 1fr;
+  gap: 0.85rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.018)),
+    #0f0e0c;
+  padding: clamp(0.85rem, 1.4vw, 1.05rem);
+}
+.site-shell .portfolio-flow-card {
+  border-color: var(--line-dark);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.34)),
+    rgba(255, 255, 255, 0.44);
+}
+.portfolio-flow-card[data-lane="behance"] { --flow-accent: var(--accent); }
+.portfolio-flow-card[data-lane="drawings"] { --flow-accent: var(--accent-2); }
+.portfolio-flow-card[data-lane="works"] { --flow-accent: var(--ivory-2); }
+.site-shell .portfolio-flow-card[data-lane="works"] { --flow-accent: #8b6631; }
+.portfolio-flow-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--flow-accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+.portfolio-flow-card-head span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+}
+.portfolio-flow-card-head small {
+  color: var(--muted);
+  text-align: right;
+}
+.portfolio-flow-visuals {
+  min-height: 170px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 0.35rem;
+  overflow: hidden;
+}
+.portfolio-flow-visuals img,
+.portfolio-flow-monogram {
+  width: 100%;
+  min-height: 122px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+.site-shell .portfolio-flow-visuals img,
+.site-shell .portfolio-flow-monogram {
+  border-color: var(--line-dark);
+}
+.portfolio-flow-visuals img:nth-child(2n),
+.portfolio-flow-monogram:nth-child(2n) {
+  min-height: 154px;
+}
+.portfolio-flow-monogram {
+  display: grid;
+  place-items: center;
+  color: var(--flow-accent);
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  background: rgba(255, 255, 255, 0.04);
+}
+.site-shell .portfolio-flow-monogram {
+  background: rgba(24, 21, 18, 0.06);
+}
+.portfolio-flow-copy {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+}
+.portfolio-flow-copy h3 {
+  margin: 0;
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.5rem);
+  line-height: 0.98;
+}
+.portfolio-flow-copy p {
+  color: var(--muted);
+}
+.site-shell .portfolio-flow-copy p {
+  color: var(--muted-dark);
 }
 .portfolio-behance-callout {
   border: 1px solid var(--line-dark);
@@ -1102,13 +1245,6 @@ summary:focus-visible {
   border: 1px solid var(--line);
   background: rgba(8, 8, 7, 0.54);
   backdrop-filter: blur(12px);
-  animation: floatingGalleryCard 8s ease-in-out infinite;
-}
-.studio-tile:nth-child(2n) {
-  animation-delay: -2.6s;
-}
-.studio-tile:nth-child(3n) {
-  animation-delay: -5.1s;
 }
 .studio-tile img {
   width: 100%;
@@ -1601,6 +1737,17 @@ summary:focus-visible {
   font-size: 0.72rem;
   text-transform: uppercase;
 }
+.brief-fieldset {
+  display: grid;
+  gap: 0.75rem;
+  min-inline-size: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.brief-fieldset:disabled {
+  opacity: 0.72;
+}
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1653,6 +1800,8 @@ summary:focus-visible {
   .card-grid,
   .card-grid.compact,
   .portfolio-feature-layout,
+  .portfolio-proof-strip,
+  .portfolio-flow-grid,
   .runtime-grid,
   .behance-grid,
   .behance-visual-grid,
@@ -1713,6 +1862,8 @@ summary:focus-visible {
   .card-grid.compact,
   .drawing-grid,
   .portfolio-feature-layout,
+  .portfolio-proof-strip,
+  .portfolio-flow-grid,
   .portfolio-drawing-strip,
   .runtime-grid,
   .behance-grid,
@@ -1751,7 +1902,7 @@ summary:focus-visible {
     vertical-align: top;
     transform: none;
     translate: 0 0;
-    animation: floatingGalleryCard 7s ease-in-out infinite;
+    animation: none;
   }
   .studio-rail {
     width: 100%;
@@ -1761,16 +1912,19 @@ summary:focus-visible {
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .behance-visual-card,
   .portfolio-drawing-card,
+  .studio-tile,
   .showcase-fallback-panel {
     animation: floatingGalleryCard 8s ease-in-out infinite;
   }
   .behance-visual-card:nth-child(2n),
   .portfolio-drawing-card:nth-child(2n),
+  .studio-tile:nth-child(2n),
   .showcase-fallback-panel:nth-of-type(2n) {
     animation-delay: -2.4s;
   }
   .behance-visual-card:nth-child(3n),
   .portfolio-drawing-card:nth-child(3n),
+  .studio-tile:nth-child(3n),
   .showcase-fallback-panel:nth-of-type(3n) {
     animation-delay: -4.8s;
   }
