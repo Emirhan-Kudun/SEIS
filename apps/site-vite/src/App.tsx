@@ -68,7 +68,10 @@ export function App() {
         {featuredDrawings.map((drawing) => (
           <figure key={drawing.id}>
             <img src={drawing.src} alt={drawing.title} loading="lazy" />
-            <figcaption>{drawing.title}</figcaption>
+            <figcaption>
+              <strong>{drawing.title}</strong>
+              <span>{drawing.category}</span>
+            </figcaption>
           </figure>
         ))}
       </section>

@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import type { BehanceEmbedItem, LocalizedDictionary } from "@seis/content";
 import type { CSSProperties } from "react";
 
@@ -8,7 +12,14 @@ type BehanceEmbedPanelProps = {
 };
 
 export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: BehanceEmbedPanelProps) {
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const visibleEmbeds = compact ? embeds.filter((item) => item.featured).slice(0, 3) : embeds;
+
+  async function copyEmbedCode(embed: BehanceEmbedItem) {
+    await navigator.clipboard.writeText(embed.embedCode);
+    setCopiedId(embed.id);
+    window.setTimeout(() => setCopiedId((current) => current === embed.id ? null : current), 1600);
+  }
 
   return (
     <div className="behance-panel" data-compact={compact}>
@@ -37,9 +48,14 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
             <pre aria-label={`${embed.title} embed code`}>
               <code>{embed.embedCode}</code>
             </pre>
-            <a className="secondary-link" href={embed.url} target="_blank" rel="noreferrer">
-              {dictionary.behanceOpen}
-            </a>
+            <div className="embed-actions">
+              <button className="secondary-link" onClick={() => void copyEmbedCode(embed)} type="button">
+                {copiedId === embed.id ? "Copied" : "Copy embed"}
+              </button>
+              <a className="secondary-link" href={embed.url} target="_blank" rel="noreferrer">
+                {dictionary.behanceOpen}
+              </a>
+            </div>
           </article>
         ))}
       </div>

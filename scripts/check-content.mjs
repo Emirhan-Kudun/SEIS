@@ -21,6 +21,11 @@ const requiredDictionaryKeys = [
   "evolutionLead",
   "qualityTitle",
   "qualityLead",
+  "drawingFilterAll",
+  "drawingFilterFeatured",
+  "drawingFilterGraphite",
+  "drawingFilterColor",
+  "drawingArchiveLead",
   "languagesTitle",
   "languagesLead",
   "deployTitle",
@@ -28,6 +33,7 @@ const requiredDictionaryKeys = [
 ];
 const validLanguageStatuses = new Set(["active", "planned"]);
 const validEvolutionStatuses = new Set(["live", "next", "planned"]);
+const validDrawingCategories = new Set(["graphite", "color"]);
 
 const errors = [];
 
@@ -52,6 +58,12 @@ for (const drawing of content.drawings) {
   const viteAsset = path.join(root, "apps/site-vite/public", rel);
   if (!fs.existsSync(nextAsset)) errors.push(`Missing Next drawing asset: ${drawing.src}`);
   if (!fs.existsSync(viteAsset)) errors.push(`Missing Vite drawing asset: ${drawing.src}`);
+  if (!validDrawingCategories.has(drawing.category)) {
+    errors.push(`${drawing.id}: invalid drawing category ${drawing.category}`);
+  }
+  if (!drawing.archiveRole || typeof drawing.sortIndex !== "number") {
+    errors.push(`${drawing.id}: drawing archiveRole and sortIndex are required.`);
+  }
 }
 
 if (content.works.length < 3) errors.push("Expected at least 3 works.");

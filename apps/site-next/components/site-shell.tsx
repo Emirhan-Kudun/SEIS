@@ -22,6 +22,7 @@ import { BehanceVisualGrid } from "./behance-visual-grid";
 import { CinematicHeroScene } from "./cinematic-hero-scene";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
+import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
 
 type ShellMode = "home";
@@ -178,6 +179,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       <section className="section gallery-section" id="drawings">
         <p className="eyebrow">05 / Drawing Archive</p>
         <h2>{dictionary.drawingsTitle}</h2>
+        <p>{dictionary.drawingArchiveLead}</p>
         <div className="featured-strip" aria-label="Featured drawings">
           {featuredDrawings.map((drawing) => (
             <figure className="featured-drawing" key={`featured-${drawing.id}`}>
@@ -186,17 +188,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
             </figure>
           ))}
         </div>
-        <div className="drawing-grid">
-          {drawings.map((drawing) => (
-            <figure className="drawing-card" key={drawing.id}>
-              <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
-              <figcaption>
-                <strong>{drawing.title}</strong>
-                <span>{drawing.tone}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <DrawingArchive dictionary={dictionary} drawings={drawings} compact />
       </section>
 
       <section className="section evolution-section" id="lab">

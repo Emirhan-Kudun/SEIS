@@ -75,7 +75,12 @@
       "evolutionTitle": "Uzun sureli gelisim laboratuvari",
       "evolutionLead": "Bu portfolyo tek seferlik bir vitrin degil; Behance, cizimler, 3D, servisler ve yayin hazirligi kontrollu fazlarla buyuyen bir yaratıcı sistemdir.",
       "qualityTitle": "Kalite omurgasi",
-      "qualityLead": "Her yeni ekleme gorsel etki, performans, erisilebilirlik ve yayin guvenligiyle birlikte kontrol edilir."
+      "qualityLead": "Her yeni ekleme gorsel etki, performans, erisilebilirlik ve yayin guvenligiyle birlikte kontrol edilir.",
+      "drawingFilterAll": "Tum cizimler",
+      "drawingFilterFeatured": "Secili",
+      "drawingFilterGraphite": "Karakalem",
+      "drawingFilterColor": "Renk",
+      "drawingArchiveLead": "Cizimler artik filtrelenebilir bir arsiv gibi calisir; secili isler, karakalem etutler ve renk calismalari ayni sistemde okunur."
     },
     "en": {
       "navHome": "Home",
@@ -136,7 +141,12 @@
       "evolutionTitle": "Long-term development lab",
       "evolutionLead": "This portfolio is not a one-off showcase; Behance, drawings, 3D, services and publishing readiness grow through controlled phases.",
       "qualityTitle": "Quality spine",
-      "qualityLead": "Every addition is checked against visual impact, performance, accessibility and publish safety."
+      "qualityLead": "Every addition is checked against visual impact, performance, accessibility and publish safety.",
+      "drawingFilterAll": "All drawings",
+      "drawingFilterFeatured": "Featured",
+      "drawingFilterGraphite": "Graphite",
+      "drawingFilterColor": "Color",
+      "drawingArchiveLead": "The drawing surface now behaves like a filterable archive: featured work, graphite studies and color explorations stay in one system."
     },
     "fr": {
       "navHome": "Accueil",
@@ -197,7 +207,12 @@
       "evolutionTitle": "Laboratoire de developpement long terme",
       "evolutionLead": "Ce portfolio nest pas une vitrine unique; Behance, dessins, 3D, services et publication evoluent par phases controlees.",
       "qualityTitle": "Colonne qualite",
-      "qualityLead": "Chaque ajout est verifie avec impact visuel, performance, accessibilite et securite de publication."
+      "qualityLead": "Chaque ajout est verifie avec impact visuel, performance, accessibilite et securite de publication.",
+      "drawingFilterAll": "Tous les dessins",
+      "drawingFilterFeatured": "Selection",
+      "drawingFilterGraphite": "Graphite",
+      "drawingFilterColor": "Couleur",
+      "drawingArchiveLead": "La surface de dessins devient une archive filtrable: selection, etudes graphite et couleur restent dans un meme systeme."
     },
     "it": {
       "navHome": "Home",
@@ -258,7 +273,12 @@
       "evolutionTitle": "Laboratorio di sviluppo a lungo termine",
       "evolutionLead": "Questo portfolio non e una vetrina singola; Behance, disegni, 3D, servizi e publishing crescono per fasi controllate.",
       "qualityTitle": "Spina dorsale qualita",
-      "qualityLead": "Ogni aggiunta viene controllata su impatto visivo, performance, accessibilita e sicurezza di pubblicazione."
+      "qualityLead": "Ogni aggiunta viene controllata su impatto visivo, performance, accessibilita e sicurezza di pubblicazione.",
+      "drawingFilterAll": "Tutti i disegni",
+      "drawingFilterFeatured": "Selezionati",
+      "drawingFilterGraphite": "Grafite",
+      "drawingFilterColor": "Colore",
+      "drawingArchiveLead": "La sezione disegni diventa un archivio filtrabile: lavori selezionati, studi a grafite e colore restano nello stesso sistema."
     },
     "de": {
       "navHome": "Start",
@@ -319,7 +339,12 @@
       "evolutionTitle": "Langfristiges Entwicklungslabor",
       "evolutionLead": "Dieses Portfolio ist keine einmalige Vitrine; Behance, Zeichnungen, 3D, Services und Publishing wachsen in kontrollierten Phasen.",
       "qualityTitle": "Qualitatsrueckgrat",
-      "qualityLead": "Jede Erweiterung wird gegen visuelle Wirkung, Performance, Barrierefreiheit und Publish-Sicherheit geprueft."
+      "qualityLead": "Jede Erweiterung wird gegen visuelle Wirkung, Performance, Barrierefreiheit und Publish-Sicherheit geprueft.",
+      "drawingFilterAll": "Alle Zeichnungen",
+      "drawingFilterFeatured": "Ausgewahlt",
+      "drawingFilterGraphite": "Graphit",
+      "drawingFilterColor": "Farbe",
+      "drawingArchiveLead": "Die Zeichnungsflache wird zu einem filterbaren Archiv: Auswahl, Graphitstudien und Farbarbeiten bleiben in einem System."
     }
   },
   "services": [
@@ -399,6 +424,9 @@
       "title": "Karakalem 01",
       "src": "/drawings/karakalem-01.jpg",
       "tone": "Graphite opening study",
+      "category": "graphite",
+      "archiveRole": "featured-study",
+      "sortIndex": 1,
       "featured": true
     },
     {
@@ -406,6 +434,9 @@
       "title": "Karakalem 02",
       "src": "/drawings/karakalem-02.jpg",
       "tone": "Graphite study",
+      "category": "graphite",
+      "archiveRole": "featured-study",
+      "sortIndex": 2,
       "featured": true
     },
     {
@@ -413,68 +444,101 @@
       "title": "Karakalem 03",
       "src": "/drawings/karakalem-03.jpg",
       "tone": "Line and shadow",
+      "category": "graphite",
+      "archiveRole": "featured-study",
+      "sortIndex": 3,
       "featured": true
     },
     {
       "id": "karakalem-04",
       "title": "Karakalem 04",
       "src": "/drawings/karakalem-04.jpg",
-      "tone": "Quiet study"
+      "tone": "Quiet study",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 4
     },
     {
       "id": "karakalem-05",
       "title": "Karakalem 05",
       "src": "/drawings/karakalem-05.jpg",
-      "tone": "Soft graphite structure"
+      "tone": "Soft graphite structure",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 5
     },
     {
       "id": "karakalem-06",
       "title": "Karakalem 06",
       "src": "/drawings/karakalem-06.jpg",
-      "tone": "Light and contour"
+      "tone": "Light and contour",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 6
     },
     {
       "id": "karakalem-07",
       "title": "Karakalem 07",
       "src": "/drawings/karakalem-07.jpg",
-      "tone": "Focused line study"
+      "tone": "Focused line study",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 7
     },
     {
       "id": "karakalem-08",
       "title": "Karakalem 08",
       "src": "/drawings/karakalem-08.jpg",
-      "tone": "Shadow rhythm"
+      "tone": "Shadow rhythm",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 8
     },
     {
       "id": "karakalem-09",
       "title": "Karakalem 09",
       "src": "/drawings/karakalem-09.jpg",
-      "tone": "Final graphite note"
+      "tone": "Final graphite note",
+      "category": "graphite",
+      "archiveRole": "line-study",
+      "sortIndex": 9
     },
     {
       "id": "renk-01",
       "title": "Renk 01",
       "src": "/drawings/renk-01.jpg",
       "tone": "Selected color work",
+      "category": "color",
+      "archiveRole": "featured-study",
+      "sortIndex": 10,
       "featured": true
     },
     {
       "id": "renk-02",
       "title": "Renk 02",
       "src": "/drawings/renk-02.jpg",
-      "tone": "Warm color field"
+      "tone": "Warm color field",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 11
     },
     {
       "id": "renk-03",
       "title": "Renk 03",
       "src": "/drawings/renk-03.jpg",
-      "tone": "Chromatic gesture"
+      "tone": "Chromatic gesture",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 12
     },
     {
       "id": "renk-04",
       "title": "Renk 04",
       "src": "/drawings/renk-04.jpg",
       "tone": "Warm composition",
+      "category": "color",
+      "archiveRole": "featured-study",
+      "sortIndex": 13,
       "featured": true
     },
     {
@@ -482,43 +546,64 @@
       "title": "Renk 05",
       "src": "/drawings/renk-05.jpg",
       "tone": "Chromatic balance",
+      "category": "color",
+      "archiveRole": "featured-study",
+      "sortIndex": 14,
       "featured": true
     },
     {
       "id": "renk-06",
       "title": "Renk 06",
       "src": "/drawings/renk-06.jpg",
-      "tone": "Visual texture"
+      "tone": "Visual texture",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 15
     },
     {
       "id": "renk-07",
       "title": "Renk 07",
       "src": "/drawings/renk-07.jpg",
-      "tone": "Layered color study"
+      "tone": "Layered color study",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 16
     },
     {
       "id": "renk-08",
       "title": "Renk 08",
       "src": "/drawings/renk-08.jpg",
-      "tone": "Quiet chroma"
+      "tone": "Quiet chroma",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 17
     },
     {
       "id": "renk-09",
       "title": "Renk 09",
       "src": "/drawings/renk-09.jpg",
-      "tone": "Color structure"
+      "tone": "Color structure",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 18
     },
     {
       "id": "renk-10",
       "title": "Renk 10",
       "src": "/drawings/renk-10.jpg",
-      "tone": "Dense color rhythm"
+      "tone": "Dense color rhythm",
+      "category": "color",
+      "archiveRole": "color-study",
+      "sortIndex": 19
     },
     {
       "id": "renk-11",
       "title": "Renk 11",
       "src": "/drawings/renk-11.jpg",
       "tone": "Color rhythm",
+      "category": "color",
+      "archiveRole": "featured-study",
+      "sortIndex": 20,
       "featured": true
     }
   ],

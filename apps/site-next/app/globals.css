@@ -555,6 +555,14 @@ img { max-width: 100%; display: block; }
   align-items: center;
   margin-top: 0.25rem;
 }
+.embed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.embed-actions button {
+  cursor: pointer;
+}
 
 .portfolio-feature-layout {
   display: grid;
@@ -791,6 +799,38 @@ img { max-width: 100%; display: block; }
   font-size: 0.68rem;
   padding: 0.45rem;
 }
+.drawing-archive {
+  min-width: 0;
+}
+.drawing-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.drawing-toolbar button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  padding: 0.52rem 0.72rem;
+  cursor: pointer;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.drawing-toolbar button.active,
+.drawing-toolbar button[aria-pressed="true"] {
+  border-color: rgba(214, 177, 111, 0.6);
+  color: var(--accent);
+}
+.drawing-toolbar strong {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
 .drawing-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -810,11 +850,22 @@ img { max-width: 100%; display: block; }
   filter: saturate(0.95) contrast(1.08);
 }
 .drawing-card figcaption {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 0.75rem;
   padding: 0.78rem;
   font-size: 0.84rem;
+}
+.drawing-card small {
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+.drawing-card[data-category="color"] {
+  border-color: rgba(214, 177, 111, 0.24);
+}
+.drawing-card[data-category="graphite"] {
+  border-color: rgba(143, 213, 200, 0.2);
 }
 
 .stack {

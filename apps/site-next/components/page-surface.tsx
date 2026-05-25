@@ -16,6 +16,7 @@ import { BehanceVisualGrid } from "./behance-visual-grid";
 import { BriefIntakeForm } from "./brief-intake-form";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
+import { DrawingArchive } from "./drawing-archive";
 import { EvolutionRoadmap } from "./evolution-roadmap";
 
 type PageMode = "portfolio" | "drawings" | "lab" | "contact";
@@ -91,17 +92,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         <section className="section page-hero">
           <p className="eyebrow">{dict.drawingsTitle}</p>
           <h1>Drawing archive as a quiet visual research layer.</h1>
-          <div className="drawing-grid">
-            {drawings.map((drawing) => (
-              <figure className="drawing-card" key={drawing.id}>
-                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
-                <figcaption>
-                  <strong>{drawing.title}</strong>
-                  <span>{drawing.tone}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <p>{dict.drawingArchiveLead}</p>
+          <DrawingArchive dictionary={dict} drawings={drawings} />
         </section>
       )}
 

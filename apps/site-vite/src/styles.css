@@ -174,8 +174,15 @@ img {
   object-fit: cover;
 }
 figcaption {
+  display: grid;
+  gap: 0.35rem;
   padding: 0.75rem;
   color: var(--muted);
+}
+figcaption span {
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 .runtime {
   margin: 3rem 0;

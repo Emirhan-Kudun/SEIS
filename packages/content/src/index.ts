@@ -34,6 +34,9 @@ export type DrawingItem = {
   title: string;
   src: string;
   tone: string;
+  category: "graphite" | "color";
+  archiveRole: string;
+  sortIndex: number;
   featured?: boolean;
 };
 
