@@ -294,7 +294,7 @@ export function CinematicShowcaseScene() {
   return (
     <div className="showcase-scene" aria-hidden="true">
       {hasWebGlFallback ? (
-        <div className="showcase-fallback-scene">
+        <div className="showcase-fallback-scene" role="presentation">
           <span className="showcase-fallback-ring" />
           {showcaseImages.map((src, index) => (
             <span className="showcase-fallback-panel" style={{ backgroundImage: `url(${src})` }} key={src}>
@@ -303,7 +303,7 @@ export function CinematicShowcaseScene() {
           ))}
         </div>
       ) : (
-        <canvas ref={canvasRef} />
+        <canvas ref={canvasRef} role="presentation" />
       )}
     </div>
   );

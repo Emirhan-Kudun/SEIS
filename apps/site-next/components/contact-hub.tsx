@@ -5,6 +5,37 @@ type ContactHubProps = {
 };
 
 export function ContactHub({ dictionary }: ContactHubProps) {
+  const behanceLink = socialLinks.find((link) => link.id === "behance");
+  const directLinks = [
+    {
+      id: "email",
+      href: `mailto:${siteMeta.email}`,
+      title: siteMeta.email,
+      detail: `${siteMeta.city}, ${siteMeta.country}`,
+      external: false
+    },
+    behanceLink ? {
+      id: behanceLink.id,
+      href: behanceLink.href,
+      title: behanceLink.label,
+      detail: dictionary.behanceVisualsEyebrow,
+      external: true
+    } : null,
+    {
+      id: "brief",
+      href: "#brief-form",
+      title: dictionary.briefTitle,
+      detail: dictionary.briefReady,
+      external: false
+    }
+  ].filter(Boolean) as Array<{
+    id: string;
+    href: string;
+    title: string;
+    detail: string;
+    external: boolean;
+  }>;
+
   return (
     <div className="contact-hub">
       <div className="contact-direct">
@@ -15,6 +46,23 @@ export function ContactHub({ dictionary }: ContactHubProps) {
           <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
           <a className="secondary-link" href="#brief-form">{dictionary.briefTitle}</a>
         </div>
+        <ul className="contact-direct-grid" aria-label={dictionary.contactTitle}>
+          {directLinks.map((item) => (
+            <li key={item.id}>
+              <a
+                className="contact-direct-card"
+                href={item.href}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                target={item.external ? "_blank" : undefined}
+                aria-label={item.external ? `${item.title}. ${dictionary.externalLinkLabel}` : item.title}
+              >
+                <strong>{item.title}</strong>
+                <span>{item.detail}</span>
+                {item.external ? <span className="sr-only">{dictionary.externalLinkLabel}</span> : null}
+              </a>
+            </li>
+          ))}
+        </ul>
         <div className="social-block" aria-label={dictionary.socialTitle}>
           <h3>{dictionary.socialTitle}</h3>
           <div className="social-links">

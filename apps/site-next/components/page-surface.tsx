@@ -29,7 +29,7 @@ type PageMode = "portfolio" | "drawings" | "lab" | "contact";
 const navItems = [
   ["/", "navHome", "home"],
   ["/portfolio", "navPortfolio", "portfolio"],
-  ["/#behance", "navBehance", "behance"],
+  ["/portfolio#portfolio-behance", "navBehance", "behance"],
   ["/drawings", "navDrawings", "drawings"],
   ["/lab", "navLab", "lab"],
   ["/contact", "navContact", "contact"]
@@ -155,7 +155,8 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       {mode === "contact" && (
         <section className="section page-hero contact-page" id="page-content">
           <p className="eyebrow">{dict.contactEyebrow}</p>
-          <h1>{dict.contactLead}</h1>
+          <h1>{dict.contactTitle}</h1>
+          <p className="page-lead">{dict.contactLead}</p>
           <div className="contact-layout">
             <ContactHub dictionary={dict} />
             <BriefIntakeForm dictionary={dict} services={services} />
