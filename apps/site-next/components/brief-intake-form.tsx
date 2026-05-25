@@ -35,7 +35,7 @@ export function BriefIntakeForm({
   }
 
   return (
-    <form className="brief-form" onSubmit={submitBrief}>
+    <form className="brief-form" id="brief-form" onSubmit={submitBrief}>
       <h3>{dictionary.briefTitle}</h3>
       <div className="form-grid">
         <label>

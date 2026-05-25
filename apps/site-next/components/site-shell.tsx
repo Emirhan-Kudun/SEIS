@@ -71,8 +71,8 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
   }, [locale]);
 
   return (
-    <main className="site-shell" data-mode={mode}>
-      <a href="#home" className="skip-link">Skip to content</a>
+    <main className="site-shell" data-mode={mode} id="main-content">
+      <a href="#portfolio" className="skip-link">Skip to portfolio</a>
       <nav className="top-nav" aria-label="Primary navigation">
         <a href="#home" className="brand" aria-label="Emirhan Kudun home">
           Emirhan Kudun
@@ -148,7 +148,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
           <div className="studio-rail" aria-label="Featured Behance and drawing orbit">
             {studioTiles.map((tile) => (
               <article className="studio-tile" key={tile.id}>
-                <img src={tile.image} alt={`${tile.title} - ${tile.meta}`} loading="lazy" />
+                <img src={tile.image} alt={`${tile.title} - ${tile.meta}`} loading="lazy" decoding="async" />
                 <span>
                   <small>{tile.meta}</small>
                   {tile.title}
@@ -174,7 +174,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
           <div className="portfolio-drawing-strip" aria-label="Portfolio drawing highlights">
             {portfolioDrawings.map((drawing) => (
               <figure className="portfolio-drawing-card" key={`portfolio-${drawing.id}`}>
-                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+                <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
                 <figcaption>{drawing.title}</figcaption>
               </figure>
             ))}
@@ -206,7 +206,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
         <div className="featured-strip" aria-label="Featured drawings">
           {featuredDrawings.map((drawing) => (
             <figure className="featured-drawing" key={`featured-${drawing.id}`}>
-              <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+              <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
               <figcaption>{drawing.title}</figcaption>
             </figure>
           ))}

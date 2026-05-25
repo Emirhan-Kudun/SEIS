@@ -8,8 +8,13 @@ export function ContactHub({ dictionary }: ContactHubProps) {
   return (
     <div className="contact-hub">
       <div className="contact-direct">
-        <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
-        <p>{dictionary.briefReady}</p>
+        <p className="eyebrow">Direct / Contact</p>
+        <h3 className="contact-direct-title">{siteMeta.city}, {siteMeta.country}</h3>
+        <p className="contact-direct-lead">{dictionary.briefReady}</p>
+        <div className="contact-direct-actions">
+          <a className="primary-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+          <a className="secondary-link" href="#brief-form">{dictionary.briefTitle}</a>
+        </div>
         <div className="social-block" aria-label={dictionary.socialTitle}>
           <h3>{dictionary.socialTitle}</h3>
           <div className="social-links">
@@ -22,19 +27,22 @@ export function ContactHub({ dictionary }: ContactHubProps) {
           </div>
         </div>
       </div>
-      <div className="qa-panel" aria-label={dictionary.qaTitle}>
+      <section className="qa-panel" aria-label={dictionary.qaTitle}>
         <p className="eyebrow">Q&A</p>
         <h3>{dictionary.qaTitle}</h3>
         <p>{dictionary.qaLead}</p>
-        <div className="qa-list">
-          {contactQa.map((item) => (
-            <article className="qa-card" key={item.id}>
-              <h4>{item.question}</h4>
+        <div className="qa-list" role="list">
+          {contactQa.map((item, index) => (
+            <details className="qa-card" key={item.id} open={index === 0}>
+              <summary>
+                <span>{item.question}</span>
+                <span className="qa-toggle" aria-hidden="true" />
+              </summary>
               <p>{item.answer}</p>
-            </article>
+            </details>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

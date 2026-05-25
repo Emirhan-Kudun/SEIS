@@ -46,13 +46,18 @@ export function CinematicHeroScene() {
     const stableCanvas = targetCanvas as HTMLCanvasElement;
 
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotionQuery.matches) {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
+
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x090908, 0.045);
     const contextAttributes = {
       alpha: true,
       antialias: true,
-      preserveDrawingBuffer: true,
-      powerPreference: "high-performance" as WebGLPowerPreference
+      preserveDrawingBuffer: false,
+      powerPreference: "low-power" as WebGLPowerPreference
     };
     const webGlContext = stableCanvas.getContext("webgl2", contextAttributes)
       || stableCanvas.getContext("webgl", contextAttributes);
@@ -69,8 +74,8 @@ export function CinematicHeroScene() {
         antialias: true,
         canvas: stableCanvas,
         context: webGlContext as WebGLRenderingContext,
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance"
+        preserveDrawingBuffer: false,
+        powerPreference: "low-power"
       });
     } catch {
       setHasWebGlFallback(true);
@@ -78,7 +83,7 @@ export function CinematicHeroScene() {
     }
 
     renderer.setClearColor(0x000000, 0);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.25 : 1.65));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.05 : 1.35));
 
     const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 90);
     camera.position.set(0.2, 0.48, 9.6);

@@ -23,7 +23,7 @@ export function PortfolioCollections({ dictionary, collections, compact = false 
           <article className="portfolio-collection-card" data-accent={collection.accent} key={collection.id}>
             <a className="portfolio-collection-media" href={collection.href} aria-label={`${dictionary.portfolioCollectionOpen}: ${collection.title}`}>
               {collection.images.slice(0, 3).map((image, index) => (
-                <img src={image} alt={`${collection.title} visual ${index + 1}`} loading="lazy" key={`${collection.id}-${image}`} />
+                <img src={image} alt={`${collection.title} visual ${index + 1}`} loading="lazy" decoding="async" key={`${collection.id}-${image}`} />
               ))}
             </a>
             <div className="portfolio-collection-copy">

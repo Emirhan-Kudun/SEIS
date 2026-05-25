@@ -58,7 +58,7 @@ export function DrawingArchive({ dictionary, drawings, compact = false }: Drawin
       <div className="drawing-grid">
         {visibleDrawings.map((drawing) => (
           <figure className="drawing-card" data-category={drawing.category} key={drawing.id}>
-            <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" />
+            <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
             <figcaption>
               <strong>{drawing.title}</strong>
               <span>{drawing.tone}</span>

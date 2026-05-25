@@ -33,11 +33,16 @@ export function CinematicShowcaseScene() {
     const stableCanvas = canvas as HTMLCanvasElement;
 
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotionQuery.matches) {
+      setHasWebGlFallback(true);
+      return undefined;
+    }
+
     const contextAttributes = {
       alpha: true,
       antialias: true,
-      preserveDrawingBuffer: true,
-      powerPreference: "high-performance" as WebGLPowerPreference
+      preserveDrawingBuffer: false,
+      powerPreference: "low-power" as WebGLPowerPreference
     };
     const webGlContext = stableCanvas.getContext("webgl2", contextAttributes)
       || stableCanvas.getContext("webgl", contextAttributes);
@@ -54,15 +59,15 @@ export function CinematicShowcaseScene() {
         antialias: true,
         canvas: stableCanvas,
         context: webGlContext as WebGLRenderingContext,
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance"
+        preserveDrawingBuffer: false,
+        powerPreference: "low-power"
       });
     } catch {
       setHasWebGlFallback(true);
       return undefined;
     }
     renderer.setClearColor(0x000000, 0);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.2 : 1.55));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.05 : 1.28));
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x10100e, 6, 18);
