@@ -5,18 +5,20 @@ type BehanceVisualGridProps = {
   items: BehanceVisualItem[];
   compact?: boolean;
   showHeading?: boolean;
+  id?: string;
 };
 
 export function BehanceVisualGrid({
   dictionary,
   items,
   compact = false,
-  showHeading = true
+  showHeading = true,
+  id
 }: BehanceVisualGridProps) {
   const visibleItems = compact ? items.filter((item) => item.featured).slice(0, 6) : items;
 
   return (
-    <div className="behance-visuals" data-compact={compact}>
+    <div className="behance-visuals" data-compact={compact} id={id}>
       {showHeading && (
         <div className="section-heading">
           <div>

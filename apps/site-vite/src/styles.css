@@ -101,6 +101,7 @@ article, .runtime {
 }
 .visuals,
 .collections,
+.flow,
 .portfolio-index,
 .contact-preview,
 .lab-preview {
@@ -200,6 +201,65 @@ article, .runtime {
 }
 .collection-grid small {
   color: var(--collection-accent);
+}
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.flow-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  min-height: 100%;
+}
+.flow-grid article[data-lane="behance"] { --flow-accent: var(--accent); }
+.flow-grid article[data-lane="drawings"] { --flow-accent: var(--accent-2); }
+.flow-grid article[data-lane="works"] { --flow-accent: var(--ivory); }
+.flow-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--flow-accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+.flow-media {
+  min-height: 170px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 0.35rem;
+}
+.flow-media img,
+.flow-media span {
+  width: 100%;
+  min-height: 126px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+.flow-media img:nth-child(2n),
+.flow-media span:nth-child(2n) {
+  min-height: 154px;
+}
+.flow-media span {
+  display: grid;
+  place-items: center;
+  color: var(--flow-accent);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+.flow-grid h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1;
+}
+.flow-grid p {
+  margin: 0;
 }
 .portfolio-index-grid {
   display: grid;
@@ -362,6 +422,7 @@ figcaption span {
   .hero-metrics,
   .visual-grid,
   .collection-grid,
+  .flow-grid,
   .portfolio-index-grid,
   .contact-preview,
   .lab-grid,

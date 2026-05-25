@@ -6,6 +6,7 @@ type PortfolioDiscoveryFlowProps = {
   drawings: DrawingItem[];
   works: WorkItem[];
   compact?: boolean;
+  links?: Partial<Record<FlowLane["id"], string>>;
 };
 
 type FlowLane = {
@@ -22,7 +23,8 @@ export function PortfolioDiscoveryFlow({
   behanceVisuals,
   drawings,
   works,
-  compact = false
+  compact = false,
+  links = {}
 }: PortfolioDiscoveryFlowProps) {
   const featuredBehance = behanceVisuals.filter((item) => item.featured).slice(0, compact ? 3 : 4);
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, compact ? 3 : 4);
@@ -32,27 +34,32 @@ export function PortfolioDiscoveryFlow({
       id: "behance",
       title: dictionary.behanceVisualsTitle,
       summary: dictionary.portfolioFlowBehanceLead,
-      href: "/portfolio",
-      metric: `${behanceVisuals.length} Behance`,
+      href: links.behance || "#behance",
+      metric: `${behanceVisuals.length} ${dictionary.portfolioMetricBehance}`,
       visuals: featuredBehance.map((item) => ({ id: item.id, title: item.title, image: item.image }))
     },
     {
       id: "drawings",
       title: dictionary.drawingsTitle,
       summary: dictionary.portfolioFlowDrawingsLead,
-      href: "/drawings",
-      metric: `${drawings.length} ${dictionary.portfolioSourceDrawing}`,
+      href: links.drawings || "#drawings",
+      metric: `${drawings.length} ${dictionary.portfolioMetricDrawings}`,
       visuals: featuredDrawings.map((drawing) => ({ id: drawing.id, title: drawing.title, image: drawing.src }))
     },
     {
       id: "works",
       title: dictionary.worksTitle,
       summary: dictionary.portfolioFlowWorksLead,
-      href: "/portfolio",
-      metric: `${works.length} ${dictionary.portfolioSourceWork}`,
+      href: links.works || "#portfolio",
+      metric: `${works.length} ${dictionary.portfolioMetricWorks}`,
       visuals: featuredWorks.map((work) => ({ id: work.id, title: work.title }))
     }
   ];
+  const actionLabel: Record<FlowLane["id"], string> = {
+    behance: dictionary.portfolioFlowBehanceAction,
+    drawings: dictionary.portfolioFlowDrawingsAction,
+    works: dictionary.portfolioFlowWorksAction
+  };
 
   return (
     <section className="portfolio-flow" data-compact={compact} aria-labelledby="portfolio-flow-title">
@@ -83,7 +90,7 @@ export function PortfolioDiscoveryFlow({
             <div className="portfolio-flow-copy">
               <h3>{lane.title}</h3>
               <p>{lane.summary}</p>
-              <a className="text-link" href={lane.href}>{dictionary.portfolioFlowAction}</a>
+              <a className="text-link" href={lane.href}>{actionLabel[lane.id]}</a>
             </div>
           </article>
         ))}

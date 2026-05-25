@@ -22,6 +22,29 @@ export function App() {
   const [locale, setLocale] = useState<Locale>("tr");
   const dict = getDictionary(locale);
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 6);
+  const discoveryLanes = [
+    {
+      id: "behance",
+      title: dict.behanceVisualsTitle,
+      summary: dict.portfolioFlowBehanceLead,
+      metric: `${behanceVisuals.length} ${dict.portfolioMetricBehance}`,
+      images: behanceVisuals.filter((item) => item.featured).slice(0, 3).map((item) => item.image)
+    },
+    {
+      id: "drawings",
+      title: dict.drawingsTitle,
+      summary: dict.portfolioFlowDrawingsLead,
+      metric: `${drawings.length} ${dict.portfolioMetricDrawings}`,
+      images: featuredDrawings.slice(0, 3).map((drawing) => drawing.src)
+    },
+    {
+      id: "works",
+      title: dict.worksTitle,
+      summary: dict.portfolioFlowWorksLead,
+      metric: `${works.length} ${dict.portfolioMetricWorks}`,
+      images: []
+    }
+  ];
 
   return (
     <main>
@@ -114,6 +137,33 @@ export function App() {
               <small>{collection.tone}</small>
               <h3>{collection.title}</h3>
               <p>{collection.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="flow">
+        <div>
+          <small>{dict.portfolioFlowEyebrow}</small>
+          <h2>{dict.portfolioFlowTitle}</h2>
+          <p>{dict.portfolioFlowLead}</p>
+        </div>
+        <div className="flow-grid">
+          {discoveryLanes.map((lane, index) => (
+            <article data-lane={lane.id} key={lane.id}>
+              <div className="flow-head">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <small>{lane.metric}</small>
+              </div>
+              <div className="flow-media" aria-hidden="true">
+                {lane.images.length > 0 ? lane.images.map((image) => (
+                  <img src={image} alt="" loading="lazy" key={image} />
+                )) : works.slice(0, 3).map((work) => (
+                  <span key={work.id}>{work.title.slice(0, 2)}</span>
+                ))}
+              </div>
+              <h3>{lane.title}</h3>
+              <p>{lane.summary}</p>
             </article>
           ))}
         </div>

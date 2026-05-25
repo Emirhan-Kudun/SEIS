@@ -39,10 +39,10 @@ export function PageSurface({ mode }: { mode: PageMode }) {
   const dict = getDictionary("tr");
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 8);
   const portfolioStats = [
-    { label: dict.navBehance, value: behanceVisuals.length.toString(), detail: dict.behanceVisualsEyebrow },
-    { label: dict.navDrawings, value: drawings.length.toString(), detail: dict.drawingArchiveEyebrow },
-    { label: dict.portfolioCollectionsTitle, value: portfolioCollections.length.toString(), detail: dict.portfolioCollectionsEyebrow },
-    { label: "Embed", value: behanceEmbeds.length.toString(), detail: dict.behanceEmbedEyebrow }
+    { label: dict.portfolioMetricBehance, value: behanceVisuals.length.toString(), detail: dict.behanceVisualsEyebrow },
+    { label: dict.portfolioMetricDrawings, value: drawings.length.toString(), detail: dict.drawingArchiveEyebrow },
+    { label: dict.portfolioMetricCollections, value: portfolioCollections.length.toString(), detail: dict.portfolioCollectionsEyebrow },
+    { label: dict.portfolioMetricEmbeds, value: behanceEmbeds.length.toString(), detail: dict.behanceEmbedEyebrow }
   ];
   const motionPortfolioCards = [
     ...behanceVisuals.filter((item) => item.featured).slice(0, 3).map((item) => ({
@@ -110,8 +110,9 @@ export function PageSurface({ mode }: { mode: PageMode }) {
             behanceVisuals={behanceVisuals}
             drawings={drawings}
             works={works}
+            links={{ behance: "#portfolio-behance", drawings: "/drawings", works: "#portfolio-work-cards" }}
           />
-          <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
+          <BehanceVisualGrid dictionary={dict} items={behanceVisuals} id="portfolio-behance" />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <PortfolioIndex dictionary={dict} items={portfolioIndex} />
           <div className="featured-strip" aria-label={dict.featuredDrawingsLabel}>
@@ -122,7 +123,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
               </figure>
             ))}
           </div>
-          <div className="card-grid">
+          <div className="card-grid" id="portfolio-work-cards">
             {works.map((work) => (
               <article className="work-card" key={work.id}>
                 <p className="kicker">{work.tag}</p>

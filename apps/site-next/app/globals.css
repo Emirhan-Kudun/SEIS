@@ -53,6 +53,10 @@ section[id],
 main[id] {
   scroll-margin-top: calc(var(--nav-h) + 1rem);
 }
+.behance-visuals[id],
+.card-grid[id] {
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

@@ -78,24 +78,24 @@ export function BriefIntakeForm({
           </label>
           <label>
             <span>{dictionary.briefTimeline}</span>
-            <input name="timeline" placeholder="2-6 weeks" />
+            <input name="timeline" placeholder={dictionary.briefTimelinePlaceholder} />
           </label>
           <label>
             <span>{dictionary.briefBudget}</span>
-            <input name="budget" placeholder="Discovery / scoped / open" />
+            <input name="budget" placeholder={dictionary.briefBudgetPlaceholder} />
           </label>
           <label>
             <span>{dictionary.briefPriority}</span>
             <select name="priority" defaultValue="calm">
-              <option value="calm">Calm planning</option>
-              <option value="near">Near-term launch</option>
-              <option value="urgent">Urgent repair</option>
+              <option value="calm">{dictionary.briefPriorityCalm}</option>
+              <option value="near">{dictionary.briefPriorityNear}</option>
+              <option value="urgent">{dictionary.briefPriorityUrgent}</option>
             </select>
           </label>
         </div>
         <label>
           <span>{dictionary.briefScope}</span>
-          <input name="scope" placeholder="Brand, website, Behance, drawings, 3D..." />
+          <input name="scope" placeholder={dictionary.briefScopePlaceholder} />
         </label>
         <label>
           <span>{dictionary.briefMessage}</span>

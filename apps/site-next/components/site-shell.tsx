@@ -170,6 +170,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
           drawings={drawings}
           works={works}
           compact
+          links={{ behance: "#behance", drawings: "#drawings", works: "#portfolio" }}
         />
         <div className="portfolio-feature-layout" aria-label={dictionary.portfolioDrawingHighlightsLabel}>
           <div className="portfolio-behance-callout">
@@ -203,7 +204,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section behance-section" id="behance">
-        <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} />
+        <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} id="behance-visuals" />
         <BehanceEmbedPanel dictionary={dictionary} embeds={behanceEmbeds} compact />
       </section>
 
