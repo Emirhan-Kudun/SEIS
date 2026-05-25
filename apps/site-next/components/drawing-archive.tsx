@@ -41,7 +41,7 @@ export function DrawingArchive({ dictionary, drawings, compact = false }: Drawin
 
   return (
     <div className="drawing-archive" data-compact={compact}>
-      <div className="drawing-toolbar" aria-label="Drawing archive filters">
+      <div className="drawing-toolbar" aria-label={dictionary.drawingArchiveEyebrow}>
         {filters.map((filter) => (
           <button
             aria-pressed={activeFilter === filter.id}

@@ -32,13 +32,17 @@ export function BehanceVisualGrid({
             className="behance-visual-card"
             href={item.href}
             target="_blank"
-            rel="noreferrer"
-            aria-label={`${item.title} - ${item.category} Behance`}
+            rel="noopener noreferrer"
+            aria-label={`${item.title} - ${item.category} Behance. ${dictionary.externalLinkLabel}`}
             key={item.id}
           >
             <img src={item.image} alt={`${item.title} - ${item.category}`} loading="lazy" decoding="async" />
             <span>
-              <small>{item.category}</small>
+              <small className="card-link-meta">
+                <span>{item.category}</span>
+                <span className="external-link-mark" aria-hidden="true">↗</span>
+                <span className="sr-only">{dictionary.externalLinkLabel}</span>
+              </small>
               <strong>{item.title}</strong>
             </span>
           </a>

@@ -14,9 +14,17 @@ export function BriefIntakeForm({
   services: ServiceItem[];
 }) {
   const [briefState, setBriefState] = useState<BriefState>("idle");
+  const isSending = briefState === "sending";
+  const statusMessage =
+    briefState === "sending" ? dictionary.briefSending :
+    briefState === "sent" ? dictionary.briefAccepted :
+    briefState === "error" ? dictionary.briefError :
+    "";
 
   async function submitBrief(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isSending) return;
+
     const formElement = event.currentTarget;
     setBriefState("sending");
     const form = new FormData(formElement);
@@ -34,8 +42,20 @@ export function BriefIntakeForm({
     }
   }
 
+  function resetStatusOnEdit() {
+    if (briefState === "sent" || briefState === "error") {
+      setBriefState("idle");
+    }
+  }
+
   return (
-    <form className="brief-form" id="brief-form" onSubmit={submitBrief}>
+    <form
+      aria-busy={isSending}
+      className="brief-form"
+      id="brief-form"
+      onChange={resetStatusOnEdit}
+      onSubmit={submitBrief}
+    >
       <h3>{dictionary.briefTitle}</h3>
       <div className="form-grid">
         <label>
@@ -79,12 +99,22 @@ export function BriefIntakeForm({
         <span>{dictionary.briefMessage}</span>
         <textarea name="goal" required minLength={12} rows={5} />
       </label>
-      <button className="primary-link" type="submit" disabled={briefState === "sending"}>
-        {briefState === "sending" ? dictionary.briefSending : dictionary.briefSubmit}
+      <button
+        aria-describedby="brief-form-status"
+        className="primary-link"
+        type="submit"
+        disabled={isSending}
+      >
+        {isSending ? dictionary.briefSending : dictionary.briefSubmit}
       </button>
-      <p className="form-status" role="status">
-        {briefState === "sent" && dictionary.briefAccepted}
-        {briefState === "error" && dictionary.briefError}
+      <p
+        className="form-status"
+        data-state={briefState}
+        id="brief-form-status"
+        role="status"
+        aria-live="polite"
+      >
+        {statusMessage}
       </p>
     </form>
   );

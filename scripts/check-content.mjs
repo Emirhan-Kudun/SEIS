@@ -68,6 +68,8 @@ const requiredDictionaryKeys = [
   "portfolioSourceWork",
   "copyEmbed",
   "copied",
+  "copyFailed",
+  "externalLinkLabel",
   "skipContent",
   "projectDetailSkip",
   "projectNavigationLabel",

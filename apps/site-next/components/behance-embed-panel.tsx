@@ -12,13 +12,22 @@ type BehanceEmbedPanelProps = {
 };
 
 export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: BehanceEmbedPanelProps) {
-  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [copyState, setCopyState] = useState<{ id: string; status: "copied" | "error" } | null>(null);
   const visibleEmbeds = compact ? embeds.filter((item) => item.featured).slice(0, 3) : embeds;
 
   async function copyEmbedCode(embed: BehanceEmbedItem) {
-    await navigator.clipboard.writeText(embed.embedCode);
-    setCopiedId(embed.id);
-    window.setTimeout(() => setCopiedId((current) => current === embed.id ? null : current), 1600);
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("clipboard_unavailable");
+      }
+
+      await navigator.clipboard.writeText(embed.embedCode);
+      setCopyState({ id: embed.id, status: "copied" });
+    } catch {
+      setCopyState({ id: embed.id, status: "error" });
+    }
+
+    window.setTimeout(() => setCopyState((current) => current?.id === embed.id ? null : current), 1600);
   }
 
   return (
@@ -49,12 +58,23 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
             </pre>
             <div className="embed-actions">
               <button className="secondary-link" onClick={() => void copyEmbedCode(embed)} type="button">
-                {copiedId === embed.id ? dictionary.copied : dictionary.copyEmbed}
+                {copyState?.id === embed.id && copyState.status === "copied" ? dictionary.copied : dictionary.copyEmbed}
               </button>
-              <a className="secondary-link" href={embed.url} target="_blank" rel="noreferrer">
+              <a
+                className="secondary-link"
+                href={embed.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${dictionary.behanceOpen}. ${dictionary.externalLinkLabel}`}
+              >
                 {dictionary.behanceOpen}
+                <span className="sr-only">{dictionary.externalLinkLabel}</span>
               </a>
             </div>
+            <p className="embed-status" role="status" aria-live="polite">
+              {copyState?.id === embed.id && copyState.status === "copied" && dictionary.copied}
+              {copyState?.id === embed.id && copyState.status === "error" && dictionary.copyFailed}
+            </p>
           </article>
         ))}
       </div>

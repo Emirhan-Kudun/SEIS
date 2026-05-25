@@ -19,9 +19,17 @@ export function ContactHub({ dictionary }: ContactHubProps) {
           <h3>{dictionary.socialTitle}</h3>
           <div className="social-links">
             {socialLinks.map((link) => (
-              <a className="social-icon-link" href={link.href} target={link.href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer" key={link.id}>
+              <a
+                className="social-icon-link"
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                aria-label={link.href.startsWith("mailto:") ? link.label : `${link.label}. ${dictionary.externalLinkLabel}`}
+                key={link.id}
+              >
                 <span className="social-mark" aria-hidden="true">{link.mark}</span>
                 <span>{link.label}</span>
+                {!link.href.startsWith("mailto:") ? <span className="sr-only">{dictionary.externalLinkLabel}</span> : null}
               </a>
             ))}
           </div>
@@ -33,7 +41,7 @@ export function ContactHub({ dictionary }: ContactHubProps) {
         <p>{dictionary.qaLead}</p>
         <div className="qa-list" role="list">
           {contactQa.map((item, index) => (
-            <details className="qa-card" key={item.id} open={index === 0}>
+            <details className="qa-card" key={item.id} open={index === 0} name="contact-qa">
               <summary>
                 <span>{item.question}</span>
                 <span className="qa-toggle" aria-hidden="true" />

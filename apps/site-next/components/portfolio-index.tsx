@@ -101,8 +101,8 @@ export function PortfolioIndex({ dictionary, items, compact = false }: Portfolio
               data-source={item.source}
               href={item.href}
               key={item.id}
-              aria-label={`${item.title} - ${sourceLabel[item.source]} / ${item.category}`}
-              rel={item.external ? "noreferrer" : undefined}
+              aria-label={`${item.title} - ${sourceLabel[item.source]} / ${item.category}${item.external ? `. ${dictionary.externalLinkLabel}` : ""}`}
+              rel={item.external ? "noopener noreferrer" : undefined}
               target={item.external ? "_blank" : undefined}
             >
               {item.image ? (
@@ -111,7 +111,11 @@ export function PortfolioIndex({ dictionary, items, compact = false }: Portfolio
                 <span className="portfolio-index-monogram">{item.title.slice(0, 2)}</span>
               )}
               <span className="portfolio-index-card-copy">
-                <small>{sourceLabel[item.source]} / {item.category}</small>
+                <small className="card-link-meta">
+                  <span>{sourceLabel[item.source]} / {item.category}</span>
+                  {item.external ? <span className="external-link-mark" aria-hidden="true">↗</span> : null}
+                  {item.external ? <span className="sr-only">{dictionary.externalLinkLabel}</span> : null}
+                </small>
                 <strong>{item.title}</strong>
                 <em>{dictionary.portfolioOpenItem}</em>
               </span>

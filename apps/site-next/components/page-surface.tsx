@@ -42,14 +42,14 @@ export function PageSurface({ mode }: { mode: PageMode }) {
       id: `behance-${item.id}`,
       image: item.image,
       title: item.title,
-      meta: `Behance / ${item.category}`,
+      meta: `${dict.portfolioFilterBehance} / ${item.category}`,
       source: "behance"
     })),
     ...featuredDrawings.slice(0, 3).map((drawing) => ({
       id: `drawing-${drawing.id}`,
       image: drawing.src,
       title: drawing.title,
-      meta: `Drawing / ${drawing.category}`,
+      meta: `${dict.portfolioSourceDrawing} / ${drawing.category}`,
       source: "drawing"
     }))
   ];
@@ -92,7 +92,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
           <BehanceVisualGrid dictionary={dict} items={behanceVisuals} />
           <BehanceEmbedPanel dictionary={dict} embeds={behanceEmbeds} />
           <PortfolioIndex dictionary={dict} items={portfolioIndex} />
-          <div className="featured-strip" aria-label={dict.drawingsTitle}>
+          <div className="featured-strip" aria-label={dict.featuredDrawingsLabel}>
             {featuredDrawings.map((drawing) => (
               <figure className="featured-drawing" key={drawing.id}>
                 <img src={drawing.src} alt={`${drawing.title} - ${drawing.tone}`} loading="lazy" decoding="async" />
@@ -116,7 +116,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
 
       {mode === "drawings" && (
         <section className="section page-hero" id="page-content">
-          <p className="eyebrow">{dict.drawingsTitle}</p>
+          <p className="eyebrow">{dict.drawingArchiveEyebrow}</p>
           <h1>{dict.drawingPageTitle}</h1>
           <p>{dict.drawingArchiveLead}</p>
           <DrawingArchive dictionary={dict} drawings={drawings} />
@@ -131,7 +131,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
 
       {mode === "contact" && (
         <section className="section page-hero contact-page" id="page-content">
-          <p className="eyebrow">{dict.contactTitle}</p>
+          <p className="eyebrow">{dict.contactEyebrow}</p>
           <h1>{dict.contactLead}</h1>
           <div className="contact-layout">
             <ContactHub dictionary={dict} />
