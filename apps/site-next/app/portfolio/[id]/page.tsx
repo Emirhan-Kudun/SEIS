@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { getDictionary, siteMeta, works } from "@seis/content";
+import { getDictionary, works } from "@seis/content";
+
+import { buildPageMetadata } from "../../../lib/seo";
 
 type WorkDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -20,18 +22,11 @@ export async function generateMetadata({ params }: WorkDetailPageProps): Promise
     return {};
   }
 
-  return {
+  return buildPageMetadata({
     title: work.title,
     description: work.summary,
-    alternates: {
-      canonical: `/portfolio/${work.id}`
-    },
-    openGraph: {
-      title: `${work.title} | ${siteMeta.author}`,
-      description: work.summary,
-      url: `/portfolio/${work.id}`
-    }
-  };
+    path: `/portfolio/${work.id}`
+  });
 }
 
 export default async function WorkDetailPage({ params }: WorkDetailPageProps) {

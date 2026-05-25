@@ -3,10 +3,13 @@ import Link from "next/link";
 
 import { designPrinciples, designTokenGroups } from "@seis/content/design-system";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "../../lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Design System",
-  description: "SEIS design system principles, tokens and calm interface direction."
-};
+  description: "SEIS design system principles, tokens and calm interface direction.",
+  path: "/design-system"
+});
 
 export default function DesignSystemPage() {
   return (

@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 
 import { siteMeta } from "@seis/content";
 
+import { StructuredData } from "../components/structured-data";
+
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -32,6 +34,17 @@ export const metadata: Metadata = {
   },
   description: siteMeta.description,
   authors: [{ name: siteMeta.author }],
+  creator: siteMeta.author,
+  publisher: siteMeta.author,
+  keywords: [
+    "Emirhan Kudun",
+    "UI UX",
+    "Behance portfolio",
+    "drawing portfolio",
+    "cinematic web",
+    "brand design",
+    "creative technology"
+  ],
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg"
@@ -42,6 +55,12 @@ export const metadata: Metadata = {
     title: siteMeta.title,
     description: siteMeta.description,
     siteName: "Emirhan Kudun Portfolio"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteMeta.title,
+    description: siteMeta.description,
+    images: ["/favicon.svg"]
   },
   alternates: {
     canonical: "/",
@@ -65,7 +84,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <StructuredData />
+        {children}
+      </body>
     </html>
   );
 }
