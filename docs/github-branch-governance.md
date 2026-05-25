@@ -42,8 +42,10 @@ gh auth status -h github.com
 Only after preflight passes:
 
 ```bash
-GIT_TERMINAL_PROMPT=0 git push -u origin codex/seis-ux-cinematic-premium-foundation
+npm run github:publish
 ```
+
+`github:publish` runs the preflight first, disables interactive terminal prompts, and performs one push attempt. If GitHub auth is missing, it stops before pushing.
 
 ## Review Gates
 

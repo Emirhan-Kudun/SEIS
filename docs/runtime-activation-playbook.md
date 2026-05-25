@@ -28,6 +28,7 @@ This project treats runtime activation as a status model, not as automatic exter
 - Check `/api/deployment-targets` before any publish attempt.
 - `github-origin`, `vercel-preview`, and `custom-server` stay `needs_credentials` until their auth or environment values exist.
 - Run `npm run github:preflight` before pushing the active Codex branch to GitHub.
+- Run `npm run github:publish` only after preflight passes; it performs one non-interactive push attempt.
 - Server upload commands are documented but not run automatically; they need a concrete target and separate confirmation.
 - The static fallback stays available as a low-dependency rollback path.
 

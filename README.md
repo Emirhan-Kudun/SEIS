@@ -22,6 +22,7 @@ npm run check:runtime
 npm run check:source-boundaries
 npm run collect:mcp-readiness
 npm run github:preflight
+npm run github:publish
 npm run build --workspace apps/site-next
 npm run build --workspace apps/site-vite
 npm run deploy:static:dry-run
@@ -60,6 +61,7 @@ The main production candidate is `apps/site-next`. The Vite app is a small previ
 - `docs/decision-questions.md` keeps the next creative/product questions from getting lost.
 - `scripts/check-source-boundaries.mjs` prevents importing archive noise, zip files, encrypted credentials, and macOS metadata into source.
 - `scripts/origin-push-preflight.mjs` blocks unsafe GitHub push attempts until branch, origin, tree cleanliness and auth are ready.
+- `scripts/github-publish.mjs` runs the same preflight and then performs one non-interactive push only when it is safe.
 - `scripts/collect-mcp-readiness.mjs` refreshes MCP readiness from the live Codex MCP list and compares it against the infra-v1 archive catalog.
 
 The active implementation branch is `codex/seis-ux-cinematic-premium-foundation`.
