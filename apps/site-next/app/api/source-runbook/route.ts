@@ -1,5 +1,6 @@
 import {
   ecosystemSourceActionBoard,
+  ecosystemSourceExecutionReceipts,
   ecosystemSourceOutputManifest,
   ecosystemSourceQualityGates,
   ecosystemSourceRunbook,
@@ -19,10 +20,13 @@ export function GET() {
     summary: {
       totalSources: ecosystemSourceTotal,
       runbookSteps: ecosystemSourceRunbook.steps.length,
+      receipts: ecosystemSourceExecutionReceipts.length,
+      executionReceipts: ecosystemSourceExecutionReceipts.length,
       boardColumns: ecosystemSourceActionBoard.columns.length,
       qualityGates: ecosystemSourceQualityGates.length,
       leadingPacketId: ecosystemSourceRunbook.packetId
     },
+    receiptHandoff: "/api/source-execution-receipts",
     runbook: ecosystemSourceRunbook,
     qualityGates: ecosystemSourceQualityGates
   });

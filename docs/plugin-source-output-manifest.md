@@ -28,6 +28,8 @@ write-capable actions.
   including commands, pass signals and failure responses.
 - `/api/source-runbook`: ordered runbook for clean-branch preflight,
   implementation, validation and GitHub publish.
+- `/api/source-execution-receipts`: evidence receipt set for board, packets,
+  quality gates, runbook, UI and package outputs.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -162,6 +164,19 @@ Use the runbook as the main handoff when another agent continues aggressive
 source development. It explains where to stop before credentialed providers,
 paid media, private workspaces or force pushes.
 
+The `/api/source-execution-receipts` endpoint collects the proof surfaces for
+the source execution system:
+
+- the action board receipt,
+- the action packet receipt,
+- the quality gate receipt,
+- the runbook receipt,
+- the human UI receipt,
+- the complete source package receipt.
+
+Receipts describe public and local evidence. They do not claim that every
+provider was authenticated, invoked or allowed to perform writes.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -253,6 +268,7 @@ open or download?". It indexes:
 - the source action board,
 - the source quality gates,
 - the source runbook,
+- the source execution receipts,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -321,6 +337,7 @@ after a GitHub publish. It aggregates:
 - source action board columns for operator control,
 - source quality gates for validation control,
 - source runbook steps for ordered execution,
+- source execution receipts for evidence review,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

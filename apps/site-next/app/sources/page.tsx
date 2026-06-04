@@ -9,6 +9,7 @@ import {
   ecosystemSourceActionPackets,
   ecosystemSourceQualityGates,
   ecosystemSourceRunbook,
+  ecosystemSourceExecutionReceipts,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -31,6 +32,7 @@ const sourceApiLinks = [
   "/api/source-action-packets",
   "/api/source-quality-gates",
   "/api/source-runbook",
+  "/api/source-execution-receipts",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -51,6 +53,7 @@ export default function SourcesPage() {
     { label: "Action packets", value: ecosystemSourceActionPackets.length, detail: "agent-ready handoff" },
     { label: "Quality gates", value: ecosystemSourceQualityGates.length, detail: "local validation" },
     { label: "Runbook steps", value: ecosystemSourceRunbook.steps.length, detail: "safe sequence" },
+    { label: "Receipts", value: ecosystemSourceExecutionReceipts.length, detail: "proof surfaces" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -148,6 +151,27 @@ export default function SourcesPage() {
                 <code>{step.command}</code>
                 <p>{step.expectedSignal}</p>
                 <small>{step.gateIds.length} gates / {step.handoffPath}</small>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="source-receipt-section" aria-label="Source execution receipts">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Execution receipts</p>
+              <h2>Proof surfaces for the source board, packets, gates and runbook.</h2>
+            </div>
+            <p>Receipt seti public/local kanitlari toplar; provider auth veya her dis eklentinin gercek cagrildigi iddiasini tasimaz.</p>
+          </div>
+          <div className="source-receipt-grid">
+            {ecosystemSourceExecutionReceipts.map((receipt) => (
+              <article className="source-receipt-card" data-status={receipt.status} key={receipt.id}>
+                <span>{receipt.receiptType} / {receipt.status}</span>
+                <strong>{receipt.count}</strong>
+                <h3>{receipt.label}</h3>
+                <p>{receipt.proves}</p>
+                <small>{receipt.evidencePath}</small>
               </article>
             ))}
           </div>

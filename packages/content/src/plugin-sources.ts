@@ -321,6 +321,18 @@ export type EcosystemSourceRunbook = {
   operatingRule: string;
 };
 
+export type EcosystemSourceExecutionReceipt = {
+  id: string;
+  label: string;
+  receiptType: "board" | "packet" | "gate" | "runbook" | "ui" | "package";
+  status: "ready" | "visible" | "machine_readable" | "operator_handoff";
+  evidencePath: string;
+  sourceIds: string[];
+  count: number;
+  proves: string;
+  nextAction: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1629,6 +1641,75 @@ export const ecosystemSourceRunbook: EcosystemSourceRunbook = {
   ]
 };
 
+export const ecosystemSourceExecutionReceipts: EcosystemSourceExecutionReceipt[] = [
+  {
+    id: "action-board-receipt",
+    label: "Action board receipt",
+    receiptType: "board",
+    status: "operator_handoff",
+    evidencePath: "/api/source-action-board",
+    sourceIds: ecosystemSourceActionBoard.columns.map((column) => column.id),
+    count: ecosystemSourceActionBoard.columns.length,
+    proves: "Priority columns exist for now, next, blocked and backlog source work.",
+    nextAction: "Start from the leading now packet before choosing another source family."
+  },
+  {
+    id: "action-packet-receipt",
+    label: "Action packet receipt",
+    receiptType: "packet",
+    status: "machine_readable",
+    evidencePath: "/api/source-action-packets",
+    sourceIds: ecosystemSourceActionPackets.map((packet) => packet.id),
+    count: ecosystemSourceActionPackets.length,
+    proves: "Each source family has a bounded agent-ready action contract.",
+    nextAction: "Use one packet at a time and stop before credentialed provider escalation."
+  },
+  {
+    id: "quality-gate-receipt",
+    label: "Quality gate receipt",
+    receiptType: "gate",
+    status: "ready",
+    evidencePath: "/api/source-quality-gates",
+    sourceIds: ecosystemSourceQualityGates.map((gate) => gate.id),
+    count: ecosystemSourceQualityGates.length,
+    proves: "Required and recommended local validation gates are published.",
+    nextAction: "Run required gates before commit and recommended gates before push when practical."
+  },
+  {
+    id: "runbook-receipt",
+    label: "Runbook receipt",
+    receiptType: "runbook",
+    status: "operator_handoff",
+    evidencePath: "/api/source-runbook",
+    sourceIds: ecosystemSourceRunbook.steps.map((step) => step.id),
+    count: ecosystemSourceRunbook.steps.length,
+    proves: "Aggressive source work has an ordered preflight, validation and publish sequence.",
+    nextAction: "Follow the runbook order for the next bounded source change."
+  },
+  {
+    id: "human-ui-receipt",
+    label: "Human UI receipt",
+    receiptType: "ui",
+    status: "visible",
+    evidencePath: "/sources",
+    sourceIds: ["sources-command-page", "source-action-board", "source-quality-gates", "source-runbook"],
+    count: 4,
+    proves: "The source governance layers are visible on the public command page.",
+    nextAction: "Use /sources for human review and API links for agent handoff."
+  },
+  {
+    id: "source-package-receipt",
+    label: "Source package receipt",
+    receiptType: "package",
+    status: "machine_readable",
+    evidencePath: "/api/source-package",
+    sourceIds: ["source-package", "source-export-index", "source-delivery"],
+    count: 3,
+    proves: "The complete source package exports board, packets, gates, runbook and source records.",
+    nextAction: "Use /api/source-package as the broadest machine-readable handoff."
+  }
+];
+
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
     id: "already-available-session-capabilities",
@@ -2075,7 +2156,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 17,
+    count: 18,
     sourceIds: [
       "source-package",
       "source-signal-map",
@@ -2084,6 +2165,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
       "source-action-board",
       "source-quality-gates",
       "source-runbook",
+      "source-execution-receipts",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -2097,6 +2179,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-execution-receipts-json",
+    label: "Source execution receipts JSON",
+    artifactType: "api",
+    path: "/api/source-execution-receipts",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceExecutionReceipts.length,
+    sourceIds: ecosystemSourceExecutionReceipts.map((receipt) => receipt.id),
+    purpose: "Publish proof cards for board, packet, gate, runbook, UI and package evidence.",
+    guardrail: "Receipts describe public/local evidence only; they do not claim provider authentication."
   },
   {
     id: "source-runbook-json",
@@ -2448,6 +2541,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-execution-receipts-api",
+    label: "Source execution receipts API",
+    path: "/api/source-execution-receipts",
+    role: "Evidence receipt set for source board, packets, quality gates, runbook, UI and package outputs.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2598,6 +2698,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     useWhen: "Use this when continuing aggressive development and needing the exact safe execution sequence."
   },
   {
+    id: "source-execution-receipts",
+    label: "Source execution receipts",
+    format: "json",
+    path: "/api/source-execution-receipts",
+    status: "primary",
+    sourceIds: ecosystemSourceExecutionReceipts.map((receipt) => receipt.id),
+    count: ecosystemSourceExecutionReceipts.length,
+    purpose: "Collects public evidence cards for the board, packets, quality gates, runbook, UI and package handoffs.",
+    useWhen: "Use this when verifying what the portfolio can prove about aggressive source work."
+  },
+  {
     id: "source-proof",
     label: "Sources proof",
     format: "json",
@@ -2733,6 +2844,7 @@ export const ecosystemSourceOutputManifest = {
   sourceActionBoardColumnCount: ecosystemSourceActionBoard.columns.length,
   sourceQualityGateCount: ecosystemSourceQualityGates.length,
   sourceRunbookStepCount: ecosystemSourceRunbook.steps.length,
+  sourceExecutionReceiptCount: ecosystemSourceExecutionReceipts.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

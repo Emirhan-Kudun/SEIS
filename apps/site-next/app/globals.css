@@ -1932,6 +1932,7 @@ summary:focus-visible {
 .ops-export-grid,
 .source-board-grid,
 .source-runbook-list,
+.source-receipt-grid,
 .source-quality-grid,
 .source-action-grid,
 .source-signal-grid {
@@ -2005,6 +2006,11 @@ summary:focus-visible {
   padding: clamp(1.2rem, 3vw, 2rem) 0;
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-receipt-section {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(1.2rem, 3vw, 2rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -2015,6 +2021,9 @@ summary:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .source-runbook-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.source-receipt-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .source-action-grid {
@@ -2035,6 +2044,7 @@ summary:focus-visible {
 .source-api-dock,
 .source-board-card,
 .source-runbook-card,
+.source-receipt-card,
 .source-quality-card,
 .source-action-card,
 .source-execution-card,
@@ -2050,6 +2060,7 @@ summary:focus-visible {
 .ops-lane-card strong,
 .ops-export-card strong,
 .source-board-card strong,
+.source-receipt-card strong,
 .source-action-card strong,
 .source-execution-card strong,
 .source-signal-card strong {
@@ -2073,6 +2084,8 @@ summary:focus-visible {
 .source-board-card small,
 .source-runbook-card span,
 .source-runbook-card small,
+.source-receipt-card span,
+.source-receipt-card small,
 .source-quality-card span,
 .source-quality-card small,
 .source-action-card span,
@@ -2093,6 +2106,7 @@ summary:focus-visible {
 .ops-export-card h3,
 .source-board-card h3,
 .source-runbook-card h3,
+.source-receipt-card h3,
 .source-quality-card h3,
 .source-action-card h3,
 .source-execution-card h3,
@@ -2116,6 +2130,7 @@ summary:focus-visible {
 .source-api-dock p,
 .source-board-card p,
 .source-runbook-card p,
+.source-receipt-card p,
 .source-quality-card p,
 .source-action-card p,
 .source-execution-card p,
@@ -2130,6 +2145,7 @@ summary:focus-visible {
 }
 .source-board-card,
 .source-runbook-card,
+.source-receipt-card,
 .source-quality-card,
 .source-action-card,
 .source-execution-card {
@@ -3483,6 +3499,7 @@ summary:focus-visible {
   .source-api-dock,
   .source-board-grid,
   .source-runbook-list,
+  .source-receipt-grid,
   .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
@@ -3597,6 +3614,7 @@ summary:focus-visible {
   .source-api-dock,
   .source-board-grid,
   .source-runbook-list,
+  .source-receipt-grid,
   .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
