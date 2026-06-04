@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 
 import {
   behanceEmbeds,
@@ -18,10 +18,55 @@ import {
   type Locale
 } from "@seis/content";
 
+function isExternalHref(href: string) {
+  return href.startsWith("http") || href.startsWith("mailto:");
+}
+
 export function App() {
   const [locale, setLocale] = useState<Locale>("tr");
   const dict = getDictionary(locale);
   const featuredDrawings = drawings.filter((drawing) => drawing.featured).slice(0, 6);
+  const featuredEmbeds = behanceEmbeds.filter((item) => item.featured).slice(0, 5);
+  const [activeEmbedId, setActiveEmbedId] = useState(featuredEmbeds[0]?.id ?? behanceEmbeds[0]?.id ?? "");
+  const activeEmbed = featuredEmbeds.find((item) => item.id === activeEmbedId) ?? featuredEmbeds[0] ?? behanceEmbeds[0];
+  const orbitalDeckItems = [
+    ...behanceVisuals.filter((item) => item.featured).slice(0, 5).map((item) => ({
+      id: `behance-${item.id}`,
+      source: dict.portfolioFilterBehance,
+      meta: item.category,
+      title: item.title,
+      image: item.image,
+      href: item.href,
+      external: true
+    })),
+    ...featuredDrawings.slice(0, 4).map((drawing) => ({
+      id: `drawing-${drawing.id}`,
+      source: dict.portfolioSourceDrawing,
+      meta: drawing.category,
+      title: drawing.title,
+      image: drawing.src,
+      href: "#drawings",
+      external: false
+    }))
+  ];
+  const proofBeltItems = [
+    ...behanceVisuals.filter((item) => item.featured).slice(0, 6).map((item) => ({
+      id: `proof-behance-${item.id}`,
+      source: dict.portfolioFilterBehance,
+      title: item.title,
+      image: item.image,
+      href: item.href,
+      external: true
+    })),
+    ...featuredDrawings.map((drawing) => ({
+      id: `proof-drawing-${drawing.id}`,
+      source: dict.portfolioSourceDrawing,
+      title: drawing.title,
+      image: drawing.src,
+      href: "#drawings",
+      external: false
+    }))
+  ];
   const discoveryLanes = [
     {
       id: "behance",
@@ -45,21 +90,36 @@ export function App() {
       images: []
     }
   ];
+  const proofBeltLoopItems = [...proofBeltItems, ...proofBeltItems];
 
   return (
     <main>
+      <a className="skip-link" href="#portfolio">{dict.skipPortfolio}</a>
+
       <nav className="nav">
-        <strong>Emirhan Kudun</strong>
-        <div>
+        <a className="nav-brand" href="#home">Emirhan Kudun</a>
+        <div className="nav-links" aria-label={dict.primaryNavigationLabel}>
+          <a href="#portfolio">{dict.navPortfolio}</a>
+          <a href="#behance">{dict.navBehance}</a>
+          <a href="#drawings">{dict.navDrawings}</a>
+          <a href="#contact">{dict.navContact}</a>
+        </div>
+        <div className="nav-actions" aria-label={dict.languageSelectorLabel}>
           {locales.map((item) => (
-            <button className={locale === item ? "active" : ""} key={item} onClick={() => setLocale(item)}>
+            <button
+              aria-pressed={locale === item}
+              className={locale === item ? "active" : ""}
+              key={item}
+              onClick={() => setLocale(item)}
+              type="button"
+            >
               {item.toUpperCase()}
             </button>
           ))}
         </div>
       </nav>
 
-      <section className="hero">
+      <section className="hero" id="home">
         <p>{dict.heroEyebrow}</p>
         <h1>{dict.heroTitle}</h1>
         <span>{dict.heroLead}</span>
@@ -70,7 +130,99 @@ export function App() {
         </div>
       </section>
 
-      <section className="grid">
+      <section className="proof-belt" aria-label={dict.portfolioMotionGalleryLabel}>
+        <div className="proof-belt-copy">
+          <small>{dict.behancePortfolioEyebrow}</small>
+          <strong>{dict.portfolioPageEyebrow}</strong>
+        </div>
+        <div className="proof-belt-track">
+          {proofBeltLoopItems.map((item, index) => (
+            <a
+              aria-hidden={index >= proofBeltItems.length ? true : undefined}
+              className="proof-belt-card"
+              href={item.href}
+              key={`${item.id}-${index}`}
+              rel={item.external ? "noreferrer" : undefined}
+              tabIndex={index >= proofBeltItems.length ? -1 : undefined}
+              target={item.external ? "_blank" : undefined}
+            >
+              <img src={item.image} alt={`${item.title} - ${item.source}`} loading="lazy" />
+              <span>
+                <small>{item.source}</small>
+                <strong>{item.title}</strong>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="orbital-deck" aria-labelledby="orbital-preview-title">
+        <div className="orbital-copy">
+          <small>{dict.portfolioMotionGalleryLabel}</small>
+          <h2 id="orbital-preview-title">{dict.behanceVisualsTitle}</h2>
+          <p>{dict.behanceVisualsLead}</p>
+        </div>
+        <div className="orbital-stage" aria-label={dict.portfolioMotionGalleryLabel}>
+          <span className="orbital-ring orbital-ring-one" aria-hidden="true" />
+          <span className="orbital-ring orbital-ring-two" aria-hidden="true" />
+          <span className="orbital-ring orbital-ring-three" aria-hidden="true" />
+          <span className="orbital-core" aria-hidden="true">Be</span>
+          {orbitalDeckItems.map((item) => (
+            <a
+              className="orbital-card"
+              data-source={item.external ? "behance" : "drawing"}
+              href={item.href}
+              key={item.id}
+              rel={item.external ? "noreferrer" : undefined}
+              target={item.external ? "_blank" : undefined}
+            >
+              <img src={item.image} alt={`${item.title} - ${item.source} / ${item.meta}`} loading="lazy" />
+              <span>
+                <small>{item.source} / {item.meta}</small>
+                <strong>{item.title}</strong>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {activeEmbed ? (
+        <section className="behance-spotlight" aria-labelledby="behance-spotlight-title">
+          <div className="behance-spotlight-copy">
+            <small>{dict.behanceEmbedEyebrow}</small>
+            <h2 id="behance-spotlight-title">{dict.behanceTitle}</h2>
+            <p>{dict.behanceLead}</p>
+            <a className="mail-link" href={activeEmbed.url} target="_blank" rel="noreferrer">{dict.behanceOpen}</a>
+          </div>
+          <div className="behance-spotlight-preview">
+            <div className="behance-live-frame" style={{ "--embed-aspect": activeEmbed.aspectRatio } as CSSProperties}>
+              <iframe
+                src={activeEmbed.embedUrl}
+                title={`${activeEmbed.title} live Behance embed`}
+                loading="lazy"
+                allow="clipboard-write *; fullscreen *;"
+              />
+            </div>
+          </div>
+          <div className="behance-spotlight-list" aria-label={dict.behanceVisualsTitle}>
+            {featuredEmbeds.map((embed, index) => (
+              <button
+                aria-pressed={embed.id === activeEmbed.id}
+                className={embed.id === activeEmbed.id ? "active" : ""}
+                key={embed.id}
+                onClick={() => setActiveEmbedId(embed.id)}
+                type="button"
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{embed.title}</strong>
+                <small>{embed.category}</small>
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="grid" id="services">
         {services.map((service) => (
           <article key={service.id}>
             <h2>{service.title}</h2>
@@ -79,7 +231,7 @@ export function App() {
         ))}
       </section>
 
-      <section className="grid">
+      <section className="grid" id="portfolio">
         {works.slice(0, 6).map((work) => (
           <article key={work.id}>
             <small>{work.tag}</small>
@@ -89,7 +241,7 @@ export function App() {
         ))}
       </section>
 
-      <section className="drawings">
+      <section className="drawings" id="drawings">
         {featuredDrawings.map((drawing) => (
           <figure key={drawing.id}>
             <img src={drawing.src} alt={drawing.title} loading="lazy" />
@@ -101,7 +253,7 @@ export function App() {
         ))}
       </section>
 
-      <section className="visuals">
+      <section className="visuals" id="behance">
         <div>
           <small>Behance / Visuals</small>
           <h2>{dict.behanceVisualsTitle}</h2>
@@ -114,6 +266,7 @@ export function App() {
               <span>
                 <small>{item.category}</small>
                 <strong>{item.title}</strong>
+                <em className="sr-only">{dict.externalLinkLabel}</em>
               </span>
             </a>
           ))}
@@ -128,7 +281,7 @@ export function App() {
         </div>
         <div className="collection-grid">
           {portfolioCollections.slice(0, 3).map((collection) => (
-            <article data-accent={collection.accent} key={collection.id}>
+            <a className="collection-card" data-accent={collection.accent} href={collection.href} key={collection.id}>
               <div className="collection-media">
                 {collection.images.slice(0, 3).map((image) => (
                   <img src={image} alt={collection.title} loading="lazy" key={image} />
@@ -137,7 +290,12 @@ export function App() {
               <small>{collection.tone}</small>
               <h3>{collection.title}</h3>
               <p>{collection.summary}</p>
-            </article>
+              <ul className="collection-proof-list" aria-label={dict.portfolioCollectionProof}>
+                {collection.proof.map((proof) => (
+                  <li key={proof}>{proof}</li>
+                ))}
+              </ul>
+            </a>
           ))}
         </div>
       </section>
@@ -203,7 +361,7 @@ export function App() {
         ))}
       </section>
 
-      <section className="contact-preview">
+      <section className="contact-preview" id="contact">
         <div>
           <small>{dict.qaEyebrow}</small>
           <h2>{dict.qaTitle}</h2>
@@ -211,9 +369,15 @@ export function App() {
           <a className="mail-link" href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
           <div className="social-links">
             {socialLinks.map((link) => (
-              <a href={link.href} target={link.href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer" key={link.id}>
+              <a
+                href={link.href}
+                key={link.id}
+                rel={isExternalHref(link.href) ? "noreferrer" : undefined}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+              >
                 <span>{link.mark}</span>
                 {link.label}
+                {!link.href.startsWith("mailto:") ? <em className="sr-only">{dict.externalLinkLabel}</em> : null}
               </a>
             ))}
           </div>

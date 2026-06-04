@@ -4,9 +4,15 @@ type PortfolioCollectionsProps = {
   dictionary: LocalizedDictionary;
   collections: PortfolioCollectionItem[];
   compact?: boolean;
+  resolveHref?: (collection: PortfolioCollectionItem) => string;
 };
 
-export function PortfolioCollections({ dictionary, collections, compact = false }: PortfolioCollectionsProps) {
+export function PortfolioCollections({
+  dictionary,
+  collections,
+  compact = false,
+  resolveHref
+}: PortfolioCollectionsProps) {
   const visibleCollections = compact ? collections.slice(0, 3) : collections;
 
   return (
@@ -20,8 +26,16 @@ export function PortfolioCollections({ dictionary, collections, compact = false 
       </div>
       <div className="portfolio-collection-grid">
         {visibleCollections.map((collection) => (
-          <article className="portfolio-collection-card" data-accent={collection.accent} key={collection.id}>
-            <a className="portfolio-collection-media" href={collection.href} aria-label={`${dictionary.portfolioCollectionOpen}: ${collection.title}`}>
+          <article
+            className="portfolio-collection-card"
+            data-accent={collection.accent}
+            key={collection.id}
+          >
+            <a
+              className="portfolio-collection-media"
+              href={resolveHref?.(collection) ?? collection.href}
+              aria-label={`${dictionary.portfolioCollectionOpen}: ${collection.title}`}
+            >
               {collection.images.slice(0, 3).map((image, index) => (
                 <img src={image} alt={`${collection.title} visual ${index + 1}`} loading="lazy" decoding="async" key={`${collection.id}-${image}`} />
               ))}
@@ -36,7 +50,7 @@ export function PortfolioCollections({ dictionary, collections, compact = false 
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <a className="text-link" href={collection.href}>{dictionary.portfolioCollectionOpen}</a>
+              <a className="text-link" href={resolveHref?.(collection) ?? collection.href}>{dictionary.portfolioCollectionOpen}</a>
             </div>
           </article>
         ))}

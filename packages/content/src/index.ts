@@ -1,4 +1,5 @@
 import rawContent from "./data.json";
+export * from "./plugin-sources";
 
 export const locales = ["tr", "en", "fr", "it", "de"] as const;
 

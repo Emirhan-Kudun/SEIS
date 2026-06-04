@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { behanceVisuals, siteMeta, socialLinks, works } from "@seis/content";
+import { behanceVisuals, contactQa, siteMeta, socialLinks, works } from "@seis/content";
 
 const siteName = "Emirhan Kudun Portfolio";
 const defaultImage = "/drawings/renk-11.jpg";
@@ -60,6 +60,7 @@ export function portfolioStructuredData() {
     .map((link) => link.href)
     .filter((href) => href.startsWith("https://"));
   const featuredBehance = behanceVisuals.filter((item) => item.featured).slice(0, 6);
+  const faqItems = contactQa.slice(0, 8);
 
   return [
     {
@@ -143,6 +144,18 @@ export function portfolioStructuredData() {
           }
         }))
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer
+        }
+      }))
     }
   ];
 }

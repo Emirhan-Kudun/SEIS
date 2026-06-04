@@ -35,6 +35,25 @@ function walk(directory) {
 
 walk(root);
 
+const pluginSourcesPath = path.join(root, "packages/content/src/plugin-sources.ts");
+if (fs.existsSync(pluginSourcesPath)) {
+  const pluginSources = fs.readFileSync(pluginSourcesPath, "utf8");
+  const seenSourceIds = new Set();
+  const duplicateSourceIds = new Set();
+  const sourceIdPattern = /source\("([^"]+)"/g;
+  let match;
+
+  while ((match = sourceIdPattern.exec(pluginSources))) {
+    const sourceId = match[1];
+    if (seenSourceIds.has(sourceId)) duplicateSourceIds.add(sourceId);
+    seenSourceIds.add(sourceId);
+  }
+
+  for (const sourceId of duplicateSourceIds) {
+    errors.push(`Duplicate plugin source id found: ${sourceId}`);
+  }
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);

@@ -29,6 +29,10 @@ export function DrawingArchive({ dictionary, drawings, compact = false }: Drawin
     ],
     [dictionary]
   );
+  const activeFilterLabel = useMemo(
+    () => filters.find((filter) => filter.id === activeFilter)?.label ?? dictionary.drawingFilterAll,
+    [activeFilter, dictionary.drawingFilterAll, filters]
+  );
   const visibleDrawings = useMemo(() => {
     const filtered = drawings.filter((drawing) => {
       if (activeFilter === "all") return true;
@@ -55,6 +59,10 @@ export function DrawingArchive({ dictionary, drawings, compact = false }: Drawin
           </button>
         ))}
       </div>
+      <p className="drawing-results" aria-live="polite">
+        <span>{activeFilterLabel}</span>
+        <strong>{visibleDrawings.length}</strong>
+      </p>
       <div className="drawing-grid">
         {visibleDrawings.map((drawing) => (
           <figure className="drawing-card" data-category={drawing.category} key={drawing.id}>

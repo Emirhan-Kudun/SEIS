@@ -1,0 +1,77 @@
+import {
+  ecosystemAggressiveDevelopmentLanes,
+  ecosystemAiHelperLanes,
+  ecosystemSourceActivationPlan,
+  ecosystemConnectionAttempts,
+  ecosystemConnectionStateSummary,
+  ecosystemEnvironmentSourceExports,
+  ecosystemInstallPolicySummary,
+  ecosystemOutputSurfaces,
+  ecosystemPlatformSourceMirror,
+  ecosystemPluginInstallPlan,
+  ecosystemPluginRefs,
+  ecosystemSidePanelReceipts,
+  ecosystemSourceDeliveryArtifacts,
+  ecosystemSourceExportIndex,
+  ecosystemSourceFlatList,
+  ecosystemSourceGroups,
+  ecosystemSourceKindSummary,
+  ecosystemSourceOutputManifest,
+  ecosystemSourceProofCards,
+  ecosystemSourceReadinessMatrix,
+  ecosystemSourceTotal,
+  polyglotSourceContracts
+} from "@seis/content";
+
+export const dynamic = "force-dynamic";
+
+export function GET() {
+  return Response.json({
+    packageName: "seis-portfolio-plugin-source-package",
+    packageVersion: "2026-06-04",
+    generatedAt: new Date().toISOString(),
+    policy: {
+      source: ecosystemSourceOutputManifest.policy,
+      sidePanel: ecosystemSourceOutputManifest.platformSidePanelPolicy
+    },
+    summary: {
+      totalSources: ecosystemSourceTotal,
+      uniquePluginRefs: ecosystemPluginRefs.length,
+      sourceKinds: ecosystemSourceKindSummary,
+      connectionStates: ecosystemConnectionStateSummary,
+      installPolicies: ecosystemInstallPolicySummary,
+      groups: ecosystemSourceGroups.length,
+      readinessLanes: ecosystemSourceReadinessMatrix.length,
+      activationPlanSteps: ecosystemSourceActivationPlan.length,
+      aggressiveDevelopmentLanes: ecosystemAggressiveDevelopmentLanes.length,
+      installPlanSteps: ecosystemPluginInstallPlan.length,
+      environmentExports: ecosystemEnvironmentSourceExports.length,
+      sidePanelReceipts: ecosystemSidePanelReceipts.length,
+      platformSourceMirror: ecosystemPlatformSourceMirror.length,
+      proofCards: ecosystemSourceProofCards.length,
+      aiHelperLanes: ecosystemAiHelperLanes.length,
+      exportIndexItems: ecosystemSourceExportIndex.length,
+      deliveryArtifacts: ecosystemSourceDeliveryArtifacts.length,
+      outputSurfaces: ecosystemOutputSurfaces.length,
+      polyglotContracts: polyglotSourceContracts.length,
+      connectionAttempts: ecosystemConnectionAttempts.length
+    },
+    outputs: ecosystemOutputSurfaces,
+    pluginRefs: ecosystemPluginRefs,
+    sources: ecosystemSourceFlatList,
+    groups: ecosystemSourceGroups,
+    readinessMatrix: ecosystemSourceReadinessMatrix,
+    activationPlan: ecosystemSourceActivationPlan,
+    aggressiveDevelopmentLanes: ecosystemAggressiveDevelopmentLanes,
+    installPlan: ecosystemPluginInstallPlan,
+    environmentExports: ecosystemEnvironmentSourceExports,
+    sidePanelReceipts: ecosystemSidePanelReceipts,
+    platformSourceMirror: ecosystemPlatformSourceMirror,
+    proofCards: ecosystemSourceProofCards,
+    aiHelperLanes: ecosystemAiHelperLanes,
+    exportIndex: ecosystemSourceExportIndex,
+    deliveryArtifacts: ecosystemSourceDeliveryArtifacts,
+    connectionEvidence: ecosystemConnectionAttempts,
+    polyglotContracts: polyglotSourceContracts
+  });
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 
 import type { BehanceEmbedItem, LocalizedDictionary } from "@seis/content";
 import type { CSSProperties } from "react";
@@ -13,7 +13,21 @@ type BehanceEmbedPanelProps = {
 
 export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: BehanceEmbedPanelProps) {
   const [copyState, setCopyState] = useState<{ id: string; status: "copied" | "error" } | null>(null);
-  const visibleEmbeds = compact ? embeds.filter((item) => item.featured).slice(0, 3) : embeds;
+  const embedGridId = useId();
+  const allEmbeds = useMemo(
+    () => (compact ? embeds.filter((item) => item.featured).slice(0, 3) : embeds),
+    [compact, embeds]
+  );
+  const initialCount = compact ? allEmbeds.length : Math.min(8, allEmbeds.length);
+  const [visibleCount, setVisibleCount] = useState(initialCount);
+  const visibleEmbeds = compact ? allEmbeds : allEmbeds.slice(0, visibleCount);
+  const hasMore = !compact && visibleCount < allEmbeds.length;
+  const canCollapse = !compact && allEmbeds.length > initialCount && visibleCount >= allEmbeds.length;
+  const remainingCount = Math.max(allEmbeds.length - visibleCount, 0);
+
+  useEffect(() => {
+    setVisibleCount(initialCount);
+  }, [initialCount]);
 
   async function copyEmbedCode(embed: BehanceEmbedItem) {
     try {
@@ -39,7 +53,7 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
         </div>
         <p>{dictionary.behanceLead}</p>
       </div>
-      <div className="behance-grid">
+      <div className="behance-grid" id={embedGridId}>
         {visibleEmbeds.map((embed) => (
           <article className="behance-card" key={embed.id}>
             <p className="kicker">{embed.category}</p>
@@ -51,6 +65,8 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
                 title={`${embed.title} live Behance embed`}
                 loading="lazy"
                 allow="clipboard-write *; fullscreen *;"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
             <pre aria-label={`${embed.title} embed code`}>
@@ -78,6 +94,31 @@ export function BehanceEmbedPanel({ dictionary, embeds, compact = false }: Behan
           </article>
         ))}
       </div>
+      {!compact ? (
+        <div className="behance-panel-controls">
+          {hasMore ? (
+            <button
+              className="secondary-link"
+              type="button"
+              onClick={() => setVisibleCount((count) => Math.min(count + 8, allEmbeds.length))}
+              aria-controls={embedGridId}
+            >
+              {dictionary.behanceShowMore || "Daha fazla goster"}
+              {remainingCount > 0 ? ` (+${Math.min(remainingCount, 8)})` : ""}
+            </button>
+          ) : null}
+          {canCollapse ? (
+            <button
+              className="secondary-link"
+              type="button"
+              onClick={() => setVisibleCount(initialCount)}
+              aria-controls={embedGridId}
+            >
+              {dictionary.behanceCollapse || "Listeyi sadelestir"}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

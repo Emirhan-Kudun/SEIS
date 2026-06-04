@@ -1,5 +1,27 @@
 import { getDeploymentTargets, getMcpReadinessSnapshot, getSourceArchives, getRuntimeSnapshot } from "@seis/runtime";
 import { getDecisionQuestionCount } from "@seis/content/decision-questions";
+import {
+  ecosystemAggressiveDevelopmentLanes,
+  ecosystemAiHelperLanes,
+  ecosystemSourceActivationPlan,
+  ecosystemConnectionAttempts,
+  ecosystemConnectionStateSummary,
+  ecosystemEnvironmentSourceExports,
+  ecosystemInstallPolicySummary,
+  ecosystemOutputSurfaces,
+  ecosystemPlatformSourceMirror,
+  ecosystemPluginInstallPlan,
+  ecosystemPluginRefs,
+  ecosystemSidePanelReceipts,
+  ecosystemSourceDeliveryArtifacts,
+  ecosystemSourceExportIndex,
+  ecosystemSourceGroups,
+  ecosystemSourceKindSummary,
+  ecosystemSourceProofCards,
+  ecosystemSourceReadinessMatrix,
+  ecosystemSourceTotal,
+  polyglotSourceContracts
+} from "@seis/content";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +38,26 @@ export function GET() {
     summary: snapshot.summary,
     mcpSummary: mcp.summary,
     sourceArchiveCount: archives.length,
+    ecosystemSourceCount: ecosystemSourceTotal,
+    ecosystemUniquePluginRefCount: ecosystemPluginRefs.length,
+    ecosystemSourceKindSummary,
+    ecosystemConnectionStateSummary,
+    ecosystemInstallPolicySummary,
+    ecosystemConnectionAttemptCount: ecosystemConnectionAttempts.length,
+    ecosystemSourceGroupCount: ecosystemSourceGroups.length,
+    ecosystemReadinessLaneCount: ecosystemSourceReadinessMatrix.length,
+    ecosystemActivationPlanStepCount: ecosystemSourceActivationPlan.length,
+    ecosystemAggressiveDevelopmentLaneCount: ecosystemAggressiveDevelopmentLanes.length,
+    ecosystemPluginInstallPlanStepCount: ecosystemPluginInstallPlan.length,
+    ecosystemEnvironmentExportCount: ecosystemEnvironmentSourceExports.length,
+    ecosystemSidePanelReceiptCount: ecosystemSidePanelReceipts.length,
+    ecosystemPlatformSourceMirrorCount: ecosystemPlatformSourceMirror.length,
+    ecosystemSourceProofCardCount: ecosystemSourceProofCards.length,
+    ecosystemAiHelperLaneCount: ecosystemAiHelperLanes.length,
+    ecosystemSourceExportIndexCount: ecosystemSourceExportIndex.length,
+    ecosystemDeliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
+    ecosystemOutputSurfaceCount: ecosystemOutputSurfaces.length,
+    polyglotSourceContractCount: polyglotSourceContracts.length,
     deploymentTargetCount: deploymentTargets.length,
     decisionQuestionCount: getDecisionQuestionCount()
   });

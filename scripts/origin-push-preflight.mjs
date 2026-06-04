@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 
 const defaultBranch = "codex/seis-ux-cinematic-premium-foundation";
-const repoSlug = "emirhankudun/emirhan-kudun-portfolio";
+const repoSlug = "emirhankudun-ux/emirhan-kudun-portfolio";
 const sshRemote = `git@github.com:${repoSlug}.git`;
 const args = process.argv.slice(2);
 const allowMissingGhAuth = args.includes("--allow-missing-gh-auth");

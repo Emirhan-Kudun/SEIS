@@ -8,6 +8,7 @@ import {
   drawings,
   evolutionTracks,
   getDictionary,
+  isLocale,
   locales,
   portfolioCollections,
   portfolioIndex,
@@ -20,11 +21,15 @@ import {
 
 import { BriefIntakeForm } from "./brief-intake-form";
 import { BehanceEmbedPanel } from "./behance-embed-panel";
+import { BehanceEmbedSpotlight } from "./behance-embed-spotlight";
+import { BehanceOrbitalDeck } from "./behance-orbital-deck";
 import { BehanceVisualGrid } from "./behance-visual-grid";
 import { CinematicHeroScene } from "./cinematic-hero-scene";
+import { CinematicProofBelt } from "./cinematic-proof-belt";
 import { CinematicShowcaseScene } from "./cinematic-showcase-scene";
 import { ContactHub } from "./contact-hub";
 import { DrawingArchive } from "./drawing-archive";
+import { EcosystemSourceConsole, getSourceConsoleNavLabel } from "./ecosystem-source-console";
 import { EvolutionRoadmap } from "./evolution-roadmap";
 import { PortfolioCollections } from "./portfolio-collections";
 import { PortfolioDiscoveryFlow } from "./portfolio-discovery-flow";
@@ -33,16 +38,18 @@ import { PortfolioIndex } from "./portfolio-index";
 type ShellMode = "home";
 
 const nav = [
-  ["#home", "navHome"],
-  ["#portfolio", "navPortfolio"],
-  ["#behance", "navBehance"],
-  ["#drawings", "navDrawings"],
-  ["#lab", "navLab"],
-  ["#contact", "navContact"]
+  ["#home", "navHome", "Home"],
+  ["#portfolio", "navPortfolio", "Portfolio"],
+  ["#behance", "navBehance", "Behance"],
+  ["#drawings", "navDrawings", "Drawings"],
+  ["#sources", "sourceEnvironmentNav", "Sources"],
+  ["#lab", "navLab", "Lab"],
+  ["#contact", "navContact", "Contact"]
 ] as const;
 
 export function SiteShell({ mode }: { mode: ShellMode }) {
   const [locale, setLocale] = useState<Locale>("tr");
+  const [activeSection, setActiveSection] = useState<(typeof nav)[number][0]>("#home");
   const dictionary = useMemo(() => getDictionary(locale), [locale]);
   const featuredDrawings = useMemo(() => drawings.filter((drawing) => drawing.featured).slice(0, 8), []);
   const portfolioDrawings = useMemo(() => drawings.filter((drawing) => drawing.featured).slice(0, 6), []);
@@ -62,26 +69,74 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
   ], [featuredDrawings]);
 
   useEffect(() => {
+    const queryLocale = new URLSearchParams(window.location.search).get("lang");
     const stored = window.localStorage.getItem("seis-locale");
-    setLocale(resolveLocale(stored || "tr"));
+    const nextLocale = isLocale(queryLocale) ? queryLocale : resolveLocale(stored || "tr");
+    setLocale(nextLocale);
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale;
     window.localStorage.setItem("seis-locale", locale);
+    const currentUrl = new URL(window.location.href);
+    if (locale === "tr") {
+      currentUrl.searchParams.delete("lang");
+    } else {
+      currentUrl.searchParams.set("lang", locale);
+    }
+    const nextUrl = `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`;
+    const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (nextUrl !== currentPath) {
+      window.history.replaceState(null, "", nextUrl);
+    }
   }, [locale]);
+
+  useEffect(() => {
+    const sections = nav
+      .map(([href]) => document.querySelector<HTMLElement>(href))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveSection(`#${visibleEntry.target.id}` as (typeof nav)[number][0]);
+        }
+      },
+      {
+        rootMargin: "-24% 0px -52% 0px",
+        threshold: [0.2, 0.4, 0.65]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="site-shell" data-mode={mode} id="main-content">
-      <a href="#portfolio" className="skip-link">{dictionary.skipPortfolio}</a>
+      <div className="skip-links" aria-label={dictionary.primaryNavigationLabel}>
+        <a href="#home-copy" className="skip-link">{dictionary.skipContent}</a>
+        <a href="#portfolio" className="skip-link">{dictionary.skipPortfolio}</a>
+      </div>
       <nav className="top-nav" aria-label={dictionary.primaryNavigationLabel}>
         <a href="#home" className="brand" aria-label="Emirhan Kudun home">
           Emirhan Kudun
         </a>
         <div className="nav-links">
-          {nav.map(([href, key]) => (
-            <a key={href} href={href}>
-              {dictionary[key]}
+          {nav.map(([href, key, fallback]) => (
+            <a
+              key={href}
+              href={href}
+              aria-current={activeSection === href ? "location" : undefined}
+            >
+              {key === "sourceEnvironmentNav" ? getSourceConsoleNavLabel(locale) : dictionary[key] || fallback}
             </a>
           ))}
         </div>
@@ -101,7 +156,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
 
       <section id="home" className="hero-section">
         <CinematicHeroScene />
-        <div className="hero-copy">
+        <div className="hero-copy" id="home-copy" tabIndex={-1}>
           <p className="eyebrow">{dictionary.heroEyebrow}</p>
           <h1>{dictionary.heroTitle}</h1>
           <p>{dictionary.heroLead}</p>
@@ -122,6 +177,12 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
           </div>
         </div>
       </section>
+      <CinematicProofBelt
+        dictionary={dictionary}
+        behanceVisuals={behanceVisuals}
+        drawings={drawings}
+        compact
+      />
 
       <section className="section" id="services">
         <p className="eyebrow">{dictionary.servicesEyebrow}</p>
@@ -158,6 +219,13 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
             ))}
           </div>
         </div>
+        <BehanceOrbitalDeck
+          dictionary={dictionary}
+          behanceVisuals={behanceVisuals}
+          drawings={drawings}
+          compact
+        />
+        <BehanceEmbedSpotlight dictionary={dictionary} embeds={behanceEmbeds} />
       </section>
 
       <section className="section editorial-section" id="portfolio">
@@ -204,9 +272,12 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
       </section>
 
       <section className="section behance-section" id="behance">
+        <BehanceEmbedSpotlight dictionary={dictionary} embeds={behanceEmbeds} />
         <BehanceVisualGrid dictionary={dictionary} items={behanceVisuals} id="behance-visuals" />
         <BehanceEmbedPanel dictionary={dictionary} embeds={behanceEmbeds} compact />
       </section>
+
+      <EcosystemSourceConsole locale={locale} />
 
       <section className="section gallery-section" id="drawings">
         <p className="eyebrow">{dictionary.drawingArchiveEyebrow}</p>

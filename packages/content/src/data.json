@@ -157,7 +157,9 @@
       "detailImpactTitle": "Etki",
       "detailExecutionTitle": "Uygulama mantigi",
       "detailExecutionLead": "Bu sayfa secili is kartini paylasilabilir, metadata hazir ve ileride daha zengin gorsel galeriye acik bir proje yuzeyine donusturur.",
-      "startBrief": "Brief baslat"
+      "startBrief": "Brief baslat",
+      "behanceShowMore": "Daha fazla embed goster",
+      "behanceCollapse": "Embed listesini sadelestir"
     },
     "en": {
       "navHome": "Home",
@@ -300,7 +302,9 @@
       "detailImpactTitle": "Impact",
       "detailExecutionTitle": "Execution logic",
       "detailExecutionLead": "This page turns a selected work card into a shareable project surface with metadata and room for a richer visual gallery later.",
-      "startBrief": "Start a brief"
+      "startBrief": "Start a brief",
+      "behanceShowMore": "Show more embeds",
+      "behanceCollapse": "Collapse embeds"
     },
     "fr": {
       "navHome": "Accueil",
@@ -443,7 +447,9 @@
       "detailImpactTitle": "Impact",
       "detailExecutionTitle": "Logique execution",
       "detailExecutionLead": "Cette page transforme une carte de travail selectionnee en surface projet partageable, avec metadata et espace pour une galerie visuelle plus riche plus tard.",
-      "startBrief": "Demarrer un brief"
+      "startBrief": "Demarrer un brief",
+      "behanceShowMore": "Afficher plus d embeds",
+      "behanceCollapse": "Reduire les embeds"
     },
     "it": {
       "navHome": "Home",
@@ -586,7 +592,9 @@
       "detailImpactTitle": "Impatto",
       "detailExecutionTitle": "Logica esecutiva",
       "detailExecutionLead": "Questa pagina trasforma una card selezionata in una superficie progetto condivisibile, con metadata e spazio per una futura galleria visiva piu ricca.",
-      "startBrief": "Avvia brief"
+      "startBrief": "Avvia brief",
+      "behanceShowMore": "Mostra altri embed",
+      "behanceCollapse": "Riduci embed"
     },
     "de": {
       "navHome": "Start",
@@ -729,7 +737,9 @@
       "detailImpactTitle": "Wirkung",
       "detailExecutionTitle": "Ausfuhrungslogik",
       "detailExecutionLead": "Diese Seite macht aus einer ausgewahlten Arbeitskarte eine teilbare Projektflache mit Metadaten und Raum fur eine spatere visuelle Galerie.",
-      "startBrief": "Brief starten"
+      "startBrief": "Brief starten",
+      "behanceShowMore": "Mehr Embeds anzeigen",
+      "behanceCollapse": "Embeds reduzieren"
     }
   },
   "services": [
@@ -1018,27 +1028,15 @@
       "featured": true
     },
     {
-      "id": "italy-gift-cup-embed",
-      "projectId": "205105339",
-      "title": "Italy Gift Coffee Cup Set Embed",
-      "url": "https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set",
-      "embedUrl": "https://www.behance.net/embed/project/205105339?ilo0=1",
+      "id": "social-responsibility-project-embed",
+      "projectId": "178412361",
+      "title": "Social Responsibility Project Embed",
+      "url": "https://www.behance.net/gallery/178412361/Social-Responsibility-Project",
+      "embedUrl": "https://www.behance.net/embed/project/178412361?ilo0=1",
       "aspectRatio": "78.2178%",
-      "category": "Product mockup",
-      "notes": "Italy Gift Coffee Cup Set icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/205105339?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
-      "featured": true
-    },
-    {
-      "id": "turkish-mythology-posters-embed",
-      "projectId": "182702163",
-      "title": "Turkish mythology theater posters Embed",
-      "url": "https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters",
-      "embedUrl": "https://www.behance.net/embed/project/182702163?ilo0=1",
-      "aspectRatio": "78.2178%",
-      "category": "Illustration poster",
-      "notes": "Turkish mythology theater posters icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/182702163?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "category": "Sustainability visual",
+      "notes": "Social Responsibility Project icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178412361?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
       "featured": true
     },
     {
@@ -1054,18 +1052,6 @@
       "featured": true
     },
     {
-      "id": "social-responsibility-project-embed",
-      "projectId": "178412361",
-      "title": "Social Responsibility Project Embed",
-      "url": "https://www.behance.net/gallery/178412361/Social-Responsibility-Project",
-      "embedUrl": "https://www.behance.net/embed/project/178412361?ilo0=1",
-      "aspectRatio": "78.2178%",
-      "category": "Sustainability visual",
-      "notes": "Social Responsibility Project icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178412361?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
-      "featured": true
-    },
-    {
       "id": "victory-day-banner-embed",
       "projectId": "178216053",
       "title": "Beldeport 30 Agustos Banner Embed",
@@ -1074,7 +1060,8 @@
       "aspectRatio": "78.2178%",
       "category": "Banner design",
       "notes": "Beldeport 30 Agustos Banner icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178216053?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178216053?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
     },
     {
       "id": "wonder-woman-book-cover-embed",
@@ -1085,7 +1072,8 @@
       "aspectRatio": "78.2178%",
       "category": "Book cover",
       "notes": "Wonder Woman Book Cover 2 icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178126385?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178126385?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
     },
     {
       "id": "foreign-education-outdoor-embed",
@@ -1096,7 +1084,32 @@
       "aspectRatio": "78.2178%",
       "category": "Outdoor poster",
       "notes": "Foreign Education Outdoor Poster icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178124789?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/178124789?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
+    },
+    {
+      "id": "behance-project-177929985",
+      "projectId": "177929985",
+      "title": "Arial Font Artists Embed",
+      "url": "https://www.behance.net/gallery/177929985",
+      "embedUrl": "https://www.behance.net/embed/project/177929985?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Arial Font Artists icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177929985?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
+    },
+    {
+      "id": "behance-project-177929453",
+      "projectId": "177929453",
+      "title": "Behance Project 09 Embed",
+      "url": "https://www.behance.net/gallery/177929453",
+      "embedUrl": "https://www.behance.net/embed/project/177929453?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 09 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177929453?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
     },
     {
       "id": "poligon-illustration-embed",
@@ -1107,7 +1120,356 @@
       "aspectRatio": "78.2178%",
       "category": "Illustration",
       "notes": "Poligon Illustration icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
-      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177929021?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177929021?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": true
+    },
+    {
+      "id": "behance-project-177846565",
+      "projectId": "177846565",
+      "title": "Behance Project 11 Embed",
+      "url": "https://www.behance.net/gallery/177846565",
+      "embedUrl": "https://www.behance.net/embed/project/177846565?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 11 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177846565?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-177639103",
+      "projectId": "177639103",
+      "title": "Behance Project 12 Embed",
+      "url": "https://www.behance.net/gallery/177639103",
+      "embedUrl": "https://www.behance.net/embed/project/177639103?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 12 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177639103?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-177636517",
+      "projectId": "177636517",
+      "title": "Behance Project 13 Embed",
+      "url": "https://www.behance.net/gallery/177636517",
+      "embedUrl": "https://www.behance.net/embed/project/177636517?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 13 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/177636517?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-175803925",
+      "projectId": "175803925",
+      "title": "Behance Project 14 Embed",
+      "url": "https://www.behance.net/gallery/175803925",
+      "embedUrl": "https://www.behance.net/embed/project/175803925?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 14 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/175803925?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-173235081",
+      "projectId": "173235081",
+      "title": "Behance Project 15 Embed",
+      "url": "https://www.behance.net/gallery/173235081",
+      "embedUrl": "https://www.behance.net/embed/project/173235081?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 15 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/173235081?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-170228809",
+      "projectId": "170228809",
+      "title": "Behance Project 16 Embed",
+      "url": "https://www.behance.net/gallery/170228809",
+      "embedUrl": "https://www.behance.net/embed/project/170228809?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 16 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/170228809?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-162309345",
+      "projectId": "162309345",
+      "title": "Behance Project 17 Embed",
+      "url": "https://www.behance.net/gallery/162309345",
+      "embedUrl": "https://www.behance.net/embed/project/162309345?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 17 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/162309345?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-162306979",
+      "projectId": "162306979",
+      "title": "Behance Project 18 Embed",
+      "url": "https://www.behance.net/gallery/162306979",
+      "embedUrl": "https://www.behance.net/embed/project/162306979?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 18 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/162306979?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-156155557",
+      "projectId": "156155557",
+      "title": "Behance Project 19 Embed",
+      "url": "https://www.behance.net/gallery/156155557",
+      "embedUrl": "https://www.behance.net/embed/project/156155557?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 19 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/156155557?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-154324861",
+      "projectId": "154324861",
+      "title": "Behance Project 20 Embed",
+      "url": "https://www.behance.net/gallery/154324861",
+      "embedUrl": "https://www.behance.net/embed/project/154324861?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 20 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/154324861?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-154252891",
+      "projectId": "154252891",
+      "title": "Behance Project 21 Embed",
+      "url": "https://www.behance.net/gallery/154252891",
+      "embedUrl": "https://www.behance.net/embed/project/154252891?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 21 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/154252891?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-153415565",
+      "projectId": "153415565",
+      "title": "Behance Project 22 Embed",
+      "url": "https://www.behance.net/gallery/153415565",
+      "embedUrl": "https://www.behance.net/embed/project/153415565?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 22 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/153415565?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-153428237",
+      "projectId": "153428237",
+      "title": "Behance Project 23 Embed",
+      "url": "https://www.behance.net/gallery/153428237",
+      "embedUrl": "https://www.behance.net/embed/project/153428237?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 23 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/153428237?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-153357569",
+      "projectId": "153357569",
+      "title": "Behance Project 24 Embed",
+      "url": "https://www.behance.net/gallery/153357569",
+      "embedUrl": "https://www.behance.net/embed/project/153357569?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 24 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/153357569?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-153045431",
+      "projectId": "153045431",
+      "title": "Behance Project 25 Embed",
+      "url": "https://www.behance.net/gallery/153045431",
+      "embedUrl": "https://www.behance.net/embed/project/153045431?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 25 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/153045431?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-152808473",
+      "projectId": "152808473",
+      "title": "Behance Project 26 Embed",
+      "url": "https://www.behance.net/gallery/152808473",
+      "embedUrl": "https://www.behance.net/embed/project/152808473?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 26 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/152808473?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-152806257",
+      "projectId": "152806257",
+      "title": "Behance Project 27 Embed",
+      "url": "https://www.behance.net/gallery/152806257",
+      "embedUrl": "https://www.behance.net/embed/project/152806257?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 27 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/152806257?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-152551909",
+      "projectId": "152551909",
+      "title": "Behance Project 28 Embed",
+      "url": "https://www.behance.net/gallery/152551909",
+      "embedUrl": "https://www.behance.net/embed/project/152551909?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 28 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/152551909?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151925471",
+      "projectId": "151925471",
+      "title": "Behance Project 29 Embed",
+      "url": "https://www.behance.net/gallery/151925471",
+      "embedUrl": "https://www.behance.net/embed/project/151925471?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 29 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151925471?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151788235",
+      "projectId": "151788235",
+      "title": "Behance Project 30 Embed",
+      "url": "https://www.behance.net/gallery/151788235",
+      "embedUrl": "https://www.behance.net/embed/project/151788235?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 30 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151788235?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151096891",
+      "projectId": "151096891",
+      "title": "Behance Project 31 Embed",
+      "url": "https://www.behance.net/gallery/151096891",
+      "embedUrl": "https://www.behance.net/embed/project/151096891?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 31 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151096891?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151089007",
+      "projectId": "151089007",
+      "title": "Behance Project 32 Embed",
+      "url": "https://www.behance.net/gallery/151089007",
+      "embedUrl": "https://www.behance.net/embed/project/151089007?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 32 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151089007?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151088757",
+      "projectId": "151088757",
+      "title": "Behance Project 33 Embed",
+      "url": "https://www.behance.net/gallery/151088757",
+      "embedUrl": "https://www.behance.net/embed/project/151088757?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 33 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151088757?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151085695",
+      "projectId": "151085695",
+      "title": "Behance Project 34 Embed",
+      "url": "https://www.behance.net/gallery/151085695",
+      "embedUrl": "https://www.behance.net/embed/project/151085695?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 34 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151085695?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151085469",
+      "projectId": "151085469",
+      "title": "Behance Project 35 Embed",
+      "url": "https://www.behance.net/gallery/151085469",
+      "embedUrl": "https://www.behance.net/embed/project/151085469?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 35 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151085469?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-151023563",
+      "projectId": "151023563",
+      "title": "Behance Project 36 Embed",
+      "url": "https://www.behance.net/gallery/151023563",
+      "embedUrl": "https://www.behance.net/embed/project/151023563?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 36 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/151023563?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "behance-project-150083227",
+      "projectId": "150083227",
+      "title": "Behance Project 37 Embed",
+      "url": "https://www.behance.net/gallery/150083227",
+      "embedUrl": "https://www.behance.net/embed/project/150083227?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Behance project",
+      "notes": "Behance Project 37 icin arsivden cikarilan Behance iframe embed yuzeyi; public portfolyo icinde lazy preview ve kopyalanabilir kod olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/150083227?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "italy-gift-cup-embed",
+      "projectId": "205105339",
+      "title": "Italy Gift Coffee Cup Set Embed",
+      "url": "https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set",
+      "embedUrl": "https://www.behance.net/embed/project/205105339?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Product mockup",
+      "notes": "Italy Gift Coffee Cup Set icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/205105339?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
+    },
+    {
+      "id": "turkish-mythology-posters-embed",
+      "projectId": "182702163",
+      "title": "Turkish mythology theater posters Embed",
+      "url": "https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters",
+      "embedUrl": "https://www.behance.net/embed/project/182702163?ilo0=1",
+      "aspectRatio": "78.2178%",
+      "category": "Illustration poster",
+      "notes": "Turkish mythology theater posters icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.",
+      "embedCode": "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/182702163?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>",
+      "featured": false
     }
   ],
   "softwareLanguages": [
