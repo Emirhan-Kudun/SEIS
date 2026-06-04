@@ -1,4 +1,5 @@
 import {
+  ecosystemSourceActionPackets,
   ecosystemSourceExecutionQueue,
   ecosystemSourceOutputManifest,
   ecosystemSourceSignalMap,
@@ -30,8 +31,10 @@ export function GET() {
       totalSources: ecosystemSourceTotal,
       signalMapItems: ecosystemSourceSignalMap.length,
       queueItems: ecosystemSourceExecutionQueue.length,
+      actionPackets: ecosystemSourceActionPackets.length,
       prioritySummary
     },
-    queue: ecosystemSourceExecutionQueue
+    queue: ecosystemSourceExecutionQueue,
+    actionPacketHandoff: "/api/source-action-packets"
   });
 }

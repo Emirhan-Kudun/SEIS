@@ -224,6 +224,37 @@ export type EcosystemSourceExecutionQueueItem = {
   acceptanceCriteria: string[];
 };
 
+export type EcosystemSourceActionPacketMode =
+  | "command"
+  | "build"
+  | "creative"
+  | "growth"
+  | "ops"
+  | "quality"
+  | "research"
+  | "backlog";
+
+export type EcosystemSourceActionPacket = {
+  id: string;
+  label: string;
+  queueId: string;
+  priority: EcosystemSourceExecutionPriority;
+  packetMode: EcosystemSourceActionPacketMode;
+  sourceFamilyId: string;
+  sourceFamilyLabel: string;
+  sourceIds: string[];
+  count: number;
+  laneIds: string[];
+  evidencePaths: string[];
+  objective: string;
+  firstMove: string;
+  localValidation: string[];
+  stopCondition: string;
+  handoffPath: string;
+  guardrail: string;
+  acceptanceCriteria: string[];
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1239,6 +1270,71 @@ export const ecosystemSourceExecutionQueue: EcosystemSourceExecutionQueueItem[] 
     left.label.localeCompare(right.label)
   );
 
+const sourceActionPacketModeByFamily: Record<string, EcosystemSourceActionPacketMode> = {
+  "builders-hosting-runtime": "build",
+  "creative-media-design": "creative",
+  "analytics-gtm-intelligence": "growth",
+  "productivity-sales-ops": "ops",
+  "engineering-ai-security": "quality",
+  "skills-mcp-runtime": "quality",
+  "data-finance-research": "research"
+};
+
+function getActionPacketMode(item: EcosystemSourceExecutionQueueItem): EcosystemSourceActionPacketMode {
+  return sourceActionPacketModeByFamily[item.sourceFamilyId] || (item.priority === "backlog" ? "backlog" : "command");
+}
+
+function getActionPacketEvidencePaths(item: EcosystemSourceExecutionQueueItem): string[] {
+  const lanePaths = ecosystemAggressiveDevelopmentLanes
+    .filter((lane) => item.laneIds.includes(lane.id))
+    .map((lane) => lane.outputPath);
+
+  return [...new Set(["/sources", "/ops", "/api/source-action-packets", "/api/source-execution-queue", item.outputPath, ...lanePaths])];
+}
+
+function getActionPacketStopCondition(priority: EcosystemSourceExecutionPriority): string {
+  if (priority === "blocked") return "Stop at local representation until user auth or provider connection setup is complete.";
+  if (priority === "backlog") return "Stop after cataloging; do not invoke backlog providers without a concrete approved task.";
+  return "Stop after one reversible local portfolio improvement and passing lightweight validation.";
+}
+
+function createSourceActionPacket(item: EcosystemSourceExecutionQueueItem): EcosystemSourceActionPacket {
+  const packetMode = getActionPacketMode(item);
+
+  return {
+    id: `${item.sourceFamilyId}-action-packet`,
+    label: `${item.sourceFamilyLabel} action packet`,
+    queueId: item.id,
+    priority: item.priority,
+    packetMode,
+    sourceFamilyId: item.sourceFamilyId,
+    sourceFamilyLabel: item.sourceFamilyLabel,
+    sourceIds: item.sourceIds,
+    count: item.count,
+    laneIds: item.laneIds,
+    evidencePaths: getActionPacketEvidencePaths(item),
+    objective: `Turn the ${item.sourceFamilyLabel.toLowerCase()} source family into one ${item.priority} portfolio improvement without bulk provider calls.`,
+    firstMove: item.action,
+    localValidation: [
+      "npx tsc -p packages/content/tsconfig.json --noEmit",
+      "npx tsc -p apps/site-next/tsconfig.json --noEmit",
+      "npm run check:source-boundaries",
+      "git diff --check"
+    ],
+    stopCondition: getActionPacketStopCondition(item.priority),
+    handoffPath: "/api/source-action-packets",
+    guardrail: item.guardrail,
+    acceptanceCriteria: [
+      ...item.acceptanceCriteria,
+      "Action packet is visible in /sources.",
+      "Machine-readable packet is available at /api/source-action-packets.",
+      "Packet explains validation and stop conditions before any provider escalation."
+    ]
+  };
+}
+
+export const ecosystemSourceActionPackets: EcosystemSourceActionPacket[] = ecosystemSourceExecutionQueue.map(createSourceActionPacket);
+
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
     id: "already-available-session-capabilities",
@@ -1685,11 +1781,12 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 13,
+    count: 14,
     sourceIds: [
       "source-package",
       "source-signal-map",
       "source-execution-queue",
+      "source-action-packets",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1703,6 +1800,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-action-packets-json",
+    label: "Source action packets JSON",
+    artifactType: "api",
+    path: "/api/source-action-packets",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceActionPackets.length,
+    sourceIds: ecosystemSourceActionPackets.map((packet) => packet.id),
+    purpose: "Package each source-family queue item as an agent-ready action contract with validation and stop conditions.",
+    guardrail: "Packets coordinate local work only; provider escalation remains explicit and task-specific."
   },
   {
     id: "source-execution-queue-json",
@@ -1982,6 +2090,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-action-packets-api",
+    label: "Source action packets API",
+    path: "/api/source-action-packets",
+    role: "Agent-ready action packets generated from source execution queue items, validation gates and stop conditions.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2086,6 +2201,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: ecosystemSourceExecutionQueue.length,
     purpose: "Converts source signals into a prioritized local execution queue.",
     useWhen: "Use this when continuing aggressive development and choosing the next bounded source-family action."
+  },
+  {
+    id: "source-action-packets",
+    label: "Source action packets",
+    format: "json",
+    path: "/api/source-action-packets",
+    status: "primary",
+    sourceIds: ecosystemSourceActionPackets.map((packet) => packet.id),
+    count: ecosystemSourceActionPackets.length,
+    purpose: "Turns queue items into agent-ready action contracts with evidence paths, validation commands and stop conditions.",
+    useWhen: "Use this when another AI helper needs a bounded next action without direct provider execution."
   },
   {
     id: "source-proof",
@@ -2219,6 +2345,7 @@ export const ecosystemSourceOutputManifest = {
   aiHelperLaneCount: ecosystemAiHelperLanes.length,
   sourceSignalMapCount: ecosystemSourceSignalMap.length,
   sourceExecutionQueueCount: ecosystemSourceExecutionQueue.length,
+  sourceActionPacketCount: ecosystemSourceActionPackets.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

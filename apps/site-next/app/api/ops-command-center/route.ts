@@ -3,6 +3,7 @@ import {
   ecosystemAiHelperLanes,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceActionPackets,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
@@ -33,6 +34,7 @@ export function GET() {
       aiHelperLanes: ecosystemAiHelperLanes.length,
       outputSurfaces: ecosystemOutputSurfaces.length,
       sourceExportItems: ecosystemSourceExportIndex.length,
+      sourceActionPackets: ecosystemSourceActionPackets.length,
       sourceExecutionQueue: ecosystemSourceExecutionQueue.length,
       sourceSignalMap: ecosystemSourceSignalMap.length,
       polyglotSourceContracts: polyglotSourceContracts.length,
@@ -50,6 +52,7 @@ export function GET() {
     deploymentTargets,
     aggressiveDevelopmentLanes: ecosystemAggressiveDevelopmentLanes,
     aiHelperLanes: ecosystemAiHelperLanes,
+    sourceActionPackets: ecosystemSourceActionPackets,
     sourceExecutionQueue: ecosystemSourceExecutionQueue,
     sourceSignalMap: ecosystemSourceSignalMap,
     exportIndex: ecosystemSourceExportIndex

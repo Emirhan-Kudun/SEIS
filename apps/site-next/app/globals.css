@@ -1930,6 +1930,7 @@ summary:focus-visible {
 .ops-lane-grid,
 .ops-target-grid,
 .ops-export-grid,
+.source-action-grid,
 .source-signal-grid {
   display: grid;
   gap: 0.65rem;
@@ -1977,7 +1978,15 @@ summary:focus-visible {
   padding: clamp(1rem, 2.5vw, 1.6rem);
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-action-section {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(1.2rem, 3vw, 2rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.source-action-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .source-execution-grid {
@@ -1993,6 +2002,7 @@ summary:focus-visible {
 .ops-export-card,
 .ops-api-panel,
 .source-api-dock,
+.source-action-card,
 .source-execution-card,
 .source-signal-card {
   min-width: 0;
@@ -2005,6 +2015,7 @@ summary:focus-visible {
 .ops-stage-card strong,
 .ops-lane-card strong,
 .ops-export-card strong,
+.source-action-card strong,
 .source-execution-card strong,
 .source-signal-card strong {
   display: block;
@@ -2023,6 +2034,8 @@ summary:focus-visible {
 .ops-target-card span,
 .ops-target-card small,
 .ops-export-card span,
+.source-action-card span,
+.source-action-card small,
 .source-execution-card span,
 .source-execution-card small,
 .source-signal-card span,
@@ -2037,6 +2050,7 @@ summary:focus-visible {
 .ops-lane-card h3,
 .ops-target-card h3,
 .ops-export-card h3,
+.source-action-card h3,
 .source-execution-card h3,
 .source-signal-card h3,
 .ops-block h2,
@@ -2056,6 +2070,7 @@ summary:focus-visible {
 .ops-target-card p,
 .ops-api-panel p,
 .source-api-dock p,
+.source-action-card p,
 .source-execution-card p,
 .source-signal-card p {
   color: var(--muted);
@@ -2066,6 +2081,7 @@ summary:focus-visible {
   gap: 0.55rem;
   align-content: start;
 }
+.source-action-card,
 .source-execution-card {
   display: grid;
   gap: 0.55rem;
@@ -2076,6 +2092,7 @@ summary:focus-visible {
   flex-wrap: wrap;
   gap: 0.45rem;
 }
+.source-action-card em,
 .source-execution-card em,
 .source-signal-card em {
   color: var(--accent-2);
@@ -2095,6 +2112,7 @@ summary:focus-visible {
 .ops-target-card[data-status="active"],
 .ops-target-card[data-status="configured"],
 .ops-export-card[data-status="primary"],
+.source-action-card[data-priority="now"],
 .source-execution-card[data-priority="now"],
 .source-signal-card[data-state="live_evidence"] {
   border-color: rgba(148, 184, 143, 0.5);
@@ -2102,6 +2120,7 @@ summary:focus-visible {
 .ops-stage-card[data-status="needs_credentials"],
 .ops-lane-card[data-priority="blocked"],
 .ops-target-card[data-status="needs_credentials"],
+.source-action-card[data-priority="blocked"],
 .source-execution-card[data-priority="blocked"],
 .source-signal-card[data-state="gated"],
 .source-signal-card[data-state="blocked"] {
@@ -2109,6 +2128,7 @@ summary:focus-visible {
 }
 .ops-lane-card[data-priority="next"],
 .ops-export-card[data-status="supporting"],
+.source-action-card[data-priority="next"],
 .source-execution-card[data-priority="next"],
 .source-signal-card[data-state="callable"] {
   border-color: rgba(143, 213, 200, 0.44);
@@ -2116,6 +2136,7 @@ summary:focus-visible {
 .ops-lane-card[data-priority="backlog"],
 .ops-target-card[data-status="skipped_with_reason"],
 .ops-export-card[data-status="local_reference"],
+.source-action-card[data-priority="backlog"],
 .source-execution-card[data-priority="backlog"],
 .source-signal-card[data-state="cataloged"] {
   border-color: rgba(240, 236, 228, 0.24);
@@ -3401,6 +3422,7 @@ summary:focus-visible {
   .ops-command-split,
   .ops-api-panel,
   .source-api-dock,
+  .source-action-grid,
   .source-execution-grid,
   .ops-lane-grid,
   .ops-export-grid,
@@ -3511,6 +3533,7 @@ summary:focus-visible {
   .ops-command-split,
   .ops-api-panel,
   .source-api-dock,
+  .source-action-grid,
   .source-execution-grid,
   .ops-lane-grid,
   .ops-export-grid,

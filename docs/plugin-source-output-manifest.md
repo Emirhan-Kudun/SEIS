@@ -19,6 +19,9 @@ write-capable actions.
   including invoked, callable, blocked, auth-gated and manifest-only counts.
 - `/api/source-execution-queue`: prioritized now, next, blocked and backlog
   queue generated from source-family signals and aggressive sprint lanes.
+- `/api/source-action-packets`: agent-ready action contracts derived from the
+  execution queue, with evidence paths, validation commands and stop
+  conditions.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -98,6 +101,20 @@ execution queue. It reports:
 The queue does not execute provider calls. It gives the next safe source-family
 action, the linked aggressive sprint lanes, the guardrail and acceptance
 criteria for a reversible local pass.
+
+The `/api/source-action-packets` endpoint is the safest handoff for "bring in
+more AI helpers". It turns each queue item into an action packet that includes:
+
+- the source family and linked sprint lanes,
+- the strongest priority and packet mode,
+- evidence paths the helper should inspect first,
+- the first local move to make,
+- lightweight validation commands,
+- the stop condition before any provider escalation.
+
+Action packets do not execute provider calls, create external projects, read
+private workspaces or download paid assets. They are local coordination
+contracts for one bounded source-family pass at a time.
 
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
@@ -186,6 +203,7 @@ open or download?". It indexes:
 - the complete source package,
 - the source signal map,
 - the source execution queue,
+- the source action packets,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -250,6 +268,7 @@ after a GitHub publish. It aggregates:
 - source counts and aggressive development lanes,
 - source signal map entries,
 - source execution queue entries,
+- source action packets for agent handoff,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

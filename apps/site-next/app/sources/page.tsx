@@ -5,6 +5,7 @@ import {
   ecosystemConnectionStateSummary,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceActionPackets,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -23,6 +24,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const sourceApiLinks = [
   "/api/source-execution-queue",
+  "/api/source-action-packets",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -39,6 +41,7 @@ export default function SourcesPage() {
     { label: "Plugin sources", value: ecosystemSourceTotal, detail: "complete submitted ledger" },
     { label: "Signal groups", value: ecosystemSourceSignalMap.length, detail: "derived source families" },
     { label: "Queue items", value: ecosystemSourceExecutionQueue.length, detail: "now / next / blocked" },
+    { label: "Action packets", value: ecosystemSourceActionPackets.length, detail: "agent-ready handoff" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -93,6 +96,28 @@ export default function SourcesPage() {
                 <p>{item.action}</p>
                 <small>{item.laneIds.length} lanes / {item.acceptanceCriteria.length} checks</small>
                 <em>{item.guardrail}</em>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="source-action-section" aria-label="Source action packets">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Action packets</p>
+              <h2>Agent-ready handoffs for the next bounded source moves.</h2>
+            </div>
+            <p>Her packet bir queue itemini validasyon, evidence path ve stop condition ile paketler; dis provider cagrisi yapmaz.</p>
+          </div>
+          <div className="source-action-grid">
+            {ecosystemSourceActionPackets.map((packet) => (
+              <article className="source-action-card" data-mode={packet.packetMode} data-priority={packet.priority} key={packet.id}>
+                <span>{packet.packetMode} / {packet.priority}</span>
+                <strong>{packet.count}</strong>
+                <h3>{packet.sourceFamilyLabel}</h3>
+                <p>{packet.objective}</p>
+                <small>{packet.localValidation.length} checks / {packet.evidencePaths.length} evidence paths</small>
+                <em>{packet.stopCondition}</em>
               </article>
             ))}
           </div>
