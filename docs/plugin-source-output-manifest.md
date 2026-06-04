@@ -24,6 +24,8 @@ write-capable actions.
   conditions.
 - `/api/source-action-board`: priority and mode board for action packets,
   including leading next moves and risk notes.
+- `/api/source-quality-gates`: validation gate map for aggressive source work,
+  including commands, pass signals and failure responses.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -130,6 +132,20 @@ It also groups packets by mode, such as build, creative, growth, ops, quality
 and research. Use it when deciding the next aggressive move from an operations
 view rather than a flat packet list.
 
+The `/api/source-quality-gates` endpoint publishes the local validation map for
+source work. It lists the command, scope, packet coverage, pass signal and
+failure response for each gate:
+
+- content package typecheck,
+- Next app typecheck,
+- source boundary check,
+- repository lint,
+- content/runtime coherence checks,
+- local source API and UI smoke checks.
+
+These gates are local validation contracts. They do not authenticate providers,
+read private workspaces or execute external writes.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -219,6 +235,7 @@ open or download?". It indexes:
 - the source execution queue,
 - the source action packets,
 - the source action board,
+- the source quality gates,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -285,6 +302,7 @@ after a GitHub publish. It aggregates:
 - source execution queue entries,
 - source action packets for agent handoff,
 - source action board columns for operator control,
+- source quality gates for validation control,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

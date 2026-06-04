@@ -1931,6 +1931,7 @@ summary:focus-visible {
 .ops-target-grid,
 .ops-export-grid,
 .source-board-grid,
+.source-quality-grid,
 .source-action-grid,
 .source-signal-grid {
   display: grid;
@@ -1992,11 +1993,19 @@ summary:focus-visible {
   padding: clamp(1rem, 2.5vw, 1.6rem);
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-quality-section {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(1.2rem, 3vw, 2rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .source-board-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.source-quality-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .source-action-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2015,6 +2024,7 @@ summary:focus-visible {
 .ops-api-panel,
 .source-api-dock,
 .source-board-card,
+.source-quality-card,
 .source-action-card,
 .source-execution-card,
 .source-signal-card {
@@ -2050,6 +2060,8 @@ summary:focus-visible {
 .ops-export-card span,
 .source-board-card span,
 .source-board-card small,
+.source-quality-card span,
+.source-quality-card small,
 .source-action-card span,
 .source-action-card small,
 .source-execution-card span,
@@ -2067,6 +2079,7 @@ summary:focus-visible {
 .ops-target-card h3,
 .ops-export-card h3,
 .source-board-card h3,
+.source-quality-card h3,
 .source-action-card h3,
 .source-execution-card h3,
 .source-signal-card h3,
@@ -2088,6 +2101,7 @@ summary:focus-visible {
 .ops-api-panel p,
 .source-api-dock p,
 .source-board-card p,
+.source-quality-card p,
 .source-action-card p,
 .source-execution-card p,
 .source-signal-card p {
@@ -2100,6 +2114,7 @@ summary:focus-visible {
   align-content: start;
 }
 .source-board-card,
+.source-quality-card,
 .source-action-card,
 .source-execution-card {
   display: grid;
@@ -2120,7 +2135,8 @@ summary:focus-visible {
   font-size: 0.78rem;
 }
 .ops-target-card code,
-.ops-export-card code {
+.ops-export-card code,
+.source-quality-card code {
   color: var(--accent-2);
   font-family: var(--font-mono), monospace;
   font-size: 0.64rem;
@@ -2133,6 +2149,7 @@ summary:focus-visible {
 .ops-target-card[data-status="configured"],
 .ops-export-card[data-status="primary"],
 .source-board-card[data-priority="now"],
+.source-quality-card[data-priority="required"],
 .source-action-card[data-priority="now"],
 .source-execution-card[data-priority="now"],
 .source-signal-card[data-state="live_evidence"] {
@@ -2151,6 +2168,7 @@ summary:focus-visible {
 .ops-lane-card[data-priority="next"],
 .ops-export-card[data-status="supporting"],
 .source-board-card[data-priority="next"],
+.source-quality-card[data-priority="recommended"],
 .source-action-card[data-priority="next"],
 .source-execution-card[data-priority="next"],
 .source-signal-card[data-state="callable"] {
@@ -3447,6 +3465,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-board-grid,
+  .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
   .ops-lane-grid,
@@ -3559,6 +3578,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-board-grid,
+  .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
   .ops-lane-grid,

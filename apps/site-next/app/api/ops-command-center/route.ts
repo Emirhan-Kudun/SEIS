@@ -5,6 +5,7 @@ import {
   ecosystemSourceExportIndex,
   ecosystemSourceActionBoard,
   ecosystemSourceActionPackets,
+  ecosystemSourceQualityGates,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
@@ -37,6 +38,7 @@ export function GET() {
       sourceExportItems: ecosystemSourceExportIndex.length,
       sourceActionBoardColumns: ecosystemSourceActionBoard.columns.length,
       sourceActionPackets: ecosystemSourceActionPackets.length,
+      sourceQualityGates: ecosystemSourceQualityGates.length,
       sourceExecutionQueue: ecosystemSourceExecutionQueue.length,
       sourceSignalMap: ecosystemSourceSignalMap.length,
       polyglotSourceContracts: polyglotSourceContracts.length,
@@ -56,6 +58,7 @@ export function GET() {
     aiHelperLanes: ecosystemAiHelperLanes,
     sourceActionBoard: ecosystemSourceActionBoard,
     sourceActionPackets: ecosystemSourceActionPackets,
+    sourceQualityGates: ecosystemSourceQualityGates,
     sourceExecutionQueue: ecosystemSourceExecutionQueue,
     sourceSignalMap: ecosystemSourceSignalMap,
     exportIndex: ecosystemSourceExportIndex

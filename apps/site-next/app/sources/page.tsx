@@ -7,6 +7,7 @@ import {
   ecosystemSourceExportIndex,
   ecosystemSourceActionBoard,
   ecosystemSourceActionPackets,
+  ecosystemSourceQualityGates,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -27,6 +28,7 @@ const sourceApiLinks = [
   "/api/source-execution-queue",
   "/api/source-action-board",
   "/api/source-action-packets",
+  "/api/source-quality-gates",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -45,6 +47,7 @@ export default function SourcesPage() {
     { label: "Queue items", value: ecosystemSourceExecutionQueue.length, detail: "now / next / blocked" },
     { label: "Board columns", value: ecosystemSourceActionBoard.columns.length, detail: "priority control" },
     { label: "Action packets", value: ecosystemSourceActionPackets.length, detail: "agent-ready handoff" },
+    { label: "Quality gates", value: ecosystemSourceQualityGates.length, detail: "local validation" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -121,6 +124,27 @@ export default function SourcesPage() {
                 <p>{column.nextMove}</p>
                 <small>{column.leadingPacketId || "no active packet"}</small>
                 <em>{column.riskNote}</em>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="source-quality-section" aria-label="Source quality gates">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Quality gates</p>
+              <h2>Validation gates before any aggressive source work is pushed.</h2>
+            </div>
+            <p>Bu kapilar local typecheck, boundary, lint ve smoke sinyallerini paketlere baglar; provider auth veya dis yazma yapmaz.</p>
+          </div>
+          <div className="source-quality-grid">
+            {ecosystemSourceQualityGates.map((gate) => (
+              <article className="source-quality-card" data-priority={gate.priority} key={gate.id}>
+                <span>{gate.gateType} / {gate.priority}</span>
+                <h3>{gate.label}</h3>
+                <code>{gate.command}</code>
+                <p>{gate.passSignal}</p>
+                <small>{gate.packetIds.length} packets / {gate.scope}</small>
               </article>
             ))}
           </div>

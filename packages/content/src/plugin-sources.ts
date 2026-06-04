@@ -286,6 +286,19 @@ export type EcosystemSourceActionBoard = {
   operatingRule: string;
 };
 
+export type EcosystemSourceQualityGate = {
+  id: string;
+  label: string;
+  gateType: "typecheck" | "boundary" | "lint" | "content" | "runtime" | "smoke";
+  priority: "required" | "recommended";
+  command: string;
+  scope: string;
+  packetIds: string[];
+  evidencePath: string;
+  passSignal: string;
+  failureResponse: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1439,6 +1452,84 @@ export const ecosystemSourceActionBoard: EcosystemSourceActionBoard = {
   operatingRule: "Work one packet at a time, validate locally, then stop before credentialed provider escalation."
 };
 
+const allActionPacketIds = ecosystemSourceActionPackets.map((packet) => packet.id);
+const nowActionPacketIds = ecosystemSourceActionPackets.filter((packet) => packet.priority === "now").map((packet) => packet.id);
+
+export const ecosystemSourceQualityGates: EcosystemSourceQualityGate[] = [
+  {
+    id: "content-typecheck-gate",
+    label: "Content package typecheck",
+    gateType: "typecheck",
+    priority: "required",
+    command: "npx tsc -p packages/content/tsconfig.json --noEmit",
+    scope: "packages/content",
+    packetIds: allActionPacketIds,
+    evidencePath: "/api/source-quality-gates",
+    passSignal: "Source registry types, derived packet contracts and export manifests compile.",
+    failureResponse: "Stop and fix content model drift before touching UI or GitHub publish."
+  },
+  {
+    id: "site-next-typecheck-gate",
+    label: "Next app typecheck",
+    gateType: "typecheck",
+    priority: "required",
+    command: "npx tsc -p apps/site-next/tsconfig.json --noEmit",
+    scope: "apps/site-next",
+    packetIds: allActionPacketIds,
+    evidencePath: "/api/source-quality-gates",
+    passSignal: "Source UI pages and API routes consume the content package without type drift.",
+    failureResponse: "Stop and repair imports, props or route payloads before visual polish."
+  },
+  {
+    id: "source-boundary-gate",
+    label: "Source boundary check",
+    gateType: "boundary",
+    priority: "required",
+    command: "npm run check:source-boundaries",
+    scope: "source APIs and content boundaries",
+    packetIds: allActionPacketIds,
+    evidencePath: "/api/source-quality-gates",
+    passSignal: "Source records remain in allowed public metadata boundaries.",
+    failureResponse: "Stop and remove credential-bearing or out-of-bound source data."
+  },
+  {
+    id: "lint-gate",
+    label: "Repository lint",
+    gateType: "lint",
+    priority: "required",
+    command: "npm run lint",
+    scope: "workspace lint surface",
+    packetIds: nowActionPacketIds,
+    evidencePath: "/api/source-quality-gates",
+    passSignal: "Changed source and UI files satisfy repository lint rules.",
+    failureResponse: "Stop and fix style or static-analysis issues before commit."
+  },
+  {
+    id: "content-runtime-gate",
+    label: "Content and runtime checks",
+    gateType: "runtime",
+    priority: "recommended",
+    command: "npm run check:content && npm run check:runtime",
+    scope: "content counts and runtime readiness",
+    packetIds: nowActionPacketIds,
+    evidencePath: "/api/source-quality-gates",
+    passSignal: "Portfolio content counts and runtime connector summaries remain coherent.",
+    failureResponse: "Stop and report whether the blocker is content drift or runtime readiness."
+  },
+  {
+    id: "source-smoke-gate",
+    label: "Source API smoke",
+    gateType: "smoke",
+    priority: "recommended",
+    command: "fetch /api/source-action-board, /api/source-quality-gates and /sources on the local dev server",
+    scope: "local preview",
+    packetIds: nowActionPacketIds,
+    evidencePath: "/sources",
+    passSignal: "Human UI and machine-readable source APIs expose the same source governance layer.",
+    failureResponse: "Stop and fix the route, render, or summary mismatch before pushing."
+  }
+];
+
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
     id: "already-available-session-capabilities",
@@ -1885,13 +1976,14 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 15,
+    count: 16,
     sourceIds: [
       "source-package",
       "source-signal-map",
       "source-execution-queue",
       "source-action-packets",
       "source-action-board",
+      "source-quality-gates",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1905,6 +1997,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-quality-gates-json",
+    label: "Source quality gates JSON",
+    artifactType: "api",
+    path: "/api/source-quality-gates",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceQualityGates.length,
+    sourceIds: ecosystemSourceQualityGates.map((gate) => gate.id),
+    purpose: "Expose validation commands, pass signals and failure responses for aggressive source work.",
+    guardrail: "Quality gates validate local code and route behavior; they do not authenticate providers."
   },
   {
     id: "source-action-board-json",
@@ -2220,6 +2323,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-quality-gates-api",
+    label: "Source quality gates API",
+    path: "/api/source-quality-gates",
+    role: "Validation gate map for source action packets, including commands, pass signals and failure responses.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2346,6 +2456,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: ecosystemSourceActionBoard.columns.length,
     purpose: "Groups action packets by priority and packet mode so operators can pick the next safe source move.",
     useWhen: "Use this when continuing aggressive development from an operations board instead of a flat packet list."
+  },
+  {
+    id: "source-quality-gates",
+    label: "Source quality gates",
+    format: "json",
+    path: "/api/source-quality-gates",
+    status: "primary",
+    sourceIds: ecosystemSourceQualityGates.map((gate) => gate.id),
+    count: ecosystemSourceQualityGates.length,
+    purpose: "Publishes the local validation gates required before source work is considered safe to push.",
+    useWhen: "Use this before committing or asking another helper to continue aggressive source development."
   },
   {
     id: "source-proof",
@@ -2481,6 +2602,7 @@ export const ecosystemSourceOutputManifest = {
   sourceExecutionQueueCount: ecosystemSourceExecutionQueue.length,
   sourceActionPacketCount: ecosystemSourceActionPackets.length,
   sourceActionBoardColumnCount: ecosystemSourceActionBoard.columns.length,
+  sourceQualityGateCount: ecosystemSourceQualityGates.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

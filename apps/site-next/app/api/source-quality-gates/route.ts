@@ -9,23 +9,24 @@ import {
 export const dynamic = "force-dynamic";
 
 export function GET() {
+  const requiredGateCount = ecosystemSourceQualityGates.filter((gate) => gate.priority === "required").length;
+  const recommendedGateCount = ecosystemSourceQualityGates.filter((gate) => gate.priority === "recommended").length;
+
   return Response.json({
     generatedAt: new Date().toISOString(),
     policy: {
       source: ecosystemSourceOutputManifest.policy,
-      board: "Action board is derived from local packet metadata and does not execute provider calls.",
+      gates: "Quality gates are local validation contracts and do not execute provider authentication or external writes.",
       guardrail: ecosystemSourceActionBoard.operatingRule
     },
     summary: {
       totalSources: ecosystemSourceTotal,
       actionPackets: ecosystemSourceActionPackets.length,
       boardColumns: ecosystemSourceActionBoard.columns.length,
-      boardModes: ecosystemSourceActionBoard.modes.length,
       qualityGates: ecosystemSourceQualityGates.length,
-      nextPacketId: ecosystemSourceActionBoard.nextPacketId
+      requiredGateCount,
+      recommendedGateCount
     },
-    board: ecosystemSourceActionBoard,
-    qualityGateHandoff: "/api/source-quality-gates",
-    packets: ecosystemSourceActionPackets
+    gates: ecosystemSourceQualityGates
   });
 }
