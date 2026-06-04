@@ -5,6 +5,7 @@ import {
   ecosystemConnectionStateSummary,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceActionBoard,
   ecosystemSourceActionPackets,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
@@ -24,6 +25,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const sourceApiLinks = [
   "/api/source-execution-queue",
+  "/api/source-action-board",
   "/api/source-action-packets",
   "/api/source-signal-map",
   "/api/source-package",
@@ -41,6 +43,7 @@ export default function SourcesPage() {
     { label: "Plugin sources", value: ecosystemSourceTotal, detail: "complete submitted ledger" },
     { label: "Signal groups", value: ecosystemSourceSignalMap.length, detail: "derived source families" },
     { label: "Queue items", value: ecosystemSourceExecutionQueue.length, detail: "now / next / blocked" },
+    { label: "Board columns", value: ecosystemSourceActionBoard.columns.length, detail: "priority control" },
     { label: "Action packets", value: ecosystemSourceActionPackets.length, detail: "agent-ready handoff" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
@@ -96,6 +99,28 @@ export default function SourcesPage() {
                 <p>{item.action}</p>
                 <small>{item.laneIds.length} lanes / {item.acceptanceCriteria.length} checks</small>
                 <em>{item.guardrail}</em>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="source-board-section" aria-label="Source action board">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Action board</p>
+              <h2>Priority columns for aggressive but bounded source work.</h2>
+            </div>
+            <p>{ecosystemSourceActionBoard.operatingRule}</p>
+          </div>
+          <div className="source-board-grid">
+            {ecosystemSourceActionBoard.columns.map((column) => (
+              <article className="source-board-card" data-priority={column.id} key={column.id}>
+                <span>{column.label}</span>
+                <strong>{column.count}</strong>
+                <h3>{column.sourceCount} sources</h3>
+                <p>{column.nextMove}</p>
+                <small>{column.leadingPacketId || "no active packet"}</small>
+                <em>{column.riskNote}</em>
               </article>
             ))}
           </div>

@@ -255,6 +255,37 @@ export type EcosystemSourceActionPacket = {
   acceptanceCriteria: string[];
 };
 
+export type EcosystemSourceActionBoardColumn = {
+  id: EcosystemSourceExecutionPriority;
+  label: string;
+  packetIds: string[];
+  count: number;
+  sourceCount: number;
+  leadingPacketId: string | null;
+  nextMove: string;
+  riskNote: string;
+};
+
+export type EcosystemSourceActionBoardMode = {
+  id: EcosystemSourceActionPacketMode;
+  label: string;
+  packetIds: string[];
+  count: number;
+  sourceCount: number;
+};
+
+export type EcosystemSourceActionBoard = {
+  id: string;
+  label: string;
+  handoffPath: string;
+  packetCount: number;
+  sourceCount: number;
+  columns: EcosystemSourceActionBoardColumn[];
+  modes: EcosystemSourceActionBoardMode[];
+  nextPacketId: string | null;
+  operatingRule: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1335,6 +1366,79 @@ function createSourceActionPacket(item: EcosystemSourceExecutionQueueItem): Ecos
 
 export const ecosystemSourceActionPackets: EcosystemSourceActionPacket[] = ecosystemSourceExecutionQueue.map(createSourceActionPacket);
 
+const actionBoardPriorityLabels: Record<EcosystemSourceExecutionPriority, string> = {
+  now: "Now",
+  next: "Next",
+  blocked: "Blocked",
+  backlog: "Backlog"
+};
+
+const actionBoardModeLabels: Record<EcosystemSourceActionPacketMode, string> = {
+  command: "Command",
+  build: "Build",
+  creative: "Creative",
+  growth: "Growth",
+  ops: "Ops",
+  quality: "Quality",
+  research: "Research",
+  backlog: "Backlog"
+};
+
+const actionBoardPriorities: EcosystemSourceExecutionPriority[] = ["now", "next", "blocked", "backlog"];
+const actionBoardModes: EcosystemSourceActionPacketMode[] = [
+  "command",
+  "build",
+  "creative",
+  "growth",
+  "ops",
+  "quality",
+  "research",
+  "backlog"
+];
+
+function getActionBoardRiskNote(priority: EcosystemSourceExecutionPriority): string {
+  if (priority === "blocked") return "Auth or provider setup must change before live escalation.";
+  if (priority === "backlog") return "Catalog only; keep visible without provider calls.";
+  if (priority === "next") return "Promote one packet only after a concrete portfolio task chooses it.";
+  return "Safe for one local reversible pass with lightweight validation.";
+}
+
+export const ecosystemSourceActionBoard: EcosystemSourceActionBoard = {
+  id: "source-action-board",
+  label: "Source action board",
+  handoffPath: "/api/source-action-board",
+  packetCount: ecosystemSourceActionPackets.length,
+  sourceCount: ecosystemSourceActionPackets.reduce((total, packet) => total + packet.count, 0),
+  columns: actionBoardPriorities.map((priority) => {
+    const packets = ecosystemSourceActionPackets.filter((packet) => packet.priority === priority);
+    const leadingPacket = packets[0];
+
+    return {
+      id: priority,
+      label: actionBoardPriorityLabels[priority],
+      packetIds: packets.map((packet) => packet.id),
+      count: packets.length,
+      sourceCount: packets.reduce((total, packet) => total + packet.count, 0),
+      leadingPacketId: leadingPacket?.id || null,
+      nextMove: leadingPacket?.firstMove || "No packet is currently assigned to this column.",
+      riskNote: getActionBoardRiskNote(priority)
+    };
+  }),
+  modes: actionBoardModes.map((packetMode) => {
+    const packets = ecosystemSourceActionPackets.filter((packet) => packet.packetMode === packetMode);
+
+    return {
+      id: packetMode,
+      label: actionBoardModeLabels[packetMode],
+      packetIds: packets.map((packet) => packet.id),
+      count: packets.length,
+      sourceCount: packets.reduce((total, packet) => total + packet.count, 0)
+    };
+  }),
+  nextPacketId: ecosystemSourceActionPackets.find((packet) => packet.priority === "now")?.id || null,
+  operatingRule: "Work one packet at a time, validate locally, then stop before credentialed provider escalation."
+};
+
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
     id: "already-available-session-capabilities",
@@ -1781,12 +1885,13 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 14,
+    count: 15,
     sourceIds: [
       "source-package",
       "source-signal-map",
       "source-execution-queue",
       "source-action-packets",
+      "source-action-board",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1800,6 +1905,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-action-board-json",
+    label: "Source action board JSON",
+    artifactType: "api",
+    path: "/api/source-action-board",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceActionBoard.columns.length,
+    sourceIds: ecosystemSourceActionBoard.columns.map((column) => column.id),
+    purpose: "Group action packets into now, next, blocked and backlog columns for operator and agent handoff.",
+    guardrail: "Board state is local coordination only; it does not launch provider tasks."
   },
   {
     id: "source-action-packets-json",
@@ -2097,6 +2213,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-action-board-api",
+    label: "Source action board API",
+    path: "/api/source-action-board",
+    role: "Priority and mode board for source action packets, including leading next moves and risk notes.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2212,6 +2335,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: ecosystemSourceActionPackets.length,
     purpose: "Turns queue items into agent-ready action contracts with evidence paths, validation commands and stop conditions.",
     useWhen: "Use this when another AI helper needs a bounded next action without direct provider execution."
+  },
+  {
+    id: "source-action-board",
+    label: "Source action board",
+    format: "json",
+    path: "/api/source-action-board",
+    status: "primary",
+    sourceIds: ecosystemSourceActionBoard.columns.map((column) => column.id),
+    count: ecosystemSourceActionBoard.columns.length,
+    purpose: "Groups action packets by priority and packet mode so operators can pick the next safe source move.",
+    useWhen: "Use this when continuing aggressive development from an operations board instead of a flat packet list."
   },
   {
     id: "source-proof",
@@ -2346,6 +2480,7 @@ export const ecosystemSourceOutputManifest = {
   sourceSignalMapCount: ecosystemSourceSignalMap.length,
   sourceExecutionQueueCount: ecosystemSourceExecutionQueue.length,
   sourceActionPacketCount: ecosystemSourceActionPackets.length,
+  sourceActionBoardColumnCount: ecosystemSourceActionBoard.columns.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

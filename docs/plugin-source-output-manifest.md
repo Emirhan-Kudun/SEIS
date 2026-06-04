@@ -22,6 +22,8 @@ write-capable actions.
 - `/api/source-action-packets`: agent-ready action contracts derived from the
   execution queue, with evidence paths, validation commands and stop
   conditions.
+- `/api/source-action-board`: priority and mode board for action packets,
+  including leading next moves and risk notes.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -116,6 +118,18 @@ Action packets do not execute provider calls, create external projects, read
 private workspaces or download paid assets. They are local coordination
 contracts for one bounded source-family pass at a time.
 
+The `/api/source-action-board` endpoint groups those packets into operational
+columns:
+
+- `now`: local-safe packets ready for one reversible pass,
+- `next`: packets that need a concrete portfolio task before promotion,
+- `blocked`: packets waiting for user auth or provider connection setup,
+- `backlog`: cataloged packets that should remain visible without live calls.
+
+It also groups packets by mode, such as build, creative, growth, ops, quality
+and research. Use it when deciding the next aggressive move from an operations
+view rather than a flat packet list.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -204,6 +218,7 @@ open or download?". It indexes:
 - the source signal map,
 - the source execution queue,
 - the source action packets,
+- the source action board,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -269,6 +284,7 @@ after a GitHub publish. It aggregates:
 - source signal map entries,
 - source execution queue entries,
 - source action packets for agent handoff,
+- source action board columns for operator control,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

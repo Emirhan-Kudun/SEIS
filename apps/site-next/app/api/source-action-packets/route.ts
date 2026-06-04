@@ -1,4 +1,5 @@
 import {
+  ecosystemSourceActionBoard,
   ecosystemSourceActionPackets,
   ecosystemSourceExecutionQueue,
   ecosystemSourceOutputManifest,
@@ -49,9 +50,12 @@ export function GET() {
       totalSources: ecosystemSourceTotal,
       queueItems: ecosystemSourceExecutionQueue.length,
       actionPackets: ecosystemSourceActionPackets.length,
+      boardColumns: ecosystemSourceActionBoard.columns.length,
+      nextPacketId: ecosystemSourceActionBoard.nextPacketId,
       prioritySummary,
       packetModeSummary
     },
+    boardHandoff: "/api/source-action-board",
     packets: ecosystemSourceActionPackets
   });
 }
