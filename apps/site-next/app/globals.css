@@ -1913,18 +1913,29 @@ summary:focus-visible {
     radial-gradient(circle at 82% 12%, rgba(143, 213, 200, 0.09), transparent 30%),
     linear-gradient(180deg, rgba(14, 14, 12, 0.98), rgba(8, 8, 7, 1));
 }
+.source-command-page {
+  background:
+    linear-gradient(120deg, rgba(214, 177, 111, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(15, 15, 13, 0.98), rgba(8, 8, 7, 1));
+}
 .ops-command-hero {
   min-height: auto;
 }
+.source-command-hero {
+  min-height: auto;
+}
 .ops-command-metrics,
+.source-command-metrics,
 .ops-stage-grid,
 .ops-lane-grid,
 .ops-target-grid,
-.ops-export-grid {
+.ops-export-grid,
+.source-signal-grid {
   display: grid;
   gap: 0.65rem;
 }
-.ops-command-metrics {
+.ops-command-metrics,
+.source-command-metrics {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
@@ -1933,7 +1944,8 @@ summary:focus-visible {
   margin: clamp(1rem, 3vw, 1.8rem) 0;
 }
 .ops-command-split,
-.ops-api-panel {
+.ops-api-panel,
+.source-api-dock {
   display: grid;
   grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 2rem);
@@ -1951,21 +1963,35 @@ summary:focus-visible {
 .ops-export-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.source-signal-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
+.source-signal-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .ops-command-metrics article,
+.source-command-metrics article,
 .ops-stage-card,
 .ops-lane-card,
 .ops-target-card,
 .ops-export-card,
-.ops-api-panel {
+.ops-api-panel,
+.source-api-dock,
+.source-signal-card {
   min-width: 0;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.036);
   padding: clamp(0.85rem, 1.5vw, 1.1rem);
 }
 .ops-command-metrics strong,
+.source-command-metrics strong,
 .ops-stage-card strong,
 .ops-lane-card strong,
-.ops-export-card strong {
+.ops-export-card strong,
+.source-signal-card strong {
   display: block;
   font-family: var(--font-display), serif;
   font-size: clamp(1.55rem, 3vw, 2.7rem);
@@ -1973,13 +1999,17 @@ summary:focus-visible {
 }
 .ops-command-metrics span,
 .ops-command-metrics small,
+.source-command-metrics span,
+.source-command-metrics small,
 .ops-stage-card span,
 .ops-stage-card small,
 .ops-lane-card span,
 .ops-lane-card small,
 .ops-target-card span,
 .ops-target-card small,
-.ops-export-card span {
+.ops-export-card span,
+.source-signal-card span,
+.source-signal-card small {
   display: block;
   color: var(--muted);
   font-family: var(--font-mono), monospace;
@@ -1990,22 +2020,42 @@ summary:focus-visible {
 .ops-lane-card h3,
 .ops-target-card h3,
 .ops-export-card h3,
+.source-signal-card h3,
 .ops-block h2,
-.ops-api-panel h2 {
+.ops-api-panel h2,
+.source-api-dock h2 {
   margin: 0.35rem 0;
   font-family: var(--font-display), serif;
   line-height: 0.98;
 }
 .ops-block h2,
-.ops-api-panel h2 {
+.ops-api-panel h2,
+.source-api-dock h2 {
   font-size: clamp(1.8rem, 3.5vw, 4rem);
 }
 .ops-stage-card p,
 .ops-lane-card p,
 .ops-target-card p,
-.ops-api-panel p {
+.ops-api-panel p,
+.source-api-dock p,
+.source-signal-card p {
   color: var(--muted);
   margin: 0;
+}
+.source-signal-card {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+.source-signal-card div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.source-signal-card em {
+  color: var(--accent-2);
+  font-style: normal;
+  font-size: 0.78rem;
 }
 .ops-target-card code,
 .ops-export-card code {
@@ -2019,21 +2069,26 @@ summary:focus-visible {
 .ops-lane-card[data-priority="now"],
 .ops-target-card[data-status="active"],
 .ops-target-card[data-status="configured"],
-.ops-export-card[data-status="primary"] {
+.ops-export-card[data-status="primary"],
+.source-signal-card[data-state="live_evidence"] {
   border-color: rgba(148, 184, 143, 0.5);
 }
 .ops-stage-card[data-status="needs_credentials"],
 .ops-lane-card[data-priority="blocked"],
-.ops-target-card[data-status="needs_credentials"] {
+.ops-target-card[data-status="needs_credentials"],
+.source-signal-card[data-state="gated"],
+.source-signal-card[data-state="blocked"] {
   border-color: rgba(214, 177, 111, 0.42);
 }
 .ops-lane-card[data-priority="next"],
-.ops-export-card[data-status="supporting"] {
+.ops-export-card[data-status="supporting"],
+.source-signal-card[data-state="callable"] {
   border-color: rgba(143, 213, 200, 0.44);
 }
 .ops-lane-card[data-priority="backlog"],
 .ops-target-card[data-status="skipped_with_reason"],
-.ops-export-card[data-status="local_reference"] {
+.ops-export-card[data-status="local_reference"],
+.source-signal-card[data-state="cataloged"] {
   border-color: rgba(240, 236, 228, 0.24);
 }
 .mcp-preview,
@@ -3312,11 +3367,14 @@ summary:focus-visible {
   .quality-grid,
   .language-grid,
   .ops-command-metrics,
+  .source-command-metrics,
   .ops-stage-grid,
   .ops-command-split,
   .ops-api-panel,
+  .source-api-dock,
   .ops-lane-grid,
   .ops-export-grid,
+  .source-signal-grid,
   .source-console-grid,
   .source-chip-list,
   .source-output-grid,
@@ -3418,11 +3476,14 @@ summary:focus-visible {
   .quality-grid,
   .language-grid,
   .ops-command-metrics,
+  .source-command-metrics,
   .ops-stage-grid,
   .ops-command-split,
   .ops-api-panel,
+  .source-api-dock,
   .ops-lane-grid,
   .ops-export-grid,
+  .source-signal-grid,
   .source-console-grid,
   .source-console-metrics,
   .source-chip-list,

@@ -42,7 +42,7 @@ const nav = [
   ["#portfolio", "navPortfolio", "Portfolio"],
   ["#behance", "navBehance", "Behance"],
   ["#drawings", "navDrawings", "Drawings"],
-  ["#sources", "sourceEnvironmentNav", "Sources"],
+  ["/sources", "sourceEnvironmentNav", "Sources"],
   ["#lab", "navLab", "Lab"],
   ["/ops", "navOps", "Ops"],
   ["#contact", "navContact", "Contact"]

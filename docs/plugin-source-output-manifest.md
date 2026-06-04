@@ -9,10 +9,14 @@ write-capable actions.
 
 - `/#sources`: primary environment source console.
 - `/portfolio#sources`: compact portfolio source console.
+- `/sources`: dedicated routeable source command map with signal groups,
+  source-family readiness and the complete source console.
 - `/ops`: aggressive operations command center for sources, runtime readiness,
   GitHub persistence and deployment gates.
 - `/api/ops-command-center`: machine-readable operations payload combining
   source routing, runtime, MCP, GitHub and deployment status.
+- `/api/source-signal-map`: derived signal map for each plugin family,
+  including invoked, callable, blocked, auth-gated and manifest-only counts.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -64,6 +68,22 @@ The `/api/source-package` endpoint is the safest downloadable source handoff:
 it contains the complete plugin/source ledger without requiring bulk connector
 activation, credential export or external writes.
 
+The `/api/source-signal-map` endpoint is the fastest family-level decision map.
+It is derived from the local source registry and does not call providers. Each
+source family reports:
+
+- total sources in the family,
+- invoked evidence,
+- callable or discovered tools,
+- blocked auth or connection setup,
+- manifest-only backlog,
+- install/auth/connection gates,
+- the strongest current state,
+- the safest next action.
+
+Use this when deciding which plugin family should drive the next aggressive but
+bounded development pass.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -100,7 +120,7 @@ The `/api/source-environment` endpoint separates the source channels:
 
 - `platform`: what the Codex side panel can partially show after real tool
   discovery or invocation.
-- `ui`: the complete human-readable source console at `/#sources`.
+- `ui`: the complete human-readable source command map at `/sources`.
 - `api`: the full machine-readable source package.
 - `repo`: local polyglot source contracts under `sources/polyglot`.
 
@@ -149,6 +169,7 @@ The `/api/source-export-index` endpoint is the shortest answer to "what should I
 open or download?". It indexes:
 
 - the complete source package,
+- the source signal map,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -211,6 +232,7 @@ The `/api/ops-command-center` endpoint is the command surface for continuing
 after a GitHub publish. It aggregates:
 
 - source counts and aggressive development lanes,
+- source signal map entries,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

@@ -6,6 +6,7 @@ import {
   ecosystemAiHelperLanes,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceSignalMap,
   ecosystemSourceTotal,
   polyglotSourceContracts
 } from "@seis/content";
@@ -23,6 +24,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const apiLinks = [
   "/api/ops-command-center",
+  "/api/source-signal-map",
   "/api/aggressive-development-plan",
   "/api/source-package",
   "/api/source-export-index",
@@ -41,6 +43,7 @@ export default function OpsPage() {
 
   const metrics = [
     { label: "Plugin sources", value: ecosystemSourceTotal, detail: "complete source ledger" },
+    { label: "Signal groups", value: ecosystemSourceSignalMap.length, detail: "source family map" },
     { label: "Aggressive lanes", value: ecosystemAggressiveDevelopmentLanes.length, detail: "governed sprint map" },
     { label: "Runtime ready", value: `${runtime.summary.active + runtime.summary.configured}/${runtime.summary.total}`, detail: "connectors + skills" },
     { label: "Deploy ready", value: `${activeDeploymentTargets.length}/${deploymentTargets.length}`, detail: "publish targets" },
@@ -52,8 +55,8 @@ export default function OpsPage() {
     {
       title: "Source cockpit",
       status: "active",
-      metric: `${ecosystemSourceTotal} sources`,
-      detail: "All submitted plugin refs stay visible through UI, API, proof, export and delivery outputs."
+      metric: `${ecosystemSourceSignalMap.length} signal groups`,
+      detail: "All submitted plugin refs stay visible through UI, API, signal map, proof, export and delivery outputs."
     },
     {
       title: "Aggressive execution",

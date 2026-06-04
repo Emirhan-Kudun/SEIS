@@ -19,6 +19,7 @@ import {
   ecosystemSourceOutputManifest,
   ecosystemSourceProofCards,
   ecosystemSourceReadinessMatrix,
+  ecosystemSourceSignalMap,
   ecosystemSourceTotal,
   polyglotSourceContracts
 } from "@seis/content";
@@ -43,6 +44,7 @@ export function GET() {
       sidePanelReceipts: ecosystemSidePanelReceipts.length,
       platformSourceMirror: ecosystemPlatformSourceMirror.length,
       proofCards: ecosystemSourceProofCards.length,
+      sourceSignalMap: ecosystemSourceSignalMap.length,
       aiHelperLanes: ecosystemAiHelperLanes.length,
       exportIndexItems: ecosystemSourceExportIndex.length,
       deliveryArtifacts: ecosystemSourceDeliveryArtifacts.length,
@@ -59,6 +61,7 @@ export function GET() {
     sidePanelReceipts: ecosystemSidePanelReceipts,
     platformSourceMirror: ecosystemPlatformSourceMirror,
     proofCards: ecosystemSourceProofCards,
+    sourceSignalMap: ecosystemSourceSignalMap,
     aiHelperLanes: ecosystemAiHelperLanes,
     exportIndex: ecosystemSourceExportIndex,
     deliveryArtifacts: ecosystemSourceDeliveryArtifacts,

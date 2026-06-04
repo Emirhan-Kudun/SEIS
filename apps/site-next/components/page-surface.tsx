@@ -35,6 +35,7 @@ const navItems = [
   ["/portfolio", "navPortfolio", "portfolio"],
   ["/portfolio#portfolio-behance", "navBehance", "behance"],
   ["/drawings", "navDrawings", "drawings"],
+  ["/sources", "sourceEnvironmentNav", "sources"],
   ["/lab", "navLab", "lab"],
   ["/ops", "navOps", "ops"],
   ["/contact", "navContact", "contact"]
@@ -83,7 +84,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         <div className="nav-links">
           {navItems.map(([href, key, itemMode]) => (
             <Link key={href} href={href} aria-current={itemMode === mode ? "page" : undefined}>
-              {dict[key] || "Ops"}
+              {dict[key] || (key === "sourceEnvironmentNav" ? "Sources" : "Ops")}
             </Link>
           ))}
         </div>

@@ -3,6 +3,7 @@ import {
   ecosystemAiHelperLanes,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceSignalMap,
   ecosystemSourceTotal,
   polyglotSourceContracts
 } from "@seis/content";
@@ -31,6 +32,7 @@ export function GET() {
       aiHelperLanes: ecosystemAiHelperLanes.length,
       outputSurfaces: ecosystemOutputSurfaces.length,
       sourceExportItems: ecosystemSourceExportIndex.length,
+      sourceSignalMap: ecosystemSourceSignalMap.length,
       polyglotSourceContracts: polyglotSourceContracts.length,
       runtimeReady: runtime.summary.active + runtime.summary.configured,
       runtimeTotal: runtime.summary.total,
@@ -46,6 +48,7 @@ export function GET() {
     deploymentTargets,
     aggressiveDevelopmentLanes: ecosystemAggressiveDevelopmentLanes,
     aiHelperLanes: ecosystemAiHelperLanes,
+    sourceSignalMap: ecosystemSourceSignalMap,
     exportIndex: ecosystemSourceExportIndex
   });
 }

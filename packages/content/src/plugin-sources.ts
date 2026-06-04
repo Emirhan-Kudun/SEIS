@@ -187,6 +187,25 @@ export type EcosystemAiHelperLane = {
   guardrail: string;
 };
 
+export type EcosystemSourceSignalMapItem = {
+  id: string;
+  label: string;
+  strategy: string;
+  total: number;
+  invoked: number;
+  callable: number;
+  blocked: number;
+  manifestOnly: number;
+  authGated: number;
+  connectionGated: number;
+  futureOnly: number;
+  sourceKinds: Record<EcosystemSourceKind, number>;
+  providers: string[];
+  strongestState: "live_evidence" | "callable" | "gated" | "cataloged" | "blocked";
+  action: string;
+  outputPath: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -838,6 +857,83 @@ function getUniqueSourceIds(sourceIds: string[]): string[] {
   return [...new Set(sourceIds)].sort();
 }
 
+function getEmptySourceKindSummary(): Record<EcosystemSourceKind, number> {
+  return {
+    plugin: 0,
+    skill: 0,
+    app: 0,
+    mcp: 0,
+    runtime: 0,
+    agent: 0,
+    bundled: 0
+  };
+}
+
+function getSignalAction(strongestState: EcosystemSourceSignalMapItem["strongestState"]): string {
+  if (strongestState === "live_evidence") return "Use as immediate proof for the next portfolio source pass.";
+  if (strongestState === "callable") return "Promote one callable source only when a concrete task needs it.";
+  if (strongestState === "gated") return "Resolve the exact provider auth or connection setup outside git.";
+  if (strongestState === "blocked") return "Keep blocked providers visible and avoid retry loops until credentials change.";
+  return "Keep cataloged locally until a specific portfolio workflow selects this group.";
+}
+
+function getSignalState(records: EcosystemSourceRecord[]): EcosystemSourceSignalMapItem["strongestState"] {
+  const invoked = records.some((source) => source.connectionState === "tool_invoked");
+  const callable = records.some((source) =>
+    source.connectionState === "tool_discovered" ||
+    source.connectionState === "session_available" ||
+    source.sidePanelMode === "platform_tool"
+  );
+  const gated = records.some((source) =>
+    source.installPolicy === "requires_user_auth" ||
+    source.installPolicy === "requires_connection_setup"
+  );
+  const blocked = records.every((source) =>
+    source.connectionState === "reauth_required" ||
+    source.connectionState === "missing_connection"
+  );
+
+  if (blocked) return "blocked";
+  if (invoked) return "live_evidence";
+  if (callable) return "callable";
+  if (gated) return "gated";
+  return "cataloged";
+}
+
+function createSourceSignalMapItem(group: EcosystemSourceGroup): EcosystemSourceSignalMapItem {
+  const records = ecosystemSourceFlatList.filter((source) => source.groupId === group.id);
+  const strongestState = getSignalState(records);
+  const sourceKinds = records.reduce((summary, source) => {
+    summary[source.sourceKind] += 1;
+    return summary;
+  }, getEmptySourceKindSummary());
+
+  return {
+    id: group.id,
+    label: group.label,
+    strategy: group.strategy,
+    total: records.length,
+    invoked: records.filter((source) => source.connectionState === "tool_invoked").length,
+    callable: records.filter((source) =>
+      source.connectionState === "tool_discovered" ||
+      source.connectionState === "session_available" ||
+      source.sidePanelMode === "platform_tool"
+    ).length,
+    blocked: records.filter((source) => blockedSourceIds.includes(source.id)).length,
+    manifestOnly: records.filter((source) => source.connectionState === "manifest_only").length,
+    authGated: records.filter((source) => source.installPolicy === "requires_user_auth").length,
+    connectionGated: records.filter((source) => source.installPolicy === "requires_connection_setup").length,
+    futureOnly: records.filter((source) => source.installPolicy === "future_task_only").length,
+    sourceKinds,
+    providers: [...new Set(records.map((source) => source.sourceProvider))].sort(),
+    strongestState,
+    action: getSignalAction(strongestState),
+    outputPath: "/api/source-signal-map"
+  };
+}
+
+export const ecosystemSourceSignalMap: EcosystemSourceSignalMapItem[] = ecosystemSourceGroups.map(createSourceSignalMapItem);
+
 function createAggressiveDevelopmentLane(
   lane: Omit<
     EcosystemAggressiveDevelopmentLane,
@@ -978,7 +1074,7 @@ export const ecosystemAggressiveDevelopmentLanes: EcosystemAggressiveDevelopment
     priority: "now",
     posture: "build",
     sourceIds: getGroupSourceIds("builders-hosting-runtime"),
-    outputPath: "/#sources",
+    outputPath: "/sources",
     actionNow: "Harden the portfolio's local build, API source package and deployment-readiness story before creating another hosted duplicate.",
     usesConnectedPlugins: "Uses builder and hosting plugins as architecture references, with local Next APIs as the source of truth.",
     blocker: "Wix is reauth-blocked and external builder creation remains opt-in.",
@@ -1130,7 +1226,7 @@ export const ecosystemEnvironmentSourceExports: EcosystemEnvironmentSourceExport
     visibility: "complete",
     sourceIds: ecosystemSourceFlatList.map((source) => source.id),
     count: ecosystemSourceTotal,
-    evidencePath: "/#sources",
+    evidencePath: "/sources",
     note: "The website renders the complete plugin ledger, grouped by source family and connection state.",
     nextAction: "Use this as the human-readable source environment."
   },
@@ -1185,7 +1281,7 @@ export const ecosystemSidePanelReceipts: EcosystemSidePanelReceipt[] = [
     receiptMode: "local_complete",
     sourceIds: allSourceIds,
     count: allSourceIds.length,
-    evidencePath: "/#sources",
+    evidencePath: "/sources",
     expectation: "The website and APIs render the complete submitted plugin universe as the guaranteed source ledger.",
     limitation: "This is local source representation, not a claim that every external provider was authenticated or called."
   },
@@ -1256,9 +1352,9 @@ export const ecosystemPlatformSourceMirror: EcosystemPlatformSourceMirror[] = [
     status: "bound",
     sourceIds: allSourceIds,
     count: allSourceIds.length,
-    evidencePath: "/#sources",
+    evidencePath: "/sources",
     userMeaning: "All submitted plugin refs are bound to the portfolio UI and source APIs as the complete local mirror.",
-    nextAction: "Inspect /#sources or /api/source-package for the guaranteed complete source list.",
+    nextAction: "Inspect /sources or /api/source-package for the guaranteed complete source list.",
     limitation: "Local binding is source governance, not proof that every provider accepted auth or produced external data."
   },
   {
@@ -1306,7 +1402,7 @@ export const ecosystemSourceProofCards: EcosystemSourceProofCard[] = [
     status: "complete",
     sourceIds: allSourceIds,
     count: allSourceIds.length,
-    evidencePath: "/#sources",
+    evidencePath: "/sources",
     userSees: "The portfolio page renders the complete submitted plugin universe as grouped source cards.",
     limitation: "This is public metadata and source governance, not private provider data."
   },
@@ -1447,7 +1543,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     id: "source-console-human-view",
     label: "Human-readable source console",
     artifactType: "ui",
-    path: "/#sources",
+    path: "/sources",
     downloadMode: "browser_view",
     count: ecosystemSourceTotal,
     sourceIds: ecosystemSourceFlatList.map((source) => source.id),
@@ -1504,9 +1600,10 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 11,
+    count: 12,
     sourceIds: [
       "source-package",
+      "source-signal-map",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1520,6 +1617,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-signal-map-json",
+    label: "Source signal map JSON",
+    artifactType: "api",
+    path: "/api/source-signal-map",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceSignalMap.length,
+    sourceIds: ecosystemSourceSignalMap.map((item) => item.id),
+    purpose: "Summarize every plugin family by invoked, callable, blocked, auth-gated and manifest-only signals.",
+    guardrail: "Use derived public metadata only; do not call providers or store credentials."
   },
   {
     id: "ai-helper-orchestration-json",
@@ -1686,6 +1794,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "ui"
   },
   {
+    id: "sources-command-page",
+    label: "Dedicated sources command page",
+    path: "/sources",
+    role: "Routeable human-readable source console with signal map, source families and API handoff links.",
+    sourceMode: "ui"
+  },
+  {
     id: "portfolio-source-console",
     label: "Portfolio source console",
     path: "/portfolio#sources",
@@ -1753,6 +1868,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     label: "Source proof API",
     path: "/api/source-proof",
     role: "Direct proof cards for platform, UI, API, install and full-stack source visibility.",
+    sourceMode: "api"
+  },
+  {
+    id: "source-signal-map-api",
+    label: "Source signal map API",
+    path: "/api/source-signal-map",
+    role: "Derived source family signal map for invoked, callable, blocked, auth-gated and cataloged plugin families.",
     sourceMode: "api"
   },
   {
@@ -1838,6 +1960,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: allSourceIds.length,
     purpose: "Full machine-readable package for every submitted plugin ref, state, output and polyglot contract.",
     useWhen: "Use this when another agent, audit or automation needs the complete Sources payload."
+  },
+  {
+    id: "source-signal-map",
+    label: "Source signal map",
+    format: "json",
+    path: "/api/source-signal-map",
+    status: "primary",
+    sourceIds: ecosystemSourceSignalMap.map((item) => item.id),
+    count: ecosystemSourceSignalMap.length,
+    purpose: "Shows every plugin family as a compact readiness and action map.",
+    useWhen: "Use this when deciding which source family should drive the next aggressive portfolio pass."
   },
   {
     id: "source-proof",
@@ -1969,6 +2102,7 @@ export const ecosystemSourceOutputManifest = {
   platformSourceMirrorCount: ecosystemPlatformSourceMirror.length,
   proofCardCount: ecosystemSourceProofCards.length,
   aiHelperLaneCount: ecosystemAiHelperLanes.length,
+  sourceSignalMapCount: ecosystemSourceSignalMap.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,
