@@ -36,6 +36,7 @@
   "capabilityAsset": "assets/capability-map.json",
   "qualityCommands": [
     "npm run validate",
+    "npm run doctor",
     "npm run check:workspace",
     "npm run check:trusted-marketplace-intake",
     "npm run check:seis-trusted-marketplace-plugin",

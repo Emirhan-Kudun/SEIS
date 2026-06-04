@@ -66,8 +66,19 @@ See:
 ## Validate
 
 ```bash
+npm run doctor
 npm run validate
 python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhan/plugins/seis-trusted-marketplace
+```
+
+`npm run doctor` prints a lightweight readiness report for manifest parity,
+private/personal mode, `UIXAppTTR` binding, GitHub workflow presence,
+safe-install docs, and the eight capability lanes.
+
+For machine-readable output, use:
+
+```bash
+npm --silent run doctor:json
 ```
 
 The matching UIXAppTTR repo-side contract is protected by:

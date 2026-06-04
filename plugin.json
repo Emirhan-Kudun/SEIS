@@ -1,7 +1,7 @@
 {
   "name": "seis-trusted-marketplace",
   "description": "Private personal Codex plugin for SEIS marketplace governance across data engineering, development, design, learning, monitoring, productivity, security, and testing.",
-  "version": "0.1.0+codex.20260604134726",
+  "version": "0.1.0+codex.20260604140545",
   "author": {
     "name": "Emirhan Kudun"
   },

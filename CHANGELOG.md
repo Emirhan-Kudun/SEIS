@@ -8,3 +8,4 @@
   monitoring, productivity, security, and testing.
 - Added local validation script and GitHub Actions validation workflow.
 - Added private/personal setup and public/publish-ready documentation.
+- Added plugin doctor reporting for lightweight operational readiness.

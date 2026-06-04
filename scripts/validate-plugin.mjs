@@ -21,8 +21,10 @@ const requiredFiles = [
   "docs/install-update-remove.md",
   "docs/publication-readiness.md",
   "docs/marketplace-setup.md",
+  "docs/operations.md",
   "examples/personal-marketplace.example.json",
-  ".github/workflows/validate.yml"
+  ".github/workflows/validate.yml",
+  "scripts/plugin-doctor.mjs"
 ];
 
 function fail(message) {
@@ -148,6 +150,8 @@ for (const phrase of [
 }
 
 ensure(workflow.includes("npm run validate"), "GitHub workflow must run npm run validate");
+ensure(workflow.includes("npm run doctor"), "GitHub workflow must run npm run doctor");
+ensure(readme.includes("npm run doctor"), "README must document npm run doctor");
 
 if (failures.length > 0) {
   console.error("SEIS Trusted Marketplace plugin validation failed:");
