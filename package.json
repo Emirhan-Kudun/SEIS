@@ -1,0 +1,14 @@
+{
+  "name": "seis-trusted-marketplace-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Private personal Codex plugin repository for SEIS trusted marketplace governance.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-plugin.mjs",
+    "check": "npm run validate"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "id": "seis-trusted-marketplace-repo-connection",
+  "plugin": {
+    "name": "seis-trusted-marketplace",
+    "displayName": "SEIS Trusted Marketplace",
+    "sourcePath": "/Users/emirhan/plugins/seis-trusted-marketplace",
+    "marketplacePath": "/Users/emirhan/.agents/plugins/marketplace.json"
+  },
+  "pluginRepository": {
+    "name": "seis-trusted-marketplace-plugin",
+    "mode": "private-personal",
+    "localPath": "/Users/emirhan/plugins/seis-trusted-marketplace",
+    "githubRemote": "https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin.git",
+    "publicReadyDocs": [
+      "docs/publication-readiness.md",
+      "docs/marketplace-setup.md",
+      "screenshots/README.md"
+    ]
+  },
+  "repository": {
+    "name": "UIX-Apps",
+    "localWorkspace": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/_SEIS_WORKSPACE/UIX-Apps-origin-clean",
+    "githubRemote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "UIXAppTTR"
+  },
+  "repoContracts": [
+    "content/development/trusted-marketplace-intake.json",
+    "content/development/plugin-capability-catalog.json",
+    "content/development/connector-capability-registry.json",
+    "content/development/seis-trusted-marketplace-plugin.json",
+    "docs/development/trusted-marketplace-intake.md",
+    "docs/development/seis-trusted-marketplace-plugin.md",
+    "docs/development/aggressive-capability-activation.md"
+  ],
+  "capabilityAsset": "assets/capability-map.json",
+  "qualityCommands": [
+    "npm run validate",
+    "npm run check:workspace",
+    "npm run check:trusted-marketplace-intake",
+    "npm run check:seis-trusted-marketplace-plugin",
+    "npm run check:aggressive-capability-map",
+    "npm run check:connector-activation-report",
+    "npm run automation:publish-readiness"
+  ],
+  "workflow": [
+    "Confirm the local workspace, GitHub remote, and UIXAppTTR branch before editing.",
+    "Choose one capability lane from assets/capability-map.json before using live tools.",
+    "Read the trusted marketplace intake and the SEIS plugin bridge contract.",
+    "Make one bounded reversible change that keeps unrelated dirty files intact.",
+    "Run the smallest relevant local checks before broader readiness gates.",
+    "Commit and push only after clean publish readiness and fast-forward-safe branch state."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "id": "seis-trusted-marketplace-listing",
+  "pluginName": "seis-trusted-marketplace",
+  "privatePersonal": {
+    "recommended": true,
+    "summary": "Use as a private personal Codex plugin connected to the personal marketplace file.",
+    "marketplacePath": "/Users/emirhan/.agents/plugins/marketplace.json",
+    "installation": "codex plugin add seis-trusted-marketplace@personal"
+  },
+  "publicPublishReady": {
+    "recommendedBeforePublicRelease": [
+      "replace local absolute paths with public-safe examples",
+      "add real screenshots",
+      "review license and support policy",
+      "tag a release",
+      "confirm no secrets or private repo paths are included"
+    ],
+    "suggestedRepository": "https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "seis-trusted-marketplace",
+  "description": "Private personal Codex plugin for SEIS marketplace governance across data engineering, development, design, learning, monitoring, productivity, security, and testing.",
+  "version": "0.1.0+codex.20260604134726",
+  "author": {
+    "name": "Emirhan Kudun"
+  },
+  "keywords": [
+    "seis",
+    "marketplace",
+    "plugins",
+    "mcp",
+    "governance",
+    "uixappttr",
+    "data-engineering",
+    "development",
+    "design",
+    "learning",
+    "monitoring",
+    "productivity",
+    "security",
+    "testing"
+  ],
+  "skills": "./skills/"
+}
