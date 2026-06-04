@@ -1908,6 +1908,134 @@ summary:focus-visible {
 .runtime-card[data-status="needs_credentials"] { border-color: rgba(214, 177, 111, 0.36); }
 .runtime-card[data-status="unavailable"] { border-color: rgba(217, 139, 116, 0.48); }
 .runtime-card[data-status="skipped_with_reason"] { border-color: rgba(183, 183, 183, 0.28); }
+.ops-command-page {
+  background:
+    radial-gradient(circle at 82% 12%, rgba(143, 213, 200, 0.09), transparent 30%),
+    linear-gradient(180deg, rgba(14, 14, 12, 0.98), rgba(8, 8, 7, 1));
+}
+.ops-command-hero {
+  min-height: auto;
+}
+.ops-command-metrics,
+.ops-stage-grid,
+.ops-lane-grid,
+.ops-target-grid,
+.ops-export-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+.ops-command-metrics {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
+.ops-stage-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(1rem, 3vw, 1.8rem) 0;
+}
+.ops-command-split,
+.ops-api-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+.ops-command-split {
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr);
+}
+.ops-lane-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ops-target-grid {
+  grid-template-columns: 1fr;
+}
+.ops-export-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.ops-command-metrics article,
+.ops-stage-card,
+.ops-lane-card,
+.ops-target-card,
+.ops-export-card,
+.ops-api-panel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.036);
+  padding: clamp(0.85rem, 1.5vw, 1.1rem);
+}
+.ops-command-metrics strong,
+.ops-stage-card strong,
+.ops-lane-card strong,
+.ops-export-card strong {
+  display: block;
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.55rem, 3vw, 2.7rem);
+  line-height: 0.95;
+}
+.ops-command-metrics span,
+.ops-command-metrics small,
+.ops-stage-card span,
+.ops-stage-card small,
+.ops-lane-card span,
+.ops-lane-card small,
+.ops-target-card span,
+.ops-target-card small,
+.ops-export-card span {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+.ops-stage-card h2,
+.ops-lane-card h3,
+.ops-target-card h3,
+.ops-export-card h3,
+.ops-block h2,
+.ops-api-panel h2 {
+  margin: 0.35rem 0;
+  font-family: var(--font-display), serif;
+  line-height: 0.98;
+}
+.ops-block h2,
+.ops-api-panel h2 {
+  font-size: clamp(1.8rem, 3.5vw, 4rem);
+}
+.ops-stage-card p,
+.ops-lane-card p,
+.ops-target-card p,
+.ops-api-panel p {
+  color: var(--muted);
+  margin: 0;
+}
+.ops-target-card code,
+.ops-export-card code {
+  color: var(--accent-2);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.64rem;
+  overflow-wrap: anywhere;
+}
+.ops-stage-card[data-status="active"],
+.ops-stage-card[data-status="configured"],
+.ops-lane-card[data-priority="now"],
+.ops-target-card[data-status="active"],
+.ops-target-card[data-status="configured"],
+.ops-export-card[data-status="primary"] {
+  border-color: rgba(148, 184, 143, 0.5);
+}
+.ops-stage-card[data-status="needs_credentials"],
+.ops-lane-card[data-priority="blocked"],
+.ops-target-card[data-status="needs_credentials"] {
+  border-color: rgba(214, 177, 111, 0.42);
+}
+.ops-lane-card[data-priority="next"],
+.ops-export-card[data-status="supporting"] {
+  border-color: rgba(143, 213, 200, 0.44);
+}
+.ops-lane-card[data-priority="backlog"],
+.ops-target-card[data-status="skipped_with_reason"],
+.ops-export-card[data-status="local_reference"] {
+  border-color: rgba(240, 236, 228, 0.24);
+}
 .mcp-preview,
 .ops-block {
   margin-top: 1.25rem;
@@ -3183,6 +3311,12 @@ summary:focus-visible {
   .evolution-roadmap[data-compact="true"] .evolution-grid,
   .quality-grid,
   .language-grid,
+  .ops-command-metrics,
+  .ops-stage-grid,
+  .ops-command-split,
+  .ops-api-panel,
+  .ops-lane-grid,
+  .ops-export-grid,
   .source-console-grid,
   .source-chip-list,
   .source-output-grid,
@@ -3283,6 +3417,12 @@ summary:focus-visible {
   .evolution-roadmap[data-compact="true"] .evolution-grid,
   .quality-grid,
   .language-grid,
+  .ops-command-metrics,
+  .ops-stage-grid,
+  .ops-command-split,
+  .ops-api-panel,
+  .ops-lane-grid,
+  .ops-export-grid,
   .source-console-grid,
   .source-console-metrics,
   .source-chip-list,

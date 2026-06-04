@@ -9,6 +9,10 @@ write-capable actions.
 
 - `/#sources`: primary environment source console.
 - `/portfolio#sources`: compact portfolio source console.
+- `/ops`: aggressive operations command center for sources, runtime readiness,
+  GitHub persistence and deployment gates.
+- `/api/ops-command-center`: machine-readable operations payload combining
+  source routing, runtime, MCP, GitHub and deployment status.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -153,6 +157,7 @@ open or download?". It indexes:
 - the AI helper orchestration map,
 - the source connection mirror,
 - the aggressive development plan,
+- the ops command center,
 - the repo-local polyglot source lab.
 
 The `/api/ai-helper-orchestration` endpoint is the safest interpretation of
@@ -201,6 +206,19 @@ The API reports both `laneAssignmentCoverage` and `uniqueSourceCoverage`. Lane
 assignment coverage may be higher than the total source count because a source
 can support more than one sprint lane. Unique coverage is the deduplicated source
 count.
+
+The `/api/ops-command-center` endpoint is the command surface for continuing
+after a GitHub publish. It aggregates:
+
+- source counts and aggressive development lanes,
+- runtime connector and skill readiness,
+- MCP readiness,
+- GitHub origin branch status,
+- deployment targets and credential gates,
+- AI helper lanes and export-index links.
+
+It is intentionally status-only. It does not deploy, message, pay, create CRM
+records, download licensed media or execute provider writes.
 
 The `/api/source-delivery` endpoint packages the source handoff into concrete
 artifact lanes:

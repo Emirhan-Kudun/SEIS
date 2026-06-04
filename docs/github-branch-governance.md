@@ -4,8 +4,8 @@ The active development branch is `codex/seis-ux-cinematic-premium-foundation`.
 
 ## Repository Target
 
-- GitHub repository: `emirhankudun/emirhan-kudun-portfolio`
-- Preferred origin URL: `git@github.com:emirhankudun/emirhan-kudun-portfolio.git`
+- GitHub repository: `emirhankudun-ux/emirhan-kudun-portfolio`
+- Preferred origin URL: `https://github.com/emirhankudun-ux/emirhan-kudun-portfolio.git`
 - Main branch stays protected by convention; publish and review work happens from the Codex branch.
 
 ## Branch Policy
@@ -29,7 +29,7 @@ npm run github:preflight
 If `origin` is missing:
 
 ```bash
-git remote add origin git@github.com:emirhankudun/emirhan-kudun-portfolio.git
+git remote add origin https://github.com/emirhankudun-ux/emirhan-kudun-portfolio.git
 ```
 
 If GitHub CLI auth is missing:

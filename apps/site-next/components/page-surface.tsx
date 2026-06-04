@@ -28,7 +28,7 @@ import { PortfolioCollections } from "./portfolio-collections";
 import { PortfolioDiscoveryFlow } from "./portfolio-discovery-flow";
 import { PortfolioIndex } from "./portfolio-index";
 
-type PageMode = "portfolio" | "drawings" | "lab" | "contact";
+type PageMode = "portfolio" | "drawings" | "lab" | "ops" | "contact";
 
 const navItems = [
   ["/", "navHome", "home"],
@@ -36,6 +36,7 @@ const navItems = [
   ["/portfolio#portfolio-behance", "navBehance", "behance"],
   ["/drawings", "navDrawings", "drawings"],
   ["/lab", "navLab", "lab"],
+  ["/ops", "navOps", "ops"],
   ["/contact", "navContact", "contact"]
 ] as const;
 
@@ -82,7 +83,7 @@ export function PageSurface({ mode }: { mode: PageMode }) {
         <div className="nav-links">
           {navItems.map(([href, key, itemMode]) => (
             <Link key={href} href={href} aria-current={itemMode === mode ? "page" : undefined}>
-              {dict[key]}
+              {dict[key] || "Ops"}
             </Link>
           ))}
         </div>

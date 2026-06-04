@@ -44,6 +44,7 @@ const nav = [
   ["#drawings", "navDrawings", "Drawings"],
   ["#sources", "sourceEnvironmentNav", "Sources"],
   ["#lab", "navLab", "Lab"],
+  ["/ops", "navOps", "Ops"],
   ["#contact", "navContact", "Contact"]
 ] as const;
 
@@ -93,6 +94,7 @@ export function SiteShell({ mode }: { mode: ShellMode }) {
 
   useEffect(() => {
     const sections = nav
+      .filter(([href]) => href.startsWith("#"))
       .map(([href]) => document.querySelector<HTMLElement>(href))
       .filter((section): section is HTMLElement => Boolean(section));
 

@@ -7,7 +7,7 @@ This project is ready for local preview, GitHub persistence, Vercel deployment a
 | Target | Status model | Purpose |
 | --- | --- | --- |
 | `local-production-preview` | `active` | Validate the built website on `http://localhost:4173`. |
-| `github-origin` | `needs_credentials` | Push the single branch after `gh auth login` is complete. |
+| `github-origin` | `active` | Persist the active Codex branch to GitHub after preflight passes. |
 | `vercel-preview` | `needs_credentials` | Deploy to Vercel after CLI/auth/env setup. |
 | `custom-server` | `needs_credentials` | Copy build output to a selected server after SSH details are provided. |
 | `static-fallback-archive` | `active` | Low-dependency rollback publishing surface. |
@@ -30,7 +30,7 @@ DEPLOY_PATH=
 For GitHub, authenticate interactively:
 
 ```bash
-git remote add origin git@github.com:emirhankudun/emirhan-kudun-portfolio.git # only if origin is missing
+git remote add origin https://github.com/emirhankudun-ux/emirhan-kudun-portfolio.git # only if origin is missing
 gh auth login -h github.com
 gh auth status -h github.com
 npm run github:preflight

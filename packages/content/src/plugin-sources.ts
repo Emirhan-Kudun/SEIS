@@ -1504,7 +1504,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 10,
+    count: 11,
     sourceIds: [
       "source-package",
       "source-proof",
@@ -1515,6 +1515,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
       "ai-helper-orchestration",
       "source-connection-mirror",
       "aggressive-development-plan",
+      "ops-command-center",
       "polyglot-lab"
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
@@ -1552,6 +1553,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     sourceIds: ecosystemAggressiveDevelopmentLanes.map((lane) => lane.id),
     purpose: "Turn all connected and cataloged sources into governed build, creative, growth, ops, quality and research sprint lanes.",
     guardrail: "Aggressive means high routing clarity, not uncontrolled provider writes."
+  },
+  {
+    id: "ops-command-center-json",
+    label: "Ops command center JSON",
+    artifactType: "api",
+    path: "/api/ops-command-center",
+    downloadMode: "machine_readable_json",
+    count: 4,
+    sourceIds: ["runtime-readiness", "deployment-targets", "aggressive-development-plan", "ai-helper-orchestration"],
+    purpose: "Aggregate source, runtime, GitHub, MCP and deployment readiness into one operations payload.",
+    guardrail: "Expose status and routing only; do not execute deploys, paid calls, messages or credentialed writes."
   },
   {
     id: "install-plan-json",
@@ -1772,6 +1784,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "ops-command-center-api",
+    label: "Ops command center API",
+    path: "/api/ops-command-center",
+    role: "Aggregated operations payload for source routing, runtime readiness, GitHub persistence and deployment gates.",
+    sourceMode: "api"
+  },
+  {
     id: "source-install-plan-api",
     label: "Source install plan API",
     path: "/api/source-install-plan",
@@ -1907,6 +1926,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: ecosystemAggressiveDevelopmentLanes.length,
     purpose: "Shows how every connected or cataloged plugin family is actively routed into portfolio development.",
     useWhen: "Use this when continuing aggressive development with all connected plugin sources."
+  },
+  {
+    id: "ops-command-center",
+    label: "Ops command center",
+    format: "json",
+    path: "/api/ops-command-center",
+    status: "primary",
+    sourceIds: ["runtime-readiness", "deployment-targets", "aggressive-development-plan", "ai-helper-orchestration"],
+    count: 4,
+    purpose: "Aggregates source routing, runtime readiness, GitHub persistence and deployment gates for agent handoff.",
+    useWhen: "Use this when continuing aggressive development after a GitHub publish."
   },
   {
     id: "polyglot-lab",

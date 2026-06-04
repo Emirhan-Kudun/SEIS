@@ -16,14 +16,14 @@
     "id": "github-origin",
     "name": "GitHub origin branch",
     "category": "source-control",
-    "statusOverride": "needs_credentials",
+    "statusOverride": "active",
     "scope": "Keeps the single SEIS branch recoverable outside the machine once GitHub auth is ready.",
     "requiresEnv": [],
-    "targetUrl": "git@github.com:emirhankudun/emirhan-kudun-portfolio.git",
+    "targetUrl": "https://github.com/emirhankudun-ux/emirhan-kudun-portfolio/tree/codex/seis-ux-cinematic-premium-foundation",
     "command": "npm run github:publish",
     "persistence": "remote-git",
-    "safety": "Push is blocked until GitHub CLI authentication is confirmed.",
-    "notes": "Current flow intentionally stops when origin, branch cleanliness or gh auth is not ready."
+    "safety": "Push remains gated by branch cleanliness, GitHub CLI auth and one bounded non-interactive attempt.",
+    "notes": "Current Codex branch tracks origin/codex/seis-ux-cinematic-premium-foundation on emirhankudun-ux/emirhan-kudun-portfolio."
   },
   {
     "id": "vercel-preview",
