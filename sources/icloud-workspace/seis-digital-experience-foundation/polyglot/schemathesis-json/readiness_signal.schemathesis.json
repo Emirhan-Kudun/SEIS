@@ -1,0 +1,13 @@
+{
+  "tool": "schemathesis",
+  "type": "ReadinessSignal",
+  "baseUrl": "https://uix-apps.local",
+  "checks": [],
+  "summary": {
+    "passed": 0,
+    "failed": 0,
+    "errored": 0,
+    "skipped": 0
+  },
+  "notes": "Dependency-light placeholder for future API property-test evidence."
+}

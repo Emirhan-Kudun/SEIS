@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NotionTrendRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "week_of",
+    "source",
+    "insight",
+    "recommended_change",
+    "priority",
+    "status"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Unique automation run id"
+    },
+    "connector": {
+      "type": "string",
+      "description": "Connector or integration name for step-level logs"
+    },
+    "result": {
+      "type": "string",
+      "enum": ["invoked", "skipped", "skipped_with_reason", "failed"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "week_of": {
+      "type": "string",
+      "description": "ISO date (YYYY-MM-DD)",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["Behance", "Dribbble", "Awwwards"]
+    },
+    "insight": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommended_change": {
+      "type": "string",
+      "minLength": 1
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["todo", "approved", "implemented", "rejected"]
+    }
+  }
+}

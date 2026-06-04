@@ -1,0 +1,71 @@
+{
+  "version": "0.1.0",
+  "summary": {
+    "decisions": 5,
+    "ready": 2,
+    "needsEvidence": 2,
+    "blocked": 1
+  },
+  "principles": [
+    "Every decision needs an owner, evidence, and rollback note.",
+    "High-impact work waits until accessibility and performance risk are explicit.",
+    "Calm UX changes ship in small reversible increments."
+  ],
+  "decisions": [
+    {
+      "id": "journey-map-prototype",
+      "title": "Promote Journey Map Builder prototype",
+      "status": "ready",
+      "impact": "high",
+      "effort": "medium",
+      "owner": "ux-apps",
+      "evidence": "App registry already includes journey, flow, and friction signals.",
+      "nextAction": "Add a local JSON-backed journey stage editor with export-safe state.",
+      "rollback": "Keep the existing static app cards as the fallback surface."
+    },
+    {
+      "id": "motion-token-preview",
+      "title": "Add motion token preview surface",
+      "status": "ready",
+      "impact": "medium",
+      "effort": "low",
+      "owner": "cinematic-ui",
+      "evidence": "Cinematic program already defines quality presets and motion depths.",
+      "nextAction": "Expose duration, easing, and reduced-motion presets as inspectable UI.",
+      "rollback": "Disable preview panel while preserving the cinematic-program API."
+    },
+    {
+      "id": "notes-workspace",
+      "title": "Persist local notes workspace",
+      "status": "needs-evidence",
+      "impact": "medium",
+      "effort": "medium",
+      "owner": "research",
+      "evidence": "Conversation backlog asks for local storage-backed notes.",
+      "nextAction": "Define retention, privacy, and export rules before writing runtime files.",
+      "rollback": "Keep notes as client-only draft state until persistence rules are approved."
+    },
+    {
+      "id": "next-runtime-evaluation",
+      "title": "Evaluate Next.js migration branch",
+      "status": "needs-evidence",
+      "impact": "high",
+      "effort": "high",
+      "owner": "architecture",
+      "evidence": "Preferred stack mentioned Next.js, but the current foundation is intentionally dependency-free.",
+      "nextAction": "Open a scoped evaluation branch only after a dependency budget note.",
+      "rollback": "Preserve native Node/static runtime as the release baseline."
+    },
+    {
+      "id": "raw-zip-mirroring",
+      "title": "Copy raw zip archive into runtime",
+      "status": "blocked",
+      "impact": "low",
+      "effort": "high",
+      "owner": "governance",
+      "evidence": "Promotion lab blocks dependency folders, metadata, caches, and wholesale imports.",
+      "nextAction": "Promote reviewed ideas only through JSON contracts and small UI/API surfaces.",
+      "rollback": "No runtime import; source archive stays review-only."
+    }
+  ]
+}

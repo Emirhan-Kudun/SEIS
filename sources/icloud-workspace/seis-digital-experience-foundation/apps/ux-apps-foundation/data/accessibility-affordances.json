@@ -1,0 +1,82 @@
+{
+  "version": "0.1.0",
+  "mode": "calm accessibility affordance contract",
+  "summary": {
+    "affordances": 6,
+    "mobileReady": 3,
+    "reducedMotionAware": 4,
+    "blockedPatterns": 3
+  },
+  "affordances": [
+    {
+      "id": "visible-focus-ring",
+      "label": "Visible focus ring",
+      "surface": "keyboard navigation",
+      "status": "ready",
+      "mobileReady": false,
+      "reducedMotionAware": true,
+      "evidence": "Interactive controls need a visible non-motion state before hover or depth effects.",
+      "fallback": "Use outline and contrast, not movement, to communicate focus."
+    },
+    {
+      "id": "touch-target-padding",
+      "label": "Touch target padding",
+      "surface": "mobile touch",
+      "status": "ready",
+      "mobileReady": true,
+      "reducedMotionAware": true,
+      "evidence": "Mobile users need generous targets when navigation becomes dense.",
+      "fallback": "Increase spacing before adding animated touch effects."
+    },
+    {
+      "id": "form-error-linkage",
+      "label": "Form error linkage",
+      "surface": "contact form",
+      "status": "ready",
+      "mobileReady": true,
+      "reducedMotionAware": true,
+      "evidence": "Inputs expose hints and error states through aria-describedby and aria-errormessage.",
+      "fallback": "Keep validation messages textual and adjacent to their fields."
+    },
+    {
+      "id": "section-reveal-equivalence",
+      "label": "Section reveal equivalence",
+      "surface": "scroll animation",
+      "status": "ready",
+      "mobileReady": true,
+      "reducedMotionAware": true,
+      "evidence": "Section reveals must preserve hierarchy when animation is disabled.",
+      "fallback": "Render sections immediately with static spacing and headings."
+    },
+    {
+      "id": "hover-depth-parity",
+      "label": "Hover depth parity",
+      "surface": "pointer interaction",
+      "status": "watch",
+      "mobileReady": false,
+      "reducedMotionAware": false,
+      "evidence": "Depth effects should not hide information that touch users cannot discover.",
+      "fallback": "Expose the same content without hover-only reveal."
+    },
+    {
+      "id": "intro-skip-path",
+      "label": "Loading intro skip path",
+      "surface": "intro animation",
+      "status": "watch",
+      "mobileReady": false,
+      "reducedMotionAware": false,
+      "evidence": "Cinematic intro ideas need a skip or instant state before shipping.",
+      "fallback": "Start directly at the usable app surface."
+    }
+  ],
+  "blockedPatterns": [
+    "hover-only disclosure",
+    "mandatory cinematic intro",
+    "motion-only error feedback"
+  ],
+  "rules": [
+    "Every affordance needs an equivalent static state.",
+    "Touch feedback can enhance confidence but cannot become the only signal.",
+    "Reduced-motion mode must preserve information, order, and actionability."
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "name": "seis-google-open-source-foundation",
+  "version": "1.1.0",
+  "generated_at": "2026-05-21",
+  "parent_branch": "codex/premium-local-foundation",
+  "branch_alignment": "codex/premium-local-foundation",
+  "intent": "Keep Google-origin and open-source tooling as a subordinate copilot lane inside the premium local foundation branch.",
+  "operating_mode": "dry-run by default, registry-only until task scope is explicit",
+  "topology": {
+    "root_branch": "codex/premium-local-foundation",
+    "single_git_branch_mode": true,
+    "sub_agents": [
+      {
+        "id": "google-open-source-copilot",
+        "agent_card": ".claude/agents/google-open-source-copilot.md",
+        "role": "Evaluate Google-origin open-source tools, official docs, and connector lanes before implementation.",
+        "mode": "on-demand"
+      }
+    ],
+    "branch_lanes": [
+      {
+        "id": "google-official-docs",
+        "type": "logical-child-lane",
+        "git_branch": null,
+        "owner_agent": "google-open-source-copilot",
+        "purpose": "Ground implementation choices in official Google or project-owned documentation."
+      },
+      {
+        "id": "chrome-web-quality",
+        "type": "logical-child-lane",
+        "git_branch": null,
+        "owner_agent": "google-open-source-copilot",
+        "purpose": "Plan Chrome-aligned performance, accessibility, SEO, and Core Web Vitals checks."
+      },
+      {
+        "id": "firebase-cloud-run",
+        "type": "logical-child-lane",
+        "git_branch": null,
+        "owner_agent": "google-open-source-copilot",
+        "purpose": "Plan Firebase, Firestore, Cloud Run, storage, and hosting work without provisioning."
+      },
+      {
+        "id": "material-design-system",
+        "type": "logical-child-lane",
+        "git_branch": null,
+        "owner_agent": "google-open-source-copilot",
+        "purpose": "Plan Material icon and design-system references without replacing SEIS visual language."
+      },
+      {
+        "id": "google-ai-agent-systems",
+        "type": "logical-child-lane",
+        "git_branch": null,
+        "owner_agent": "google-open-source-copilot",
+        "purpose": "Evaluate ADK, Gemini, Antigravity, and Google AI agent tooling as registry-first candidates."
+      }
+    ]
+  },
+  "source_rules": [
+    "Use official Google documentation, Google GitHub organizations, or project-owned documentation before third-party commentary.",
+    "Keep auth-scoped Google Cloud, Firebase, Gemini, Drive, Gmail, and Maps tools on-demand.",
+    "Keep local Chrome and repo-governance checks lightweight and reusable.",
+    "Do not add runtime dependencies until a concrete feature needs them and quality gates can validate the impact.",
+    "Treat Gemini CLI as migration-watch until the current Google AI CLI path is verified from official sources for the task."
+  ],
+  "adoption_lanes": [
+    {
+      "id": "official-docs",
+      "purpose": "Ground implementation choices in official Google or project-owned documentation.",
+      "default_bindings": ["google-developer-knowledge", "fetch", "context7"],
+      "activation": "on-demand",
+      "blocked_actions": ["secret access", "external write"]
+    },
+    {
+      "id": "web-quality",
+      "purpose": "Use Chrome-aligned quality checks for performance, accessibility, SEO, and Core Web Vitals.",
+      "default_bindings": ["chrome-devtools"],
+      "candidate_tools": ["lighthouse", "web-vitals", "web.dev"],
+      "activation": "local-first",
+      "blocked_actions": ["dependency addition without approval"]
+    },
+    {
+      "id": "design-system",
+      "purpose": "Use Material icons and Google-origin design references only where they improve clarity and accessibility.",
+      "default_bindings": ["google-design-mcp"],
+      "candidate_tools": ["material-symbols", "material-web"],
+      "activation": "on-demand",
+      "blocked_actions": ["visual redesign without task scope"]
+    },
+    {
+      "id": "app-backend",
+      "purpose": "Plan Firebase and Google Cloud services without provisioning or deployment side effects.",
+      "default_bindings": ["firebase", "google-cloud-run", "google-firestore"],
+      "candidate_tools": ["firebase-js-sdk", "cloud-run", "firestore"],
+      "activation": "approval-gated",
+      "blocked_actions": ["deploy", "provision", "database mutation", "secret access"]
+    },
+    {
+      "id": "ai-agent-systems",
+      "purpose": "Evaluate Google AI and agent tooling without making it the default coding substrate.",
+      "default_bindings": ["google-gemini-enterprise-generate", "google-developer-knowledge"],
+      "candidate_tools": ["adk-python", "adk-js", "gemini-cli", "antigravity-cli"],
+      "activation": "registry-only",
+      "blocked_actions": ["external model call", "agent write action", "shell automation"]
+    }
+  ],
+  "tool_registry": [
+    {
+      "id": "lighthouse",
+      "origin": "GoogleChrome",
+      "category": "web-quality",
+      "source": "https://github.com/GoogleChrome/lighthouse",
+      "status": "candidate"
+    },
+    {
+      "id": "web-vitals",
+      "origin": "GoogleChrome",
+      "category": "web-quality",
+      "source": "https://github.com/GoogleChrome/web-vitals",
+      "status": "candidate"
+    },
+    {
+      "id": "material-web",
+      "origin": "Material Design",
+      "category": "design-system",
+      "source": "https://github.com/material-components/material-web",
+      "status": "candidate"
+    },
+    {
+      "id": "material-design-icons",
+      "origin": "Google",
+      "category": "design-system",
+      "source": "https://github.com/google/material-design-icons",
+      "status": "candidate"
+    },
+    {
+      "id": "firebase-js-sdk",
+      "origin": "Firebase",
+      "category": "app-backend",
+      "source": "https://github.com/firebase/firebase-js-sdk",
+      "status": "candidate"
+    },
+    {
+      "id": "flutter",
+      "origin": "Google",
+      "category": "app-platform",
+      "source": "https://github.com/flutter/flutter",
+      "status": "registry-only"
+    },
+    {
+      "id": "go",
+      "origin": "Google",
+      "category": "language-runtime",
+      "source": "https://github.com/golang/go",
+      "status": "registry-only"
+    },
+    {
+      "id": "tensorflow",
+      "origin": "Google Brain",
+      "category": "ml",
+      "source": "https://github.com/tensorflow/tensorflow",
+      "status": "registry-only"
+    },
+    {
+      "id": "bazel",
+      "origin": "Google",
+      "category": "build-system",
+      "source": "https://github.com/bazelbuild/bazel",
+      "status": "registry-only"
+    },
+    {
+      "id": "angular",
+      "origin": "Google",
+      "category": "frontend-framework",
+      "source": "https://github.com/angular/angular",
+      "status": "registry-only"
+    },
+    {
+      "id": "adk-python",
+      "origin": "Google",
+      "category": "ai-agent-systems",
+      "source": "https://github.com/google/adk-python",
+      "status": "candidate"
+    },
+    {
+      "id": "adk-js",
+      "origin": "Google",
+      "category": "ai-agent-systems",
+      "source": "https://github.com/google/adk-js",
+      "status": "candidate"
+    },
+    {
+      "id": "gemini-cli",
+      "origin": "google-gemini",
+      "category": "ai-agent-systems",
+      "source": "https://github.com/google-gemini/gemini-cli",
+      "status": "migration-watch"
+    }
+  ],
+  "mcp_bindings": [
+    {
+      "id": "chrome-devtools",
+      "mode": "always-on-core",
+      "reason": "Local browser inspection and validation can run without external account mutation."
+    },
+    {
+      "id": "google-developer-knowledge",
+      "mode": "on-demand",
+      "reason": "Official docs lookup may require auth in this environment."
+    },
+    {
+      "id": "google-design-mcp",
+      "mode": "on-demand",
+      "reason": "Icon and design lookup should be task-specific."
+    },
+    {
+      "id": "firebase",
+      "mode": "on-demand",
+      "reason": "Firebase init can write config and may require account access."
+    },
+    {
+      "id": "google-cloud-run",
+      "mode": "on-demand",
+      "reason": "Deployment and provisioning remain approval-gated."
+    },
+    {
+      "id": "context7",
+      "mode": "on-demand",
+      "reason": "Use only when a specific open-source dependency or framework is in scope."
+    }
+  ],
+  "transition_watchlist": [
+    {
+      "id": "gemini-cli",
+      "status": "migration-watch",
+      "source": "task-time official Google verification required",
+      "decision": "Do not make Gemini CLI a default SEIS coding dependency; verify the current Google AI CLI and ADK status before adopting Google AI terminal tooling."
+    }
+  ],
+  "implementation_gates": [
+    "Run branch governance before edits.",
+    "Run local quality gate before handoff.",
+    "Run google-open-source-foundation-check before adopting Google-origin tooling.",
+    "Run connector dry-run for google-open-source-foundation before activating any external Google connector.",
+    "Keep secrets and project IDs out of committed files."
+  ]
+}

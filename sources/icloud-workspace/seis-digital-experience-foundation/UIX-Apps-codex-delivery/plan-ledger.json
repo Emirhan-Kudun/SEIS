@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "primary_objective": "premium-cinematic-ai-native-portfolio-redesign-hybrid-dual",
+  "backlog_weighting": {
+    "cinematic_product_percent": 80,
+    "ops_assurance_percent": 20
+  },
+  "runtime_model": {
+    "phase_order": [
+      "parallel",
+      "next-primary",
+      "static-fallback"
+    ],
+    "nextjs_primary": true,
+    "static_role": "fallback-legacy-safety-layer"
+  },
+  "mode": "always-on-core-plus-on-demand-rotation",
+  "approval_gate": {
+    "type": "dual",
+    "sources": [
+      "notion",
+      "github"
+    ],
+    "approval_expiry_days": 14,
+    "stale_suggested_days": 10
+  },
+  "rolling_policy": {
+    "type": "continuous-quarterly",
+    "cadence": "weekly"
+  },
+  "sprints": [
+    {
+      "sprint_id": "Sprint 1",
+      "window_start": "2026-05-06",
+      "window_end": "2026-05-12",
+      "objective": "Core orchestration stabilization",
+      "kpi": "1 successful guarded core run",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "ops",
+      "due_date": "2026-05-12",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 2",
+      "window_start": "2026-05-13",
+      "window_end": "2026-05-19",
+      "objective": "Semantic and responsive hardening",
+      "kpi": "0 critical semantic/responsive defects",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-05-19",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 3",
+      "window_start": "2026-05-20",
+      "window_end": "2026-05-26",
+      "objective": "Typography and spacing consistency",
+      "kpi": "95/100 consistency score",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "design",
+      "due_date": "2026-05-26",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 4",
+      "window_start": "2026-05-27",
+      "window_end": "2026-06-02",
+      "objective": "Behance and drawings interaction/perf",
+      "kpi": "0 critical regressions",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-06-02",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 5",
+      "window_start": "2026-06-03",
+      "window_end": "2026-06-09",
+      "objective": "i18n parity TR/EN/FR/IT/DE",
+      "kpi": "0 missing keys",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-06-09",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 6",
+      "window_start": "2026-06-10",
+      "window_end": "2026-06-16",
+      "objective": "SEO and structured data hardening",
+      "kpi": "100% defined checks pass",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "seo",
+      "due_date": "2026-06-16",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 7",
+      "window_start": "2026-06-17",
+      "window_end": "2026-06-23",
+      "objective": "Contact contract stability",
+      "kpi": "0 contract-breaking failures",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "backend",
+      "due_date": "2026-06-23",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 8",
+      "window_start": "2026-06-24",
+      "window_end": "2026-06-30",
+      "objective": "Preview-first release readiness",
+      "kpi": "preview green + fallback verified",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "ops",
+      "due_date": "2026-06-30",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 9",
+      "window_start": "2026-07-01",
+      "window_end": "2026-07-07",
+      "objective": "Ops monitoring coverage",
+      "kpi": "actionable sentry/slack summaries active",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "ops",
+      "due_date": "2026-07-07",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 10",
+      "window_start": "2026-07-08",
+      "window_end": "2026-07-14",
+      "objective": "Final security and release gate",
+      "kpi": "high findings=0 and go/no-go package ready",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "security",
+      "due_date": "2026-07-14",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 11",
+      "window_start": "2026-07-15",
+      "window_end": "2026-07-21",
+      "objective": "Detailed audit package activation phase 1",
+      "kpi": "suggested-only audit runs stable",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "ops",
+      "due_date": "2026-07-21",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    },
+    {
+      "sprint_id": "Sprint 12",
+      "window_start": "2026-07-22",
+      "window_end": "2026-07-28",
+      "objective": "Detailed audit package full activation",
+      "kpi": "dual-approval gate active end-to-end",
+      "status": "todo",
+      "approval_state": "suggested",
+      "owner": "ops",
+      "due_date": "2026-07-28",
+      "source_ref": "INTEGRATION-PLAYBOOK.md"
+    }
+  ],
+  "actions": [
+    {
+      "id": "v14-i18n-pack-alignment",
+      "status": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-05-20",
+      "source_ref": "docs/seis-i18n-pack-v14.md",
+      "notes": "align locale behavior with static canonical policy"
+    },
+    {
+      "id": "v14-motion-pack-guardrails",
+      "status": "suggested",
+      "owner": "design",
+      "due_date": "2026-05-21",
+      "source_ref": "docs/seis-motion-pack-v14.md",
+      "notes": "preserve reduced-motion and cinematic-lite budget"
+    },
+    {
+      "id": "v14-hover-pack-validation",
+      "status": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-05-21",
+      "source_ref": "docs/seis-hover-pack-v14.md",
+      "notes": "interactive polish without perf regression"
+    },
+    {
+      "id": "v14-interaction-pack-parity",
+      "status": "suggested",
+      "owner": "frontend",
+      "due_date": "2026-05-22",
+      "source_ref": "docs/seis-interaction-pack-v14.md",
+      "notes": "input/focus/feedback parity across languages"
+    },
+    {
+      "id": "cloud-track-chaos-sync",
+      "status": "suggested",
+      "owner": "ops",
+      "due_date": "2026-05-24",
+      "source_ref": "docs/seis-cloud-track-chaos.md",
+      "notes": "governance mapping only in this phase"
+    },
+    {
+      "id": "cloud-track-resilience-sync",
+      "status": "suggested",
+      "owner": "ops",
+      "due_date": "2026-05-24",
+      "source_ref": "docs/seis-cloud-track-resilience.md",
+      "notes": "report-only integration at this stage"
+    },
+    {
+      "id": "cloud-track-security-sync",
+      "status": "suggested",
+      "owner": "security",
+      "due_date": "2026-05-24",
+      "source_ref": "docs/seis-cloud-track-platform-guard.md",
+      "notes": "security gate mapping with no deploy mutations"
+    },
+    {
+      "id": "dual-zip-merged-delivery",
+      "status": "suggested",
+      "owner": "ops",
+      "due_date": "2026-05-15",
+      "source_ref": "scripts/merge-dual-zip-html-css-js-json.js",
+      "notes": "deliver html/css/js/json bundle to exports and Downloads"
+    }
+  ],
+  "merge_wave_v3": {
+    "mode": "single-phase-full-merge",
+    "execution_order": [
+      "static",
+      "next",
+      "automation"
+    ],
+    "source_ref": "docs/unified-master-plan-v3.md"
+  }
+}

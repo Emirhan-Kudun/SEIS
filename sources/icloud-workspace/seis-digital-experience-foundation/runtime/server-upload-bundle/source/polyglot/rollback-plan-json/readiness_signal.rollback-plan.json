@@ -1,0 +1,12 @@
+{
+  "tool": "rollback-plan",
+  "type": "ReadinessSignal",
+  "owner": "unassigned",
+  "steps": [],
+  "verification": [],
+  "recoveryObjective": {
+    "rtoMinutes": 0,
+    "rpoMinutes": 0
+  },
+  "notes": "Dependency-light placeholder for future rollback path and recovery proof evidence."
+}

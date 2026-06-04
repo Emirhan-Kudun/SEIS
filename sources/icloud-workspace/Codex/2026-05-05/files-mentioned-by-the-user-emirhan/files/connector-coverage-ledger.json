@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "month": "2026-05",
+  "timezone": "Europe/Istanbul",
+  "coverage": [
+    {
+      "connector_name": "atlassian-rovo",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "biorender",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "box",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "browser-use",
+      "tier": "core",
+      "last_status": "invoked",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "Live browser MCP runtime missing npm. Fallback browser contract check passed."
+    },
+    {
+      "connector_name": "build-web-apps",
+      "tier": "core",
+      "last_status": "invoked",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "check passed"
+    },
+    {
+      "connector_name": "canva",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "chatgpt-apps",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "circleci",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "cloudflare",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "cloudinary",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "coderabbit",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "codex-security",
+      "tier": "core",
+      "last_status": "invoked",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "check passed"
+    },
+    {
+      "connector_name": "daloopa",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "documents",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "expo",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "figma",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "github",
+      "tier": "core",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "connector disabled in integration-targets.json"
+    },
+    {
+      "connector_name": "hyperframes",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "latex-tectonic",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "life-science-research",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "linear",
+      "tier": "core",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "connector disabled in integration-targets.json"
+    },
+    {
+      "connector_name": "marcopolo",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "neon-postgres",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "netlify",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "notion",
+      "tier": "core",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "connector disabled in integration-targets.json"
+    },
+    {
+      "connector_name": "openai-developers",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "plugin-eval",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "presentations",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "quicknode",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "ranked-ai",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "read-ai",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "remotion",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "render",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "sentry",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "slack",
+      "tier": "core",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-13T12:08:33.934Z",
+      "monthly_coverage_state": "covered",
+      "notes": "connector disabled in integration-targets.json"
+    },
+    {
+      "connector_name": "spreadsheets",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "statsig",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "supabase",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "superpowers",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "temporal",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "twilio-developer-kit",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "vantage",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "vercel",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "yepcode",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    },
+    {
+      "connector_name": "zotero",
+      "tier": "rotation",
+      "last_status": "skipped_with_reason",
+      "last_run_at": "2026-05-08T07:43:41.770Z",
+      "monthly_coverage_state": "covered",
+      "notes": "no local adapter binding for this connector in monthly sweep"
+    }
+  ],
+  "summary": {
+    "total_connectors": 45,
+    "covered_connectors": 45,
+    "target": "100% monthly",
+    "status": "on_track"
+  }
+}

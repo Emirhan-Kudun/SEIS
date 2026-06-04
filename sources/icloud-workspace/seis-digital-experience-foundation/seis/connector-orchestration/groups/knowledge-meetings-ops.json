@@ -1,0 +1,29 @@
+{
+  "group": "knowledge-meetings-ops",
+  "purpose": "Meetings, email, calendars, documents, project management, and team knowledge systems.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": ["send message", "schedule meeting", "create issue", "edit CRM record", "share document"],
+  "connectors": [
+    {"id":"zoom","sources":["openai-curated","claude-plugins-official"],"role":"meeting assets and transcripts","mode":"on-demand"},
+    {"id":"asana","sources":["openai-curated","claude-plugins-official"],"role":"task and project management","mode":"on-demand"},
+    {"id":"linear","sources":["openai-curated","claude-plugins-official"],"role":"issue tracking and product workflow","mode":"on-demand"},
+    {"id":"atlassian-rovo","sources":["openai-curated"],"role":"Jira and Confluence knowledge","mode":"on-demand"},
+    {"id":"atlassian","sources":["claude-plugins-official"],"role":"Jira and Confluence operations","mode":"registry-only"},
+    {"id":"notion","sources":["openai-curated"],"role":"docs, tasks, and knowledge capture","mode":"on-demand"},
+    {"id":"slack","sources":["openai-curated","claude-plugins-official"],"role":"team communication and context","mode":"on-demand"},
+    {"id":"gmail","sources":["openai-curated"],"role":"email search and drafting","mode":"on-demand"},
+    {"id":"google-calendar","sources":["openai-curated"],"role":"scheduling and availability","mode":"on-demand"},
+    {"id":"google-drive","sources":["openai-curated"],"role":"Drive, Docs, Sheets, and Slides search","mode":"on-demand"},
+    {"id":"box","sources":["openai-curated","claude-plugins-official"],"role":"enterprise document search","mode":"on-demand"},
+    {"id":"egnyte","sources":["openai-curated"],"role":"enterprise file search","mode":"registry-only"},
+    {"id":"read-ai","sources":["openai-curated"],"role":"meeting intelligence","mode":"on-demand"},
+    {"id":"otter-ai","sources":["openai-curated"],"role":"meeting transcript search","mode":"registry-only"},
+    {"id":"fireflies","sources":["openai-curated"],"role":"meeting transcript search","mode":"registry-only"},
+    {"id":"granola","sources":["openai-curated"],"role":"meeting notes context","mode":"registry-only"},
+    {"id":"circleback","sources":["openai-curated","claude-plugins-official"],"role":"meeting notes and action items","mode":"registry-only"},
+    {"id":"mem","sources":["openai-curated"],"role":"personal knowledge base","mode":"registry-only"},
+    {"id":"monday-com","sources":["openai-curated"],"role":"work management","mode":"registry-only"},
+    {"id":"docket","sources":["openai-curated"],"role":"product knowledge expert","mode":"registry-only"}
+  ]
+}

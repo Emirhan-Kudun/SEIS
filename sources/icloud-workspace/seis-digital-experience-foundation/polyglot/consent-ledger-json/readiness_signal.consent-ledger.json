@@ -1,0 +1,15 @@
+{
+  "tool": "consent-ledger",
+  "type": "ReadinessSignal",
+  "subject": {
+    "id": "anonymous-local",
+    "region": "local"
+  },
+  "purposes": [],
+  "events": [],
+  "summary": {
+    "activeConsents": 0,
+    "withdrawnConsents": 0
+  },
+  "notes": "Dependency-light placeholder for future consent state and withdrawal evidence."
+}

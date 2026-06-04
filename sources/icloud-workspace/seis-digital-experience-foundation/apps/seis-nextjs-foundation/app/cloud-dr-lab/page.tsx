@@ -1,0 +1,79 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { resolveLocale } from "@/lib/content";
+import { getCloudDrSignals, getCloudDrSummary, getCloudDrTasks } from "@/lib/cloud-dr-command";
+
+export const metadata: Metadata = {
+  title: "Cloud DR Lab",
+  description: "Cloud disaster recovery command surface for RTO, RPO, backup integrity, and runbook parity.",
+  alternates: { canonical: "/cloud-dr-lab" }
+};
+
+type CloudDrLabPageProps = {
+  searchParams?: { lang?: string };
+};
+
+export default function CloudDrLabPage({ searchParams }: CloudDrLabPageProps) {
+  const locale = resolveLocale(searchParams?.lang);
+  const summary = getCloudDrSummary();
+  const signals = getCloudDrSignals();
+  const tasks = getCloudDrTasks();
+
+  return (
+    <main className="min-h-screen bg-seis-bg text-seis-text">
+      <section className="mx-auto w-[min(1120px,calc(100vw-1.5rem))] py-12 sm:py-16">
+        <p className="text-xs uppercase tracking-[0.14em] text-seis-accent">SEIS Cloud DR Lab</p>
+        <h1 className="mt-3 max-w-4xl font-serif text-4xl leading-tight sm:text-5xl">
+          Disaster recovery readiness with explicit RTO, RPO, and backup integrity governance.
+        </h1>
+        <p className="mt-4 max-w-3xl text-sm text-seis-muted sm:text-base">
+          Improves recovery confidence by turning DR assumptions into measurable operational signals.
+        </p>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-4">
+          <article className="rounded-lg border border-seis-line bg-seis-surface p-3"><p className="text-xs uppercase tracking-[0.08em] text-seis-muted">Signals</p><p className="mt-1 font-serif text-3xl">{summary.totalSignals}</p></article>
+          <article className="rounded-lg border border-seis-line bg-seis-surface p-3"><p className="text-xs uppercase tracking-[0.08em] text-seis-muted">Healthy</p><p className="mt-1 font-serif text-3xl">{summary.healthySignals}</p></article>
+          <article className="rounded-lg border border-seis-line bg-seis-surface p-3"><p className="text-xs uppercase tracking-[0.08em] text-seis-muted">Watch</p><p className="mt-1 font-serif text-3xl">{summary.watchSignals}</p></article>
+          <article className="rounded-lg border border-seis-line bg-seis-surface p-3"><p className="text-xs uppercase tracking-[0.08em] text-seis-muted">Critical</p><p className="mt-1 font-serif text-3xl">{summary.criticalSignals}</p></article>
+        </div>
+
+        <div className="mt-6 grid gap-3 lg:grid-cols-2">
+          <article className="rounded-xl border border-seis-line bg-seis-surface p-4">
+            <h2 className="font-serif text-3xl">DR Signals</h2>
+            <ul className="mt-3 grid gap-2 text-sm text-seis-muted">
+              {signals.map((item) => (
+                <li key={item.id} className="rounded border border-seis-line bg-[#1a1510] px-3 py-3">
+                  <p className="text-xs uppercase tracking-[0.1em] text-seis-accent">{item.area} - {item.status}</p>
+                  <p className="mt-1 text-seis-text">{item.title}</p>
+                  <p className="mt-1 text-sm text-seis-muted">{item.detail}</p>
+                  <p className="mt-1 text-sm text-seis-muted">next: {item.nextAction}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-xl border border-seis-line bg-seis-surface p-4">
+            <h2 className="font-serif text-3xl">DR Tasks</h2>
+            <ul className="mt-3 grid gap-2 text-sm text-seis-muted">
+              {tasks.map((item) => (
+                <li key={item.id} className="rounded border border-seis-line bg-[#1a1510] px-3 py-3">
+                  <p className="text-xs uppercase tracking-[0.1em] text-seis-accent">{item.priority} - {item.status}</p>
+                  <p className="mt-1 text-seis-text">{item.title}</p>
+                  <p className="mt-1 text-sm text-seis-muted">owner: {item.owner}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link href="/api/cloud-dr-command" className="rounded-xl border border-seis-line bg-seis-surface p-4 text-sm text-seis-muted hover:border-seis-accent">API: /api/cloud-dr-command</Link>
+          <Link href={`/incident-center?lang=${locale}`} className="rounded-xl border border-seis-line bg-seis-surface p-4 text-sm text-seis-muted hover:border-seis-accent">Open incident center</Link>
+          <Link href={`/rollback-lab?lang=${locale}`} className="rounded-xl border border-seis-line bg-seis-surface p-4 text-sm text-seis-muted hover:border-seis-accent">Open rollback lab</Link>
+          <Link href={`/orchestration?lang=${locale}`} className="rounded-xl border border-seis-line bg-seis-surface p-4 text-sm text-seis-muted hover:border-seis-accent">Open orchestration board</Link>
+        </div>
+      </section>
+    </main>
+  );
+}

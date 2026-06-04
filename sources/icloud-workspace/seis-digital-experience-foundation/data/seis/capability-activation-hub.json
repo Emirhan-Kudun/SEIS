@@ -1,0 +1,1232 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-capability-activation-hub.mjs",
+  "generatedAt": "2026-06-01T19:47:31.224Z",
+  "mission": "SEIS-M015",
+  "purpose": "Connect usable SEIS apps, skills, plugins, MCPs, GitHub publication, cloud actions, and server handoff into one mission-routed activation hub.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "data/seis/mcp-runtime-readiness.json",
+      "data/seis/mcp-skill-connector-registry.json",
+      "data/seis/connector-readiness-matrix.json",
+      "data/seis/tool-activation-rules.json",
+      "content/development/plugin-skill-registry.json",
+      "content/development/plugin-skill-capability-map.json",
+      "config/seis-cloud-environment.json",
+      "data/seis/deployment-readiness.json",
+      "data/seis/remote-shipment-gate.json"
+    ]
+  },
+  "policy": {
+    "branch": "UIXAppTTR",
+    "defaultMode": "mission-routed-read-only-first",
+    "blanketActivationAllowed": false,
+    "runtimeDependencyAdded": false,
+    "writeRequires": [
+      "explicit mission",
+      "auth readiness",
+      "permission confirmation",
+      "rollback path",
+      "validation command"
+    ],
+    "serverUploadRequires": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ]
+  },
+  "summary": {
+    "status": "ready",
+    "ready": true,
+    "runtimeItems": 215,
+    "usableRuntimeItems": 159,
+    "permissionGatedItems": 16,
+    "blockedAuthItems": 40,
+    "activationLanes": 11,
+    "pluginSkillSurfaces": 8,
+    "pluginSkillCapabilities": 10,
+    "toolIntents": 6,
+    "cloudActions": 11,
+    "linkedReadOnlyCloudActions": 11,
+    "githubPushReady": true,
+    "serverUploadReady": false,
+    "blockerCount": 0,
+    "blockers": []
+  },
+  "activationLanes": [
+    {
+      "id": "skill-runtime",
+      "label": "Skill Runtime",
+      "ownerAgent": "governance-agent",
+      "domains": [
+        "governance-core",
+        "ai-core"
+      ],
+      "risk": "medium",
+      "registryStatus": "active",
+      "activationState": "usable-read-only-first",
+      "runtimeItems": 4,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 4
+      },
+      "authCounts": {
+        "Unsupported": 4
+      },
+      "examples": [
+        {
+          "name": "claude-code",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-agent-registry",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "memory",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "sequential-thinking",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Load relevant skills before implementation or tool-heavy planning.",
+      "guardrails": [
+        "do not invoke unrelated skills",
+        "skill guidance does not override explicit user constraints"
+      ]
+    },
+    {
+      "id": "local-development-tools",
+      "label": "Local Development Tools",
+      "ownerAgent": "automation-agent",
+      "domains": [
+        "engineering-core",
+        "governance-core"
+      ],
+      "risk": "high",
+      "registryStatus": "active",
+      "activationState": "auth-required",
+      "runtimeItems": 12,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 9,
+        "blocked-auth": 1,
+        "permission-gated": 2
+      },
+      "authCounts": {
+        "Unsupported": 9,
+        "Not logged in": 1,
+        "OAuth": 2
+      },
+      "examples": [
+        {
+          "name": "cds-mcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "debugmcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "docker-mcp-gateway",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "eslint",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "expo",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "forge",
+          "readiness": "permission-gated",
+          "auth": "OAuth"
+        },
+        {
+          "name": "laravel-boost",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "MCP_DOCKER",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use for repo edits, validation, manifests, and commits inside the canonical iCloud workspace.",
+      "guardrails": [
+        "avoid destructive commands",
+        "require explicit confirmation for destructive operations",
+        "stage only mission files",
+        "run focused checks before broad quality"
+      ]
+    },
+    {
+      "id": "node-repl-browser-automation",
+      "label": "Node REPL And Browser Automation",
+      "ownerAgent": "automation-agent",
+      "domains": [
+        "engineering-core",
+        "experience-core"
+      ],
+      "risk": "medium",
+      "registryStatus": "guarded",
+      "activationState": "usable-read-only-first",
+      "runtimeItems": 5,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 5
+      },
+      "authCounts": {
+        "Unsupported": 5
+      },
+      "examples": [
+        {
+          "name": "chrome-devtools",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-chrome-enterprise-premium",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "next-devtools",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "playwright",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "seis-playwright-mcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use for local browser inspection, screenshots, and interactive UI verification when a web surface changes.",
+      "guardrails": [
+        "avoid heavy browser loops",
+        "prefer current localhost target",
+        "capture evidence only when useful"
+      ]
+    },
+    {
+      "id": "github-governance-connectors",
+      "label": "GitHub Governance Connectors",
+      "ownerAgent": "governance-agent",
+      "domains": [
+        "governance-core"
+      ],
+      "risk": "high",
+      "registryStatus": "guarded-auth-ready-transport-limited",
+      "activationState": "auth-required",
+      "runtimeItems": 6,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 5,
+        "blocked-auth": 1
+      },
+      "authCounts": {
+        "Unsupported": 5,
+        "Not logged in": 1
+      },
+      "examples": [
+        {
+          "name": "git-tools",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "github",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "github-stdio",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "gitlab",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "graphos-tools",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "greptile",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use after publish-readiness verifies branch, sync, auth, workflow scope, and transport; never push directly to main.",
+      "guardrails": [
+        "run publish-readiness first",
+        "prefer PR-ready scoped commits",
+        "report local vs remote state separately"
+      ]
+    },
+    {
+      "id": "design-collaboration-connectors",
+      "label": "Design Collaboration Connectors",
+      "ownerAgent": "design-director-agent",
+      "domains": [
+        "creative-core",
+        "experience-core"
+      ],
+      "risk": "medium",
+      "registryStatus": "guarded",
+      "activationState": "auth-required",
+      "runtimeItems": 14,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 7,
+        "permission-gated": 2,
+        "blocked-auth": 5
+      },
+      "authCounts": {
+        "Unsupported": 7,
+        "OAuth": 2,
+        "Not logged in": 5
+      },
+      "examples": [
+        {
+          "name": "Adobe",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "adobe-express-developer",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "canva",
+          "readiness": "permission-gated",
+          "auth": "OAuth"
+        },
+        {
+          "name": "cloudinary-analysis",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "cloudinary-asset-mgmt",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "cloudinary-env-config",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "cloudinary-mediaflows",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "cloudinary-smd",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        }
+      ],
+      "activationRule": "Use when the mission creates, reviews, or syncs a design artifact.",
+      "guardrails": [
+        "load required design skill first",
+        "reuse design systems before creating new components",
+        "avoid design writes without target context"
+      ]
+    },
+    {
+      "id": "documentation-knowledge-mcps",
+      "label": "Documentation And Knowledge MCPs",
+      "ownerAgent": "research-agent",
+      "domains": [
+        "ai-core",
+        "data-core",
+        "engineering-core"
+      ],
+      "risk": "low",
+      "registryStatus": "active-read-only",
+      "activationState": "auth-required",
+      "runtimeItems": 25,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 18,
+        "blocked-auth": 7
+      },
+      "authCounts": {
+        "Unsupported": 18,
+        "Not logged in": 7
+      },
+      "examples": [
+        {
+          "name": "appwrite-docs",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "aws-documentation",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "cisco-devnet-content-search",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "cloudflare-docs",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "context7",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "exa",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "fetch",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-agent-search",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use for current or primary documentation when local knowledge is insufficient.",
+      "guardrails": [
+        "cite sources when used",
+        "prefer primary docs",
+        "avoid loading broad docs unnecessarily"
+      ]
+    },
+    {
+      "id": "cloud-infrastructure-mcps",
+      "label": "Cloud Infrastructure MCPs",
+      "ownerAgent": "security-agent",
+      "domains": [
+        "engineering-core",
+        "governance-core"
+      ],
+      "risk": "high",
+      "registryStatus": "blocked-until-target-and-rollback",
+      "activationState": "blocked",
+      "runtimeItems": 32,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 27,
+        "permission-gated": 2,
+        "blocked-auth": 3
+      },
+      "authCounts": {
+        "Unsupported": 27,
+        "OAuth": 2,
+        "Not logged in": 3
+      },
+      "examples": [
+        {
+          "name": "aws-api-readonly",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "aws-knowledge",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "aws-mcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "aws-serverless-mcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "awsiac",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "awsknowledge",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "awspricing",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "azure",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use only after target environment, cost boundary, secret policy, and rollback plan are explicit.",
+      "guardrails": [
+        "read-only first",
+        "no live deploy without confirmation",
+        "no secret exposure"
+      ]
+    },
+    {
+      "id": "data-backend-mcps",
+      "label": "Data And Backend MCPs",
+      "ownerAgent": "data-agent",
+      "domains": [
+        "data-core",
+        "engineering-core"
+      ],
+      "risk": "high",
+      "registryStatus": "guarded",
+      "activationState": "auth-required",
+      "runtimeItems": 54,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 51,
+        "blocked-auth": 1,
+        "permission-gated": 2
+      },
+      "authCounts": {
+        "Unsupported": 51,
+        "Not logged in": 1,
+        "OAuth": 2
+      },
+      "examples": [
+        {
+          "name": "appwrite-api",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "atlan",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "aurora-dsql",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "bigdata.com",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "clickhouse",
+          "readiness": "permission-gated",
+          "auth": "OAuth"
+        },
+        {
+          "name": "datacloud_alloydb-postgres_toolbox",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "datacloud_alloydb-postgres-admin_toolbox",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "datacloud_bigquery_toolbox",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use when a mission explicitly requires schema, database, auth, or backend inspection.",
+      "guardrails": [
+        "read-only first",
+        "no migrations without mission approval",
+        "no production writes by default"
+      ]
+    },
+    {
+      "id": "observability-security-mcps",
+      "label": "Observability And Security MCPs",
+      "ownerAgent": "security-agent",
+      "domains": [
+        "governance-core",
+        "engineering-core"
+      ],
+      "risk": "high",
+      "registryStatus": "guarded",
+      "activationState": "auth-required",
+      "runtimeItems": 14,
+      "readinessCounts": {
+        "enabled-no-auth-handshake": 10,
+        "blocked-auth": 3,
+        "permission-gated": 1
+      },
+      "authCounts": {
+        "Unsupported": 10,
+        "Not logged in": 3,
+        "OAuth": 1
+      },
+      "examples": [
+        {
+          "name": "aikido-mcp",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "amplitude",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "google-cloud-error-reporting",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-cloud-logging",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-cloud-monitoring",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-cloud-trace",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "google-network-intelligence",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "grafana",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use for vulnerability, reliability, incident, or runtime diagnostics missions.",
+      "guardrails": [
+        "read-only inspection first",
+        "avoid noisy scans",
+        "prioritize actionable findings",
+        "do not expose secrets"
+      ]
+    },
+    {
+      "id": "product-collaboration-connectors",
+      "label": "Product And Collaboration Connectors",
+      "ownerAgent": "product-agent",
+      "domains": [
+        "governance-core",
+        "experience-core"
+      ],
+      "risk": "medium",
+      "registryStatus": "permission-gated",
+      "activationState": "auth-required",
+      "runtimeItems": 19,
+      "readinessCounts": {
+        "blocked-auth": 6,
+        "permission-gated": 4,
+        "enabled-no-auth-handshake": 9
+      },
+      "authCounts": {
+        "Not logged in": 6,
+        "OAuth": 4,
+        "Unsupported": 9
+      },
+      "examples": [
+        {
+          "name": "airtable",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "asana",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "atlassian",
+          "readiness": "permission-gated",
+          "auth": "OAuth"
+        },
+        {
+          "name": "atlassian-design-system",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "atlassian-forge",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "circleback",
+          "readiness": "permission-gated",
+          "auth": "OAuth"
+        },
+        {
+          "name": "discord",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "fakechat",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use when the mission requires external planning, handoff, communication, or workspace context.",
+      "guardrails": [
+        "read before write",
+        "ask before sending messages",
+        "separate private context from repo state"
+      ]
+    },
+    {
+      "id": "business-payment-connectors",
+      "label": "Business And Payment Connectors",
+      "ownerAgent": "security-agent",
+      "domains": [
+        "governance-core",
+        "data-core"
+      ],
+      "risk": "high",
+      "registryStatus": "blocked-until-business-mission",
+      "activationState": "blocked",
+      "runtimeItems": 9,
+      "readinessCounts": {
+        "blocked-auth": 7,
+        "enabled-no-auth-handshake": 2
+      },
+      "authCounts": {
+        "Not logged in": 7,
+        "Unsupported": 2
+      },
+      "examples": [
+        {
+          "name": "ads-mcp",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "apollo",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "google-pay-wallet",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        },
+        {
+          "name": "hubspot",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "hunter",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "intercom",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "legalzoom",
+          "readiness": "blocked-auth",
+          "auth": "Not logged in"
+        },
+        {
+          "name": "pigment",
+          "readiness": "enabled-no-auth-handshake",
+          "auth": "Unsupported"
+        }
+      ],
+      "activationRule": "Use only for explicit business, CRM, payment, or go-to-market missions.",
+      "guardrails": [
+        "no live financial action without explicit confirmation",
+        "do not store secrets",
+        "record auth blockers"
+      ]
+    }
+  ],
+  "missionRouter": [
+    {
+      "id": "mcp-skill-connector-governance",
+      "label": "MCP Skill Connector Governance",
+      "primaryAgents": [
+        "governance-agent",
+        "automation-agent",
+        "security-agent"
+      ],
+      "requiredSurfaces": [
+        "skill-runtime",
+        "local-development-tools",
+        "documentation-knowledge-mcps"
+      ],
+      "conditionalSurfaces": [
+        "github-governance-connectors",
+        "product-collaboration-connectors"
+      ],
+      "validation": [
+        "npm run check:seis-mcp-connector-registry",
+        "npm run check:seis-tool-activation"
+      ]
+    },
+    {
+      "id": "publication",
+      "label": "GitHub And Server Publication",
+      "primaryAgents": [
+        "automation-agent",
+        "security-agent",
+        "governance-agent"
+      ],
+      "requiredSurfaces": [
+        "local-development-tools",
+        "github-governance-connectors"
+      ],
+      "conditionalSurfaces": [
+        "cloud-infrastructure-mcps"
+      ],
+      "validation": [
+        "npm run automation:publish-readiness"
+      ]
+    },
+    {
+      "id": "experience-design",
+      "label": "Cinematic Experience Design",
+      "primaryAgents": [
+        "design-director-agent",
+        "product-agent",
+        "automation-agent"
+      ],
+      "requiredSurfaces": [
+        "local-development-tools",
+        "design-collaboration-connectors"
+      ],
+      "conditionalSurfaces": [
+        "node-repl-browser-automation",
+        "documentation-knowledge-mcps"
+      ],
+      "validation": [
+        "npm run quality"
+      ]
+    },
+    {
+      "id": "ai-workflow-generation",
+      "label": "AI Workflow Generation",
+      "primaryAgents": [
+        "automation-agent",
+        "research-agent",
+        "governance-agent"
+      ],
+      "requiredSurfaces": [
+        "skill-runtime",
+        "local-development-tools",
+        "documentation-knowledge-mcps"
+      ],
+      "conditionalSurfaces": [
+        "data-backend-mcps"
+      ],
+      "validation": [
+        "npm run quality"
+      ]
+    },
+    {
+      "id": "security-observability",
+      "label": "Security And Observability",
+      "primaryAgents": [
+        "security-agent",
+        "governance-agent",
+        "automation-agent"
+      ],
+      "requiredSurfaces": [
+        "local-development-tools",
+        "observability-security-mcps"
+      ],
+      "conditionalSurfaces": [
+        "github-governance-connectors"
+      ],
+      "validation": [
+        "npm run quality"
+      ]
+    },
+    {
+      "id": "general-governance",
+      "label": "General Governance",
+      "primaryAgents": [
+        "governance-agent",
+        "chief-architect-agent",
+        "documentation-agent"
+      ],
+      "requiredSurfaces": [
+        "local-development-tools",
+        "documentation-knowledge-mcps"
+      ],
+      "conditionalSurfaces": [
+        "skill-runtime"
+      ],
+      "validation": [
+        "npm run quality"
+      ]
+    }
+  ],
+  "pluginSkillBridge": {
+    "registrySurfaces": [
+      {
+        "id": "core-coding-skills",
+        "type": "skill-group",
+        "ownerAgent": "governance-agent",
+        "status": "active",
+        "risk": "low",
+        "allowedSurfaces": [
+          "content/development",
+          "docs/development",
+          "scripts"
+        ]
+      },
+      {
+        "id": "frontend-design-skills",
+        "type": "skill-group",
+        "ownerAgent": "interface-agent",
+        "status": "active",
+        "risk": "medium",
+        "allowedSurfaces": [
+          "apps/web",
+          "packages/design-tokens",
+          "docs/quality"
+        ]
+      },
+      {
+        "id": "motion-3d-skills",
+        "type": "skill-group",
+        "ownerAgent": "motion-agent",
+        "status": "guarded",
+        "risk": "medium",
+        "allowedSurfaces": [
+          "apps/web/src/scripts",
+          "apps/web/src/styles",
+          "docs/architecture",
+          "docs/quality"
+        ]
+      },
+      {
+        "id": "github-governance-connector",
+        "type": "connector",
+        "ownerAgent": "release-agent",
+        "status": "active",
+        "risk": "medium",
+        "allowedSurfaces": [
+          "docs",
+          "reports",
+          "handoff"
+        ]
+      },
+      {
+        "id": "cloud-deployment-connectors",
+        "type": "connector-group",
+        "ownerAgent": "release-agent",
+        "status": "blocked-until-target",
+        "risk": "high",
+        "allowedSurfaces": [
+          "deploy",
+          "handoff",
+          "server",
+          "docs/deployment"
+        ]
+      },
+      {
+        "id": "polyglot-language-skills",
+        "type": "skill-group",
+        "ownerAgent": "polyglot-agent",
+        "status": "active",
+        "risk": "medium",
+        "allowedSurfaces": [
+          "polyglot",
+          "docs/polyglot",
+          "scripts/check-polyglot.mjs"
+        ]
+      },
+      {
+        "id": "ai-workflow-skills",
+        "type": "skill-group",
+        "ownerAgent": "premium-local-foundation-agent",
+        "status": "active",
+        "risk": "medium",
+        "allowedSurfaces": [
+          "content/development",
+          "docs/governance",
+          "reports"
+        ]
+      },
+      {
+        "id": "security-compliance-skills",
+        "type": "skill-group",
+        "ownerAgent": "governance-agent",
+        "status": "guarded",
+        "risk": "high",
+        "allowedSurfaces": [
+          "scripts",
+          "docs/deployment",
+          "docs/quality",
+          "deploy"
+        ]
+      }
+    ],
+    "capabilityFamilies": [
+      {
+        "id": "repo-governance-and-github",
+        "label": "Repository governance and GitHub operations",
+        "surfaceId": "github-governance-connector",
+        "ownerAgent": "release-agent",
+        "activationMode": "guarded-active",
+        "risk": "medium",
+        "examples": [
+          "GitHub",
+          "github",
+          "codex",
+          "CodeRabbit",
+          "greptile"
+        ]
+      },
+      {
+        "id": "frontend-design-and-browser-quality",
+        "label": "Frontend design, browser validation, and UI polish",
+        "surfaceId": "frontend-design-skills",
+        "ownerAgent": "interface-agent",
+        "activationMode": "active",
+        "risk": "medium",
+        "examples": [
+          "frontend-design",
+          "Build Web Apps",
+          "Browser",
+          "playwright",
+          "stardust"
+        ]
+      },
+      {
+        "id": "creative-design-and-asset-workflow",
+        "label": "Creative design and asset workflow",
+        "surfaceId": "frontend-design-skills",
+        "ownerAgent": "interface-agent",
+        "activationMode": "task-fit",
+        "risk": "medium",
+        "examples": [
+          "Figma",
+          "figma",
+          "Adobe Photoshop",
+          "Adobe Express",
+          "Canva",
+          "Cloudinary"
+        ]
+      },
+      {
+        "id": "motion-three-dimensional-and-video",
+        "label": "Motion, 3D, cinematic web, and video systems",
+        "surfaceId": "motion-3d-skills",
+        "ownerAgent": "motion-agent",
+        "activationMode": "guarded",
+        "risk": "medium",
+        "examples": [
+          "Game Studio",
+          "Remotion",
+          "HyperFrames by HeyGen",
+          "runway-api",
+          "HeyGen"
+        ]
+      },
+      {
+        "id": "cloud-hosting-and-deployment",
+        "label": "Cloud hosting, server upload, and deployment",
+        "surfaceId": "cloud-deployment-connectors",
+        "ownerAgent": "release-agent",
+        "activationMode": "blocked-until-target",
+        "risk": "high",
+        "examples": [
+          "Vercel",
+          "vercel",
+          "Netlify",
+          "Cloudflare",
+          "Render",
+          "Deploy on AWS"
+        ]
+      },
+      {
+        "id": "security-compliance-and-supply-chain",
+        "label": "Security, compliance, dependency, and supply-chain checks",
+        "surfaceId": "security-compliance-skills",
+        "ownerAgent": "governance-agent",
+        "activationMode": "guarded",
+        "risk": "high",
+        "examples": [
+          "Codex Security",
+          "semgrep",
+          "sonarqube",
+          "aikido",
+          "sonatype-guide"
+        ]
+      },
+      {
+        "id": "ai-workflow-and-knowledge-systems",
+        "label": "AI workflow, knowledge, and documentation systems",
+        "surfaceId": "ai-workflow-skills",
+        "ownerAgent": "premium-local-foundation-agent",
+        "activationMode": "active",
+        "risk": "medium",
+        "examples": [
+          "OpenAI Developers",
+          "openai-docs",
+          "Notion",
+          "Mem",
+          "deep-wiki",
+          "Documents"
+        ]
+      },
+      {
+        "id": "polyglot-and-cross-platform-apps",
+        "label": "Polyglot and cross-platform app lanes",
+        "surfaceId": "polyglot-language-skills",
+        "ownerAgent": "polyglot-agent",
+        "activationMode": "active",
+        "risk": "medium",
+        "examples": [
+          "Build iOS Apps",
+          "Build macOS Apps",
+          "Expo",
+          "Test Android Apps",
+          "qt-development-skills"
+        ]
+      },
+      {
+        "id": "data-analytics-and-observability",
+        "label": "Data, analytics, monitoring, and observability",
+        "surfaceId": "core-coding-skills",
+        "ownerAgent": "governance-agent",
+        "activationMode": "task-fit",
+        "risk": "medium",
+        "examples": [
+          "PostHog",
+          "Amplitude",
+          "Sentry",
+          "grafana",
+          "Datadog",
+          "Microsoft Clarity"
+        ]
+      },
+      {
+        "id": "backend-database-and-api-foundations",
+        "label": "Backend, database, API, and integration foundations",
+        "surfaceId": "core-coding-skills",
+        "ownerAgent": "governance-agent",
+        "activationMode": "guarded",
+        "risk": "high",
+        "examples": [
+          "Supabase",
+          "MongoDB",
+          "Neon Postgres",
+          "prisma",
+          "firebase",
+          "apollo"
+        ]
+      }
+    ]
+  },
+  "cloudBridge": {
+    "environment": "seis-cloud-uixappttr",
+    "branch": "UIXAppTTR",
+    "writePolicy": "branch-only",
+    "readOnlyActions": [
+      {
+        "id": "seis-quality",
+        "label": "SEIS quality gate",
+        "command": "npm run quality:seis"
+      },
+      {
+        "id": "fullstack-quality",
+        "label": "Fullstack quality gate",
+        "command": "npm run quality:fullstack"
+      },
+      {
+        "id": "publish-preflight",
+        "label": "GitHub publish preflight",
+        "command": "npm run publish:preflight"
+      },
+      {
+        "id": "deployment-readiness",
+        "label": "SEIS deployment readiness",
+        "command": "npm run check:seis-deployment-readiness"
+      },
+      {
+        "id": "cloud-server-environment",
+        "label": "SEIS cloud server environment",
+        "command": "npm run check:seis-cloud-server-environment"
+      },
+      {
+        "id": "server-cloud-deploy-envelope",
+        "label": "SEIS server cloud deploy envelope",
+        "command": "npm run check:seis-deploy-envelope"
+      },
+      {
+        "id": "remote-shipment-gate",
+        "label": "SEIS remote shipment gate",
+        "command": "npm run check:seis-remote-shipment-gate"
+      },
+      {
+        "id": "product-engineering-model",
+        "label": "SEIS product engineering model",
+        "command": "npm run check:seis-product-engineering-model"
+      },
+      {
+        "id": "github-language-presence",
+        "label": "SEIS GitHub language presence",
+        "command": "npm run check:seis-github-language-presence"
+      },
+      {
+        "id": "capability-activation-hub",
+        "label": "SEIS capability activation hub",
+        "command": "npm run check:seis-capability-activation-hub"
+      },
+      {
+        "id": "server-upload-dry-run",
+        "label": "Server upload dry-run",
+        "command": "npm run server-upload:dry-run"
+      }
+    ]
+  },
+  "nextActions": [
+    "Use the mission router before selecting any skill, connector, plugin, or MCP.",
+    "Prefer read-only capability checks before external writes.",
+    "Keep GitHub as source of truth and iCloud as synchronized local workspace.",
+    "Do not execute real server upload until required environment variables are present outside Git.",
+    "Do not add dependencies merely to increase perceived capability breadth."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "sources": {
+    "openai-curated": {
+      "defaultMode": "on-demand",
+      "notes": "Use inside Codex when the plugin/app is available and task scope is explicit."
+    },
+    "openai-primary-runtime": {
+      "defaultMode": "on-demand",
+      "notes": "Use for local document, spreadsheet, and presentation artifacts."
+    },
+    "openai-bundled": {
+      "defaultMode": "on-demand",
+      "notes": "Use for browser, chrome, and local bundled tools."
+    },
+    "openai-codex": {
+      "defaultMode": "always-on-core",
+      "notes": "Use for local coding workflow and Codex runtime patterns."
+    },
+    "claude-plugins-official": {
+      "defaultMode": "registry-only",
+      "notes": "Use as Claude Code planning and skill routing metadata unless explicitly installed and scoped."
+    },
+    "google-official-mcp": {
+      "defaultMode": "on-demand",
+      "notes": "Use for official Google docs or Google service planning after task scope is explicit; account-scoped actions require approval and stay under Google Open Source Copilot."
+    },
+    "google-open-source": {
+      "defaultMode": "registry-only",
+      "notes": "Use Google-origin open-source projects as Google Open Source Copilot candidates until a concrete implementation need exists."
+    },
+    "microsoft-official": {
+      "defaultMode": "on-demand",
+      "notes": "Use Microsoft official docs and verified open-source projects after task scope is explicit."
+    },
+    "meta-official": {
+      "defaultMode": "registry-only",
+      "notes": "Use Meta open-source projects as candidates; prefer current repo architecture before adopting new runtime surfaces."
+    },
+    "aws-official": {
+      "defaultMode": "on-demand",
+      "notes": "Use AWS official docs for planning; provisioning, deploys, and account reads require approval."
+    },
+    "apple-official": {
+      "defaultMode": "registry-only",
+      "notes": "Use Apple open-source projects only for Apple-platform, Swift, WebKit, or compatibility work."
+    },
+    "cloudflare-official": {
+      "defaultMode": "on-demand",
+      "notes": "Use Cloudflare docs and OSS for edge planning; deploys remain approval-gated."
+    },
+    "vercel-official": {
+      "defaultMode": "on-demand",
+      "notes": "Use Vercel OSS and docs for Next.js/Turborepo alignment; production deploys remain approval-gated."
+    },
+    "openai-official": {
+      "defaultMode": "on-demand",
+      "notes": "Use official OpenAI docs and SDKs for explicit AI feature scopes; model calls and secrets require approval."
+    },
+    "big-tech-open-source": {
+      "defaultMode": "registry-only",
+      "notes": "Use major-firm open-source projects as a curated candidate matrix, not as default dependencies."
+    },
+    "market-share-intelligence": {
+      "defaultMode": "registry-only",
+      "notes": "Use market-share and competitor-intelligence connectors as scoped analysis signals; paid data and account reads require approval."
+    },
+    "local-mcp": {
+      "defaultMode": "on-demand",
+      "notes": "Use local read-only tools for validation and documentation lookup when they reduce implementation risk."
+    },
+    "public-docs": {
+      "defaultMode": "on-demand",
+      "notes": "Use public official docs as fallback when an official MCP is unavailable or auth-blocked."
+    },
+    "skills": {
+      "defaultMode": "registry-only",
+      "notes": "Language or SDK-specific skill cards stay registry-only until a concrete implementation task appears."
+    }
+  },
+  "selectionOrder": [
+    "local project instructions",
+    "openai-codex local workflow",
+    "local read-only validation",
+    "google official documentation",
+    "major-firm official documentation",
+    "market-share signal registry",
+    "openai-curated app or skill",
+    "official documentation skill",
+    "claude official skill registry",
+    "registry-only future capability"
+  ]
+}

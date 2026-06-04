@@ -1,0 +1,22 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://uix-apps.local/polyglot/openvex/readiness-signal",
+  "author": "UIX-Apps polyglot governance",
+  "timestamp": "2026-05-26T00:00:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "ReadinessSignal"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/uix-apps-readiness-signal@168"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present",
+      "impact_statement": "Reference-only OpenVEX lane stays dependency-light."
+    }
+  ]
+}

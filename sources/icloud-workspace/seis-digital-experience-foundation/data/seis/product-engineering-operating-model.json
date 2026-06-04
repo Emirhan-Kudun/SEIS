@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0.0",
+  "mission": "SEIS-M013",
+  "updated": "2026-06-01",
+  "name": "SEIS AI-Native Product Engineering Operating Model",
+  "purpose": "Convert the SEIS product engineering master directive into a durable, machine-checkable governance contract.",
+  "source": {
+    "secretsStored": false,
+    "directive": "SEIS SUPREME AI-NATIVE PRODUCT ENGINEERING MASTER PROMPT"
+  },
+  "operatingSequence": [
+    "analyze",
+    "plan",
+    "design",
+    "implement",
+    "validate",
+    "document"
+  ],
+  "executiveRoles": [
+    "principal-software-architect",
+    "senior-full-stack-engineer",
+    "frontend-engineer",
+    "backend-engineer",
+    "mobile-app-engineer",
+    "devops-engineer",
+    "cloud-architect",
+    "product-strategist",
+    "ai-systems-engineer",
+    "repository-governance-specialist",
+    "github-workflow-architect",
+    "ui-ux-design-director",
+    "design-system-engineer",
+    "accessibility-auditor",
+    "performance-engineer",
+    "security-engineer",
+    "automation-architect",
+    "mcp-integration-specialist",
+    "ai-agent-orchestrator",
+    "technical-writer",
+    "long-term-product-maintainer"
+  ],
+  "ecosystemSurfaces": [
+    "websites",
+    "saas-products",
+    "mobile-applications",
+    "design-systems",
+    "internal-tools",
+    "automation-systems",
+    "ai-agents",
+    "mcp-integrations",
+    "github-repositories",
+    "cloud-infrastructure",
+    "documentation-systems"
+  ],
+  "repositoryGovernance": {
+    "mainBranchSacred": true,
+    "activeBranch": "UIXAppTTR",
+    "never": [
+      "break-main",
+      "push-unstable-code",
+      "create-dependency-bloat",
+      "expose-secrets",
+      "mix-unrelated-changes",
+      "create-irreversible-changes"
+    ],
+    "always": [
+      "use-feature-branches-or-approved-primary-branch",
+      "create-rollback-safe-commits",
+      "preserve-maintainability",
+      "preserve-architecture-consistency",
+      "preserve-repository-hygiene"
+    ],
+    "branchPrefixes": [
+      "feature/",
+      "fix/",
+      "refactor/",
+      "perf/",
+      "docs/",
+      "experiment/",
+      "governance/"
+    ],
+    "commitFormat": "type(scope): description"
+  },
+  "githubStrategy": [
+    "issues",
+    "discussions",
+    "projects",
+    "pull-requests",
+    "actions",
+    "releases",
+    "security-scanning",
+    "branch-protection"
+  ],
+  "technologyStack": {
+    "frontend": ["html", "css", "javascript", "typescript", "react", "nextjs"],
+    "backend": ["nodejs", "api-architecture", "serverless-systems"],
+    "database": ["supabase", "postgresql"],
+    "infrastructure": ["vercel", "github-actions"],
+    "ai": ["openai", "claude", "gemini", "codex", "github-copilot", "mcp-ecosystem"]
+  },
+  "designPrinciples": [
+    "premium",
+    "modern",
+    "minimal",
+    "elegant",
+    "structured",
+    "design-first",
+    "typography",
+    "spacing",
+    "accessibility",
+    "usability",
+    "responsiveness",
+    "visual-hierarchy"
+  ],
+  "qualityGates": [
+    "build-passes",
+    "no-unrelated-files-changed",
+    "accessibility-preserved",
+    "performance-preserved",
+    "security-preserved",
+    "documentation-updated",
+    "architecture-clean",
+    "rollback-possible"
+  ],
+  "automationFocus": [
+    "developer-workflow",
+    "documentation",
+    "testing",
+    "deployment",
+    "research",
+    "design-operations"
+  ],
+  "agentRouting": [
+    "research-agent",
+    "architecture-agent",
+    "frontend-agent",
+    "backend-agent",
+    "mobile-agent",
+    "security-agent",
+    "performance-agent",
+    "documentation-agent"
+  ],
+  "completionDefinition": [
+    "implementation-remains-modular",
+    "quality-gates-pass",
+    "docs-and-routing-updated",
+    "github-state-verified",
+    "server-upload-blockers-explicit",
+    "future-maintenance-path-clear"
+  ],
+  "summary": {
+    "status": "active",
+    "branch": "UIXAppTTR",
+    "machineCheckable": true,
+    "secretSafe": true,
+    "longTermObjective": "Create a sustainable AI-native ecosystem capable of evolving for years."
+  }
+}

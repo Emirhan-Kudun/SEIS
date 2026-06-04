@@ -1,0 +1,936 @@
+{
+  "version": 2,
+  "source": "unified-master-plan-v2",
+  "policy": {
+    "mode": "always-on-core-plus-on-demand-rotation",
+    "monthlyCoverageTarget": "100%",
+    "attemptPolicy": "single-attempt-with-next-action",
+    "strictestWins": true
+  },
+  "connectors": [
+    {
+      "id": "atlassian-rovo",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "ops",
+        "knowledge"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "attio",
+      "tier": "rotation",
+      "group": "crm",
+      "task_tags": [
+        "crm",
+        "ops"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "biorender",
+      "tier": "rotation",
+      "group": "design",
+      "task_tags": [
+        "design",
+        "content"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "box",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "docs",
+        "ops"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "brand24",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "growth",
+        "monitoring"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "brex",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "finops"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "browser-use",
+      "tier": "core",
+      "group": "validation",
+      "task_tags": [
+        "frontend",
+        "qa"
+      ],
+      "owner": "frontend",
+      "enabled_by_default": true
+    },
+    {
+      "id": "build-web-apps",
+      "tier": "core",
+      "group": "validation",
+      "task_tags": [
+        "frontend",
+        "qa"
+      ],
+      "owner": "frontend",
+      "enabled_by_default": true
+    },
+    {
+      "id": "canva",
+      "tier": "rotation",
+      "group": "design",
+      "task_tags": [
+        "design",
+        "content"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "carta-crm",
+      "tier": "rotation",
+      "group": "crm",
+      "task_tags": [
+        "crm"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "channel99",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "growth",
+        "ads"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "circleback",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "meetings"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "circleci",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "ci",
+        "quality"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "clickup",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "tasks",
+        "pm"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "cloudflare",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "deploy",
+        "security"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "cloudinary",
+      "tier": "rotation",
+      "group": "media",
+      "task_tags": [
+        "assets",
+        "frontend"
+      ],
+      "owner": "frontend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "coderabbit",
+      "tier": "rotation",
+      "group": "quality",
+      "task_tags": [
+        "review",
+        "qa"
+      ],
+      "owner": "quality",
+      "enabled_by_default": false
+    },
+    {
+      "id": "codex-security",
+      "tier": "core",
+      "group": "security",
+      "task_tags": [
+        "security",
+        "qa"
+      ],
+      "owner": "security",
+      "enabled_by_default": true
+    },
+    {
+      "id": "conductor",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "seo",
+        "growth"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "coupler-io",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "etl",
+        "data"
+      ],
+      "owner": "data",
+      "enabled_by_default": false
+    },
+    {
+      "id": "coveo",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "search"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "daloopa",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "finance",
+        "data"
+      ],
+      "owner": "data",
+      "enabled_by_default": false
+    },
+    {
+      "id": "demandbase",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "b2b",
+        "growth"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "docket",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "sales"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "documents",
+      "tier": "rotation",
+      "group": "authoring",
+      "task_tags": [
+        "docs"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "domotz-preview",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "monitoring"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "dovetail",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "research",
+        "ux"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "egnyte",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "files"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "expo",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "mobile"
+      ],
+      "owner": "frontend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "figma",
+      "tier": "rotation",
+      "group": "design",
+      "task_tags": [
+        "design",
+        "ui"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "fireflies",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "meetings"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "fyxer",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "email"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "github",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "git",
+        "pr"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "google-calendar",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "schedule"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "google-drive",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "docs",
+        "files"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "granola",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "meetings"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "happenstance",
+      "tier": "rotation",
+      "group": "crm",
+      "task_tags": [
+        "network"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "heygen",
+      "tier": "rotation",
+      "group": "media",
+      "task_tags": [
+        "video",
+        "content"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "highlevel",
+      "tier": "rotation",
+      "group": "crm",
+      "task_tags": [
+        "crm",
+        "automation"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "hostinger",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "hosting"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "hubspot",
+      "tier": "core",
+      "group": "crm",
+      "task_tags": [
+        "crm",
+        "leads"
+      ],
+      "owner": "growth",
+      "enabled_by_default": true
+    },
+    {
+      "id": "hugging-face",
+      "tier": "rotation",
+      "group": "research",
+      "task_tags": [
+        "models",
+        "datasets"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    },
+    {
+      "id": "hyperframes",
+      "tier": "rotation",
+      "group": "media",
+      "task_tags": [
+        "video",
+        "motion"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "jam",
+      "tier": "rotation",
+      "group": "quality",
+      "task_tags": [
+        "bug",
+        "qa"
+      ],
+      "owner": "quality",
+      "enabled_by_default": false
+    },
+    {
+      "id": "keybid-puls",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "market"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "latex-tectonic",
+      "tier": "rotation",
+      "group": "authoring",
+      "task_tags": [
+        "docs",
+        "latex"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "life-science-research",
+      "tier": "rotation",
+      "group": "research",
+      "task_tags": [
+        "research"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    },
+    {
+      "id": "linear",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "planning",
+        "issues"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "marcopolo",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "data",
+        "secure"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "mem",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "notes"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "monday-com",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "pm"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "motherduck",
+      "tier": "rotation",
+      "group": "data",
+      "task_tags": [
+        "warehouse"
+      ],
+      "owner": "data",
+      "enabled_by_default": false
+    },
+    {
+      "id": "neon-postgres",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "database"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "netlify",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "deploy"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "network-solutions",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "domain"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "notion",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "run-log",
+        "docs"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "omni-analytics",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "bi"
+      ],
+      "owner": "data",
+      "enabled_by_default": false
+    },
+    {
+      "id": "openai-developers",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "ai",
+        "api"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "otter-ai",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "meetings"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "particl-market-research",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "market"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "presentations",
+      "tier": "rotation",
+      "group": "authoring",
+      "task_tags": [
+        "slides"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "quartr",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "finance"
+      ],
+      "owner": "data",
+      "enabled_by_default": false
+    },
+    {
+      "id": "quicknode",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "web3"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "ranked-ai",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "seo",
+        "ppc"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "read-ai",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "meetings"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "readwise",
+      "tier": "rotation",
+      "group": "knowledge",
+      "task_tags": [
+        "reading"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    },
+    {
+      "id": "remotion",
+      "tier": "rotation",
+      "group": "media",
+      "task_tags": [
+        "video",
+        "motion"
+      ],
+      "owner": "design",
+      "enabled_by_default": false
+    },
+    {
+      "id": "render",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "deploy",
+        "infra"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "scite",
+      "tier": "rotation",
+      "group": "research",
+      "task_tags": [
+        "citations"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    },
+    {
+      "id": "semrush",
+      "tier": "core",
+      "group": "analytics",
+      "task_tags": [
+        "seo",
+        "growth"
+      ],
+      "owner": "growth",
+      "enabled_by_default": true
+    },
+    {
+      "id": "sentry",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "monitoring",
+        "errors"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "signnow",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "documents"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "skywatch",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "imagery"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    },
+    {
+      "id": "slack",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "alerts",
+        "summary"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "spreadsheets",
+      "tier": "rotation",
+      "group": "authoring",
+      "task_tags": [
+        "sheets"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "statsig",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "experiments"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "streak",
+      "tier": "rotation",
+      "group": "crm",
+      "task_tags": [
+        "crm"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "stripe",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "payments"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "supabase",
+      "tier": "core",
+      "group": "platform",
+      "task_tags": [
+        "database",
+        "backend"
+      ],
+      "owner": "backend",
+      "enabled_by_default": true
+    },
+    {
+      "id": "superpowers",
+      "tier": "rotation",
+      "group": "quality",
+      "task_tags": [
+        "methodology"
+      ],
+      "owner": "quality",
+      "enabled_by_default": false
+    },
+    {
+      "id": "temporal",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "workflows"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "twilio-developer-kit",
+      "tier": "core",
+      "group": "platform",
+      "task_tags": [
+        "sms",
+        "communications"
+      ],
+      "owner": "backend",
+      "enabled_by_default": true
+    },
+    {
+      "id": "vantage",
+      "tier": "rotation",
+      "group": "ops",
+      "task_tags": [
+        "finops"
+      ],
+      "owner": "ops",
+      "enabled_by_default": false
+    },
+    {
+      "id": "vercel",
+      "tier": "core",
+      "group": "ops",
+      "task_tags": [
+        "deploy",
+        "preview"
+      ],
+      "owner": "ops",
+      "enabled_by_default": true
+    },
+    {
+      "id": "waldo",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "brand"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "windsor-ai",
+      "tier": "rotation",
+      "group": "analytics",
+      "task_tags": [
+        "marketing"
+      ],
+      "owner": "growth",
+      "enabled_by_default": false
+    },
+    {
+      "id": "yepcode",
+      "tier": "rotation",
+      "group": "platform",
+      "task_tags": [
+        "automation",
+        "code"
+      ],
+      "owner": "backend",
+      "enabled_by_default": false
+    },
+    {
+      "id": "zotero",
+      "tier": "rotation",
+      "group": "research",
+      "task_tags": [
+        "citations"
+      ],
+      "owner": "research",
+      "enabled_by_default": false
+    }
+  ]
+}

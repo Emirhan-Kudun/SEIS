@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "mode": "low-power experience scorecard",
+  "summary": {
+    "score": 92,
+    "minimumReleaseScore": 88,
+    "dimensions": 6,
+    "watchItems": 2
+  },
+  "dimensions": [
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "score": 94,
+      "status": "strong",
+      "signal": "Form labels, hints, error linkage, skip link, and reduced-motion affordances are explicit.",
+      "nextAction": "Keep hover and cinematic states equivalent for touch and keyboard users."
+    },
+    {
+      "id": "motion-safety",
+      "label": "Motion safety",
+      "score": 91,
+      "status": "strong",
+      "signal": "Motion tokens define duration, pressure, fallback, and guarded future 3D behavior.",
+      "nextAction": "Block any mandatory intro until skip and reduced-motion behavior are implemented."
+    },
+    {
+      "id": "mobile-performance",
+      "label": "Mobile performance",
+      "score": 90,
+      "status": "strong",
+      "signal": "Canvas particles adapt to viewport, hardware concurrency, and device memory.",
+      "nextAction": "Keep future visual effects opt-in on small screens."
+    },
+    {
+      "id": "content-clarity",
+      "label": "Content clarity",
+      "score": 93,
+      "status": "strong",
+      "signal": "Decision, archive, promotion, motion, and accessibility sections explain why each capability exists.",
+      "nextAction": "Prefer concise system language over dashboard density."
+    },
+    {
+      "id": "repository-governance",
+      "label": "Repository governance",
+      "score": 95,
+      "status": "strong",
+      "signal": "Branch checks, server handoff, polyglot lanes, and iCloud routing are quality-gated.",
+      "nextAction": "Keep commits small and reversible on UIXAppTTR."
+    },
+    {
+      "id": "publish-readiness",
+      "label": "Publish readiness",
+      "score": 89,
+      "status": "watch",
+      "signal": "Local checks pass, but remote publication depends on GitHub CLI authentication.",
+      "nextAction": "Run gh auth login before pushing local commits."
+    }
+  ],
+  "watchItems": [
+    "GitHub CLI auth is required before remote publish.",
+    "Future 3D effects need a performance budget before becoming default."
+  ],
+  "releaseRule": "Do not publish if score drops below 88 or a watch item becomes blocked."
+}

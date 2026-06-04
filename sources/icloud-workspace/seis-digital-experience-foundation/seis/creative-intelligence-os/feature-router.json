@@ -1,0 +1,39 @@
+{
+  "routes": [
+    {
+      "id": "atmospheric-interface-direction",
+      "input": "layout, imagery, spacing, hierarchy",
+      "output": "calm spatial composition guidance"
+    },
+    {
+      "id": "editorial-rhythm-system",
+      "input": "portfolio section structure",
+      "output": "reading rhythm and story pacing guidance"
+    },
+    {
+      "id": "motion-restraint-system",
+      "input": "animation proposal",
+      "output": "performance-aware motion recommendation"
+    },
+    {
+      "id": "minimalism-protection-system",
+      "input": "new feature or visual element",
+      "output": "add, refine, or remove recommendation"
+    },
+    {
+      "id": "creative-governance-quality-gate",
+      "input": "final UI change",
+      "output": "clarity, rhythm, accessibility, and performance review"
+    },
+    {
+      "id": "visual-reduction-playbook",
+      "input": "busy or unclear interface area",
+      "output": "remove, merge, space, or refine recommendation"
+    },
+    {
+      "id": "portfolio-review-prompts",
+      "input": "portfolio page or section",
+      "output": "first-viewport, motion, mobile, i18n, and contact review"
+    }
+  ]
+}

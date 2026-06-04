@@ -1,0 +1,33 @@
+{
+  "group": "business-apps-extended",
+  "purpose": "Extended business apps, customer operations, data platforms, marketing operations, and specialized SaaS tools.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": ["customer data access", "CRM write", "data export", "paid data usage", "message publication"],
+  "connectors": [
+    {"id":"airtable","sources":["claude-plugins-official"],"role":"structured lightweight database workflows","mode":"registry-only"},
+    {"id":"amplitude","sources":["claude-plugins-official"],"role":"product analytics","mode":"registry-only"},
+    {"id":"apollo","sources":["claude-plugins-official"],"role":"sales intelligence and outreach context","mode":"registry-only"},
+    {"id":"atlan","sources":["claude-plugins-official"],"role":"data catalog and governance","mode":"registry-only"},
+    {"id":"bigdata-com","sources":["claude-plugins-official"],"role":"big data research and intelligence","mode":"registry-only"},
+    {"id":"brightdata-plugin","sources":["claude-plugins-official"],"role":"web data collection planning","mode":"registry-only"},
+    {"id":"base44","sources":["claude-plugins-official"],"role":"app building platform planning","mode":"registry-only"},
+    {"id":"intercom","sources":["claude-plugins-official"],"role":"customer support and messaging workflows","mode":"registry-only"},
+    {"id":"miro","sources":["claude-plugins-official"],"role":"collaboration boards and visual planning","mode":"registry-only"},
+    {"id":"mercadopago","sources":["claude-plugins-official"],"role":"payment flows in supported markets","mode":"registry-only"},
+    {"id":"sumup","sources":["claude-plugins-official"],"role":"payment flows and merchant operations","mode":"registry-only"},
+    {"id":"spotify-ads-api","sources":["claude-plugins-official"],"role":"ad campaign data and planning","mode":"registry-only"},
+    {"id":"postiz","sources":["claude-plugins-official"],"role":"social publishing workflows","mode":"registry-only"},
+    {"id":"pigment","sources":["claude-plugins-official"],"role":"business planning and finance modeling","mode":"registry-only"},
+    {"id":"oracle-ai-data-platform-workbench-spark-connectors","sources":["claude-plugins-official"],"role":"Oracle AI data platform and Spark connectors","mode":"registry-only"},
+    {"id":"snowflake-cortex-code","sources":["claude-plugins-official"],"role":"Snowflake Cortex development","mode":"registry-only"},
+    {"id":"coveo","sources":["openai-curated"],"role":"enterprise search","mode":"registry-only"},
+    {"id":"cube","sources":["openai-curated"],"role":"semantic analytics and financial data","mode":"registry-only"},
+    {"id":"coupler-io","sources":["openai-curated"],"role":"multi-source data integration","mode":"registry-only"},
+    {"id":"omni-analytics","sources":["openai-curated"],"role":"semantic analytics answers","mode":"registry-only"},
+    {"id":"responsive","sources":["openai-curated"],"role":"enterprise content answers","mode":"registry-only"},
+    {"id":"pylon","sources":["openai-curated"],"role":"support issue management","mode":"registry-only"},
+    {"id":"fyxer","sources":["openai-curated"],"role":"email drafting in user voice","mode":"registry-only"},
+    {"id":"domotz-preview","sources":["openai-curated"],"role":"network monitoring and management","mode":"registry-only"}
+  ]
+}

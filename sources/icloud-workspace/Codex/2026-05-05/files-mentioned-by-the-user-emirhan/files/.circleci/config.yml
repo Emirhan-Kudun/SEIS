@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  quality_gate:
+    docker:
+      - image: cimg/node:20.18
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Run quality gate
+          command: node scripts/quality-gate.js
+      - run:
+          name: Run regression smoke
+          command: node scripts/regression-smoke.js
+      - run:
+          name: Run infrastructure check
+          command: node scripts/infrastructure-check.js
+      - run:
+          name: Run static security check
+          command: node scripts/security-static-check.js
+
+workflows:
+  validate:
+    jobs:
+      - quality_gate

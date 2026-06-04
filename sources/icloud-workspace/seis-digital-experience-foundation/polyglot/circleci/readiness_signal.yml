@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  readiness_signal:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: ReadinessSignal
+          command: echo "ReadinessSignal lane=circleci status=reference runtimeWeight=dependency-light"
+
+workflows:
+  readiness_reference:
+    jobs:
+      - readiness_signal:
+          filters:
+            branches:
+              ignore: /.*/

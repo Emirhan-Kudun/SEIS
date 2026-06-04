@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-05-15T10:28:44.237Z",
+  "resolution_policy": "workspace_canonical_priority",
+  "conflict_count": 3,
+  "conflicts": [
+    {
+      "path": "index.html",
+      "winner_source": "canonical_zip",
+      "loser_source": "emirhan_zip",
+      "winner_priority": 2,
+      "loser_priority": 1,
+      "winner_hash": "78fdd7bc62e7e27da1d8fa93c2d090ff206367b00e925521a262cd4daa75db40",
+      "loser_hash": "567057a0e1daab6f16563a0d8b3a8e5da3fb606d3d19a0074efd7dac545f8db6",
+      "resolution": "workspace_canonical_priority"
+    },
+    {
+      "path": "manifest.json",
+      "winner_source": "canonical_zip",
+      "loser_source": "emirhan_zip",
+      "winner_priority": 2,
+      "loser_priority": 1,
+      "winner_hash": "fe1961df3f5e808d5a5fdf3c3d1b5ec1eab4dd8bfb1fa1aa9d2aeff4b8e563b4",
+      "loser_hash": "56938eedf881fc4606825c30a51dea56b4c71bc2e8bbff1fbcfbe1d481354487",
+      "resolution": "workspace_canonical_priority"
+    },
+    {
+      "path": "translations.json",
+      "winner_source": "canonical_zip",
+      "loser_source": "emirhan_zip",
+      "winner_priority": 2,
+      "loser_priority": 1,
+      "winner_hash": "93399960c6739dfdf253cd79a580cc7e15391077ebc8bbd8251f3afb073e978c",
+      "loser_hash": "b2d362df29ef4e543ddaa42aa969f7b6a8366b37ec99620a6bfa728fc24b2fe1",
+      "resolution": "workspace_canonical_priority"
+    }
+  ]
+}

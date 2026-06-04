@@ -1,0 +1,14 @@
+{
+  "tool": "change-impact",
+  "type": "ReadinessSignal",
+  "scope": {
+    "services": [],
+    "routes": [],
+    "dataContracts": []
+  },
+  "risk": {
+    "level": "low",
+    "drivers": []
+  },
+  "notes": "Dependency-light placeholder for future impacted-surface and deployment risk evidence."
+}

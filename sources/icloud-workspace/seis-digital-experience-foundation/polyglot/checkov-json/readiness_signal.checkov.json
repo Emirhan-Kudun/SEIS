@@ -1,0 +1,16 @@
+{
+  "tool": "checkov",
+  "type": "ReadinessSignal",
+  "summary": {
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "parsingErrors": 0
+  },
+  "results": {
+    "failedChecks": [],
+    "passedChecks": [],
+    "skippedChecks": []
+  },
+  "notes": "Dependency-light placeholder for future infrastructure policy scan evidence."
+}

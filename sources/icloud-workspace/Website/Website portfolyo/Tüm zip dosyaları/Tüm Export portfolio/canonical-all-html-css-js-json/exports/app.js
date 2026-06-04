@@ -1,0 +1,296 @@
+const i18n = {
+  tr: {
+    pageTitle: "Emirhan Kudun | Premium Portfolio",
+    pageDescription:
+      "Minimal, modern ve premium tasarım odaklı portfolio. Hız, erişilebilirlik ve çok dilli deneyim önceliklidir.",
+    skip: "İçeriğe Geç",
+    navAbout: "Hakkımda",
+    navWork: "Projeler",
+    navServices: "Hizmetler",
+    navContact: "İletişim",
+    eyebrow: "Minimal Luxury Portfolio",
+    heroTitle: "Sade çizgiler, güçlü tipografi ve performans odaklı web deneyimleri.",
+    heroLead: "Modern markalar için hızlı, sürdürülebilir ve premium dijital ürünler geliştiriyorum.",
+    heroCtaPrimary: "Projeleri İncele",
+    heroCtaSecondary: "Görüşme Planla",
+    aboutEyebrow: "Yaklaşım",
+    aboutTitle: "Temiz mimari, güçlü kullanıcı deneyimi",
+    aboutCopy:
+      "Her projede performans, erişilebilirlik ve sürdürülebilir kod kalitesini birlikte ele alırım. Hedefim, markaya değer katarken uzun vadede kolay bakım sağlayan bir sistem kurmaktır.",
+    statOne: "Lighthouse hedef skoru",
+    statTwo: "Hızlı ilk içerik boyaması",
+    statThree: "Dil desteği (TR/EN/FR/IT/DE)",
+    workEyebrow: "Seçili Çalışmalar",
+    workTitle: "Estetik ve hız dengesini kuran projeler",
+    workCardOneTitle: "Luxury Retail Landing",
+    workCardOneCopy: "Mobil öncelikli yapıda, yüksek dönüşüm için optimize edilmiş premium landing page.",
+    workCardTwoTitle: "Creative Portfolio",
+    workCardTwoCopy: "Güçlü tipografi ve kontrollü hareket tasarımı ile marka anlatısını öne çıkaran site.",
+    workCardThreeTitle: "SaaS Showcase",
+    workCardThreeCopy: "Yalın bileşen mimarisi ile sürdürülebilir, hızlı ve erişilebilir ürün vitrini.",
+    serviceEyebrow: "Hizmetler",
+    serviceTitle: "Uçtan uca modern web geliştirme",
+    serviceOneTitle: "Frontend Architecture",
+    serviceOneCopy: "Yeniden kullanılabilir, hızlı ve maintainable yapı tasarımı.",
+    serviceTwoTitle: "Performance & SEO",
+    serviceTwoCopy: "Core Web Vitals odaklı iyileştirme ve teknik SEO düzeni.",
+    serviceThreeTitle: "UI Refinement",
+    serviceThreeCopy: "Minimal, modern ve premium tasarım dilinde arayüz iyileştirme.",
+    contactEyebrow: "İletişim",
+    contactTitle: "Birlikte etkili bir dijital deneyim tasarlayalım",
+    contactCopy: "Projenizi anlatın, ölçeklenebilir ve hızlı bir yapı için birlikte yol haritası çıkaralım.",
+    contactCta: "E-posta Gönder",
+    footerText: " Emirhan Kudun. Tüm hakları saklıdır."
+  },
+  en: {
+    pageTitle: "Emirhan Kudun | Premium Portfolio",
+    pageDescription:
+      "A minimal, modern premium portfolio focused on speed, accessibility, and multilingual experience.",
+    skip: "Skip to Content",
+    navAbout: "About",
+    navWork: "Work",
+    navServices: "Services",
+    navContact: "Contact",
+    eyebrow: "Minimal Luxury Portfolio",
+    heroTitle: "Clean lines, strong typography, and performance-first web experiences.",
+    heroLead: "I build fast, sustainable, premium digital products for modern brands.",
+    heroCtaPrimary: "View Work",
+    heroCtaSecondary: "Book a Call",
+    aboutEyebrow: "Approach",
+    aboutTitle: "Clean architecture, strong user experience",
+    aboutCopy:
+      "I approach every project with performance, accessibility, and maintainable code quality. The goal is long-term value with low maintenance friction.",
+    statOne: "Target Lighthouse score",
+    statTwo: "Fast first contentful paint",
+    statThree: "Language support (TR/EN/FR/IT/DE)",
+    workEyebrow: "Selected Work",
+    workTitle: "Projects balancing aesthetics and speed",
+    workCardOneTitle: "Luxury Retail Landing",
+    workCardOneCopy: "A premium landing page optimized for conversion with a mobile-first structure.",
+    workCardTwoTitle: "Creative Portfolio",
+    workCardTwoCopy: "A site emphasizing brand storytelling through strong typography and controlled motion.",
+    workCardThreeTitle: "SaaS Showcase",
+    workCardThreeCopy: "A sustainable, fast, and accessible product showcase with a lean component architecture.",
+    serviceEyebrow: "Services",
+    serviceTitle: "End-to-end modern web development",
+    serviceOneTitle: "Frontend Architecture",
+    serviceOneCopy: "Reusable, fast, and maintainable system design.",
+    serviceTwoTitle: "Performance & SEO",
+    serviceTwoCopy: "Core Web Vitals optimization and technical SEO setup.",
+    serviceThreeTitle: "UI Refinement",
+    serviceThreeCopy: "Minimal, modern premium interface refinement.",
+    contactEyebrow: "Contact",
+    contactTitle: "Let's craft an effective digital experience together",
+    contactCopy: "Share your project goals and we can map a scalable, high-performance roadmap.",
+    contactCta: "Send Email",
+    footerText: " Emirhan Kudun. All rights reserved."
+  },
+  fr: {
+    pageTitle: "Emirhan Kudun | Portfolio Premium",
+    pageDescription:
+      "Un portfolio premium, minimal et moderne, axe sur la vitesse, l'accessibilite et une experience multilingue.",
+    skip: "Aller au contenu",
+    navAbout: "A propos",
+    navWork: "Projets",
+    navServices: "Services",
+    navContact: "Contact",
+    eyebrow: "Portfolio Luxe Minimal",
+    heroTitle: "Lignes epurees, typographie forte et experiences web orientees performance.",
+    heroLead: "Je cree des produits numeriques premium, rapides et durables pour des marques modernes.",
+    heroCtaPrimary: "Voir les Projets",
+    heroCtaSecondary: "Planifier un Appel",
+    aboutEyebrow: "Approche",
+    aboutTitle: "Architecture propre, experience utilisateur solide",
+    aboutCopy:
+      "Chaque projet est construit avec la performance, l'accessibilite et la maintenabilite du code au centre. L'objectif est une valeur durable.",
+    statOne: "Score Lighthouse cible",
+    statTwo: "Premier affichage rapide",
+    statThree: "Support linguistique (TR/EN/FR/IT/DE)",
+    workEyebrow: "Projets Selectionnes",
+    workTitle: "Projets qui equilibrent esthetique et rapidite",
+    workCardOneTitle: "Luxury Retail Landing",
+    workCardOneCopy: "Landing page premium optimisee pour la conversion en mobile-first.",
+    workCardTwoTitle: "Creative Portfolio",
+    workCardTwoCopy: "Site mettant en valeur le storytelling de marque avec une typographie forte.",
+    workCardThreeTitle: "SaaS Showcase",
+    workCardThreeCopy: "Vitrine produit durable, rapide et accessible avec une architecture legere.",
+    serviceEyebrow: "Services",
+    serviceTitle: "Developpement web moderne de bout en bout",
+    serviceOneTitle: "Architecture Frontend",
+    serviceOneCopy: "Conception reutilisable, rapide et maintenable.",
+    serviceTwoTitle: "Performance & SEO",
+    serviceTwoCopy: "Optimisation Core Web Vitals et SEO technique.",
+    serviceThreeTitle: "UI Refinement",
+    serviceThreeCopy: "Raffinement d'interface minimal et premium.",
+    contactEyebrow: "Contact",
+    contactTitle: "Concevons ensemble une experience digitale efficace",
+    contactCopy: "Partagez votre projet et definissons une feuille de route evolutive et performante.",
+    contactCta: "Envoyer un Email",
+    footerText: " Emirhan Kudun. Tous droits reserves."
+  },
+  it: {
+    pageTitle: "Emirhan Kudun | Portfolio Premium",
+    pageDescription:
+      "Portfolio premium, minimal e moderno, focalizzato su velocita, accessibilita ed esperienza multilingue.",
+    skip: "Vai al contenuto",
+    navAbout: "Chi Sono",
+    navWork: "Progetti",
+    navServices: "Servizi",
+    navContact: "Contatto",
+    eyebrow: "Portfolio Luxury Minimal",
+    heroTitle: "Linee pulite, tipografia forte ed esperienze web orientate alle prestazioni.",
+    heroLead: "Sviluppo prodotti digitali premium, veloci e sostenibili per brand moderni.",
+    heroCtaPrimary: "Vedi Progetti",
+    heroCtaSecondary: "Prenota una Call",
+    aboutEyebrow: "Approccio",
+    aboutTitle: "Architettura pulita, esperienza utente solida",
+    aboutCopy:
+      "Ogni progetto e costruito con performance, accessibilita e codice manutenibile come priorita. Obiettivo: valore duraturo nel tempo.",
+    statOne: "Punteggio Lighthouse target",
+    statTwo: "First contentful paint rapido",
+    statThree: "Supporto lingue (TR/EN/FR/IT/DE)",
+    workEyebrow: "Progetti Selezionati",
+    workTitle: "Progetti che bilanciano estetica e velocita",
+    workCardOneTitle: "Luxury Retail Landing",
+    workCardOneCopy: "Landing page premium ottimizzata per conversione con struttura mobile-first.",
+    workCardTwoTitle: "Creative Portfolio",
+    workCardTwoCopy: "Sito che valorizza il brand storytelling con tipografia forte e motion controllato.",
+    workCardThreeTitle: "SaaS Showcase",
+    workCardThreeCopy: "Vetrina prodotto sostenibile, veloce e accessibile con architettura leggera.",
+    serviceEyebrow: "Servizi",
+    serviceTitle: "Sviluppo web moderno end-to-end",
+    serviceOneTitle: "Frontend Architecture",
+    serviceOneCopy: "Design di sistema riusabile, veloce e manutenibile.",
+    serviceTwoTitle: "Performance & SEO",
+    serviceTwoCopy: "Ottimizzazione Core Web Vitals e setup SEO tecnico.",
+    serviceThreeTitle: "UI Refinement",
+    serviceThreeCopy: "Rifinitura interfaccia minimal, moderna e premium.",
+    contactEyebrow: "Contatto",
+    contactTitle: "Progettiamo insieme un'esperienza digitale efficace",
+    contactCopy: "Racconta il tuo progetto e definiamo una roadmap scalabile e ad alte prestazioni.",
+    contactCta: "Invia Email",
+    footerText: " Emirhan Kudun. Tutti i diritti riservati."
+  },
+  de: {
+    pageTitle: "Emirhan Kudun | Premium Portfolio",
+    pageDescription:
+      "Ein minimales, modernes Premium-Portfolio mit Fokus auf Geschwindigkeit, Barrierefreiheit und Mehrsprachigkeit.",
+    skip: "Zum Inhalt springen",
+    navAbout: "Uber Mich",
+    navWork: "Projekte",
+    navServices: "Leistungen",
+    navContact: "Kontakt",
+    eyebrow: "Minimal Luxury Portfolio",
+    heroTitle: "Klare Linien, starke Typografie und performance-orientierte Web-Erlebnisse.",
+    heroLead: "Ich entwickle schnelle, nachhaltige Premium-Digitalprodukte fur moderne Marken.",
+    heroCtaPrimary: "Projekte Ansehen",
+    heroCtaSecondary: "Call Planen",
+    aboutEyebrow: "Ansatz",
+    aboutTitle: "Saubere Architektur, starke User Experience",
+    aboutCopy:
+      "Jedes Projekt basiert auf Performance, Barrierefreiheit und wartbarem Code. Ziel ist langfristiger Nutzen bei geringer Wartung.",
+    statOne: "Ziel-Lighthouse-Score",
+    statTwo: "Schneller First Contentful Paint",
+    statThree: "Sprachsupport (TR/EN/FR/IT/DE)",
+    workEyebrow: "Ausgewahlte Arbeiten",
+    workTitle: "Projekte mit Balance aus Asthetik und Geschwindigkeit",
+    workCardOneTitle: "Luxury Retail Landing",
+    workCardOneCopy: "Premium-Landingpage mit Mobile-First-Struktur und Conversion-Optimierung.",
+    workCardTwoTitle: "Creative Portfolio",
+    workCardTwoCopy: "Website mit starkem Storytelling durch Typografie und kontrollierte Bewegungen.",
+    workCardThreeTitle: "SaaS Showcase",
+    workCardThreeCopy: "Nachhaltige, schnelle und barrierearme Produktprasentation mit schlanker Architektur.",
+    serviceEyebrow: "Leistungen",
+    serviceTitle: "End-to-End moderne Webentwicklung",
+    serviceOneTitle: "Frontend Architecture",
+    serviceOneCopy: "Wiederverwendbares, schnelles und wartbares Systemdesign.",
+    serviceTwoTitle: "Performance & SEO",
+    serviceTwoCopy: "Core Web Vitals Optimierung und technisches SEO-Setup.",
+    serviceThreeTitle: "UI Refinement",
+    serviceThreeCopy: "Minimales, modernes Premium-UI-Feintuning.",
+    contactEyebrow: "Kontakt",
+    contactTitle: "Lassen Sie uns gemeinsam ein wirkungsvolles digitales Erlebnis schaffen",
+    contactCopy: "Teilen Sie Ihre Projektziele und wir erstellen eine skalierbare High-Performance-Roadmap.",
+    contactCta: "E-Mail Senden",
+    footerText: " Emirhan Kudun. Alle Rechte vorbehalten."
+  }
+};
+
+const supported = Object.keys(i18n);
+const root = document.documentElement;
+const titleTag = document.querySelector("title");
+const metaDescription = document.querySelector('meta[name="description"]');
+const ogTitle = document.querySelector('meta[property="og:title"]');
+const ogDescription = document.querySelector('meta[property="og:description"]');
+const ogUrl = document.querySelector('meta[property="og:url"]');
+const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+const canonicalTag = document.querySelector('link[rel="canonical"]');
+
+function syncCanonicalAndOgUrl() {
+  const canonicalUrl = `${window.location.origin}${window.location.pathname}`;
+
+  if (canonicalTag) canonicalTag.setAttribute("href", canonicalUrl);
+  if (ogUrl) ogUrl.setAttribute("content", canonicalUrl);
+}
+
+function applyLanguage(lang) {
+  const dict = i18n[lang] || i18n.tr;
+
+  root.setAttribute("lang", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    if (dict[key]) node.textContent = dict[key];
+  });
+
+  titleTag.textContent = dict.pageTitle;
+  metaDescription.setAttribute("content", dict.pageDescription);
+  ogTitle.setAttribute("content", dict.pageTitle);
+  ogDescription.setAttribute("content", dict.pageDescription);
+  twitterTitle.setAttribute("content", dict.pageTitle);
+  twitterDescription.setAttribute("content", dict.pageDescription);
+
+  document.querySelectorAll(".lang-switcher button").forEach((button) => {
+    const active = button.dataset.lang === lang;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  localStorage.setItem("preferred-lang", lang);
+}
+
+const initialLang = (() => {
+  const stored = localStorage.getItem("preferred-lang");
+  if (stored && supported.includes(stored)) return stored;
+
+  const shortCode = navigator.language.slice(0, 2).toLowerCase();
+  if (supported.includes(shortCode)) return shortCode;
+
+  return "tr";
+})();
+
+syncCanonicalAndOgUrl();
+applyLanguage(initialLang);
+
+document.querySelectorAll(".lang-switcher button").forEach((button) => {
+  button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+});
+
+const yearNode = document.getElementById("year");
+if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+
+const revealNodes = document.querySelectorAll("[data-reveal]");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
+);
+
+revealNodes.forEach((node) => observer.observe(node));

@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "mode": "icloud-local-first-github-push-gated",
+  "repo": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+  "branch": "UIXAppTTR",
+  "localWorkspace": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+  "localWorkspaceAliases": [
+    "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/UIX-Apps",
+    "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation"
+  ],
+  "localTarget": "iCloud Drive Github/seis-digital-experience-foundation",
+  "remoteTarget": "GitHub origin/UIXAppTTR",
+  "requiredBeforePush": [
+    "working tree clean",
+    "current branch UIXAppTTR",
+    "origin reachable",
+    "GitHub CLI authenticated",
+    "publish preflight clean"
+  ],
+  "blockedWhen": [
+    "gh auth is missing",
+    "working tree has uncommitted changes",
+    "branch is not UIXAppTTR",
+    "remote differs from https://github.com/emirhankudun-ux/UIX-Apps.git"
+  ],
+  "safeCommands": [
+    "npm run publish:preflight",
+    "git status --short --branch",
+    "GIT_TERMINAL_PROMPT=0 git push origin UIXAppTTR"
+  ],
+  "currentKnownBlocker": "GitHub CLI authentication is missing until gh auth login -h github.com is completed."
+}

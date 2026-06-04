@@ -1,0 +1,16 @@
+{
+  "tool": "npm audit",
+  "type": "ReadinessSignal",
+  "auditReportVersion": 2,
+  "vulnerabilities": {},
+  "metadata": {
+    "dependencies": 0,
+    "vulnerabilities": {
+      "critical": 0,
+      "high": 0,
+      "moderate": 0,
+      "low": 0
+    }
+  },
+  "notes": "Dependency-light placeholder for future package audit evidence ingestion."
+}

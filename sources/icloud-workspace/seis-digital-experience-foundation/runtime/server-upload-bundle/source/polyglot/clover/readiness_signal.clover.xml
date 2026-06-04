@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ReadinessSignal: Clover XML coverage lane stays dependency-light. -->
+<coverage generated="0" clover="reference">
+  <project timestamp="0" name="ReadinessSignal">
+    <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="1" coveredelements="1" />
+    <file name="readiness_signal.clover.xml" path="polyglot/clover/readiness_signal.clover.xml">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="1" coveredelements="1" />
+      <line num="1" type="stmt" count="1" />
+    </file>
+  </project>
+</coverage>

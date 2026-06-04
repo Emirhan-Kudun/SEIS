@@ -1,0 +1,1560 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-mcp-runtime-readiness.mjs",
+  "generatedAt": "2026-06-01T09:16:32.420Z",
+  "mission": "SEIS-M006",
+  "source": {
+    "command": "codex mcp list",
+    "secretsStored": false,
+    "capturedFields": [
+      "name",
+      "status",
+      "auth",
+      "surfaceId",
+      "readiness"
+    ]
+  },
+  "policy": {
+    "defaultUse": "registry-routed-read-only-first",
+    "unavailableHandling": "record-as-blocked-or-needs-auth",
+    "blanketInvocationAllowed": false
+  },
+  "summary": {
+    "totalItems": 215,
+    "mappedItems": 194,
+    "unmappedItems": 21,
+    "byStatus": {
+      "enabled": 215
+    },
+    "byAuth": {
+      "Unsupported": 159,
+      "Not logged in": 40,
+      "OAuth": 16
+    },
+    "byReadiness": {
+      "enabled-no-auth-handshake": 159,
+      "blocked-auth": 40,
+      "permission-gated": 16
+    },
+    "bySurface": {
+      "design-collaboration-connectors": 14,
+      "business-payment-connectors": 9,
+      "observability-security-mcps": 14,
+      "product-collaboration-connectors": 19,
+      "data-backend-mcps": 54,
+      "documentation-knowledge-mcps": 25,
+      "cloud-infrastructure-mcps": 32,
+      "local-development-tools": 12,
+      "node-repl-browser-automation": 5,
+      "skill-runtime": 4,
+      "github-governance-connectors": 6
+    }
+  },
+  "items": [
+    {
+      "name": "Adobe",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "adobe-express-developer",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "ads-mcp",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "aikido-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "airtable",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "alice_mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "amplitude",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "apollo",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "appwrite-api",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "appwrite-docs",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "asana",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "atlan",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "atlassian",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "atlassian-design-system",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "atlassian-forge",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "aurora-dsql",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "aws-api-readonly",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "aws-documentation",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "aws-knowledge",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "aws-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "aws-serverless-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "awsiac",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "awsknowledge",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "awspricing",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "azure",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "azure-aks",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "azure-kubernetes",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "bigdata.com",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "canva",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "cds-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "chrome-devtools",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "node-repl-browser-automation",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "circleback",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "cisco-devnet-content-search",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "claude-code",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "skill-runtime",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "clickhouse",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "cloudflare-api",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "cloudflare-bindings",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudflare-builds",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudflare-docs",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "cloudflare-observability",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudinary-analysis",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudinary-asset-mgmt",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudinary-env-config",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "cloudinary-mediaflows",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "cloudinary-smd",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "context7",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "convex",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_alloydb-postgres_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_alloydb-postgres-admin_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_bigquery_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_cloud-sql-postgresql_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_cloud-sql-postgresql-admin_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_dataproc_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_knowledge_catalog_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_serverless-spark_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "datacloud_spanner_toolbox",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "debugmcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "discord",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "docker-mcp-gateway",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "domino_server",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "eslint",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "exa",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "expo",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "local-development-tools",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "fakechat",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "fetch",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "figma",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "firebase",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "flowbite",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "forge",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "local-development-tools",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "git-tools",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "github",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "github-stdio",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "gitlab",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "google-agent-registry",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "skill-runtime",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-agent-search",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-alloydb",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-android-management",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-bigquery",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-bigquery-data-transfer",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-bigquery-migration",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-bigtable",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-calendar-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-chat-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-chrome-enterprise-premium",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "node-repl-browser-automation",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-asset",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-error-reporting",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-logging",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-monitoring",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-product-registry",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-resource-manager",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-run",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-sql",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-storage",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-cloud-trace",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-compute-engine",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-database-center",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-database-insights",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-database-migration",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-dataplex",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-dataproc",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-datastream",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-design-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-developer-knowledge",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-drive-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-firestore",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-cloud-assist",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-endpoints",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-evaluation",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-generate",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-models",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-notebook",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-predict",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-prompts",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-retrieval",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gemini-enterprise-tuning",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gke",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-gmail-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-maps-code-assist",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-maps-grounding-lite",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-memorystore-redis",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-memorystore-valkey",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-network-intelligence",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-oracle-database",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-pay-wallet",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-people-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-pubsub",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-saas-service-management",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-spanner",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "google-stitch",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "grafana",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "graphos-tools",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "greptile",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "github-governance-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "hostinger-dns",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "hostinger-domains",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "hostinger-hosting",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "hubspot",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "huggingface",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "huggingface-skills",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "hunter",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "ibm-carbon-design-system",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "ibm-docling",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "imessage",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "intercom",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "laravel-boost",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "legalzoom",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "linear",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "logfire",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "mapbox",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "mapbox-devkit",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "mapbox-docs",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "MCP_DOCKER",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "mdn",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "memory",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "skill-runtime",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "microsoft-clarity",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "microsoft-fabric-rti",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "microsoft-learn",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "microsoft-powerbi-modeling",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "microsoft-workiq",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "miro",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "mongodb",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "mongodb-readonly-local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "neon",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "netlify",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "next-devtools",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "node-repl-browser-automation",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "node_repl",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "notebook",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "notion",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "official-filesystem",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "openai-docs",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "oracle-oci-monitoring",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "oracle-oci-pricing",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "oracle-oci-research",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "pagerduty",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "perplexity",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "pigment",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "pinecone",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "planetscale",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "playwright",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "node-repl-browser-automation",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "posthog",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": null,
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "postman",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "local-development-tools",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "Prisma-Local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "Prisma-Remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": null,
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "qt-docs",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "railway",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "redis",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "rootly",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "Sanity",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": null,
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "seis-playwright-mcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "node-repl-browser-automation",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "semgrep",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "sentry",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "observability-security-mcps",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "sequential-thinking",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "skill-runtime",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "serena",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "shadcn",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "slack",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "product-collaboration-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "sonarqube",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "sonatype-guide",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "sourcegraph",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "sqlite",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "stripe",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "business-payment-connectors",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "supabase",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "data-backend-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "terraform",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "ui5-mcp-server",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "vercel",
+      "status": "enabled",
+      "auth": "OAuth",
+      "surfaceId": "cloud-infrastructure-mcps",
+      "readiness": "permission-gated"
+    },
+    {
+      "name": "visualization",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "design-collaboration-connectors",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "windsor-ai",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "x-docs",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "xai-docs",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "xcodebuildmcp",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": "local-development-tools",
+      "readiness": "enabled-no-auth-handshake"
+    },
+    {
+      "name": "zapier",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "zoom-docs-mcp",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": "documentation-knowledge-mcps",
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "zoom-mcp",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "zoom-whiteboard-mcp",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "zoominfo",
+      "status": "enabled",
+      "auth": "Not logged in",
+      "surfaceId": null,
+      "readiness": "blocked-auth"
+    },
+    {
+      "name": "zscaler-mcp-server",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "surfaceId": null,
+      "readiness": "enabled-no-auth-handshake"
+    }
+  ]
+}

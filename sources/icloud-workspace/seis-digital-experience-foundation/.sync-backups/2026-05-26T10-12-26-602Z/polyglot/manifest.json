@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "branch": "UIXAppTTR",
+  "principle": "many software languages, minimal runtime weight",
+  "languages": [
+    {
+      "language": "JavaScript",
+      "role": "browser interaction, cinematic motion, gallery, i18n",
+      "entrypoints": [
+        "apps/web/src/scripts/motion-system.js",
+        "apps/web/src/scripts/gallery-system.js",
+        "apps/web/src/scripts/i18n-system.js"
+      ]
+    },
+    {
+      "language": "TypeScript",
+      "role": "release contract typing for future typed apps",
+      "entrypoints": ["polyglot/typescript/release-contract.ts"]
+    },
+    {
+      "language": "Node.js",
+      "role": "packaging and quality checks",
+      "entrypoints": [
+        "scripts/build-static.mjs",
+        "scripts/check-foundation.mjs",
+        "scripts/prepare-server-upload.mjs"
+      ]
+    },
+    {
+      "language": "Python",
+      "role": "asset/deploy metadata inspection",
+      "entrypoints": [
+        "polyglot/python/seis_manifest.py",
+        "server/python/verify_release.py"
+      ]
+    },
+    {
+      "language": "Ruby",
+      "role": "alternate release hash verification",
+      "entrypoints": ["polyglot/ruby/verify_release.rb"]
+    },
+    {
+      "language": "PHP",
+      "role": "shared-hosting health fallback",
+      "entrypoints": [
+        "server/php/health.php",
+        "server/php/router.php"
+      ]
+    },
+    {
+      "language": "Go",
+      "role": "future service health contract",
+      "entrypoints": ["polyglot/go/health_contract.go"]
+    },
+    {
+      "language": "Rust",
+      "role": "performance budget contract",
+      "entrypoints": ["polyglot/rust/performance_budget.rs"]
+    },
+    {
+      "language": "Swift",
+      "role": "iOS motion/accessibility policy",
+      "entrypoints": ["polyglot/swift/SEISMotionPolicy.swift"]
+    },
+    {
+      "language": "Kotlin",
+      "role": "Android motion/accessibility policy",
+      "entrypoints": ["polyglot/kotlin/SeisMotionPolicy.kt"]
+    },
+    {
+      "language": "Dart",
+      "role": "Flutter motion/accessibility policy",
+      "entrypoints": ["polyglot/dart/seis_motion_policy.dart"]
+    },
+    {
+      "language": "Bash",
+      "role": "portable deploy guard",
+      "entrypoints": ["polyglot/bash/deploy_guard.sh"]
+    },
+    {
+      "language": "Java",
+      "role": "JVM release readiness contract",
+      "entrypoints": ["polyglot/java/SeisDeployReadiness.java"]
+    },
+    {
+      "language": "C#",
+      "role": ".NET release preservation contract",
+      "entrypoints": ["polyglot/csharp/SeisReleaseContract.cs"]
+    },
+    {
+      "language": "SQL",
+      "role": "future release ledger schema",
+      "entrypoints": ["polyglot/sql/release_readiness_schema.sql"]
+    },
+    {
+      "language": "Lua",
+      "role": "tiny edge/device calm-mode policy",
+      "entrypoints": ["polyglot/lua/calm_motion_policy.lua"]
+    },
+    {
+      "language": "YAML",
+      "role": "portable deploy governance configuration",
+      "entrypoints": ["polyglot/yaml/deploy-governance.yml"]
+    },
+    {
+      "language": "C++",
+      "role": "native release contract header",
+      "entrypoints": ["polyglot/cpp/seis_release_contract.hpp"]
+    },
+    {
+      "language": "Elixir",
+      "role": "functional release and locale contract",
+      "entrypoints": ["polyglot/elixir/seis_release_contract.ex"]
+    },
+    {
+      "language": "Scala",
+      "role": "JVM functional release contract",
+      "entrypoints": ["polyglot/scala/SeisReleaseContract.scala"]
+    },
+    {
+      "language": "Clojure",
+      "role": "data-first release contract",
+      "entrypoints": ["polyglot/clojure/seis_release_contract.clj"]
+    },
+    {
+      "language": "Cloudflare Worker",
+      "role": "edge health and origin proxy adapter",
+      "entrypoints": ["server/edge/cloudflare-worker.js"]
+    },
+    {
+      "language": "Docker",
+      "role": "containerized static serving",
+      "entrypoints": [
+        "server/docker/Dockerfile",
+        "server/docker/compose.yaml"
+      ]
+    },
+    {
+      "language": "Nginx/Apache config",
+      "role": "static hosting rewrite and cache policy",
+      "entrypoints": [
+        "server/nginx/seis-static.conf",
+        "server/apache/.htaccess"
+      ]
+    },
+    {
+      "language": "R",
+      "role": "analytics-facing motion budget contract",
+      "entrypoints": ["polyglot/r/seis_motion_budget.R"]
+    },
+    {
+      "language": "Julia",
+      "role": "scientific and optimization-facing release contract",
+      "entrypoints": ["polyglot/julia/SeisReleaseContract.jl"]
+    },
+    {
+      "language": "Haskell",
+      "role": "pure functional release contract",
+      "entrypoints": ["polyglot/haskell/SeisReleaseContract.hs"]
+    },
+    {
+      "language": "Erlang",
+      "role": "fault-tolerant release status contract",
+      "entrypoints": ["polyglot/erlang/seis_release_contract.erl"]
+    },
+    {
+      "language": "Zig",
+      "role": "systems-level performance budget contract",
+      "entrypoints": ["polyglot/zig/seis_budget.zig"]
+    },
+    {
+      "language": "Nim",
+      "role": "compiled motion policy contract",
+      "entrypoints": ["polyglot/nim/seis_motion_policy.nim"]
+    },
+    {
+      "language": "Perl",
+      "role": "portable manifest verification contract",
+      "entrypoints": ["polyglot/perl/verify_manifest.pl"]
+    },
+    {
+      "language": "F#",
+      "role": ".NET functional release contract",
+      "entrypoints": ["polyglot/fsharp/SeisReleaseContract.fs"]
+    },
+    {
+      "language": "Objective-C",
+      "role": "legacy Apple platform motion policy bridge",
+      "entrypoints": ["polyglot/objective-c/SEISMotionPolicy.h"]
+    },
+    {
+      "language": "Racket",
+      "role": "language-oriented release contract",
+      "entrypoints": ["polyglot/racket/seis-release-contract.rkt"]
+    },
+    {
+      "language": "OCaml",
+      "role": "typed functional release contract",
+      "entrypoints": ["polyglot/ocaml/seis_release_contract.ml"]
+    },
+    {
+      "language": "PowerShell",
+      "role": "Windows-friendly release guard",
+      "entrypoints": ["polyglot/powershell/Test-SeisRelease.ps1"]
+    },
+    {
+      "language": "Terraform",
+      "role": "infrastructure upload guard contract",
+      "entrypoints": ["polyglot/terraform/seis_deploy_guard.tf"]
+    },
+    {
+      "language": "GraphQL",
+      "role": "future API schema contract",
+      "entrypoints": ["polyglot/graphql/seis_schema.graphql"]
+    },
+    {
+      "language": "Protocol Buffers",
+      "role": "future service message contract",
+      "entrypoints": ["polyglot/protobuf/seis_release.proto"]
+    },
+    {
+      "language": "TOML",
+      "role": "portable deploy governance contract",
+      "entrypoints": ["polyglot/toml/deploy-governance.toml"]
+    },
+    {
+      "language": "Crystal",
+      "role": "Ruby-like compiled release contract",
+      "entrypoints": ["polyglot/crystal/seis_release_contract.cr"]
+    },
+    {
+      "language": "V",
+      "role": "compact compiled motion policy contract",
+      "entrypoints": ["polyglot/v/seis_motion_policy.v"]
+    },
+    {
+      "language": "D",
+      "role": "systems performance budget contract",
+      "entrypoints": ["polyglot/d/seis_budget.d"]
+    },
+    {
+      "language": "Ada",
+      "role": "safety-oriented release contract",
+      "entrypoints": ["polyglot/ada/seis_release_contract.ads"]
+    },
+    {
+      "language": "Fortran",
+      "role": "scientific motion budget constants",
+      "entrypoints": ["polyglot/fortran/seis_motion_budget.f90"]
+    },
+    {
+      "language": "COBOL",
+      "role": "legacy enterprise release contract",
+      "entrypoints": ["polyglot/cobol/seis-release-contract.cbl"]
+    },
+    {
+      "language": "Pascal",
+      "role": "classic typed motion policy contract",
+      "entrypoints": ["polyglot/pascal/SeisMotionPolicy.pas"]
+    },
+    {
+      "language": "Common Lisp",
+      "role": "symbolic release contract",
+      "entrypoints": ["polyglot/common-lisp/seis-release-contract.lisp"]
+    },
+    {
+      "language": "Prolog",
+      "role": "logic-programmed release facts",
+      "entrypoints": ["polyglot/prolog/seis_release_contract.pl"]
+    },
+    {
+      "language": "Elm",
+      "role": "frontend-safe motion policy contract",
+      "entrypoints": ["polyglot/elm/SeisMotionPolicy.elm"]
+    },
+    {
+      "language": "PureScript",
+      "role": "typed functional release contract",
+      "entrypoints": ["polyglot/purescript/SeisReleaseContract.purs"]
+    },
+    {
+      "language": "ReScript",
+      "role": "typed UI motion policy bridge",
+      "entrypoints": ["polyglot/rescript/SeisMotionPolicy.res"]
+    },
+    {
+      "language": "Solidity",
+      "role": "smart-contract release guard model",
+      "entrypoints": ["polyglot/solidity/SeisReleaseGuard.sol"]
+    },
+    {
+      "language": "Move",
+      "role": "resource-oriented release guard model",
+      "entrypoints": ["polyglot/move/seis_release.move"]
+    },
+    {
+      "language": "Cairo",
+      "role": "zero-knowledge ecosystem release guard model",
+      "entrypoints": ["polyglot/cairo/seis_release_contract.cairo"]
+    },
+    {
+      "language": "Q#",
+      "role": "quantum-adjacent release contract stub",
+      "entrypoints": ["polyglot/qsharp/SeisReleaseContract.qs"]
+    },
+    {
+      "language": "MATLAB",
+      "role": "matrix-oriented motion budget contract",
+      "entrypoints": ["polyglot/matlab/seis_motion_budget.m"]
+    },
+    {
+      "language": "XML",
+      "role": "portable deploy governance document",
+      "entrypoints": ["polyglot/xml/deploy-governance.xml"]
+    },
+    {
+      "language": "CMake",
+      "role": "native build release guard contract",
+      "entrypoints": ["polyglot/cmake/SeisDeployGuard.cmake"]
+    },
+    {
+      "language": "Make",
+      "role": "portable release guard target",
+      "entrypoints": ["polyglot/make/Makefile"]
+    },
+    {
+      "language": "INI",
+      "role": "minimal deploy governance configuration",
+      "entrypoints": ["polyglot/ini/deploy-governance.ini"]
+    },
+    {
+      "language": "PlantUML",
+      "role": "release-flow architecture diagram contract",
+      "entrypoints": ["polyglot/plantuml/release-flow.puml"]
+    },
+    {
+      "language": "Mermaid",
+      "role": "release-flow documentation diagram contract",
+      "entrypoints": ["polyglot/mermaid/release-flow.mmd"]
+    },
+    {
+      "language": "JSON Schema",
+      "role": "release contract validation schema",
+      "entrypoints": ["polyglot/json-schema/seis-release.schema.json"]
+    },
+    {
+      "language": "Hack",
+      "role": "typed PHP-family release contract",
+      "entrypoints": ["polyglot/hack/SeisReleaseContract.hack"]
+    },
+    {
+      "language": "ABAP",
+      "role": "enterprise ERP release readiness contract",
+      "entrypoints": ["polyglot/abap/seis_release_contract.abap"]
+    },
+    {
+      "language": "PL/SQL",
+      "role": "Oracle database release readiness contract",
+      "entrypoints": ["polyglot/plsql/seis_release_contract.sql"]
+    },
+    {
+      "language": "T-SQL",
+      "role": "SQL Server release readiness contract",
+      "entrypoints": ["polyglot/tsql/seis_release_contract.sql"]
+    },
+    {
+      "language": "Bicep",
+      "role": "Azure infrastructure release guard contract",
+      "entrypoints": ["polyglot/bicep/seis_deploy_guard.bicep"]
+    },
+    {
+      "language": "Nix",
+      "role": "reproducible environment release policy",
+      "entrypoints": ["polyglot/nix/seis_release_policy.nix"]
+    },
+    {
+      "language": "CUE",
+      "role": "configuration schema release policy",
+      "entrypoints": ["polyglot/cue/seis_release_policy.cue"]
+    },
+    {
+      "language": "Rego",
+      "role": "policy-as-code release gate",
+      "entrypoints": ["polyglot/rego/seis_release_policy.rego"]
+    },
+    {
+      "language": "CEL",
+      "role": "portable expression release gate",
+      "entrypoints": ["polyglot/cel/seis_release_policy.cel"]
+    },
+    {
+      "language": "Jsonnet",
+      "role": "composable configuration release policy",
+      "entrypoints": ["polyglot/jsonnet/seis_release_policy.jsonnet"]
+    },
+    {
+      "language": "Dhall",
+      "role": "typed configuration release policy",
+      "entrypoints": ["polyglot/dhall/seis_release_policy.dhall"]
+    },
+    {
+      "language": "GDScript",
+      "role": "interactive scene readiness policy",
+      "entrypoints": ["polyglot/gdscript/seis_motion_policy.gd"]
+    },
+    {
+      "language": "GLSL",
+      "role": "GPU-safe visual readiness constants",
+      "entrypoints": ["polyglot/glsl/seis_motion_policy.glsl"]
+    },
+    {
+      "language": "WGSL",
+      "role": "WebGPU visual readiness constants",
+      "entrypoints": ["polyglot/wgsl/seis_motion_policy.wgsl"]
+    },
+    {
+      "language": "Avro",
+      "role": "analytics event release schema",
+      "entrypoints": ["polyglot/avro/seis-release.avsc"]
+    },
+    {
+      "language": "AsyncAPI",
+      "role": "release event stream contract",
+      "entrypoints": ["polyglot/asyncapi/seis-release-events.asyncapi.yaml"]
+    }
+  ]
+}

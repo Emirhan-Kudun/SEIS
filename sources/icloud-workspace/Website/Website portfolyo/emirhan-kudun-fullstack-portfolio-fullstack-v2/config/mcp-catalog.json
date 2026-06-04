@@ -1,0 +1,847 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-18T14:45:15.084Z",
+  "source_command": "codex mcp list",
+  "mcps": [
+    {
+      "id": "adobe-express-developer",
+      "name": "adobe-express-developer",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "chrome-devtools",
+      "name": "chrome-devtools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "claude-code",
+      "name": "claude-code",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "context7",
+      "name": "context7",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "eslint",
+      "name": "eslint",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "fetch",
+      "name": "fetch",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "flowbite",
+      "name": "flowbite",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "git-tools",
+      "name": "git-tools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "hostinger-dns",
+      "name": "hostinger-dns",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "hostinger-domains",
+      "name": "hostinger-domains",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "hostinger-hosting",
+      "name": "hostinger-hosting",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "memory",
+      "name": "memory",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "netlify",
+      "name": "netlify",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "next-devtools",
+      "name": "next-devtools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "official-filesystem",
+      "name": "official-filesystem",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "perplexity",
+      "name": "perplexity",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "playwright",
+      "name": "playwright",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "semgrep",
+      "name": "semgrep",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "sequential-thinking",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "sqlite",
+      "name": "sqlite",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "xcodebuildmcp",
+      "name": "xcodebuildmcp",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "airtable",
+      "name": "airtable",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "alice_mcp",
+      "name": "alice_mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "amplitude",
+      "name": "amplitude",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "asana",
+      "name": "asana",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "atlassian",
+      "name": "atlassian",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "aws-knowledge",
+      "name": "aws-knowledge",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "canva",
+      "name": "canva",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "cloudflare-api",
+      "name": "cloudflare-api",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "cloudflare-docs",
+      "name": "cloudflare-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "exa",
+      "name": "exa",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "figma",
+      "name": "figma",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "github",
+      "name": "github",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-agent-registry",
+      "name": "google-agent-registry",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-agent-search",
+      "name": "google-agent-search",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-alloydb",
+      "name": "google-alloydb",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-android-management",
+      "name": "google-android-management",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-bigquery",
+      "name": "google-bigquery",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-bigquery-data-transfer",
+      "name": "google-bigquery-data-transfer",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-bigquery-migration",
+      "name": "google-bigquery-migration",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-bigtable",
+      "name": "google-bigtable",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-calendar-mcp",
+      "name": "google-calendar-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-chat-mcp",
+      "name": "google-chat-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-asset",
+      "name": "google-cloud-asset",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-error-reporting",
+      "name": "google-cloud-error-reporting",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-logging",
+      "name": "google-cloud-logging",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-monitoring",
+      "name": "google-cloud-monitoring",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-product-registry",
+      "name": "google-cloud-product-registry",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-resource-manager",
+      "name": "google-cloud-resource-manager",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-run",
+      "name": "google-cloud-run",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-sql",
+      "name": "google-cloud-sql",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-storage",
+      "name": "google-cloud-storage",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-cloud-trace",
+      "name": "google-cloud-trace",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-compute-engine",
+      "name": "google-compute-engine",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-database-center",
+      "name": "google-database-center",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-database-insights",
+      "name": "google-database-insights",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-database-migration",
+      "name": "google-database-migration",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-dataplex",
+      "name": "google-dataplex",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-dataproc",
+      "name": "google-dataproc",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-datastream",
+      "name": "google-datastream",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-design-mcp",
+      "name": "google-design-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-developer-knowledge",
+      "name": "google-developer-knowledge",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-drive-mcp",
+      "name": "google-drive-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-firestore",
+      "name": "google-firestore",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-cloud-assist",
+      "name": "google-gemini-cloud-assist",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-endpoints",
+      "name": "google-gemini-enterprise-endpoints",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-evaluation",
+      "name": "google-gemini-enterprise-evaluation",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-generate",
+      "name": "google-gemini-enterprise-generate",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-models",
+      "name": "google-gemini-enterprise-models",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-notebook",
+      "name": "google-gemini-enterprise-notebook",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-predict",
+      "name": "google-gemini-enterprise-predict",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-prompts",
+      "name": "google-gemini-enterprise-prompts",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-retrieval",
+      "name": "google-gemini-enterprise-retrieval",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gemini-enterprise-tuning",
+      "name": "google-gemini-enterprise-tuning",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gke",
+      "name": "google-gke",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-gmail-mcp",
+      "name": "google-gmail-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-maps-code-assist",
+      "name": "google-maps-code-assist",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-maps-grounding-lite",
+      "name": "google-maps-grounding-lite",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-memorystore-redis",
+      "name": "google-memorystore-redis",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-memorystore-valkey",
+      "name": "google-memorystore-valkey",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-network-intelligence",
+      "name": "google-network-intelligence",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-oracle-database",
+      "name": "google-oracle-database",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-pay-wallet",
+      "name": "google-pay-wallet",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-people-mcp",
+      "name": "google-people-mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-pubsub",
+      "name": "google-pubsub",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-saas-service-management",
+      "name": "google-saas-service-management",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-spanner",
+      "name": "google-spanner",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "google-stitch",
+      "name": "google-stitch",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "hubspot",
+      "name": "hubspot",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "huggingface",
+      "name": "huggingface",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "linear",
+      "name": "linear",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "mdn",
+      "name": "mdn",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "microsoft-learn",
+      "name": "microsoft-learn",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "neon",
+      "name": "neon",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "notion",
+      "name": "notion",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "openai-docs",
+      "name": "openai-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "postman",
+      "name": "postman",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "sentry",
+      "name": "sentry",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "slack",
+      "name": "slack",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "stripe",
+      "name": "stripe",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "supabase",
+      "name": "supabase",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "vercel",
+      "name": "vercel",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "x-docs",
+      "name": "x-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "in",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    },
+    {
+      "id": "xai-docs",
+      "name": "xai-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-18T14:45:15.083Z"
+    }
+  ]
+}

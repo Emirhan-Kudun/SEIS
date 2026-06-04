@@ -1,0 +1,25 @@
+{
+  "info": {
+    "name": "ReadinessSignal Postman Collection",
+    "_postman_id": "00000000-0000-4000-8000-000000000180",
+    "description": "Reference-only Postman lane for dependency-light API handoff.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "ReadinessSignal",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://uix-apps.local/polyglot/postman/readiness-signal",
+          "protocol": "https",
+          "host": ["uix-apps", "local"],
+          "path": ["polyglot", "postman", "readiness-signal"]
+        },
+        "description": "lane=postman status=reference runtimeWeight=dependency-light"
+      },
+      "response": []
+    }
+  ]
+}

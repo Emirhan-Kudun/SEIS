@@ -1,0 +1,813 @@
+{
+  "generatedAt": "2026-05-27T18:02:29.806Z",
+  "roots": [
+    "/Users/emirhan/.codex/skills",
+    "/Users/emirhan/.agents/skills",
+    "/Users/emirhan/.codex/plugins/cache"
+  ],
+  "totalSkills": 1895,
+  "relevantCount": 966,
+  "relevant": [
+    {
+      "name": "\"openai-docs\"",
+      "description": "\"Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.\"",
+      "path": "/Users/emirhan/.codex/skills/.system/openai-docs/SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "path": "/Users/emirhan/.codex/skills/.system/skill-creator/SKILL.md"
+    },
+    {
+      "name": "skill-installer",
+      "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+      "path": "/Users/emirhan/.codex/skills/.system/skill-installer/SKILL.md"
+    },
+    {
+      "name": "aspnet-core",
+      "description": "Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web development. Use when working on Blazor Web Apps, Razor Pages, MVC, Minimal APIs, controller-based Web APIs, SignalR, gRPC, middleware, dependency injection, configuration, authentication, authorization, testing, performance, deployment, or ASP.NET Core upgrades.",
+      "path": "/Users/emirhan/.codex/skills/aspnet-core/SKILL.md"
+    },
+    {
+      "name": "chatgpt-apps",
+      "description": "Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code.",
+      "path": "/Users/emirhan/.codex/skills/chatgpt-apps/SKILL.md"
+    },
+    {
+      "name": "cli-creator",
+      "description": "Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script. Use when the user wants Codex to create a command-line tool that can run from any repo, expose composable read/write commands, return stable JSON, manage auth, and pair with a companion skill.",
+      "path": "/Users/emirhan/.codex/skills/cli-creator/SKILL.md"
+    },
+    {
+      "name": "cloudflare-deploy",
+      "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+      "path": "/Users/emirhan/.codex/skills/cloudflare-deploy/SKILL.md"
+    },
+    {
+      "name": "define-goal",
+      "description": "Help the user define a concrete, measurable goal before starting work, especially when they ask to use the goal tool, create a goal, set an objective, clarify success criteria, or turn a fuzzy intention into a quantitative outcome. Use this skill for goal creation and goal refinement only; it does not manage durable snapshots, decision logs, or long-running execution artifacts.",
+      "path": "/Users/emirhan/.codex/skills/define-goal/SKILL.md"
+    },
+    {
+      "name": "figma",
+      "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+      "path": "/Users/emirhan/.codex/skills/figma/SKILL.md"
+    },
+    {
+      "name": "figma-code-connect-components",
+      "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+      "path": "/Users/emirhan/.codex/skills/figma-code-connect-components/SKILL.md"
+    },
+    {
+      "name": "figma-create-design-system-rules",
+      "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+      "path": "/Users/emirhan/.codex/skills/figma-create-design-system-rules/SKILL.md"
+    },
+    {
+      "name": "figma-create-new-file",
+      "description": "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)",
+      "path": "/Users/emirhan/.codex/skills/figma-create-new-file/SKILL.md"
+    },
+    {
+      "name": "figma-generate-design",
+      "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.\"",
+      "path": "/Users/emirhan/.codex/skills/figma-generate-design/SKILL.md"
+    },
+    {
+      "name": "figma-generate-library",
+      "description": "\"Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.\"",
+      "path": "/Users/emirhan/.codex/skills/figma-generate-library/SKILL.md"
+    },
+    {
+      "name": "figma-implement-design",
+      "description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
+      "path": "/Users/emirhan/.codex/skills/figma-implement-design/SKILL.md"
+    },
+    {
+      "name": "figma-use",
+      "description": "\"**MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
+      "path": "/Users/emirhan/.codex/skills/figma-use/SKILL.md"
+    },
+    {
+      "name": "gh-address-comments",
+      "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
+      "path": "/Users/emirhan/.codex/skills/gh-address-comments/SKILL.md"
+    },
+    {
+      "name": "\"gh-fix-ci\"",
+      "description": "\"Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.\"",
+      "path": "/Users/emirhan/.codex/skills/gh-fix-ci/SKILL.md"
+    },
+    {
+      "name": "hatch-pet",
+      "description": "Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character art, generated images, company or prospect brand cues, or visual references. Use when a user wants a lightweight-worker Codex pet workflow, a non-pixel custom pet style, a prospect or company mascot pet, or a full 8x9 animated pet atlas with transparent unused cells, QA contact sheets, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly.",
+      "path": "/Users/emirhan/.codex/skills/hatch-pet/SKILL.md"
+    },
+    {
+      "name": "linear",
+      "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+      "path": "/Users/emirhan/.codex/skills/linear/SKILL.md"
+    },
+    {
+      "name": "migrate-to-codex",
+      "description": "Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.",
+      "path": "/Users/emirhan/.codex/skills/migrate-to-codex/SKILL.md"
+    },
+    {
+      "name": "netlify-deploy",
+      "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
+      "path": "/Users/emirhan/.codex/skills/netlify-deploy/SKILL.md"
+    },
+    {
+      "name": "notion-knowledge-capture",
+      "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+      "path": "/Users/emirhan/.codex/skills/notion-knowledge-capture/SKILL.md"
+    },
+    {
+      "name": "notion-research-documentation",
+      "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+      "path": "/Users/emirhan/.codex/skills/notion-research-documentation/SKILL.md"
+    },
+    {
+      "name": "\"playwright\"",
+      "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
+      "path": "/Users/emirhan/.codex/skills/playwright/SKILL.md"
+    },
+    {
+      "name": "\"playwright-interactive\"",
+      "description": "\"Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.\"",
+      "path": "/Users/emirhan/.codex/skills/playwright-interactive/SKILL.md"
+    },
+    {
+      "name": "render-deploy",
+      "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
+      "path": "/Users/emirhan/.codex/skills/render-deploy/SKILL.md"
+    },
+    {
+      "name": "\"screenshot\"",
+      "description": "\"Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\"",
+      "path": "/Users/emirhan/.codex/skills/screenshot/SKILL.md"
+    },
+    {
+      "name": "\"security-best-practices\"",
+      "description": "\"Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.\"",
+      "path": "/Users/emirhan/.codex/skills/security-best-practices/SKILL.md"
+    },
+    {
+      "name": "\"security-ownership-map\"",
+      "description": "\"Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.\"",
+      "path": "/Users/emirhan/.codex/skills/security-ownership-map/SKILL.md"
+    },
+    {
+      "name": "\"security-threat-model\"",
+      "description": "\"Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.\"",
+      "path": "/Users/emirhan/.codex/skills/security-threat-model/SKILL.md"
+    },
+    {
+      "name": "\"speech\"",
+      "description": "\"Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.\"",
+      "path": "/Users/emirhan/.codex/skills/speech/SKILL.md"
+    },
+    {
+      "name": "vercel-deploy",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+      "path": "/Users/emirhan/.codex/skills/vercel-deploy/SKILL.md"
+    },
+    {
+      "name": "winui-app",
+      "description": "Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit components. Use when creating a brand new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting, environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing, theming, accessibility, responsiveness, performance, deployment, or related Windows app design and development work.",
+      "path": "/Users/emirhan/.codex/skills/winui-app/SKILL.md"
+    },
+    {
+      "name": "accessing-mlflow",
+      "description": "Query and browse evaluation results stored in MLflow. Use when the user wants to look up runs by invocation ID, compare metrics across models, fetch artifacts (configs, logs, results), or set up the MLflow MCP server. ALWAYS triggers on mentions of MLflow, experiment results, run comparison, invocation IDs in the context of results, or MLflow MCP setup.",
+      "path": "/Users/emirhan/.agents/skills/accessing-mlflow/SKILL.md"
+    },
+    {
+      "name": "adding-model-support",
+      "description": "Guide for adding support for new LLM or VLM models in Megatron-Bridge. Covers bridge, provider, recipe, tests, docs, and examples.",
+      "path": "/Users/emirhan/.agents/skills/adding-model-support/SKILL.md"
+    },
+    {
+      "name": "alerts",
+      "description": "Manage and monitor VSS alerts after the alerts profile is deployed. The deployment's mode (CV vs VLM real-time) is fixed at deploy time and determines the workflow — start/stop real-time alerts via the VSS Agent on a VLM deployment, onboard CV alerts by adding RTSP streams to VIOS on a CV deployment, query incidents, customize verifier prompts. Use when asked to start/stop a real-time alert, check or list alerts, add a camera, use a sample video for alerts, customize alert prompts, or view verdicts.",
+      "path": "/Users/emirhan/.agents/skills/alerts/SKILL.md"
+    },
+    {
+      "name": "build-and-dependency",
+      "description": "Dev environment setup for Megatron Bridge — container-based development, uv package management, lockfile regeneration, adding dependencies, Slurm container usage, and common build pitfalls.",
+      "path": "/Users/emirhan/.agents/skills/build-and-dependency/SKILL.md"
+    },
+    {
+      "name": "bump-base-image",
+      "description": "Bump the NVIDIA PyTorch base image (`nvcr.io/nvidia/pytorch:<YY.MM>-py3`) used by Megatron-LM CI. Covers the two pin sites (GitHub CI in `docker/.ngc_version.dev` and GitLab CI in `.gitlab/stages/01.build.yml`), the post-bump CI loop (re-run functional tests, refresh golden values, mark broken tests), and the gotchas that bit PRs #4611 and #4688.",
+      "path": "/Users/emirhan/.agents/skills/bump-base-image/SKILL.md"
+    },
+    {
+      "name": "bump-dependency",
+      "description": "Bump a pinned dependency (TransformerEngine, Megatron-LM, NRX, etc.), regenerate the lockfile, open a PR, and drive it to green by attaching a watchdog to the \"CICD NeMo\" workflow and quarantining failing functional tests as flaky until the run is green.",
+      "path": "/Users/emirhan/.agents/skills/bump-dependency/SKILL.md"
+    },
+    {
+      "name": "ci-failure-retrieval",
+      "description": "Retrieve and diagnose CI test failures from TensorRT-LLM pull requests using the GitHub API and Jenkins testReport API. Use when the user asks about CI failures on a PR, wants to see failed test details, or needs stdout/stderr from a CI run.",
+      "path": "/Users/emirhan/.agents/skills/ci-failure-retrieval/SKILL.md"
+    },
+    {
+      "name": "cicd",
+      "description": "CI/CD reference for Megatron Bridge — pipeline structure, commit and PR workflow, CI failure investigation, and common failure patterns.",
+      "path": "/Users/emirhan/.agents/skills/cicd/SKILL.md"
+    },
+    {
+      "name": "create-issue",
+      "description": "Investigate a failing GitHub Actions run or job and create a GitHub issue for the failure.",
+      "path": "/Users/emirhan/.agents/skills/create-issue/SKILL.md"
+    },
+    {
+      "name": "cuopt-developer",
+      "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.",
+      "path": "/Users/emirhan/.agents/skills/cuopt-developer/SKILL.md"
+    },
+    {
+      "name": "cuopt-install",
+      "description": "Install cuOpt for Python, C, or as a server (pip, conda, Docker) — system requirements, install commands, and verification. Use when the user wants to install or verify cuOpt for any user-facing interface. For building cuOpt from source or contributing to cuOpt, see cuopt-developer.",
+      "path": "/Users/emirhan/.agents/skills/cuopt-install/SKILL.md"
+    },
+    {
+      "name": "cuopt-numerical-optimization-api-python",
+      "description": "Solve Linear Programming (LP), Mixed-Integer Linear Programming (MILP), and Quadratic Programming (QP, beta) with the Python API. Use when the user asks about optimization with linear or quadratic objectives, linear constraints, integer variables, scheduling, resource allocation, facility location, production planning, portfolio optimization, or least squares.",
+      "path": "/Users/emirhan/.agents/skills/cuopt-numerical-optimization-api-python/SKILL.md"
+    },
+    {
+      "name": "cuopt-server-api-python",
+      "description": "cuOpt REST server — start server, endpoints, Python/curl client examples. Use when the user is deploying or calling the REST API.",
+      "path": "/Users/emirhan/.agents/skills/cuopt-server-api-python/SKILL.md"
+    },
+    {
+      "name": "cuopt-server-common",
+      "description": "cuOpt REST server — what it does and how requests flow. Domain concepts; no deploy or client code.",
+      "path": "/Users/emirhan/.agents/skills/cuopt-server-common/SKILL.md"
+    },
+    {
+      "name": "deploy",
+      "description": "Deploy, debug, or tear down any VSS profile using a compose-centric workflow — config (dry-run) with env overrides, review resolved compose, then compose up. Use this skill when the user says \"deploy vss\", \"deploy `profile`\", \"debug deploy\", \"verify deployment\", or \"why is my vss deploy broken\".",
+      "path": "/Users/emirhan/.agents/skills/deploy/SKILL.md"
+    },
+    {
+      "name": "deployment",
+      "description": "Serve a quantized or unquantized LLM checkpoint as an OpenAI-compatible API endpoint using vLLM, SGLang, or TRT-LLM. Use when user says \"deploy model\", \"serve model\", \"start vLLM server\", \"launch SGLang\", \"TRT-LLM deploy\", \"AutoDeploy\", \"benchmark throughput\", \"serve checkpoint\", or needs an inference endpoint from a HuggingFace or ModelOpt-quantized checkpoint. Do NOT use for quantizing models (use ptq) or evaluating accuracy (use evaluation).",
+      "path": "/Users/emirhan/.agents/skills/deployment/SKILL.md"
+    },
+    {
+      "name": "evaluation",
+      "description": "Evaluates accuracy of quantized or unquantized LLMs using NeMo Evaluator Launcher (NEL). Triggers on \"evaluate model\", \"benchmark accuracy\", \"run MMLU\", \"evaluate quantized model\", \"accuracy drop\", \"run nel\". Handles deployment, config generation, and evaluation execution. Not for quantizing models (use ptq) or deploying/serving models (use deployment).",
+      "path": "/Users/emirhan/.agents/skills/evaluation/SKILL.md"
+    },
+    {
+      "name": "mlm-bridge-training",
+      "description": "Run Megatron-LM (MLM) and Megatron Bridge training with mock or real data. Covers correlation testing, available recipes, and multi-GPU examples.",
+      "path": "/Users/emirhan/.agents/skills/mlm-bridge-training/SKILL.md"
+    },
+    {
+      "name": "monitor",
+      "description": "Monitor submitted jobs (PTQ, evaluation, deployment) on SLURM clusters. Use when the user asks \"check job status\", \"is my job done\", \"monitor my evaluation\", \"what's the status of the PTQ\", \"check on job <slurm_job_id>\", or after any skill submits a long-running job. Also triggers on \"nel status\", \"squeue\", or any request to check progress of a previously submitted job.",
+      "path": "/Users/emirhan/.agents/skills/monitor/SKILL.md"
+    },
+    {
+      "name": "monkey-patch-kernels-to-transformers",
+      "description": "Integrate TileGym kernels into Hugging Face `transformers` models by replacing the library's submodule(s) and certain class(es)' implementations, and patching certain class(es)' init/forward/load weight methods prior to instantiating models. Used when the user requires integrating TileGym kernels into `transformers` models.",
+      "path": "/Users/emirhan/.agents/skills/monkey-patch-kernels-to-transformers/SKILL.md"
+    },
+    {
+      "name": "nel-assistant",
+      "description": "Interactive config wizard for NeMo Evaluator Launcher (NEL). Use when the user wants to create a new evaluation config from scratch, set up an evaluation from existing configs, or modify a NEL config (deployment, tasks, multi-node, interceptors). ALWAYS triggers on mentions of creating configs, setting up evaluations, configuring models for evaluation, or modifying NEL YAML files. Do NOT use for monitoring, debugging, or analyzing already-running evaluations.",
+      "path": "/Users/emirhan/.agents/skills/nel-assistant/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-contributor-create-pr",
+      "description": "Create GitHub pull requests that follow the NemoClaw PR template. Use when the user wants to create a new PR, submit code for review, open a pull request, or push changes for review. Trigger keywords - create PR, pull request, new PR, submit for review, open PR, push for review.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-contributor-create-pr/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-contributor-update-docs",
+      "description": "Scan recent git commits for changes that affect user-facing behavior, then draft or update the corresponding documentation pages and refresh generated user skills for release prep. Use when docs have fallen behind code changes, after a batch of features lands, during daily release prep, or when preparing a release. Trigger keywords - update docs, draft docs, docs from commits, sync docs, catch up docs, doc debt, docs behind, docs drift, release prep docs, refresh user skills.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-contributor-update-docs/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-cross-issue-sweep",
+      "description": "Scans other open issues to find ones a given PR may also fix or accidentally break. Outputs adjacent-fix opportunities and contradiction risks with file:line evidence. Use when reviewing a PR to discover bundling opportunities or downstream impact across the issue queue.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-cross-issue-sweep/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-cut-release-tag",
+      "description": "Cut a new semver release — bump all version strings via bump-version.ts, open a release PR, and after merge tag main and push. Use when cutting a release, tagging a version, shipping a build, or preparing a deployment. Trigger keywords - cut tag, release tag, new tag, cut release, tag version, ship it.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-cut-release-tag/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-day",
+      "description": "Runs the daytime maintainer loop for NemoClaw, prioritizing items labeled with the current version target. Picks the highest-value item, executes the right workflow (merge gate, salvage, security sweep, test gaps, hotspot cooling, or sequencing), and reports progress. Use during the workday to land PRs and close issues. Designed for /loop (e.g. /loop 10m /nemoclaw-maintainer-day). Trigger keywords - maintainer day, work on PRs, land PRs, make progress, what's next, keep going, maintainer loop.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-day/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-evening",
+      "description": "Runs the end-of-day maintainer handoff for NemoClaw. Checks version target progress, bumps stragglers to the next patch version, generates a QA handoff summary, and cuts the release tag. Use at the end of the workday. Trigger keywords - evening, end of day, EOD, wrap up, ship it, cut tag, handoff, done for the day.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-evening/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-find-review-pr",
+      "description": "Finds open GitHub PRs with security and priority-high labels, links each to its issue, detects duplicates (multiple PRs fixing the same issue), and presents a table of review candidates. Use when looking for the next PR to review. Trigger keywords - find pr, find review, next pr, pr to review, duplicate pr, security pr.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-find-review-pr/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-normalize-title-tags",
+      "description": "Normalizes GitHub issue and PR titles by removing any bracketed [NemoClaw] tag case-insensitively, even when the tag appears later in the title. Use when cleaning issue tags, bulk-renaming titles, or normalizing repo title hygiene.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-normalize-title-tags/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-pr-comparator",
+      "description": "Compares competing PRs that target the same issue and recommends which one to merge. Runs gate, correctness, and quality checks; outputs a deterministic scorecard with reasoning trace. Use when an issue has two or more open PRs and a maintainer needs to decide which to merge.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-pr-comparator/SKILL.md"
+    },
+    {
+      "name": "nemoclaw-maintainer-security-code-review",
+      "description": "Performs a comprehensive security review of code changes in a GitHub PR or issue. Checks out the branch, analyzes changed files against a 9-category security checklist, and produces PASS/WARNING/FAIL verdicts. Use when reviewing pull requests for security vulnerabilities, hardcoded secrets, injection flaws, auth bypasses, or insecure configurations. Trigger keywords - security review, code review, appsec, vulnerability assessment, security audit, review PR security.",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-maintainer-security-code-review/SKILL.md"
+    },
+    {
+      "name": "\"nemoclaw-user-configure-security\"",
+      "description": "\"Presents a risk framework for every configurable security control in NemoClaw. Use when evaluating security posture, reviewing sandbox security defaults, or assessing control trade-offs. Trigger keywords - nemoclaw security best practices, sandbox security controls risk framework, nemoclaw credential storage, openshell provider, api key security, openclaw security controls, nemoclaw security boundary, prompt injection, tool access control.\"",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-user-configure-security/SKILL.md"
+    },
+    {
+      "name": "\"nemoclaw-user-deploy-remote\"",
+      "description": "\"Explains how to run NemoClaw on a remote GPU instance, including the deprecated Brev compatibility path and the preferred installer plus onboard flow. Use when deploying NemoClaw to a remote VM, onboarding a Brev instance, or migrating away from the legacy `nemoclaw deploy` wrapper. Trigger keywords - deploy nemoclaw remote gpu, nemoclaw brev cloud deployment, nemoclaw plugins, openclaw plugins, install openclaw plugin, nemoclaw onboard from dockerfile, nemoclaw brev web ui, nemoclaw getting started, brev quickstart, nvidia nemotron agent, nemoclaw sandbox hardening, container security, docker capabilities, process limits.\"",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-user-deploy-remote/SKILL.md"
+    },
+    {
+      "name": "\"nemoclaw-user-manage-policy\"",
+      "description": "\"Adds, removes, or modifies allowed endpoints in the sandbox policy. Use when customizing network policy, changing egress rules, or configuring sandbox endpoint access. Trigger keywords - customize nemoclaw network policy, sandbox egress policy configuration, nemoclaw integration policy examples, post-install policy setup, openshell approval workflow, policy preset, nemoclaw approve network requests, sandbox egress approval tui.\"",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-user-manage-policy/SKILL.md"
+    },
+    {
+      "name": "\"nemoclaw-user-overview\"",
+      "description": "\"Explains how OpenClaw, OpenShell, and NemoClaw form the ecosystem, NemoClaw's position in the stack, what NemoClaw adds beyond the community sandbox, and when to prefer NemoClaw versus integrating OpenShell and OpenClaw directly. Use when users ask about the relationship between OpenClaw, OpenShell, and NemoClaw, or when to use NemoClaw versus OpenShell. Trigger keywords - nemoclaw ecosystem, openclaw openshell, nemoclaw vs openshell, sandboxed openclaw, how nemoclaw works, nemoclaw sandbox lifecycle blueprint, nemoclaw overview, openclaw always-on assistants, nvidia openshell, nvidia nemotron, nemoclaw release notes, nemoclaw changelog.\"",
+      "path": "/Users/emirhan/.agents/skills/nemoclaw-user-overview/SKILL.md"
+    },
+    {
+      "name": "nemotron-voice-agent-deploy",
+      "description": "Deploy Nemotron Voice Agent on Workstation (x86), Jetson Thor, or Cloud NIMs. Real-time speech-to-speech using NVIDIA ASR, TTS, LLM with WebRTC/WebSocket transport.",
+      "path": "/Users/emirhan/.agents/skills/nemotron-voice-agent-deploy/SKILL.md"
+    },
+    {
+      "name": "nightly-sync",
+      "description": "Domain knowledge for the nightly main-to-dev sync workflow. Covers merge strategy, CI architecture, failure investigation, and known issues.",
+      "path": "/Users/emirhan/.agents/skills/nightly-sync/SKILL.md"
+    },
+    {
+      "name": "numerical-optimization-formulation",
+      "description": "Numerical optimization (LP, MILP, QP) — concepts, problem-text parsing, and formulation patterns. What LP, MILP, and QP are, required formulation questions, modeling elements, common patterns, and how to parse problem statements (parameters, constraints, decisions, objective). Domain concepts; no API or interface.",
+      "path": "/Users/emirhan/.agents/skills/numerical-optimization-formulation/SKILL.md"
+    },
+    {
+      "name": "onboard-gb200-1node-tests",
+      "description": "Onboard 1-node GitHub MR functional tests for GB200 from existing mr-scoped 2-node tests.",
+      "path": "/Users/emirhan/.agents/skills/onboard-gb200-1node-tests/SKILL.md"
+    },
+    {
+      "name": "perf-memory-tuning",
+      "description": "Techniques for reducing peak GPU memory in Megatron Bridge — expandable segments, parallelism resizing, activation recompute, CPU offloading constraints, and common OOM fixes.",
+      "path": "/Users/emirhan/.agents/skills/perf-memory-tuning/SKILL.md"
+    },
+    {
+      "name": "perf-moe-optimization-workflow",
+      "description": "Systematic workflow for MoE training optimization in Megatron Bridge, based on the Megatron-Core MoE paper. Covers the Three Walls framework, parallel folding, recompute strategy, dispatcher choice, and CUDA-graph bring-up.",
+      "path": "/Users/emirhan/.agents/skills/perf-moe-optimization-workflow/SKILL.md"
+    },
+    {
+      "name": "rag-blueprint",
+      "description": "\"NVIDIA RAG Blueprint — deploy, configure, troubleshoot, and manage. Handles any RAG action: deploy, install, start, enable, disable, toggle, change, configure, troubleshoot, debug, fix, shutdown, stop, or tear down any RAG feature or service (VLM, guardrails, query rewriting, models, search, ingestion, observability, summarization, and more).\"",
+      "path": "/Users/emirhan/.agents/skills/rag-blueprint/SKILL.md"
+    },
+    {
+      "name": "recipe-recommender",
+      "description": "Recommend and customize Megatron Bridge recipes for a user's model, GPU count, and training goal. Indexes library recipes (pretrain/SFT/PEFT) and performance recipes.",
+      "path": "/Users/emirhan/.agents/skills/recipe-recommender/SKILL.md"
+    },
+    {
+      "name": "release-cherry-pick",
+      "description": "Cherry-pick merged PRs labeled for a release branch into that branch, then open a PR and apply the cherry-pick-done label. Use when asked to \"cherry-pick PRs for release/X.Y.Z\", \"pick PRs to release branch\", or \"cherry-pick labeled PRs\".",
+      "path": "/Users/emirhan/.agents/skills/release-cherry-pick/SKILL.md"
+    },
+    {
+      "name": "report",
+      "description": "Produce video analysis reports by discovering the deployed VSS agent, querying POST /generate for a timestamped captioned summary of the clip, then formatting the agent reply as the standard Video Analysis Report markdown.",
+      "path": "/Users/emirhan/.agents/skills/report/SKILL.md"
+    },
+    {
+      "name": "respond-to-issue",
+      "description": "Research and draft a response to a GitHub issue or question from an external contributor.",
+      "path": "/Users/emirhan/.agents/skills/respond-to-issue/SKILL.md"
+    },
+    {
+      "name": "update-golden-values",
+      "description": "Refresh golden values from a GitHub Actions workflow run (failing-only or all jobs), score the change with average normalized relative differences, and produce a PR-ready summary. Use when the user asks to update goldens for a CI run, refresh golden values from a workflow ID, or generate a golden-value diff summary for a PR description.",
+      "path": "/Users/emirhan/.agents/skills/update-golden-values/SKILL.md"
+    },
+    {
+      "name": "video-analytics",
+      "description": "Query video analytics data and metrics from Elastic search via the VA-MCP server (port 9901). This includes incidents, alerts, sensor data, and metrics. Use for any question about violations, alerts, incidents, object counts, speeds, occupancy, or anything that requires looking up recorded events. This is the primary way to answer a question that requires incidents, alerts and other metrics such as people counts and violations.",
+      "path": "/Users/emirhan/.agents/skills/video-analytics/SKILL.md"
+    },
+    {
+      "name": "video-search",
+      "description": "Search video archives using natural language — find events, objects, actions, and people across recorded video using fusion search (Cosmos Embed1 semantic search + CV attribute search). Use when asked to search for something in video, find actions and events, locate objects and people, or query video archives. For these types of questions, default to this top-level fusion search unless user specifies otherwise. Requires the search profile to be deployed.",
+      "path": "/Users/emirhan/.agents/skills/video-search/SKILL.md"
+    },
+    {
+      "name": "vios",
+      "description": "\"Query VIOS REST APIs: sensor list, recording timelines, video clip extraction, snapshot capture, add/delete sensors and streams\"",
+      "path": "/Users/emirhan/.agents/skills/vios/SKILL.md"
+    },
+    {
+      "name": "adobe-create-social-variations",
+      "description": ">",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/adobe-for-creativity/1.0.2/skills/adobe-create-social-variations/SKILL.md"
+    },
+    {
+      "name": "replicate-content",
+      "description": "Use when publishing, unpublishing, replicating, or activating/deactivating content in AEM 6.5 LTS. Covers Quick Publish, Manage Publication, tree activation, bulk content activation, package replication, workflow-based approval, scheduled activation/deactivation (on/off time), dispatcher flush, and the programmatic Replication Java API for AEM publish instances.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-replication/replicate-content/SKILL.md"
+    },
+    {
+      "name": "aem-workflow",
+      "description": "|",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/SKILL.md"
+    },
+    {
+      "name": "workflow-debugging",
+      "description": "Debug AEM Workflow issues on AEM 6.5 LTS and AMS including stuck workflows, failed steps, missing Inbox tasks, launcher failures, stale instances, thread pool exhaustion, queue backlogs, purge failures, and permissions errors. Use when the user reports workflow problems on AEM 6.5 LTS or AMS, asks why a workflow is stuck or failed, needs step-by-step troubleshooting, or provides thread dumps, configuration status dumps, or Sling Job console output for analysis.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-debugging/SKILL.md"
+    },
+    {
+      "name": "workflow-development",
+      "description": "Implement custom AEM Workflow Java components on AEM 6.5 LTS. Use when writing WorkflowProcess steps, ParticipantStepChooser implementations, registering services via Felix SCR or DS R6 OSGi annotations, reading step arguments from MetaDataMap, accessing JCR payload via WorkflowSession adapter, reading and writing workflow metadata and variables, and handling errors with WorkflowException for retry behavior.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-development/SKILL.md"
+    },
+    {
+      "name": "workflow-launchers",
+      "description": "Configure and deploy Workflow Launchers that automatically start workflows in response to JCR content changes on AEM 6.5 LTS",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-launchers/SKILL.md"
+    },
+    {
+      "name": "workflow-model-design",
+      "description": "Design and create AEM Workflow models on AEM 6.5 LTS. Use when creating workflow models via the Workflow Model Editor or content package XML, defining step types (PROCESS, PARTICIPANT, DYNAMIC_PARTICIPANT, OR_SPLIT, AND_SPLIT), configuring step properties, declaring workflow variables, deploying to /etc or /conf, and syncing to /var/workflow/models via Package Manager or Maven.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-model-design/SKILL.md"
+    },
+    {
+      "name": "workflow-orchestrator",
+      "description": "Master entry point for all AEM Workflow tasks on AEM 6.5 LTS spanning development and production support",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-orchestrator/SKILL.md"
+    },
+    {
+      "name": "workflow-triaging",
+      "description": "Triage AEM Workflow issues on AEM 6.5 LTS and AMS by classifying symptoms, gathering the right logs and metrics, and mapping to runbooks or Splunk searches. Use when the user asks for workflow activity/errors on a 6.5 host, needs to classify a Jira ticket, or wants to know what to collect for workflow debugging.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-triaging/SKILL.md"
+    },
+    {
+      "name": "workflow-triggering",
+      "description": "Start AEM Workflows on AEM 6.5 LTS using all available triggering mechanisms. Use when starting workflows manually via the Timeline UI, programmatically via WorkflowSession.startWorkflow(), via the HTTP Workflow API, through Manage Publication, through replication triggers, or passing initial metadata and payload to a workflow instance.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/aem-workflow/workflow-triggering/SKILL.md"
+    },
+    {
+      "name": "incident-response",
+      "description": "Investigate and triage runtime incidents involving the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEM 6.5 LTS environments only, using runtime MCP evidence.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/dispatcher/incident-response/SKILL.md"
+    },
+    {
+      "name": "performance-tuning",
+      "description": "Optimize performance of the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration for AEM 6.5 / AMS workflows only, with AMS-specific baseline and runtime verification.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/dispatcher/performance-tuning/SKILL.md"
+    },
+    {
+      "name": "security-hardening",
+      "description": "Perform security audits for the Adobe Dispatcher Apache HTTP Server module and Apache HTTPD in AEM 6.5 / AMS workflows only, with AMS-specific hardening verification.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/dispatcher/security-hardening/SKILL.md"
+    },
+    {
+      "name": "technical-advisory",
+      "description": "Provide advisory guidance for the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEM 6.5 / AMS workflows only, with public-doc citations and AMS-specific MCP verification plans. Use for conceptual questions such as `statfileslevel`, filter rules, URL decomposition, cache invalidation behavior, rewrite behavior, and security headers.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/dispatcher/technical-advisory/SKILL.md"
+    },
+    {
+      "name": "workflow-orchestrator",
+      "description": "Orchestrate complete lifecycle work for the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEM 6.5 LTS, from design and implementation through validation, release readiness, and incident troubleshooting.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-6-5-lts/1.0.0/skills/dispatcher/workflow-orchestrator/SKILL.md"
+    },
+    {
+      "name": "aem-rde",
+      "description": "\"[BETA] Expert assistance for the Adobe I/O CLI plugin `@adobe/aio-cli-plugin-aem-rde` — the `aio aem rde` / `aio aem:rde` command tree used to deploy, inspect, log-tail, snapshot, and troubleshoot AEM Rapid Development Environments (RDEs). Activate ONLY when the user explicitly references RDE concepts: 'AEM RDE', 'Rapid Development Environment', `aio aem rde`, `aio aem:rde`, `aem-rde`, RDE snapshots, RDE deploy/install, `rde install`, `rde inspect`, `rde status`, `rde history`, `rde reset`, the `@adobe/aio-cli-plugin-aem-rde` package, or Cloud Manager program/environment configuration that is specifically for an RDE environment. Do NOT activate on generic AEMaaCS phrases like 'deploy to AEM Cloud', 'push my bundle', 'tail the publish log', 'cloud sandbox', or unqualified 'dispatcher-config / frontend / env-config deployments' — those belong to Cloud Manager pipelines, not RDE. This skill is in beta. Verify all outputs before applying them to production projects.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-rde/SKILL.md"
+    },
+    {
+      "name": "aem-workflow",
+      "description": "|",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/SKILL.md"
+    },
+    {
+      "name": "workflow-debugging",
+      "description": "Debug AEM Workflow issues on AEM as a Cloud Service including stuck workflows, failed steps, missing Inbox tasks, launcher failures, stale instances, thread pool exhaustion, queue backlogs, purge failures, and permissions errors. Use when the user reports workflow problems on Cloud Service, asks why a workflow is stuck or failed, needs step-by-step troubleshooting, or provides thread dumps, configuration output, or Sling Job console output for analysis.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-debugging/SKILL.md"
+    },
+    {
+      "name": "workflow-development",
+      "description": "Implement custom AEM Workflow Java components on AEM as a Cloud Service. Use when writing WorkflowProcess steps, ParticipantStepChooser implementations, registering services via OSGi DS R6 annotations, reading step arguments from MetaDataMap, accessing JCR payload via WorkflowSession adapter, reading and writing workflow metadata and variables, and handling errors with WorkflowException for retry behavior.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-development/SKILL.md"
+    },
+    {
+      "name": "workflow-launchers",
+      "description": "Configure and deploy Workflow Launchers that automatically start workflows in response to JCR content changes on AEM as a Cloud Service",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-launchers/SKILL.md"
+    },
+    {
+      "name": "workflow-model-design",
+      "description": "Design and create AEM Workflow models on AEM as a Cloud Service. Use when creating workflow models via the Workflow Model Editor or content package XML, defining step types (PROCESS, PARTICIPANT, DYNAMIC_PARTICIPANT, OR_SPLIT, AND_SPLIT), configuring step properties, declaring workflow variables, and deploying models through the Cloud Manager pipeline.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-model-design/SKILL.md"
+    },
+    {
+      "name": "workflow-orchestrator",
+      "description": "Master entry point for all AEM Workflow tasks on Cloud Service spanning development and production support",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-orchestrator/SKILL.md"
+    },
+    {
+      "name": "workflow-triaging",
+      "description": "Triage AEM Workflow issues on AEM as a Cloud Service by classifying symptoms, gathering the right logs and metrics, and mapping to runbooks or Splunk searches. Use when the user asks for workflow activity/errors on a Cloud Service host, needs to classify a Jira ticket, or wants to know what to collect for workflow debugging.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-triaging/SKILL.md"
+    },
+    {
+      "name": "workflow-triggering",
+      "description": "Start AEM Workflows on AEM as a Cloud Service using all available triggering mechanisms. Use when starting workflows manually via the Timeline UI, programmatically via WorkflowSession.startWorkflow(), via the HTTP Workflow API, through Manage Publication, or passing initial metadata and payload to a workflow instance.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/aem-workflow/workflow-triggering/SKILL.md"
+    },
+    {
+      "name": "replication",
+      "description": "\"Publish, deactivate, and delete AEM content programmatically via the Cloud Service Replication API (com.day.cq.replication). Covers single-path and bulk activation, preview-tier targeting with AgentFilter, synchronous/async options, ReplicationStatus checks, permission validation, workflow process steps, and replication event handling. Use when the user needs to publish pages, activate or deactivate content, check replication status, build workflow steps that replicate content, listen to replication events, query batch publication state, or work with Replicator, ReplicationOptions, or ReplicationStatusProvider in AEM Cloud Service.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/content-distribution/replication/SKILL.md"
+    },
+    {
+      "name": "incident-response",
+      "description": "Investigate and triage runtime incidents involving the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEM as a Cloud Service environments only, using runtime-backed MCP evidence.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/dispatcher/incident-response/SKILL.md"
+    },
+    {
+      "name": "performance-tuning",
+      "description": "Optimize performance of the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration for AEMaaCS cloud workflows only, with cloud-specific baseline and runtime verification.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/dispatcher/performance-tuning/SKILL.md"
+    },
+    {
+      "name": "security-hardening",
+      "description": "Perform security audits for the Adobe Dispatcher Apache HTTP Server module and Apache HTTPD in AEMaaCS cloud workflows only, with cloud-specific hardening verification.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/dispatcher/security-hardening/SKILL.md"
+    },
+    {
+      "name": "technical-advisory",
+      "description": "Provide advisory guidance for the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEMaaCS cloud workflows only, with public-doc citations and cloud-specific MCP verification plans. Use for conceptual questions such as `statfileslevel`, filter rules, URL decomposition, cache invalidation behavior, rewrite behavior, and security headers.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/dispatcher/technical-advisory/SKILL.md"
+    },
+    {
+      "name": "workflow-orchestrator",
+      "description": "Orchestrate complete lifecycle work for the Adobe Dispatcher Apache HTTP Server module and related HTTPD configuration in AEM as a Cloud Service, from design and implementation through validation, release readiness, and incident troubleshooting.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/dispatcher/workflow-orchestrator/SKILL.md"
+    },
+    {
+      "name": "migration",
+      "description": "Orchestrates legacy AEM (6.x, AMS, on-prem) to AEM as a Cloud Service migration using BPA CSV or cache, CAM/MCP target discovery, and one-pattern-per-session workflow. Use for BPA/CAM findings, Cloud Service blockers, or fixes for scheduler, ResourceChangeListener, replication, EventListener, OSGi EventHandler, DAM AssetManager, HTL data-sly-test lint. OSGi configs → Cloud Manager — scan ui.config, .cfg.json, secrets, $[secret:]/$[env:] — agent follows references/osgi-cfg-json-cloud-manager.md when prompted. Transformation steps live in the best-practices skill—read it and the right references/ modules before editing code.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-cloud-service/1.0.0/skills/migration/SKILL.md"
+    },
+    {
+      "name": "block-inventory",
+      "description": "Survey available blocks from local AEM Edge Delivery Services project and Block Collection to understand the block palette available for authoring. Returns block inventory with purposes to inform content modeling decisions.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/block-inventory/SKILL.md"
+    },
+    {
+      "name": "building-blocks",
+      "description": "Guide for implementing code changes in AEM Edge Delivery Services. Handles block development (new or modified), core functionality changes (scripts.js, styles, delayed.js, etc.), or both. Use this skill for all implementation work guided by the content-driven-development workflow.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/building-blocks/SKILL.md"
+    },
+    {
+      "name": "code-review",
+      "description": "Review code for AEM Edge Delivery Services projects. Use at the end of development (before PR) for self-review, or to review pull requests. Validates code quality, performance, accessibility, and adherence to EDS best practices.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/code-review/SKILL.md"
+    },
+    {
+      "name": "create-site",
+      "description": "Creates a new AEM Edge Delivery site from scratch — GitHub repo from the boilerplate, aem-code-sync installation, initial DA content (nav, footer, homepage), and a live preview URL. Use this skill whenever a user wants to create a new AEM Edge Delivery site and no repository or DA content exists yet.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/create-site/SKILL.md"
+    },
+    {
+      "name": "find-test-content",
+      "description": "Search for existing content pages containing a specific block in AEM Edge Delivery Services. Reports URLs with occurrences and variants to help identify test content during development.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/find-test-content/SKILL.md"
+    },
+    {
+      "name": "slicc-handoff",
+      "description": "Hand off the current task to the SLICC browser agent, or install a new skill into SLICC from a GitHub repo. Use this skill when the user says things like \"handoff to slicc\", \"move this to slicc\", \"move to the browser\", \"test in the browser\", \"handoff to browser\", \"install this skill in slicc\", \"upskill slicc with this repo\", \"add this skill to slicc\", or otherwise asks you to continue the work inside the SLICC browser agent.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/slicc-handoff/SKILL.md"
+    },
+    {
+      "name": "testing-blocks",
+      "description": "Guide for testing code changes in AEM Edge Delivery projects including blocks, scripts, and styles. Use this skill after making code changes and before opening a pull request to validate functionality. Covers unit testing for utilities and logic, browser testing with Playwright, linting, and guidance on what to test and how",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/aem-edge-delivery-services/1.0.0/skills/testing-blocks/SKILL.md"
+    },
+    {
+      "name": "appbuilder-action-scaffolder",
+      "description": "Create, implement, deploy, and debug Adobe Runtime actions with consistent layout, validation, and error handling. Use this skill whenever the user needs to add actions to an App Builder project, understand action structure (params, response format, web/raw actions), configure actions in the manifest, use App Builder SDKs (State, Files, Events, database), deploy and invoke actions via CLI, debug action issues, or implement patterns such as webhook receivers, custom event providers, journaling consumers, large payload redirects, action sequence pipelines, and Asset Compute workers. Also trigger when users mention serverless functions in Adobe context, action logging, IMS authentication for actions, or cron-style scheduled actions.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/app-builder/1.0.0/skills/appbuilder-action-scaffolder/SKILL.md"
+    },
+    {
+      "name": "appbuilder-cicd-pipeline",
+      "description": ">-",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/app-builder/1.0.0/skills/appbuilder-cicd-pipeline/SKILL.md"
+    },
+    {
+      "name": "appbuilder-project-init",
+      "description": "Initialize an Adobe App Builder project end-to-end without Developer Console UI clicks. Creates the Console project and workspace, subscribes APIs (including those needing a product profile), maps user intent to the right template, runs non-interactive `aio app init`, and guides post-init customization. Use whenever the user mentions creating an App Builder app, scaffolding a project, `aio app init`, setting up an Experience Cloud extension, adding actions or web assets, creating a Console project or workspace, adding APIs, or bootstrapping App Builder — even if they don't say \"App Builder\". Also for SPA templates, AEM extensions, API Mesh, Asset Compute workers, and MCP server projects. Also handles debugging init failures — template not found, `aio app init` hangs or times out, Node version mismatches, npm install failures, post-init build errors, `aio login` issues, `aio app run` showing nothing, or `aio console project create` / `workspace create` / `workspace api add` errors.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/app-builder/1.0.0/skills/appbuilder-project-init/SKILL.md"
+    },
+    {
+      "name": "direct",
+      "description": "Set a redesign direction for an existing website. Analyzes the user's intent, picks a palette and visual direction, and writes the target spec (PRODUCT.md, DESIGN.md, DESIGN.json) plus a reasoning trace at stardust/direction.md. Use when the user asks to redesign a site, refresh the design, set a new design direction, define a redesign target, or invokes /stardust:direct.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/direct/SKILL.md"
+    },
+    {
+      "name": "distill",
+      "description": "Analyze a set of design samples (HTML mockups + website URLs) and produce a structured style guide that anchors the rest of the stardust redesign pipeline. Use when the user supplies reference designs (\"design samples\", \"mockups\", \"inspiration sites\", \"style references\") and wants to extract a consistent visual language — type system, color palette, spacing, motion, and reusable component patterns — before redesigning a target site. Triggers on phrases like \"distill these samples\", \"extract a style guide from these examples\", \"use these as design references\", or \"analyze these mockups\". Outputs a `trait-matrix.json` (structured per-sample + cross-sample design tokens) and a `SAMPLES.md` narrative brief that `stardust:direct` reads under Mode B (anchor-reference precedence) when picking a redesign direction.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/distill/SKILL.md"
+    },
+    {
+      "name": "extract",
+      "description": "Crawl an existing website (capped, multi-page) and seed stardust/current/ with PRODUCT.md, DESIGN.md, DESIGN.json, a per-page inventory, and the consolidated brand surface.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/extract/SKILL.md"
+    },
+    {
+      "name": "migrate",
+      "description": "Apply DESIGN, canon, and modules to every page in the inventory, producing a deployable static HTML site. Three render branches (approved page, template-applied sibling, unique render). Per-page, incremental, idempotent, content-preserving by default.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/migrate/SKILL.md"
+    },
+    {
+      "name": "prototype",
+      "description": "Render a proposed redesign of a page on the current website as a self-contained static HTML file, then iterate via the impeccable craft loop. Per-page, idempotent, stale-aware. Use when the user asks for a redesign prototype, a before/after comparison, a design preview, a page mockup, a visual diff of the redesign, or invokes /stardust:prototype.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/prototype/SKILL.md"
+    },
+    {
+      "name": "stardust",
+      "description": "Redesign an existing website to make it better. Multi-page, incremental, reasoned in the open. Built on top of impeccable.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/stardust/SKILL.md"
+    },
+    {
+      "name": "uplift",
+      "description": "One-shot brand-faithful presales redesign of a website page. The user provides only the URL; everything else — extraction, tension identification, three differentiated variants (one fully cinematic), validation — is derived from the captured brand surface. Use when the user asks to \"uplift\", \"refresh\", or \"redesign a site for presales\" without wanting to coordinate the extract / direct / prototype chain themselves.",
+      "path": "/Users/emirhan/.codex/plugins/cache/adobe-skills/stardust/0.10.0/skills/uplift/SKILL.md"
+    },
+    {
+      "name": "airunway-aks-setup",
+      "description": "\"Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment. WHEN: \\\"setup AI Runway\\\", \\\"onboard AKS cluster\\\", \\\"install AI Runway\\\", \\\"airunway setup\\\", \\\"deploy model to AKS\\\", \\\"GPU inference on AKS\\\", \\\"KAITO setup on AKS\\\", \\\"run LLM on AKS\\\", \\\"vLLM on AKS\\\", \\\"set up model serving on AKS\\\", \\\"AI Runway controller\\\".\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/airunway-aks-setup/SKILL.md"
+    },
+    {
+      "name": "azure-aigateway",
+      "description": "\"Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, MCP rate limiting, jailbreak detection, add Azure OpenAI backend, add AI Foundry model, test AI gateway, LLM policies, configure AI backend, token metrics, AI cost control, convert API to MCP, import OpenAPI to gateway.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-aigateway/SKILL.md"
+    },
+    {
+      "name": "azure-compliance",
+      "description": "\"Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks. WHEN: compliance scan, security audit, BEFORE running azqr (compliance cli tool), Azure best practices, Key Vault expiration check, expired certificates, expiring secrets, orphaned resources, compliance assessment.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-compliance/SKILL.md"
+    },
+    {
+      "name": "azure-compute",
+      "description": "\"Azure VM and VMSS router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management. WHEN: Azure VM, VMSS, scale set, recommend, compare, server, website, burstable, lightweight, VM family, workload, GPU, learning, simulation, dev/test, backend, autoscale, load balancer, Flexible orchestration, Uniform orchestration, cost estimate, connect, refused, Linux, black screen, reset password, reach VM, port 3389, NSG, troubleshoot, capacity reservation, CRG, reserve VMs, guarantee capacity, pre-provision capacity, CRG association, CRG disassociation, essential machine management, EMM, machine enrollment.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-compute/SKILL.md"
+    },
+    {
+      "name": "azure-cost",
+      "description": "\"Unified Azure cost management: query historical costs, forecast future spending, and optimize to reduce waste. WHEN: \\\"Azure costs\\\", \\\"Azure spending\\\", \\\"Azure bill\\\", \\\"cost breakdown\\\", \\\"cost by service\\\", \\\"cost by resource\\\", \\\"how much am I spending\\\", \\\"show my bill\\\", \\\"monthly cost summary\\\", \\\"cost trends\\\", \\\"top cost drivers\\\", \\\"actual cost\\\", \\\"amortized cost\\\", \\\"forecast spending\\\", \\\"projected costs\\\", \\\"estimate bill\\\", \\\"future costs\\\", \\\"budget forecast\\\", \\\"end of month costs\\\", \\\"how much will I spend\\\", \\\"optimize costs\\\", \\\"reduce spending\\\", \\\"find cost savings\\\", \\\"orphaned resources\\\", \\\"rightsize VMs\\\", \\\"cost analysis\\\", \\\"reduce waste\\\", \\\"unused resources\\\", \\\"optimize Redis costs\\\", \\\"cost by tag\\\", \\\"cost by resource group\\\", \\\"AKS cost analysis add-on\\\", \\\"namespace cost\\\", \\\"cost spike\\\", \\\"anomaly\\\", \\\"budget alert\\\", \\\"AKS cost visibility\\\". DO NOT USE FOR: deploying resources, provisioning infrastructure, diagnostics, security audits, or estimating costs for new resources not yet deployed.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-cost/SKILL.md"
+    },
+    {
+      "name": "azure-deploy",
+      "description": "\"Execute Azure deployments for ALREADY-PREPARED applications that have existing .azure/deployment-plan.md and infrastructure files. DO NOT use this skill when the user asks to CREATE a new application — use azure-prepare instead. This skill runs azd up, azd deploy, terraform apply, and az deployment commands with built-in error recovery. Requires .azure/deployment-plan.md from azure-prepare and validated status from azure-validate. WHEN: \\\"run azd up\\\", \\\"run azd deploy\\\", \\\"execute deployment\\\", \\\"push to production\\\", \\\"push to cloud\\\", \\\"go live\\\", \\\"ship it\\\", \\\"bicep deploy\\\", \\\"terraform apply\\\", \\\"publish to Azure\\\", \\\"launch on Azure\\\". DO NOT USE WHEN: \\\"create and deploy\\\", \\\"build and deploy\\\", \\\"create a new app\\\", \\\"set up infrastructure\\\", \\\"create and deploy to Azure using Terraform\\\" — use azure-prepare for these.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-deploy/SKILL.md"
+    },
+    {
+      "name": "azure-diagnostics",
+      "description": "\"Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps, troubleshoot functions, troubleshoot AKS, kubectl cannot connect, kube-system/CoreDNS failures, pod pending, crashloop, node not ready, upgrade failures, analyze logs, KQL, insights, image pull failures, cold start issues, health probe failures, resource health, root cause of errors, troubleshoot event hubs, troubleshoot service bus, messaging SDK error, AMQP connection failure, message lock lost, service bus dead letter.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-diagnostics/SKILL.md"
+    },
+    {
+      "name": "azure-enterprise-infra-planner",
+      "description": "\"Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with WAF alignment. Generates Bicep or Terraform directly (no azd). WHEN: 'plan Azure infrastructure', 'architect Azure landing zone', 'design hub-spoke network', 'plan multi-region DR topology', 'set up VNets firewalls and private endpoints', 'subscription-scope Bicep deployment', 'Azure Backup for VM workloads'. PREFER azure-prepare FOR app-centric workflows.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-enterprise-infra-planner/SKILL.md"
+    },
+    {
+      "name": "azure-hosted-copilot-sdk",
+      "description": "\"Build, deploy, and modify GitHub Copilot SDK apps on Azure. MANDATORY when codebase contains @github/copilot-sdk or CopilotClient in package.json. PREFER OVER azure-prepare when copilot-sdk markers detected. WHEN: copilot SDK, @github/copilot-sdk, copilot-powered app, build copilot app, prepare copilot app, add feature to copilot app, modify copilot app, BYOM, bring your own model, CopilotClient, createSession, sendAndWait, azd init copilot. DO NOT USE FOR: deploying already-prepared copilot-sdk apps (use azure-deploy), general web apps without copilot SDK (use azure-prepare), Copilot Extensions, Foundry agents (use microsoft-foundry).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-hosted-copilot-sdk/SKILL.md"
+    },
+    {
+      "name": "azure-kubernetes",
+      "description": "\"Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS environment, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, rightsize AKS pod, AKS spot nodes, AKS cluster-autoscaler.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-kubernetes/SKILL.md"
+    },
+    {
+      "name": "azure-kubernetes-automatic-readiness",
+      "description": "\"Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md"
+    },
+    {
+      "name": "azure-prepare",
+      "description": "\"Prepare Azure apps for deployment (infra Bicep/Terraform, azure.yaml, Dockerfiles). Use for create/modernize or create+deploy; not cross-cloud migration (use azure-cloud-migrate). DO NOT USE FOR: copilot-sdk apps (use azure-hosted-copilot-sdk). WHEN: \\\"create app\\\", \\\"build web app\\\", \\\"create API\\\", \\\"create serverless HTTP API\\\", \\\"create frontend\\\", \\\"create back end\\\", \\\"build a service\\\", \\\"modernize application\\\", \\\"update application\\\", \\\"add authentication\\\", \\\"add caching\\\", \\\"host on Azure\\\", \\\"create and deploy\\\", \\\"deploy to Azure\\\", \\\"deploy to Azure using Terraform\\\", \\\"deploy to Azure App Service\\\", \\\"deploy to Azure App Service using Terraform\\\", \\\"deploy to Azure Container Apps\\\", \\\"deploy to Azure Container Apps using Terraform\\\", \\\"generate Terraform\\\", \\\"generate Bicep\\\", \\\"function app\\\", \\\"timer trigger\\\", \\\"service bus trigger\\\", \\\"event-driven function\\\", \\\"containerized Node.js app\\\", \\\"social media app\\\", \\\"static portfolio website\\\", \\\"todo list with frontend and API\\\", \\\"prepare my Azure application to use Key Vault\\\", \\\"managed identity\\\".\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-prepare/SKILL.md"
+    },
+    {
+      "name": "azure-quotas",
+      "description": "\"Check/manage Azure quotas and usage across providers. For deployment planning, capacity validation, region selection. WHEN: \\\"check quotas\\\", \\\"service limits\\\", \\\"current usage\\\", \\\"request quota increase\\\", \\\"quota exceeded\\\", \\\"validate capacity\\\", \\\"regional availability\\\", \\\"provisioning limits\\\", \\\"vCPU limit\\\", \\\"how many vCPUs available in my subscription\\\".\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-quotas/SKILL.md"
+    },
+    {
+      "name": "azure-reliability",
+      "description": "\"Assess and improve the reliability posture of Azure Functions: zone redundancy, ZRS storage, health probes, multi-region failover. Scans deployed resources, presents a feature-pivoted checklist, then drives staged remediation (CLI or IaC patches) end-to-end with user confirmation. WHEN: \\\"assess reliability\\\", \\\"check reliability\\\", \\\"zone redundant\\\", \\\"multi-region failover\\\", \\\"high availability\\\", \\\"disaster recovery\\\", \\\"single points of failure\\\", \\\"reliability posture\\\".\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-reliability/SKILL.md"
+    },
+    {
+      "name": "azure-resource-lookup",
+      "description": "\"List, find, and show Azure resources across subscriptions or resource groups. Handles prompts like \\\"list the websites in my subscription\\\", \\\"list my web apps\\\", \\\"show my app services\\\", \\\"list virtual machines\\\", \\\"list my VMs\\\", \\\"show storage accounts\\\", \\\"find container apps\\\", and \\\"what resources do I have\\\". USE FOR: list websites, list web apps, list app services, show websites in subscription, resource inventory, find resources by tag, tag analysis, orphaned resource discovery (not for cost analysis), unattached disks, count resources by type, cross-subscription lookup, and Azure Resource Graph queries. DO NOT USE FOR: deploying/changing resources (use azure-deploy), cost optimization (use azure-cost), or non-Azure clouds.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-resource-lookup/SKILL.md"
+    },
+    {
+      "name": "azure-upgrade",
+      "description": "\"Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code. WHEN: upgrade Consumption to Flex Consumption, upgrade Azure Functions plan, change hosting plan, function app SKU, migrate App Service to Container Apps, modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure), migrate Azure Cache for Redis (ACR/ACRE) to Azure Managed Redis (AMR).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-upgrade/SKILL.md"
+    },
+    {
+      "name": "azure-validate",
+      "description": "\"Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and prerequisites before deploying. WHEN: validate my app, check deployment readiness, run preflight checks, verify configuration, check if ready to deploy, validate azure.yaml, validate Bicep, test before deploying, troubleshoot deployment errors, validate Azure Functions, validate function app, validate serverless deployment, verify RBAC roles, check role assignments, review managed identity permissions, what-if analysis, validate Container Apps deployment.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/azure-validate/SKILL.md"
+    },
+    {
+      "name": "entra-agent-id",
+      "description": "\"Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configure OAuth 2.0 token exchange (fmi_path, OBO, cross-tenant) including the Microsoft Entra SDK for AgentID sidecar. USE FOR: Agent Identity Blueprint, BlueprintPrincipal, agent OAuth, fmi_path token exchange, agent OBO, Workload Identity Federation for agents, polyglot agent auth, Microsoft.Identity.Web.AgentIdentities. DO NOT USE FOR: standard Entra app registration (use entra-app-registration), Azure RBAC (use azure-rbac), Microsoft Foundry agent authoring (use microsoft-foundry).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/entra-agent-id/SKILL.md"
+    },
+    {
+      "name": "entra-app-registration",
+      "description": "\"Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Azure RBAC or role assignments (use azure-rbac), Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/entra-app-registration/SKILL.md"
+    },
+    {
+      "name": "microsoft-foundry",
+      "description": "\"Deploy, evaluate, and manage Foundry agents end-to-end: Docker build, ACR push, hosted/prompt agent create, container start, batch eval, continuous eval, prompt optimizer workflows, agent.yaml, dataset curation from traces. USE FOR: deploy agent to Foundry, hosted agent, create agent, invoke agent, evaluate agent, run batch eval, continuous eval, continuous monitoring, continuous eval status, optimize prompt, improve prompt, prompt optimizer, optimize agent instructions, improve agent instructions, optimize system prompt, deploy model, Foundry project, RBAC, role assignment, permissions, quota, capacity, region, troubleshoot agent, deployment failure, create dataset from traces, dataset versioning, eval trending, create AI Services, Cognitive Services, create Foundry resource, provision resource, knowledge index, agent monitoring, customize deployment, onboard, availability. DO NOT USE FOR: Azure Functions, App Service, general Azure deploy (use azure-deploy), general Azure prep (use azure-prepare).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/microsoft-foundry/SKILL.md"
+    },
+    {
+      "name": "deploy-model",
+      "description": "\"Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects. USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis. DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/azure-skills/azure/1.1.48/skills/microsoft-foundry/models/deploy-model/SKILL.md"
+    },
+    {
+      "name": "adobe-create-social-variations",
+      "description": ">",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/adobe-for-creativity/1.0.2/skills/adobe-create-social-variations/SKILL.md"
+    },
+    {
+      "name": "developing-agentforce",
+      "description": "\"Build, modify, debug, and deploy agents with Agentforce Agent Script. TRIGGER when: user creates, modifies, or asks about .agent files or aiAuthoringBundle metadata; changes agent behavior, responses, or conversation logic; designs agent actions, tools, subagents, or flow control; writes or reviews an Agent Spec; previews, debugs, deploys, publishes, or tests agents; uses Agent Script CLI commands (sf agent generate/preview/publish/test). DO NOT TRIGGER when: Apex development, Flow building, Prompt Template authoring, Experience Cloud configuration, or general Salesforce CLI tasks unrelated to Agent Script.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/agentforce-adlc/0.6.1/skills/developing-agentforce/SKILL.md"
+    },
+    {
+      "name": "observing-agentforce",
+      "description": "\"Analyze production Agentforce agent behavior using session traces and Data Cloud. TRIGGER when: user queries STDM session data or Data Cloud trace records; investigates production agent failures, regressions, or performance issues; asks about session traces, conversation logs, or agent metrics; wants to reproduce a reported production issue in preview; runs findSessions or trace analysis queries. DO NOT TRIGGER when: user creates, modifies, or debugs .agent files during development (use developing-agentforce); writes or runs test specs (use testing-agentforce); uses sf agent preview for local development iteration; deploys or publishes agents.\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/agentforce-adlc/0.6.1/skills/observing-agentforce/SKILL.md"
+    },
+    {
+      "name": "testing-agentforce",
+      "description": "\"Write, run, and analyze structured test suites for Agentforce agents. TRIGGER when: user writes or modifies test spec YAML (AiEvaluationDefinition); runs sf agent test create, run, run-eval, or results commands; asks about test coverage strategy, metric selection, or custom evaluations; interprets test results or diagnoses test failures; asks about batch testing, regression suites, or CI/CD test integration. DO NOT TRIGGER when: user creates, modifies, previews, or debugs .agent files (use developing-agentforce); deploys or publishes agents; writes Agent Script code; uses sf agent preview for development iteration; analyzes production session traces (use observing-agentforce).\"",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/agentforce-adlc/0.6.1/skills/testing-agentforce/SKILL.md"
+    },
+    {
+      "name": "aikido-issues",
+      "description": "List, count, summarize, or triage security issues from the Aikido security feed. Use when the user asks about Aikido findings, vulnerabilities, leaked secrets, SAST/IaC/SCA results, cloud or container security issues, or EOL/license/malware alerts surfaced by Aikido.",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/aikido/1.1.0/skills/issues/SKILL.md"
+    },
+    {
+      "name": "scan",
+      "description": "Runs an Aikido security scan on generated, added, or modified code files to detect SAST vulnerabilities and exposed secrets. Use when the user wants to scan code for security issues, after writing or modifying code, or when they mention Aikido, security scan, or SAST. Always run an Aikido scan after generating code to verify the generated code is free of security issues.",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/aikido/1.1.0/skills/scan/SKILL.md"
+    },
+    {
+      "name": "setup",
+      "description": "Configures the Aikido plugin by setting up the API key and verifying the MCP server. Accepts an optional API key argument to configure automatically. Use when the user wants to set up or verify the Aikido plugin, after installing it, or when aikido_full_scan fails or is unavailable.",
+      "path": "/Users/emirhan/.codex/plugins/cache/claude-plugins-official/aikido/1.1.0/skills/setup/SKILL.md"
+    }
+  ],
+  "note": "Skill inventory is for routing. Do not invoke unrelated skills just to consume them; use only those that match the active task."
+}

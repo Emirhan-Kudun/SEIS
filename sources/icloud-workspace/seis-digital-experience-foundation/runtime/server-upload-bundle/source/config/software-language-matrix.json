@@ -1,0 +1,1614 @@
+{
+  "version": "1.0.0",
+  "branchPolicy": {
+    "mode": "polyglot-foundation",
+    "principle": "Support many software languages through governed roles, not dependency bloat.",
+    "defaultRuntime": "node-fullstack",
+    "promotionRule": "A language can move from reference to runtime only after a small contract, quality check, and rollback note exist."
+  },
+  "requiredCategories": ["frontend", "backend", "scripting", "systems", "data", "governance"],
+  "languages": [
+    {
+      "id": "html",
+      "label": "HTML",
+      "category": "frontend",
+      "status": "active",
+      "role": "semantic public structure, accessibility landmarks, SEO metadata"
+    },
+    {
+      "id": "css",
+      "label": "CSS",
+      "category": "frontend",
+      "status": "active",
+      "role": "responsive layout, calm visual system, reduced-motion behavior"
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript",
+      "category": "frontend",
+      "status": "active",
+      "role": "progressive enhancement, interaction safety, static UX behavior"
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "category": "frontend",
+      "status": "active",
+      "role": "Next.js UX foundation, typed UI architecture, content contracts"
+    },
+    {
+      "id": "nodejs",
+      "label": "Node.js",
+      "category": "backend",
+      "status": "active",
+      "role": "dependency-light local API runtime and quality scripts"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "category": "backend",
+      "status": "legacy-compatible",
+      "role": "static-host contact fallback and shared hosting compatibility"
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "category": "scripting",
+      "status": "prepared",
+      "role": "future content tooling, archive analysis, data preparation"
+    },
+    {
+      "id": "java",
+      "label": "Java",
+      "category": "backend",
+      "status": "reference",
+      "role": "future enterprise integration reference lane"
+    },
+    {
+      "id": "cpp",
+      "label": "C++",
+      "category": "systems",
+      "status": "reference",
+      "role": "performance and native systems reference lane"
+    },
+    {
+      "id": "csharp",
+      "label": "C Sharp",
+      "category": "backend",
+      "status": "reference",
+      "role": ".NET and enterprise application reference lane"
+    },
+    {
+      "id": "bash",
+      "label": "Bash",
+      "category": "scripting",
+      "status": "active",
+      "role": "bounded local automation and handoff scripts"
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "category": "data",
+      "status": "planned",
+      "role": "future database and content model query layer"
+    },
+    {
+      "id": "json",
+      "label": "JSON",
+      "category": "governance",
+      "status": "active",
+      "role": "manifests, contracts, handoff metadata, data portability"
+    },
+    {
+      "id": "yaml",
+      "label": "YAML",
+      "category": "governance",
+      "status": "prepared",
+      "role": "CI, workflow, and infrastructure declaration lane"
+    },
+    {
+      "id": "go",
+      "label": "Go",
+      "category": "backend",
+      "status": "reference",
+      "role": "future small service, CLI, and deployment utility lane"
+    },
+    {
+      "id": "rust",
+      "label": "Rust",
+      "category": "systems",
+      "status": "reference",
+      "role": "future safe systems, performance, and WebAssembly-adjacent lane"
+    },
+    {
+      "id": "wat",
+      "label": "WebAssembly Text",
+      "category": "systems",
+      "status": "reference",
+      "role": "future portable low-level module readiness reference lane"
+    },
+    {
+      "id": "ruby",
+      "label": "Ruby",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future content tooling and readable automation lane"
+    },
+    {
+      "id": "swift",
+      "label": "Swift",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Apple platform interface reference lane"
+    },
+    {
+      "id": "kotlin",
+      "label": "Kotlin",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Android and JVM interface reference lane"
+    },
+    {
+      "id": "dart",
+      "label": "Dart",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Flutter-style UI model reference lane"
+    },
+    {
+      "id": "r",
+      "label": "R",
+      "category": "data",
+      "status": "reference",
+      "role": "future analytics, reporting, and research-data lane"
+    },
+    {
+      "id": "lua",
+      "label": "Lua",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future embeddable automation and lightweight runtime lane"
+    },
+    {
+      "id": "elixir",
+      "label": "Elixir",
+      "category": "backend",
+      "status": "reference",
+      "role": "future fault-tolerant realtime application reference lane"
+    },
+    {
+      "id": "scala",
+      "label": "Scala",
+      "category": "data",
+      "status": "reference",
+      "role": "future data platform and typed functional backend lane"
+    },
+    {
+      "id": "hcl",
+      "label": "HCL",
+      "category": "governance",
+      "status": "reference",
+      "role": "future infrastructure-as-code declaration lane"
+    },
+    {
+      "id": "markdown",
+      "label": "Markdown",
+      "category": "governance",
+      "status": "active",
+      "role": "documentation, handoff, design rationale, and review narrative lane"
+    },
+    {
+      "id": "graphql",
+      "label": "GraphQL",
+      "category": "governance",
+      "status": "reference",
+      "role": "future typed API contract and schema exploration lane"
+    },
+    {
+      "id": "openapi",
+      "label": "OpenAPI",
+      "category": "governance",
+      "status": "reference",
+      "role": "future REST contract and server handoff documentation lane"
+    },
+    {
+      "id": "jsonschema",
+      "label": "JSON Schema",
+      "category": "data",
+      "status": "reference",
+      "role": "future machine-readable content and readiness validation lane"
+    },
+    {
+      "id": "protobuf",
+      "label": "Protocol Buffers",
+      "category": "data",
+      "status": "reference",
+      "role": "future compact service message contract lane"
+    },
+    {
+      "id": "asyncapi",
+      "label": "AsyncAPI",
+      "category": "governance",
+      "status": "reference",
+      "role": "future event contract and async handoff lane"
+    },
+    {
+      "id": "avro",
+      "label": "Avro",
+      "category": "data",
+      "status": "reference",
+      "role": "future analytics and event data schema lane"
+    },
+    {
+      "id": "toml",
+      "label": "TOML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future human-readable configuration contract lane"
+    },
+    {
+      "id": "xml",
+      "label": "XML",
+      "category": "data",
+      "status": "reference",
+      "role": "future enterprise interchange and sitemap-adjacent contract lane"
+    },
+    {
+      "id": "csv",
+      "label": "CSV",
+      "category": "data",
+      "status": "reference",
+      "role": "future tabular operations handoff and reporting lane"
+    },
+    {
+      "id": "ini",
+      "label": "INI",
+      "category": "governance",
+      "status": "reference",
+      "role": "future legacy configuration and simple ops handoff lane"
+    },
+    {
+      "id": "jsonld",
+      "label": "JSON-LD",
+      "category": "data",
+      "status": "reference",
+      "role": "future semantic metadata and linked-data readiness lane"
+    },
+    {
+      "id": "turtle",
+      "label": "Turtle",
+      "category": "data",
+      "status": "reference",
+      "role": "future RDF graph and semantic contract lane"
+    },
+    {
+      "id": "sparql",
+      "label": "SPARQL",
+      "category": "data",
+      "status": "reference",
+      "role": "future semantic query and knowledge validation lane"
+    },
+    {
+      "id": "mermaid",
+      "label": "Mermaid",
+      "category": "governance",
+      "status": "reference",
+      "role": "future lightweight architecture diagram handoff lane"
+    },
+    {
+      "id": "plantuml",
+      "label": "PlantUML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future enterprise architecture diagram handoff lane"
+    },
+    {
+      "id": "make",
+      "label": "Make",
+      "category": "governance",
+      "status": "reference",
+      "role": "future portable build recipe handoff lane"
+    },
+    {
+      "id": "cmake",
+      "label": "CMake",
+      "category": "systems",
+      "status": "reference",
+      "role": "future native build configuration readiness lane"
+    },
+    {
+      "id": "taskfile",
+      "label": "Taskfile",
+      "category": "governance",
+      "status": "reference",
+      "role": "future cross-platform task-runner handoff lane"
+    },
+    {
+      "id": "rego",
+      "label": "Rego",
+      "category": "governance",
+      "status": "reference",
+      "role": "future policy-as-code release gate lane"
+    },
+    {
+      "id": "cel",
+      "label": "CEL",
+      "category": "governance",
+      "status": "reference",
+      "role": "future portable expression policy lane"
+    },
+    {
+      "id": "jsonnet",
+      "label": "Jsonnet",
+      "category": "governance",
+      "status": "reference",
+      "role": "future composable configuration generation lane"
+    },
+    {
+      "id": "dhall",
+      "label": "Dhall",
+      "category": "governance",
+      "status": "reference",
+      "role": "future typed configuration policy lane"
+    },
+    {
+      "id": "starlark",
+      "label": "Starlark",
+      "category": "governance",
+      "status": "reference",
+      "role": "future build-system extension policy lane"
+    },
+    {
+      "id": "kdl",
+      "label": "KDL",
+      "category": "governance",
+      "status": "reference",
+      "role": "future human-readable structured configuration lane"
+    },
+    {
+      "id": "meson",
+      "label": "Meson",
+      "category": "systems",
+      "status": "reference",
+      "role": "future modern native build handoff lane"
+    },
+    {
+      "id": "just",
+      "label": "Just",
+      "category": "governance",
+      "status": "reference",
+      "role": "future developer task recipe handoff lane"
+    },
+    {
+      "id": "nix",
+      "label": "Nix",
+      "category": "governance",
+      "status": "reference",
+      "role": "future reproducible environment policy lane"
+    },
+    {
+      "id": "hocon",
+      "label": "HOCON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future service configuration handoff lane"
+    },
+    {
+      "id": "properties",
+      "label": "Java Properties",
+      "category": "governance",
+      "status": "reference",
+      "role": "future JVM-era configuration handoff lane"
+    },
+    {
+      "id": "dotenv",
+      "label": "dotenv",
+      "category": "governance",
+      "status": "reference",
+      "role": "future environment-style runtime configuration lane"
+    },
+    {
+      "id": "powershell",
+      "label": "PowerShell",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future Windows and cloud-ops scripting handoff lane"
+    },
+    {
+      "id": "batch",
+      "label": "Batch",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future Windows legacy command handoff lane"
+    },
+    {
+      "id": "zsh",
+      "label": "Zsh",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future macOS shell automation handoff lane"
+    },
+    {
+      "id": "c",
+      "label": "C",
+      "category": "systems",
+      "status": "reference",
+      "role": "future portable systems-level readiness contract lane"
+    },
+    {
+      "id": "objectivec",
+      "label": "Objective-C",
+      "category": "systems",
+      "status": "reference",
+      "role": "future Apple native interoperability readiness lane"
+    },
+    {
+      "id": "zig",
+      "label": "Zig",
+      "category": "systems",
+      "status": "reference",
+      "role": "future small systems and WebAssembly-adjacent readiness lane"
+    },
+    {
+      "id": "ada",
+      "label": "Ada",
+      "category": "systems",
+      "status": "reference",
+      "role": "future high-integrity systems readiness lane"
+    },
+    {
+      "id": "pascal",
+      "label": "Pascal",
+      "category": "systems",
+      "status": "reference",
+      "role": "future classic application and teaching readiness lane"
+    },
+    {
+      "id": "fortran",
+      "label": "Fortran",
+      "category": "data",
+      "status": "reference",
+      "role": "future scientific and legacy numerical readiness lane"
+    },
+    {
+      "id": "cobol",
+      "label": "COBOL",
+      "category": "backend",
+      "status": "reference",
+      "role": "future enterprise legacy transaction readiness lane"
+    },
+    {
+      "id": "abap",
+      "label": "ABAP",
+      "category": "backend",
+      "status": "reference",
+      "role": "future ERP integration readiness lane"
+    },
+    {
+      "id": "plsql",
+      "label": "PL/SQL",
+      "category": "data",
+      "status": "reference",
+      "role": "future Oracle database procedure readiness lane"
+    },
+    {
+      "id": "tsql",
+      "label": "T-SQL",
+      "category": "data",
+      "status": "reference",
+      "role": "future SQL Server query and procedure readiness lane"
+    },
+    {
+      "id": "cypher",
+      "label": "Cypher",
+      "category": "data",
+      "status": "reference",
+      "role": "future graph database relationship query readiness lane"
+    },
+    {
+      "id": "datalog",
+      "label": "Datalog",
+      "category": "data",
+      "status": "reference",
+      "role": "future logic-query and rules readiness lane"
+    },
+    {
+      "id": "groovy",
+      "label": "Groovy",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future JVM scripting and build automation readiness lane"
+    },
+    {
+      "id": "clojure",
+      "label": "Clojure",
+      "category": "backend",
+      "status": "reference",
+      "role": "future functional backend and data transformation readiness lane"
+    },
+    {
+      "id": "haskell",
+      "label": "Haskell",
+      "category": "systems",
+      "status": "reference",
+      "role": "future typed functional architecture readiness lane"
+    },
+    {
+      "id": "erlang",
+      "label": "Erlang",
+      "category": "backend",
+      "status": "reference",
+      "role": "future fault-tolerant actor runtime readiness lane"
+    },
+    {
+      "id": "ocaml",
+      "label": "OCaml",
+      "category": "systems",
+      "status": "reference",
+      "role": "future typed functional tooling readiness lane"
+    },
+    {
+      "id": "fsharp",
+      "label": "F#",
+      "category": "backend",
+      "status": "reference",
+      "role": "future .NET functional application readiness lane"
+    },
+    {
+      "id": "scheme",
+      "label": "Scheme",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future minimal functional teaching and tooling readiness lane"
+    },
+    {
+      "id": "racket",
+      "label": "Racket",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future language-oriented DSL and education readiness lane"
+    },
+    {
+      "id": "prolog",
+      "label": "Prolog",
+      "category": "data",
+      "status": "reference",
+      "role": "future logic programming and rule reasoning readiness lane"
+    },
+    {
+      "id": "nim",
+      "label": "Nim",
+      "category": "systems",
+      "status": "reference",
+      "role": "future efficient systems scripting readiness lane"
+    },
+    {
+      "id": "crystal",
+      "label": "Crystal",
+      "category": "backend",
+      "status": "reference",
+      "role": "future Ruby-like compiled service readiness lane"
+    },
+    {
+      "id": "vlang",
+      "label": "V",
+      "category": "systems",
+      "status": "reference",
+      "role": "future compact systems application readiness lane"
+    },
+    {
+      "id": "qml",
+      "label": "QML",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future declarative cross-platform UI readiness lane"
+    },
+    {
+      "id": "glsl",
+      "label": "GLSL",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future WebGL shader and cinematic rendering readiness lane"
+    },
+    {
+      "id": "wgsl",
+      "label": "WGSL",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future WebGPU shader and adaptive rendering readiness lane"
+    },
+    {
+      "id": "scss",
+      "label": "SCSS",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future design-token stylesheet readiness lane"
+    },
+    {
+      "id": "less",
+      "label": "Less",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future lightweight stylesheet variable readiness lane"
+    },
+    {
+      "id": "stylus",
+      "label": "Stylus",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future expressive stylesheet prototyping readiness lane"
+    },
+    {
+      "id": "liquid",
+      "label": "Liquid",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future CMS and commerce template readiness lane"
+    },
+    {
+      "id": "handlebars",
+      "label": "Handlebars",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future semantic template partial readiness lane"
+    },
+    {
+      "id": "mustache",
+      "label": "Mustache",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future logic-light template handoff readiness lane"
+    },
+    {
+      "id": "vue",
+      "label": "Vue SFC",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future progressive component surface readiness lane"
+    },
+    {
+      "id": "svelte",
+      "label": "Svelte",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future compiled component interaction readiness lane"
+    },
+    {
+      "id": "astro",
+      "label": "Astro",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future content-first island architecture readiness lane"
+    },
+    {
+      "id": "mdx",
+      "label": "MDX",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future editorial component documentation readiness lane"
+    },
+    {
+      "id": "ejs",
+      "label": "EJS",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future server-rendered template readiness lane"
+    },
+    {
+      "id": "pug",
+      "label": "Pug",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future concise semantic template readiness lane"
+    },
+    {
+      "id": "jinja",
+      "label": "Jinja",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Python-adjacent server template readiness lane"
+    },
+    {
+      "id": "nunjucks",
+      "label": "Nunjucks",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future JavaScript template inheritance readiness lane"
+    },
+    {
+      "id": "twig",
+      "label": "Twig",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future PHP-adjacent CMS template readiness lane"
+    },
+    {
+      "id": "blade",
+      "label": "Blade",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Laravel template handoff readiness lane"
+    },
+    {
+      "id": "erb",
+      "label": "ERB",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Ruby server template readiness lane"
+    },
+    {
+      "id": "haml",
+      "label": "Haml",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future concise Ruby template readiness lane"
+    },
+    {
+      "id": "jsx",
+      "label": "JSX",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future JavaScript component markup readiness lane"
+    },
+    {
+      "id": "tsx",
+      "label": "TSX",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future typed component markup readiness lane"
+    },
+    {
+      "id": "webc",
+      "label": "WebC",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future HTML component publishing readiness lane"
+    },
+    {
+      "id": "xaml",
+      "label": "XAML",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future enterprise desktop UI markup readiness lane"
+    },
+    {
+      "id": "fxml",
+      "label": "FXML",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future JavaFX UI layout readiness lane"
+    },
+    {
+      "id": "razor",
+      "label": "Razor",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future ASP.NET component template readiness lane"
+    },
+    {
+      "id": "dockerfile",
+      "label": "Dockerfile",
+      "category": "governance",
+      "status": "reference",
+      "role": "future container packaging readiness lane"
+    },
+    {
+      "id": "bicep",
+      "label": "Bicep",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Azure infrastructure handoff readiness lane"
+    },
+    {
+      "id": "helm",
+      "label": "Helm",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Kubernetes release template readiness lane"
+    },
+    {
+      "id": "cue",
+      "label": "CUE",
+      "category": "governance",
+      "status": "reference",
+      "role": "future schema-first configuration readiness lane"
+    },
+    {
+      "id": "pkl",
+      "label": "Pkl",
+      "category": "governance",
+      "status": "reference",
+      "role": "future typed configuration handoff readiness lane"
+    },
+    {
+      "id": "nickel",
+      "label": "Nickel",
+      "category": "governance",
+      "status": "reference",
+      "role": "future programmable configuration readiness lane"
+    },
+    {
+      "id": "promql",
+      "label": "PromQL",
+      "category": "data",
+      "status": "reference",
+      "role": "future metrics observability query readiness lane"
+    },
+    {
+      "id": "logql",
+      "label": "LogQL",
+      "category": "data",
+      "status": "reference",
+      "role": "future log observability query readiness lane"
+    },
+    {
+      "id": "flux",
+      "label": "Flux",
+      "category": "data",
+      "status": "reference",
+      "role": "future time-series data transformation readiness lane"
+    },
+    {
+      "id": "jq",
+      "label": "jq",
+      "category": "data",
+      "status": "reference",
+      "role": "future JSON stream transformation readiness lane"
+    },
+    {
+      "id": "jsonpath",
+      "label": "JSONPath",
+      "category": "data",
+      "status": "reference",
+      "role": "future JSON selection expression readiness lane"
+    },
+    {
+      "id": "jsonata",
+      "label": "JSONata",
+      "category": "data",
+      "status": "reference",
+      "role": "future JSON transformation expression readiness lane"
+    },
+    {
+      "id": "xpath",
+      "label": "XPath",
+      "category": "data",
+      "status": "reference",
+      "role": "future XML selection expression readiness lane"
+    },
+    {
+      "id": "xquery",
+      "label": "XQuery",
+      "category": "data",
+      "status": "reference",
+      "role": "future XML query and extraction readiness lane"
+    },
+    {
+      "id": "xslt",
+      "label": "XSLT",
+      "category": "data",
+      "status": "reference",
+      "role": "future XML transformation handoff readiness lane"
+    },
+    {
+      "id": "dot",
+      "label": "Graphviz DOT",
+      "category": "data",
+      "status": "reference",
+      "role": "future information architecture graph readiness lane"
+    },
+    {
+      "id": "vega",
+      "label": "Vega",
+      "category": "data",
+      "status": "reference",
+      "role": "future declarative data visualization runtime readiness lane"
+    },
+    {
+      "id": "vegalite",
+      "label": "Vega-Lite",
+      "category": "data",
+      "status": "reference",
+      "role": "future concise analytics visualization readiness lane"
+    },
+    {
+      "id": "thrift",
+      "label": "Thrift",
+      "category": "backend",
+      "status": "reference",
+      "role": "future cross-language RPC contract readiness lane"
+    },
+    {
+      "id": "flatbuffers",
+      "label": "FlatBuffers",
+      "category": "backend",
+      "status": "reference",
+      "role": "future low-latency binary schema readiness lane"
+    },
+    {
+      "id": "capnp",
+      "label": "Cap'n Proto",
+      "category": "backend",
+      "status": "reference",
+      "role": "future capability-oriented RPC schema readiness lane"
+    },
+    {
+      "id": "smithy",
+      "label": "Smithy",
+      "category": "backend",
+      "status": "reference",
+      "role": "future service model contract readiness lane"
+    },
+    {
+      "id": "raml",
+      "label": "RAML",
+      "category": "backend",
+      "status": "reference",
+      "role": "future REST API blueprint readiness lane"
+    },
+    {
+      "id": "wsdl",
+      "label": "WSDL",
+      "category": "backend",
+      "status": "reference",
+      "role": "future legacy SOAP service contract readiness lane"
+    },
+    {
+      "id": "webidl",
+      "label": "WebIDL",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future browser API interface contract readiness lane"
+    },
+    {
+      "id": "asn1",
+      "label": "ASN.1",
+      "category": "backend",
+      "status": "reference",
+      "role": "future telecom and binary protocol schema readiness lane"
+    },
+    {
+      "id": "midl",
+      "label": "MIDL",
+      "category": "systems",
+      "status": "reference",
+      "role": "future COM and native interface contract readiness lane"
+    },
+    {
+      "id": "julia",
+      "label": "Julia",
+      "category": "data",
+      "status": "reference",
+      "role": "future scientific computing and AI analytics readiness lane"
+    },
+    {
+      "id": "matlab",
+      "label": "MATLAB",
+      "category": "data",
+      "status": "reference",
+      "role": "future technical computing and simulation readiness lane"
+    },
+    {
+      "id": "sas",
+      "label": "SAS",
+      "category": "data",
+      "status": "reference",
+      "role": "future enterprise analytics and regulated reporting readiness lane"
+    },
+    {
+      "id": "tex",
+      "label": "TeX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future durable technical publishing readiness lane"
+    },
+    {
+      "id": "bibtex",
+      "label": "BibTeX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future citation and research bibliography readiness lane"
+    },
+    {
+      "id": "typst",
+      "label": "Typst",
+      "category": "governance",
+      "status": "reference",
+      "role": "future modern technical publishing readiness lane"
+    },
+    {
+      "id": "tlaplus",
+      "label": "TLA+",
+      "category": "governance",
+      "status": "reference",
+      "role": "future distributed systems specification readiness lane"
+    },
+    {
+      "id": "alloy",
+      "label": "Alloy",
+      "category": "governance",
+      "status": "reference",
+      "role": "future lightweight formal model readiness lane"
+    },
+    {
+      "id": "coq",
+      "label": "Coq",
+      "category": "governance",
+      "status": "reference",
+      "role": "future proof-oriented correctness readiness lane"
+    },
+    {
+      "id": "lean",
+      "label": "Lean",
+      "category": "governance",
+      "status": "reference",
+      "role": "future theorem proving and verified specification readiness lane"
+    },
+    {
+      "id": "agda",
+      "label": "Agda",
+      "category": "governance",
+      "status": "reference",
+      "role": "future dependent type proof readiness lane"
+    },
+    {
+      "id": "isabelle",
+      "label": "Isabelle",
+      "category": "governance",
+      "status": "reference",
+      "role": "future higher-order logic proof readiness lane"
+    },
+    {
+      "id": "gettext",
+      "label": "Gettext PO",
+      "category": "governance",
+      "status": "reference",
+      "role": "future localization message catalog readiness lane"
+    },
+    {
+      "id": "xliff",
+      "label": "XLIFF",
+      "category": "governance",
+      "status": "reference",
+      "role": "future translation interchange readiness lane"
+    },
+    {
+      "id": "resx",
+      "label": "RESX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future platform resource localization readiness lane"
+    },
+    {
+      "id": "owl",
+      "label": "OWL",
+      "category": "data",
+      "status": "reference",
+      "role": "future ontology and semantic knowledge readiness lane"
+    },
+    {
+      "id": "shacl",
+      "label": "SHACL",
+      "category": "data",
+      "status": "reference",
+      "role": "future semantic graph constraint validation readiness lane"
+    },
+    {
+      "id": "rdfxml",
+      "label": "RDF/XML",
+      "category": "data",
+      "status": "reference",
+      "role": "future RDF interchange and metadata preservation readiness lane"
+    },
+    {
+      "id": "cloudformation",
+      "label": "CloudFormation",
+      "category": "governance",
+      "status": "reference",
+      "role": "future AWS infrastructure declaration readiness lane"
+    },
+    {
+      "id": "ansible",
+      "label": "Ansible Playbook",
+      "category": "governance",
+      "status": "reference",
+      "role": "future configuration automation readiness lane"
+    },
+    {
+      "id": "kustomize",
+      "label": "Kustomize",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Kubernetes overlay readiness lane"
+    },
+    {
+      "id": "github-actions",
+      "label": "GitHub Actions",
+      "category": "governance",
+      "status": "reference",
+      "role": "future GitHub CI delivery workflow readiness lane"
+    },
+    {
+      "id": "gitlab-ci",
+      "label": "GitLab CI",
+      "category": "governance",
+      "status": "reference",
+      "role": "future GitLab CI delivery workflow readiness lane"
+    },
+    {
+      "id": "circleci",
+      "label": "CircleCI",
+      "category": "governance",
+      "status": "reference",
+      "role": "future CircleCI delivery workflow readiness lane"
+    },
+    {
+      "id": "spdx",
+      "label": "SPDX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future software bill of materials and license governance readiness lane"
+    },
+    {
+      "id": "cyclonedx",
+      "label": "CycloneDX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future supply-chain component inventory readiness lane"
+    },
+    {
+      "id": "sarif",
+      "label": "SARIF",
+      "category": "governance",
+      "status": "reference",
+      "role": "future static-analysis results interchange readiness lane"
+    },
+    {
+      "id": "slsa",
+      "label": "SLSA Provenance",
+      "category": "governance",
+      "status": "reference",
+      "role": "future build provenance and release integrity readiness lane"
+    },
+    {
+      "id": "in-toto",
+      "label": "in-toto Attestation",
+      "category": "governance",
+      "status": "reference",
+      "role": "future signed supply-chain attestation readiness lane"
+    },
+    {
+      "id": "openvex",
+      "label": "OpenVEX",
+      "category": "governance",
+      "status": "reference",
+      "role": "future vulnerability exploitability exchange readiness lane"
+    },
+    {
+      "id": "opentelemetry",
+      "label": "OpenTelemetry",
+      "category": "governance",
+      "status": "reference",
+      "role": "future observability pipeline configuration readiness lane"
+    },
+    {
+      "id": "openmetrics",
+      "label": "OpenMetrics",
+      "category": "data",
+      "status": "reference",
+      "role": "future metrics exposition and monitoring handoff readiness lane"
+    },
+    {
+      "id": "grafana-dashboard",
+      "label": "Grafana Dashboard",
+      "category": "governance",
+      "status": "reference",
+      "role": "future dashboard observability handoff readiness lane"
+    },
+    {
+      "id": "gherkin",
+      "label": "Gherkin",
+      "category": "governance",
+      "status": "reference",
+      "role": "future behavior-driven acceptance specification readiness lane"
+    },
+    {
+      "id": "pact",
+      "label": "Pact",
+      "category": "governance",
+      "status": "reference",
+      "role": "future consumer-provider contract testing readiness lane"
+    },
+    {
+      "id": "junit-xml",
+      "label": "JUnit XML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future test result interchange and CI quality handoff readiness lane"
+    },
+    {
+      "id": "lcov",
+      "label": "LCOV",
+      "category": "governance",
+      "status": "reference",
+      "role": "future line coverage report handoff readiness lane"
+    },
+    {
+      "id": "cobertura",
+      "label": "Cobertura XML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future XML coverage report handoff readiness lane"
+    },
+    {
+      "id": "clover",
+      "label": "Clover XML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future coverage metrics interchange readiness lane"
+    },
+    {
+      "id": "postman",
+      "label": "Postman Collection",
+      "category": "governance",
+      "status": "reference",
+      "role": "future API exploration and handoff collection readiness lane"
+    },
+    {
+      "id": "insomnia",
+      "label": "Insomnia Export",
+      "category": "governance",
+      "status": "reference",
+      "role": "future API workspace export readiness lane"
+    },
+    {
+      "id": "bruno",
+      "label": "Bruno Collection",
+      "category": "governance",
+      "status": "reference",
+      "role": "future file-based API collection readiness lane"
+    },
+    {
+      "id": "har",
+      "label": "HTTP Archive",
+      "category": "data",
+      "status": "reference",
+      "role": "future API traffic capture and performance trace readiness lane"
+    },
+    {
+      "id": "rest-client",
+      "label": "REST Client HTTP",
+      "category": "governance",
+      "status": "reference",
+      "role": "future plain-text API request handoff readiness lane"
+    },
+    {
+      "id": "httpie",
+      "label": "HTTPie",
+      "category": "governance",
+      "status": "reference",
+      "role": "future human-readable API command handoff readiness lane"
+    },
+    {
+      "id": "sitemap-xml",
+      "label": "Sitemap XML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future search indexing and discoverability readiness lane"
+    },
+    {
+      "id": "robots-txt",
+      "label": "Robots.txt",
+      "category": "governance",
+      "status": "reference",
+      "role": "future crawler policy and search governance readiness lane"
+    },
+    {
+      "id": "rss-feed",
+      "label": "RSS Feed",
+      "category": "governance",
+      "status": "reference",
+      "role": "future syndicated content and editorial feed readiness lane"
+    },
+    {
+      "id": "security-txt",
+      "label": "Security.txt",
+      "category": "governance",
+      "status": "reference",
+      "role": "future coordinated vulnerability disclosure and security contact readiness lane"
+    },
+    {
+      "id": "ads-txt",
+      "label": "Ads.txt",
+      "category": "governance",
+      "status": "reference",
+      "role": "future advertising authorization and monetization transparency readiness lane"
+    },
+    {
+      "id": "humans-txt",
+      "label": "Humans.txt",
+      "category": "governance",
+      "status": "reference",
+      "role": "future authorship, stewardship, and team attribution readiness lane"
+    },
+    {
+      "id": "web-app-manifest",
+      "label": "Web App Manifest",
+      "category": "governance",
+      "status": "reference",
+      "role": "future installability, app identity, and PWA metadata readiness lane"
+    },
+    {
+      "id": "browserconfig",
+      "label": "Browserconfig",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Windows tile metadata and legacy browser integration readiness lane"
+    },
+    {
+      "id": "assetlinks",
+      "label": "Digital Asset Links",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Android app-link verification and platform trust readiness lane"
+    },
+    {
+      "id": "axe-json",
+      "label": "axe JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future accessibility audit evidence and WCAG regression readiness lane"
+    },
+    {
+      "id": "pa11y-json",
+      "label": "Pa11y JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future accessibility crawl report and inclusive QA readiness lane"
+    },
+    {
+      "id": "lighthouse-json",
+      "label": "Lighthouse JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future performance, accessibility, SEO, and best-practice audit readiness lane"
+    },
+    {
+      "id": "osv-json",
+      "label": "OSV JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future open-source vulnerability evidence and dependency risk readiness lane"
+    },
+    {
+      "id": "npm-audit-json",
+      "label": "npm audit JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Node dependency audit report and remediation queue readiness lane"
+    },
+    {
+      "id": "dependabot-alerts-json",
+      "label": "Dependabot Alerts JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future GitHub dependency alert intake and triage readiness lane"
+    },
+    {
+      "id": "gitleaks-json",
+      "label": "Gitleaks JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future secret scanning evidence and credential exposure triage readiness lane"
+    },
+    {
+      "id": "trivy-json",
+      "label": "Trivy JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future filesystem, container, and infrastructure vulnerability report readiness lane"
+    },
+    {
+      "id": "grype-json",
+      "label": "Grype JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future SBOM vulnerability matching and dependency exposure readiness lane"
+    },
+    {
+      "id": "license-checker-json",
+      "label": "License Checker JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future package license inventory and policy review readiness lane"
+    },
+    {
+      "id": "scancode-json",
+      "label": "ScanCode JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future source license, copyright, and compliance evidence readiness lane"
+    },
+    {
+      "id": "ort-json",
+      "label": "OSS Review Toolkit JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future open-source review, advisor, and evaluator report readiness lane"
+    },
+    {
+      "id": "zap-json",
+      "label": "OWASP ZAP JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future dynamic application security testing evidence readiness lane"
+    },
+    {
+      "id": "nuclei-json",
+      "label": "Nuclei JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future template-based exposure finding and web surface triage readiness lane"
+    },
+    {
+      "id": "burp-xml",
+      "label": "Burp Suite XML",
+      "category": "governance",
+      "status": "reference",
+      "role": "future proxy-assisted web security issue export readiness lane"
+    },
+    {
+      "id": "openapi-diff-json",
+      "label": "OpenAPI Diff JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future API contract drift and breaking-change evidence readiness lane"
+    },
+    {
+      "id": "schemathesis-json",
+      "label": "Schemathesis JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future API property-test and schema fuzzing report readiness lane"
+    },
+    {
+      "id": "dredd-json",
+      "label": "Dredd JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future API contract test execution and endpoint conformance readiness lane"
+    },
+    {
+      "id": "sentry-issue-json",
+      "label": "Sentry Issue JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future application error triage and incident evidence readiness lane"
+    },
+    {
+      "id": "datadog-monitor-json",
+      "label": "Datadog Monitor JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future service monitor and alert threshold evidence readiness lane"
+    },
+    {
+      "id": "alertmanager-json",
+      "label": "Alertmanager JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future alert routing and incident notification evidence readiness lane"
+    },
+    {
+      "id": "checkov-json",
+      "label": "Checkov JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future infrastructure policy scan and IaC compliance evidence readiness lane"
+    },
+    {
+      "id": "tfsec-json",
+      "label": "tfsec JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Terraform security finding and cloud misconfiguration evidence readiness lane"
+    },
+    {
+      "id": "terrascan-json",
+      "label": "Terrascan JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future policy-as-code violation and infrastructure risk evidence readiness lane"
+    },
+    {
+      "id": "dpia-json",
+      "label": "DPIA JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future data protection impact assessment and privacy risk evidence readiness lane"
+    },
+    {
+      "id": "consent-ledger-json",
+      "label": "Consent Ledger JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future consent state, purpose, and withdrawal evidence readiness lane"
+    },
+    {
+      "id": "retention-policy-json",
+      "label": "Retention Policy JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future data retention window and deletion review evidence readiness lane"
+    },
+    {
+      "id": "design-tokens-json",
+      "label": "Design Tokens JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future cross-platform design token handoff and visual system evidence readiness lane"
+    },
+    {
+      "id": "style-dictionary-json",
+      "label": "Style Dictionary JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future token transformation inventory and platform export evidence readiness lane"
+    },
+    {
+      "id": "figma-tokens-json",
+      "label": "Figma Tokens JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future Figma-to-code token parity and design handoff evidence readiness lane"
+    },
+    {
+      "id": "lottie-json",
+      "label": "Lottie JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future lightweight motion asset handoff and animation review evidence readiness lane"
+    },
+    {
+      "id": "motion-spec-json",
+      "label": "Motion Spec JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future cinematic motion timing, easing, and restraint evidence readiness lane"
+    },
+    {
+      "id": "reduced-motion-json",
+      "label": "Reduced Motion JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future reduced-motion fallback and accessibility motion evidence readiness lane"
+    },
+    {
+      "id": "release-readiness-json",
+      "label": "Release Readiness JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future release gate status and go-no-go evidence readiness lane"
+    },
+    {
+      "id": "rollback-plan-json",
+      "label": "Rollback Plan JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future rollback path, owner, and recovery proof evidence readiness lane"
+    },
+    {
+      "id": "change-impact-json",
+      "label": "Change Impact JSON",
+      "category": "governance",
+      "status": "reference",
+      "role": "future scope risk and impacted-surface evidence readiness lane"
+    }
+  ],
+  "qualityGates": [
+    "node scripts/software-language-matrix-check.cjs",
+    "node scripts/polyglot-foundation-check.cjs",
+    "node scripts/fullstack-preflight.cjs",
+    "npm run publish:preflight"
+  ]
+}

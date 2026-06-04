@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-operations-readiness.mjs",
+  "generatedAt": "2026-06-01T09:16:32.928Z",
+  "mission": "SEIS-M008",
+  "purpose": "Expose SEIS operations readiness across GitHub, server upload, cloud environment, MCP runtime, and connector governance.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "data/seis/deployment-readiness.json",
+      "data/seis/mcp-runtime-readiness.json",
+      "data/seis/mcp-skill-connector-registry.json",
+      "data/seis/mission-control.json"
+    ]
+  },
+  "summary": {
+    "status": "ready-with-blockers",
+    "commandCount": 5,
+    "blockerCount": 4,
+    "githubServerSynced": true,
+    "serverUploadReady": false,
+    "cloudReady": true,
+    "mcpTotalItems": 215,
+    "mcpBlockedAuthItems": 40,
+    "mcpPermissionGatedItems": 16,
+    "connectorSurfaceCount": 11,
+    "connectorSurfaceStates": {
+      "active": 2,
+      "guarded": 4,
+      "guarded-auth-ready-transport-limited": 1,
+      "active-read-only": 1,
+      "blocked-until-target-and-rollback": 1,
+      "permission-gated": 1,
+      "blocked-until-business-mission": 1
+    }
+  },
+  "commandDeck": [
+    {
+      "id": "github-server-sync",
+      "label": "GitHub server sync",
+      "status": "ready",
+      "ownerAgent": "governance-agent",
+      "detail": "Local branch and GitHub server branch are aligned in the latest deployment snapshot."
+    },
+    {
+      "id": "server-upload-gate",
+      "label": "Server upload gate",
+      "status": "blocked",
+      "ownerAgent": "security-agent",
+      "detail": "Server upload remains blocked until UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH are supplied outside the repository."
+    },
+    {
+      "id": "mcp-runtime-snapshot",
+      "label": "MCP runtime snapshot",
+      "status": "ready",
+      "ownerAgent": "automation-agent",
+      "detail": "215 MCP entries are visible, with 40 auth-blocked and 16 permission-gated."
+    },
+    {
+      "id": "connector-surface-discipline",
+      "label": "Connector surface discipline",
+      "status": "guarded",
+      "ownerAgent": "security-agent",
+      "detail": "6 high-risk surfaces remain guarded by read-only-first, auth, rollback, or explicit mission checks."
+    },
+    {
+      "id": "single-active-mission",
+      "label": "Single active mission",
+      "status": "ready",
+      "ownerAgent": "automation-agent",
+      "detail": "Current mission is SEIS-M009: SEIS Connector Readiness Matrix."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "deployment:server-missing-environment-variable-uix-upload-host",
+      "surface": "deployment",
+      "detail": "server: missing environment variable: UIX_UPLOAD_HOST"
+    },
+    {
+      "id": "deployment:server-missing-environment-variable-uix-upload-user",
+      "surface": "deployment",
+      "detail": "server: missing environment variable: UIX_UPLOAD_USER"
+    },
+    {
+      "id": "deployment:server-missing-environment-variable-uix-upload-path",
+      "surface": "deployment",
+      "detail": "server: missing environment variable: UIX_UPLOAD_PATH"
+    },
+    {
+      "id": "registry:github-app-connector",
+      "surface": "connector-runtime",
+      "detail": "Read-only GitHub connector inspection returned a ChatGPT app transport handshake failure."
+    }
+  ],
+  "nextActions": [
+    "Run npm run quality:seis before each protected push.",
+    "Use mission-routed connector activation instead of blanket MCP invocation.",
+    "Provide UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH outside the repo before real server upload.",
+    "Keep GitHub delivery on UIXAppTTR and avoid direct main/master writes."
+  ]
+}

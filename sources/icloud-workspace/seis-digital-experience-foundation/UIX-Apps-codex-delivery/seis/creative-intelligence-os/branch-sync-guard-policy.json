@@ -1,0 +1,23 @@
+{
+  "policy": "branch-sync-guard",
+  "branch": "codex/premium-local-foundation",
+  "goal": "Confirm publish readiness without repeated network retries or heavy validation loops.",
+  "low_power": true,
+  "publish_gates": [
+    "clean working tree",
+    "origin push preflight",
+    "origin branch reachable",
+    "bounded push attempt",
+    "post-push ahead state cleared"
+  ],
+  "preflight_command": "node scripts/origin-push-preflight.cjs",
+  "failure_posture": {
+    "retry_loop": false,
+    "preserve_local_commits": true,
+    "report_environment_blocker": true
+  },
+  "local_integrity": {
+    "commits_are_progress": true,
+    "remote_publish_requires_confirmation": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "ReadinessSignal: Vega-Lite analytics visualization lane stays dependency-light.",
+  "data": {
+    "values": [
+      {
+        "lane": "vegalite",
+        "status": "reference",
+        "score": 129,
+        "reducedMotionSafe": true,
+        "runtimeWeight": "dependency-light"
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": { "field": "lane", "type": "nominal" },
+    "y": { "field": "score", "type": "quantitative" },
+    "color": { "field": "status", "type": "nominal" }
+  }
+}

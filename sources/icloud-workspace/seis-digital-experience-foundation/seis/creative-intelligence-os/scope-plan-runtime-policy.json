@@ -1,0 +1,27 @@
+{
+  "policy": "scope-plan-runtime",
+  "branch": "UIXAppTTR",
+  "runtime_mode": "jsonl",
+  "database_required": false,
+  "new_dependencies": false,
+  "public_endpoint": "/api/scope-plans",
+  "admin_endpoint": "/api/admin/scope-plans",
+  "signals": [
+    "delivery model",
+    "complexity profile",
+    "maintenance mode",
+    "focus areas"
+  ],
+  "result_shape": [
+    "score",
+    "level",
+    "recommendation",
+    "phases",
+    "operational notes"
+  ],
+  "rollback_safety": {
+    "scoped_commit": true,
+    "storage_isolated": true,
+    "admin_auth_reused": true
+  }
+}

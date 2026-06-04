@@ -1,0 +1,32 @@
+{
+  "policy": "branch-hardening-low-power",
+  "branch": "codex/premium-local-foundation",
+  "protected_branches": ["main", "master"],
+  "operating_mode": "low-power",
+  "runtime_safe": true,
+  "new_dependencies": false,
+  "quality_floor": [
+    "git status --short --branch",
+    "node scripts/branch-governance-check.js",
+    "node scripts/local-quality-gate.js",
+    "git diff --check"
+  ],
+  "heavy_checks_require_reason": [
+    "production build",
+    "dev server",
+    "browser automation",
+    "Docker workflows",
+    "dependency install"
+  ],
+  "publish_guards": [
+    "clean tree confirmation",
+    "origin head awareness",
+    "bounded push attempt",
+    "post-push origin confirmation"
+  ],
+  "commit_policy": {
+    "scope": "single-purpose",
+    "rollback_ready": true,
+    "publish_requires_origin_confirmation": true
+  }
+}

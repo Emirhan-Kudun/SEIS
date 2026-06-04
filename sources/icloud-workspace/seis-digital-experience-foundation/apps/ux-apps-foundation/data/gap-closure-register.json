@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "gaps": 6,
+    "ready": 2,
+    "watch": 2,
+    "blocked": 2,
+    "mode": "small-reversible-slices"
+  },
+  "gaps": [
+    {
+      "id": "github-auth-publication",
+      "label": "GitHub publication authentication",
+      "status": "blocked",
+      "priority": "P0",
+      "surface": "shipment",
+      "impact": "Remote GitHub mirror cannot be completed until gh auth is configured.",
+      "nextAction": "Run publish preflight after authentication is available and push only when clean.",
+      "closureMetric": "GitHub server HEAD matches local UIXAppTTR after one authenticated push.",
+      "qualityCommands": [
+        "npm run publish:preflight",
+        "npm run check:github-server-sync"
+      ],
+      "rollback": "Keep local commits preserved in iCloud and do not retry push loops."
+    },
+    {
+      "id": "visual-runtime-evidence",
+      "label": "Visual runtime evidence",
+      "status": "watch",
+      "priority": "P2",
+      "surface": "motion",
+      "impact": "Heavy cinematic mode has static checks but still needs bounded browser evidence.",
+      "nextAction": "Run a visual smoke check only when Browser or Playwright is available.",
+      "closureMetric": "Desktop and mobile screenshots show nonblank hero canvas, stable layout, and visible reduced-motion fallback.",
+      "qualityCommands": [
+        "npm run check:browser-fallback",
+        "npm run ux:quality"
+      ],
+      "rollback": "Keep heavy mode optional and reduced-motion aware."
+    },
+    {
+      "id": "mobile-performance-pass",
+      "label": "Mobile performance pass",
+      "status": "watch",
+      "priority": "P1",
+      "surface": "mobile",
+      "impact": "Heavy animation is clamped for compact devices but still needs real-device review.",
+      "nextAction": "Review touch feedback, section reveal density, and canvas particle budget on mobile.",
+      "closureMetric": "Compact devices default to balanced motion and all interactive cards keep stable dimensions.",
+      "qualityCommands": [
+        "npm run ux:quality",
+        "npm run check:efficiency-mode"
+      ],
+      "rollback": "Default compact devices to balanced motion."
+    },
+    {
+      "id": "accessibility-motion-regression",
+      "label": "Accessibility motion regression",
+      "status": "ready",
+      "priority": "P1",
+      "surface": "accessibility",
+      "impact": "Reduced-motion and motion equivalence must stay visible after cinematic changes.",
+      "nextAction": "Add checks and UI signals whenever motion tokens change.",
+      "closureMetric": "Motion, accessibility affordance, and experience scorecard contracts all pass after animation changes.",
+      "qualityCommands": [
+        "npm run ux:quality",
+        "npm run check:cinematic-depth"
+      ],
+      "rollback": "Disable motion intensity effects through reduced-motion CSS and JS guards."
+    },
+    {
+      "id": "server-target-credentials",
+      "label": "Server target credentials",
+      "status": "blocked",
+      "priority": "P0",
+      "surface": "server",
+      "impact": "Upload or deployment cannot run until target host, user, and path are explicit.",
+      "nextAction": "Keep server handoff in planning mode until credentials are provided.",
+      "closureMetric": "Server target profile receives explicit host, user, and safe path without hardcoded secrets.",
+      "qualityCommands": [
+        "npm run check:server-target",
+        "npm run server-upload:dry-run"
+      ],
+      "rollback": "Ship local and iCloud artifacts only."
+    },
+    {
+      "id": "polyglot-lane-drift",
+      "label": "Polyglot lane drift",
+      "status": "ready",
+      "priority": "P1",
+      "surface": "governance",
+      "impact": "New language lanes must update matrix, manifest, starter files, checks, and docs together.",
+      "nextAction": "Use the polyglot checker before and after every language-lane change.",
+      "closureMetric": "Software language matrix count, manifest count, source starters, and docs stay in parity.",
+      "qualityCommands": [
+        "npm run check:software-languages",
+        "npm run check:polyglot-foundation"
+      ],
+      "rollback": "Revert the whole lane bundle if any contract layer is missing."
+    }
+  ],
+  "rules": [
+    "Each gap must include impact, nextAction, and rollback.",
+    "Each gap must include priority, closureMetric, and at least one quality command.",
+    "Blocked gaps must stop before secrets, credentials, or remote pushes.",
+    "Ready gaps can become one small reversible implementation slice.",
+    "Watch gaps need evidence before heavier runtime work."
+  ]
+}

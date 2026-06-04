@@ -1,0 +1,12 @@
+{
+  "tool": "lighthouse",
+  "type": "ReadinessSignal",
+  "requestedUrl": "https://uix-apps.local/",
+  "categories": {
+    "performance": { "score": null },
+    "accessibility": { "score": null },
+    "best-practices": { "score": null },
+    "seo": { "score": null }
+  },
+  "notes": "Dependency-light placeholder for future audit report ingestion."
+}

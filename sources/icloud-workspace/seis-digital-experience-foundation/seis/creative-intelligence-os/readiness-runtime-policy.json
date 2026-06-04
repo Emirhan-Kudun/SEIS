@@ -1,0 +1,27 @@
+{
+  "policy": "readiness-runtime",
+  "branch": "UIXAppTTR",
+  "runtime_mode": "jsonl",
+  "database_required": false,
+  "new_dependencies": false,
+  "public_endpoint": "/api/readiness",
+  "admin_endpoint": "/api/admin/readiness",
+  "signals": [
+    "project stage",
+    "content readiness",
+    "design readiness",
+    "integration readiness",
+    "launch window"
+  ],
+  "result_shape": [
+    "score",
+    "level",
+    "recommendation",
+    "next actions"
+  ],
+  "rollback_safety": {
+    "scoped_commit": true,
+    "storage_isolated": true,
+    "admin_auth_reused": true
+  }
+}

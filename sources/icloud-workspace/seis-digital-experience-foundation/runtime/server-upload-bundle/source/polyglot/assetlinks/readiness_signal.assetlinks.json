@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "web",
+      "site": "https://uix-apps.local"
+    },
+    "comment": "ReadinessSignal: Asset Links lane stays dependency-light until Android app verification is required."
+  }
+]

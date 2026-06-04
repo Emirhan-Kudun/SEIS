@@ -1,0 +1,12 @@
+{
+  "tool": "nuclei",
+  "type": "ReadinessSignal",
+  "templateId": "readiness-signal",
+  "matchedAt": "https://uix-apps.local",
+  "info": {
+    "severity": "info",
+    "name": "Readiness signal placeholder"
+  },
+  "results": [],
+  "notes": "Dependency-light placeholder for future template-based exposure evidence."
+}

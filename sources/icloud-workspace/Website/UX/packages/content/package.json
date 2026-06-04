@@ -1,0 +1,12 @@
+{
+  "name": "@seis/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./decision-questions": "./src/decision-questions.ts",
+    "./design-system": "./src/design-system.ts",
+    "./data": "./src/data.json"
+  }
+}

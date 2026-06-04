@@ -1,0 +1,38 @@
+{
+  "notion": {
+    "enabled": false,
+    "runLogPageOrDatabaseId": ""
+  },
+  "linear": {
+    "enabled": false,
+    "teamIdOrProjectId": ""
+  },
+  "github": {
+    "enabled": false,
+    "repositoryFullName": ""
+  },
+  "slack": {
+    "enabled": false,
+    "channelIdOrName": ""
+  },
+  "approvalGate": {
+    "dualApprovalRequired": true,
+    "sources": ["notion", "github"],
+    "approvalExpiryDays": 14,
+    "staleSuggestedDays": 10
+  },
+  "sla": {
+    "p95MsThreshold": 8000,
+    "failRateThreshold": 0.05
+  },
+  "reporting": {
+    "detailLevel": "detailed-audit",
+    "timezone": "Europe/Istanbul"
+  },
+  "schedules": {
+    "dailyCore": "FREQ=DAILY;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+    "weeklyTrend": "FREQ=WEEKLY;BYDAY=FR;BYHOUR=18;BYMINUTE=0;BYSECOND=0",
+    "monthlySweep": "FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+    "quarterlyAudit": "FREQ=MONTHLY;INTERVAL=3;BYMONTHDAY=7;BYHOUR=9;BYMINUTE=0;BYSECOND=0"
+  }
+}

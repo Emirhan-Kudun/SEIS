@@ -1,0 +1,93 @@
+{
+  "system": "SEIS Full Stack Multilingual Planning",
+  "branch_alignment": "codex/premium-local-foundation",
+  "runtime_safe": true,
+  "modifies_main_site": false,
+  "planning_only": false,
+  "locales": [
+    "tr",
+    "en",
+    "fr",
+    "it",
+    "de"
+  ],
+  "status_model": [
+    "planned",
+    "approved",
+    "implemented",
+    "deferred",
+    "rejected"
+  ],
+  "current_sources": {
+    "static_runtime": "index.html, style.css, script.js, translations.json",
+    "fullstack_runtime": "server.mjs",
+    "next_foundation": "apps/seis-nextjs-foundation",
+    "static_i18n": "translations.json",
+    "next_i18n": "apps/seis-nextjs-foundation/lib/site-i18n.ts"
+  },
+  "implemented_surfaces": [
+    "apps/seis-nextjs-foundation/lib/multilingual-planning.ts",
+    "apps/seis-nextjs-foundation/app/api/multilingual-planning/route.ts",
+    "apps/seis-nextjs-foundation/app/multilingual-planning/page.tsx",
+    "apps/seis-nextjs-foundation/components/features/spatial/spatial-preview-panel.tsx"
+  ],
+  "runtime_safety": {
+    "default_spatial_state": "manual",
+    "webgl_on_initial_load": false,
+    "reduced_motion_fallback": true,
+    "local_build_required_for_review": false
+  },
+  "planned_tracks": [
+    {
+      "id": "multilingual-foundation",
+      "status": "planned",
+      "priority": "high",
+      "goal": "Unify static and Next locale behavior without breaking current public site."
+    },
+    {
+      "id": "content-case-study-system",
+      "status": "planned",
+      "priority": "high",
+      "goal": "Create structured localized project and case study content."
+    },
+    {
+      "id": "contact-submission-operations",
+      "status": "planned",
+      "priority": "medium",
+      "goal": "Keep contact stable while planning private submission review."
+    },
+    {
+      "id": "admin-planning-surface",
+      "status": "deferred",
+      "priority": "medium",
+      "goal": "Plan draft editing and translation coverage before adding auth."
+    },
+    {
+      "id": "observability-quality-reports",
+      "status": "planned",
+      "priority": "medium",
+      "goal": "Track i18n coverage, accessibility continuity, and release readiness."
+    },
+    {
+      "id": "cinematic-enhancement-layer",
+      "status": "deferred",
+      "priority": "low",
+      "goal": "Add motion and spatial enhancements only after locale and content stability."
+    }
+  ],
+  "approval_gates": [
+    "locale impact review",
+    "accessibility acceptance criteria",
+    "seo and hreflang mapping",
+    "data ownership note",
+    "rollback path",
+    "local performance budget"
+  ],
+  "hard_limits": [
+    "no production rewrite from planning artifacts",
+    "no auth system before data ownership is defined",
+    "no new database before content model is approved",
+    "no analytics that creates attention extraction",
+    "no heavy local workflow by default"
+  ]
+}

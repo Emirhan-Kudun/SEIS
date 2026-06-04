@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-deployment-readiness.mjs",
+  "generatedAt": "2026-06-01T08:25:51.928Z",
+  "mission": "SEIS-M007",
+  "source": {
+    "secretsStored": false,
+    "capturedFields": [
+      "branch",
+      "remote",
+      "commit-sha",
+      "auth-readiness",
+      "server-env-presence",
+      "cloud-actions",
+      "mcp-summary"
+    ],
+    "commands": [
+      "git branch --show-current",
+      "git status --short --branch",
+      "git rev-parse HEAD",
+      "git rev-parse origin/UIXAppTTR",
+      "git ls-remote origin refs/heads/UIXAppTTR",
+      "gh auth status -h github.com"
+    ]
+  },
+  "policy": {
+    "branchOnly": true,
+    "targetBranch": "UIXAppTTR",
+    "mainPushAllowed": false,
+    "serverUploadRequiresExplicitEnvironment": true,
+    "blanketMcpInvocationAllowed": false
+  },
+  "github": {
+    "expectedBranch": "UIXAppTTR",
+    "branch": "UIXAppTTR",
+    "expectedRemote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "localHead": "6c5e5b30805ebd129dd1cce2efcebced3b9972a1",
+    "trackingHead": "6c5e5b30805ebd129dd1cce2efcebced3b9972a1",
+    "githubHead": "6c5e5b30805ebd129dd1cce2efcebced3b9972a1",
+    "cleanWorkingTree": false,
+    "ahead": 0,
+    "behind": 0,
+    "authReady": true,
+    "workflowScopeReady": true,
+    "pushReady": false,
+    "syncReady": true,
+    "blockers": [
+      "working tree has uncommitted changes"
+    ]
+  },
+  "serverUpload": {
+    "targetId": "configured-server",
+    "method": "rsync",
+    "bundleDirectory": "runtime/server-upload-bundle/source",
+    "bundleFileCount": 266,
+    "requiredEnvironment": [
+      {
+        "name": "UIX_UPLOAD_HOST",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_USER",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_PATH",
+        "present": false
+      }
+    ],
+    "bundleReady": true,
+    "dryRunReady": true,
+    "executeReady": false,
+    "blockers": [
+      "missing environment variable: UIX_UPLOAD_HOST",
+      "missing environment variable: UIX_UPLOAD_USER",
+      "missing environment variable: UIX_UPLOAD_PATH"
+    ]
+  },
+  "cloudEnvironment": {
+    "id": "seis-cloud-uixappttr",
+    "branch": "UIXAppTTR",
+    "setupScript": "bash scripts/codex-cloud-setup.sh",
+    "internetAccess": "off-by-default",
+    "actions": [
+      {
+        "id": "seis-quality",
+        "command": "npm run quality:seis",
+        "writes": false
+      },
+      {
+        "id": "fullstack-quality",
+        "command": "npm run quality:fullstack",
+        "writes": false
+      },
+      {
+        "id": "publish-preflight",
+        "command": "npm run publish:preflight",
+        "writes": false
+      },
+      {
+        "id": "deployment-readiness",
+        "command": "npm run check:seis-deployment-readiness",
+        "writes": false
+      },
+      {
+        "id": "server-upload-dry-run",
+        "command": "npm run server-upload:dry-run",
+        "writes": false
+      }
+    ],
+    "requiredChecks": [
+      "npm run quality:seis",
+      "npm run quality:fullstack",
+      "npm run check:seis-deployment-readiness",
+      "npm run publish:preflight",
+      "npm run server-upload:dry-run"
+    ],
+    "ready": true,
+    "blockers": []
+  },
+  "mcpRuntime": {
+    "mission": "SEIS-M006",
+    "totalItems": 194,
+    "mappedItems": 192,
+    "blockedAuthItems": 33,
+    "permissionGatedItems": 13,
+    "snapshotReady": true
+  },
+  "summary": {
+    "pushReady": false,
+    "githubServerSynced": true,
+    "serverUploadReady": false,
+    "cloudReady": true,
+    "mcpSnapshotReady": true,
+    "blockers": [
+      "github: working tree has uncommitted changes",
+      "server: missing environment variable: UIX_UPLOAD_HOST",
+      "server: missing environment variable: UIX_UPLOAD_USER",
+      "server: missing environment variable: UIX_UPLOAD_PATH"
+    ]
+  }
+}

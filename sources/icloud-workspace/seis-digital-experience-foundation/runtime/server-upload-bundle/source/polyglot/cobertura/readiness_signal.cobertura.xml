@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ReadinessSignal: Cobertura XML coverage lane stays dependency-light. -->
+<coverage line-rate="1.0" branch-rate="1.0" version="reference" timestamp="0">
+  <sources>
+    <source>polyglot/cobertura</source>
+  </sources>
+  <packages>
+    <package name="ReadinessSignal" line-rate="1.0" branch-rate="1.0">
+      <classes>
+        <class name="readiness_signal" filename="readiness_signal.cobertura.xml" line-rate="1.0" branch-rate="1.0">
+          <methods />
+          <lines>
+            <line number="1" hits="1" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

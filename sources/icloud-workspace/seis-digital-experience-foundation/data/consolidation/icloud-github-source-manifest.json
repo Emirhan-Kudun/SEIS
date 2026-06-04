@@ -1,0 +1,139 @@
+{
+  "id": "icloud-github-consolidation-2026-05-31",
+  "canonicalRepository": {
+    "name": "seis-digital-experience-foundation",
+    "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+    "branch": "UIXAppTTR",
+    "head": "db29daf",
+    "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "status": "clean",
+    "role": "canonical SEIS/UIXApps working repository"
+  },
+  "archiveLayer": {
+    "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/_SEIS_ARCHIVE/2026-05-31",
+    "files": [
+      {
+        "name": "SEIS.zip",
+        "source": "/Users/emirhan/Downloads/SEIS.zip",
+        "size": "19M",
+        "role": "large source archive kept outside the Git history"
+      }
+    ]
+  },
+  "sourceCandidates": [
+    {
+      "name": "New project",
+      "path": "/Users/emirhan/Documents/New project",
+      "branch": "UIXAppTTR",
+      "head": "f4532cd",
+      "size": "277M",
+      "status": "dirty",
+      "dirtyCount": 90,
+      "routing": "review-only source; do not bulk copy",
+      "decision": "Keep the iCloud canonical files for package.json, apps/web, release/web, registry, quality, and cinematic engine surfaces. Only inspect source-specific docs or missing assets before selective intake."
+    },
+    {
+      "name": "SEIS.zip",
+      "path": "/Users/emirhan/Downloads/SEIS.zip",
+      "size": "19M",
+      "status": "archived-to-icloud",
+      "routing": "manifest-first knowledge intake",
+      "decision": "Keep archive in iCloud storage. Do not import nested markdown packs wholesale into Git."
+    },
+    {
+      "name": "UIX-Apps",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/UIX-Apps",
+      "branch": "UIXAppTTR",
+      "head": "6183e18",
+      "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+      "status": "clean",
+      "routing": "remote mirror/reference source",
+      "decision": "Do not overwrite the canonical repo. Use only as a remote-state reference until GitHub auth and branch divergence are resolved."
+    },
+    {
+      "name": "Website portfolio aliases",
+      "paths": [
+        "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/UX 2",
+        "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/Website 2",
+        "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/Website copy"
+      ],
+      "status": "dirty symlinked portfolio sources",
+      "routing": "portfolio-lane reference",
+      "decision": "Do not merge Next.js/Vite portfolio code into SEIS foundation yet. Extract patterns, content, and asset references through a later portfolio intake mission."
+    },
+    {
+      "name": "docs",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/docs",
+      "branch": "main",
+      "head": "348f7e1",
+      "remote": "https://github.com/emirhankudun-ux/docs.git",
+      "status": "dirty",
+      "dirtyCount": 18,
+      "routing": "documentation reference",
+      "decision": "Review for reusable governance/documentation patterns before importing any files."
+    },
+    {
+      "name": "Codex",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/Codex",
+      "branch": "main",
+      "head": "none",
+      "remote": "none",
+      "status": "no commits; dirty",
+      "dirtyCount": 22,
+      "routing": "tooling reference only",
+      "decision": "Do not merge into SEIS. Inspect only if a future tooling mission needs it."
+    },
+    {
+      "name": "DeepSeek-Coder",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/DeepSeek-Coder",
+      "branch": "main",
+      "head": "2f9fd85",
+      "remote": "https://github.com/emirhankudun-ux/DeepSeek-Coder.git",
+      "status": "dirty",
+      "dirtyCount": 9,
+      "routing": "AI tooling reference only",
+      "decision": "Do not merge into SEIS foundation."
+    },
+    {
+      "name": "awesome-deepseek-agent",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/awesome-deepseek-agent",
+      "branch": "main",
+      "head": "6d874cc",
+      "remote": "https://github.com/emirhankudun-ux/awesome-deepseek-agent.git",
+      "status": "dirty",
+      "dirtyCount": 1,
+      "routing": "AI agent reference only",
+      "decision": "Do not merge into SEIS foundation."
+    },
+    {
+      "name": "claude-code",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/claude-code",
+      "branch": "main",
+      "head": "8bdbb72",
+      "remote": "https://github.com/emirhankudun-ux/claude-code.git",
+      "status": "dirty",
+      "dirtyCount": 1,
+      "routing": "AI tooling reference only",
+      "decision": "Do not merge into SEIS foundation."
+    },
+    {
+      "name": "gemini-cli",
+      "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/gemini-cli",
+      "branch": "main",
+      "head": "5611ff40e",
+      "remote": "https://github.com/emirhankudun-ux/gemini-cli.git",
+      "status": "dirty",
+      "dirtyCount": 4,
+      "routing": "AI tooling reference only",
+      "decision": "Do not merge into SEIS foundation."
+    }
+  ],
+  "intakeRules": [
+    "Use the iCloud SEIS repository as the canonical destination.",
+    "Never bulk copy dirty source repositories over canonical files.",
+    "Large zip archives stay in the iCloud archive layer, not in Git history.",
+    "Portfolio code enters only through a dedicated portfolio intake mission.",
+    "AI tooling repositories remain references unless a mission explicitly needs a small artifact.",
+    "Every imported file must map to a mission, domain, owner agent, validation command, and rollback path."
+  ]
+}

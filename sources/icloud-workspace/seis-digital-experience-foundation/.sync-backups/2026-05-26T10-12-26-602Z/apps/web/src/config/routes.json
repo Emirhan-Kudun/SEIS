@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "routes": [
+    {
+      "path": "/",
+      "sections": ["hero", "system", "lab", "motion", "archive", "quality", "deploy"],
+      "status": "static-foundation"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+Emirhan Kudun Portfolio - Dreamweaver Kullanim Notu
+
+1) Projeyi Acma
+- Dreamweaver icinde Site > New Site sec.
+- Site Folder olarak bu klasoru sec:
+  /Users/emirhan/Documents/Codex/2026-05-05/files-mentioned-by-the-user-emirhan/files
+- Start file: index.html
+
+2) Onizleme
+- Live View veya browser preview ile index.html ac.
+- Site tek sayfa yapida calisir (hero/about/services/work/drawings/contact).
+- Eski #tech-stack hash cagrilari script.js icinde otomatik olarak #drawings'e yonlenir.
+
+3) Form Kontrolu
+- Form action: #contact (static mode)
+- Gonderim endpoint'i hibrit cozulur:
+  1) site-config.json > contactEndpoint
+  2) form data-endpoint
+  3) fallback contact.php
+
+4) Icerik Dosyalari
+- Ana sayfa: index.html
+- Stil: style.css
+- Script: script.js
+- Coklu dil: translations.json
+- Site ayarlari: site-config.json
+- Site ayarlari ornek: site-config.example.json
+- Gorsel varliklar: images/drawings/*.jpg
+- Kalite kapisi scriptleri: scripts/quality-gate.js, scripts/regression-smoke.js, scripts/infrastructure-check.js
+- Otomasyon contract: contracts/automation-orchestration-contract.md
+- Rapor klasoru: reports/ecosystem/
+
+5) Eski Link Uyumu
+- contact.html otomatik olarak index.html#contact adresine yonlendirir.

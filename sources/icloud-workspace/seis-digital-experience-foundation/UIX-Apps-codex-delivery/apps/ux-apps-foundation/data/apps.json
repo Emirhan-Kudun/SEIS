@@ -1,0 +1,112 @@
+{
+  "apps": [
+    {
+      "id": "flow-studio",
+      "slug": "flow-studio",
+      "title": "Flow Studio",
+      "name": "Flow Studio",
+      "category": "workflow",
+      "discipline": "Journey Design",
+      "status": "foundation",
+      "pressure": "low",
+      "summary": "Maps product journeys into calm, inspectable sequences with service, emotion, and friction checkpoints.",
+      "tags": ["journey", "flow", "handoff"],
+      "capabilities": [
+        "Journey stages",
+        "Pain-point markers",
+        "Accessibility checkpoints",
+        "Release notes"
+      ]
+    },
+    {
+      "id": "interface-cinema",
+      "slug": "interface-cinema",
+      "title": "Interface Cinema",
+      "name": "Interface Cinema",
+      "category": "workflow",
+      "discipline": "Motion Direction",
+      "status": "prototype",
+      "pressure": "low",
+      "summary": "Defines restrained cinematic motion presets that preserve focus and respect reduced-motion preferences.",
+      "tags": ["motion", "cinema", "reduced-motion"],
+      "capabilities": [
+        "Motion budgets",
+        "Duration tokens",
+        "Reduced-motion fallback",
+        "Scene pacing"
+      ]
+    },
+    {
+      "id": "clarity-lab",
+      "slug": "clarity-lab",
+      "title": "Clarity Lab",
+      "name": "Clarity Lab",
+      "category": "research",
+      "discipline": "UX Research",
+      "status": "foundation",
+      "pressure": "medium",
+      "summary": "Turns qualitative notes into structured UX risks, opportunities, and next decisions.",
+      "tags": ["research", "signals", "decisions"],
+      "capabilities": [
+        "Signal grouping",
+        "Decision logs",
+        "Risk labels",
+        "Evidence links"
+      ]
+    },
+    {
+      "id": "governance-board",
+      "slug": "governance-board",
+      "title": "Governance Board",
+      "name": "Governance Board",
+      "category": "dashboard",
+      "discipline": "Repository Operations",
+      "status": "foundation",
+      "pressure": "low",
+      "summary": "Tracks branch policy, rollout gates, rollback readiness, and maintainability rules.",
+      "tags": ["governance", "release", "rollback"],
+      "capabilities": [
+        "Branch taxonomy",
+        "Release gates",
+        "Rollback plan",
+        "Quality checks"
+      ]
+    },
+    {
+      "id": "humane-observatory",
+      "slug": "humane-observatory",
+      "title": "Humane Observatory",
+      "name": "Humane Observatory",
+      "category": "dashboard",
+      "discipline": "Operational Intelligence",
+      "status": "prototype",
+      "pressure": "low",
+      "summary": "Surfaces lightweight health signals without panic dashboards or telemetry overload.",
+      "tags": ["observability", "health", "clarity"],
+      "capabilities": [
+        "API health",
+        "Content density",
+        "Motion pressure",
+        "Dependency footprint"
+      ]
+    },
+    {
+      "id": "accessibility-pass",
+      "slug": "accessibility-pass",
+      "title": "Accessibility Pass",
+      "name": "Accessibility Pass",
+      "category": "accessibility",
+      "discipline": "Inclusive UX Review",
+      "status": "foundation",
+      "pressure": "low",
+      "summary": "Checks keyboard flow, readable contrast, labels, focus states, and reduced-motion behavior before release.",
+      "tags": ["a11y", "keyboard", "contrast"],
+      "capabilities": [
+        "Keyboard path review",
+        "Contrast notes",
+        "Focus-state checks",
+        "Reduced-motion validation"
+      ]
+    }
+  ]
+}

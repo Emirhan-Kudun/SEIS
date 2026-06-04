@@ -1,0 +1,153 @@
+{
+  "run_id": "run-2026-05-14T17-59-01-993Z",
+  "timestamp": "2026-05-14T17:59:02.582Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-rotation-registry",
+  "write_mode": "guarded",
+  "detail_level": "detailed-audit",
+  "duration_ms": 586,
+  "steps": [
+    {
+      "connector": "browser-validation",
+      "status": "invoked",
+      "reason": "Live browser MCP runtime missing npm. Fallback browser contract check passed.",
+      "duration_ms": 124,
+      "next_action": "Install npm to enable live browser validation; fallback remains green.",
+      "severity": "medium"
+    },
+    {
+      "connector": "local-qa-quality-gate",
+      "status": "invoked",
+      "reason": "check passed",
+      "duration_ms": 100,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "connector": "local-qa-regression-smoke",
+      "status": "invoked",
+      "reason": "check passed",
+      "duration_ms": 86,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "connector": "local-qa-infrastructure-check",
+      "status": "invoked",
+      "reason": "check passed",
+      "duration_ms": 88,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "connector": "local-qa-semantic-seo-check",
+      "status": "invoked",
+      "reason": "check passed",
+      "duration_ms": 94,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "connector": "security-review",
+      "status": "invoked",
+      "reason": "check passed",
+      "duration_ms": 91,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "connector": "notion-run-log",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector when auth and destination are ready.",
+      "severity": "low"
+    },
+    {
+      "connector": "linear-action-package",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector when auth and destination are ready.",
+      "severity": "low"
+    },
+    {
+      "connector": "github-issue-checklist-candidate",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector when auth and destination are ready.",
+      "severity": "low"
+    },
+    {
+      "connector": "slack-summary-candidate",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector when auth and destination are ready.",
+      "severity": "low"
+    },
+    {
+      "connector": "plan-ledger-sync",
+      "status": "invoked",
+      "reason": "playbook and plan-ledger are synchronized",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "severity": "low"
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "Live browser MCP runtime missing npm. Fallback browser contract check passed."
+    ],
+    "low": [
+      "playbook and plan-ledger are synchronized"
+    ]
+  },
+  "audit": {
+    "metrics": {
+      "p95_ms": 124,
+      "fail_rate": 0,
+      "failed_steps": 0,
+      "total_steps": 11,
+      "thresholds": {
+        "p95_ms_threshold": 8000,
+        "fail_rate_threshold": 0.05
+      }
+    },
+    "gates": {
+      "sla_alert": false,
+      "security_release_block": false,
+      "dual_approval_required": true
+    },
+    "plan_sync": {
+      "ok": true,
+      "reason": "in-sync",
+      "missing_in_ledger": [],
+      "missing_in_playbook": []
+    },
+    "approval_health": {
+      "stale_suggested_count": 0,
+      "expired_approved_count": 0
+    }
+  },
+  "summary": "Run completed. Core checks green; non-blocking connector gaps are tracked.",
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Resolve browser-validation",
+      "problem": "Live browser MCP runtime missing npm. Fallback browser contract check passed.",
+      "proposed_change": "Install npm to enable live browser validation; fallback remains green.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-core-run.json"
+    }
+  ]
+}

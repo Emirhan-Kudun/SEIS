@@ -1,0 +1,11 @@
+{
+  "surface": "seis-polyglot-web",
+  "status": "watch",
+  "signals": {
+    "github": "pushed",
+    "icloud": "exported",
+    "cloud": "needs_credentials",
+    "server": "dry_run_required"
+  },
+  "guardrails": ["no-secrets-in-git", "dry-run-before-live", "reduced-motion-first"]
+}

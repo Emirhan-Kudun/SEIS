@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en" class="no-js" data-motion="standard">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UI-UX Digital Lab is a SEIS creative experience operating system for calm AI-native workflows, premium UI/UX, accessibility, and cinematic digital products.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#080a0c">
+    <title>UI-UX Digital Lab | SEIS Creative Experience OS</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" href="./public/icons/apple-touch-icon.svg">
+    <link rel="stylesheet" href="../../packages/design-tokens/seis.tokens.css">
+    <link rel="stylesheet" href="./src/styles/base.css">
+    <link rel="stylesheet" href="./src/styles/motion.css">
+    <link rel="stylesheet" href="./src/styles/responsive.css">
+    <script type="module" src="./src/scripts/motion-system.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="intro-loader" data-loader aria-hidden="true">
+      <span class="intro-loader__mark"></span>
+      <span class="intro-loader__line"></span>
+    </div>
+
+    <header class="site-header" data-reveal>
+      <a class="brand" href="#hero" aria-label="SEIS home">
+        <span class="brand__sigil" aria-hidden="true"></span>
+        <span>SEIS</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#system" data-i18n="nav.system">System</a>
+        <a href="#lab" data-i18n="nav.lab">Lab OS</a>
+        <a href="#motion" data-i18n="nav.motion">Motion</a>
+        <a href="#archive" data-i18n="nav.archive">Archive</a>
+        <a href="#quality" data-i18n="nav.quality">Quality</a>
+        <a href="#efficiency">Efficiency</a>
+        <a href="#development" data-i18n="nav.development">Development</a>
+        <a href="#deploy" data-i18n="nav.deploy">Deploy</a>
+      </nav>
+      <div class="locale-switcher" data-locale-switcher aria-label="Language selector"></div>
+      <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">
+        <span data-i18n="motion.low">Low motion</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <canvas class="hero__field" data-cinematic-field aria-hidden="true"></canvas>
+        <div class="hero__depth hero__depth--one" aria-hidden="true"></div>
+        <div class="hero__depth hero__depth--two" aria-hidden="true"></div>
+
+        <div class="hero__content" data-reveal>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Enterprise creative experience operating system</p>
+          <h1 id="hero-title" data-i18n="hero.title">UI-UX Digital Lab</h1>
+          <p class="hero__copy" data-i18n="hero.copy">
+            A calm SEIS environment for premium UI/UX, cinematic interfaces,
+            AI-native workflows, and sustainable creative engineering.
+          </p>
+          <div class="hero__actions" aria-label="Foundation actions">
+            <a class="button button--primary" href="#system" data-i18n="hero.primary">Review system</a>
+            <a class="button button--ghost" href="../../docs/reports/zip-analysis-2026-05-24.md" data-i18n="hero.secondary">Read audit</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="system" aria-labelledby="system-title" data-parallax-section>
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="system.eyebrow">Clean architecture</p>
+          <h2 id="system-title" data-i18n="system.title">Legacy value is preserved as metadata before implementation.</h2>
+          <p data-i18n="system.copy">
+            Every layer is composed with restraint: identity, artwork, motion,
+            and interface structure move together without exhausting attention.
+          </p>
+        </div>
+        <div class="signal-grid">
+          <article class="signal-card" data-depth-card data-reveal>
+            <span class="signal-card__index">01</span>
+            <h3 data-i18n="card.asset.title">Asset curation</h3>
+            <p data-i18n="card.asset.copy">Drawing files are classified before optimized derivatives are created.</p>
+          </article>
+          <article class="signal-card" data-depth-card data-reveal>
+            <span class="signal-card__index">02</span>
+            <h3 data-i18n="card.mobile.title">Mobile first</h3>
+            <p data-i18n="card.mobile.copy">Touch feedback and reduced motion exist before WebGL or heavy effects.</p>
+          </article>
+          <article class="signal-card" data-depth-card data-reveal>
+            <span class="signal-card__index">03</span>
+            <h3 data-i18n="card.rollback.title">Rollback safe</h3>
+            <p data-i18n="card.rollback.copy">Docs, tokens, and runtime layers remain isolated for small commits.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section lab-os" id="lab" aria-labelledby="lab-title">
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="lab.eyebrow">AI-native operating model</p>
+          <h2 id="lab-title" data-i18n="lab.title">A modular creative infrastructure for humane digital products.</h2>
+          <p data-i18n="lab.copy">
+            The lab turns strategy, design systems, frontend craft, automation,
+            accessibility, and governance into a restrained operating layer.
+          </p>
+        </div>
+
+        <div class="lab-operating-grid">
+          <article class="lab-panel" data-depth-card data-reveal>
+            <span class="lab-panel__label" data-i18n="lab.panel.modes.label">Experience modes</span>
+            <h3 data-i18n="lab.panel.modes.title">Minimal, balanced, cinematic, and experimental paths stay governed.</h3>
+            <p data-i18n="lab.panel.modes.copy">Each mode protects readability, reduced motion, and performance before increasing immersive depth.</p>
+          </article>
+          <article class="lab-panel" data-depth-card data-reveal>
+            <span class="lab-panel__label" data-i18n="lab.panel.ai.label">AI workflows</span>
+            <h3 data-i18n="lab.panel.ai.title">Human-supervised automation supports content, QA, and creative operations.</h3>
+            <p data-i18n="lab.panel.ai.copy">Prompt libraries, semantic metadata, audits, and review loops remain transparent and reversible.</p>
+          </article>
+          <article class="lab-panel" data-depth-card data-reveal>
+            <span class="lab-panel__label" data-i18n="lab.panel.governance.label">Governance</span>
+            <h3 data-i18n="lab.panel.governance.title">Design, code, content, and release quality share one operating rhythm.</h3>
+            <p data-i18n="lab.panel.governance.copy">Documentation, tokens, accessibility checks, and rollback planning stay part of the product surface.</p>
+          </article>
+        </div>
+
+        <div class="mode-strip" aria-label="Experience mode maturity" data-reveal>
+          <div class="mode-cell">
+            <span>01</span>
+            <strong data-i18n="lab.mode.minimal">Minimal</strong>
+          </div>
+          <div class="mode-cell">
+            <span>02</span>
+            <strong data-i18n="lab.mode.balanced">Balanced</strong>
+          </div>
+          <div class="mode-cell">
+            <span>03</span>
+            <strong data-i18n="lab.mode.cinematic">Cinematic</strong>
+          </div>
+          <div class="mode-cell">
+            <span>04</span>
+            <strong data-i18n="lab.mode.experimental">Experimental</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--split" id="motion" aria-labelledby="motion-title" data-parallax-section>
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="motion.eyebrow">Motion language</p>
+          <h2 id="motion-title" data-i18n="motion.title">Controlled animation, cinematic pacing, and visible fallbacks.</h2>
+          <p data-i18n="motion.copy">
+            Movement stays atmospheric and precise, shaping the pace of the page
+            while leaving the content calm enough to breathe.
+          </p>
+        </div>
+        <div class="motion-board" data-reveal>
+          <div class="motion-row"><span>Intro</span><strong data-i18n="motion.row.intro">quiet arrival</strong></div>
+          <div class="motion-row"><span>Scroll</span><strong data-i18n="motion.row.scroll">slow spatial reveal</strong></div>
+          <div class="motion-row"><span>Hover</span><strong data-i18n="motion.row.hover">subtle material depth</strong></div>
+          <div class="motion-row"><span>Mobile</span><strong data-i18n="motion.row.mobile">direct tactile response</strong></div>
+          <div class="motion-row"><span>Reduced</span><strong data-i18n="motion.row.reduced">still and readable</strong></div>
+        </div>
+      </section>
+
+      <section class="section" id="archive" aria-labelledby="archive-title">
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="archive.eyebrow">Curated archive</p>
+          <h2 id="archive-title" data-i18n="archive.title">Selected legacy drawings now live in a controlled asset layer.</h2>
+          <p data-i18n="archive.copy">
+            A selected drawing archive becomes a composed gallery: quiet,
+            tactile, and ready for deeper editorial storytelling.
+          </p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Artwork filters" data-reveal>
+          <button class="filter-chip is-active" type="button" data-artwork-filter="all" aria-pressed="true" data-i18n="filter.all">All</button>
+          <button class="filter-chip" type="button" data-artwork-filter="karakalem" aria-pressed="false" data-i18n="filter.karakalem">Karakalem</button>
+          <button class="filter-chip" type="button" data-artwork-filter="renk" aria-pressed="false" data-i18n="filter.color">Color</button>
+        </div>
+        <div class="artwork-grid" data-artwork-grid aria-live="polite"></div>
+      </section>
+
+      <section class="section" id="quality" aria-labelledby="quality-title">
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="quality.eyebrow">Quality gates</p>
+          <h2 id="quality-title" data-i18n="quality.title">Performance, SEO, and accessibility stay ahead of visual ambition.</h2>
+          <p data-i18n="quality.copy">
+            The experience protects clarity first: it keeps the interface readable,
+            responsive, and calm before adding heavier cinematic layers.
+          </p>
+        </div>
+        <div class="quality-list" data-reveal>
+          <p><strong data-i18n="quality.fast">Fast</strong>: <span data-i18n="quality.fast.copy">the first view stays light enough for mobile review.</span></p>
+          <p><strong data-i18n="quality.findable">Findable</strong>: <span data-i18n="quality.findable.copy">the core story remains real text and clear structure.</span></p>
+          <p><strong data-i18n="quality.reachable">Reachable</strong>: <span data-i18n="quality.reachable.copy">controls stay visible, focused, and readable.</span></p>
+          <p><strong data-i18n="quality.flexible">Flexible</strong>: <span data-i18n="quality.flexible.copy">the layout keeps its rhythm across phone, tablet, and desktop.</span></p>
+        </div>
+
+        <div class="quality-budget" aria-label="Experience budget" data-quality-budget data-reveal>
+          <article>
+            <span>Runtime</span>
+            <strong>0 framework dependencies</strong>
+            <p>Static modules keep the first implementation portable and easy to audit.</p>
+          </article>
+          <article>
+            <span>Motion</span>
+            <strong>Reduced mode first</strong>
+            <p>Canvas density is capped and all cinematic effects respect low-motion settings.</p>
+          </article>
+          <article>
+            <span>Mobile</span>
+            <strong>44px touch targets</strong>
+            <p>Primary controls keep tactile feedback without requiring heavier gesture libraries.</p>
+          </article>
+          <article>
+            <span>Release</span>
+            <strong>SHA + rollback backup</strong>
+            <p>Every server candidate is packaged, hashed, and preserved before upload.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section efficiency-system" id="efficiency" aria-labelledby="efficiency-title" data-efficiency-system>
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow">Efficiency governor</p>
+          <h2 id="efficiency-title">Full power is routed through low-pressure execution.</h2>
+          <p>
+            The operating mode spends more reasoning on architecture, UX, and risk review
+            while keeping local machine work bounded, targeted, and reversible.
+          </p>
+        </div>
+
+        <div class="efficiency-status" data-reveal role="status" aria-live="polite">
+          <span class="efficiency-status__mark" aria-hidden="true"></span>
+          <span data-efficiency-status>Reading efficiency contract...</span>
+        </div>
+
+        <div class="efficiency-grid" data-efficiency-grid>
+          <article class="efficiency-card" data-reveal>
+            <span class="efficiency-card__meta">active</span>
+            <h3>Context before compute</h3>
+            <p>Use targeted reading and careful design judgment before heavier local commands.</p>
+            <strong>Avoid generated caches, dependency folders, and broad build loops.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section development-cockpit" id="development" aria-labelledby="development-title">
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="development.eyebrow">Development cockpit</p>
+          <h2 id="development-title" data-i18n="development.title">The next build cycle starts with visible, reversible lanes.</h2>
+          <p data-i18n="development.copy">
+            SEIS development moves through small verified layers: interface,
+            motion, content, server readiness, and governance stay readable as one system.
+          </p>
+        </div>
+
+        <div class="development-grid" aria-label="Development lanes" data-reveal>
+          <article class="development-card">
+            <span class="development-card__metric">01</span>
+            <h3 data-i18n="development.lane.interface.title">Interface polish</h3>
+            <p data-i18n="development.lane.interface.copy">Tighten navigation, cards, tactile states, and responsive rhythm without adding runtime weight.</p>
+          </article>
+          <article class="development-card">
+            <span class="development-card__metric">02</span>
+            <h3 data-i18n="development.lane.motion.title">Motion tuning</h3>
+            <p data-i18n="development.lane.motion.copy">Keep cinematic movement calm, consent-aware, and frame-budget friendly on mobile.</p>
+          </article>
+          <article class="development-card">
+            <span class="development-card__metric">03</span>
+            <h3 data-i18n="development.lane.release.title">Release safety</h3>
+            <p data-i18n="development.lane.release.copy">Package, hash, backup, and handoff every server candidate before live upload.</p>
+          </article>
+          <article class="development-card">
+            <span class="development-card__metric">04</span>
+            <h3 data-i18n="development.lane.polyglot.title">Polyglot growth</h3>
+            <p data-i18n="development.lane.polyglot.copy">Use tiny language contracts first, then promote only proven surfaces into real services.</p>
+          </article>
+        </div>
+
+        <div class="development-status" data-reveal>
+          <p><strong data-i18n="development.status.branch">Branch</strong><span>UIXAppTTR</span></p>
+          <p><strong data-i18n="development.status.package">Package</strong><span>dist/seis-static.zip</span></p>
+          <p><strong data-i18n="development.status.guard">Guard</strong><span data-i18n="development.status.guard.copy">Live upload waits for a confirmed server target.</span></p>
+        </div>
+
+        <div class="agent-operations" aria-label="UIXAppTTR sub-agent operations" data-agent-operations data-reveal>
+          <div class="agent-operations__intro">
+            <p class="eyebrow" data-i18n="agents.eyebrow">Sub-agent operations</p>
+            <h3 data-i18n="agents.title">Five focused lanes run inside one branch.</h3>
+            <p data-i18n="agents.copy">Each lane owns a narrow surface, while release safety keeps every package recoverable.</p>
+          </div>
+          <div class="agent-rail">
+            <article class="agent-card agent-card--ready">
+              <span data-i18n="agents.status.ready">Ready</span>
+              <h4 data-i18n="agents.interface.title">Interface Agent</h4>
+              <p data-i18n="agents.interface.copy">Refines cockpit hierarchy and responsive scan paths.</p>
+            </article>
+            <article class="agent-card agent-card--ready">
+              <span data-i18n="agents.status.ready">Ready</span>
+              <h4 data-i18n="agents.motion.title">Motion Agent</h4>
+              <p data-i18n="agents.motion.copy">Keeps cinematic movement calm and mobile-safe.</p>
+            </article>
+            <article class="agent-card agent-card--active">
+              <span data-i18n="agents.status.active">Active</span>
+              <h4 data-i18n="agents.release.title">Release Agent</h4>
+              <p data-i18n="agents.release.copy">Maintains package, manifest, handoff, and rollback readiness.</p>
+            </article>
+            <article class="agent-card agent-card--ready">
+              <span data-i18n="agents.status.ready">Ready</span>
+              <h4 data-i18n="agents.polyglot.title">Polyglot Agent</h4>
+              <p data-i18n="agents.polyglot.copy">Keeps many-language contracts light and dependency-free.</p>
+            </article>
+            <article class="agent-card agent-card--active">
+              <span data-i18n="agents.status.active">Active</span>
+              <h4 data-i18n="agents.governance.title">Governance Agent</h4>
+              <p data-i18n="agents.governance.copy">Aligns backlog, ADRs, summaries, and branch policy.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="continuity-program" aria-label="Long-term development program" data-long-term-program data-reveal>
+          <div class="continuity-program__intro">
+            <p class="eyebrow">Long-run program</p>
+            <h3>Small reversible increments keep the system alive for months, not moments.</h3>
+            <p>Every phase protects the same quiet contract: clarity first, motion with consent, mobile performance, and rollback before upload.</p>
+          </div>
+          <div class="phase-ladder">
+            <article>
+              <span>Active</span>
+              <strong>Foundation Integrity</strong>
+              <p>Static surface, locale coverage, experience budget, release package.</p>
+            </article>
+            <article>
+              <span>Planned</span>
+              <strong>Cinematic Interface</strong>
+              <p>Hero depth, scroll rhythm, tactile states, reduced-motion fidelity.</p>
+            </article>
+            <article>
+              <span>Planned</span>
+              <strong>Mobile Product Path</strong>
+              <p>PWA-first hardening before native shell or service promotion.</p>
+            </article>
+            <article>
+              <span>Blocked</span>
+              <strong>Server Preservation</strong>
+              <p>Live upload waits for confirmed target, checksum, and rollback.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="polyglot-atlas" aria-label="Software language atlas" data-polyglot-atlas data-reveal>
+          <div class="polyglot-atlas__summary">
+            <p class="eyebrow">Software language atlas</p>
+            <h3>64 language surfaces, zero new production dependency.</h3>
+            <p>Every language starts as a small contract, schema, policy, or guard before it can become a service.</p>
+          </div>
+          <div class="language-cloud" aria-label="Polyglot language surfaces">
+            <span>JavaScript</span>
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>Python</span>
+            <span>Ruby</span>
+            <span>PHP</span>
+            <span>Go</span>
+            <span>Rust</span>
+            <span>Swift</span>
+            <span>Kotlin</span>
+            <span>Dart</span>
+            <span>Bash</span>
+            <span>Java</span>
+            <span>C#</span>
+            <span>SQL</span>
+            <span>Lua</span>
+            <span>YAML</span>
+            <span>C++</span>
+            <span>Elixir</span>
+            <span>Scala</span>
+            <span>Clojure</span>
+            <span>Cloudflare Worker</span>
+            <span>Docker</span>
+            <span>Nginx/Apache</span>
+            <span>R</span>
+            <span>Julia</span>
+            <span>Haskell</span>
+            <span>Erlang</span>
+            <span>Zig</span>
+            <span>Nim</span>
+            <span>Perl</span>
+            <span>F#</span>
+            <span>Objective-C</span>
+            <span>Racket</span>
+            <span>OCaml</span>
+            <span>PowerShell</span>
+            <span>Terraform</span>
+            <span>GraphQL</span>
+            <span>Protobuf</span>
+            <span>TOML</span>
+            <span>Crystal</span>
+            <span>V</span>
+            <span>D</span>
+            <span>Ada</span>
+            <span>Fortran</span>
+            <span>COBOL</span>
+            <span>Pascal</span>
+            <span>Common Lisp</span>
+            <span>Prolog</span>
+            <span>Elm</span>
+            <span>PureScript</span>
+            <span>ReScript</span>
+            <span>Solidity</span>
+            <span>Move</span>
+            <span>Cairo</span>
+            <span>Q#</span>
+            <span>MATLAB</span>
+            <span>XML</span>
+            <span>CMake</span>
+            <span>Make</span>
+            <span>INI</span>
+            <span>PlantUML</span>
+            <span>Mermaid</span>
+            <span>JSON Schema</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section deploy-readiness" id="deploy" aria-labelledby="deploy-title">
+        <div class="section__intro" data-reveal>
+          <p class="eyebrow" data-i18n="deploy.eyebrow">Server preservation</p>
+          <h2 id="deploy-title" data-i18n="deploy.title">The release is packaged before live upload is allowed.</h2>
+          <p data-i18n="deploy.copy">
+            UI-UX Digital Lab can be preserved as a static server package, but
+            live deployment stays blocked until the exact domain, host, and path are confirmed.
+          </p>
+        </div>
+
+        <div class="deploy-grid">
+          <article class="deploy-card" data-reveal>
+            <span class="deploy-card__status" data-i18n="deploy.package.status">Ready</span>
+            <h3 data-i18n="deploy.package.title">Static package</h3>
+            <p><code>dist/seis-static.zip</code></p>
+          </article>
+          <article class="deploy-card" data-reveal>
+            <span class="deploy-card__status deploy-card__status--pending" data-i18n="deploy.target.status">Needs input</span>
+            <h3 data-i18n="deploy.target.title">Server target</h3>
+            <p data-i18n="deploy.target.copy">Active target is intentionally empty until the selected server is confirmed.</p>
+          </article>
+          <article class="deploy-card" data-reveal>
+            <span class="deploy-card__status" data-i18n="deploy.backup.status">Protected</span>
+            <h3 data-i18n="deploy.backup.title">Release backup</h3>
+            <p data-i18n="deploy.backup.copy">Each packaged release can be copied into the local release ledger with its SHA-256 manifest.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

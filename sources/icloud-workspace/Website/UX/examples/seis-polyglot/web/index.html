@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SEIS Polyglot Web Fallback</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="seis-card" data-status="watch">
+      <p class="eyebrow">SEIS fallback</p>
+      <h1>Calm cloud readiness, even without JavaScript.</h1>
+      <p>GitHub, iCloud, Vercel and custom server signals stay readable before live deploy.</p>
+      <button type="button" data-action="summarize">Summarize state</button>
+      <output aria-live="polite">Waiting for runtime signal.</output>
+    </main>
+    <script type="module" src="./runtime.js"></script>
+  </body>
+</html>

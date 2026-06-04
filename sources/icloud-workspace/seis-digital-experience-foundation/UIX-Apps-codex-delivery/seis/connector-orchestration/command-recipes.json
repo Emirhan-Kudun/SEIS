@@ -1,0 +1,49 @@
+{
+  "recipes": [
+    {
+      "name": "full-safe-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --format markdown",
+      "purpose": "Review every connector group without external calls."
+    },
+    {
+      "name": "developer-security-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --group core-dev-security --format markdown",
+      "purpose": "Plan GitHub, Codex, browser, CI, code review, and security checks."
+    },
+    {
+      "name": "cloud-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --group cloud-deploy-data --format markdown",
+      "purpose": "Plan cloud, database, and deployment work without provisioning."
+    },
+    {
+      "name": "google-open-source-foundation-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --group google-open-source-foundation --format markdown",
+      "purpose": "Plan Google Open Source Copilot lanes under codex/premium-local-foundation before implementation begins."
+    },
+    {
+      "name": "big-tech-open-source-foundation-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --group big-tech-open-source-foundation --format markdown",
+      "purpose": "Review official major-firm open-source candidates before selecting implementation tooling."
+    },
+    {
+      "name": "pazar-pay-intelligence-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --group pazar-pay-intelligence --format markdown",
+      "purpose": "Plan market-share and competitor-intelligence connectors without paid reads or account mutation."
+    },
+    {
+      "name": "claude-official-source-plan",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --source claude-plugins-official --format markdown",
+      "purpose": "Review Claude official plugin capabilities without activating them."
+    },
+    {
+      "name": "registry-only-review",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --mode registry-only --format markdown",
+      "purpose": "List capabilities that should remain inactive until task scope exists."
+    },
+    {
+      "name": "save-local-report",
+      "command": "node seis/connector-orchestration/runner.cjs --dry-run --save reports/connector-orchestration/latest.json",
+      "purpose": "Save a local dry-run report for review."
+    }
+  ]
+}

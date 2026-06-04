@@ -1,0 +1,60 @@
+{
+  "name": "UX Apps Conversation Transfer",
+  "repository": {
+    "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/Uı/UX Apps",
+    "branch": "codex/ux-apps-foundation",
+    "localStatus": "transferred-to-icloud-drive-git-folder",
+    "remoteStatus": "blocked-until-github-remote-and-auth-exist"
+  },
+  "capturedIntent": [
+    "full-stack website/application foundation",
+    "continue from iCloud Drive GitHub UX Apps folder",
+    "low-power efficient execution",
+    "premium cinematic humane UX direction",
+    "more animation without overloading the computer",
+    "commit local repository changes",
+    "prepare for GitHub publishing"
+  ],
+  "implementedFoundation": [
+    "native Node.js HTTP server",
+    "static root fallback catalog",
+    "public full-stack frontend",
+    "JSON data manifests",
+    "health API",
+    "apps API",
+    "manifest API",
+    "governance API",
+    "observability API",
+    "contact API",
+    "low-power canvas atmosphere",
+    "reduced-motion support",
+    "node:test API coverage",
+    "quality validation scripts"
+  ],
+  "localCommits": [
+    {
+      "sha": "fe0b9ca",
+      "message": "chore: wire ux apps validation gate"
+    },
+    {
+      "sha": "08518a8",
+      "message": "feat(app): add low-power UX Apps runtime"
+    },
+    {
+      "sha": "c787646",
+      "message": "feat(app): add UX Apps static foundation"
+    }
+  ],
+  "githubBlockers": [
+    "origin remote is not configured",
+    "GitHub CLI is not authenticated",
+    "GH_TOKEN is missing",
+    "GITHUB_TOKEN is missing"
+  ],
+  "nextSteps": [
+    "authenticate GitHub CLI",
+    "create or attach remote repository",
+    "push codex/ux-apps-foundation",
+    "open pull request or merge into main after review"
+  ]
+}

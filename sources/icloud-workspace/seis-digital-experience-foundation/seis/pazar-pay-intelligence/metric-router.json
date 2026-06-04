@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "routes": [
+    {
+      "request_keywords": ["arama payi", "share of search", "seo", "trafik", "keyword", "visibility"],
+      "preferred_preset": "seo-share-snapshot",
+      "fallback_group": "gtm-crm-market"
+    },
+    {
+      "request_keywords": ["ses payi", "share of voice", "mention", "sentiment", "brand", "konusulma"],
+      "preferred_preset": "brand-voice-snapshot",
+      "fallback_group": "gtm-crm-market"
+    },
+    {
+      "request_keywords": ["e-ticaret", "marketplace", "urun", "kategori", "assortment", "pricing"],
+      "preferred_preset": "ecommerce-demand-snapshot",
+      "fallback_group": "gtm-crm-market"
+    },
+    {
+      "request_keywords": ["b2b", "gtm", "account", "kanal", "demand", "pipeline"],
+      "preferred_preset": "b2b-gtm-position",
+      "fallback_group": "gtm-crm-market"
+    },
+    {
+      "request_keywords": ["borsa", "ticker", "kpi", "yatirimci", "haber", "finansal"],
+      "preferred_preset": "capital-context-watch",
+      "fallback_group": "gtm-crm-market"
+    }
+  ],
+  "default_route": {
+    "preferred_preset": "seo-share-snapshot",
+    "reason": "Search visibility is the safest first proxy when the market-share metric is underspecified."
+  }
+}

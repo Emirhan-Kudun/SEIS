@@ -1,0 +1,19 @@
+{
+  "system": "SEIS Spatial Performance Policy",
+  "branch_alignment": "codex/premium-local-foundation",
+  "runtime_safe": true,
+  "modifies_main_site": false,
+  "default_state": "manual",
+  "webgl_on_initial_load": false,
+  "policy": [
+    "Spatial previews must be manually activated.",
+    "Reduced-motion users must receive a static fallback.",
+    "Camera loops are disabled by default.",
+    "Device pixel ratio is capped for local thermal safety.",
+    "Static content must remain useful when WebGL never starts."
+  ],
+  "implemented_surfaces": [
+    "apps/seis-nextjs-foundation/components/features/spatial/spatial-preview-panel.tsx",
+    "apps/seis-nextjs-foundation/app/multilingual-planning/page.tsx"
+  ]
+}

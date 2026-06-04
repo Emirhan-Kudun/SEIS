@@ -1,0 +1,16 @@
+{
+  "tool": "datadog-monitor",
+  "type": "ReadinessSignal",
+  "monitor": {
+    "id": "uix-monitor-0",
+    "name": "Placeholder service health monitor",
+    "type": "metric alert",
+    "query": "avg(last_5m):avg:uix.service.health{env:local} >= 1",
+    "status": "OK"
+  },
+  "thresholds": {
+    "critical": 1,
+    "warning": 0.9
+  },
+  "notes": "Dependency-light placeholder for future service monitor evidence."
+}

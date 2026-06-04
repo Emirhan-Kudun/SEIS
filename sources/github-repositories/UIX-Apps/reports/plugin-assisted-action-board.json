@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-action-board-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-plugin-assisted-action-board",
+  "sourcePath": "content/development/plugin-assisted-action-board.json",
+  "summary": {
+    "sourceLedgerPlugins": 300,
+    "actionBoardPlugins": 300,
+    "waveColumns": 4,
+    "laneColumns": 12,
+    "actionCards": 300,
+    "readyActionCards": 20,
+    "authBlockedActionCards": 280,
+    "reviewRequiredCards": 300,
+    "generatedCheckRequiredCards": 300,
+    "gateRecords": 1500,
+    "validationCommandRecords": 1354,
+    "livePluginInvocationAllowedCards": 0,
+    "liveAiInvocationAllowedCards": 0,
+    "autonomousRepoModificationAllowedCards": 0,
+    "credentialRecordingCards": 0,
+    "promptPayloadRecordingCards": 0,
+    "connectorPayloadRecordingCards": 0,
+    "generatedPayloadCommitCards": 0,
+    "validationCommandCount": 8,
+    "validationCommands": [
+      "npm run check:plugin-assisted-action-board",
+      "npm run check:plugin-assisted-execution-ledger",
+      "npm run check:plugin-assisted-sprint-plan",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment",
+      "git diff --check"
+    ]
+  },
+  "policy": {
+    "board": "all_connected_plugins_have_reviewable_action_cards_before_live_use",
+    "action": "ready_cards_allow_one_local_bounded_repo_improvement_only",
+    "blockers": "auth_blocked_cards_remain_visible_without_connector_payload_access",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "payloadHandling": "never_commit_connector_results_vendor_payloads_or_runtime_logs",
+    "reviewHandling": "human_review_required_before_action_card_execution"
+  },
+  "waveColumns": [
+    {
+      "order": 1,
+      "waveId": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "actionCards": 95,
+      "readyActionCards": 5,
+      "authBlockedActionCards": 90,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gateCount": 475
+    },
+    {
+      "order": 2,
+      "waveId": "wave-2-product-experience",
+      "label": "Product experience",
+      "actionCards": 75,
+      "readyActionCards": 6,
+      "authBlockedActionCards": 69,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gateCount": 375
+    },
+    {
+      "order": 3,
+      "waveId": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "actionCards": 78,
+      "readyActionCards": 2,
+      "authBlockedActionCards": 76,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gateCount": 390
+    },
+    {
+      "order": 4,
+      "waveId": "wave-4-operations-research",
+      "label": "Operations and research",
+      "actionCards": 52,
+      "readyActionCards": 7,
+      "authBlockedActionCards": 45,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gateCount": 260
+    }
+  ],
+  "laneColumns": [
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "security-quality-and-governance",
+      "label": "Security, quality, and governance",
+      "actionCards": 19,
+      "readyActionCards": 0,
+      "authBlockedActionCards": 19,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "backend-data-and-api",
+      "label": "Backend, data, and API",
+      "actionCards": 31,
+      "readyActionCards": 0,
+      "authBlockedActionCards": 31,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "cloud-devops-and-release",
+      "label": "Cloud, DevOps, and release",
+      "actionCards": 31,
+      "readyActionCards": 5,
+      "authBlockedActionCards": 26,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:server-target"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "platform-native-and-polyglot",
+      "label": "Platform native and polyglot",
+      "actionCards": 14,
+      "readyActionCards": 0,
+      "authBlockedActionCards": 14,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:software-languages"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "builder-and-prototyping",
+      "label": "Builder and prototyping",
+      "actionCards": 18,
+      "readyActionCards": 1,
+      "authBlockedActionCards": 17,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-environment-sources"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "creative-production-and-design",
+      "label": "Creative production and design",
+      "actionCards": 18,
+      "readyActionCards": 1,
+      "authBlockedActionCards": 17,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "ai-workflow-docs-and-knowledge",
+      "label": "AI workflow, docs, and knowledge",
+      "actionCards": 39,
+      "readyActionCards": 4,
+      "authBlockedActionCards": 35,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:workspace"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "analytics-observability-and-growth",
+      "label": "Analytics, observability, and growth",
+      "actionCards": 30,
+      "readyActionCards": 2,
+      "authBlockedActionCards": 28,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "sales-gtm-and-market-intelligence",
+      "label": "Sales, GTM, and market intelligence",
+      "actionCards": 30,
+      "readyActionCards": 0,
+      "authBlockedActionCards": 30,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "finance-investing-and-payments",
+      "label": "Finance, investing, and payments",
+      "actionCards": 18,
+      "readyActionCards": 0,
+      "authBlockedActionCards": 18,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "collaboration-calendar-and-support",
+      "label": "Collaboration, calendar, and support",
+      "actionCards": 35,
+      "readyActionCards": 3,
+      "authBlockedActionCards": 32,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "specialized-domain-and-research",
+      "label": "Specialized domain and research",
+      "actionCards": 17,
+      "readyActionCards": 4,
+      "authBlockedActionCards": 13,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ]
+    }
+  ]
+}

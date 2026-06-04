@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "id": "seis-environment-source-index-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-environment-source-index",
+  "sourcePath": "content/development/environment-source-index.json",
+  "summary": {
+    "indexedSourceCount": 24,
+    "visibleSourceCount": 24,
+    "validationCommandCount": 24,
+    "pluginCount": 300,
+    "fullstackLanguageCount": 108,
+    "externalSourcesBound": 300,
+    "downloadManifestPlugins": 300,
+    "cachedPlugins": 299,
+    "missingCachePlugins": 1,
+    "runtimeAvailablePlugins": 300,
+    "runtimeSurfaceCount": 7,
+    "activationGatePlugins": 300,
+    "accountAuthGatePlugins": 280,
+    "observabilityPlugins": 300,
+    "accountScopedAuditPlugins": 280,
+    "pipelinePlugins": 300,
+    "pipelineStageRecords": 3000,
+    "blockedUntilAuthPlugins": 280,
+    "acquisitionPlanPlugins": 300,
+    "acquisitionPhaseRecords": 2400,
+    "manifestDownloadPlugins": 300,
+    "materializationPlanPlugins": 300,
+    "materializationStepRecords": 2100,
+    "repositoryMaterializationAllowedPlugins": 0,
+    "liveDownloadAllowedPlugins": 0,
+    "connectionMatrixPlugins": 300,
+    "connectionStepRecords": 2100,
+    "liveConnectionAllowedPlugins": 0,
+    "externalDataReadAllowedPlugins": 0,
+    "assistantOrchestrationPlugins": 300,
+    "orchestrationStepRecords": 2100,
+    "liveAiInvocationAllowedPlugins": 0,
+    "livePluginInvocationAllowedPlugins": 0,
+    "developmentQueuePlugins": 300,
+    "queuedDevelopmentActionRecords": 1500,
+    "localBoundedReadyPlugins": 20,
+    "queuedUntilAuthPlugins": 280,
+    "sprintPlanPlugins": 300,
+    "sprintWaveCount": 4,
+    "sprintLanePlanCount": 12,
+    "sprintPhaseRecords": 48,
+    "executionLedgerPlugins": 300,
+    "executionWaveRecords": 4,
+    "executionLaneRecords": 12,
+    "pluginExecutionRecords": 300,
+    "actionBoardPlugins": 300,
+    "readyActionCards": 20,
+    "authBlockedActionCards": 280,
+    "actionBoardGateRecords": 1500,
+    "reviewMatrixPlugins": 300,
+    "readyReviewItems": 20,
+    "authBlockedReviewItems": 280,
+    "reviewMatrixGateRecords": 2400,
+    "riskRegisterPlugins": 300,
+    "controlledLocalRiskItems": 20,
+    "authBlockedRiskItems": 280,
+    "riskRegisterControlRecords": 2400,
+    "publishGateLedgerPlugins": 300,
+    "localPublishCandidateItems": 20,
+    "authBlockedPublishGateItems": 280,
+    "publishGateRecords": 2400,
+    "rolloutPolicyPlugins": 300,
+    "rolloutGateRecords": 2100,
+    "pullRequestRequiredPlugins": 300,
+    "compliancePlugins": 300,
+    "sourceCoverageRecords": 6300,
+    "fullCoveragePlugins": 300,
+    "installReadyPlugins": 300,
+    "useReadyPlugins": 300
+  },
+  "entries": [
+    {
+      "key": "submittedPluginInventory",
+      "label": "Submitted plugin inventory",
+      "contractPath": "content/development/requested-plugin-inventory.json",
+      "reportPath": "reports/requested-plugin-trace.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-environment-sources",
+      "checkCommandAvailable": true,
+      "visibility": "all_submitted_plugin_uris",
+      "metrics": {
+        "summary.uniquePlugins": 300,
+        "summary.totalLinks": 301
+      }
+    },
+    {
+      "key": "submittedPluginCapabilityLanes",
+      "label": "Submitted plugin capability lanes",
+      "contractPath": "content/development/plugin-capability-lanes.json",
+      "reportPath": "reports/plugin-capability-lanes.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-capability-lanes",
+      "checkCommandAvailable": true,
+      "visibility": "plugin_lanes_and_remote_plugin_groups",
+      "metrics": {
+        "summary.uniquePlugins": 300,
+        "summary.laneCount": 12,
+        "summary.remotePluginCount": 6
+      }
+    },
+    {
+      "key": "pluginDownloadReadiness",
+      "label": "Plugin download readiness",
+      "contractPath": "content/development/plugin-download-readiness.json",
+      "reportPath": "reports/plugin-download-readiness.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-download-readiness",
+      "checkCommandAvailable": true,
+      "visibility": "download_install_and_use_readiness",
+      "metrics": {
+        "summary.downloadReadyPlugins": 300,
+        "summary.installReadyPlugins": 300,
+        "summary.useReadyPlugins": 300
+      }
+    },
+    {
+      "key": "pluginCacheEvidence",
+      "label": "Plugin cache evidence",
+      "contractPath": "content/development/plugin-cache-evidence.json",
+      "reportPath": "reports/plugin-cache-evidence.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-cache-evidence",
+      "checkCommandAvailable": true,
+      "visibility": "local_plugin_cache_and_download_evidence",
+      "metrics": {
+        "summary.cachedPlugins": 299,
+        "summary.missingCachePlugins": 1,
+        "summary.evidencePlugins": 300
+      }
+    },
+    {
+      "key": "pluginRuntimeAvailability",
+      "label": "Plugin runtime availability",
+      "contractPath": "content/development/plugin-runtime-availability.json",
+      "reportPath": "reports/plugin-runtime-availability.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-runtime-availability",
+      "checkCommandAvailable": true,
+      "visibility": "runtime_callable_surface_and_auth_scope_manifest",
+      "metrics": {
+        "summary.availabilityPlugins": 300,
+        "summary.runtimeSurfaceCount": 7,
+        "summary.accountScopedPlugins": 280
+      }
+    },
+    {
+      "key": "pluginActivationGates",
+      "label": "Plugin activation gates",
+      "contractPath": "content/development/plugin-activation-gates.json",
+      "reportPath": "reports/plugin-activation-gates.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-activation-gates",
+      "checkCommandAvailable": true,
+      "visibility": "task_scoped_activation_and_auth_gate_manifest",
+      "metrics": {
+        "summary.activationGatePlugins": 300,
+        "summary.accountAuthGatePlugins": 280,
+        "summary.credentialCommitAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginObservabilityReadiness",
+      "label": "Plugin observability readiness",
+      "contractPath": "content/development/plugin-observability-readiness.json",
+      "reportPath": "reports/plugin-observability-readiness.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-observability-readiness",
+      "checkCommandAvailable": true,
+      "visibility": "audit_trace_health_and_monitoring_manifest",
+      "metrics": {
+        "summary.observabilityPlugins": 300,
+        "summary.accountScopedAuditPlugins": 280,
+        "summary.credentialRecordingPlugins": 0
+      }
+    },
+    {
+      "key": "pluginExecutionPipeline",
+      "label": "Plugin execution pipeline",
+      "contractPath": "content/development/plugin-execution-pipeline.json",
+      "reportPath": "reports/plugin-execution-pipeline.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-execution-pipeline",
+      "checkCommandAvailable": true,
+      "visibility": "task_scoped_execution_pipeline_manifest",
+      "metrics": {
+        "summary.pipelinePlugins": 300,
+        "summary.stageRecordCount": 3000,
+        "summary.blockedUntilAuthPlugins": 280,
+        "summary.autoInvokeAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginSourceAcquisitionPlan",
+      "label": "Plugin source acquisition plan",
+      "contractPath": "content/development/plugin-source-acquisition-plan.json",
+      "reportPath": "reports/plugin-source-acquisition-plan.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-source-acquisition-plan",
+      "checkCommandAvailable": true,
+      "visibility": "manifest_download_and_cache_acquisition_plan",
+      "metrics": {
+        "summary.acquisitionPlanPlugins": 300,
+        "summary.acquisitionPhaseRecords": 2400,
+        "summary.manifestDownloadPlugins": 300,
+        "summary.vendorPayloadCommitPlugins": 0
+      }
+    },
+    {
+      "key": "pluginSourceMaterializationPlan",
+      "label": "Plugin source materialization plan",
+      "contractPath": "content/development/plugin-source-materialization-plan.json",
+      "reportPath": "reports/plugin-source-materialization-plan.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-source-materialization-plan",
+      "checkCommandAvailable": true,
+      "visibility": "safe_plugin_source_materialization_and_connection_plan",
+      "metrics": {
+        "summary.materializationPlanPlugins": 300,
+        "summary.materializationStepRecords": 2100,
+        "summary.repositoryMaterializationAllowedPlugins": 0,
+        "summary.liveDownloadAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginSourceConnectionMatrix",
+      "label": "Plugin source connection matrix",
+      "contractPath": "content/development/plugin-source-connection-matrix.json",
+      "reportPath": "reports/plugin-source-connection-matrix.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-source-connection-matrix",
+      "checkCommandAvailable": true,
+      "visibility": "scoped_plugin_connection_and_access_matrix",
+      "metrics": {
+        "summary.connectionMatrixPlugins": 300,
+        "summary.connectionStepRecords": 2100,
+        "summary.liveConnectionAllowedPlugins": 0,
+        "summary.externalDataReadAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginAiAssistanceOrchestration",
+      "label": "Plugin AI assistance orchestration",
+      "contractPath": "content/development/plugin-ai-assistance-orchestration.json",
+      "reportPath": "reports/plugin-ai-assistance-orchestration.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-ai-assistance-orchestration",
+      "checkCommandAvailable": true,
+      "visibility": "multi_ai_plugin_assistance_orchestration_plan",
+      "metrics": {
+        "summary.assistantOrchestrationPlugins": 300,
+        "summary.orchestrationStepRecords": 2100,
+        "summary.liveAiInvocationAllowedPlugins": 0,
+        "summary.livePluginInvocationAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginAssistedDevelopmentQueue",
+      "label": "Plugin assisted development queue",
+      "contractPath": "content/development/plugin-assisted-development-queue.json",
+      "reportPath": "reports/plugin-assisted-development-queue.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-development-queue",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_assisted_development_queue",
+      "metrics": {
+        "summary.developmentQueuePlugins": 300,
+        "summary.queuedDevelopmentActionRecords": 1500,
+        "summary.localBoundedReadyPlugins": 20,
+        "summary.queuedUntilAuthPlugins": 280
+      }
+    },
+    {
+      "key": "pluginAssistedSprintPlan",
+      "label": "Plugin assisted sprint plan",
+      "contractPath": "content/development/plugin-assisted-sprint-plan.json",
+      "reportPath": "reports/plugin-assisted-sprint-plan.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-sprint-plan",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_sprint_wave_plan",
+      "metrics": {
+        "summary.sprintPlanPlugins": 300,
+        "summary.waveCount": 4,
+        "summary.lanePlanCount": 12,
+        "summary.sprintPhaseRecords": 48
+      }
+    },
+    {
+      "key": "pluginAssistedExecutionLedger",
+      "label": "Plugin assisted execution ledger",
+      "contractPath": "content/development/plugin-assisted-execution-ledger.json",
+      "reportPath": "reports/plugin-assisted-execution-ledger.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-execution-ledger",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_execution_ledger",
+      "metrics": {
+        "summary.executionLedgerPlugins": 300,
+        "summary.waveExecutionRecords": 4,
+        "summary.laneExecutionRecords": 12,
+        "summary.pluginExecutionRecords": 300
+      }
+    },
+    {
+      "key": "pluginAssistedActionBoard",
+      "label": "Plugin assisted action board",
+      "contractPath": "content/development/plugin-assisted-action-board.json",
+      "reportPath": "reports/plugin-assisted-action-board.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-action-board",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_action_board",
+      "metrics": {
+        "summary.actionBoardPlugins": 300,
+        "summary.readyActionCards": 20,
+        "summary.authBlockedActionCards": 280,
+        "summary.gateRecords": 1500
+      }
+    },
+    {
+      "key": "pluginAssistedReviewMatrix",
+      "label": "Plugin assisted review matrix",
+      "contractPath": "content/development/plugin-assisted-review-matrix.json",
+      "reportPath": "reports/plugin-assisted-review-matrix.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-review-matrix",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_review_matrix",
+      "metrics": {
+        "summary.reviewMatrixPlugins": 300,
+        "summary.readyReviewItems": 20,
+        "summary.authBlockedReviewItems": 280,
+        "summary.reviewGateRecords": 2400
+      }
+    },
+    {
+      "key": "pluginAssistedRiskRegister",
+      "label": "Plugin assisted risk register",
+      "contractPath": "content/development/plugin-assisted-risk-register.json",
+      "reportPath": "reports/plugin-assisted-risk-register.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-risk-register",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_risk_register",
+      "metrics": {
+        "summary.riskRegisterPlugins": 300,
+        "summary.controlledLocalRiskItems": 20,
+        "summary.authBlockedRiskItems": 280,
+        "summary.riskControlRecords": 2400
+      }
+    },
+    {
+      "key": "pluginAssistedPublishGateLedger",
+      "label": "Plugin assisted publish gate ledger",
+      "contractPath": "content/development/plugin-assisted-publish-gate-ledger.json",
+      "reportPath": "reports/plugin-assisted-publish-gate-ledger.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-assisted-publish-gate-ledger",
+      "checkCommandAvailable": true,
+      "visibility": "all_connected_plugin_publish_gate_ledger",
+      "metrics": {
+        "summary.publishGateLedgerPlugins": 300,
+        "summary.localPublishCandidateItems": 20,
+        "summary.authBlockedPublishGateItems": 280,
+        "summary.publishGateRecords": 2400
+      }
+    },
+    {
+      "key": "pluginSourceRolloutPolicy",
+      "label": "Plugin source rollout policy",
+      "contractPath": "content/development/plugin-source-rollout-policy.json",
+      "reportPath": "reports/plugin-source-rollout-policy.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-source-rollout-policy",
+      "checkCommandAvailable": true,
+      "visibility": "reviewed_plugin_source_rollout_policy",
+      "metrics": {
+        "summary.rolloutPolicyPlugins": 300,
+        "summary.rolloutGateRecords": 2100,
+        "summary.pullRequestRequiredPlugins": 300,
+        "summary.autoPromotionAllowedPlugins": 0
+      }
+    },
+    {
+      "key": "pluginSourceComplianceEvidence",
+      "label": "Plugin source compliance evidence",
+      "contractPath": "content/development/plugin-source-compliance-evidence.json",
+      "reportPath": "reports/plugin-source-compliance-evidence.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:plugin-source-compliance-evidence",
+      "checkCommandAvailable": true,
+      "visibility": "generated_plugin_source_compliance_evidence",
+      "metrics": {
+        "summary.compliancePlugins": 300,
+        "summary.coverageRecords": 6300,
+        "summary.fullCoveragePlugins": 300,
+        "summary.missingCoverageRecords": 0
+      }
+    },
+    {
+      "key": "externalSourceBindings",
+      "label": "External source bindings",
+      "contractPath": "content/development/external-source-bindings.json",
+      "reportPath": "reports/external-source-bindings.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:external-source-bindings",
+      "checkCommandAvailable": true,
+      "visibility": "external_connection_and_download_manifest",
+      "metrics": {
+        "summary.externalSourcesBound": 300,
+        "summary.downloadManifestPlugins": 300,
+        "summary.sourceGroupCount": 9
+      }
+    },
+    {
+      "key": "requestedSoftwareStack",
+      "label": "Requested software stack",
+      "contractPath": "content/development/requested-software-stack.json",
+      "reportPath": "reports/requested-software-stack.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:requested-software-stack",
+      "checkCommandAvailable": true,
+      "visibility": "requested_core_fullstack_stack",
+      "metrics": {
+        "summary.technologyCount": 6,
+        "summary.entrypointCount": 10
+      }
+    },
+    {
+      "key": "fullstackLanguageMatrix",
+      "label": "Full-stack language matrix",
+      "contractPath": "content/development/fullstack-language-matrix.json",
+      "reportPath": "reports/fullstack-language-matrix.json",
+      "contractExists": true,
+      "reportExists": true,
+      "checkCommand": "npm run check:fullstack-language-matrix",
+      "checkCommandAvailable": true,
+      "visibility": "all_fullstack_language_surfaces",
+      "metrics": {
+        "summary.languageCount": 108,
+        "summary.layerCount": 7,
+        "summary.entrypointCount": 119
+      }
+    }
+  ]
+}

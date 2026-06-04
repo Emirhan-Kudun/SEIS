@@ -1,0 +1,431 @@
+{
+  "ok": true,
+  "generatedAt": "2026-05-25T08:23:01.174Z",
+  "bundle": {
+    "id": "uix-apps-polyglot-preservation-bundle",
+    "mode": "source-manifest",
+    "sourceOfTruth": "config/preservation-snapshot.json",
+    "serverTargetProfile": "config/server-target-profile.json",
+    "outputDirectory": "runtime/server-upload-bundle",
+    "buildCommand": "npm run build:server-upload-bundle",
+    "runtimeEndpoint": "/api/server-upload-bundle",
+    "integrityEndpoint": "/api/preservation-snapshot"
+  },
+  "canonical": {
+    "repo": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "codex/premium-local-foundation",
+    "localRoot": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/UIX-Apps"
+  },
+  "git": {
+    "branch": "codex/premium-local-foundation",
+    "head": "b9b5cd7",
+    "status": "## codex/premium-local-foundation...origin/codex/premium-local-foundation [ahead 3]\n M config/cinematic-depth.json\n M config/server-handoff.json\n M config/software-language-matrix.json\n M docs/cinematic-depth-layer.md\n M docs/polyglot-foundation.md\n M docs/software-language-branch-foundation.md\n M polyglot/manifest.json\n M script.js\n M scripts/cinematic-depth-check.cjs\n M scripts/polyglot-foundation-check.cjs\n M scripts/software-language-matrix-check.cjs\n?? polyglot/dart/\n?? polyglot/elixir/\n?? polyglot/go/\n?? polyglot/hcl/\n?? polyglot/kotlin/\n?? polyglot/lua/\n?? polyglot/markdown/\n?? polyglot/r/\n?? polyglot/ruby/\n?? polyglot/rust/\n?? polyglot/scala/\n?? polyglot/swift/"
+  },
+  "outputDirectory": "runtime/server-upload-bundle",
+  "fileCount": 64,
+  "missingCount": 0,
+  "hashAlgorithm": "sha256",
+  "requiredCommands": [
+    "npm run build:server-upload-bundle",
+    "npm run server-upload:dry-run",
+    "npm run quality",
+    "npm run publish:preflight",
+    "GIT_TERMINAL_PROMPT=0 git push origin codex/premium-local-foundation"
+  ],
+  "forbiddenBundleEntries": [
+    "node_modules/",
+    ".next/",
+    "runtime/",
+    "logs/",
+    "__MACOSX/",
+    ".DS_Store",
+    "*.zip"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "ok": true,
+      "bytes": 6454,
+      "sha256": "f6df56195e82a13b30fa64a03c4b4d46fd9f980551bff0bf99f6359f917d6e1f"
+    },
+    {
+      "path": "config/cinematic-depth.json",
+      "ok": true,
+      "bytes": 628,
+      "sha256": "e034878e5c85e5e27c38f454bc04e77dcede9507d9eafc4053aea5fc1ba6820b"
+    },
+    {
+      "path": "config/development-program.json",
+      "ok": true,
+      "bytes": 2287,
+      "sha256": "2cd25cf894ea60f3e59f9545c17a37d2da61a44d55c9df37ef3c525de8e92afa"
+    },
+    {
+      "path": "config/fullstack-runtime.json",
+      "ok": true,
+      "bytes": 3900,
+      "sha256": "610a03586ffd698aeeaae29156ceed13ba4fd26e766017e7957e60b588e1b6e2"
+    },
+    {
+      "path": "config/preservation-snapshot.json",
+      "ok": true,
+      "bytes": 1920,
+      "sha256": "b4ebd4ca67011d5f0e42600807c14ed63c39ae69299343b9edc11dab548c9445"
+    },
+    {
+      "path": "config/server-handoff.json",
+      "ok": true,
+      "bytes": 1505,
+      "sha256": "39a2f98043909b9ededf1e03ce2e86202717266c7bba1983242ad1ea6e67a96f"
+    },
+    {
+      "path": "config/server-target-profile.json",
+      "ok": true,
+      "bytes": 944,
+      "sha256": "fa92547ff3fb28d55cd91d996be787923b08dcf960d5461b777a483353db5b68"
+    },
+    {
+      "path": "config/server-upload-bundle.json",
+      "ok": true,
+      "bytes": 1531,
+      "sha256": "9eb2ca65d0a628b753aa2cf8fea3a8493f25d67e9050c49e0f77565fbe2de183"
+    },
+    {
+      "path": "config/software-language-matrix.json",
+      "ok": true,
+      "bytes": 5514,
+      "sha256": "e913a947cec8bb0f6971ad9938088f0d4b3d69d5952386723ba6ead5c0055fe8"
+    },
+    {
+      "path": "docs/cinematic-depth-layer.md",
+      "ok": true,
+      "bytes": 865,
+      "sha256": "29434fa95084612979e9951282a699cc4712a8205b63cb0467cd5a33a20f216b"
+    },
+    {
+      "path": "docs/development-program.md",
+      "ok": true,
+      "bytes": 766,
+      "sha256": "58f6c4fa1ce8156c26f471fc67c68c0a51fc4c89e6249eb9faf8fcb26153cde5"
+    },
+    {
+      "path": "docs/polyglot-foundation.md",
+      "ok": true,
+      "bytes": 1105,
+      "sha256": "ab024f3a09b08e475ec263e80dfba8ce41b7883db13b631f4a7bf5fa505a7d55"
+    },
+    {
+      "path": "docs/preservation-snapshot.md",
+      "ok": true,
+      "bytes": 804,
+      "sha256": "53a471d87b4e56ed61a03af2a2be06810116f011d9b3c372ce826fa4d72c2627"
+    },
+    {
+      "path": "docs/release-readiness-runtime.md",
+      "ok": true,
+      "bytes": 1027,
+      "sha256": "f8cad68d543486b61f18a17c5ab5e63422ac3445849212d40b518e0e30279660"
+    },
+    {
+      "path": "docs/server-preservation-handoff.md",
+      "ok": true,
+      "bytes": 1708,
+      "sha256": "38d12c76dcf220d6844265c0c33aee6c1ac0c68328a270db00316aaa5fb45cdd"
+    },
+    {
+      "path": "docs/server-target-profile.md",
+      "ok": true,
+      "bytes": 972,
+      "sha256": "ff063b0350ef886963c40e96f5115cd644d2e853cf1d3ec4821cfdd92b72ddc4"
+    },
+    {
+      "path": "docs/server-upload-bundle.md",
+      "ok": true,
+      "bytes": 1593,
+      "sha256": "216f33432f5663bd0e20c953ac5d498dcc239f06ff6225bbb8161813f0bfe7db"
+    },
+    {
+      "path": "docs/software-language-branch-foundation.md",
+      "ok": true,
+      "bytes": 1436,
+      "sha256": "e879747bcbccecdbc52d8f24abcd19723e6e1bccb6d10c6470034ff89e5537e8"
+    },
+    {
+      "path": "index.html",
+      "ok": true,
+      "bytes": 62300,
+      "sha256": "43e137590d6084ad1123f2f0acc40794beb3c1065dba7c2e5a8af000ee77ae6e"
+    },
+    {
+      "path": "jest.config.js",
+      "ok": true,
+      "bytes": 587,
+      "sha256": "a899f511a723bd4693d014e4b2c9397ae11c58ceaa50ac32a840456607c4cd90"
+    },
+    {
+      "path": "package.json",
+      "ok": true,
+      "bytes": 3110,
+      "sha256": "410a242515c17e85244a97c5e1c983083186f05e0fbe6dd38579608c1f2d689c"
+    },
+    {
+      "path": "polyglot/bash/check-readiness.sh",
+      "ok": true,
+      "bytes": 165,
+      "sha256": "9d119fa118cc52a1274113d14d6279c777e3c1fdff09e1a79cc67540029fb8a1"
+    },
+    {
+      "path": "polyglot/cpp/readiness_signal.cpp",
+      "ok": true,
+      "bytes": 291,
+      "sha256": "7691c8a3724f7a4abeb7131acdfd50d9dd47a88a8327592c7100bf58318edd61"
+    },
+    {
+      "path": "polyglot/csharp/ReadinessSignal.cs",
+      "ok": true,
+      "bytes": 265,
+      "sha256": "6ded38d6de32f343e27c6af181c83eadd9214138a2d153e48b7c1fe413c3bb24"
+    },
+    {
+      "path": "polyglot/dart/readiness_signal.dart",
+      "ok": true,
+      "bytes": 319,
+      "sha256": "8cfaaec5da4b7a1453daa61cde0cd209ecce184d15c2046e38f48664e6fb25ac"
+    },
+    {
+      "path": "polyglot/elixir/readiness_signal.exs",
+      "ok": true,
+      "bytes": 108,
+      "sha256": "3e813b2beba8bedabb9e30647b43d6026defc0a286fd792c882e10f18e0cc5d6"
+    },
+    {
+      "path": "polyglot/frontend/app.js",
+      "ok": true,
+      "bytes": 314,
+      "sha256": "30caf3bfb1ba69d4e8ca242ca9c44a9da068cd960d1403c1f1c461b9c8b6b9ae"
+    },
+    {
+      "path": "polyglot/frontend/preview.html",
+      "ok": true,
+      "bytes": 557,
+      "sha256": "7dd701b1352e342a8374589128a9b2f558f25e0f934962ef1a29bf9ebe7b23d4"
+    },
+    {
+      "path": "polyglot/frontend/styles.css",
+      "ok": true,
+      "bytes": 891,
+      "sha256": "1a54bf5558119c5e0f8ad6c93d8cbf80fd27b584ed74c9d143e4347e03efef02"
+    },
+    {
+      "path": "polyglot/go/readiness_signal.go",
+      "ok": true,
+      "bytes": 253,
+      "sha256": "78b47c24c9aadec62e6227a3fb24661b6230eb468305e64f531c5b99ae8e69e3"
+    },
+    {
+      "path": "polyglot/governance.yml",
+      "ok": true,
+      "bytes": 239,
+      "sha256": "2d0555fde3f7151cd27c8b474214a25f23167478de06ca1f3d3ce3653454f481"
+    },
+    {
+      "path": "polyglot/hcl/readiness_signal.tf",
+      "ok": true,
+      "bytes": 99,
+      "sha256": "d372606ab4ac1f5b960a6ae63d10d3a6f4d4569bd1f61484a3d6dedd73cab6b6"
+    },
+    {
+      "path": "polyglot/java/ReadinessSignal.java",
+      "ok": true,
+      "bytes": 514,
+      "sha256": "bd6db7fe695fd98264d0d8a321205bfeae86f80d69b365cb302efaf9375e6fc7"
+    },
+    {
+      "path": "polyglot/kotlin/ReadinessSignal.kt",
+      "ok": true,
+      "bytes": 222,
+      "sha256": "576463f0fe7ac22ab4f045d2410b2bf1a216445449c2eb3fe8873209c570154f"
+    },
+    {
+      "path": "polyglot/lua/readiness_signal.lua",
+      "ok": true,
+      "bytes": 105,
+      "sha256": "e8079dbe89a10d99b21f0fd7f5b3dee37a11b2e70b7723782731e66116049f71"
+    },
+    {
+      "path": "polyglot/manifest.json",
+      "ok": true,
+      "bytes": 3842,
+      "sha256": "4baab7f1beedf96966a29b4c501abc31792056c4c112dad18853ac3ec654af19"
+    },
+    {
+      "path": "polyglot/markdown/readiness-signal.md",
+      "ok": true,
+      "bytes": 168,
+      "sha256": "93d5b35745e4ddbbc48ffb352676161ce299439a53500b9cf872c1907c0e0fb5"
+    },
+    {
+      "path": "polyglot/node/health.mjs",
+      "ok": true,
+      "bytes": 319,
+      "sha256": "420294488e6a28deeb85a1d6671ddf65019accce1bba71e54b4ac28b9e7db301"
+    },
+    {
+      "path": "polyglot/php/contact-health.php",
+      "ok": true,
+      "bytes": 403,
+      "sha256": "b938e366fcdc568f7aa5b29a1dd809f68e128ba0773313f0440d81c44ae0a492"
+    },
+    {
+      "path": "polyglot/python/readiness.py",
+      "ok": true,
+      "bytes": 689,
+      "sha256": "c61d3b155fad1d5948b5a1f7118fe45da85062f4c4b8a73541ff424e1ef2a797"
+    },
+    {
+      "path": "polyglot/r/readiness_signal.R",
+      "ok": true,
+      "bytes": 103,
+      "sha256": "ccebe7e1f5704cef7b50bb18f60b86d2557c757179631b3f1631c531942c7f17"
+    },
+    {
+      "path": "polyglot/ruby/readiness_signal.rb",
+      "ok": true,
+      "bytes": 173,
+      "sha256": "5170415a7effb5d2ed9b9b1ae667ffc4d665e7cfbbd6d50e75e44449d77acbb9"
+    },
+    {
+      "path": "polyglot/rust/readiness_signal.rs",
+      "ok": true,
+      "bytes": 262,
+      "sha256": "eed79667630e7f8c2461f9dc260d12ada1e98e6e4bd15d2c75cf71e13deea645"
+    },
+    {
+      "path": "polyglot/scala/ReadinessSignal.scala",
+      "ok": true,
+      "bytes": 184,
+      "sha256": "c3b1e5f3492201ab6827360d9df4027b93d88b2120848043e1b696925858a531"
+    },
+    {
+      "path": "polyglot/sql/content_model.sql",
+      "ok": true,
+      "bytes": 251,
+      "sha256": "7db009408bfac0a9ac2984532f49a809ac78c067360cbf7e50a4f9ae75445351"
+    },
+    {
+      "path": "polyglot/swift/ReadinessSignal.swift",
+      "ok": true,
+      "bytes": 209,
+      "sha256": "d1ca04a9d67d78a25948b7969edf78f250d15ed7e019ba478410fb8a2a045022"
+    },
+    {
+      "path": "polyglot/typescript/contract.ts",
+      "ok": true,
+      "bytes": 536,
+      "sha256": "3e04e2844759c4506a03d18475319c7a96415398d16eeda4f1695c8d350f0c9a"
+    },
+    {
+      "path": "script.js",
+      "ok": true,
+      "bytes": 90124,
+      "sha256": "689daf5273124e0e16bb2ecbf408cd78efd74dc3547ae0a29e34968da1e943dd"
+    },
+    {
+      "path": "scripts/build-server-upload-bundle.cjs",
+      "ok": true,
+      "bytes": 4891,
+      "sha256": "5f66d05f31f43e460765cf18587b1eff119b73c054bcb474b9765a7ed64d71ed"
+    },
+    {
+      "path": "scripts/cinematic-depth-check.cjs",
+      "ok": true,
+      "bytes": 3500,
+      "sha256": "72df74d9f336f7cee1eadbeb1785300db6c319d29034c9ce501807fc7c2baad2"
+    },
+    {
+      "path": "scripts/development-program-check.cjs",
+      "ok": true,
+      "bytes": 2493,
+      "sha256": "b1b0d265f25d2b51febade4212def394997af48a239cd29d8239627acc0b7f3a"
+    },
+    {
+      "path": "scripts/fullstack-preflight.cjs",
+      "ok": true,
+      "bytes": 5273,
+      "sha256": "e1991d15814b99a530c1cd3e74c2278ae45251709132fed13824a775996205bd"
+    },
+    {
+      "path": "scripts/i18n-contract-check.cjs",
+      "ok": true,
+      "bytes": 4552,
+      "sha256": "aac9a0b2bb1fbe2b66b1b0eb52e670161e9a358519d89d5edef7ffdd158d0ae5"
+    },
+    {
+      "path": "scripts/polyglot-foundation-check.cjs",
+      "ok": true,
+      "bytes": 4378,
+      "sha256": "abe35020058513bf1589e8a32caf0a00ed74ba63706bb61ce1804a7a2fd72306"
+    },
+    {
+      "path": "scripts/preservation-snapshot-check.cjs",
+      "ok": true,
+      "bytes": 3807,
+      "sha256": "8015900af543111c84d702cf63b2d4a234c05016da434337069ca26030ccbdea"
+    },
+    {
+      "path": "scripts/release-readiness-check.cjs",
+      "ok": true,
+      "bytes": 2312,
+      "sha256": "5d5b72322a2451c484861d448d33c2e76b3ad0bc049394eab4208838d075423d"
+    },
+    {
+      "path": "scripts/server-handoff-check.cjs",
+      "ok": true,
+      "bytes": 3208,
+      "sha256": "89d9b54470af89a0980415a06d9b8ee8a44a9079ea8135702a8e0492c94e3364"
+    },
+    {
+      "path": "scripts/server-target-check.cjs",
+      "ok": true,
+      "bytes": 3184,
+      "sha256": "b63cf6ca9505b7e6adb42cda7ae36d66d146ca2962828f4752d50f238b03167e"
+    },
+    {
+      "path": "scripts/server-upload-bundle-check.cjs",
+      "ok": true,
+      "bytes": 4166,
+      "sha256": "ce980da950f5c6832521158797c77856028dfef557abd3e8dff9207ef181c70b"
+    },
+    {
+      "path": "scripts/server-upload-dry-run.cjs",
+      "ok": true,
+      "bytes": 3170,
+      "sha256": "2ce473788840a5c93c03e1e99f75fa7e14227a24fcbd5e42d8acdfcaf17e243c"
+    },
+    {
+      "path": "scripts/software-language-matrix-check.cjs",
+      "ok": true,
+      "bytes": 4247,
+      "sha256": "f36302962d0dc117c73b569a1035fa60acedf1bbaf949061d1a822f12fe60104"
+    },
+    {
+      "path": "server.mjs",
+      "ok": true,
+      "bytes": 46042,
+      "sha256": "a14ca12e5947c1ea4d04dfefcdc981e5aa51b5800e6dcb564dc8f96bbfa13043"
+    },
+    {
+      "path": "style.css",
+      "ok": true,
+      "bytes": 58749,
+      "sha256": "94a875af7ca7ae29bf5906d73f5807307f326b22d7f5be44f38ea5a2c77b6d46"
+    },
+    {
+      "path": "translations.json",
+      "ok": true,
+      "bytes": 80210,
+      "sha256": "48a5bfdc9939e1b5a5d041676c3ebbb7d3428fffd295ad21e75e9bbd255d2f2e"
+    }
+  ],
+  "missing": []
+}

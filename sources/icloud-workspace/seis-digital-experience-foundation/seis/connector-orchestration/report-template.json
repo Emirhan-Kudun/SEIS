@@ -1,0 +1,22 @@
+{
+  "runId": "YYYYMMDD-HHMMSS-local",
+  "mode": "dry-run",
+  "requestedGroups": [],
+  "filters": {
+    "sources": [],
+    "modes": []
+  },
+  "connectorsReviewed": 0,
+  "uniqueConnectorsReviewed": 0,
+  "plannedSteps": [],
+  "skippedWithReason": [],
+  "approvalRequired": [],
+  "riskByGroup": [],
+  "riskSummary": {
+    "overall": "medium",
+    "writeActionsBlocked": true,
+    "secretsAccessBlocked": true,
+    "productionDeployBlocked": true
+  },
+  "nextSafeAction": "Review the plan, approve a specific group, then run the required connector manually or through a scoped adapter."
+}

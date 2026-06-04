@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "canonical": {
+    "repo": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "codex/premium-local-foundation",
+    "serverRole": "canonical-source-preservation",
+    "publishCommand": "GIT_TERMINAL_PROMPT=0 git push origin codex/premium-local-foundation"
+  },
+  "requiredChecks": [
+    "npm run quality",
+    "npm run publish:preflight"
+  ],
+  "multilingualContract": {
+    "defaultLocale": "tr",
+    "locales": ["tr", "en", "fr", "it", "de"],
+    "runtimeSurfaces": [
+      "translations.json",
+      "/api/i18n-health",
+      "apps/seis-nextjs-foundation/lib/content.ts"
+    ]
+  },
+  "softwareLanguageContract": {
+    "matrix": "config/software-language-matrix.json",
+    "endpoint": "/api/software-languages",
+    "requiredLanguageIds": [
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "nodejs",
+      "php",
+      "python",
+      "java",
+      "cpp",
+      "csharp",
+      "bash",
+      "sql",
+      "go",
+      "rust",
+      "ruby",
+      "swift",
+      "kotlin",
+      "dart",
+      "r",
+      "lua",
+      "elixir",
+      "scala",
+      "hcl",
+      "markdown"
+    ]
+  },
+  "excludedFromShipment": [
+    "node_modules/",
+    ".next/",
+    "runtime/",
+    "logs/",
+    "__MACOSX/",
+    ".DS_Store",
+    "*.zip"
+  ],
+  "blockers": [
+    {
+      "id": "github-auth",
+      "status": "blocked-until-authenticated",
+      "resolution": "Run gh auth login -h github.com, then rerun npm run publish:preflight before pushing."
+    }
+  ]
+}

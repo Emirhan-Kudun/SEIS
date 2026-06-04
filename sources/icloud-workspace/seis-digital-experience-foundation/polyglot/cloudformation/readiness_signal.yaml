@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "ReadinessSignal CloudFormation lane; reference-only and dependency-light."
+Metadata:
+  UIXApps:
+    ReadinessSignal:
+      lane: cloudformation
+      status: reference
+      runtimeWeight: dependency-light
+      deploymentPolicy: blocked-until-target-and-auth
+Outputs:
+  ReadinessSignalLane:
+    Description: "Reference-only readiness signal for future AWS infrastructure declarations."
+    Value: cloudformation

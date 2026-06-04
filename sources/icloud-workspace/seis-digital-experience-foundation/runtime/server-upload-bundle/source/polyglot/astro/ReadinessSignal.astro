@@ -1,0 +1,18 @@
+---
+const ReadinessSignal = {
+  lane: "astro",
+  status: "reference",
+  score: 96,
+  reducedMotionSafe: true,
+  runtimeWeight: "dependency-light"
+};
+---
+
+<section
+  data-readiness-signal={ReadinessSignal.lane}
+  data-status={ReadinessSignal.status}
+  data-score={ReadinessSignal.score}
+  data-reduced-motion-safe={ReadinessSignal.reducedMotionSafe}
+>
+  polyglot-foundation
+</section>

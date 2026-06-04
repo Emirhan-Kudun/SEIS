@@ -1,0 +1,200 @@
+{
+  "version": "1.0.0",
+  "branchPolicy": {
+    "mode": "polyglot-foundation",
+    "principle": "Support many software languages through governed roles, not dependency bloat.",
+    "defaultRuntime": "node-fullstack",
+    "promotionRule": "A language can move from reference to runtime only after a small contract, quality check, and rollback note exist."
+  },
+  "requiredCategories": ["frontend", "backend", "scripting", "systems", "data", "governance"],
+  "languages": [
+    {
+      "id": "html",
+      "label": "HTML",
+      "category": "frontend",
+      "status": "active",
+      "role": "semantic public structure, accessibility landmarks, SEO metadata"
+    },
+    {
+      "id": "css",
+      "label": "CSS",
+      "category": "frontend",
+      "status": "active",
+      "role": "responsive layout, calm visual system, reduced-motion behavior"
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript",
+      "category": "frontend",
+      "status": "active",
+      "role": "progressive enhancement, interaction safety, static UX behavior"
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "category": "frontend",
+      "status": "active",
+      "role": "Next.js UX foundation, typed UI architecture, content contracts"
+    },
+    {
+      "id": "nodejs",
+      "label": "Node.js",
+      "category": "backend",
+      "status": "active",
+      "role": "dependency-light local API runtime and quality scripts"
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "category": "backend",
+      "status": "legacy-compatible",
+      "role": "static-host contact fallback and shared hosting compatibility"
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "category": "scripting",
+      "status": "prepared",
+      "role": "future content tooling, archive analysis, data preparation"
+    },
+    {
+      "id": "java",
+      "label": "Java",
+      "category": "backend",
+      "status": "reference",
+      "role": "future enterprise integration reference lane"
+    },
+    {
+      "id": "cpp",
+      "label": "C++",
+      "category": "systems",
+      "status": "reference",
+      "role": "performance and native systems reference lane"
+    },
+    {
+      "id": "csharp",
+      "label": "C Sharp",
+      "category": "backend",
+      "status": "reference",
+      "role": ".NET and enterprise application reference lane"
+    },
+    {
+      "id": "bash",
+      "label": "Bash",
+      "category": "scripting",
+      "status": "active",
+      "role": "bounded local automation and handoff scripts"
+    },
+    {
+      "id": "sql",
+      "label": "SQL",
+      "category": "data",
+      "status": "planned",
+      "role": "future database and content model query layer"
+    },
+    {
+      "id": "json",
+      "label": "JSON",
+      "category": "governance",
+      "status": "active",
+      "role": "manifests, contracts, handoff metadata, data portability"
+    },
+    {
+      "id": "yaml",
+      "label": "YAML",
+      "category": "governance",
+      "status": "prepared",
+      "role": "CI, workflow, and infrastructure declaration lane"
+    },
+    {
+      "id": "go",
+      "label": "Go",
+      "category": "backend",
+      "status": "reference",
+      "role": "future small service, CLI, and deployment utility lane"
+    },
+    {
+      "id": "rust",
+      "label": "Rust",
+      "category": "systems",
+      "status": "reference",
+      "role": "future safe systems, performance, and WebAssembly-adjacent lane"
+    },
+    {
+      "id": "ruby",
+      "label": "Ruby",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future content tooling and readable automation lane"
+    },
+    {
+      "id": "swift",
+      "label": "Swift",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Apple platform interface reference lane"
+    },
+    {
+      "id": "kotlin",
+      "label": "Kotlin",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Android and JVM interface reference lane"
+    },
+    {
+      "id": "dart",
+      "label": "Dart",
+      "category": "frontend",
+      "status": "reference",
+      "role": "future Flutter-style UI model reference lane"
+    },
+    {
+      "id": "r",
+      "label": "R",
+      "category": "data",
+      "status": "reference",
+      "role": "future analytics, reporting, and research-data lane"
+    },
+    {
+      "id": "lua",
+      "label": "Lua",
+      "category": "scripting",
+      "status": "reference",
+      "role": "future embeddable automation and lightweight runtime lane"
+    },
+    {
+      "id": "elixir",
+      "label": "Elixir",
+      "category": "backend",
+      "status": "reference",
+      "role": "future fault-tolerant realtime application reference lane"
+    },
+    {
+      "id": "scala",
+      "label": "Scala",
+      "category": "data",
+      "status": "reference",
+      "role": "future data platform and typed functional backend lane"
+    },
+    {
+      "id": "hcl",
+      "label": "HCL",
+      "category": "governance",
+      "status": "reference",
+      "role": "future infrastructure-as-code declaration lane"
+    },
+    {
+      "id": "markdown",
+      "label": "Markdown",
+      "category": "governance",
+      "status": "active",
+      "role": "documentation, handoff, design rationale, and review narrative lane"
+    }
+  ],
+  "qualityGates": [
+    "node scripts/software-language-matrix-check.cjs",
+    "node scripts/polyglot-foundation-check.cjs",
+    "node scripts/fullstack-preflight.cjs",
+    "npm run publish:preflight"
+  ]
+}

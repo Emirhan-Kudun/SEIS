@@ -1,0 +1,454 @@
+- main [ref=e3]:
+  - navigation [ref=e4]:
+    - strong [ref=e5]: Emirhan Kudun
+    - generic [ref=e6]:
+      - button "TR" [ref=e7]
+      - button "EN" [ref=e8]
+      - button "FR" [ref=e9]
+      - button "IT" [ref=e10]
+      - button "DE" [ref=e11]
+  - generic [ref=e12]:
+    - paragraph [ref=e13]: Creative Technologist / Premium Designer / SEIS Founder
+    - heading "Sinematik netlik ureten premium dijital sistemler." [level=1] [ref=e14]
+    - generic [ref=e15]: Emirhan Kudun icin Behance, cizim arsivi, secili isler ve yogun 3D animasyonu tek, sakin ve guclu bir portfolyo deneyiminde birlestiren yeni website.
+    - generic "Portfolio preview metrics" [ref=e16]:
+      - strong [ref=e17]: 20 cizim
+      - strong [ref=e18]: 5 dil
+      - strong [ref=e19]: Behance hazir
+  - region "Behance gorselleri ve cizim vitrini" [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: Hareketli Behance ve cizim galerisi
+      - heading "Behance gorselleri ve cizim vitrini" [level=2] [ref=e23]
+      - paragraph [ref=e24]: Behance profilindeki gorsel isler ve mevcut cizimler ana sayfa ile portfolyo icinde birlikte gorunur.
+    - generic "Hareketli Behance ve cizim galerisi" [ref=e25]:
+      - generic [ref=e29]: Be
+      - link "Social Media post - Behance / Social visual design Behance / Social visual design Social Media post" [ref=e30] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/245560201/Social-Media-post
+        - img "Social Media post - Behance / Social visual design" [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]: Behance / Social visual design
+          - strong [ref=e34]: Social Media post
+      - link "Global Warming Poster - Behance / Poster design Behance / Poster design Global Warming Poster" [ref=e35] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205108621/Global-Warming-Poster
+        - img "Global Warming Poster - Behance / Poster design" [ref=e36]
+        - generic [ref=e37]:
+          - generic [ref=e38]: Behance / Poster design
+          - strong [ref=e39]: Global Warming Poster
+      - link "Italy Gift Coffee Cup Set - Behance / Product mockup Behance / Product mockup Italy Gift Coffee Cup Set" [ref=e40] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set
+        - img "Italy Gift Coffee Cup Set - Behance / Product mockup" [ref=e41]
+        - generic [ref=e42]:
+          - generic [ref=e43]: Behance / Product mockup
+          - strong [ref=e44]: Italy Gift Coffee Cup Set
+      - link "Turkish mythology theater posters - Behance / Illustration poster Behance / Illustration poster Turkish mythology theater posters" [ref=e45] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters
+        - img "Turkish mythology theater posters - Behance / Illustration poster" [ref=e46]
+        - generic [ref=e47]:
+          - generic [ref=e48]: Behance / Illustration poster
+          - strong [ref=e49]: Turkish mythology theater posters
+      - link "30 Agustos Outdoor Poster - Behance / Outdoor poster Behance / Outdoor poster 30 Agustos Outdoor Poster" [ref=e50] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/181320969/30-Agustos-Beldeport-Outdoor-Poster
+        - img "30 Agustos Outdoor Poster - Behance / Outdoor poster" [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]: Behance / Outdoor poster
+          - strong [ref=e54]: 30 Agustos Outdoor Poster
+      - link "Karakalem 01 - Cizim / graphite Cizim / graphite Karakalem 01" [ref=e55] [cursor=pointer]:
+        - /url: "#drawings"
+        - img "Karakalem 01 - Cizim / graphite" [ref=e56]
+        - generic [ref=e57]:
+          - generic [ref=e58]: Cizim / graphite
+          - strong [ref=e59]: Karakalem 01
+      - link "Karakalem 02 - Cizim / graphite Cizim / graphite Karakalem 02" [ref=e60] [cursor=pointer]:
+        - /url: "#drawings"
+        - img "Karakalem 02 - Cizim / graphite" [ref=e61]
+        - generic [ref=e62]:
+          - generic [ref=e63]: Cizim / graphite
+          - strong [ref=e64]: Karakalem 02
+      - link "Karakalem 03 - Cizim / graphite Cizim / graphite Karakalem 03" [ref=e65] [cursor=pointer]:
+        - /url: "#drawings"
+        - img "Karakalem 03 - Cizim / graphite" [ref=e66]
+        - generic [ref=e67]:
+          - generic [ref=e68]: Cizim / graphite
+          - strong [ref=e69]: Karakalem 03
+      - link "Renk 01 - Cizim / color Cizim / color Renk 01" [ref=e70] [cursor=pointer]:
+        - /url: "#drawings"
+        - img "Renk 01 - Cizim / color" [ref=e71]
+        - generic [ref=e72]:
+          - generic [ref=e73]: Cizim / color
+          - strong [ref=e74]: Renk 01
+  - generic [ref=e75]:
+    - article [ref=e76]:
+      - heading "Branding and Visual Identity" [level=2] [ref=e77]
+      - paragraph [ref=e78]: Logo, identity, campaign visuals and reusable brand decisions shaped into a practical visual system.
+    - article [ref=e79]:
+      - heading "UI/UX Visual Design" [level=2] [ref=e80]
+      - paragraph [ref=e81]: Interface visuals with clear hierarchy, calm action paths, accessibility-aware contrast and premium rhythm.
+    - article [ref=e82]:
+      - heading "Editorial Systems" [level=2] [ref=e83]
+      - paragraph [ref=e84]: Magazine, catalogue, brochure and long-form layouts built around typography, grid and reading comfort.
+    - article [ref=e85]:
+      - heading "Cinematic 3D and Motion" [level=2] [ref=e86]
+      - paragraph [ref=e87]: WebGL atmospheres, scroll-reactive scenes and restrained motion systems with reduced-motion fallbacks.
+    - article [ref=e88]:
+      - heading "Digital Publishing Systems" [level=2] [ref=e89]
+      - paragraph [ref=e90]: Lightweight web architectures, content models, portfolio publishing and governance surfaces that stay maintainable.
+  - generic [ref=e91]:
+    - article [ref=e92]:
+      - text: Portfolio System
+      - heading "Cinematic Portfolio OS" [level=2] [ref=e93]
+      - paragraph [ref=e94]: A premium homepage, multilingual content model and drawing-led storytelling layer for a visual designer.
+    - article [ref=e95]:
+      - text: Behance Bridge
+      - heading "Behance Portfolio Bridge" [level=2] [ref=e96]
+      - paragraph [ref=e97]: A public-facing bridge for Behance profile, selected works and embed-ready portfolio slots.
+    - article [ref=e98]:
+      - text: 3D Gallery
+      - heading "Cinematic Drawing Gallery" [level=2] [ref=e99]
+      - paragraph [ref=e100]: A WebGL-led gallery direction where drawings, work cards and Behance surfaces move through one cinematic space.
+    - article [ref=e101]:
+      - text: Brand Identity
+      - heading "Brand Clarity System" [level=2] [ref=e102]
+      - paragraph [ref=e103]: A modular identity direction where typography, color and rhythm stay consistent across channels.
+    - article [ref=e104]:
+      - text: Editorial Design
+      - heading "Editorial Reading Flow" [level=2] [ref=e105]
+      - paragraph [ref=e106]: A long-form layout system designed to reduce fatigue with hierarchy, whitespace and controlled density.
+    - article [ref=e107]:
+      - text: UI/UX Visual
+      - heading "Action Clarity Interface" [level=2] [ref=e108]
+      - paragraph [ref=e109]: A visual UI direction focused on calm decision-making, clear calls to action and reduced cognitive load.
+  - generic [ref=e110]:
+    - figure "Karakalem 01 graphite" [ref=e111]:
+      - img "Karakalem 01" [ref=e112]
+      - generic [ref=e113]:
+        - strong [ref=e114]: Karakalem 01
+        - generic [ref=e115]: graphite
+    - figure "Karakalem 02 graphite" [ref=e116]:
+      - img "Karakalem 02" [ref=e117]
+      - generic [ref=e118]:
+        - strong [ref=e119]: Karakalem 02
+        - generic [ref=e120]: graphite
+    - figure "Karakalem 03 graphite" [ref=e121]:
+      - img "Karakalem 03" [ref=e122]
+      - generic [ref=e123]:
+        - strong [ref=e124]: Karakalem 03
+        - generic [ref=e125]: graphite
+    - figure "Renk 01 color" [ref=e126]:
+      - img "Renk 01" [ref=e127]
+      - generic [ref=e128]:
+        - strong [ref=e129]: Renk 01
+        - generic [ref=e130]: color
+    - figure "Renk 04 color" [ref=e131]:
+      - img "Renk 04" [ref=e132]
+      - generic [ref=e133]:
+        - strong [ref=e134]: Renk 04
+        - generic [ref=e135]: color
+    - figure "Renk 05 color" [ref=e136]:
+      - img "Renk 05" [ref=e137]
+      - generic [ref=e138]:
+        - strong [ref=e139]: Renk 05
+        - generic [ref=e140]: color
+  - generic [ref=e141]:
+    - generic [ref=e142]:
+      - text: Behance / Visuals
+      - heading "Behance gorselleri ve cizim vitrini" [level=2] [ref=e143]
+      - paragraph [ref=e144]: Behance profilindeki gorsel isler ve mevcut cizimler ana sayfa ile portfolyo icinde birlikte gorunur.
+    - generic [ref=e145]:
+      - link "Social Media post - Social visual design Social visual design Social Media post" [ref=e146] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/245560201/Social-Media-post
+        - img "Social Media post - Social visual design" [ref=e147]
+        - generic [ref=e148]:
+          - generic [ref=e149]: Social visual design
+          - strong [ref=e150]: Social Media post
+      - link "Global Warming Poster - Poster design Poster design Global Warming Poster" [ref=e151] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205108621/Global-Warming-Poster
+        - img "Global Warming Poster - Poster design" [ref=e152]
+        - generic [ref=e153]:
+          - generic [ref=e154]: Poster design
+          - strong [ref=e155]: Global Warming Poster
+      - link "Italy Gift Coffee Cup Set - Product mockup Product mockup Italy Gift Coffee Cup Set" [ref=e156] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set
+        - img "Italy Gift Coffee Cup Set - Product mockup" [ref=e157]
+        - generic [ref=e158]:
+          - generic [ref=e159]: Product mockup
+          - strong [ref=e160]: Italy Gift Coffee Cup Set
+      - link "Turkish mythology theater posters - Illustration poster Illustration poster Turkish mythology theater posters" [ref=e161] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters
+        - img "Turkish mythology theater posters - Illustration poster" [ref=e162]
+        - generic [ref=e163]:
+          - generic [ref=e164]: Illustration poster
+          - strong [ref=e165]: Turkish mythology theater posters
+      - link "30 Agustos Outdoor Poster - Outdoor poster Outdoor poster 30 Agustos Outdoor Poster" [ref=e166] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/181320969/30-Agustos-Beldeport-Outdoor-Poster
+        - img "30 Agustos Outdoor Poster - Outdoor poster" [ref=e167]
+        - generic [ref=e168]:
+          - generic [ref=e169]: Outdoor poster
+          - strong [ref=e170]: 30 Agustos Outdoor Poster
+      - link "Social Responsibility Project - Sustainability visual Sustainability visual Social Responsibility Project" [ref=e171] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/178412361/Social-Responsibility-Project
+        - img "Social Responsibility Project - Sustainability visual" [ref=e172]
+        - generic [ref=e173]:
+          - generic [ref=e174]: Sustainability visual
+          - strong [ref=e175]: Social Responsibility Project
+      - link "Beldeport 30 Agustos Banner - Banner design Banner design Beldeport 30 Agustos Banner" [ref=e176] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/178216053/Beldeport-30-Agustos-Victory-Day-Banner
+        - img "Beldeport 30 Agustos Banner - Banner design" [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]: Banner design
+          - strong [ref=e180]: Beldeport 30 Agustos Banner
+      - link "Wonder Woman Book Cover 2 - Book cover Book cover Wonder Woman Book Cover 2" [ref=e181] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/178126385/Wonder-Woman-Book-Cover-2
+        - img "Wonder Woman Book Cover 2 - Book cover" [ref=e182]
+        - generic [ref=e183]:
+          - generic [ref=e184]: Book cover
+          - strong [ref=e185]: Wonder Woman Book Cover 2
+      - link "Foreign Education Outdoor Poster - Outdoor poster Outdoor poster Foreign Education Outdoor Poster" [ref=e186] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/178124789/Foreign-Education-Outdoor-Poster
+        - img "Foreign Education Outdoor Poster - Outdoor poster" [ref=e187]
+        - generic [ref=e188]:
+          - generic [ref=e189]: Outdoor poster
+          - strong [ref=e190]: Foreign Education Outdoor Poster
+      - link "Poligon Illustration - Illustration Illustration Poligon Illustration" [ref=e191] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/177929021/Poligon-Illustration
+        - img "Poligon Illustration - Illustration" [ref=e192]
+        - generic [ref=e193]:
+          - generic [ref=e194]: Illustration
+          - strong [ref=e195]: Poligon Illustration
+  - generic [ref=e196]:
+    - generic [ref=e197]:
+      - text: Portfolio / Collections
+      - heading "Portfolyo koleksiyonlari" [level=2] [ref=e198]
+      - paragraph [ref=e199]: Website artik tek bir vitrin degil; Behance isleri, cizimler, marka/editorial sistemler ve 3D web dili uzun sure korunacak koleksiyonlara ayrilir.
+    - generic [ref=e200]:
+      - article [ref=e201]:
+        - generic [ref=e202]:
+          - img "Behance Campaign Systems" [ref=e203]
+          - img "Behance Campaign Systems" [ref=e204]
+          - img "Behance Campaign Systems" [ref=e205]
+        - generic [ref=e206]: Campaign proof / visual communication
+        - heading "Behance Campaign Systems" [level=3] [ref=e207]
+        - paragraph [ref=e208]: Poster, social and campaign visuals presented as a polished proof wall for client-facing portfolio review.
+      - article [ref=e209]:
+        - generic [ref=e210]:
+          - img "Drawing Archive Studio" [ref=e211]
+          - img "Drawing Archive Studio" [ref=e212]
+          - img "Drawing Archive Studio" [ref=e213]
+        - generic [ref=e214]: Drawing archive / visual research
+        - heading "Drawing Archive Studio" [level=3] [ref=e215]
+        - paragraph [ref=e216]: Graphite and color works become an authored visual research archive instead of a loose image dump.
+      - article [ref=e217]:
+        - generic [ref=e218]:
+          - img "Cinematic Web Portfolio" [ref=e219]
+          - img "Cinematic Web Portfolio" [ref=e220]
+          - img "Cinematic Web Portfolio" [ref=e221]
+        - generic [ref=e222]: Website system / 3D motion
+        - heading "Cinematic Web Portfolio" [level=3] [ref=e223]
+        - paragraph [ref=e224]: "The portfolio website itself is treated as a design object: 3D motion, editorial flow and calm interaction in one system."
+  - generic [ref=e225]:
+    - generic [ref=e226]:
+      - text: Portfolyo / Akis
+      - heading "Behance, cizim ve isler icin net kesif rotasi" [level=2] [ref=e227]
+      - paragraph [ref=e228]: Ziyaretci once gorsel etkiyi, sonra cizim arsivini, en sonda uygulanabilir is sistemlerini tek ritimde okur.
+    - generic [ref=e229]:
+      - article [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: "01"
+          - generic [ref=e233]: 10 Behance
+        - heading "Behance gorselleri ve cizim vitrini" [level=3] [ref=e235]
+        - paragraph [ref=e236]: Canli Behance gorselleri ve embed kodlari portfolyonun dis kaynakli kanit katmanini tasir.
+      - article [ref=e237]:
+        - generic [ref=e238]:
+          - generic [ref=e239]: "02"
+          - generic [ref=e240]: 20 cizim
+        - heading "Tam cizim arsivi" [level=3] [ref=e242]
+        - paragraph [ref=e243]: Karakalem ve renk etutleri ana vitrine bagli sakin bir gorsel arastirma arsivi kurar.
+      - article [ref=e244]:
+        - generic [ref=e245]:
+          - generic [ref=e246]: "03"
+          - generic [ref=e247]: 6 is
+        - generic [ref=e248]:
+          - generic [ref=e249]: Ci
+          - generic [ref=e250]: Be
+          - generic [ref=e251]: Ci
+        - heading "Secili isler ve sistemler" [level=3] [ref=e252]
+        - paragraph [ref=e253]: Secili is kartlari hizmet, marka ve arayuz dusuncesini uygulanabilir proje yuzeyine baglar.
+  - generic [ref=e254]:
+    - generic [ref=e255]:
+      - text: Portfolyo / Indeks
+      - heading "Birlesik portfolyo indeksi" [level=2] [ref=e256]
+      - paragraph [ref=e257]: Behance projeleri, cizimler ve secili isler tek filtrelenebilir yuzeyde toplanir; portfolyo uzun vadede kaybolmadan genisler.
+    - generic [ref=e258]:
+      - link "Social Media post - Social visual design behance / Social visual design Social Media post" [ref=e259] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/245560201/Social-Media-post
+        - img "Social Media post - Social visual design" [ref=e260]
+        - generic [ref=e261]:
+          - generic [ref=e262]: behance / Social visual design
+          - strong [ref=e263]: Social Media post
+      - link "Global Warming Poster - Poster design behance / Poster design Global Warming Poster" [ref=e264] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205108621/Global-Warming-Poster
+        - img "Global Warming Poster - Poster design" [ref=e265]
+        - generic [ref=e266]:
+          - generic [ref=e267]: behance / Poster design
+          - strong [ref=e268]: Global Warming Poster
+      - link "Italy Gift Coffee Cup Set - Product mockup behance / Product mockup Italy Gift Coffee Cup Set" [ref=e269] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set
+        - img "Italy Gift Coffee Cup Set - Product mockup" [ref=e270]
+        - generic [ref=e271]:
+          - generic [ref=e272]: behance / Product mockup
+          - strong [ref=e273]: Italy Gift Coffee Cup Set
+      - link "Turkish mythology theater posters - Illustration poster behance / Illustration poster Turkish mythology theater posters" [ref=e274] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters
+        - img "Turkish mythology theater posters - Illustration poster" [ref=e275]
+        - generic [ref=e276]:
+          - generic [ref=e277]: behance / Illustration poster
+          - strong [ref=e278]: Turkish mythology theater posters
+      - link "30 Agustos Outdoor Poster - Outdoor poster behance / Outdoor poster 30 Agustos Outdoor Poster" [ref=e279] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/181320969/30-Agustos-Beldeport-Outdoor-Poster
+        - img "30 Agustos Outdoor Poster - Outdoor poster" [ref=e280]
+        - generic [ref=e281]:
+          - generic [ref=e282]: behance / Outdoor poster
+          - strong [ref=e283]: 30 Agustos Outdoor Poster
+      - link "Social Responsibility Project - Sustainability visual behance / Sustainability visual Social Responsibility Project" [ref=e284] [cursor=pointer]:
+        - /url: https://www.behance.net/gallery/178412361/Social-Responsibility-Project
+        - img "Social Responsibility Project - Sustainability visual" [ref=e285]
+        - generic [ref=e286]:
+          - generic [ref=e287]: behance / Sustainability visual
+          - strong [ref=e288]: Social Responsibility Project
+      - link "Karakalem 01 - graphite drawing / graphite Karakalem 01" [ref=e289] [cursor=pointer]:
+        - /url: /drawings
+        - img "Karakalem 01 - graphite" [ref=e290]
+        - generic [ref=e291]:
+          - generic [ref=e292]: drawing / graphite
+          - strong [ref=e293]: Karakalem 01
+      - link "Karakalem 02 - graphite drawing / graphite Karakalem 02" [ref=e294] [cursor=pointer]:
+        - /url: /drawings
+        - img "Karakalem 02 - graphite" [ref=e295]
+        - generic [ref=e296]:
+          - generic [ref=e297]: drawing / graphite
+          - strong [ref=e298]: Karakalem 02
+      - link "Karakalem 03 - graphite drawing / graphite Karakalem 03" [ref=e299] [cursor=pointer]:
+        - /url: /drawings
+        - img "Karakalem 03 - graphite" [ref=e300]
+        - generic [ref=e301]:
+          - generic [ref=e302]: drawing / graphite
+          - strong [ref=e303]: Karakalem 03
+      - link "Renk 01 - color drawing / color Renk 01" [ref=e304] [cursor=pointer]:
+        - /url: /drawings
+        - img "Renk 01 - color" [ref=e305]
+        - generic [ref=e306]:
+          - generic [ref=e307]: drawing / color
+          - strong [ref=e308]: Renk 01
+      - link "Renk 04 - color drawing / color Renk 04" [ref=e309] [cursor=pointer]:
+        - /url: /drawings
+        - img "Renk 04 - color" [ref=e310]
+        - generic [ref=e311]:
+          - generic [ref=e312]: drawing / color
+          - strong [ref=e313]: Renk 04
+      - link "Renk 05 - color drawing / color Renk 05" [ref=e314] [cursor=pointer]:
+        - /url: /drawings
+        - img "Renk 05 - color" [ref=e315]
+        - generic [ref=e316]:
+          - generic [ref=e317]: drawing / color
+          - strong [ref=e318]: Renk 05
+  - generic [ref=e319]:
+    - article [ref=e320]:
+      - text: Social visual design
+      - heading "Social Media post Embed" [level=2] [ref=e321]
+      - paragraph [ref=e322]: Social Media post icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.
+      - code [ref=e324]: "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/245560201?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+    - article [ref=e325]:
+      - text: Poster design
+      - heading "Global Warming Poster Embed" [level=2] [ref=e326]
+      - paragraph [ref=e327]: Global Warming Poster icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.
+      - code [ref=e329]: "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/205108621?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+    - article [ref=e330]:
+      - text: Product mockup
+      - heading "Italy Gift Coffee Cup Set Embed" [level=2] [ref=e331]
+      - paragraph [ref=e332]: Italy Gift Coffee Cup Set icin Behance tarafindan uretilen iframe embed yuzeyi; kopyalanabilir kod ve canli preview olarak tutulur.
+      - code [ref=e334]: "<div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;\"><iframe src=\"https://www.behance.net/embed/project/205105339?ilo0=1\" style=\"top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;\" allowfullscreen allow=\"clipboard-write *; fullscreen *;\"></iframe></div>"
+  - generic [ref=e335]:
+    - generic [ref=e336]:
+      - text: Q&A / Iletisim
+      - heading "Q&A ve hizli netlestirme" [level=2] [ref=e337]
+      - paragraph [ref=e338]: "Baslamadan once en sik sorulan noktalar: kapsam, teslim, Behance, cizim arsivi ve 3D performans."
+      - link "emirhan@kudun.com" [ref=e339] [cursor=pointer]:
+        - /url: mailto:emirhan@kudun.com
+      - generic [ref=e340]:
+        - link "Be Behance" [ref=e341] [cursor=pointer]:
+          - /url: https://www.behance.net/emirhankudun
+          - generic [ref=e342]: Be
+          - text: Behance
+        - link "YT YouTube" [ref=e343] [cursor=pointer]:
+          - /url: https://www.youtube.com/channel/UCfrSLi2oSqyITgNxxZbcC4Q
+          - generic [ref=e344]: YT
+          - text: YouTube
+        - link "IG Instagram" [ref=e345] [cursor=pointer]:
+          - /url: https://www.instagram.com/emirhankudun/
+          - generic [ref=e346]: IG
+          - text: Instagram
+        - link "in LinkedIn" [ref=e347] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/emirhan-kudun/
+          - generic [ref=e348]: in
+          - text: LinkedIn
+        - link "@ Email" [ref=e349] [cursor=pointer]:
+          - /url: mailto:emirhan@kudun.com
+          - generic [ref=e350]: "@"
+          - text: Email
+    - generic [ref=e351]:
+      - article [ref=e352]:
+        - heading "Projeye baslamak icin ne lazim?" [level=3] [ref=e353]
+        - paragraph [ref=e354]: Kisa hedef, marka/urun baglami, varsa Behance ya da referans linkleri, zaman araligi ve beklenen teslim formatlari yeterli.
+      - article [ref=e355]:
+        - heading "Teslimatlar nasil olur?" [level=3] [ref=e356]
+        - paragraph [ref=e357]: UI/UX ekranlari, marka gorselleri, poster/editorial tasarim, 3D web sahnesi, statik yayina hazir dosyalar veya frontend uygulama olarak planlanabilir.
+      - article [ref=e358]:
+        - heading "Behance ve cizimler birlikte kullanilir mi?" [level=3] [ref=e359]
+        - paragraph [ref=e360]: Evet. Behance gorselleri is kaniti, cizimler ise sanatsal arka plan olarak ayni portfolyo hikayesinin icinde birlikte gorunur.
+      - article [ref=e361]:
+        - heading "Zaman planini nasil netlestiriyoruz?" [level=3] [ref=e362]
+        - paragraph [ref=e363]: Brief formundaki oncelik, kapsam ve zaman bilgisine gore once hizli bir kapsam cevabi, sonra parcalanmis teslim plani cikarilir.
+      - article [ref=e364]:
+        - heading "3D animasyon siteyi agirlastirir mi?" [level=3] [ref=e365]
+        - paragraph [ref=e366]: Sahne premium ve hareketli tutulur; ama DPR siniri, reduced-motion destegi ve fallback yuzeyleriyle performans korunur.
+      - article [ref=e367]:
+        - heading "Iletisim nereden ilerler?" [level=3] [ref=e368]
+        - paragraph [ref=e369]: En temiz yol email ve brief formu. Sosyal linkler kesif icin durur; proje netlestirme email uzerinden tutulur.
+  - generic [ref=e370]:
+    - generic [ref=e371]:
+      - text: Lab / Long-term
+      - heading "Uzun sureli gelisim laboratuvari" [level=2] [ref=e372]
+      - paragraph [ref=e373]: Bu portfolyo tek seferlik bir vitrin degil; Behance, cizimler, 3D, servisler ve yayin hazirligi kontrollu fazlarla buyuyen bir yaratıcı sistemdir.
+    - generic [ref=e374]:
+      - article [ref=e375]:
+        - generic [ref=e376]: live / Live foundation
+        - heading "Behance gallery system" [level=3] [ref=e377]
+        - paragraph [ref=e378]: Real Behance project visuals and iframe embed codes are now treated as first-class portfolio content.
+      - article [ref=e379]:
+        - generic [ref=e380]: next / Next refinement
+        - heading "Drawing archive expansion" [level=3] [ref=e381]
+        - paragraph [ref=e382]: The drawing archive will evolve from a simple gallery into a curated visual research layer with stronger grouping and captions.
+      - article [ref=e383]:
+        - generic [ref=e384]: next / Next refinement
+        - heading "Cinematic motion pass" [level=3] [ref=e385]
+        - paragraph [ref=e386]: 3D motion can grow through stronger scene transitions while keeping reduced-motion and mobile performance intact.
+      - article [ref=e387]:
+        - generic [ref=e388]: planned / Planned
+        - heading "Contact and brief routing" [level=3] [ref=e389]
+        - paragraph [ref=e390]: Brief capture remains local and email-first today, with a clean adapter path for database or mail delivery later.
+      - article [ref=e391]:
+        - generic [ref=e392]: planned / Planned
+        - heading "Publishing readiness" [level=3] [ref=e393]
+        - paragraph [ref=e394]: GitHub, Vercel and custom server publishing stay credential-aware so deployments do not require secrets in source.
+    - generic [ref=e395]:
+      - article [ref=e396]:
+        - strong [ref=e397]: Cinematic visual impact
+        - paragraph [ref=e398]: Behance + drawings visible before deep navigation
+      - article [ref=e399]:
+        - strong [ref=e400]: Performance discipline
+        - paragraph [ref=e401]: Build passes, mobile-safe 3D, lazy external media
+      - article [ref=e402]:
+        - strong [ref=e403]: Accessible motion and structure
+        - paragraph [ref=e404]: Semantic sections, reduced-motion support, keyboard paths
+      - article [ref=e405]:
+        - strong [ref=e406]: Publish safety
+        - paragraph [ref=e407]: No secrets in source, auth checked before push/deploy

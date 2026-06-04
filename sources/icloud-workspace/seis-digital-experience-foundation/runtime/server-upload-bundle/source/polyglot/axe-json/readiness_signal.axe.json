@@ -1,0 +1,11 @@
+{
+  "tool": "axe",
+  "type": "ReadinessSignal",
+  "target": "https://uix-apps.local/",
+  "summary": {
+    "violations": 0,
+    "incomplete": 0,
+    "passes": 0
+  },
+  "notes": "Dependency-light placeholder for future accessibility evidence ingestion."
+}

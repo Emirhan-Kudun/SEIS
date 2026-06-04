@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "generatedFor": "seis-cinematic-premium-foundation",
+  "policy": {
+    "mode": "proportional-orchestration",
+    "defaultAction": "model, classify and validate before invoking side-effectful tools",
+    "publishRule": "GitHub push and iCloud Drive export must be verified separately",
+    "cloudRule": "Vercel, Supabase and custom server deploys require credentials, explicit target and green gates",
+    "secretRule": "No provider secrets, tokens or server credentials are stored in git"
+  },
+  "lanes": [
+    {
+      "id": "source-control",
+      "label": "GitHub source server",
+      "tools": ["GitHub connector", "git CLI", "origin push preflight"],
+      "status": "configured",
+      "activationCommand": "npm run github:preflight && npm run github:publish",
+      "guardrail": "Push only the active branch and report remote SHA evidence."
+    },
+    {
+      "id": "icloud-rollback",
+      "label": "iCloud Drive GitHub export",
+      "tools": ["share:icloud-github"],
+      "status": "active",
+      "activationCommand": "npm run share:icloud-github",
+      "guardrail": "Create a bundle and share note only after the worktree is clean."
+    },
+    {
+      "id": "cloud-hosting",
+      "label": "Vercel cloud environment",
+      "tools": ["Vercel connector", "Vercel CLI", "vercel.ts"],
+      "status": "needs_credentials",
+      "activationCommand": "npm i -g vercel && vercel pull --environment=preview && vercel env pull .env.local",
+      "guardrail": "Do not deploy until .vercel/project.json and provider credentials exist."
+    },
+    {
+      "id": "data-intake",
+      "label": "Supabase server-only intake",
+      "tools": ["Supabase connector", "Vercel env", "strict intake validation"],
+      "status": "needs_credentials",
+      "activationCommand": "vercel env add SUPABASE_SERVICE_ROLE_KEY production",
+      "guardrail": "Service role key remains server-only and is never exposed to the browser."
+    },
+    {
+      "id": "design-systems",
+      "label": "Design and creative connectors",
+      "tools": ["Figma", "Canva", "Adobe Creative Cloud", "Frontend Design Skill"],
+      "status": "available",
+      "activationCommand": "Use only when a design URL, asset task or explicit creative handoff exists.",
+      "guardrail": "Keep assets reviewable and do not overwrite source design systems blindly."
+    },
+    {
+      "id": "code-intelligence",
+      "label": "Skills and MCP code intelligence",
+      "tools": ["Serena", "MCP readiness matrix", "code continuation automation"],
+      "status": "active",
+      "activationCommand": "npm run collect:mcp-readiness && npm run check:code-automation-plan",
+      "guardrail": "Prefer targeted reads and one reversible code improvement per run."
+    },
+    {
+      "id": "seo-observability",
+      "label": "SEO and observability connectors",
+      "tools": ["Semrush", "Sentry", "Rootly"],
+      "status": "needs_credentials",
+      "activationCommand": "Add provider credentials in Vercel or the local shell, then rerun cloud preflight.",
+      "guardrail": "Use metrics for clarity and incident safety, not dashboard overload."
+    },
+    {
+      "id": "automation",
+      "label": "New code-writing automation",
+      "tools": ["seis-code-continuation", "release evidence checks"],
+      "status": "active",
+      "activationCommand": "Codex automation: seis-code-continuation",
+      "guardrail": "Commit, push and iCloud export only after targeted checks pass."
+    }
+  ]
+}

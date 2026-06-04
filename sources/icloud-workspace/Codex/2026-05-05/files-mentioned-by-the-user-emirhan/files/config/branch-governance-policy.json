@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "mainProtection": {
+    "protectedBranches": ["main", "master"],
+    "allowDirectCommit": false,
+    "requiredState": ["clean", "stable", "tested", "rollback-ready", "deploy-ready"]
+  },
+  "branchNaming": {
+    "allowedPatterns": [
+      "^codex/[a-z0-9][a-z0-9-]*$",
+      "^(feature|fix|refactor|style|chore|seo|perf)/[a-z0-9][a-z0-9-]*$",
+      "^codex-dev$",
+      "^portfolio-v2$"
+    ],
+    "examples": [
+      "codex/polish-website",
+      "feature/ui-improvements",
+      "fix/mobile-overflow",
+      "refactor/css-cleanup",
+      "style/visual-polish",
+      "chore/project-structure",
+      "seo/open-graph",
+      "perf/image-optimization"
+    ]
+  },
+  "criticalFiles": [
+    "config.xml",
+    "package.json",
+    "package-lock.json",
+    "vite.config.js",
+    "vite.config.ts",
+    "webpack.config.js",
+    "webpack.config.ts",
+    "tsconfig.json",
+    "vercel.json",
+    "netlify.toml",
+    ".env",
+    ".env.local",
+    ".env.production",
+    ".gitignore",
+    "site-config.json",
+    "site-config.example.json"
+  ],
+  "forbiddenMixes": [
+    ["seo", "ui"],
+    ["refactor", "feature"],
+    ["config", "design"],
+    ["responsive", "assets"],
+    ["dependency", "design"],
+    ["animation", "performance"]
+  ],
+  "checks": {
+    "requireResponsiveReview": true,
+    "requirePerformanceReview": true,
+    "requireSeoReview": true,
+    "requireDesignConsistencyReview": true,
+    "requireMainSafetyReview": true
+  },
+  "dependencyPolicy": {
+    "preferNative": true,
+    "requireJustification": true,
+    "forbidUnnecessaryPackages": true
+  },
+  "riskRules": {
+    "high": ["protected-branch-edit", "critical-file-change", "dependency-change"],
+    "medium": ["mixed-scope-change", "invalid-branch-name"],
+    "low": ["single-scope-change"]
+  }
+}

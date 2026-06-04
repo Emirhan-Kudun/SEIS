@@ -1,0 +1,32 @@
+{
+  "name": "UX Apps",
+  "version": "0.1.0",
+  "mode": "low-power full-stack foundation",
+  "principles": [
+    "calm interaction",
+    "cinematic restraint",
+    "semantic structure",
+    "accessible defaults",
+    "dependency discipline",
+    "rollback safety"
+  ],
+  "stack": {
+    "runtime": "Node.js native HTTP",
+    "frontend": "HTML, CSS, JavaScript",
+    "data": "local JSON manifests",
+    "tests": "node:test"
+  },
+  "budgets": {
+    "runtimeDependencies": 0,
+    "heroAnimation": "canvas only, device-aware",
+    "externalAssets": 0,
+    "defaultPort": 3000
+  },
+  "handoff": {
+    "currentSourceCommit": "4e8fb380",
+    "record": "docs/github-handoff.md",
+    "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+    "longTermProgram": "docs/long-term-development-program.md",
+    "policy": "Reference larger SEIS source packages through review records before merging source into this low-power foundation."
+  }
+}

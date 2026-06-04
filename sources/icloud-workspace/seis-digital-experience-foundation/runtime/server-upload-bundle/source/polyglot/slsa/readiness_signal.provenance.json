@@ -1,0 +1,30 @@
+{
+  "_type": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "name": "ReadinessSignal",
+      "digest": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000168"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://uix-apps.local/polyglot/slsa/reference",
+      "externalParameters": {
+        "lane": "slsa",
+        "status": "reference",
+        "runtimeWeight": "dependency-light"
+      }
+    },
+    "runDetails": {
+      "builder": {
+        "id": "ReadinessSignal"
+      },
+      "metadata": {
+        "invocationId": "uix-polyglot-slsa-readiness"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "seis-pazar-pay-intelligence",
+  "version": "1.1.0",
+  "generated_at": "2026-05-21",
+  "branch_alignment": "UIXAppTTR",
+  "intent": "Create a market-share connector lane for SEIS before using paid, account-scoped, or claim-sensitive market intelligence tools.",
+  "operating_mode": "dry-run by default, connector activation only after metric scope is explicit",
+  "analysis_lanes": [
+    {
+      "id": "share-of-search",
+      "purpose": "Estimate demand and search visibility through SEO and keyword signals.",
+      "connectors": ["semrush", "conductor", "ranked-ai"],
+      "activation": "on-demand"
+    },
+    {
+      "id": "share-of-voice",
+      "purpose": "Track brand mentions, sentiment, citation share, and narrative position.",
+      "connectors": ["conductor", "brand24", "waldo"],
+      "activation": "approval-gated"
+    },
+    {
+      "id": "ecommerce-market-share",
+      "purpose": "Review product demand, assortment, pricing, and ecommerce category signals.",
+      "connectors": ["particl-market-research", "semrush"],
+      "activation": "approval-gated"
+    },
+    {
+      "id": "b2b-gtm-share",
+      "purpose": "Compare account demand, channel performance, and GTM positioning.",
+      "connectors": ["demandbase", "channel99", "cb-insights"],
+      "activation": "approval-gated"
+    },
+    {
+      "id": "capital-market-context",
+      "purpose": "Use public/private market, IR, KPI, and news context without making financial decisions.",
+      "connectors": ["pitchbook", "quartr", "daloopa", "mt-newswires", "alpaca", "binance"],
+      "activation": "approval-gated"
+    }
+  ],
+  "metric_guardrails": [
+    "Do not present connector output as exact market share unless the data source explicitly supports that metric.",
+    "Separate observed visibility, estimated traffic, conversation share, ecommerce demand, and financial context.",
+    "Record source, time window, geography, category definition, and confidence level for every market-share claim.",
+    "Use skipped_with_reason when an account-scoped connector is unavailable or unauthenticated.",
+    "Do not mutate CRM, ads, campaigns, or finance workflows from this lane."
+  ],
+  "default_outputs": [
+    "pazar_payi_signal_summary",
+    "source_confidence_matrix",
+    "connector_skipped_with_reason",
+    "next_safe_action"
+  ],
+  "supporting_files": [
+    "seis/pazar-pay-intelligence/connector-presets.json",
+    "seis/pazar-pay-intelligence/source-confidence-matrix.json",
+    "seis/pazar-pay-intelligence/metric-router.json",
+    "seis/pazar-pay-intelligence/report-template.json"
+  ],
+  "blocked_by_default": [
+    "paid data retrieval",
+    "vendor account read",
+    "personal data processing",
+    "CRM mutation",
+    "ad campaign change",
+    "financial decision",
+    "public claim based on unverified metric"
+  ]
+}

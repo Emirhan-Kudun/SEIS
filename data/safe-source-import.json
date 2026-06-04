@@ -1,0 +1,2572 @@
+{
+  "generatedAt": "2026-06-04T20:09:24.012Z",
+  "importedFiles": 21663,
+  "importedBytes": 160471290,
+  "skippedFiles": 10748,
+  "totalByteLimitReached": false,
+  "limits": {
+    "maxFileBytes": 1000000,
+    "maxTotalBytes": 220000000
+  },
+  "groups": {
+    "github:awesome-deepseek-agent": {
+      "files": 37,
+      "bytes": 97351
+    },
+    "github:claude-code": {
+      "files": 158,
+      "bytes": 1068395
+    },
+    "github:DeepSeek-Coder": {
+      "files": 58,
+      "bytes": 2318258
+    },
+    "github:docs": {
+      "files": 37,
+      "bytes": 88393
+    },
+    "github:emirhan-kudun-portfolio": {
+      "files": 144,
+      "bytes": 908818
+    },
+    "github:gemini-cli": {
+      "files": 2390,
+      "bytes": 21983329
+    },
+    "github:seis-trusted-marketplace-plugin": {
+      "files": 19,
+      "bytes": 38171
+    },
+    "github:UIX-Apps": {
+      "files": 370,
+      "bytes": 15317662
+    },
+    "icloud-workspace": {
+      "files": 18450,
+      "bytes": 118650913
+    }
+  },
+  "skippedByReason": {
+    "not-safe-source-extension-or-risk-name": 9579,
+    "excluded-directory": 1143,
+    "file-too-large": 17,
+    "already-represented-or-self": 9
+  },
+  "skippedSample": [
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": ".env.example",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Dockerfile",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/__pycache__",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-cpp",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-cpp.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-cs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-cs-bu.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-cs.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-d.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-go.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-java",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-java.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-jl.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-js.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-lua.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-php",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-php.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-pl.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-python.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-r.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-rb.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-rkt.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-rs.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-scala.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-sh",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-sh.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-swift.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-ts",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/data/humaneval-ts.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/javatuples-1.2.jar",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/HumanEval/utils/__pycache__",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/LeetCode/data/20240121-Jul-zh.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/LeetCode/data/20240121-Jul.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/MBPP/__pycache__",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/MBPP/data/mbpp.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/MBPP/data/mbpp_test.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/MBPP/human_eval/__pycache__",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/MBPP/utils/__pycache__",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/gsm-hard/test.json",
+      "reason": "file-too-large",
+      "bytes": 1151550
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/math/test.json",
+      "reason": "file-too-large",
+      "bytes": 4101364
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/mawps/addsub.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/mawps/multiarith.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/mawps/singleeq.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/mawps/singleop.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "Evaluation/PAL-Math/datasets/tabmwp/test.json",
+      "reason": "file-too-large",
+      "bytes": 18219454
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "LICENSE-CODE",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "LICENSE-MODEL",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/DS-1000.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/HumanEval.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/MBPP.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/MPBB.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/Math.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/completion_demo.gif",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/data_clean.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/home.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/home.tif",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/logo.jpeg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/logo.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/model_pretraining.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/result.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pictures/table.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "pytest.ini",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:DeepSeek-Coder",
+      "path": "setup.cfg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".codex/agents/docs-researcher.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".codex/agents/explorer.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".codex/agents/reviewer.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".codex/config.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".codex/environments/environment.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".env.example",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": ".serena/.gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "Codex/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/.git",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/exports/canonical-all-html-css-js-json.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/exports/emirhan-kudun-fullstack-portfolio.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/exports/seis-merged-html-css-js-json.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/logs/2026-05-24.log",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/logs/2026-05-25.log",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/node_modules",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/dart/readiness_signal.dart",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/elixir/readiness_signal.exs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/hcl/readiness_signal.tf",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/lua/readiness_signal.lua",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/r/readiness_signal.R",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/polyglot/scala/ReadinessSignal.scala",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/build-server-upload-bundle.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/cinematic-depth-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/development-program-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/fullstack-preflight.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/i18n-contract-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/polyglot-foundation-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/preservation-snapshot-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/release-readiness-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/server-handoff-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/server-target-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/server-upload-bundle-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/server-upload-dry-run.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "UIX-Apps-codex-delivery/runtime/server-upload-bundle/source/scripts/software-language-matrix-check.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/favicon.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/manifest.webmanifest",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/icons/apple-touch-icon.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/karakalem-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-10.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "apps/web/public/media/drawings/renk-11.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "archive/external-agent-systems/.gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-ai-assistance-orchestration.json",
+      "reason": "file-too-large",
+      "bytes": 1322484
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-assisted-publish-gate-ledger.json",
+      "reason": "file-too-large",
+      "bytes": 1383455
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-assisted-review-matrix.json",
+      "reason": "file-too-large",
+      "bytes": 1362151
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-assisted-risk-register.json",
+      "reason": "file-too-large",
+      "bytes": 1349051
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-execution-pipeline.json",
+      "reason": "file-too-large",
+      "bytes": 1392049
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-source-compliance-evidence.json",
+      "reason": "file-too-large",
+      "bytes": 3117687
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "content/development/plugin-source-rollout-policy.json",
+      "reason": "file-too-large",
+      "bytes": 1021511
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "deploy/cloud-environment.json",
+      "reason": "file-too-large",
+      "bytes": 19057210
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "docs/architecture/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "docs/decisions/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "docs/development/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "docs/quality/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "logs/2026-05-26.log",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "node_modules",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "packages/design-tokens/seis.tokens.css",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/abap/readiness_policy.abap",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/abap/seis_release_contract.abap",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ada/seis_release_contract.ads",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ada/seis_release_policy.ads",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/apex/SeisReleasePolicy.cls",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/avro/release-policy.avsc",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/avro/seis-release.avsc",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/awk/release_policy.awk",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/bicep/release-governance.bicep",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/bicep/seis_deploy_guard.bicep",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cairo/release_policy.cairo",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cairo/seis_release_contract.cairo",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cel/release_policy.cel",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cel/seis_release_policy.cel",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/clojure/readiness_policy.clj",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/clojure/seis_release_contract.clj",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cmake/SeisDeployGuard.cmake",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cmake/release-policy.cmake",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cobol/readiness-policy.cob",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cobol/seis-release-contract.cbl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/common-lisp/release-policy.lisp",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/common-lisp/seis-release-contract.lisp",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/crystal/readiness_policy.cr",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/crystal/seis_release_contract.cr",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/csv/release-policy.csv",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cue/release_policy.cue",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/cue/seis_release_policy.cue",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/d/readiness_policy.d",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/d/seis_budget.d",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/dart/seis_motion_policy.dart",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/dhall/release-policy.dhall",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/dhall/seis_release_policy.dhall",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/dotenv/release-policy.env",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/elixir/calm_release_policy.ex",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/elixir/seis_release_contract.ex",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/elm/ReleasePolicy.elm",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/elm/SeisMotionPolicy.elm",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/emacs-lisp/release-policy.el",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/erlang/calm_release_policy.erl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/erlang/seis_release_contract.erl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/forth/release_policy.fs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/fortran/readiness_policy.f90",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/fortran/seis_motion_budget.f90",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/fsharp/SeisReleaseContract.fs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/fsharp/SeisReleasePolicy.fs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/gdscript/release_policy.gd",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/gdscript/seis_motion_policy.gd",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/glsl/release_policy.glsl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/glsl/seis_motion_policy.glsl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/graphql/release-policy.graphql",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/graphql/seis_schema.graphql",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/groovy/SeisReleasePolicy.groovy",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/hack/SeisReleaseContract.hack",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/hack/SeisReleasePolicy.hack",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/haskell/CalmReleasePolicy.hs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/haskell/SeisReleaseContract.hs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/hcl/release-governance.hcl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/hocon/release-policy.conf",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ini/deploy-governance.ini",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ini/release-policy.ini",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/jsonld/release-policy.jsonld",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/jsonnet/release-policy.jsonnet",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/jsonnet/seis_release_policy.jsonnet",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/julia/SeisReleaseContract.jl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/julia/readiness_metrics.jl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/just/release-policy.just",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/kdl/release-policy.kdl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/lua/calm_motion_policy.lua",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/make/Makefile",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/make/release-policy.mk",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/mermaid/release-flow.mmd",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/meson/release-policy.meson",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/move/release_policy.move",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/move/seis_release.move",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/nim/readiness_policy.nim",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/nim/seis_motion_policy.nim",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/nix/release-policy.nix",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/nix/seis_release_policy.nix",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ocaml/release_policy.ml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/ocaml/seis_release_contract.ml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/pascal/SeisMotionPolicy.pas",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/pascal/release_policy.pas",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/perl/readiness_guard.pl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/perl/verify_manifest.pl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/plantuml/release-flow.puml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/powershell/SeisReleasePolicy.ps1",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/powershell/Test-SeisRelease.ps1",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/prolog/readiness_policy.pl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/prolog/seis_release_contract.pl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/properties/release-policy.properties",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/protobuf/release_policy.proto",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/protobuf/seis_release.proto",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/purescript/ReleasePolicy.purs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/purescript/SeisReleaseContract.purs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/qsharp/ReleasePolicy.qs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/qsharp/SeisReleaseContract.qs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/r/readiness_metrics.R",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/r/seis_motion_budget.R",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/racket/readiness-policy.rkt",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/racket/seis-release-contract.rkt",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/reason/ReleasePolicy.re",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/rego/release_policy.rego",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/rego/seis_release_policy.rego",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/rescript/ReleasePolicy.res",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/rescript/SeisMotionPolicy.res",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/scala/SeisReleaseContract.scala",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/scala/SeisReleasePolicy.scala",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/scheme/readiness-policy.scm",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/smalltalk/ReleasePolicy.st",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/solidity/SeisReleaseGuard.sol",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/solidity/SeisReleasePolicy.sol",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/sparql/release-policy-check.rq",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/starlark/release_policy.star",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/tcl/release_policy.tcl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/terraform/seis_deploy_guard.tf",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/toml/deploy-governance.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/turtle/release-policy.ttl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/v/readiness_policy.v",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/v/seis_motion_policy.v",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/vb/SeisReleasePolicy.vb",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/wat/readiness_policy.wat",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/wgsl/release_policy.wgsl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/wgsl/seis_motion_policy.wgsl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/zig/readiness_contract.zig",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "polyglot/zig/seis_budget.zig",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T20-51-46-760Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T20-57-41-184Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-23-23-357Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-24-57-982Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-26-51-707Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-31-39-030Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-35-08-457Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-46-32-076Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-24T21-47-47-879Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T06-49-49-416Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T06-51-16-599Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T06-57-25-435Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T07-06-21-634Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T07-13-18-472Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T07-18-59-697Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T07-26-02-476Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T07-40-23-415Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T08-10-36-739Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T08-24-05-618Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T08-26-26-306Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T08-43-15-336Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "releases/2026-05-25T09-00-07-271Z/seis-static.zip",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "reports/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "reports/plugin-ai-assistance-orchestration.json",
+      "reason": "file-too-large",
+      "bytes": 1321630
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "reports/plugin-execution-pipeline.json",
+      "reason": "file-too-large",
+      "bytes": 1390946
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "reports/plugin-source-compliance-evidence.json",
+      "reason": "file-too-large",
+      "bytes": 3115362
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "reports/plugin-source-rollout-policy.json",
+      "reason": "file-too-large",
+      "bytes": 1020622
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/ai-launcher.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/ai-routing-policy.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/automation-aggressive-dev.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/automation-develop.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/automation-gap-sync.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/automation-publish-readiness.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/automation-refresh-release.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-ai-stack.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-cloud-environment.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-mobile-ergonomics.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-motion-evidence.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-release-sync.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/check-workspace.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-code-automation-plan.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-connector-activation-report.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-environment-source-index.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-external-source-bindings.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-fullstack-language-matrix.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-activation-gates.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-ai-assistance-orchestration.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-action-board.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-development-queue.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-execution-ledger.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-pr-readiness-packet.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-publish-gate-ledger.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-review-matrix.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-risk-register.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-assisted-sprint-plan.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-cache-evidence.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-capability-lanes.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-download-readiness.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-execution-pipeline.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-observability-readiness.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-runtime-availability.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-source-acquisition-plan.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-source-compliance-evidence.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-source-connection-matrix.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-source-materialization-plan.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-plugin-source-rollout-policy.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-requested-plugin-trace.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-requested-software-stack.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/create-server-cloud-activation-report.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/lib/publish-readiness-state.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "scripts/sync-plugin-environment-sources.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "server/apache/.htaccess",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "server/docker/Dockerfile",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:UIX-Apps",
+      "path": "server/nginx/seis-static.conf",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/assets/claude_code_vsc_ext.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/assets/kilo_code_step_1.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/assets/kilo_code_step_2.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/assets/kilo_code_step_3.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:awesome-deepseek-agent",
+      "path": "docs/assets/kilo_code_step_4.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": ".DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": ".devcontainer/Dockerfile",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:claude-code",
+      "path": ".gitattributes",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "Script/run_devcontainer_claude_code.ps1",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "demo.gif",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "examples/mdm/macos/com.anthropic.claudecode.mobileconfig",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "examples/mdm/macos/com.anthropic.claudecode.plist",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "examples/mdm/windows/ClaudeCode.admx",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "examples/mdm/windows/Set-ClaudeCodePolicy.ps1",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "examples/mdm/windows/en-US/ClaudeCode.adml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/agent-sdk-dev/agents/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/code-review/commands/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/commit-commands/commands/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/feature-dev/agents/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/hookify/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/hookify/.gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/hookify/core/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/hookify/examples/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/agents/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/agent-development/examples/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/agent-development/references/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/command-development/references/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/hook-development/references/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/plugin-structure/examples/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/plugin-dev/skills/plugin-structure/references/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/pr-review-toolkit/agents/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:claude-code",
+      "path": "plugins/ralph-wiggum/commands/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": ".DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:docs",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": ".mintignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "LICENSE",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "ai-tools/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "essentials/.DS_Store",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "favicon.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "images/checks-passed.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "images/hero-dark.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "images/hero-light.png",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "logo/dark.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:docs",
+      "path": "logo/light.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": ".env.example",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": ".gitattributes",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": ".serena/.gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/.next",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/karakalem-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-10.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/drawings/renk-11.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/public/favicon.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-next/tsconfig.tsbuildinfo",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/dist",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/node_modules",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/karakalem-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-10.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/drawings/renk-11.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/site-vite/public/favicon.svg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/karakalem-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-01.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-02.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-03.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-04.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-05.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-06.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-07.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-08.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-09.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-10.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "apps/static-fallback/drawings/renk-11.jpg",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "node_modules",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "runtime/brief-submissions.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "runtime/contact-submissions.jsonl",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:emirhan-kudun-portfolio",
+      "path": "sources/polyglot/graphql/source-schema.graphql",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".dockerignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".editorconfig",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".env.example",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gcp/Dockerfile.development",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gcp/Dockerfile.development.dockerignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gcp/Dockerfile.gemini-code-builder",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/code-guide.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/core.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/find-docs.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/frontend.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/full-context.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/github/cleanup-back-to-main.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/introspect.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/oncall/pr-review.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/prompt-suggest.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/review-and-fix.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/commands/review-frontend.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gemini/skills/async-pr-review/policy.toml",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".geminiignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".git",
+      "reason": "excluded-directory"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gitattributes",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/CODEOWNERS",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/apply-issue-labels.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/backfill-need-triage.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/backfill-pr-notification.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/cleanup-triage-labels.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/find-conflicting-labels.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/gemini-lifecycle-manager.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/sync-issue-types.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".github/scripts/sync-maintainer-labels.cjs",
+      "reason": "not-safe-source-extension-or-risk-name"
+    },
+    {
+      "group": "github:gemini-cli",
+      "path": ".gitignore",
+      "reason": "not-safe-source-extension-or-risk-name"
+    }
+  ]
+}

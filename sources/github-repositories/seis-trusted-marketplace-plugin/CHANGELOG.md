@@ -1,0 +1,11 @@
+# Changelog
+
+## 0.1.0
+
+- Added private personal Codex plugin package structure.
+- Added SEIS/UIXAppTTR branch binding contract.
+- Added capability map for data engineering, development, design, learning,
+  monitoring, productivity, security, and testing.
+- Added local validation script and GitHub Actions validation workflow.
+- Added private/personal setup and public/publish-ready documentation.
+- Added plugin doctor reporting for lightweight operational readiness.

@@ -1,0 +1,85 @@
+{
+  "group": "google-open-source-foundation",
+  "purpose": "Google Open Source Copilot planning under codex/premium-local-foundation before product coding begins.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "parentBranch": "codex/premium-local-foundation",
+  "subAgent": "google-open-source-copilot",
+  "approvalRequiredFor": [
+    "plugin install",
+    "dependency addition",
+    "external model call",
+    "cloud deploy",
+    "cloud provisioning",
+    "database mutation",
+    "secret access"
+  ],
+  "connectors": [
+    {
+      "id": "chrome-devtools",
+      "sources": ["local-mcp", "google-open-source"],
+      "role": "local browser inspection, performance debugging, and Chrome-aligned frontend validation",
+      "mode": "always-on-core"
+    },
+    {
+      "id": "google-developer-knowledge",
+      "sources": ["google-official-mcp"],
+      "role": "official Google developer documentation lookup for Firebase, Web, Chrome, Cloud, AI, ADK, Go, TensorFlow, and Android",
+      "mode": "on-demand"
+    },
+    {
+      "id": "google-design-mcp",
+      "sources": ["google-official-mcp"],
+      "role": "Material Symbols and Material Design icon selection for UI work",
+      "mode": "on-demand"
+    },
+    {
+      "id": "firebase",
+      "sources": ["google-official-mcp", "claude-plugins-official"],
+      "role": "Firebase planning for hosting, auth, Firestore, storage, AI Logic, and Data Connect",
+      "mode": "on-demand"
+    },
+    {
+      "id": "google-cloud-run",
+      "sources": ["google-official-mcp"],
+      "role": "Cloud Run deployment planning; production deploy remains blocked until approval",
+      "mode": "on-demand"
+    },
+    {
+      "id": "google-firestore",
+      "sources": ["google-official-mcp"],
+      "role": "Firestore schema and rules planning; database mutation remains blocked until approval",
+      "mode": "on-demand"
+    },
+    {
+      "id": "google-cloud-logging",
+      "sources": ["google-official-mcp"],
+      "role": "Google Cloud observability planning for logs and runtime diagnostics",
+      "mode": "registry-only"
+    },
+    {
+      "id": "google-cloud-monitoring",
+      "sources": ["google-official-mcp"],
+      "role": "Google Cloud monitoring and alerting planning",
+      "mode": "registry-only"
+    },
+    {
+      "id": "google-gemini-enterprise-generate",
+      "sources": ["google-official-mcp"],
+      "role": "Gemini generation planning for explicit AI feature scopes only",
+      "mode": "registry-only"
+    },
+    {
+      "id": "context7",
+      "sources": ["local-mcp", "public-docs"],
+      "role": "current open-source library documentation lookup before dependency or framework work",
+      "mode": "on-demand"
+    },
+    {
+      "id": "fetch",
+      "sources": ["local-mcp", "public-docs"],
+      "role": "public official source verification when Google documentation MCP access is unavailable",
+      "mode": "on-demand"
+    }
+  ]
+}

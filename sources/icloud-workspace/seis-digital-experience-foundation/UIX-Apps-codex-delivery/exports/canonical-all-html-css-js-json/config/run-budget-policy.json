@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "defaults": {
+    "max_total_duration_ms": 120000,
+    "max_parallel_calls": 4,
+    "max_fail_rate": 0.35,
+    "degrade_mode": "light_probe"
+  },
+  "profiles": {
+    "daily_profile": {
+      "max_total_duration_ms": 90000,
+      "max_parallel_calls": 3,
+      "max_fail_rate": 0.25,
+      "degrade_mode": "light_probe"
+    },
+    "weekly_profile": {
+      "max_total_duration_ms": 120000,
+      "max_parallel_calls": 4,
+      "max_fail_rate": 0.3,
+      "degrade_mode": "light_probe"
+    },
+    "monthly_profile": {
+      "max_total_duration_ms": 180000,
+      "max_parallel_calls": 6,
+      "max_fail_rate": 0.4,
+      "degrade_mode": "light_probe"
+    },
+    "quarterly_profile": {
+      "max_total_duration_ms": 240000,
+      "max_parallel_calls": 8,
+      "max_fail_rate": 0.45,
+      "degrade_mode": "light_probe"
+    }
+  }
+}

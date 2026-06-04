@@ -1,0 +1,9 @@
+stages:
+  - readiness
+
+readiness_signal:
+  stage: readiness
+  rules:
+    - when: never
+  script:
+    - echo "ReadinessSignal lane=gitlab-ci status=reference runtimeWeight=dependency-light"

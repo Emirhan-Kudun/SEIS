@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-deploy-envelope.mjs",
+  "generatedAt": "2026-06-01T12:55:47.513Z",
+  "mission": "SEIS-M011",
+  "purpose": "Prepare the SEIS server and cloud deploy envelope without storing deployment secrets.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "config/server-target-profile.json",
+      "config/server-upload.env.example",
+      "data/seis/cloud-server-environment.json",
+      "data/seis/deployment-readiness.json",
+      "data/seis/connector-readiness-matrix.json",
+      "runtime/server-upload-bundle/manifest.json"
+    ]
+  },
+  "environmentTemplate": {
+    "templatePath": "config/server-upload.env.example",
+    "localIgnoredPath": ".env.server.local",
+    "ignoredByGit": true,
+    "loaderCommand": "npm run server-upload:dry-run",
+    "explicitLoaderCommand": "node scripts/server-upload-dry-run.cjs --env-file .env.server.local",
+    "requiredNames": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ]
+  },
+  "server": {
+    "targetId": "configured-server",
+    "method": "rsync",
+    "bundleDirectory": "runtime/server-upload-bundle/source",
+    "bundleFileCount": 266,
+    "bundleReady": true,
+    "requiredEnvironment": [
+      {
+        "name": "UIX_UPLOAD_HOST",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_USER",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_PATH",
+        "present": false
+      }
+    ],
+    "missingEnvironment": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ],
+    "dryRunCommand": "npm run server-upload:dry-run",
+    "executeCommand": "npm run server-upload:execute",
+    "envFileSupported": true,
+    "safeRemotePathPattern": "^(?:/var/www/[^\\s]+|/home/[^\\s]+/[^\\s]+)$"
+  },
+  "cloud": {
+    "id": "seis-cloud-uixappttr",
+    "branch": "UIXAppTTR",
+    "requiredChecks": [
+      "npm run check:seis-deploy-envelope",
+      "npm run check:seis-remote-shipment-gate",
+      "npm run check:seis-cloud-server-environment",
+      "npm run publish:preflight",
+      "npm run server-upload:dry-run"
+    ],
+    "connectorSurfaceCount": 11,
+    "blockedConnectorSurfaces": 2
+  },
+  "commands": [
+    {
+      "id": "copy-template",
+      "command": "cp config/server-upload.env.example .env.server.local",
+      "writes": true,
+      "scope": "local ignored environment file"
+    },
+    {
+      "id": "build-bundle",
+      "command": "npm run build:server-upload-bundle",
+      "writes": true,
+      "scope": "runtime/server-upload-bundle"
+    },
+    {
+      "id": "check-envelope",
+      "command": "npm run check:seis-deploy-envelope",
+      "writes": false,
+      "scope": "deploy readiness validation"
+    },
+    {
+      "id": "dry-run",
+      "command": "npm run server-upload:dry-run",
+      "writes": false,
+      "scope": "server upload command preview"
+    },
+    {
+      "id": "execute",
+      "command": "npm run server-upload:execute",
+      "writes": true,
+      "scope": "server upload after explicit environment readiness"
+    }
+  ],
+  "summary": {
+    "status": "ready-to-configure",
+    "deployReady": false,
+    "dryRunReady": true,
+    "githubServerSynced": true,
+    "cloudReady": true,
+    "secretSafe": true,
+    "blockerCount": 3,
+    "blockers": [
+      "missing server environment variable: UIX_UPLOAD_HOST",
+      "missing server environment variable: UIX_UPLOAD_USER",
+      "missing server environment variable: UIX_UPLOAD_PATH"
+    ]
+  },
+  "nextActions": [
+    "Copy config/server-upload.env.example to .env.server.local.",
+    "Fill UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH in .env.server.local only.",
+    "Run npm run server-upload:dry-run and inspect the command.",
+    "Run npm run server-upload:execute only after dry-run and GitHub sync are acceptable."
+  ]
+}

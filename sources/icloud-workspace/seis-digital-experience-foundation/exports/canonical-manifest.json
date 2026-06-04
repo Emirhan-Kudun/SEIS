@@ -1,0 +1,628 @@
+{
+  "generated_at": "2026-05-15T06:07:02.416Z",
+  "root": "/Users/emirhan/Documents/New project",
+  "zip_path": "/Users/emirhan/Documents/New project/exports/canonical-all-html-css-js-json.zip",
+  "file_count": 124,
+  "files": [
+    {
+      "path": ".vscode/settings.json",
+      "sha1": "bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f",
+      "size_bytes": 2
+    },
+    {
+      "path": "add-ons/exhibition-photo/app.js",
+      "sha1": "8eb7cf62c9906571453cd66b3c9624de626aa0ca",
+      "size_bytes": 4109
+    },
+    {
+      "path": "add-ons/exhibition-photo/gallery.json",
+      "sha1": "a1a4fe5bd97c3239af9b73cc95ae5951f01f03ba",
+      "size_bytes": 1906
+    },
+    {
+      "path": "add-ons/exhibition-photo/index.html",
+      "sha1": "5825a013fa7278f6d76a30d5493f9d2638b547de",
+      "size_bytes": 2720
+    },
+    {
+      "path": "add-ons/exhibition-photo/styles.css",
+      "sha1": "9ff4f8b344220bf213f2f9922c80c65685c03f0c",
+      "size_bytes": 4504
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/app/globals.css",
+      "sha1": "2c60e19fbebd83fa9b80e204bd6880cf5377459e",
+      "size_bytes": 2552
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/components.json",
+      "sha1": "134957f00ac47f003b1ee0b0dd986f5d7602d562",
+      "size_bytes": 345
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/package.json",
+      "sha1": "73fc8a9c07a7e497b9c9708fa0e369ddd842a792",
+      "size_bytes": 729
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/tsconfig.json",
+      "sha1": "5880228cc0fbaebb55c683abe4ad944df370467b",
+      "size_bytes": 593
+    },
+    {
+      "path": "config/automation-schedules.json",
+      "sha1": "641e71841599ec3a3c4954a7939bff9db6f05051",
+      "size_bytes": 1056
+    },
+    {
+      "path": "config/branch-governance-policy.json",
+      "sha1": "e4f3c5e11fe9c8d8852197bf06d61475948509c6",
+      "size_bytes": 1755
+    },
+    {
+      "path": "config/connector-catalog.json",
+      "sha1": "6e96f1a60682291d2ac5d5c718114fa3688cafc3",
+      "size_bytes": 11442
+    },
+    {
+      "path": "config/connector-rotation-registry.json",
+      "sha1": "37c937c59562ff3639793674a134735bf7eb97f2",
+      "size_bytes": 18094
+    },
+    {
+      "path": "config/integration-targets.json",
+      "sha1": "4031aba8c9ccfece66e0531d3b0f65208ad3f928",
+      "size_bytes": 1742
+    },
+    {
+      "path": "config/mcp-catalog.json",
+      "sha1": "061be4eb35ef9d12e671c512c8fbc1e14fdd2dbf",
+      "size_bytes": 93
+    },
+    {
+      "path": "config/quality-gate-policy.json",
+      "sha1": "83f7deb7a44e0eb6d68556ce7f9130fb58ddda41",
+      "size_bytes": 1333
+    },
+    {
+      "path": "config/run-budget-policy.json",
+      "sha1": "10983ddecd2af7ffd2d50578f3555e5f2a081134",
+      "size_bytes": 851
+    },
+    {
+      "path": "connector-coverage-ledger.json",
+      "sha1": "2c36fbc1ca8e21ff6395e4cf4afd9063b978c1f7",
+      "size_bytes": 33589
+    },
+    {
+      "path": "contact.html",
+      "sha1": "48361ff962ee28ad6d8066596c3a5ebe46f30408",
+      "size_bytes": 1009
+    },
+    {
+      "path": "content-intake-ledger.json",
+      "sha1": "e57d4978feb7dc0e8137038fbf88368ad22476b5",
+      "size_bytes": 228312
+    },
+    {
+      "path": "exports/app.js",
+      "sha1": "6cec399c9bfff0dd9d23f339106f71036a5fcd91",
+      "size_bytes": 14659
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/.vscode/settings.json",
+      "sha1": "bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f",
+      "size_bytes": 2
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/add-ons/exhibition-photo/app.js",
+      "sha1": "8eb7cf62c9906571453cd66b3c9624de626aa0ca",
+      "size_bytes": 4109
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/add-ons/exhibition-photo/gallery.json",
+      "sha1": "a1a4fe5bd97c3239af9b73cc95ae5951f01f03ba",
+      "size_bytes": 1906
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/add-ons/exhibition-photo/index.html",
+      "sha1": "5825a013fa7278f6d76a30d5493f9d2638b547de",
+      "size_bytes": 2720
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/add-ons/exhibition-photo/styles.css",
+      "sha1": "9ff4f8b344220bf213f2f9922c80c65685c03f0c",
+      "size_bytes": 4504
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/apps/seis-nextjs-foundation/app/globals.css",
+      "sha1": "2c60e19fbebd83fa9b80e204bd6880cf5377459e",
+      "size_bytes": 2552
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/apps/seis-nextjs-foundation/components.json",
+      "sha1": "134957f00ac47f003b1ee0b0dd986f5d7602d562",
+      "size_bytes": 345
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/apps/seis-nextjs-foundation/package.json",
+      "sha1": "73fc8a9c07a7e497b9c9708fa0e369ddd842a792",
+      "size_bytes": 729
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/apps/seis-nextjs-foundation/tsconfig.json",
+      "sha1": "5880228cc0fbaebb55c683abe4ad944df370467b",
+      "size_bytes": 593
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/automation-schedules.json",
+      "sha1": "641e71841599ec3a3c4954a7939bff9db6f05051",
+      "size_bytes": 1056
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/branch-governance-policy.json",
+      "sha1": "e4f3c5e11fe9c8d8852197bf06d61475948509c6",
+      "size_bytes": 1755
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/connector-catalog.json",
+      "sha1": "6e96f1a60682291d2ac5d5c718114fa3688cafc3",
+      "size_bytes": 11442
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/connector-rotation-registry.json",
+      "sha1": "37c937c59562ff3639793674a134735bf7eb97f2",
+      "size_bytes": 18094
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/integration-targets.json",
+      "sha1": "4031aba8c9ccfece66e0531d3b0f65208ad3f928",
+      "size_bytes": 1742
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/mcp-catalog.json",
+      "sha1": "3e5509b56aa975b82bde92a644176c7cadec93a2",
+      "size_bytes": 8338
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/quality-gate-policy.json",
+      "sha1": "83f7deb7a44e0eb6d68556ce7f9130fb58ddda41",
+      "size_bytes": 1333
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/config/run-budget-policy.json",
+      "sha1": "10983ddecd2af7ffd2d50578f3555e5f2a081134",
+      "size_bytes": 851
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/connector-coverage-ledger.json",
+      "sha1": "2c36fbc1ca8e21ff6395e4cf4afd9063b978c1f7",
+      "size_bytes": 33589
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/contact.html",
+      "sha1": "48361ff962ee28ad6d8066596c3a5ebe46f30408",
+      "size_bytes": 1009
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/content-intake-ledger.json",
+      "sha1": "e57d4978feb7dc0e8137038fbf88368ad22476b5",
+      "size_bytes": 228312
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/app.js",
+      "sha1": "6cec399c9bfff0dd9d23f339106f71036a5fcd91",
+      "size_bytes": 14659
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/i18n.json",
+      "sha1": "bd3f82b5b9ac9998001578f94765f6d65ccf80e5",
+      "size_bytes": 11812
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/index.separated.html",
+      "sha1": "5a96a11e950a4ae44b9450a6b7bdd0a8361fbdc5",
+      "size_bytes": 7985
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/behance-future.json",
+      "sha1": "202867fd069d6ca5bf414e981001489b5fdf6da0",
+      "size_bytes": 415
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/merged-portfolio.css",
+      "sha1": "868fe8d744187ca84346f63b06c00dffe0e53ae6",
+      "size_bytes": 26174
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/merged-portfolio.html",
+      "sha1": "20ef9eb1a458e399ef6061b152270ccc00863670",
+      "size_bytes": 15763
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/merged-portfolio.js",
+      "sha1": "63d22bffc43a965f9bfd03bab679ce816e2ff42d",
+      "size_bytes": 6708
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/merged-portfolio.json",
+      "sha1": "9787851ced01ef77d44b4bbd9eec18bb0aa95d35",
+      "size_bytes": 563
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/yurtdisi-ilham-italya.css",
+      "sha1": "3686988d17a29eeb2edc3096a91130a198464023",
+      "size_bytes": 2964
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/yurtdisi-ilham-italya.html",
+      "sha1": "26a9db1903df3992f867734e446549a25a6b6c0c",
+      "size_bytes": 2755
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/yurtdisi-ilham-italya.js",
+      "sha1": "916efec00c01a25e0ebb7865384dab597bf47963",
+      "size_bytes": 5165
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/merged-separated/yurtdisi-ilham-italya.json",
+      "sha1": "d821c30b75845ee3c6587864f692b59b75165147",
+      "size_bytes": 2964
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/schema.json",
+      "sha1": "ca38638cf4c6294f0d6d97c2a4057b2321996628",
+      "size_bytes": 233
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/exports/styles.css",
+      "sha1": "d86e12f3f3027939abd15ab06389e042aa9ec831",
+      "size_bytes": 6400
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/index.html",
+      "sha1": "10ce4eca49a59089ede365c2b62467fd85f1db87",
+      "size_bytes": 58256
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/manifest.json",
+      "sha1": "cc098bcb2a5701d34a9d6b4fa4a7d096994c5404",
+      "size_bytes": 526
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/merged-portfolio-two-zips-single.html",
+      "sha1": "c8ed256678db36393c67e7249b730fe5bee3ee95",
+      "size_bytes": 45794
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/plan-ledger.json",
+      "sha1": "21702e65a8a035b5aec33ad9b77c5954015e60c1",
+      "size_bytes": 4485
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/script.js",
+      "sha1": "a914cd122175d578bd91dfd120b7cb1d484c197c",
+      "size_bytes": 74168
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/automation-health-check.js",
+      "sha1": "e0497ccd195b36c5a25722af0fa8734ba0160977",
+      "size_bytes": 2299
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/branch-governance-check.js",
+      "sha1": "b03c349b380b1f56a55be2e299d83104b665a83b",
+      "size_bytes": 12347
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/browser-validation-fallback.js",
+      "sha1": "c09906cd10655ab6e7879b9e563f38eaaefd982d",
+      "size_bytes": 2769
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/build-canonical-zip.js",
+      "sha1": "3537e8f7c4382c4acae165410ac70a5f35d919a8",
+      "size_bytes": 2666
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/canonicalize-duplicates.js",
+      "sha1": "1e1c31982d09dffe13bbbc5999015984c1513ea0",
+      "size_bytes": 3257
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/content-intake-audit.js",
+      "sha1": "2b579f39f0854a3a2ab35a692fe44457e279af29",
+      "size_bytes": 3926
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/content-intake-readonly.js",
+      "sha1": "d5e6a857fbc963b6e66dc728d73ac05ec6943c80",
+      "size_bytes": 10190
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/infrastructure-check.js",
+      "sha1": "8ef5b02440dde117d998cba1147649fb8d9bb59b",
+      "size_bytes": 7151
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/local-quality-gate.js",
+      "sha1": "164bbbe5e2dad755b0f342ac1f4b76d0d48cd414",
+      "size_bytes": 10202
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/monthly-connector-sweep.js",
+      "sha1": "e346e2ab641942f98b27dfeb0f2c2a8e387f6d4d",
+      "size_bytes": 395
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/pr-ready-report.js",
+      "sha1": "3e6052ada233acb7c33df0f33e8fe91c5135079e",
+      "size_bytes": 2884
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/quality-gate.js",
+      "sha1": "1adf9ab2de1af908b44aec443f35f7aa9d875613",
+      "size_bytes": 4950
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/quarterly-mcp-audit.js",
+      "sha1": "bb46ee76d751225a776a960cd051b84a081491c8",
+      "size_bytes": 399
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/regression-smoke.js",
+      "sha1": "ecb12fb3826a457478744f4b6630da32be9c29b0",
+      "size_bytes": 3778
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/run-core-orchestration.js",
+      "sha1": "cf86ce4a9f2cd7928df1159259bdc9fc3ff864f1",
+      "size_bytes": 32194
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/security-static-check.js",
+      "sha1": "6e4dc32ace62bd2226f75871355e1464419b0135",
+      "size_bytes": 3697
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/semantic-seo-check.js",
+      "sha1": "606e77794eabba9eb1f23cdccc7d843a55dd8fbc",
+      "size_bytes": 2857
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/validate-commit-message.js",
+      "sha1": "8a80fc13eee8391c947c0305d18cb7073f27d39a",
+      "size_bytes": 1053
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/weekly-portfolio-trend-sync.js",
+      "sha1": "9a266697c6c4512621944c32e6e8f8e4eac5fbf2",
+      "size_bytes": 393
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/scripts/worktree-integration-audit.js",
+      "sha1": "232803d80a16f7468ff61e7c4b9aee777405b58b",
+      "size_bytes": 3599
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/site-config.json",
+      "sha1": "9a9f0e09c65bc47dfa2103b7cf9e206baa13b076",
+      "size_bytes": 67
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/style.css",
+      "sha1": "fba7064a0e15763614568e2d3de5b3c10efa3ee5",
+      "size_bytes": 47802
+    },
+    {
+      "path": "exports/canonical-all-html-css-js-json/translations.json",
+      "sha1": "874440ea45031b0affcb153b6663f05bdbcce8f6",
+      "size_bytes": 69710
+    },
+    {
+      "path": "exports/i18n.json",
+      "sha1": "bd3f82b5b9ac9998001578f94765f6d65ccf80e5",
+      "size_bytes": 11812
+    },
+    {
+      "path": "exports/index.separated.html",
+      "sha1": "5a96a11e950a4ae44b9450a6b7bdd0a8361fbdc5",
+      "size_bytes": 7985
+    },
+    {
+      "path": "exports/merged-separated/behance-future.json",
+      "sha1": "202867fd069d6ca5bf414e981001489b5fdf6da0",
+      "size_bytes": 415
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.css",
+      "sha1": "868fe8d744187ca84346f63b06c00dffe0e53ae6",
+      "size_bytes": 26174
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.html",
+      "sha1": "20ef9eb1a458e399ef6061b152270ccc00863670",
+      "size_bytes": 15763
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.js",
+      "sha1": "63d22bffc43a965f9bfd03bab679ce816e2ff42d",
+      "size_bytes": 6708
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.json",
+      "sha1": "9787851ced01ef77d44b4bbd9eec18bb0aa95d35",
+      "size_bytes": 563
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.css",
+      "sha1": "3686988d17a29eeb2edc3096a91130a198464023",
+      "size_bytes": 2964
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.html",
+      "sha1": "26a9db1903df3992f867734e446549a25a6b6c0c",
+      "size_bytes": 2755
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.js",
+      "sha1": "916efec00c01a25e0ebb7865384dab597bf47963",
+      "size_bytes": 5165
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.json",
+      "sha1": "d821c30b75845ee3c6587864f692b59b75165147",
+      "size_bytes": 2964
+    },
+    {
+      "path": "exports/schema.json",
+      "sha1": "ca38638cf4c6294f0d6d97c2a4057b2321996628",
+      "size_bytes": 233
+    },
+    {
+      "path": "exports/styles.css",
+      "sha1": "d86e12f3f3027939abd15ab06389e042aa9ec831",
+      "size_bytes": 6400
+    },
+    {
+      "path": "index.html",
+      "sha1": "bcd7452d16b314a5e3217cfa0956cab5e40c18ed",
+      "size_bytes": 58667
+    },
+    {
+      "path": "manifest.json",
+      "sha1": "cc098bcb2a5701d34a9d6b4fa4a7d096994c5404",
+      "size_bytes": 526
+    },
+    {
+      "path": "merged-portfolio-two-zips-single.html",
+      "sha1": "c8ed256678db36393c67e7249b730fe5bee3ee95",
+      "size_bytes": 45794
+    },
+    {
+      "path": "plan-ledger.json",
+      "sha1": "21702e65a8a035b5aec33ad9b77c5954015e60c1",
+      "size_bytes": 4485
+    },
+    {
+      "path": "script.js",
+      "sha1": "2a9638727099e2fc17348582cf2a0e9272d90884",
+      "size_bytes": 77915
+    },
+    {
+      "path": "scripts/automation-health-check.js",
+      "sha1": "e0497ccd195b36c5a25722af0fa8734ba0160977",
+      "size_bytes": 2299
+    },
+    {
+      "path": "scripts/branch-governance-check.js",
+      "sha1": "b03c349b380b1f56a55be2e299d83104b665a83b",
+      "size_bytes": 12347
+    },
+    {
+      "path": "scripts/browser-validation-fallback.js",
+      "sha1": "c09906cd10655ab6e7879b9e563f38eaaefd982d",
+      "size_bytes": 2769
+    },
+    {
+      "path": "scripts/build-canonical-zip.js",
+      "sha1": "3537e8f7c4382c4acae165410ac70a5f35d919a8",
+      "size_bytes": 2666
+    },
+    {
+      "path": "scripts/canonicalize-duplicates.js",
+      "sha1": "1e1c31982d09dffe13bbbc5999015984c1513ea0",
+      "size_bytes": 3257
+    },
+    {
+      "path": "scripts/content-intake-audit.js",
+      "sha1": "2b579f39f0854a3a2ab35a692fe44457e279af29",
+      "size_bytes": 3926
+    },
+    {
+      "path": "scripts/content-intake-readonly.js",
+      "sha1": "d5e6a857fbc963b6e66dc728d73ac05ec6943c80",
+      "size_bytes": 10190
+    },
+    {
+      "path": "scripts/infrastructure-check.js",
+      "sha1": "e1155c7d480ba2bb83ad3a803ea551d37c0d07da",
+      "size_bytes": 7151
+    },
+    {
+      "path": "scripts/local-quality-gate.js",
+      "sha1": "164bbbe5e2dad755b0f342ac1f4b76d0d48cd414",
+      "size_bytes": 10202
+    },
+    {
+      "path": "scripts/monthly-connector-sweep.js",
+      "sha1": "e346e2ab641942f98b27dfeb0f2c2a8e387f6d4d",
+      "size_bytes": 395
+    },
+    {
+      "path": "scripts/pr-ready-report.js",
+      "sha1": "3e6052ada233acb7c33df0f33e8fe91c5135079e",
+      "size_bytes": 2884
+    },
+    {
+      "path": "scripts/quality-gate.js",
+      "sha1": "1adf9ab2de1af908b44aec443f35f7aa9d875613",
+      "size_bytes": 4950
+    },
+    {
+      "path": "scripts/quarterly-mcp-audit.js",
+      "sha1": "bb46ee76d751225a776a960cd051b84a081491c8",
+      "size_bytes": 399
+    },
+    {
+      "path": "scripts/regression-smoke.js",
+      "sha1": "ecb12fb3826a457478744f4b6630da32be9c29b0",
+      "size_bytes": 3778
+    },
+    {
+      "path": "scripts/run-core-orchestration.js",
+      "sha1": "cf86ce4a9f2cd7928df1159259bdc9fc3ff864f1",
+      "size_bytes": 32194
+    },
+    {
+      "path": "scripts/security-static-check.js",
+      "sha1": "6e4dc32ace62bd2226f75871355e1464419b0135",
+      "size_bytes": 3697
+    },
+    {
+      "path": "scripts/semantic-seo-check.js",
+      "sha1": "606e77794eabba9eb1f23cdccc7d843a55dd8fbc",
+      "size_bytes": 2857
+    },
+    {
+      "path": "scripts/validate-commit-message.js",
+      "sha1": "8a80fc13eee8391c947c0305d18cb7073f27d39a",
+      "size_bytes": 1053
+    },
+    {
+      "path": "scripts/weekly-portfolio-trend-sync.js",
+      "sha1": "9a266697c6c4512621944c32e6e8f8e4eac5fbf2",
+      "size_bytes": 393
+    },
+    {
+      "path": "scripts/worktree-integration-audit.js",
+      "sha1": "232803d80a16f7468ff61e7c4b9aee777405b58b",
+      "size_bytes": 3599
+    },
+    {
+      "path": "site-config.json",
+      "sha1": "9a9f0e09c65bc47dfa2103b7cf9e206baa13b076",
+      "size_bytes": 67
+    },
+    {
+      "path": "style.css",
+      "sha1": "2bbdb1d6e58869f240f38b8421699b82ef82203a",
+      "size_bytes": 49363
+    },
+    {
+      "path": "translations.json",
+      "sha1": "d18b60ca7edb2d680a326c7528ee119e62b07c44",
+      "size_bytes": 70745
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "reduced-motion",
+  "type": "ReadinessSignal",
+  "preference": "prefers-reduced-motion",
+  "fallbacks": [],
+  "requirements": {
+    "contentRemainsAvailable": true,
+    "noEssentialMotion": true,
+    "staticStateAvailable": true
+  },
+  "notes": "Dependency-light placeholder for future reduced-motion fallback evidence."
+}

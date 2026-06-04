@@ -1,0 +1,15 @@
+{{- /*
+ReadinessSignal: Helm release template lane stays dependency-light.
+*/ -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uix-polyglot-readiness-signal
+  labels:
+    uix.polyglot/lane: helm
+    uix.polyglot/status: reference
+data:
+  ReadinessSignal: "helm"
+  score: "114"
+  reducedMotionSafe: "true"
+  runtimeWeight: dependency-light

@@ -1,0 +1,23 @@
+{
+  "policy": "runtime-admin-review",
+  "branch": "codex/premium-local-foundation",
+  "route": "/runtime-admin",
+  "access": "SEIS_ADMIN_TOKEN bearer token",
+  "database_required": false,
+  "new_dependencies": false,
+  "records": [
+    "contacts",
+    "briefs",
+    "readiness assessments",
+    "events"
+  ],
+  "low_power": {
+    "reads_on_demand": true,
+    "background_worker": false,
+    "external_dashboard_service": false
+  },
+  "accessibility": {
+    "inline_error_role": "alert",
+    "tab_selection_state": true
+  }
+}

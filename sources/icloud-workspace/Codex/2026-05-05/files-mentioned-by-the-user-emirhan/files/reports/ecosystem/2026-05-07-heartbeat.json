@@ -1,0 +1,104 @@
+{
+  "run_id": "run-2026-05-07-1857-qa-heartbeat",
+  "timestamp": "2026-05-07T18:57:14+03:00",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-registry",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "browser-validation",
+      "status": "skipped_with_reason",
+      "reason": "Playwright MCP could not start because npm is not installed in runtime.",
+      "duration_ms": 69,
+      "next_action": "Install Node/npm in the runtime or switch to a browser connector that does not require npm."
+    },
+    {
+      "connector": "local-qa-scripts",
+      "status": "invoked",
+      "reason": "quality-gate, regression-smoke, and infrastructure-check all passed.",
+      "duration_ms": 459,
+      "next_action": "Keep scripts as sprint-end release gates."
+    },
+    {
+      "connector": "security-review",
+      "status": "invoked",
+      "reason": "Static security scan fallback ran successfully; no dangerous sinks found in core files and security headers exist in server config.",
+      "duration_ms": 95,
+      "next_action": "When Codex Security callable tools become available, run full security scan and compare against baseline."
+    },
+    {
+      "connector": "notion-log",
+      "status": "skipped_with_reason",
+      "reason": "No target Notion page/database found via workspace search for heartbeat logging.",
+      "duration_ms": 5258,
+      "next_action": "Provide or create a dedicated Notion destination page/database id for automation logs."
+    },
+    {
+      "connector": "linear-action-package",
+      "status": "skipped_with_reason",
+      "reason": "No callable Linear tools are available in this session.",
+      "duration_ms": 0,
+      "next_action": "Enable callable Linear MCP tools or provide alternate issue sink."
+    },
+    {
+      "connector": "github-issue-checklist-candidate",
+      "status": "skipped_with_reason",
+      "reason": "GitHub issue tooling is available, but no repository_full_name is configured and local project is not a git repository.",
+      "duration_ms": 0,
+      "next_action": "Provide target repository (owner/name) and repo linkage to enable issue/checklist creation."
+    },
+    {
+      "connector": "slack-summary-candidate",
+      "status": "skipped_with_reason",
+      "reason": "No callable Slack tools are available in this session.",
+      "duration_ms": 0,
+      "next_action": "Enable Slack connector tools and provide channel destination mapping."
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "Browser validation step is blocked due to missing npm runtime dependency.",
+      "External action sinks (Notion/Linear/GitHub/Slack) are partially unavailable or unconfigured."
+    ],
+    "low": [
+      "Core website QA gates are green with no contract regressions."
+    ]
+  },
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Unblock browser validation runtime",
+      "problem": "Playwright browser step cannot start because npm is unavailable.",
+      "proposed_change": "Install Node.js/npm in the execution environment or route browser checks through a preconfigured browser connector.",
+      "acceptance_criteria": [
+        "Browser step reports invoked",
+        "Console capture is available",
+        "Heartbeat report no longer marks browser step as skipped"
+      ],
+      "labels": [
+        "ux",
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-07-heartbeat.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Configure external log/action destinations",
+      "problem": "Notion/Linear/GitHub/Slack steps cannot complete due to missing destination ids or unavailable tools.",
+      "proposed_change": "Define Notion destination, Linear callable tools, GitHub repository mapping, and Slack channel mapping in integration configuration.",
+      "acceptance_criteria": [
+        "Notion log step reports invoked",
+        "Linear action package reports invoked",
+        "GitHub issue checklist candidate reports invoked",
+        "Slack summary candidate reports invoked"
+      ],
+      "labels": [
+        "ops",
+        "lead"
+      ],
+      "source_link": "reports/ecosystem/2026-05-07-heartbeat.json"
+    }
+  ],
+  "summary": "Core QA and static security checks passed. Browser and external integration steps are blocked by environment/configuration gaps and were reported with explicit skip reasons."
+}

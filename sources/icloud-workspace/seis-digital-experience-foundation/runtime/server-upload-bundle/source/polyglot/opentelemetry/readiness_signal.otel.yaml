@@ -1,0 +1,19 @@
+ReadinessSignal:
+  lane: opentelemetry
+  status: reference
+  runtimeWeight: dependency-light
+  promotionPolicy: wire exporters only after auth, target, and preflight are clean
+receivers:
+  otlp:
+    protocols:
+      http: {}
+processors:
+  batch: {}
+exporters:
+  debug: {}
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]

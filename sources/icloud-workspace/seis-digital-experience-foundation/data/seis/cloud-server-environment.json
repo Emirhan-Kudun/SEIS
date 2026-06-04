@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-cloud-server-environment.mjs",
+  "generatedAt": "2026-06-01T12:55:47.003Z",
+  "mission": "SEIS-M010",
+  "purpose": "Define the safe SEIS cloud and server execution environment without storing secrets.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "config/seis-cloud-environment.json",
+      "config/server-target-profile.json",
+      "data/seis/deployment-readiness.json",
+      "data/seis/operations-readiness.json",
+      "data/seis/connector-readiness-matrix.json",
+      "runtime/server-upload-bundle/manifest.json"
+    ]
+  },
+  "cloud": {
+    "id": "seis-cloud-uixappttr",
+    "name": "SEIS Cloud UIXAppTTR",
+    "branch": "UIXAppTTR",
+    "setupScript": "bash scripts/codex-cloud-setup.sh",
+    "writePolicy": "branch-only",
+    "internetAccess": "off-by-default",
+    "executionMode": "token-heavy-machine-light",
+    "requiredChecks": [
+      "npm run quality:seis",
+      "npm run quality:fullstack",
+      "npm run check:seis-cloud-server-environment",
+      "npm run check:seis-deploy-envelope",
+      "npm run check:seis-remote-shipment-gate",
+      "npm run publish:preflight",
+      "npm run server-upload:dry-run"
+    ],
+    "configuredActions": [
+      {
+        "id": "seis-quality",
+        "command": "npm run quality:seis",
+        "writes": false
+      },
+      {
+        "id": "fullstack-quality",
+        "command": "npm run quality:fullstack",
+        "writes": false
+      },
+      {
+        "id": "publish-preflight",
+        "command": "npm run publish:preflight",
+        "writes": false
+      },
+      {
+        "id": "deployment-readiness",
+        "command": "npm run check:seis-deployment-readiness",
+        "writes": false
+      },
+      {
+        "id": "cloud-server-environment",
+        "command": "npm run check:seis-cloud-server-environment",
+        "writes": false
+      },
+      {
+        "id": "server-cloud-deploy-envelope",
+        "command": "npm run check:seis-deploy-envelope",
+        "writes": false
+      },
+      {
+        "id": "remote-shipment-gate",
+        "command": "npm run check:seis-remote-shipment-gate",
+        "writes": false
+      },
+      {
+        "id": "server-upload-dry-run",
+        "command": "npm run server-upload:dry-run",
+        "writes": false
+      }
+    ]
+  },
+  "server": {
+    "targetId": "configured-server",
+    "method": "rsync",
+    "bundleDirectory": "runtime/server-upload-bundle/source",
+    "bundleFileCount": 266,
+    "dryRunCommand": "npm run server-upload:dry-run",
+    "executeCommand": "npm run server-upload:execute",
+    "requiredEnvironment": [
+      {
+        "name": "UIX_UPLOAD_HOST",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_USER",
+        "present": false
+      },
+      {
+        "name": "UIX_UPLOAD_PATH",
+        "present": false
+      }
+    ],
+    "missingEnvironment": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ],
+    "safeRemotePathPattern": "^(?:/var/www/[^\\s]+|/home/[^\\s]+/[^\\s]+)$",
+    "executeReady": false
+  },
+  "github": {
+    "branch": "UIXAppTTR",
+    "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "serverSynced": true,
+    "authReady": true,
+    "workflowScopeReady": true
+  },
+  "connectors": {
+    "runtimeItems": 215,
+    "surfaceCount": 11,
+    "authRequiredSurfaces": 7,
+    "blockedSurfaces": 2,
+    "operationsStatus": "ready-with-blockers"
+  },
+  "summary": {
+    "status": "ready-with-blockers",
+    "cloudReady": true,
+    "serverUploadReady": false,
+    "githubServerSynced": true,
+    "connectorMatrixReady": true,
+    "blockerCount": 3,
+    "blockers": [
+      "missing server environment variable: UIX_UPLOAD_HOST",
+      "missing server environment variable: UIX_UPLOAD_USER",
+      "missing server environment variable: UIX_UPLOAD_PATH"
+    ]
+  },
+  "nextActions": [
+    "Keep cloud execution on UIXAppTTR with branch-only writes.",
+    "Run npm run check:seis-cloud-server-environment before any server upload attempt.",
+    "Set UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH outside the repository for real upload.",
+    "Run npm run server-upload:dry-run before npm run server-upload:execute."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "cadence": "weekly-budget-aware",
+    "mode": "durable-source-improvement",
+    "localPower": "low",
+    "nextPlanningTheme": "animation-and-3d",
+    "commitStyle": "small-reversible-bundles"
+  },
+  "intent": "Spend remaining weekly model usage on durable UX Apps source improvements, not artificial token burn.",
+  "preferredSpend": [
+    {
+      "id": "implementation-slices",
+      "label": "Small reversible implementation slices",
+      "value": "Ship focused UI, API, data, and checker updates that can be reviewed and rolled back cleanly."
+    },
+    {
+      "id": "static-quality",
+      "label": "Targeted static checks",
+      "value": "Prefer syntax checks, JSON contract checks, and focused tests before heavier browser or build work."
+    },
+    {
+      "id": "contract-hardening",
+      "label": "Documentation and checker hardening",
+      "value": "Turn repeated decisions into repo contracts so future sessions need fewer prompts and less machine load."
+    },
+    {
+      "id": "source-clarity",
+      "label": "Source clarity",
+      "value": "Keep iCloud Drive, UIXAppTTR, GitHub publication state, and blockers visible before server sync."
+    }
+  ],
+  "blockedSpend": [
+    "empty token burn",
+    "repeating broad scans after a clean signal",
+    "starting dev servers only to consume usage",
+    "remote pushes without auth preflight",
+    "GPU-heavy visual validation before the animation and 3D plan is accepted"
+  ],
+  "rules": [
+    "Main remains protected; implementation continues on UIXAppTTR.",
+    "GitHub server publication waits for publish preflight and working authentication.",
+    "Low-power checks come first unless a visual runtime decision is required.",
+    "Heavy animation can be staged now; 3D scene work stays for the next dedicated cinematic pass."
+  ],
+  "stopCondition": "Stop when the next safe slice needs secrets, server credentials, or a visual runtime decision."
+}

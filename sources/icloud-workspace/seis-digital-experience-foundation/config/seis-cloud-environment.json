@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "mission": "SEIS-CLOUD-ENV-001",
+  "purpose": "Define a safe Codex Cloud environment for SEIS development, validation, publication preflight, and server handoff.",
+  "environment": {
+    "id": "seis-cloud-uixappttr",
+    "name": "SEIS Cloud UIXAppTTR",
+    "branch": "UIXAppTTR",
+    "workspace": "GitHub origin/UIXAppTTR",
+    "setupScript": "bash scripts/codex-cloud-setup.sh",
+    "internetAccess": "off-by-default",
+    "executionMode": "token-heavy-machine-light",
+    "writePolicy": "branch-only",
+    "protectedBranches": [
+      "main",
+      "master"
+    ]
+  },
+  "requiredChecks": [
+    "npm run quality:seis",
+    "npm run quality:fullstack",
+    "npm run check:seis-deployment-readiness",
+    "npm run check:seis-cloud-server-environment",
+    "npm run check:seis-deploy-envelope",
+    "npm run check:seis-remote-shipment-gate",
+    "npm run check:seis-product-engineering-model",
+    "npm run check:seis-github-language-presence",
+    "npm run check:seis-capability-activation-hub",
+    "npm run publish:preflight",
+    "npm run server-upload:dry-run"
+  ],
+  "secrets": {
+    "requiredForPush": [
+      "GitHub token with repo and workflow scopes"
+    ],
+    "requiredForServerUpload": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ],
+    "neverCommit": [
+      ".env",
+      "credentials.key",
+      "credentials.yml.enc plaintext",
+      "private SSH keys",
+      "API tokens"
+    ]
+  },
+  "cloudActions": [
+    {
+      "id": "seis-quality",
+      "label": "SEIS quality gate",
+      "command": "npm run quality:seis",
+      "writes": false
+    },
+    {
+      "id": "fullstack-quality",
+      "label": "Fullstack quality gate",
+      "command": "npm run quality:fullstack",
+      "writes": false
+    },
+    {
+      "id": "publish-preflight",
+      "label": "GitHub publish preflight",
+      "command": "npm run publish:preflight",
+      "writes": false
+    },
+    {
+      "id": "deployment-readiness",
+      "label": "SEIS deployment readiness",
+      "command": "npm run check:seis-deployment-readiness",
+      "writes": false
+    },
+    {
+      "id": "cloud-server-environment",
+      "label": "SEIS cloud server environment",
+      "command": "npm run check:seis-cloud-server-environment",
+      "writes": false
+    },
+    {
+      "id": "server-cloud-deploy-envelope",
+      "label": "SEIS server cloud deploy envelope",
+      "command": "npm run check:seis-deploy-envelope",
+      "writes": false
+    },
+    {
+      "id": "remote-shipment-gate",
+      "label": "SEIS remote shipment gate",
+      "command": "npm run check:seis-remote-shipment-gate",
+      "writes": false
+    },
+    {
+      "id": "product-engineering-model",
+      "label": "SEIS product engineering model",
+      "command": "npm run check:seis-product-engineering-model",
+      "writes": false
+    },
+    {
+      "id": "github-language-presence",
+      "label": "SEIS GitHub language presence",
+      "command": "npm run check:seis-github-language-presence",
+      "writes": false
+    },
+    {
+      "id": "capability-activation-hub",
+      "label": "SEIS capability activation hub",
+      "command": "npm run check:seis-capability-activation-hub",
+      "writes": false
+    },
+    {
+      "id": "server-upload-dry-run",
+      "label": "Server upload dry-run",
+      "command": "npm run server-upload:dry-run",
+      "writes": false
+    }
+  ],
+  "blockedActions": [
+    "push to main or master",
+    "force push",
+    "server upload without UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH",
+    "workflow file push without GitHub workflow scope",
+    "blanket MCP invocation without mission routing"
+  ]
+}

@@ -1,0 +1,2 @@
+# ReadinessSignal: Ads.txt advertising transparency lane stays dependency-light.
+example.invalid, readiness-signal, DIRECT, f08c47fec0942fa0

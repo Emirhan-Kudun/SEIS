@@ -1,0 +1,29 @@
+{
+  "consumer": { "name": "ReadinessSignalConsumer" },
+  "provider": { "name": "ReadinessSignalProvider" },
+  "interactions": [
+    {
+      "description": "ReadinessSignal contract stays dependency-light",
+      "providerStates": [
+        { "name": "polyglot lane is reference-only" }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/polyglot/pact/readiness-signal"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "body": {
+          "lane": "pact",
+          "status": "reference",
+          "runtimeWeight": "dependency-light"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": { "version": "3.0.0" },
+    "uix": { "signal": "ReadinessSignal" }
+  }
+}

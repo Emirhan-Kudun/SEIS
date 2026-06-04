@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-publish-gate-ledger-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-plugin-assisted-publish-gate-ledger",
+  "sourcePath": "content/development/plugin-assisted-publish-gate-ledger.json",
+  "summary": {
+    "sourceRiskRegisterPlugins": 300,
+    "publishGateLedgerPlugins": 300,
+    "wavePublishGateRecords": 4,
+    "lanePublishGateRecords": 12,
+    "publishItemRecords": 300,
+    "localPublishCandidateItems": 20,
+    "authBlockedPublishGateItems": 280,
+    "publishReadyItems": 0,
+    "publishBlockedItems": 300,
+    "publishGateDefinitionCount": 8,
+    "publishGateRecords": 2400,
+    "pullRequestRequiredPublishItems": 300,
+    "codeScanningRequiredPublishItems": 300,
+    "verifiedSignatureRequiredPublishItems": 300,
+    "deploymentStatusRequiredPublishItems": 300,
+    "rollbackPlanRequiredPublishItems": 300,
+    "generatedChecksRequiredPublishItems": 300,
+    "dirtyWorktreeGuardRequiredPublishItems": 300,
+    "authRequiredPublishItems": 280,
+    "autoApprovalAllowedPublishItems": 0,
+    "autoMergeAllowedPublishItems": 0,
+    "autoDeployAllowedPublishItems": 0,
+    "livePluginInvocationAllowedPublishItems": 0,
+    "liveAiInvocationAllowedPublishItems": 0,
+    "autonomousRepoModificationAllowedPublishItems": 0,
+    "credentialRecordingPublishItems": 0,
+    "promptPayloadRecordingPublishItems": 0,
+    "connectorPayloadRecordingPublishItems": 0,
+    "generatedPayloadCommitPublishItems": 0,
+    "validationCommandRecords": 2554,
+    "validationCommandCount": 9,
+    "validationCommands": [
+      "npm run check:plugin-assisted-publish-gate-ledger",
+      "npm run check:plugin-assisted-risk-register",
+      "npm run check:plugin-assisted-review-matrix",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment",
+      "npm run check:workspace",
+      "git diff --check"
+    ],
+    "publishGateDefinitions": [
+      {
+        "id": "branch_target",
+        "label": "Branch target"
+      },
+      {
+        "id": "pull_request",
+        "label": "Pull request"
+      },
+      {
+        "id": "code_scanning",
+        "label": "Code scanning"
+      },
+      {
+        "id": "verified_signature",
+        "label": "Verified signature"
+      },
+      {
+        "id": "deployment_status",
+        "label": "Deployment status"
+      },
+      {
+        "id": "rollback_plan",
+        "label": "Rollback plan"
+      },
+      {
+        "id": "generated_checks",
+        "label": "Generated checks"
+      },
+      {
+        "id": "dirty_worktree_guard",
+        "label": "Dirty worktree guard"
+      }
+    ]
+  },
+  "policy": {
+    "publish": "all_connected_plugin_publish_items_require_branch_protection_gates",
+    "blockers": "pull_request_code_scanning_verified_signature_deployment_status_and_clean_worktree_required",
+    "automation": "no_auto_merge_deploy_live_invocation_or_payload_commit_from_publish_gate_ledger",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "payloadHandling": "never_commit_connector_results_vendor_payloads_or_runtime_logs",
+    "branchProtectionHandling": "publish_requires_pr_code_scanning_verified_signature_deployment_status_and_clean_worktree"
+  },
+  "wavePublishGates": [
+    {
+      "order": 1,
+      "waveId": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "publishItems": 95,
+      "localPublishCandidateItems": 5,
+      "authBlockedPublishGateItems": 90,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 95,
+      "publishGateRecords": 760,
+      "nextPublishAction": "prepare_pr_review_packet_then_resolve_branch_protection_and_deployment_gates"
+    },
+    {
+      "order": 2,
+      "waveId": "wave-2-product-experience",
+      "label": "Product experience",
+      "publishItems": 75,
+      "localPublishCandidateItems": 6,
+      "authBlockedPublishGateItems": 69,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 75,
+      "publishGateRecords": 600,
+      "nextPublishAction": "prepare_pr_review_packet_then_resolve_branch_protection_and_deployment_gates"
+    },
+    {
+      "order": 3,
+      "waveId": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "publishItems": 78,
+      "localPublishCandidateItems": 2,
+      "authBlockedPublishGateItems": 76,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 78,
+      "publishGateRecords": 624,
+      "nextPublishAction": "prepare_pr_review_packet_then_resolve_branch_protection_and_deployment_gates"
+    },
+    {
+      "order": 4,
+      "waveId": "wave-4-operations-research",
+      "label": "Operations and research",
+      "publishItems": 52,
+      "localPublishCandidateItems": 7,
+      "authBlockedPublishGateItems": 45,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 52,
+      "publishGateRecords": 416,
+      "nextPublishAction": "prepare_pr_review_packet_then_resolve_branch_protection_and_deployment_gates"
+    }
+  ],
+  "lanePublishGates": [
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "security-quality-and-governance",
+      "label": "Security, quality, and governance",
+      "publishItems": 19,
+      "localPublishCandidateItems": 0,
+      "authBlockedPublishGateItems": 19,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 19,
+      "publishGateRecords": 152,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "keep_publish_blocked_until_authenticated_task_scope_exists",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "backend-data-and-api",
+      "label": "Backend, data, and API",
+      "publishItems": 31,
+      "localPublishCandidateItems": 0,
+      "authBlockedPublishGateItems": 31,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 31,
+      "publishGateRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "keep_publish_blocked_until_authenticated_task_scope_exists",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "cloud-devops-and-release",
+      "label": "Cloud, DevOps, and release",
+      "publishItems": 31,
+      "localPublishCandidateItems": 5,
+      "authBlockedPublishGateItems": 26,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 31,
+      "publishGateRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:server-target",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "platform-native-and-polyglot",
+      "label": "Platform native and polyglot",
+      "publishItems": 14,
+      "localPublishCandidateItems": 0,
+      "authBlockedPublishGateItems": 14,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 14,
+      "publishGateRecords": 112,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "keep_publish_blocked_until_authenticated_task_scope_exists",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:software-languages",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "builder-and-prototyping",
+      "label": "Builder and prototyping",
+      "publishItems": 18,
+      "localPublishCandidateItems": 1,
+      "authBlockedPublishGateItems": 17,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 18,
+      "publishGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-environment-sources",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "creative-production-and-design",
+      "label": "Creative production and design",
+      "publishItems": 18,
+      "localPublishCandidateItems": 1,
+      "authBlockedPublishGateItems": 17,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 18,
+      "publishGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "ai-workflow-docs-and-knowledge",
+      "label": "AI workflow, docs, and knowledge",
+      "publishItems": 39,
+      "localPublishCandidateItems": 4,
+      "authBlockedPublishGateItems": 35,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 39,
+      "publishGateRecords": 312,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:workspace",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "analytics-observability-and-growth",
+      "label": "Analytics, observability, and growth",
+      "publishItems": 30,
+      "localPublishCandidateItems": 2,
+      "authBlockedPublishGateItems": 28,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 30,
+      "publishGateRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "sales-gtm-and-market-intelligence",
+      "label": "Sales, GTM, and market intelligence",
+      "publishItems": 30,
+      "localPublishCandidateItems": 0,
+      "authBlockedPublishGateItems": 30,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 30,
+      "publishGateRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "keep_publish_blocked_until_authenticated_task_scope_exists",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "finance-investing-and-payments",
+      "label": "Finance, investing, and payments",
+      "publishItems": 18,
+      "localPublishCandidateItems": 0,
+      "authBlockedPublishGateItems": 18,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 18,
+      "publishGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "keep_publish_blocked_until_authenticated_task_scope_exists",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "collaboration-calendar-and-support",
+      "label": "Collaboration, calendar, and support",
+      "publishItems": 35,
+      "localPublishCandidateItems": 3,
+      "authBlockedPublishGateItems": 32,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 35,
+      "publishGateRecords": 280,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "specialized-domain-and-research",
+      "label": "Specialized domain and research",
+      "publishItems": 17,
+      "localPublishCandidateItems": 4,
+      "authBlockedPublishGateItems": 13,
+      "publishReadyItems": 0,
+      "publishBlockedItems": 17,
+      "publishGateRecords": 136,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextPublishAction": "prepare_one_local_candidate_pr_packet_after_clean_worktree_and_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register",
+        "npm run check:plugin-assisted-publish-gate-ledger"
+      ]
+    }
+  ]
+}

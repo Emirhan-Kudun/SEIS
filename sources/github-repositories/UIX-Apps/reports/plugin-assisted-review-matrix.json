@@ -1,0 +1,383 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-review-matrix-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-plugin-assisted-review-matrix",
+  "sourcePath": "content/development/plugin-assisted-review-matrix.json",
+  "summary": {
+    "sourceActionBoardPlugins": 300,
+    "reviewMatrixPlugins": 300,
+    "waveReviewRecords": 4,
+    "laneReviewRecords": 12,
+    "reviewItemRecords": 300,
+    "readyReviewItems": 20,
+    "authBlockedReviewItems": 280,
+    "reviewRequiredItems": 300,
+    "pullRequestRequiredItems": 300,
+    "codeScanningRequiredItems": 300,
+    "verifiedSignatureRequiredItems": 300,
+    "deploymentStatusRequiredItems": 300,
+    "rollbackOwnerRequiredItems": 300,
+    "generatedCheckRequiredItems": 300,
+    "reviewGateDefinitionCount": 8,
+    "reviewGateRecords": 2400,
+    "validationCommandRecords": 1954,
+    "autoApprovalAllowedItems": 0,
+    "autoMergeAllowedItems": 0,
+    "autoDeployAllowedItems": 0,
+    "livePluginInvocationAllowedReviewItems": 0,
+    "liveAiInvocationAllowedReviewItems": 0,
+    "autonomousRepoModificationAllowedReviewItems": 0,
+    "credentialRecordingReviewItems": 0,
+    "promptPayloadRecordingReviewItems": 0,
+    "connectorPayloadRecordingReviewItems": 0,
+    "generatedPayloadCommitReviewItems": 0,
+    "validationCommandCount": 8,
+    "validationCommands": [
+      "npm run check:plugin-assisted-review-matrix",
+      "npm run check:plugin-assisted-action-board",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment",
+      "npm run check:workspace",
+      "git diff --check"
+    ],
+    "reviewGateDefinitions": [
+      {
+        "id": "explicit_task_scope",
+        "label": "Explicit task scope"
+      },
+      {
+        "id": "human_review",
+        "label": "Human review"
+      },
+      {
+        "id": "generated_checks",
+        "label": "Generated checks"
+      },
+      {
+        "id": "pull_request",
+        "label": "Pull request"
+      },
+      {
+        "id": "code_scanning",
+        "label": "Code scanning"
+      },
+      {
+        "id": "verified_signature",
+        "label": "Verified signature"
+      },
+      {
+        "id": "deployment_status",
+        "label": "Deployment status"
+      },
+      {
+        "id": "rollback_owner",
+        "label": "Rollback owner"
+      }
+    ]
+  },
+  "policy": {
+    "review": "all_connected_plugin_action_cards_require_review_matrix_before_publish",
+    "publish": "pull_request_code_scanning_verified_signature_and_deployment_status_required",
+    "approval": "no_auto_approval_merge_deploy_or_live_invocation",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "payloadHandling": "never_commit_connector_results_vendor_payloads_or_runtime_logs",
+    "branchProtectionHandling": "surface_pr_code_scanning_signature_and_deployment_blockers_before_publish"
+  },
+  "waveReviews": [
+    {
+      "order": 1,
+      "waveId": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "reviewItems": 95,
+      "readyReviewItems": 5,
+      "authBlockedReviewItems": 90,
+      "reviewGateRecords": 760,
+      "publishBlockers": [
+        "pull_request",
+        "code_scanning",
+        "verified_signature",
+        "deployment_status",
+        "rollback_owner"
+      ],
+      "nextReviewAction": "prepare_review_packet_then_resolve_branch_protection_gates"
+    },
+    {
+      "order": 2,
+      "waveId": "wave-2-product-experience",
+      "label": "Product experience",
+      "reviewItems": 75,
+      "readyReviewItems": 6,
+      "authBlockedReviewItems": 69,
+      "reviewGateRecords": 600,
+      "publishBlockers": [
+        "pull_request",
+        "code_scanning",
+        "verified_signature",
+        "deployment_status",
+        "rollback_owner"
+      ],
+      "nextReviewAction": "prepare_review_packet_then_resolve_branch_protection_gates"
+    },
+    {
+      "order": 3,
+      "waveId": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "reviewItems": 78,
+      "readyReviewItems": 2,
+      "authBlockedReviewItems": 76,
+      "reviewGateRecords": 624,
+      "publishBlockers": [
+        "pull_request",
+        "code_scanning",
+        "verified_signature",
+        "deployment_status",
+        "rollback_owner"
+      ],
+      "nextReviewAction": "prepare_review_packet_then_resolve_branch_protection_gates"
+    },
+    {
+      "order": 4,
+      "waveId": "wave-4-operations-research",
+      "label": "Operations and research",
+      "reviewItems": 52,
+      "readyReviewItems": 7,
+      "authBlockedReviewItems": 45,
+      "reviewGateRecords": 416,
+      "publishBlockers": [
+        "pull_request",
+        "code_scanning",
+        "verified_signature",
+        "deployment_status",
+        "rollback_owner"
+      ],
+      "nextReviewAction": "prepare_review_packet_then_resolve_branch_protection_gates"
+    }
+  ],
+  "laneReviews": [
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "security-quality-and-governance",
+      "label": "Security, quality, and governance",
+      "reviewItems": 19,
+      "readyReviewItems": 0,
+      "authBlockedReviewItems": 19,
+      "reviewGateRecords": 152,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "keep_review_items_blocked_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "backend-data-and-api",
+      "label": "Backend, data, and API",
+      "reviewItems": 31,
+      "readyReviewItems": 0,
+      "authBlockedReviewItems": 31,
+      "reviewGateRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "keep_review_items_blocked_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "cloud-devops-and-release",
+      "label": "Cloud, DevOps, and release",
+      "reviewItems": 31,
+      "readyReviewItems": 5,
+      "authBlockedReviewItems": 26,
+      "reviewGateRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:server-target",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "platform-native-and-polyglot",
+      "label": "Platform native and polyglot",
+      "reviewItems": 14,
+      "readyReviewItems": 0,
+      "authBlockedReviewItems": 14,
+      "reviewGateRecords": 112,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "keep_review_items_blocked_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:software-languages",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "builder-and-prototyping",
+      "label": "Builder and prototyping",
+      "reviewItems": 18,
+      "readyReviewItems": 1,
+      "authBlockedReviewItems": 17,
+      "reviewGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-environment-sources",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "creative-production-and-design",
+      "label": "Creative production and design",
+      "reviewItems": 18,
+      "readyReviewItems": 1,
+      "authBlockedReviewItems": 17,
+      "reviewGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "ai-workflow-docs-and-knowledge",
+      "label": "AI workflow, docs, and knowledge",
+      "reviewItems": 39,
+      "readyReviewItems": 4,
+      "authBlockedReviewItems": 35,
+      "reviewGateRecords": 312,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:workspace",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "analytics-observability-and-growth",
+      "label": "Analytics, observability, and growth",
+      "reviewItems": 30,
+      "readyReviewItems": 2,
+      "authBlockedReviewItems": 28,
+      "reviewGateRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "sales-gtm-and-market-intelligence",
+      "label": "Sales, GTM, and market intelligence",
+      "reviewItems": 30,
+      "readyReviewItems": 0,
+      "authBlockedReviewItems": 30,
+      "reviewGateRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "keep_review_items_blocked_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "finance-investing-and-payments",
+      "label": "Finance, investing, and payments",
+      "reviewItems": 18,
+      "readyReviewItems": 0,
+      "authBlockedReviewItems": 18,
+      "reviewGateRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "keep_review_items_blocked_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "collaboration-calendar-and-support",
+      "label": "Collaboration, calendar, and support",
+      "reviewItems": 35,
+      "readyReviewItems": 3,
+      "authBlockedReviewItems": 32,
+      "reviewGateRecords": 280,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "specialized-domain-and-research",
+      "label": "Specialized domain and research",
+      "reviewItems": 17,
+      "readyReviewItems": 4,
+      "authBlockedReviewItems": 13,
+      "reviewGateRecords": 136,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextReviewAction": "prepare_one_ready_review_packet_with_generated_checks",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix"
+      ]
+    }
+  ]
+}

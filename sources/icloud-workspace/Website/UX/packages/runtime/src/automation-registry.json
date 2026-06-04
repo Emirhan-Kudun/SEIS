@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "generatedFor": "seis-cinematic-premium-foundation",
+  "policy": {
+    "mode": "single-active-mission",
+    "defaultCadence": "hourly",
+    "executionStyle": "high-reasoning-low-machine-pressure",
+    "publishRule": "Commit, push and iCloud export only after targeted checks pass.",
+    "cloudRule": "Live server or cloud deploy requires explicit target credentials outside git."
+  },
+  "automations": [
+    {
+      "id": "seis-aggressive-code-expansion-loop",
+      "name": "SEIS Aggressive Code Expansion Loop",
+      "status": "active",
+      "cadence": "hourly",
+      "scope": "Foundation architecture, runtime governance, connector/MCP readiness, cloud preflight, polyglot language surface and release evidence.",
+      "workspace": "/Users/emirhan/Documents/UX",
+      "branch": "codex/seis-ux-cinematic-premium-foundation",
+      "checks": ["npm run checks", "npm run typecheck", "npm run cloud:env:preflight", "npm run deploy:preflight"],
+      "publish": ["git push origin codex/seis-ux-cinematic-premium-foundation", "npm run share:icloud-github"],
+      "guardrail": "Use relevant skills/connectors/MCPs only when the mission, credentials and rollback path are clear."
+    },
+    {
+      "id": "seis-code-continuation",
+      "name": "SEIS Code Continuation",
+      "status": "active",
+      "cadence": "hourly",
+      "scope": "One small reversible code improvement per run across UX, cloud/server readiness, capability mesh, automation, accessibility, SEO and governance.",
+      "workspace": "/Users/emirhan/Documents/UX",
+      "branch": "codex/seis-ux-cinematic-premium-foundation",
+      "checks": ["npm run check:code-automation-plan", "npm run check:capability-mesh", "npm run check:runtime"],
+      "publish": ["git push origin codex/seis-ux-cinematic-premium-foundation", "npm run share:icloud-github"],
+      "guardrail": "Do not run live deploy, paid, message, CRM or destructive connectors without explicit target confirmation."
+    }
+  ],
+  "blockedLiveActions": [
+    {
+      "id": "custom-server-live-upload",
+      "missingEnv": ["DEPLOY_HOST", "DEPLOY_USER", "DEPLOY_PATH"],
+      "nextCommand": "export DEPLOY_HOST DEPLOY_USER DEPLOY_PATH outside git"
+    },
+    {
+      "id": "vercel-live-deploy",
+      "missingTool": "vercel",
+      "nextCommand": "npm i -g vercel"
+    }
+  ]
+}

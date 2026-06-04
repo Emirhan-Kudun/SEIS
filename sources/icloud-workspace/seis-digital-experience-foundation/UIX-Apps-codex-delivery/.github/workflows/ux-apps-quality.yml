@@ -1,0 +1,42 @@
+name: UX Apps Quality
+
+on:
+  push:
+    branches:
+      - codex/premium-local-foundation
+    paths:
+      - "apps/ux-apps-foundation/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/ux-apps-quality.yml"
+  pull_request:
+    branches:
+      - codex/premium-local-foundation
+    paths:
+      - "apps/ux-apps-foundation/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/ux-apps-quality.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Run UX Apps quality gate
+        run: npm run ux:quality

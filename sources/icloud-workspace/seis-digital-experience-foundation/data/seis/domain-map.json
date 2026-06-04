@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-05-31",
+  "domains": [
+    {
+      "id": "creative-core",
+      "label": "Creative Core",
+      "areas": [
+        "visual-communication-design",
+        "graphic-design",
+        "typography",
+        "branding",
+        "photography",
+        "image-processing",
+        "vector-design",
+        "visual-research"
+      ],
+      "ownerAgents": ["design-director-agent", "research-agent"],
+      "defaultStorage": "GitHub for documentation and registries; iCloud or Google Drive for large creative source files."
+    },
+    {
+      "id": "experience-core",
+      "label": "Experience Core",
+      "areas": [
+        "web-design",
+        "ui-design",
+        "ux-design",
+        "product-design",
+        "motion-design",
+        "portfolio-development",
+        "3d-animation"
+      ],
+      "ownerAgents": ["design-director-agent", "product-agent"],
+      "defaultStorage": "GitHub for UI code, docs, and motion plans; archive layer for heavy media assets."
+    },
+    {
+      "id": "engineering-core",
+      "label": "Engineering Core",
+      "areas": [
+        "frontend-engineering",
+        "backend-engineering",
+        "mobile-engineering",
+        "systems-engineering",
+        "cloud-engineering",
+        "devops"
+      ],
+      "ownerAgents": ["chief-architect-agent", "engineering-language-agent", "automation-agent"],
+      "defaultStorage": "GitHub."
+    },
+    {
+      "id": "ai-core",
+      "label": "AI Core",
+      "areas": [
+        "ai-systems",
+        "prompt-engineering",
+        "agent-systems",
+        "rag",
+        "knowledge-graphs",
+        "automation"
+      ],
+      "ownerAgents": ["chief-architect-agent", "research-agent", "data-agent"],
+      "defaultStorage": "GitHub for prompts and registries; archive layer for large datasets."
+    },
+    {
+      "id": "governance-core",
+      "label": "Governance Core",
+      "areas": [
+        "github-workflows",
+        "branch-policy",
+        "mission-lifecycle",
+        "documentation",
+        "release-governance",
+        "security"
+      ],
+      "ownerAgents": ["governance-agent", "security-agent", "documentation-agent"],
+      "defaultStorage": "GitHub."
+    },
+    {
+      "id": "data-core",
+      "label": "Data Core",
+      "areas": [
+        "sql",
+        "postgresql",
+        "duckdb",
+        "pandas",
+        "analytics",
+        "structured-registries"
+      ],
+      "ownerAgents": ["data-agent", "security-agent"],
+      "defaultStorage": "GitHub for schemas and contracts; secure data stores for live data."
+    },
+    {
+      "id": "polyglot-core",
+      "label": "Polyglot Core",
+      "areas": [
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "typescript",
+        "react",
+        "nextjs",
+        "vue",
+        "astro",
+        "svelte",
+        "python",
+        "go",
+        "java",
+        "kotlin",
+        "csharp",
+        "php",
+        "nodejs",
+        "c",
+        "cpp",
+        "rust",
+        "zig",
+        "swift",
+        "swiftui",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "github-actions"
+      ],
+      "ownerAgents": ["engineering-language-agent", "chief-architect-agent"],
+      "activationRule": "Support many languages, but activate only the correct stack for the mission."
+    }
+  ]
+}

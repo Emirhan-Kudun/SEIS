@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHON_ENV: development
+      LOG_LEVEL: debug
+      CUDA_VISIBLE_DEVICES: 0
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./data:/app/data
+    command: python -m server.main
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: deepseek
+      POSTGRES_USER: deepseek
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,59 @@
+{
+  "name": "seis-premium-portfolio-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:next": "npm run dev --workspace apps/site-next",
+    "dev:vite": "npm run dev --workspace apps/site-vite",
+    "build": "npm run build --workspace apps/site-next && npm run build --workspace apps/site-vite",
+    "typecheck": "tsc -p packages/content/tsconfig.json --noEmit && tsc -p packages/runtime/tsconfig.json --noEmit && tsc -p apps/site-next/tsconfig.json --noEmit && tsc -p apps/site-vite/tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs",
+    "checks": "npm run check:content && npm run check:runtime && npm run check:cloud-environment && npm run check:cloud-environment-report && npm run check:polyglot-surface && npm run check:capability-mesh && npm run check:connector-activation-manifest && npm run check:code-automation-plan && npm run check:server-handoff && npm run check:deploy-preflight && npm run check:intake-guardrails && npm run check:source-boundaries && npm run check:release-notes && npm run check:archive-plan && npm run check:ai-workflow-policy && npm run check:locale-map && npm run check:localized-links && npm run check:route-contract && npm run check:api-contract && npm run check:a11y-smoke && npm run check:motion-guardrails && npm run check:supreme-os && npm run check:platform-compatibility",
+    "check:content": "node scripts/check-content.mjs",
+    "check:runtime": "node scripts/check-runtime.mjs",
+    "check:intake-guardrails": "node scripts/check-intake-guardrails.mjs",
+    "check:source-boundaries": "node scripts/check-source-boundaries.mjs",
+    "check:release-notes": "node scripts/check-release-notes.mjs",
+    "check:archive-plan": "node scripts/check-archive-plan.mjs",
+    "check:ai-workflow-policy": "node scripts/check-ai-workflow-policy.mjs",
+    "check:locale-map": "node scripts/check-locale-map.mjs",
+    "check:localized-links": "node scripts/check-localized-links.mjs",
+    "check:route-contract": "node scripts/check-route-contract.mjs",
+    "check:api-contract": "node scripts/check-api-contract.mjs",
+    "check:a11y-smoke": "node scripts/check-a11y-smoke.mjs",
+    "check:motion-guardrails": "node scripts/check-motion-guardrails.mjs",
+    "check:supreme-os": "node scripts/check-supreme-os.mjs",
+    "check:platform-compatibility": "node scripts/check-platform-compatibility.mjs",
+    "report:budgets": "node scripts/report-site-budgets.mjs",
+    "collect:mcp-readiness": "node scripts/collect-mcp-readiness.mjs",
+    "github:preflight": "node scripts/origin-push-preflight.mjs",
+    "github:publish": "node scripts/github-publish.mjs",
+    "share:icloud-github": "node scripts/share-icloud-github.mjs",
+    "cloud:env:preflight": "node scripts/cloud-environment-preflight.mjs",
+    "deploy:preflight": "node scripts/deploy-preflight.mjs",
+    "deploy:static:dry-run": "bash scripts/deploy-static.sh",
+    "deploy:static:live": "bash scripts/deploy-static.sh --live",
+    "check:cloud-environment": "node scripts/check-cloud-environment.mjs",
+    "check:cloud-environment-report": "node scripts/check-cloud-environment-report.mjs",
+    "check:polyglot-surface": "node scripts/check-polyglot-surface.mjs",
+    "check:capability-mesh": "node scripts/check-capability-mesh.mjs",
+    "check:connector-activation-manifest": "node scripts/check-connector-activation-manifest.mjs",
+    "check:code-automation-plan": "node scripts/check-code-automation-plan.mjs",
+    "check:deploy-preflight": "node scripts/check-deploy-preflight.mjs",
+    "check:server-handoff": "node scripts/check-server-handoff.mjs",
+    "server:preflight": "node scripts/server-handoff-preflight.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@vercel/config": "^0.5.1",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

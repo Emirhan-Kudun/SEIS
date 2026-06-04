@@ -1,0 +1,59 @@
+{
+  "system": "SEIS Cinematic Website Ecosystem",
+  "branch_alignment": "codex/premium-local-foundation",
+  "runtime_safe": true,
+  "modifies_main_site": false,
+  "experience_direction": [
+    "cinematic editorial calm",
+    "premium restrained interface",
+    "humane AI-native operations",
+    "atmospheric creative laboratory",
+    "compositional digital architecture"
+  ],
+  "current_stack_signals": {
+    "static_surface": "repository root",
+    "nextjs_foundation": "apps/seis-nextjs-foundation",
+    "typescript": true,
+    "tailwind": true,
+    "framer_motion": true,
+    "gsap": true,
+    "shadcn_style_components": "partial foundation",
+    "react_three_fiber": "planned only",
+    "drei": "planned only",
+    "mdx": "planned only",
+    "contentlayer": "planned only"
+  },
+  "implementation_phases": [
+    {
+      "phase": "stabilize",
+      "goal": "Protect current UI, i18n, accessibility, and quality gates before new visual systems."
+    },
+    {
+      "phase": "systemize",
+      "goal": "Extract repeatable typography, spacing, section, and motion patterns inside the Next.js foundation."
+    },
+    {
+      "phase": "editorialize",
+      "goal": "Move content into maintainable page families and knowledge surfaces."
+    },
+    {
+      "phase": "animate",
+      "goal": "Add restrained motion with reduced-motion fallbacks and mobile budgets."
+    },
+    {
+      "phase": "spatialize",
+      "goal": "Add scoped 3D only when it improves story, identity, or atmosphere."
+    },
+    {
+      "phase": "promote",
+      "goal": "Promote the modern surface after parity, performance, accessibility, and rollback checks pass."
+    }
+  ],
+  "hard_limits": [
+    "no full rewrite without approval",
+    "no decorative dependency additions",
+    "no forced WebGL",
+    "no telemetry overload",
+    "no manipulative interaction loops"
+  ]
+}

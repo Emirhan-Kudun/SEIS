@@ -1,0 +1,13 @@
+Work on branch codex/premium-local-foundation.
+Keep a premium, minimal, modern portfolio visual language.
+Primary focus: index.html
+Secondary focus: add-ons/exhibition-photo if needed
+Do not add dependencies.
+Do not touch unrelated governance scripts.
+Run and report:
+- node scripts/local-quality-gate.js --strict
+- bash scripts/pre-merge-check.sh
+Output:
+- changed files
+- pass/fail checks
+- concise responsive/performance notes

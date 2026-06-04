@@ -1,0 +1,31 @@
+{
+  "group": "cloud-deploy-data",
+  "purpose": "Cloud deployment, databases, storage, serverless, analytics warehouses, and AI platform foundations.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": ["deploy", "provision", "database mutation", "secret access", "billing-impacting action"],
+  "connectors": [
+    {"id":"vercel","sources":["openai-curated","claude-plugins-official"],"role":"preview and production deployment planning","mode":"on-demand"},
+    {"id":"netlify","sources":["openai-curated"],"role":"preview deployment and edge features","mode":"on-demand"},
+    {"id":"render","sources":["openai-curated"],"role":"service deployment and monitoring","mode":"on-demand"},
+    {"id":"cloudflare","sources":["openai-curated","claude-plugins-official"],"role":"Workers, DNS, performance, and edge security","mode":"on-demand"},
+    {"id":"aws-core","sources":["claude-plugins-official"],"role":"AWS service guidance","mode":"registry-only"},
+    {"id":"aws-dev-toolkit","sources":["claude-plugins-official"],"role":"AWS IaC and pricing support","mode":"registry-only"},
+    {"id":"azure","sources":["claude-plugins-official"],"role":"Azure resource and documentation support","mode":"registry-only"},
+    {"id":"firebase","sources":["claude-plugins-official"],"role":"Firebase app backend planning","mode":"on-demand"},
+    {"id":"supabase","sources":["openai-curated","claude-plugins-official"],"role":"Postgres, auth, storage, and edge functions","mode":"on-demand"},
+    {"id":"neon-postgres","sources":["openai-curated"],"role":"serverless Postgres planning","mode":"on-demand"},
+    {"id":"neon","sources":["claude-plugins-official"],"role":"Neon MCP operations","mode":"registry-only"},
+    {"id":"motherduck","sources":["openai-curated"],"role":"DuckDB cloud analytics","mode":"on-demand"},
+    {"id":"clickhouse","sources":["claude-plugins-official"],"role":"analytical database queries","mode":"registry-only"},
+    {"id":"alloydb","sources":["claude-plugins-official"],"role":"Google AlloyDB planning","mode":"registry-only"},
+    {"id":"cloud-sql-postgresql","sources":["claude-plugins-official"],"role":"Google Cloud SQL Postgres planning","mode":"registry-only"},
+    {"id":"mongodb","sources":["claude-plugins-official"],"role":"document database planning","mode":"registry-only"},
+    {"id":"prisma","sources":["claude-plugins-official"],"role":"ORM and migration guidance","mode":"registry-only"},
+    {"id":"sanity","sources":["claude-plugins-official"],"role":"CMS content operations","mode":"on-demand"},
+    {"id":"pinecone","sources":["claude-plugins-official"],"role":"vector search architecture","mode":"registry-only"},
+    {"id":"zilliz","sources":["claude-plugins-official"],"role":"vector database planning","mode":"registry-only"},
+    {"id":"temporal","sources":["openai-curated"],"role":"durable workflow orchestration","mode":"registry-only"},
+    {"id":"yepcode","sources":["openai-curated"],"role":"custom automation tools","mode":"registry-only"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "data-protection-impact-assessment",
+  "type": "ReadinessSignal",
+  "assessment": {
+    "id": "uix-dpia-0",
+    "processingActivity": "local-readiness-placeholder",
+    "riskLevel": "low",
+    "lawfulBasis": "not-applicable",
+    "status": "draft"
+  },
+  "risks": [],
+  "mitigations": [],
+  "notes": "Dependency-light placeholder for future privacy impact assessment evidence."
+}

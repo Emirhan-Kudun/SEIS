@@ -1,0 +1,112 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.3.1] - 2025-06-30
+
+### Changed
+- Refactored `ssh_sync` to use rsync for efficient file synchronization
+- Added `update_only` parameter (default: True) to only update files if source is newer
+- Added `show_progress` parameter (default: True) to display rsync progress output
+- Improved performance for large directory synchronizations through rsync compression
+
+### Added  
+- Real-time progress tracking during sync operations
+- Support for exclude patterns in sync operations
+- Detailed rsync command output in sync results
+
+## [1.3.0] - 2025-06-30
+
+### Added
+- Comprehensive git operations for both local and remote repositories:
+  - `git_status`: Check repository status
+  - `git_init`: Initialize new repositories
+  - `git_clone`: Clone remote repositories
+  - `git_add`: Stage files for commit
+  - `git_commit`: Commit changes with messages
+  - `git_push`: Push commits to remote
+  - `git_pull`: Pull changes from remote
+  - `git_log`: View commit history
+  - `git_branch`: Manage branches (create, delete, list)
+  - `git_checkout`: Switch branches or commits
+  - `git_diff`: View changes (working or staged)
+  - `git_remote`: Manage remote repositories
+  - Full support for git operations on remote servers via SSH
+  - No git installation required on Claude's side
+
+## [1.2.0] - 2025-06-30
+
+### Added
+- SSH file transfer operations:
+  - `ssh_upload`: Upload files from local to remote filesystem
+  - `ssh_download`: Download files from remote to local filesystem  
+  - `ssh_sync`: Synchronize directories between local and remote
+  - Support for single file and recursive directory transfers
+  - Automatic directory creation and overwrite control
+  - Progress tracking with file counts and total size
+  - Detailed error reporting for failed transfers
+
+## [1.1.0] - 2025-06-30
+
+### Added
+- SSH support for remote filesystem operations:
+  - Connect using SSH URL format: `ssh://user@host:port/path`
+  - Key-based authentication (no password prompts)
+  - All file operations work transparently over SSH
+  - No tools required on remote server
+  - Efficient SFTP protocol for file transfers
+- File operations abstraction layer:
+  - `FileOperationsInterface` for consistent API
+  - `LocalFileOperations` for local filesystem
+  - `SSHFileOperations` for remote operations
+- SSH connection management with automatic reconnection
+- Enhanced `set_project_directory` with connection type parameter
+
+### Changed
+- All file operations now use async abstraction layer
+- Improved error messages for remote operations
+- Path handling now supports both local and remote contexts
+
+## [1.0.1] - 2025-06-29
+
+### Added
+- Code analysis features for understanding code structure:
+  - `list_functions` - Extract all functions with signatures and line numbers
+  - `get_function_at_line` - Find function containing a specific line
+  - `get_code_structure` - Extract imports, classes, and functions
+  - `search_functions` - Search for functions by name pattern
+- Support for Python and JavaScript code analysis
+- Function signature extraction with type hints
+- Docstring extraction and parsing
+
+## [1.0.0] - 2025-06-29
+
+### Added
+- Initial release of MCP File Edit server
+- Comprehensive file operations (read, write, create, delete, move, copy)
+- Directory operations with recursive support
+- Pattern-based file search with regex support
+- Find and replace across multiple files
+- Advanced patch functionality with multiple patch types:
+  - Line-based patches for specific line modifications
+  - Pattern-based patches for find/replace operations
+  - Context-based patches for safer modifications
+- Project directory support for simplified relative paths
+- Depth limiting for recursive operations
+- Timeout handling for long-running operations
+- Binary file support with base64 encoding
+- Path traversal protection
+- Automatic backup creation before modifications
+- Dry-run mode for previewing changes
+- Comprehensive error handling and status reporting
+
+### Security
+- Built-in path traversal protection
+- All operations restricted to base directory
+- Safe handling of symbolic links
+- Input validation for all file operations
+
+[1.0.0]: https://github.com/patrickomatik/mcp-file-edit/releases/tag/v1.0.0

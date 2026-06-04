@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-05-30T14:49:00.283Z",
+  "mission": "SEIS-M002",
+  "sourceArchive": {
+    "path": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/_SEIS_ARCHIVE/2026-05-31/SEIS.zip",
+    "sizeBytes": 19945546,
+    "modifiedAt": "2026-05-30T14:49:00.283Z",
+    "storageLayer": "iCloud archive",
+    "gitPolicy": "archive outside Git; manifest inside Git"
+  },
+  "policy": {
+    "intakeMode": "manifest-first",
+    "importMode": "selective",
+    "largePackRule": "defer packs with more than 10000 entries unless a focused mission approves them",
+    "appleDoubleRule": "ignore __MACOSX and ._* archive metadata"
+  },
+  "summary": {
+    "totalPacks": 23,
+    "highPriorityPacks": 7,
+    "deferredPacks": 2,
+    "totalNestedEntries": 44957,
+    "markdownEntries": 44924
+  },
+  "packs": [
+    {
+      "id": "seis-agent-ecosystem-pack",
+      "name": "SEIS_Agent_Ecosystem_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_Agent_Ecosystem_Pack.zip",
+      "entryCount": 20,
+      "extensionCounts": {
+        "json": 1,
+        "md": 19
+      },
+      "sampleEntries": [
+        "agent-index.json",
+        "README.md",
+        "docs/README.md",
+        "docs/agents/00-agent-registry.md",
+        "docs/agents/01-chief-architect-agent.md",
+        "docs/agents/02-design-director-agent.md",
+        "docs/agents/03-research-agent.md",
+        "docs/agents/04-product-agent.md",
+        "docs/agents/05-data-agent.md",
+        "docs/agents/06-security-agent.md",
+        "docs/agents/07-governance-agent.md",
+        "docs/agents/08-documentation-agent.md",
+        "docs/agents/09-automation-agent.md",
+        "docs/agents/10-codex-agent.md",
+        "docs/agents/11-gemini-agent.md",
+        "docs/agents/12-claude-agent.md",
+        "docs/agents/13-future-model-agent.md",
+        "docs/constitution/02-SEIS-LAW-002-Model-Independence.md",
+        "docs/playbooks/31-may-codex-setup-playbook.md",
+        "docs/hardware/old-macbook-safe-mode.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "chief-architect-agent",
+        "governance-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Agent ecosystem files can strengthen the model-independent role registry."
+    },
+    {
+      "id": "seis-all-in-one-master-archive",
+      "name": "SEIS_All_In_One_Master_Archive.zip",
+      "archiveEntry": "SEIS/SEIS_All_In_One_Master_Archive.zip",
+      "entryCount": 40,
+      "extensionCounts": {
+        "json": 1,
+        "md": 11,
+        "zip": 27,
+        "docx": 1
+      },
+      "sampleEntries": [
+        "MANIFEST.json",
+        "README.md",
+        "archives/SEIS_Agent_Ecosystem_Pack.zip",
+        "archives/SEIS_Civilization_Pack_v4.zip",
+        "archives/SEIS_Constitution_Pack.zip",
+        "archives/SEIS_Docs_Starter.zip",
+        "archives/SEIS_Encyclopedia_Pack_v5.zip",
+        "archives/SEIS_Foundation_Pack_v1.zip",
+        "archives/SEIS_Gemini_Ready_Large_Knowledge_Pack.zip",
+        "archives/SEIS_Infinity_Pack_v6.zip",
+        "archives/SEIS_Master_Archive_Unified_v1.zip",
+        "archives/SEIS_Mega_Versioned_Ecosystem.zip",
+        "archives/SEIS_Multi_Language_Engineering_Pack.zip",
+        "archives/SEIS_Nexus_Pack_v7.zip",
+        "archives/SEIS_Professional_Pack_v2.zip",
+        "archives/SEIS_Sovereign_Pack_v8.zip",
+        "archives/SEIS_Starter_Blueprint.docx",
+        "archives/SEIS_Token_Efficient_Universal_Pack.zip",
+        "archives/SEIS_Ultimate_Pack_v3.zip",
+        "archives/SEIS_V10_Mega_Expansion_Pack.zip",
+        "archives/SEIS_V11_Domain_Expansion_Pack.zip",
+        "archives/SEIS_V12_20X_Mega_Knowledge_Pack.zip",
+        "archives/SEIS_V12_300Domain_20000Markdown.zip",
+        "archives/SEIS_V12_Deep_Content_Pack.zip"
+      ],
+      "priority": "high",
+      "domains": [
+        "governance-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "chief-architect-agent",
+        "governance-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Foundation and constitution packs define operating principles and architecture."
+    },
+    {
+      "id": "seis-civilization-pack-v4",
+      "name": "SEIS_Civilization_Pack_v4.zip",
+      "archiveEntry": "SEIS/SEIS_Civilization_Pack_v4.zip",
+      "entryCount": 161,
+      "extensionCounts": {
+        "md": 161
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/30-domain-registry/30-domain-registry-001.md",
+        "docs/30-domain-registry/30-domain-registry-002.md",
+        "docs/30-domain-registry/30-domain-registry-003.md",
+        "docs/30-domain-registry/30-domain-registry-004.md",
+        "docs/30-domain-registry/30-domain-registry-005.md",
+        "docs/30-domain-registry/30-domain-registry-006.md",
+        "docs/30-domain-registry/30-domain-registry-007.md",
+        "docs/30-domain-registry/30-domain-registry-008.md",
+        "docs/30-domain-registry/30-domain-registry-009.md",
+        "docs/30-domain-registry/30-domain-registry-010.md",
+        "docs/30-domain-registry/30-domain-registry-011.md",
+        "docs/30-domain-registry/30-domain-registry-012.md",
+        "docs/30-domain-registry/30-domain-registry-013.md",
+        "docs/30-domain-registry/30-domain-registry-014.md",
+        "docs/30-domain-registry/30-domain-registry-015.md",
+        "docs/30-domain-registry/30-domain-registry-016.md",
+        "docs/30-domain-registry/30-domain-registry-017.md",
+        "docs/30-domain-registry/30-domain-registry-018.md",
+        "docs/30-domain-registry/30-domain-registry-019.md",
+        "docs/30-domain-registry/30-domain-registry-020.md",
+        "docs/30-domain-registry/30-domain-registry-021.md",
+        "docs/30-domain-registry/30-domain-registry-022.md",
+        "docs/30-domain-registry/30-domain-registry-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-constitution-pack",
+      "name": "SEIS_Constitution_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_Constitution_Pack.zip",
+      "entryCount": 3,
+      "extensionCounts": {
+        "md": 3
+      },
+      "sampleEntries": [
+        "docs/01-SEIS-Constitution.md",
+        "docs/00-SEIS-Manifesto.md",
+        "docs/10-SEIS-Core-Architecture.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "governance-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "chief-architect-agent",
+        "governance-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Foundation and constitution packs define operating principles and architecture."
+    },
+    {
+      "id": "seis-encyclopedia-pack-v5",
+      "name": "SEIS_Encyclopedia_Pack_v5.zip",
+      "archiveEntry": "SEIS/SEIS_Encyclopedia_Pack_v5.zip",
+      "entryCount": 226,
+      "extensionCounts": {
+        "md": 226
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-001.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-002.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-003.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-004.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-005.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-006.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-007.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-008.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-009.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-010.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-011.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-012.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-013.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-014.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-015.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-016.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-017.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-018.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-019.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-020.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-021.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-022.md",
+        "docs/40-ai-encyclopedia/40-ai-encyclopedia-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-foundation-pack-v1",
+      "name": "SEIS_Foundation_Pack_v1.zip",
+      "archiveEntry": "SEIS/SEIS_Foundation_Pack_v1.zip",
+      "entryCount": 83,
+      "extensionCounts": {
+        "md": 83
+      },
+      "sampleEntries": [
+        "README.md",
+        "00-core/00-SEIS-Manifesto.md",
+        "00-core/01-SEIS-Constitution.md",
+        "00-core/02-SEIS-Philosophy.md",
+        "00-core/03-SEIS-Vision.md",
+        "00-core/04-SEIS-Principles.md",
+        "01-architecture/10-Core-Architecture.md",
+        "01-architecture/11-Domain-Registry.md",
+        "01-architecture/12-Layer-Registry.md",
+        "01-architecture/13-Workflow-Engine.md",
+        "01-architecture/14-Node-Registry.md",
+        "01-architecture/15-Dependency-Graph.md",
+        "01-architecture/16-Activation-Engine.md",
+        "02-intelligence/20-Intelligence-Systems.md",
+        "02-intelligence/21-Decision-Intelligence.md",
+        "02-intelligence/22-Reasoning-Engine.md",
+        "02-intelligence/23-Context-Engine.md",
+        "03-knowledge/30-Knowledge-Systems.md",
+        "03-knowledge/31-Single-Source-of-Truth.md",
+        "03-knowledge/32-Knowledge-Graph.md",
+        "03-knowledge/33-Archive-System.md",
+        "04-research/40-Research-Systems.md",
+        "04-research/41-Discovery-Workflow.md",
+        "04-research/42-Validation-Workflow.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "governance-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "chief-architect-agent",
+        "governance-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Foundation and constitution packs define operating principles and architecture."
+    },
+    {
+      "id": "seis-infinity-pack-v6",
+      "name": "SEIS_Infinity_Pack_v6.zip",
+      "archiveEntry": "SEIS/SEIS_Infinity_Pack_v6.zip",
+      "entryCount": 381,
+      "extensionCounts": {
+        "md": 381
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/50-pattern-library/50-pattern-library-001.md",
+        "docs/50-pattern-library/50-pattern-library-002.md",
+        "docs/50-pattern-library/50-pattern-library-003.md",
+        "docs/50-pattern-library/50-pattern-library-004.md",
+        "docs/50-pattern-library/50-pattern-library-005.md",
+        "docs/50-pattern-library/50-pattern-library-006.md",
+        "docs/50-pattern-library/50-pattern-library-007.md",
+        "docs/50-pattern-library/50-pattern-library-008.md",
+        "docs/50-pattern-library/50-pattern-library-009.md",
+        "docs/50-pattern-library/50-pattern-library-010.md",
+        "docs/50-pattern-library/50-pattern-library-011.md",
+        "docs/50-pattern-library/50-pattern-library-012.md",
+        "docs/50-pattern-library/50-pattern-library-013.md",
+        "docs/50-pattern-library/50-pattern-library-014.md",
+        "docs/50-pattern-library/50-pattern-library-015.md",
+        "docs/50-pattern-library/50-pattern-library-016.md",
+        "docs/50-pattern-library/50-pattern-library-017.md",
+        "docs/50-pattern-library/50-pattern-library-018.md",
+        "docs/50-pattern-library/50-pattern-library-019.md",
+        "docs/50-pattern-library/50-pattern-library-020.md",
+        "docs/50-pattern-library/50-pattern-library-021.md",
+        "docs/50-pattern-library/50-pattern-library-022.md",
+        "docs/50-pattern-library/50-pattern-library-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-master-archive-unified-v1",
+      "name": "SEIS_Master_Archive_Unified_v1.zip",
+      "archiveEntry": "SEIS/SEIS_Master_Archive_Unified_v1.zip",
+      "entryCount": 131,
+      "extensionCounts": {
+        "json": 1,
+        "md": 130
+      },
+      "sampleEntries": [
+        "master-index.json",
+        "README.md",
+        "docs/00-start-here/000-README.md",
+        "docs/00-start-here/001-CODEX-GEMINI-START-HERE.md",
+        "docs/00-start-here/002-SEIS-What-Is-It.md",
+        "docs/00-start-here/003-SEIS-For-Personal-Use.md",
+        "docs/00-start-here/004-SEIS-For-Commercial-Use.md",
+        "docs/00-start-here/005-SEIS-Version-Model.md",
+        "docs/01-constitution-core/010-SEIS-Constitution.md",
+        "docs/01-constitution-core/011-Single-Active-Mission-Principle.md",
+        "docs/01-constitution-core/012-Single-Source-Of-Truth.md",
+        "docs/01-constitution-core/013-No-Duplication-Policy.md",
+        "docs/01-constitution-core/014-Versioning-And-Archive-Policy.md",
+        "docs/01-constitution-core/015-GitHub-Source-Of-Truth.md",
+        "docs/02-education-maltepe-vcd/020-Maltepe-Visual-Communication-Design-Core.md",
+        "docs/02-education-maltepe-vcd/021-Basic-Design.md",
+        "docs/02-education-maltepe-vcd/022-Graphic-Design.md",
+        "docs/02-education-maltepe-vcd/023-Typography.md",
+        "docs/02-education-maltepe-vcd/024-Photography.md",
+        "docs/02-education-maltepe-vcd/025-Image-Processing.md",
+        "docs/02-education-maltepe-vcd/026-Vector-Design.md",
+        "docs/02-education-maltepe-vcd/027-Web-Design.md",
+        "docs/02-education-maltepe-vcd/028-Mobile-And-Apple-Development.md",
+        "docs/02-education-maltepe-vcd/029-3D-Animation.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "governance-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "chief-architect-agent",
+        "governance-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Foundation and constitution packs define operating principles and architecture."
+    },
+    {
+      "id": "seis-mega-versioned-ecosystem",
+      "name": "SEIS_Mega_Versioned_Ecosystem.zip",
+      "archiveEntry": "SEIS/SEIS_Mega_Versioned_Ecosystem.zip",
+      "entryCount": 18001,
+      "extensionCounts": {
+        "md": 18001
+      },
+      "sampleEntries": [
+        "README.md",
+        "SEIS_Lite/seis_lite_00001.md",
+        "SEIS_Lite/seis_lite_00002.md",
+        "SEIS_Lite/seis_lite_00003.md",
+        "SEIS_Lite/seis_lite_00004.md",
+        "SEIS_Lite/seis_lite_00005.md",
+        "SEIS_Lite/seis_lite_00006.md",
+        "SEIS_Lite/seis_lite_00007.md",
+        "SEIS_Lite/seis_lite_00008.md",
+        "SEIS_Lite/seis_lite_00009.md",
+        "SEIS_Lite/seis_lite_00010.md",
+        "SEIS_Lite/seis_lite_00011.md",
+        "SEIS_Lite/seis_lite_00012.md",
+        "SEIS_Lite/seis_lite_00013.md",
+        "SEIS_Lite/seis_lite_00014.md",
+        "SEIS_Lite/seis_lite_00015.md",
+        "SEIS_Lite/seis_lite_00016.md",
+        "SEIS_Lite/seis_lite_00017.md",
+        "SEIS_Lite/seis_lite_00018.md",
+        "SEIS_Lite/seis_lite_00019.md",
+        "SEIS_Lite/seis_lite_00020.md",
+        "SEIS_Lite/seis_lite_00021.md",
+        "SEIS_Lite/seis_lite_00022.md",
+        "SEIS_Lite/seis_lite_00023.md"
+      ],
+      "priority": "deferred",
+      "domains": [
+        "data-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "data-agent",
+        "research-agent"
+      ],
+      "intakeDecision": "archive-only-until-focused-mission",
+      "rationale": "Large markdown knowledge packs must not enter active context without a focused mission."
+    },
+    {
+      "id": "seis-multi-language-engineering-pack",
+      "name": "SEIS_Multi_Language_Engineering_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_Multi_Language_Engineering_Pack.zip",
+      "entryCount": 142,
+      "extensionCounts": {
+        "md": 141,
+        "json": 1
+      },
+      "sampleEntries": [
+        "README.md",
+        "language-index.json",
+        "docs/programming-languages/01-web-frontend/README.md",
+        "docs/programming-languages/01-web-frontend/html.md",
+        "docs/programming-languages/01-web-frontend/css.md",
+        "docs/programming-languages/01-web-frontend/scss.md",
+        "docs/programming-languages/01-web-frontend/sass.md",
+        "docs/programming-languages/01-web-frontend/less.md",
+        "docs/programming-languages/01-web-frontend/javascript.md",
+        "docs/programming-languages/01-web-frontend/typescript.md",
+        "docs/programming-languages/01-web-frontend/jsx.md",
+        "docs/programming-languages/01-web-frontend/tsx.md",
+        "docs/programming-languages/01-web-frontend/webassembly.md",
+        "docs/programming-languages/01-web-frontend/elm.md",
+        "docs/programming-languages/01-web-frontend/reasonml.md",
+        "docs/programming-languages/01-web-frontend/rescript.md",
+        "docs/programming-languages/02-backend-api/README.md",
+        "docs/programming-languages/02-backend-api/nodejs.md",
+        "docs/programming-languages/02-backend-api/python.md",
+        "docs/programming-languages/02-backend-api/go.md",
+        "docs/programming-languages/02-backend-api/java.md",
+        "docs/programming-languages/02-backend-api/kotlin.md",
+        "docs/programming-languages/02-backend-api/csharp.md",
+        "docs/programming-languages/02-backend-api/php.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "polyglot-core",
+        "engineering-core"
+      ],
+      "ownerAgents": [
+        "engineering-language-agent",
+        "chief-architect-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Language packs should inform activation rules without enabling stacks by default."
+    },
+    {
+      "id": "seis-nexus-pack-v7",
+      "name": "SEIS_Nexus_Pack_v7.zip",
+      "archiveEntry": "SEIS/SEIS_Nexus_Pack_v7.zip",
+      "entryCount": 401,
+      "extensionCounts": {
+        "md": 401
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-001.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-002.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-003.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-004.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-005.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-006.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-007.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-008.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-009.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-010.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-011.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-012.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-013.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-014.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-015.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-016.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-017.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-018.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-019.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-020.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-021.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-022.md",
+        "docs/60-master-domain-graph/60-master-domain-graph-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-professional-pack-v2",
+      "name": "SEIS_Professional_Pack_v2.zip",
+      "archiveEntry": "SEIS/SEIS_Professional_Pack_v2.zip",
+      "entryCount": 26,
+      "extensionCounts": {
+        "md": 26
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/20-business/200-Business-Models.md",
+        "docs/20-business/201-Revenue-Systems.md",
+        "docs/20-business/202-Market-Strategy.md",
+        "docs/20-business/203-Startup-Systems.md",
+        "docs/20-business/204-Opportunity-Engine.md",
+        "docs/21-civilization/210-Civilization-Layer.md",
+        "docs/21-civilization/211-Knowledge-Preservation.md",
+        "docs/21-civilization/212-Institutional-Systems.md",
+        "docs/21-civilization/213-Collective-Intelligence.md",
+        "docs/21-civilization/214-Legacy-Systems.md",
+        "docs/22-domains/220-Domain-Map.md",
+        "docs/22-domains/221-Layer-Hierarchy.md",
+        "docs/22-domains/222-Activation-Rules.md",
+        "docs/22-domains/223-Domain-Dependencies.md",
+        "docs/22-domains/224-Evolution-Roadmap.md",
+        "docs/23-creative-intelligence/230-Aesthetic-Intelligence.md",
+        "docs/23-creative-intelligence/231-Taste-Engine.md",
+        "docs/23-creative-intelligence/232-Visual-Harmony.md",
+        "docs/23-creative-intelligence/233-Motion-Harmony.md",
+        "docs/23-creative-intelligence/234-Brand-Harmony.md",
+        "docs/24-workflows/240-Research-To-Build.md",
+        "docs/24-workflows/241-Idea-To-Product.md",
+        "docs/24-workflows/242-Design-To-Code.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-sovereign-pack-v8",
+      "name": "SEIS_Sovereign_Pack_v8.zip",
+      "archiveEntry": "SEIS/SEIS_Sovereign_Pack_v8.zip",
+      "entryCount": 441,
+      "extensionCounts": {
+        "md": 441
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-001.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-002.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-003.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-004.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-005.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-006.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-007.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-008.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-009.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-010.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-011.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-012.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-013.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-014.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-015.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-016.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-017.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-018.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-019.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-020.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-021.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-022.md",
+        "docs/70-philosophy-registry/70-philosophy-registry-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-token-efficient-universal-pack",
+      "name": "SEIS_Token_Efficient_Universal_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_Token_Efficient_Universal_Pack.zip",
+      "entryCount": 86,
+      "extensionCounts": {
+        "json": 1,
+        "md": 85
+      },
+      "sampleEntries": [
+        "seis-routing-map.json",
+        "README.md",
+        "docs/00-start-here/000-README.md",
+        "docs/00-start-here/001-CODEX-GEMINI-START-HERE.md",
+        "docs/00-start-here/002-SEIS-Commercial-And-Personal-Overview.md",
+        "docs/00-start-here/003-How-To-Use-This-Pack.md",
+        "docs/01-core-constitution/010-SEIS-Constitution.md",
+        "docs/01-core-constitution/011-Single-Active-Mission-Principle.md",
+        "docs/01-core-constitution/012-Single-Source-Of-Truth.md",
+        "docs/01-core-constitution/013-No-Duplication-Policy.md",
+        "docs/01-core-constitution/014-Knowledge-Versioning.md",
+        "docs/02-token-efficiency/020-Token-Optimization-Engine.md",
+        "docs/02-token-efficiency/021-Context-Routing-Engine.md",
+        "docs/02-token-efficiency/022-Relevance-Scoring-System.md",
+        "docs/02-token-efficiency/023-Context-Compression.md",
+        "docs/02-token-efficiency/024-Token-Budget-Policy.md",
+        "docs/02-token-efficiency/025-Selective-Loading-Protocol.md",
+        "docs/02-token-efficiency/026-Do-Not-Read-Everything-Rule.md",
+        "docs/02-token-efficiency/027-1M-To-50K-Workflow.md",
+        "docs/03-seis-brain/030-SEIS-Brain-Layer.md",
+        "docs/03-seis-brain/031-Domain-Detection-Engine.md",
+        "docs/03-seis-brain/032-Intent-Classification.md",
+        "docs/03-seis-brain/033-Mission-Planning-Engine.md",
+        "docs/03-seis-brain/034-Workflow-Selection-Engine.md"
+      ],
+      "priority": "high",
+      "domains": [
+        "ai-core",
+        "data-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "data-agent",
+        "research-agent",
+        "governance-agent"
+      ],
+      "intakeDecision": "inspect-index-first",
+      "rationale": "Token-efficiency packs directly support small active context routing."
+    },
+    {
+      "id": "seis-ultimate-pack-v3",
+      "name": "SEIS_Ultimate_Pack_v3.zip",
+      "archiveEntry": "SEIS/SEIS_Ultimate_Pack_v3.zip",
+      "entryCount": 71,
+      "extensionCounts": {
+        "md": 71
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/25-node-registry/250-Node-1.md",
+        "docs/25-node-registry/251-Node-2.md",
+        "docs/25-node-registry/252-Node-3.md",
+        "docs/25-node-registry/253-Node-4.md",
+        "docs/25-node-registry/254-Node-5.md",
+        "docs/25-node-registry/255-Node-6.md",
+        "docs/25-node-registry/256-Node-7.md",
+        "docs/25-node-registry/257-Node-8.md",
+        "docs/25-node-registry/258-Node-9.md",
+        "docs/25-node-registry/259-Node-10.md",
+        "docs/25-node-registry/260-Node-11.md",
+        "docs/25-node-registry/261-Node-12.md",
+        "docs/25-node-registry/262-Node-13.md",
+        "docs/25-node-registry/263-Node-14.md",
+        "docs/25-node-registry/264-Node-15.md",
+        "docs/26-integration-registry/270-Integration-1.md",
+        "docs/26-integration-registry/271-Integration-2.md",
+        "docs/26-integration-registry/272-Integration-3.md",
+        "docs/26-integration-registry/273-Integration-4.md",
+        "docs/26-integration-registry/274-Integration-5.md",
+        "docs/26-integration-registry/275-Integration-6.md",
+        "docs/26-integration-registry/276-Integration-7.md",
+        "docs/26-integration-registry/277-Integration-8.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-v10-mega-expansion-pack",
+      "name": "SEIS_V10_Mega_Expansion_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V10_Mega_Expansion_Pack.zip",
+      "entryCount": 821,
+      "extensionCounts": {
+        "md": 821
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/90-global-search-systems/90-global-search-systems-001.md",
+        "docs/90-global-search-systems/90-global-search-systems-002.md",
+        "docs/90-global-search-systems/90-global-search-systems-003.md",
+        "docs/90-global-search-systems/90-global-search-systems-004.md",
+        "docs/90-global-search-systems/90-global-search-systems-005.md",
+        "docs/90-global-search-systems/90-global-search-systems-006.md",
+        "docs/90-global-search-systems/90-global-search-systems-007.md",
+        "docs/90-global-search-systems/90-global-search-systems-008.md",
+        "docs/90-global-search-systems/90-global-search-systems-009.md",
+        "docs/90-global-search-systems/90-global-search-systems-010.md",
+        "docs/90-global-search-systems/90-global-search-systems-011.md",
+        "docs/90-global-search-systems/90-global-search-systems-012.md",
+        "docs/90-global-search-systems/90-global-search-systems-013.md",
+        "docs/90-global-search-systems/90-global-search-systems-014.md",
+        "docs/90-global-search-systems/90-global-search-systems-015.md",
+        "docs/90-global-search-systems/90-global-search-systems-016.md",
+        "docs/90-global-search-systems/90-global-search-systems-017.md",
+        "docs/90-global-search-systems/90-global-search-systems-018.md",
+        "docs/90-global-search-systems/90-global-search-systems-019.md",
+        "docs/90-global-search-systems/90-global-search-systems-020.md",
+        "docs/90-global-search-systems/90-global-search-systems-021.md",
+        "docs/90-global-search-systems/90-global-search-systems-022.md",
+        "docs/90-global-search-systems/90-global-search-systems-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-v11-domain-expansion-pack",
+      "name": "SEIS_V11_Domain_Expansion_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V11_Domain_Expansion_Pack.zip",
+      "entryCount": 1761,
+      "extensionCounts": {
+        "md": 1761
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-001.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-002.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-003.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-004.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-005.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-006.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-007.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-008.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-009.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-010.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-011.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-012.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-013.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-014.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-015.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-016.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-017.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-018.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-019.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-020.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-021.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-022.md",
+        "docs/105-intelligence-networks/105-intelligence-networks-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "data-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "data-agent",
+        "research-agent"
+      ],
+      "intakeDecision": "defer-content-import",
+      "rationale": "Expansion packs need domain routing before selective import."
+    },
+    {
+      "id": "seis-v12-300-domain-20000-markdown",
+      "name": "SEIS_V12_300Domain_20000Markdown.zip",
+      "archiveEntry": "SEIS/SEIS_V12_300Domain_20000Markdown.zip",
+      "entryCount": 20161,
+      "extensionCounts": {
+        "md": 20161
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/001-domain-1/node-001.md",
+        "docs/001-domain-1/node-002.md",
+        "docs/001-domain-1/node-003.md",
+        "docs/001-domain-1/node-004.md",
+        "docs/001-domain-1/node-005.md",
+        "docs/001-domain-1/node-006.md",
+        "docs/001-domain-1/node-007.md",
+        "docs/001-domain-1/node-008.md",
+        "docs/001-domain-1/node-009.md",
+        "docs/001-domain-1/node-010.md",
+        "docs/001-domain-1/node-011.md",
+        "docs/001-domain-1/node-012.md",
+        "docs/001-domain-1/node-013.md",
+        "docs/001-domain-1/node-014.md",
+        "docs/001-domain-1/node-015.md",
+        "docs/001-domain-1/node-016.md",
+        "docs/001-domain-1/node-017.md",
+        "docs/001-domain-1/node-018.md",
+        "docs/001-domain-1/node-019.md",
+        "docs/001-domain-1/node-020.md",
+        "docs/001-domain-1/node-021.md",
+        "docs/001-domain-1/node-022.md",
+        "docs/001-domain-1/node-023.md"
+      ],
+      "priority": "deferred",
+      "domains": [
+        "data-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "data-agent",
+        "research-agent"
+      ],
+      "intakeDecision": "archive-only-until-focused-mission",
+      "rationale": "Large markdown knowledge packs must not enter active context without a focused mission."
+    },
+    {
+      "id": "seis-v12-deep-content-pack",
+      "name": "SEIS_V12_Deep_Content_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V12_Deep_Content_Pack.zip",
+      "entryCount": 1001,
+      "extensionCounts": {
+        "md": 1001
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/ai-systems/ai-systems-001.md",
+        "docs/ai-systems/ai-systems-002.md",
+        "docs/ai-systems/ai-systems-003.md",
+        "docs/ai-systems/ai-systems-004.md",
+        "docs/ai-systems/ai-systems-005.md",
+        "docs/ai-systems/ai-systems-006.md",
+        "docs/ai-systems/ai-systems-007.md",
+        "docs/ai-systems/ai-systems-008.md",
+        "docs/ai-systems/ai-systems-009.md",
+        "docs/ai-systems/ai-systems-010.md",
+        "docs/ai-systems/ai-systems-011.md",
+        "docs/ai-systems/ai-systems-012.md",
+        "docs/ai-systems/ai-systems-013.md",
+        "docs/ai-systems/ai-systems-014.md",
+        "docs/ai-systems/ai-systems-015.md",
+        "docs/ai-systems/ai-systems-016.md",
+        "docs/ai-systems/ai-systems-017.md",
+        "docs/ai-systems/ai-systems-018.md",
+        "docs/ai-systems/ai-systems-019.md",
+        "docs/ai-systems/ai-systems-020.md",
+        "docs/ai-systems/ai-systems-021.md",
+        "docs/ai-systems/ai-systems-022.md",
+        "docs/ai-systems/ai-systems-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "data-core",
+        "ai-core"
+      ],
+      "ownerAgents": [
+        "data-agent",
+        "research-agent"
+      ],
+      "intakeDecision": "defer-content-import",
+      "rationale": "Expansion packs need domain routing before selective import."
+    },
+    {
+      "id": "seis-v13-balanced-pack",
+      "name": "SEIS_V13_Balanced_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V13_Balanced_Pack.zip",
+      "entryCount": 311,
+      "extensionCounts": {
+        "md": 311
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/ai/ai-001.md",
+        "docs/ai/ai-002.md",
+        "docs/ai/ai-003.md",
+        "docs/ai/ai-004.md",
+        "docs/ai/ai-005.md",
+        "docs/ai/ai-006.md",
+        "docs/ai/ai-007.md",
+        "docs/ai/ai-008.md",
+        "docs/ai/ai-009.md",
+        "docs/ai/ai-010.md",
+        "docs/ai/ai-011.md",
+        "docs/ai/ai-012.md",
+        "docs/ai/ai-013.md",
+        "docs/ai/ai-014.md",
+        "docs/ai/ai-015.md",
+        "docs/ai/ai-016.md",
+        "docs/ai/ai-017.md",
+        "docs/ai/ai-018.md",
+        "docs/ai/ai-019.md",
+        "docs/ai/ai-020.md",
+        "docs/ai/ai-021.md",
+        "docs/ai/ai-022.md",
+        "docs/ai/ai-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-v14-network-model-pack",
+      "name": "SEIS_V14_Network_Model_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V14_Network_Model_Pack.zip",
+      "entryCount": 281,
+      "extensionCounts": {
+        "md": 281
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/network-hubs/network-hubs-001.md",
+        "docs/network-hubs/network-hubs-002.md",
+        "docs/network-hubs/network-hubs-003.md",
+        "docs/network-hubs/network-hubs-004.md",
+        "docs/network-hubs/network-hubs-005.md",
+        "docs/network-hubs/network-hubs-006.md",
+        "docs/network-hubs/network-hubs-007.md",
+        "docs/network-hubs/network-hubs-008.md",
+        "docs/network-hubs/network-hubs-009.md",
+        "docs/network-hubs/network-hubs-010.md",
+        "docs/network-hubs/network-hubs-011.md",
+        "docs/network-hubs/network-hubs-012.md",
+        "docs/network-hubs/network-hubs-013.md",
+        "docs/network-hubs/network-hubs-014.md",
+        "docs/network-hubs/network-hubs-015.md",
+        "docs/network-hubs/network-hubs-016.md",
+        "docs/network-hubs/network-hubs-017.md",
+        "docs/network-hubs/network-hubs-018.md",
+        "docs/network-hubs/network-hubs-019.md",
+        "docs/network-hubs/network-hubs-020.md",
+        "docs/network-hubs/network-hubs-021.md",
+        "docs/network-hubs/network-hubs-022.md",
+        "docs/network-hubs/network-hubs-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-v9-expansion-pack",
+      "name": "SEIS_V9_Expansion_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_V9_Expansion_Pack.zip",
+      "entryCount": 381,
+      "extensionCounts": {
+        "md": 381
+      },
+      "sampleEntries": [
+        "README.md",
+        "docs/80-psychology-systems/80-psychology-systems-001.md",
+        "docs/80-psychology-systems/80-psychology-systems-002.md",
+        "docs/80-psychology-systems/80-psychology-systems-003.md",
+        "docs/80-psychology-systems/80-psychology-systems-004.md",
+        "docs/80-psychology-systems/80-psychology-systems-005.md",
+        "docs/80-psychology-systems/80-psychology-systems-006.md",
+        "docs/80-psychology-systems/80-psychology-systems-007.md",
+        "docs/80-psychology-systems/80-psychology-systems-008.md",
+        "docs/80-psychology-systems/80-psychology-systems-009.md",
+        "docs/80-psychology-systems/80-psychology-systems-010.md",
+        "docs/80-psychology-systems/80-psychology-systems-011.md",
+        "docs/80-psychology-systems/80-psychology-systems-012.md",
+        "docs/80-psychology-systems/80-psychology-systems-013.md",
+        "docs/80-psychology-systems/80-psychology-systems-014.md",
+        "docs/80-psychology-systems/80-psychology-systems-015.md",
+        "docs/80-psychology-systems/80-psychology-systems-016.md",
+        "docs/80-psychology-systems/80-psychology-systems-017.md",
+        "docs/80-psychology-systems/80-psychology-systems-018.md",
+        "docs/80-psychology-systems/80-psychology-systems-019.md",
+        "docs/80-psychology-systems/80-psychology-systems-020.md",
+        "docs/80-psychology-systems/80-psychology-systems-021.md",
+        "docs/80-psychology-systems/80-psychology-systems-022.md",
+        "docs/80-psychology-systems/80-psychology-systems-023.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    },
+    {
+      "id": "seis-versioned-structure-pack",
+      "name": "SEIS_Versioned_Structure_Pack.zip",
+      "archiveEntry": "SEIS/SEIS_Versioned_Structure_Pack.zip",
+      "entryCount": 27,
+      "extensionCounts": {
+        "md": 27
+      },
+      "sampleEntries": [
+        "README.md",
+        "SEIS/SEIS_Lite/Vision.md",
+        "SEIS/SEIS_Lite/Constitution.md",
+        "SEIS/SEIS_Lite/GitHub.md",
+        "SEIS/SEIS_Lite/Portfolio.md",
+        "SEIS/SEIS_Lite/AI_Workflows.md",
+        "SEIS/SEIS_Standard/Design_Systems.md",
+        "SEIS/SEIS_Standard/Engineering_Systems.md",
+        "SEIS/SEIS_Standard/Product_Systems.md",
+        "SEIS/SEIS_Standard/Data_Systems.md",
+        "SEIS/SEIS_Standard/Automation_Systems.md",
+        "SEIS/SEIS_Standard/Governance.md",
+        "SEIS/SEIS_Professional/Knowledge_Graph.md",
+        "SEIS/SEIS_Professional/Node_Registry.md",
+        "SEIS/SEIS_Professional/Workflow_Registry.md",
+        "SEIS/SEIS_Professional/Research_Systems.md",
+        "SEIS/SEIS_Professional/Multi_Agent_Systems.md",
+        "SEIS/SEIS_Enterprise/Institution_Systems.md",
+        "SEIS/SEIS_Enterprise/Global_Registry.md",
+        "SEIS/SEIS_Enterprise/Search_Layer.md",
+        "SEIS/SEIS_Enterprise/Cross_Domain_Intelligence.md",
+        "SEIS/SEIS_Enterprise/Civilization_Systems.md",
+        "SEIS/SEIS_Supreme/SEIS_Brain.md",
+        "SEIS/SEIS_Supreme/Meta_Intelligence.md"
+      ],
+      "priority": "medium",
+      "domains": [
+        "ai-core",
+        "governance-core"
+      ],
+      "ownerAgents": [
+        "research-agent",
+        "documentation-agent"
+      ],
+      "intakeDecision": "review-when-needed",
+      "rationale": "Pack is available for future selective intake."
+    }
+  ]
+}

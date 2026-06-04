@@ -1,0 +1,76 @@
+[
+  {
+    "id": "local-gates",
+    "name": "Local gates before cloud mutation",
+    "provider": "local",
+    "stage": "prepare",
+    "statusOverride": "active",
+    "requiresEnv": [],
+    "commands": [
+      "npm run checks",
+      "npm run typecheck",
+      "npm run build",
+      "npm run deploy:preflight"
+    ],
+    "proof": "Green local checks and a current deploy preflight report.",
+    "safety": "No remote mutation happens in this stage."
+  },
+  {
+    "id": "vercel-project-link",
+    "name": "Vercel project link and env sync",
+    "provider": "vercel",
+    "stage": "cloud-env",
+    "statusOverride": "needs_credentials",
+    "requiresEnv": ["VERCEL_TOKEN", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID"],
+    "commands": [
+      "npm i -g vercel",
+      "vercel pull --environment=preview",
+      "vercel env pull .env.local"
+    ],
+    "proof": ".vercel/project.json exists locally and env values are pulled outside git.",
+    "safety": "Vercel credentials stay in the shell, Vercel dashboard or ignored local files."
+  },
+  {
+    "id": "supabase-intake-link",
+    "name": "Supabase intake persistence",
+    "provider": "supabase",
+    "stage": "data-env",
+    "statusOverride": "needs_credentials",
+    "requiresEnv": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_BRIEFS_TABLE"],
+    "commands": [
+      "vercel env add SUPABASE_URL production",
+      "vercel env add SUPABASE_SERVICE_ROLE_KEY production",
+      "vercel env add SUPABASE_BRIEFS_TABLE production"
+    ],
+    "proof": "Brief intake variables exist in the production provider secret store.",
+    "safety": "Service role keys remain server-only and never enter client bundles."
+  },
+  {
+    "id": "custom-server-dry-run",
+    "name": "Custom server static fallback dry-run",
+    "provider": "ssh-rsync",
+    "stage": "server-dry-run",
+    "statusOverride": "needs_credentials",
+    "requiresEnv": ["DEPLOY_HOST", "DEPLOY_USER", "DEPLOY_PATH"],
+    "commands": [
+      "npm run server:preflight",
+      "npm run deploy:static:dry-run"
+    ],
+    "proof": "Dry-run output confirms target path and file delta before upload.",
+    "safety": "Live rsync remains blocked until the user confirms host, path and output."
+  },
+  {
+    "id": "rollback-share",
+    "name": "Rollback bundle and source share",
+    "provider": "github-icloud",
+    "stage": "rollback",
+    "statusOverride": "active",
+    "requiresEnv": [],
+    "commands": [
+      "git push -u origin codex/seis-ux-cinematic-premium-foundation",
+      "npm run share:icloud-github"
+    ],
+    "proof": "GitHub branch SHA and iCloud bundle path point to the same clean head.",
+    "safety": "Rollback remains available even if managed hosting or custom server deploy is delayed."
+  }
+]

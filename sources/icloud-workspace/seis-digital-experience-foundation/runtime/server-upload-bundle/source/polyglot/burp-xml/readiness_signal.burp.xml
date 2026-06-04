@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ReadinessSignal: Burp Suite XML lane stays dependency-light until proxy-assisted security exports are required. -->
+<issues burpVersion="readiness-signal">
+  <issue>
+    <name>ReadinessSignal placeholder</name>
+    <severity>Information</severity>
+    <host>https://uix-apps.local</host>
+    <path>/</path>
+  </issue>
+</issues>

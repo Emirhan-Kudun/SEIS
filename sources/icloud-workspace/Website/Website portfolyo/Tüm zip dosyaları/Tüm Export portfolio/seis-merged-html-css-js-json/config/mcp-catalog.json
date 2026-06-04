@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-15T05:28:20.740Z",
+  "source_command": "codex mcp list",
+  "mcps": [
+    {
+      "id": "adobe-express-developer",
+      "name": "adobe-express-developer",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "chrome-devtools",
+      "name": "chrome-devtools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "claude-code",
+      "name": "claude-code",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "context7",
+      "name": "context7",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "eslint",
+      "name": "eslint",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "fetch",
+      "name": "fetch",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "flowbite",
+      "name": "flowbite",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "git-tools",
+      "name": "git-tools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "hostinger-dns",
+      "name": "hostinger-dns",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "hostinger-domains",
+      "name": "hostinger-domains",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "hostinger-hosting",
+      "name": "hostinger-hosting",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "memory",
+      "name": "memory",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "netlify",
+      "name": "netlify",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "next-devtools",
+      "name": "next-devtools",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "official-filesystem",
+      "name": "official-filesystem",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "perplexity",
+      "name": "perplexity",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "playwright",
+      "name": "playwright",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "semgrep",
+      "name": "semgrep",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "sequential-thinking",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "sqlite",
+      "name": "sqlite",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "xcodebuildmcp",
+      "name": "xcodebuildmcp",
+      "source_type": "local",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "alice_mcp",
+      "name": "alice_mcp",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "atlassian",
+      "name": "atlassian",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "aws-knowledge",
+      "name": "aws-knowledge",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "canva",
+      "name": "canva",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "cloudflare-api",
+      "name": "cloudflare-api",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "cloudflare-docs",
+      "name": "cloudflare-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "exa",
+      "name": "exa",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "figma",
+      "name": "figma",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "github",
+      "name": "github",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "linear",
+      "name": "linear",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "mdn",
+      "name": "mdn",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "microsoft-learn",
+      "name": "microsoft-learn",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "neon",
+      "name": "neon",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "notion",
+      "name": "notion",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "openai-docs",
+      "name": "openai-docs",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "postman",
+      "name": "postman",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "sentry",
+      "name": "sentry",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "supabase",
+      "name": "supabase",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "Unsupported",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    },
+    {
+      "id": "vercel",
+      "name": "vercel",
+      "source_type": "remote",
+      "status": "enabled",
+      "auth": "OAuth",
+      "last_seen_at": "2026-05-15T05:28:20.739Z"
+    }
+  ]
+}

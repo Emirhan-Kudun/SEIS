@@ -1,0 +1,97 @@
+{
+  "group": "big-tech-open-source-foundation",
+  "purpose": "Official and actively maintained open-source infrastructure review across major technology firms before implementation.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": [
+    "plugin install",
+    "dependency addition",
+    "external model call",
+    "cloud deploy",
+    "cloud provisioning",
+    "database mutation",
+    "secret access",
+    "vendor account read",
+    "license exception"
+  ],
+  "connectors": [
+    {
+      "id": "google-open-source-foundation",
+      "sources": ["google-open-source", "google-official-mcp"],
+      "role": "Google official docs, Chrome validation, Firebase, Cloud Run, Material, ADK, and Google-origin open-source candidates",
+      "mode": "registry-only"
+    },
+    {
+      "id": "microsoft-learn",
+      "sources": ["microsoft-official"],
+      "role": "Microsoft official docs for TypeScript, Playwright, .NET, VS Code, and Azure-aligned implementation choices",
+      "mode": "on-demand"
+    },
+    {
+      "id": "playwright",
+      "sources": ["microsoft-official", "local-mcp"],
+      "role": "browser automation and UI regression validation",
+      "mode": "on-demand"
+    },
+    {
+      "id": "azure",
+      "sources": ["microsoft-official", "claude-plugins-official"],
+      "role": "Azure service planning; provisioning remains approval-gated",
+      "mode": "registry-only"
+    },
+    {
+      "id": "aws-documentation",
+      "sources": ["aws-official"],
+      "role": "AWS official docs for CDK, Amplify, Firecracker, and cloud architecture decisions",
+      "mode": "on-demand"
+    },
+    {
+      "id": "awsiac",
+      "sources": ["aws-official"],
+      "role": "AWS infrastructure-as-code validation planning",
+      "mode": "registry-only"
+    },
+    {
+      "id": "aws-serverless-mcp",
+      "sources": ["aws-official"],
+      "role": "AWS serverless architecture planning; deploy remains blocked until approval",
+      "mode": "registry-only"
+    },
+    {
+      "id": "xcodebuildmcp",
+      "sources": ["apple-official", "local-mcp"],
+      "role": "Apple-platform local build/test planning when Swift or WebKit-aligned work is in scope",
+      "mode": "registry-only"
+    },
+    {
+      "id": "cloudflare",
+      "sources": ["cloudflare-official", "openai-curated"],
+      "role": "Cloudflare Workers, workerd, Wrangler, and edge platform planning",
+      "mode": "on-demand"
+    },
+    {
+      "id": "vercel",
+      "sources": ["vercel-official", "openai-curated"],
+      "role": "Next.js, Turborepo, AI SDK, preview deployment, and Vercel OSS planning",
+      "mode": "on-demand"
+    },
+    {
+      "id": "openai-docs",
+      "sources": ["openai-official"],
+      "role": "OpenAI official docs and Agents SDK planning",
+      "mode": "on-demand"
+    },
+    {
+      "id": "context7",
+      "sources": ["local-mcp", "public-docs"],
+      "role": "current library documentation lookup for selected OSS candidates",
+      "mode": "on-demand"
+    },
+    {
+      "id": "fetch",
+      "sources": ["local-mcp", "public-docs"],
+      "role": "public official source fallback for vendor docs and GitHub project verification",
+      "mode": "on-demand"
+    }
+  ]
+}

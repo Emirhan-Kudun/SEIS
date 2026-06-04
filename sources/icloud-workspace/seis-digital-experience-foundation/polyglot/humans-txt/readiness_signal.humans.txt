@@ -1,0 +1,5 @@
+/* ReadinessSignal: Humans.txt authorship lane stays dependency-light. */
+
+Team: UIX Apps Polyglot Governance
+Site: https://uix-apps.local/polyglot/humans-txt/readiness-signal
+Purpose: Preserve calm, traceable stewardship metadata before live publication.

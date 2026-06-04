@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "branch": "UIXAppTTR",
+  "mode": "cinematic-quality-console",
+  "summary": {
+    "status": "guarded-green",
+    "posture": "cinematic but accessibility-first",
+    "releaseState": "local-ready-github-auth-blocked"
+  },
+  "signals": [
+    {
+      "id": "motion-budget",
+      "label": "Motion Budget",
+      "status": "green",
+      "value": "Canvas field, reveal, parallax, hover depth",
+      "detail": "Animation remains requestAnimationFrame bounded and reduced-motion aware."
+    },
+    {
+      "id": "mobile-safety",
+      "label": "Mobile Safety",
+      "status": "green",
+      "value": "Responsive collapse + touch targets",
+      "detail": "Mobile layout uses single-column collapse, wrapping controls, and 44px touch floors."
+    },
+    {
+      "id": "accessibility-posture",
+      "label": "Accessibility Posture",
+      "status": "green",
+      "value": "Reduced motion + semantic sections",
+      "detail": "Skip link, landmarks, aria-live boards, and reduced-motion fallbacks stay present."
+    },
+    {
+      "id": "publication-channel",
+      "label": "Publication Channel",
+      "status": "blocked",
+      "value": "GitHub auth required",
+      "detail": "Local iCloud source is ready; remote push waits for gh auth login."
+    }
+  ],
+  "thresholds": [
+    {
+      "id": "dependency-budget",
+      "label": "Dependency Budget",
+      "target": "zero new runtime dependencies",
+      "current": "met"
+    },
+    {
+      "id": "motion-fallback",
+      "label": "Motion Fallback",
+      "target": "reduced-motion disables nonessential movement",
+      "current": "met"
+    },
+    {
+      "id": "static-release-sync",
+      "label": "Release Sync",
+      "target": "release/web mirrors apps/web",
+      "current": "met"
+    }
+  ]
+}

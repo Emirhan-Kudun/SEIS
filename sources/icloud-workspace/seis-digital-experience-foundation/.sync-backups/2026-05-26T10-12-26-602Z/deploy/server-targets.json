@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "activeTarget": null,
+  "requiresUserConfirmation": true,
+  "preparedPackage": "dist/seis-static.zip",
+  "candidates": [
+    {
+      "id": "hostinger-static",
+      "type": "static-hosting",
+      "status": "ready-after-domain-confirmation",
+      "requiredInput": ["domain"]
+    },
+    {
+      "id": "github-pages",
+      "type": "static-hosting",
+      "status": "ready-after-remote-confirmation",
+      "requiredInput": ["repository", "pages_source"]
+    },
+    {
+      "id": "generic-sftp",
+      "type": "static-hosting",
+      "status": "ready-after-credentials-confirmation",
+      "requiredInput": ["host", "path", "auth_method"]
+    },
+    {
+      "id": "node-vps",
+      "type": "node-static-server",
+      "status": "ready-after-server-path-confirmation",
+      "requiredInput": ["host", "path", "process_manager"]
+    },
+    {
+      "id": "apache-shared-hosting",
+      "type": "apache-static-hosting",
+      "status": "ready-after-document-root-confirmation",
+      "requiredInput": ["domain", "document_root"]
+    },
+    {
+      "id": "cloudflare-worker-origin",
+      "type": "edge-origin-proxy",
+      "status": "ready-after-origin-confirmation",
+      "requiredInput": ["origin"]
+    },
+    {
+      "id": "docker-node-static",
+      "type": "containerized-static-server",
+      "status": "ready-after-container-host-confirmation",
+      "requiredInput": ["host", "port"]
+    }
+  ]
+}

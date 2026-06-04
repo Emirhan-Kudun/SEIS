@@ -1,0 +1,84 @@
+{
+  "notion": {
+    "enabled": false,
+    "runLogPageOrDatabaseId": ""
+  },
+  "linear": {
+    "enabled": false,
+    "teamIdOrProjectId": ""
+  },
+  "github": {
+    "enabled": false,
+    "repositoryFullName": ""
+  },
+  "slack": {
+    "enabled": false,
+    "channelIdOrName": ""
+  },
+  "supabase": {
+    "enabled": false,
+    "projectRef": ""
+  },
+  "sentry": {
+    "enabled": false,
+    "organizationSlug": "",
+    "projectSlug": ""
+  },
+  "vercel": {
+    "enabled": false,
+    "teamIdOrSlug": "",
+    "projectIdOrName": ""
+  },
+  "semrush": {
+    "enabled": false,
+    "domain": ""
+  },
+  "twilioDeveloperKit": {
+    "enabled": false,
+    "accountSid": ""
+  },
+  "hubspot": {
+    "enabled": false,
+    "portalIdOrAccountId": ""
+  },
+  "backendChannels": {
+    "primary": "next-api-resend",
+    "mirrors": [
+      "supabase",
+      "hubspot"
+    ],
+    "fallbacks": [
+      "twilio",
+      "mailto",
+      "contact.php"
+    ],
+    "featureFlags": {
+      "supabaseMirror": true,
+      "hubspotMirror": true,
+      "twilioFallback": true
+    }
+  },
+  "approvalGate": {
+    "dualApprovalRequired": true,
+    "sources": [
+      "notion",
+      "github"
+    ],
+    "approvalExpiryDays": 14,
+    "staleSuggestedDays": 10
+  },
+  "sla": {
+    "p95MsThreshold": 8000,
+    "failRateThreshold": 0.05
+  },
+  "reporting": {
+    "detailLevel": "detailed-audit",
+    "timezone": "Europe/Istanbul"
+  },
+  "schedules": {
+    "dailyCore": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17;BYMINUTE=40;BYSECOND=0",
+    "weeklyTrend": "FREQ=WEEKLY;BYDAY=FR;BYHOUR=18;BYMINUTE=0;BYSECOND=0",
+    "monthlySweep": "FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+    "quarterlyAudit": "FREQ=MONTHLY;INTERVAL=3;BYMONTHDAY=7;BYHOUR=9;BYMINUTE=0;BYSECOND=0"
+  }
+}

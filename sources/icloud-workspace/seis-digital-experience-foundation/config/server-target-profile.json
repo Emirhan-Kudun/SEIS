@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "purpose": "Define the safe server target contract for uploading the generated UIX Apps bundle.",
+  "defaultTarget": "configured-server",
+  "targets": [
+    {
+      "id": "configured-server",
+      "label": "Configured Server",
+      "method": "rsync",
+      "bundleDirectory": "runtime/server-upload-bundle/source",
+      "requiredEnvironment": {
+        "host": "UIX_UPLOAD_HOST",
+        "user": "UIX_UPLOAD_USER",
+        "path": "UIX_UPLOAD_PATH"
+      },
+      "safeRemotePathPattern": "^(?:/var/www/[^\\s]+|/home/[^\\s]+/[^\\s]+)$",
+      "dryRunCommand": "npm run server-upload:dry-run",
+      "executeCommand": "npm run server-upload:execute",
+      "constraints": [
+        "Never upload node_modules, runtime logs, .next, zip archives, or macOS metadata.",
+        "Require generated bundle manifest before upload.",
+        "Default to dry-run unless --execute is explicitly provided."
+      ]
+    }
+  ]
+}

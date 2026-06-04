@@ -1,0 +1,49 @@
+{
+  "name": "emirhan-kudun-fullstack-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "NODE_ENV=development node server.mjs",
+    "ux:dev": "npm --prefix apps/ux-apps-foundation run dev",
+    "ux:quality": "npm --prefix apps/ux-apps-foundation run quality",
+    "ux:test": "npm --prefix apps/ux-apps-foundation run test",
+    "build:server-upload-bundle": "node scripts/build-server-upload-bundle.cjs",
+    "server-upload:dry-run": "node scripts/server-upload-dry-run.cjs",
+    "server-upload:execute": "node scripts/server-upload-dry-run.cjs --execute",
+    "check:branch": "node scripts/branch-governance-check.js",
+    "check:local": "node scripts/local-quality-gate.js",
+    "check:fullstack": "node --check server.mjs && node --check script.js && node scripts/fullstack-preflight.cjs",
+    "check:i18n": "node scripts/i18n-contract-check.cjs",
+    "check:server-handoff": "node scripts/server-handoff-check.cjs",
+    "check:software-languages": "node scripts/software-language-matrix-check.cjs",
+    "check:polyglot-foundation": "node scripts/polyglot-foundation-check.cjs",
+    "check:release-readiness": "node scripts/release-readiness-check.cjs",
+    "check:preservation-snapshot": "node scripts/preservation-snapshot-check.cjs",
+    "check:server-upload-bundle": "node scripts/server-upload-bundle-check.cjs",
+    "check:server-target": "node scripts/server-target-check.cjs",
+    "check:development-program": "node scripts/development-program-check.cjs",
+    "check:cinematic-depth": "node scripts/cinematic-depth-check.cjs",
+    "check:source-intake": "node scripts/source-intake-check.cjs",
+    "check:security": "node scripts/security-static-check.cjs",
+    "check:seo": "node scripts/semantic-seo-check.cjs",
+    "check:browser-fallback": "node scripts/browser-validation-fallback.cjs",
+    "quality": "npm run check:branch && npm run check:local && npm run check:fullstack && npm run check:i18n && npm run check:server-handoff && npm run check:software-languages && npm run check:polyglot-foundation && npm run check:release-readiness && npm run check:preservation-snapshot && npm run check:server-upload-bundle && npm run check:server-target && npm run check:development-program && npm run check:cinematic-depth && npm run check:source-intake && npm run lint && npm test && npm run ux:quality",
+    "publish:preflight": "node scripts/origin-push-preflight.cjs",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "lint": "npm run check:security && npm run check:seo && npm run check:browser-fallback",
+    "docker:build": "docker build -t emirhan-portfolio:latest .",
+    "docker:run": "docker run -p 4173:4173 emirhan-portfolio:latest",
+    "docker:compose": "docker-compose up",
+    "docker:compose:dev": "docker-compose --profile dev up"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}

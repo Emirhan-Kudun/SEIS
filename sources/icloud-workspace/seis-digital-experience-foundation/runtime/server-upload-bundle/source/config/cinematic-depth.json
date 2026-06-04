@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "purpose": "Define the calm cinematic depth layer used by the development cockpit.",
+  "surface": "development-cockpit",
+  "mode": "canvas-2d",
+  "enabled": true,
+  "reducedMotionFallback": "static-depth-grid",
+  "settings": {
+    "particleCount": 32,
+    "depthLayers": 3,
+    "maxDevicePixelRatio": 1.5,
+    "frameIntervalMs": 66,
+    "opacity": 0.34
+  },
+  "constraints": [
+    "No WebGL dependency for this sprint.",
+    "Pause animation in low-motion mode.",
+    "Render as decorative aria-hidden canvas only."
+  ]
+}

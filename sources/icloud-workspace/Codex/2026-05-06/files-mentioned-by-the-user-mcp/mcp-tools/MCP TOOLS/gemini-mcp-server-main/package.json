@@ -1,0 +1,50 @@
+{
+  "name": "gemini-mcp-server",
+  "version": "2.2.0",
+  "description": "A comprehensive MCP server for Google Gemini AI with Smart Tool Intelligence and self-contained preferences",
+  "main": "gemini-server.js",
+  "scripts": {
+    "start": "node gemini-server.js",
+    "dev": "DEBUG=true node gemini-server.js",
+    "test": "node test-tool-intelligence-full.js",
+    "migrate": "node scripts/migrate-preferences.js",
+    "clean": "node scripts/clean-data.js",
+    "inspect": "node scripts/inspect-preferences.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [
+    "mcp",
+    "gemini",
+    "ai",
+    "tool-intelligence",
+    "image-generation",
+    "chat",
+    "transcription",
+    "code-execution",
+    "image-editing",
+    "video-analysis",
+    "image-analysis"
+  ],
+  "author": "Rob with Cline + Gemini 2.5 Pro + Claude",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/gemini-mcp-server.git"
+  },
+  "homepage": "https://github.com/your-repo/gemini-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/your-repo/gemini-mcp-server/issues"
+  }
+}

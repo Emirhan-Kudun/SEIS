@@ -1,0 +1,138 @@
+{
+  "run_id": "run-2026-05-14T17-16-06-581Z",
+  "timestamp": "2026-05-14T17:16:06.583Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "weekly-portfolio-trend-sync",
+  "write_mode": "guarded",
+  "detail_level": "detailed-audit",
+  "duration_ms": 3,
+  "steps": [
+    {
+      "connector": "behance-trend-source",
+      "status": "invoked",
+      "reason": "weekly trend sync source check completed",
+      "duration_ms": 0,
+      "next_action": "Curate notable portfolio signals into suggested backlog items."
+    },
+    {
+      "connector": "dribbble-trend-source",
+      "status": "skipped_with_reason",
+      "reason": "no local API binding in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep Dribbble in on-demand registry until binding is available."
+    },
+    {
+      "connector": "awwwards-trend-source",
+      "status": "skipped_with_reason",
+      "reason": "no local API binding in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep Awwwards in on-demand registry until binding is available."
+    },
+    {
+      "connector": "notion-trend-record",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination to activate trend action package."
+    },
+    {
+      "connector": "linear-trend-actions",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination to activate trend action package."
+    },
+    {
+      "connector": "github-trend-checklist",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination to activate trend action package."
+    },
+    {
+      "connector": "slack-trend-summary",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination to activate trend action package."
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "One or more trend sync bindings are not enabled/configured."
+    ],
+    "low": [
+      "Guarded suggested output mode preserved."
+    ]
+  },
+  "summary": "Weekly trend sync completed with skipped bindings tracked via next_action.",
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Enable dribbble-trend-source",
+      "problem": "no local API binding in this phase",
+      "proposed_change": "Keep Dribbble in on-demand registry until binding is available.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable awwwards-trend-source",
+      "problem": "no local API binding in this phase",
+      "proposed_change": "Keep Awwwards in on-demand registry until binding is available.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable notion-trend-record",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination to activate trend action package.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable linear-trend-actions",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination to activate trend action package.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable github-trend-checklist",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination to activate trend action package.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable slack-trend-summary",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination to activate trend action package.",
+      "labels": [
+        "ops",
+        "trend-sync"
+      ],
+      "source_link": "reports/ecosystem/2026-05-14-weekly-trend-sync.json"
+    }
+  ]
+}

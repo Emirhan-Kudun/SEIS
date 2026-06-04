@@ -1,0 +1,24 @@
+{
+  "uid": "uix-readiness-signal",
+  "title": "ReadinessSignal Observability",
+  "schemaVersion": 39,
+  "version": 1,
+  "tags": ["ReadinessSignal", "polyglot", "dependency-light"],
+  "timezone": "browser",
+  "panels": [
+    {
+      "id": 1,
+      "title": "ReadinessSignal",
+      "type": "stat",
+      "datasource": { "type": "prometheus", "uid": "reference" },
+      "targets": [
+        {
+          "expr": "uix_polyglot_readiness_signal",
+          "legendFormat": "grafana-dashboard"
+        }
+      ],
+      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 0 }
+    }
+  ],
+  "annotations": { "list": [] }
+}

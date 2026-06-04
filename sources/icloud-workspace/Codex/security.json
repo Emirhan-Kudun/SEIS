@@ -1,0 +1,20 @@
+{
+  "reporting": {
+    "email": "security@project.dev",
+    "disclosure_policy": "https://project.dev/security",
+    "response_time_hours": 24
+  },
+  "scanning": {
+    "npm_audit": true,
+    "dependabot": true,
+    "codeql": true,
+    "frequency": "continuous"
+  },
+  "features": {
+    "https_only": true,
+    "rate_limiting": true,
+    "csp_headers": true,
+    "input_validation": true,
+    "password_hashing": "bcrypt"
+  }
+}

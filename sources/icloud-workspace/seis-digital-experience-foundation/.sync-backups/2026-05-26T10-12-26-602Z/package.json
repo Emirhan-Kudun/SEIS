@@ -1,0 +1,24 @@
+{
+  "name": "uixapps",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:static": "node scripts/build-static.mjs",
+    "package:server": "npm run build:static",
+    "check:js": "node --check apps/web/src/scripts/motion-system.js && node --check apps/web/src/scripts/gallery-system.js && node --check apps/web/src/scripts/efficiency-system.js && node --check apps/web/src/scripts/i18n-system.js && node --check apps/web/src/scripts/pwa-system.js && node --check apps/web/src/i18n/locales.js && node --check server/node/static-server.mjs && node --check server/edge/cloudflare-worker.js && node --check scripts/check-foundation.mjs && node --check scripts/check-development-state.mjs && node --check scripts/check-uixappttr-branch.mjs && node --check scripts/build-static.mjs && node --check scripts/check-polyglot.mjs && node --check scripts/check-locales.mjs && node --check scripts/check-static-build.mjs && node --check scripts/check-server-adapters.mjs && node --check scripts/check-deploy-readiness.mjs && node --check scripts/check-experience-budget.mjs && node --check scripts/check-long-term-program.mjs && node --check scripts/check-release-history.mjs && node --check scripts/check-server-targets.mjs && node --check scripts/configure-server-target.mjs && node --check scripts/create-development-summary.mjs && node --check scripts/create-release-backup.mjs && node --check scripts/create-server-handoff.mjs && node --check scripts/create-subagent-briefs.mjs && node --check scripts/create-upload-plan.mjs && node --check scripts/prepare-server-upload.mjs && node --check scripts/deploy-static-server.mjs && node --check scripts/restore-latest-release.mjs",
+    "check:foundation": "node scripts/check-foundation.mjs && node scripts/check-development-state.mjs && node scripts/check-uixappttr-branch.mjs && node scripts/check-polyglot.mjs && node scripts/check-locales.mjs && node scripts/check-server-adapters.mjs && node scripts/check-server-targets.mjs && node scripts/check-experience-budget.mjs && node scripts/check-long-term-program.mjs",
+    "check:release": "npm run package:server && npm run prepare:server && node scripts/check-static-build.mjs && node scripts/check-deploy-readiness.mjs && node scripts/check-server-targets.mjs --strict-files && python3 server/python/verify_release.py",
+    "prepare:server": "node scripts/prepare-server-upload.mjs",
+    "backup:release": "node scripts/create-release-backup.mjs",
+    "plan:upload": "node scripts/create-upload-plan.mjs",
+    "briefs:agents": "node scripts/create-subagent-briefs.mjs",
+    "summary:development": "node scripts/create-development-summary.mjs",
+    "handoff:server": "node scripts/create-server-handoff.mjs",
+    "check:history": "node scripts/check-release-history.mjs",
+    "restore:latest": "node scripts/restore-latest-release.mjs",
+    "release:ready": "npm run briefs:agents && npm run summary:development && npm run check:release && npm run backup:release && npm run plan:upload && npm run handoff:server && npm run check:history",
+    "deploy:server": "node scripts/deploy-static-server.mjs",
+    "sync:icloud": "bash scripts/sync-icloud-github.sh"
+  }
+}

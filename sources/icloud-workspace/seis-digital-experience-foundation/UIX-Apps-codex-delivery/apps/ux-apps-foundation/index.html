@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="UX Apps is a low-noise catalog for journey mapping, UX audits, accessibility passes, content tone review, and product decision surfaces."
+    >
+    <title>UX Apps - Calm Interface Workspace</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#workspace" aria-label="UX Apps workspace home">
+          <span class="brand-mark" aria-hidden="true">UX</span>
+          <span>
+            <strong>UX Apps</strong>
+            <small>Calm interface workspace</small>
+          </span>
+        </a>
+        <nav class="topbar-actions" aria-label="Workspace sections">
+          <a href="#workspace">Workspace</a>
+          <a href="#apps">Apps</a>
+          <a href="#matrix">Matrix</a>
+          <a href="#notes">Notes</a>
+        </nav>
+      </header>
+    </div>
+
+    <main>
+      <section class="workspace-hero" id="workspace" aria-labelledby="workspace-title">
+        <div>
+          <p class="eyebrow">UX systems without noise</p>
+          <h1 id="workspace-title">Useful UX apps for focused product work.</h1>
+          <p class="hero-copy">
+            A calm catalog for journey mapping, flow audits, accessibility checks, content tone review,
+            decision support, and prototype scope. The repository stays dependency-free at the root
+            and full-stack capable through the local API server.
+          </p>
+        </div>
+        <aside class="signal-panel" aria-label="Workspace status">
+          <span class="eyebrow">Foundation</span>
+          <strong>6 focused app definitions</strong>
+          <span>Searchable, filterable, keyboard-readable, and ready to become full product surfaces.</span>
+        </aside>
+      </section>
+
+      <section class="toolbar-section" aria-label="Catalog controls">
+        <div class="toolbar">
+          <label class="search-field" for="searchInput">
+            Search apps
+            <input id="searchInput" type="search" autocomplete="off" placeholder="Try accessibility, journey, release">
+          </label>
+          <div class="filter-group" aria-label="Filter by stage">
+            <button class="filter-button is-active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="Research">Research</button>
+            <button class="filter-button" type="button" data-filter="Design">Design</button>
+            <button class="filter-button" type="button" data-filter="Validate">Validate</button>
+            <button class="filter-button" type="button" data-filter="Ship">Ship</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="apps-layout" id="apps" aria-labelledby="apps-title">
+        <div class="section-heading">
+          <p class="eyebrow">App registry</p>
+          <h2 id="apps-title">Choose a surface to develop next.</h2>
+        </div>
+        <div class="catalog-grid">
+          <div class="app-grid" id="appGrid" aria-live="polite"></div>
+          <aside class="detail-panel" aria-label="Selected app details">
+            <p class="eyebrow">Selected app</p>
+            <h3 id="detailTitle">Loading</h3>
+            <p id="detailSummary">App details will appear here.</p>
+            <dl class="detail-list">
+              <div>
+                <dt>Primary action</dt>
+                <dd id="detailAction">Pending</dd>
+              </div>
+              <div>
+                <dt>Metric</dt>
+                <dd id="detailMetric">Pending</dd>
+              </div>
+              <div>
+                <dt>Risk</dt>
+                <dd id="detailRisk">Pending</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="matrix-section" id="matrix" aria-labelledby="matrix-title">
+        <div class="section-heading">
+          <p class="eyebrow">Operating matrix</p>
+          <h2 id="matrix-title">How the catalog should grow.</h2>
+        </div>
+        <div class="matrix-grid">
+          <article>
+            <span>01</span>
+            <h3>Research</h3>
+            <p>Capture user goals, friction, assumptions, and evidence before turning screens into production.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Design</h3>
+            <p>Shape calm interfaces with semantic structure, focused copy, and responsive layouts.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Validate</h3>
+            <p>Check keyboard flow, contrast, reduced motion, completion paths, and release confidence.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Ship</h3>
+            <p>Summarize decisions, risks, owners, and rollback notes before a feature becomes durable.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="notes-section" id="notes" aria-labelledby="notes-title">
+        <p class="eyebrow">Repository notes</p>
+        <h2 id="notes-title">Low-power growth policy.</h2>
+        <ul class="notes-list">
+          <li>Keep the root catalog static and dependency-free for GitHub Pages fallback.</li>
+          <li>Use the full-stack Node server for APIs, contact capture, observability, and future app modules.</li>
+          <li>Add heavier frameworks only after a budget note and rollback path exist.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="data/apps-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

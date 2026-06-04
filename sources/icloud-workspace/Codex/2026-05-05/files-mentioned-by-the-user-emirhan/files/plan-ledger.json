@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "mode": "always-on-core-plus-on-demand-rotation",
+  "approval_gate": {
+    "type": "dual",
+    "sources": ["notion", "github"],
+    "approval_expiry_days": 14,
+    "stale_suggested_days": 10
+  },
+  "rolling_policy": {
+    "type": "continuous-quarterly",
+    "cadence": "weekly"
+  },
+  "sprints": [
+    { "sprint_id": "Sprint 1", "window_start": "2026-05-06", "window_end": "2026-05-12", "objective": "Core orchestration stabilization", "kpi": "1 successful guarded core run", "status": "todo", "approval_state": "suggested", "owner": "ops", "due_date": "2026-05-12", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 2", "window_start": "2026-05-13", "window_end": "2026-05-19", "objective": "Semantic and responsive hardening", "kpi": "0 critical semantic/responsive defects", "status": "todo", "approval_state": "suggested", "owner": "frontend", "due_date": "2026-05-19", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 3", "window_start": "2026-05-20", "window_end": "2026-05-26", "objective": "Typography and spacing consistency", "kpi": "95/100 consistency score", "status": "todo", "approval_state": "suggested", "owner": "design", "due_date": "2026-05-26", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 4", "window_start": "2026-05-27", "window_end": "2026-06-02", "objective": "Behance and drawings interaction/perf", "kpi": "0 critical regressions", "status": "todo", "approval_state": "suggested", "owner": "frontend", "due_date": "2026-06-02", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 5", "window_start": "2026-06-03", "window_end": "2026-06-09", "objective": "i18n parity TR/EN/FR/IT/DE", "kpi": "0 missing keys", "status": "todo", "approval_state": "suggested", "owner": "frontend", "due_date": "2026-06-09", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 6", "window_start": "2026-06-10", "window_end": "2026-06-16", "objective": "SEO and structured data hardening", "kpi": "100% defined checks pass", "status": "todo", "approval_state": "suggested", "owner": "seo", "due_date": "2026-06-16", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 7", "window_start": "2026-06-17", "window_end": "2026-06-23", "objective": "Contact contract stability", "kpi": "0 contract-breaking failures", "status": "todo", "approval_state": "suggested", "owner": "backend", "due_date": "2026-06-23", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 8", "window_start": "2026-06-24", "window_end": "2026-06-30", "objective": "Preview-first release readiness", "kpi": "preview green + fallback verified", "status": "todo", "approval_state": "suggested", "owner": "ops", "due_date": "2026-06-30", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 9", "window_start": "2026-07-01", "window_end": "2026-07-07", "objective": "Ops monitoring coverage", "kpi": "actionable sentry/slack summaries active", "status": "todo", "approval_state": "suggested", "owner": "ops", "due_date": "2026-07-07", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 10", "window_start": "2026-07-08", "window_end": "2026-07-14", "objective": "Final security and release gate", "kpi": "high findings=0 and go/no-go package ready", "status": "todo", "approval_state": "suggested", "owner": "security", "due_date": "2026-07-14", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 11", "window_start": "2026-07-15", "window_end": "2026-07-21", "objective": "Detailed audit package activation phase 1", "kpi": "suggested-only audit runs stable", "status": "todo", "approval_state": "suggested", "owner": "ops", "due_date": "2026-07-21", "source_ref": "INTEGRATION-PLAYBOOK.md" },
+    { "sprint_id": "Sprint 12", "window_start": "2026-07-22", "window_end": "2026-07-28", "objective": "Detailed audit package full activation", "kpi": "dual-approval gate active end-to-end", "status": "todo", "approval_state": "suggested", "owner": "ops", "due_date": "2026-07-28", "source_ref": "INTEGRATION-PLAYBOOK.md" }
+  ],
+  "actions": []
+}

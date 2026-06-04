@@ -1,0 +1,17 @@
+{
+  "tool": "owasp-zap",
+  "type": "ReadinessSignal",
+  "site": [
+    {
+      "name": "https://uix-apps.local",
+      "alerts": []
+    }
+  ],
+  "summary": {
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "informational": 0
+  },
+  "notes": "Dependency-light placeholder for future dynamic web security evidence ingestion."
+}

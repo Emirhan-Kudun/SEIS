@@ -1,0 +1,984 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-sprint-plan",
+  "generatedAt": "2026-06-03",
+  "mode": "connected_plugin_assisted_sprint_plan",
+  "sourceReferences": {
+    "pluginAssistedDevelopmentQueue": "content/development/plugin-assisted-development-queue.json",
+    "pluginAiAssistanceOrchestration": "content/development/plugin-ai-assistance-orchestration.json",
+    "fullstackLanguageMatrix": "content/development/fullstack-language-matrix.json"
+  },
+  "policy": {
+    "sprint": "all_connected_plugins_grouped_into_reviewed_bounded_development_waves",
+    "execution": "one_wave_at_a_time_with_reversible_changes_and_generated_checks",
+    "authentication": "auth_blocked_plugins_remain_planned_until_explicit_task_scope_exists",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "promptHandling": "never_record_or_commit_prompt_payloads",
+    "connectorPayloadHandling": "never_commit_connector_results_or_vendor_payloads"
+  },
+  "summary": {
+    "sourceQueuePlugins": 300,
+    "sprintPlanPlugins": 300,
+    "waveCount": 4,
+    "lanePlanCount": 12,
+    "sprintPhaseCount": 4,
+    "sprintPhaseRecords": 48,
+    "readyPluginCount": 20,
+    "queuedUntilAuthPlugins": 280,
+    "aiHelperCount": 8,
+    "fullstackLanguageCount": 108,
+    "livePluginInvocationAllowedPlans": 0,
+    "liveAiInvocationAllowedPlans": 0,
+    "autonomousRepoModificationAllowedPlans": 0,
+    "credentialRecordingPlans": 0,
+    "promptPayloadRecordingPlans": 0,
+    "connectorPayloadRecordingPlans": 0,
+    "generatedPayloadCommitPlans": 0,
+    "validationCommandCount": 7,
+    "waveDefinitions": [
+      {
+        "id": "wave-1-foundation",
+        "label": "Foundation and governance",
+        "laneIds": [
+          "security-quality-and-governance",
+          "backend-data-and-api",
+          "cloud-devops-and-release",
+          "platform-native-and-polyglot"
+        ]
+      },
+      {
+        "id": "wave-2-product-experience",
+        "label": "Product experience",
+        "laneIds": [
+          "builder-and-prototyping",
+          "creative-production-and-design",
+          "ai-workflow-docs-and-knowledge"
+        ]
+      },
+      {
+        "id": "wave-3-growth-intelligence",
+        "label": "Growth and intelligence",
+        "laneIds": [
+          "analytics-observability-and-growth",
+          "sales-gtm-and-market-intelligence",
+          "finance-investing-and-payments"
+        ]
+      },
+      {
+        "id": "wave-4-operations-research",
+        "label": "Operations and research",
+        "laneIds": [
+          "collaboration-calendar-and-support",
+          "specialized-domain-and-research"
+        ]
+      }
+    ],
+    "sprintPhases": [
+      {
+        "id": "plan",
+        "label": "Plan"
+      },
+      {
+        "id": "implement",
+        "label": "Implement"
+      },
+      {
+        "id": "validate",
+        "label": "Validate"
+      },
+      {
+        "id": "handoff",
+        "label": "Handoff"
+      }
+    ],
+    "validationCommands": [
+      "npm run check:plugin-assisted-sprint-plan",
+      "npm run check:plugin-assisted-development-queue",
+      "npm run check:plugin-ai-assistance-orchestration",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment"
+    ]
+  },
+  "sprintWaves": [
+    {
+      "order": 1,
+      "id": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "pluginCount": 95,
+      "readyPlugins": 5,
+      "queuedPlugins": 90,
+      "phaseRecords": 16,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "gemini",
+        "human-review",
+        "local-skill-runtime",
+        "plugin-runtime-router"
+      ],
+      "lanes": [
+        {
+          "waveId": "wave-1-foundation",
+          "waveOrder": 1,
+          "order": 1,
+          "lane": "security-quality-and-governance",
+          "label": "Security, quality, and governance",
+          "pluginCount": 19,
+          "readyPlugins": 0,
+          "queuedPlugins": 19,
+          "actionRecords": 95,
+          "helperIds": [
+            "claude",
+            "codex",
+            "gemini",
+            "human-review"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Tighten source gates, compliance checks, and review evidence before broader execution.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "19 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "auth_scope_required_before_live_connector_work",
+              "evidence": "0 ready, 19 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,gemini,human-review"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-1-foundation",
+          "waveOrder": 1,
+          "order": 2,
+          "lane": "backend-data-and-api",
+          "label": "Backend, data, and API",
+          "pluginCount": 31,
+          "readyPlugins": 0,
+          "queuedPlugins": 31,
+          "actionRecords": 155,
+          "helperIds": [
+            "claude",
+            "codex",
+            "cortex",
+            "local-skill-runtime"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Strengthen backend, data, API, and schema readiness without live connector payload capture.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "31 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "auth_scope_required_before_live_connector_work",
+              "evidence": "0 ready, 31 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,cortex,local-skill-runtime"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-1-foundation",
+          "waveOrder": 1,
+          "order": 3,
+          "lane": "cloud-devops-and-release",
+          "label": "Cloud, DevOps, and release",
+          "pluginCount": 31,
+          "readyPlugins": 5,
+          "queuedPlugins": 26,
+          "actionRecords": 155,
+          "helperIds": [
+            "claude",
+            "codex",
+            "cortex",
+            "plugin-runtime-router"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:server-target"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Prepare release, hosting, observability, and rollback paths with branch-safe gates.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "31 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "5 ready, 26 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:server-target"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,cortex,plugin-runtime-router"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-1-foundation",
+          "waveOrder": 1,
+          "order": 4,
+          "lane": "platform-native-and-polyglot",
+          "label": "Platform native and polyglot",
+          "pluginCount": 14,
+          "readyPlugins": 0,
+          "queuedPlugins": 14,
+          "actionRecords": 70,
+          "helperIds": [
+            "claude",
+            "codex",
+            "local-skill-runtime",
+            "plugin-runtime-router"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes",
+            "npm run check:software-languages"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Keep full-stack language coverage and platform-native surfaces visible and validated.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "14 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "auth_scope_required_before_live_connector_work",
+              "evidence": "0 ready, 14 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes && npm run check:software-languages"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,local-skill-runtime,plugin-runtime-router"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "id": "wave-2-product-experience",
+      "label": "Product experience",
+      "pluginCount": 75,
+      "readyPlugins": 6,
+      "queuedPlugins": 69,
+      "phaseRecords": 12,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "lanes": [
+        {
+          "waveId": "wave-2-product-experience",
+          "waveOrder": 2,
+          "order": 1,
+          "lane": "builder-and-prototyping",
+          "label": "Builder and prototyping",
+          "pluginCount": 18,
+          "readyPlugins": 1,
+          "queuedPlugins": 17,
+          "actionRecords": 90,
+          "helperIds": [
+            "claude",
+            "codex",
+            "gemini",
+            "openai"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes",
+            "npm run check:plugin-environment-sources"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Convert builder plugins into bounded prototype and product-surface candidates.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "18 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "1 ready, 17 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes && npm run check:plugin-environment-sources"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,gemini,openai"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-2-product-experience",
+          "waveOrder": 2,
+          "order": 2,
+          "lane": "creative-production-and-design",
+          "label": "Creative production and design",
+          "pluginCount": 18,
+          "readyPlugins": 1,
+          "queuedPlugins": 17,
+          "actionRecords": 90,
+          "helperIds": [
+            "claude",
+            "gemini",
+            "human-review",
+            "openai"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:mobile-ergonomics",
+            "npm run check:motion-evidence",
+            "npm run check:plugin-assisted-development-queue"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Channel design and creative plugins into accessible, reviewable experience improvements.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "18 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "1 ready, 17 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:mobile-ergonomics && npm run check:motion-evidence && npm run check:plugin-assisted-development-queue"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,gemini,human-review,openai"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-2-product-experience",
+          "waveOrder": 2,
+          "order": 3,
+          "lane": "ai-workflow-docs-and-knowledge",
+          "label": "AI workflow, docs, and knowledge",
+          "pluginCount": 39,
+          "readyPlugins": 4,
+          "queuedPlugins": 35,
+          "actionRecords": 195,
+          "helperIds": [
+            "claude",
+            "codex",
+            "cortex",
+            "gemini"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes",
+            "npm run check:workspace"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Turn AI workflow plugins into documentation, knowledge, and source-routing improvements.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "39 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "4 ready, 35 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes && npm run check:workspace"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,cortex,gemini"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "id": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "pluginCount": 78,
+      "readyPlugins": 2,
+      "queuedPlugins": 76,
+      "phaseRecords": 12,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "lanes": [
+        {
+          "waveId": "wave-3-growth-intelligence",
+          "waveOrder": 3,
+          "order": 1,
+          "lane": "analytics-observability-and-growth",
+          "label": "Analytics, observability, and growth",
+          "pluginCount": 30,
+          "readyPlugins": 2,
+          "queuedPlugins": 28,
+          "actionRecords": 150,
+          "helperIds": [
+            "claude",
+            "codex",
+            "cortex",
+            "gemini"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Prepare analytics and growth sources for metric-safe investigation workflows.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "30 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "2 ready, 28 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,cortex,gemini"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-3-growth-intelligence",
+          "waveOrder": 3,
+          "order": 2,
+          "lane": "sales-gtm-and-market-intelligence",
+          "label": "Sales, GTM, and market intelligence",
+          "pluginCount": 30,
+          "readyPlugins": 0,
+          "queuedPlugins": 30,
+          "actionRecords": 150,
+          "helperIds": [
+            "claude",
+            "gemini",
+            "human-review",
+            "openai"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:connector-activation-report",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Queue GTM intelligence plugins behind authenticated scope and PII-safe handoff gates.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "30 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "auth_scope_required_before_live_connector_work",
+              "evidence": "0 ready, 30 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:connector-activation-report && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,gemini,human-review,openai"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-3-growth-intelligence",
+          "waveOrder": 3,
+          "order": 3,
+          "lane": "finance-investing-and-payments",
+          "label": "Finance, investing, and payments",
+          "pluginCount": 18,
+          "readyPlugins": 0,
+          "queuedPlugins": 18,
+          "actionRecords": 90,
+          "helperIds": [
+            "claude",
+            "codex",
+            "cortex",
+            "human-review"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Keep finance and payment work advisory, sourced, and review-gated.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "18 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "auth_scope_required_before_live_connector_work",
+              "evidence": "0 ready, 18 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,codex,cortex,human-review"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "id": "wave-4-operations-research",
+      "label": "Operations and research",
+      "pluginCount": 52,
+      "readyPlugins": 7,
+      "queuedPlugins": 45,
+      "phaseRecords": 8,
+      "helperIds": [
+        "claude",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "lanes": [
+        {
+          "waveId": "wave-4-operations-research",
+          "waveOrder": 4,
+          "order": 1,
+          "lane": "collaboration-calendar-and-support",
+          "label": "Collaboration, calendar, and support",
+          "pluginCount": 35,
+          "readyPlugins": 3,
+          "queuedPlugins": 32,
+          "actionRecords": 175,
+          "helperIds": [
+            "claude",
+            "gemini",
+            "human-review",
+            "openai"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:connector-activation-report",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Route collaboration and support plugins into handoff, triage, and work-management plans.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "35 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "3 ready, 32 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:connector-activation-report && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,gemini,human-review,openai"
+            }
+          ]
+        },
+        {
+          "waveId": "wave-4-operations-research",
+          "waveOrder": 4,
+          "order": 2,
+          "lane": "specialized-domain-and-research",
+          "label": "Specialized domain and research",
+          "pluginCount": 17,
+          "readyPlugins": 4,
+          "queuedPlugins": 13,
+          "actionRecords": 85,
+          "helperIds": [
+            "claude",
+            "gemini",
+            "human-review",
+            "openai"
+          ],
+          "qualityCommands": [
+            "npm run check:cloud-environment",
+            "npm run check:plugin-assisted-development-queue",
+            "npm run check:plugin-capability-lanes"
+          ],
+          "languageSample": [
+            "Express.js",
+            "JavaScript",
+            "MySQL",
+            "Node.js",
+            "React",
+            "TypeScript"
+          ],
+          "sprintObjective": "Queue research-domain plugins behind evidence, scope, and human review requirements.",
+          "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+          "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+          "requiresExplicitTaskScope": true,
+          "requiresHumanReview": true,
+          "requiresEnvironmentGate": true,
+          "requiresGeneratedChecks": true,
+          "safeToInvokeLivePlugin": false,
+          "safeToInvokeLiveAi": false,
+          "safeToAutonomouslyModifyRepo": false,
+          "recordsCredentials": false,
+          "recordsPromptPayloads": false,
+          "recordsConnectorPayloads": false,
+          "commitsGeneratedPayloads": false,
+          "phases": [
+            {
+              "id": "plan",
+              "status": "ready",
+              "evidence": "17 connected plugin references"
+            },
+            {
+              "id": "implement",
+              "status": "local_bounded_changes_available",
+              "evidence": "4 ready, 13 queued"
+            },
+            {
+              "id": "validate",
+              "status": "generated_checks_required",
+              "evidence": "npm run check:cloud-environment && npm run check:plugin-assisted-development-queue && npm run check:plugin-capability-lanes"
+            },
+            {
+              "id": "handoff",
+              "status": "human_review_required",
+              "evidence": "claude,gemini,human-review,openai"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "governance": [
+    "Sprint waves turn all connected plugin assistance into bounded development passes.",
+    "Each lane plan carries quality commands, helper routes, rollback guidance, and blocker separation.",
+    "Auth-blocked plugins stay planned and visible without live connector or AI invocation."
+  ]
+}

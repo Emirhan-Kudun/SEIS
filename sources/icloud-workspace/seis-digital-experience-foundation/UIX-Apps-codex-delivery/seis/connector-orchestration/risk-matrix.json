@@ -1,0 +1,37 @@
+{
+  "riskLevels": {
+    "low": {
+      "description": "Local docs, read-only planning, or public documentation lookup.",
+      "allowedByDefault": true,
+      "approvalRequired": false
+    },
+    "medium": {
+      "description": "Authenticated read-only inspection, local browser QA, or generated design/media planning.",
+      "allowedByDefault": false,
+      "approvalRequired": true
+    },
+    "high": {
+      "description": "External account reads, private workspace data, cloud config, CRM, analytics, or customer data.",
+      "allowedByDefault": false,
+      "approvalRequired": true
+    },
+    "critical": {
+      "description": "Write actions, deployments, payments, purchases, message sending, database mutation, or secrets.",
+      "allowedByDefault": false,
+      "approvalRequired": true,
+      "blockInDryRun": true
+    }
+  },
+  "actionRisk": {
+    "local_file_read": "low",
+    "registry_plan": "low",
+    "public_docs_lookup": "low",
+    "authenticated_read": "high",
+    "external_write": "critical",
+    "deploy": "critical",
+    "purchase": "critical",
+    "send_message": "critical",
+    "database_mutation": "critical",
+    "secret_access": "critical"
+  }
+}

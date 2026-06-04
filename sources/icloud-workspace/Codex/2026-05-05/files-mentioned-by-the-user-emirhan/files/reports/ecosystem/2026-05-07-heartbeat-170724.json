@@ -1,0 +1,105 @@
+{
+  "run_id": "run-2026-05-07-2007-core-heartbeat",
+  "timestamp": "2026-05-07T20:07:24+03:00",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-registry",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "browser-validation",
+      "status": "skipped_with_reason",
+      "reason": "Playwright browser automation could not start because npm is not installed in this runtime.",
+      "duration_ms": 61,
+      "next_action": "Install Node.js/npm in runtime, then re-run browser validation for live Behance render checks."
+    },
+    {
+      "connector": "local-qa-scripts",
+      "status": "invoked",
+      "reason": "quality-gate, regression-smoke, and infrastructure-check all passed.",
+      "duration_ms": 290,
+      "next_action": "Keep these checks mandatory before preview/production promotion."
+    },
+    {
+      "connector": "security-review",
+      "status": "invoked",
+      "reason": "security-static-check completed with no high/medium findings.",
+      "duration_ms": 132,
+      "next_action": "Keep Codex Security full scan on the next environment where plugin runtime dependencies are complete."
+    },
+    {
+      "connector": "notion-run-log",
+      "status": "invoked",
+      "reason": "Notion search is reachable, but no target run-log page/database was found for this project.",
+      "duration_ms": 5757,
+      "next_action": "Provide a dedicated Notion run-log destination (page/database id) to enable writes."
+    },
+    {
+      "connector": "linear-action-package",
+      "status": "skipped_with_reason",
+      "reason": "No callable Linear write tools are exposed in this session.",
+      "duration_ms": 0,
+      "next_action": "Enable Linear connector tools, then publish suggested actions as issue candidates."
+    },
+    {
+      "connector": "github-issue-checklist-candidate",
+      "status": "skipped_with_reason",
+      "reason": "GitHub tools are callable, but the local project is not a git repository and no target repository_full_name was provided.",
+      "duration_ms": 0,
+      "next_action": "Link the project to a GitHub repository (owner/name), then emit suggested issue/checklist candidates."
+    },
+    {
+      "connector": "slack-summary-candidate",
+      "status": "skipped_with_reason",
+      "reason": "No callable Slack tools are exposed in this session.",
+      "duration_ms": 0,
+      "next_action": "Enable Slack connector and provide a channel destination for heartbeat summaries."
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "Browser validation is blocked by missing npm in runtime.",
+      "Notion destination is not configured; Linear/GitHub/Slack action sinks are incomplete."
+    ],
+    "low": [
+      "Core portfolio quality and regression gates are green.",
+      "Security static scan returned no high/medium findings."
+    ]
+  },
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Unblock browser-runtime validation",
+      "problem": "Behance iframe UX should be validated in a real browser each run, but Playwright cannot start.",
+      "proposed_change": "Install Node.js/npm in the execution runtime and rerun browser validation as step 1.",
+      "acceptance_criteria": [
+        "browser-validation status changes from skipped_with_reason to invoked",
+        "Behance loaded/pending/failed state can be read from live DOM"
+      ],
+      "labels": [
+        "ops",
+        "ux",
+        "behance"
+      ],
+      "source_link": "reports/ecosystem/2026-05-07-heartbeat-170724.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Configure external action sinks",
+      "problem": "Guarded write flow cannot complete Notion/Linear/GitHub/Slack steps without destination mapping.",
+      "proposed_change": "Define Notion run-log destination, enable Linear and Slack tools, and map GitHub repository_full_name.",
+      "acceptance_criteria": [
+        "Notion step can write run record",
+        "Linear step can publish suggested action package",
+        "GitHub step can generate issue/checklist candidate",
+        "Slack step can emit summary candidate"
+      ],
+      "labels": [
+        "ops",
+        "automation"
+      ],
+      "source_link": "reports/ecosystem/2026-05-07-heartbeat-170724.json"
+    }
+  ],
+  "summary": "Core QA and static security checks succeeded. Browser and external sink steps were handled with guarded skips and explicit next actions."
+}

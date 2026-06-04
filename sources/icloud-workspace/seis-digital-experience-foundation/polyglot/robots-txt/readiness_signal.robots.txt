@@ -1,0 +1,6 @@
+# ReadinessSignal: Robots.txt crawler policy lane stays dependency-light.
+User-agent: *
+Allow: /polyglot/robots-txt/readiness-signal
+
+# Reference-only sitemap handoff; not installed as a live site root file.
+Sitemap: https://uix-apps.local/polyglot/sitemap-xml/readiness-signal

@@ -1,0 +1,25 @@
+{
+  "name": "UX Apps Long-Term Development Program",
+  "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+  "sourceCommit": "4e8fb380",
+  "mode": "small reversible improvements from reviewed source inventory",
+  "lanes": [
+    "ui-ux-product-maturity",
+    "full-stack-app-depth",
+    "cinematic-motion-system",
+    "3d-spatial-interface-layer",
+    "governance-and-handoff"
+  ],
+  "constraints": [
+    "low-power",
+    "dependency-disciplined",
+    "reduced-motion-aware",
+    "source-only",
+    "no-raw-zip-mirroring",
+    "rollback-safe"
+  ],
+  "defaultValidation": [
+    "git status --short --branch",
+    "npm run quality"
+  ]
+}

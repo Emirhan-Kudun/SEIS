@@ -1,0 +1,46 @@
+{
+  "run_id": "run-2026-05-07-001",
+  "timestamp": "2026-05-07T09:00:00+03:00",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-rotation-registry",
+  "write_mode": "guarded",
+  "detail_level": "detailed-audit",
+  "steps": [
+    {
+      "connector": "browser-validation",
+      "status": "invoked",
+      "reason": "core step executed",
+      "duration_ms": 0,
+      "next_action": "continue"
+    },
+    {
+      "connector": "notion-run-log",
+      "status": "skipped_with_reason",
+      "reason": "missing auth/destination",
+      "duration_ms": 0,
+      "next_action": "configure integration-targets and retry"
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [],
+    "low": []
+  },
+  "audit": {
+    "metrics": {
+      "p95_ms": 0,
+      "fail_rate": 0,
+      "thresholds": {
+        "p95_ms_threshold": 8000,
+        "fail_rate_threshold": 0.05
+      }
+    },
+    "gates": {
+      "sla_alert": false,
+      "security_release_block": false,
+      "dual_approval_required": true
+    }
+  },
+  "summary": "Core sequence completed with guarded output.",
+  "suggested_actions": []
+}

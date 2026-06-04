@@ -1,0 +1,137 @@
+# ================================================
+#  Emirhan Kudun Portfolio — .htaccess
+#  Apache 2.4+ uyumlu
+# ================================================
+
+# ---- HTTPS Zorunlu Yönlendirme ----
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ---- www → non-www (veya tersi — tercihine göre) ----
+RewriteCond %{HTTP_HOST} ^www\.emirhankudun\.com [NC]
+RewriteRule ^(.*)$ https://emirhankudun.com/$1 [L,R=301]
+
+# ---- Trailing Slash Kaldır ----
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+# ================================================
+#  GZIP Sıkıştırma
+# ================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ================================================
+#  Tarayıcı Önbelleği (Browser Caching)
+# ================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML
+  ExpiresByType text/html                    "access plus 1 hour"
+
+  # CSS & JS
+  ExpiresByType text/css                     "access plus 1 year"
+  ExpiresByType application/javascript       "access plus 1 year"
+  ExpiresByType text/javascript              "access plus 1 year"
+
+  # Görseller
+  ExpiresByType image/jpeg                   "access plus 1 year"
+  ExpiresByType image/png                    "access plus 1 year"
+  ExpiresByType image/webp                   "access plus 1 year"
+  ExpiresByType image/svg+xml               "access plus 1 year"
+  ExpiresByType image/gif                    "access plus 1 year"
+  ExpiresByType image/x-icon                 "access plus 1 year"
+
+  # Fontlar
+  ExpiresByType font/woff2                   "access plus 1 year"
+  ExpiresByType font/woff                    "access plus 1 year"
+  ExpiresByType application/font-woff2       "access plus 1 year"
+
+  # Manifest & robots
+  ExpiresByType application/manifest+json    "access plus 1 week"
+  ExpiresByType text/plain                   "access plus 1 month"
+</IfModule>
+
+# Cache-Control Header'ları
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2|woff|jpg|jpeg|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ================================================
+#  Güvenlik Başlıkları (Security Headers)
+# ================================================
+<IfModule mod_headers.c>
+  # Clickjacking koruması
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # XSS koruması
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # MIME-type sniffing koruması
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Referrer politikası
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS (HTTPS kalıcı zorunlu)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # İzin verilen özellikler
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+  # Content Security Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none';"
+</IfModule>
+
+# ================================================
+#  CORS — Font & Asset erişimi
+# ================================================
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|woff|ttf|eot|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# ================================================
+#  Özel Hata Sayfaları
+# ================================================
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /404.html
+
+# ================================================
+#  Dizin Listelemeyi Kapat
+# ================================================
+Options -Indexes
+
+# ================================================
+#  Hassas Dosyaları Gizle
+# ================================================
+<FilesMatch "^(\.htaccess|\.htpasswd|\.git|\.env|composer\.json|package\.json)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# ================================================
+#  ETag Kaldır (CDN uyumu için)
+# ================================================
+FileETag None
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>

@@ -1,0 +1,10 @@
+{
+  "tool": "style-dictionary",
+  "type": "ReadinessSignal",
+  "source": [
+    "tokens/**/*.json"
+  ],
+  "platforms": {},
+  "transforms": [],
+  "notes": "Dependency-light placeholder for future token transformation inventory evidence."
+}

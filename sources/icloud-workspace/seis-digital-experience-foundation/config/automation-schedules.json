@@ -1,0 +1,80 @@
+{
+  "timezone": "Europe/Istanbul",
+  "automations": [
+    {
+      "id": "frontend-ecosystem-core-heartbeat",
+      "name": "Frontend Ecosystem Core Heartbeat",
+      "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17;BYMINUTE=40;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "daily_profile"
+    },
+    {
+      "id": "weekly-portfolio-trend-sync",
+      "name": "Weekly Portfolio Trend Sync",
+      "rrule": "FREQ=WEEKLY;BYDAY=FR;BYHOUR=18;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "weekly_profile"
+    },
+    {
+      "id": "monthly-full-connector-sweep",
+      "name": "Monthly Full Connector Sweep",
+      "rrule": "FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "monthly_profile"
+    },
+    {
+      "id": "quarterly-mcp-ecosystem-audit",
+      "name": "Quarterly MCP Ecosystem Audit",
+      "rrule": "FREQ=MONTHLY;INTERVAL=3;BYMONTHDAY=7;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "quarterly_profile"
+    },
+    {
+      "id": "ui-ux-digital-lab-10-dk-geli-tirme-devam",
+      "app_automation_id": "uixappttr-10-dk-polyglot-devam-otomasyonu",
+      "name": "UI-UX Digital Lab Low-Power Continuation",
+      "rrule": "FREQ=MINUTELY;INTERVAL=10",
+      "status": "ACTIVE",
+      "run_profile": "heartbeat_low_power_development",
+      "scope": "Continue one small reversible UIX Apps development slice in high-efficiency low-power mode.",
+      "repository_path_suffix": "/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+      "required_branch": "UIXAppTTR",
+      "notification_policy": {
+        "default_decision": "DONT_NOTIFY",
+        "quiet_when": [
+          "required checks pass",
+          "working tree is clean or only a small reversible local commit was made",
+          "no credentials, server target, or visual runtime decision is needed"
+        ],
+        "notify_when": [
+          "workspace path or branch is wrong",
+          "a check fails",
+          "GitHub auth, server credentials, or visual runtime evidence is needed",
+          "manual product or release decision is needed"
+        ]
+      }
+    },
+    {
+      "id": "ux-apps-low-power-development-check",
+      "name": "UX Apps Low-Power Development Check",
+      "rrule": "FREQ=DAILY;BYHOUR=10;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "daily_low_power_development",
+      "scope": "Run lightweight quality checks, inspect backlog and docs, and implement one small reversible UIX Apps improvement when safe.",
+      "repository_path_suffix": "/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+      "required_branch": "UIXAppTTR"
+    },
+    {
+      "id": "uix-apps-full-efficiency-shipment-loop",
+      "name": "UIX Apps Full Efficiency Shipment Loop",
+      "rrule": "FREQ=MINUTELY;INTERVAL=10",
+      "status": "ACTIVE",
+      "run_profile": "full_efficiency_machine_light_shipment",
+      "scope": "Run shipment preflight and push UIXAppTTR only when the working tree is clean and GitHub authentication is available.",
+      "repository_path_suffix": "/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+      "required_branch": "UIXAppTTR",
+      "command": "npm run shipment:full-efficiency",
+      "stop_rule": "If GitHub auth is missing, stop after preflight and report the blocker without retrying push."
+    }
+  ]
+}

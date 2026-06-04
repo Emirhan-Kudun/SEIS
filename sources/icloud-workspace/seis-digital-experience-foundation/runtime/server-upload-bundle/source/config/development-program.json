@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "purpose": "Coordinate the next UIX Apps development sprint across UX, cinematic systems, polyglot code, quality, and server publication.",
+  "currentSprint": {
+    "id": "sprint-2026-05-development-cockpit",
+    "title": "Development Cockpit Foundation",
+    "status": "active",
+    "cadence": "low-power incremental delivery",
+    "branch": "UIXAppTTR"
+  },
+  "developmentMode": {
+    "id": "full-efficiency-machine-light",
+    "status": "active",
+    "intent": "Spend reasoning and token budget on better local source quality while keeping the laptop in static-first, low-thermal execution.",
+    "allowedActions": [
+      "commit small reversible improvements to the canonical iCloud UIX-Apps checkout",
+      "run targeted static checks before broader quality gates",
+      "preserve GitHub shipment for authenticated preflight only",
+      "keep server upload execution blocked until target credentials are explicit"
+    ],
+    "blockedActions": [
+      "retrying GitHub push when authentication is missing",
+      "starting dev servers for static contract decisions",
+      "running Docker or broad browser automation without a visual or deployment decision"
+    ]
+  },
+  "automationPolicy": {
+    "polyglotLanguageGrowth": {
+      "minimumGovernedLanes": 26,
+      "currentGovernedLanes": 228,
+      "targetDirection": "Preserve and expand governed software-language coverage when each new lane has a clear product, governance, or handoff role.",
+      "requiredChecks": [
+        "npm run check:software-languages",
+        "npm run check:polyglot-foundation"
+      ],
+      "promotionRules": [
+        "Every new language lane must update the software-language matrix, polyglot manifest, starter source file, checker marker, server handoff requirement, and docs.",
+        "Reference lanes stay dependency-free until a runtime need is explicit.",
+        "Prefer small contracts, adapters, readiness signals, schemas, or handoff files over new package managers or compilers.",
+        "Keep all language-lane changes reversible, reviewable, and compatible with low-power validation."
+      ]
+    },
+    "workspaceRouting": {
+      "canonicalPathSuffix": "/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation",
+      "canonicalPathSuffixes": [
+        "/Library/Mobile Documents/com~apple~CloudDocs/Github/UIX-Apps",
+        "/Library/Mobile Documents/com~apple~CloudDocs/Github/seis-digital-experience-foundation"
+      ],
+      "requiredBranch": "UIXAppTTR",
+      "blockedPathSegments": [
+        "/Documents/New project",
+        "/Library/Mobile Documents/com~apple~CloudDocs/Github/New project",
+        "/UIX-Apps-codex-delivery"
+      ],
+      "requiredChecks": [
+        "npm run check:workspace-routing",
+        "npm run check:uixappttr-topology"
+      ]
+    },
+    "repositoryIntake": {
+      "manifest": "config/github-repository-intake.json",
+      "canonicalTarget": "UIX-Apps",
+      "publicGitHubOwner": "emirhankudun-ux",
+      "requiredChecks": [
+        "npm run check:repository-intake"
+      ],
+      "promotionRules": [
+        "Do not copy external repositories wholesale into UIX-Apps.",
+        "Promote only reviewed source, docs, config, scripts, or UX Apps module changes.",
+        "Keep dirty local source repositories in review-only mode until a clean scope is chosen."
+      ]
+    }
+  },
+  "lanes": [
+    {
+      "id": "ux-apps",
+      "label": "UX Apps module",
+      "status": "active",
+      "focus": "Keep archive intelligence, cinematic program, and zip promotion lab visible in the canonical repo.",
+      "qualitySignal": "npm run ux:quality",
+      "nextAction": "Promote one reviewed zip insight into the UX Apps module per sprint."
+    },
+    {
+      "id": "cinematic-ui",
+      "label": "Cinematic UI",
+      "status": "active",
+      "focus": "Run a restrained canvas depth layer inside the development cockpit without increasing cognitive load.",
+      "qualitySignal": "npm run check:cinematic-depth",
+      "nextAction": "Tune cinematic-depth settings after visual smoke checks."
+    },
+    {
+      "id": "polyglot-branch",
+      "label": "Polyglot branch",
+      "status": "active",
+      "focus": "Keep at least 26 software languages represented as governed starter lanes, with the current program tracking 228 lightweight language lanes rather than scattered experiments.",
+      "qualitySignal": "npm run check:software-languages && npm run check:polyglot-foundation",
+      "nextAction": "Expand language lanes only when the automation policy can add manifest, checker, handoff, docs, and rollback-safe starter coverage together."
+    },
+    {
+      "id": "server-delivery",
+      "label": "Server delivery",
+      "status": "blocked",
+      "focus": "Preserve upload-ready source bundles until GitHub/server credentials are configured.",
+      "qualitySignal": "npm run server-upload:dry-run",
+      "nextAction": "Configure UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH when the server target is known."
+    },
+    {
+      "id": "repository-intake",
+      "label": "Repository intake",
+      "status": "active",
+      "focus": "Keep iCloud and public GitHub repos visible as reviewed inputs without copying external repositories into the runtime surface.",
+      "qualitySignal": "npm run check:repository-intake",
+      "nextAction": "Review docs and UX source first, then promote only small, attributed, reversible improvements."
+    }
+  ],
+  "decisionSlots": [
+    {
+      "id": "next-cinematic-surface",
+      "question": "Which calm cinematic surface should be promoted first?",
+      "defaultOption": "development cockpit ambient depth layer"
+    },
+    {
+      "id": "server-target",
+      "question": "Which real server should receive the generated bundle?",
+      "defaultOption": "wait for explicit host/user/path credentials"
+    }
+  ]
+}

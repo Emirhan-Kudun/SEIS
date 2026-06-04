@@ -1,0 +1,24 @@
+{
+  "group": "design-media-content",
+  "purpose": "Design systems, media generation, creative assets, video, documents, and content production.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": ["asset upload", "brand publication", "external design mutation", "paid media generation"],
+  "connectors": [
+    {"id":"figma","sources":["openai-curated","claude-plugins-official"],"role":"design inspection, generation, and design system handoff","mode":"on-demand"},
+    {"id":"canva","sources":["openai-curated"],"role":"branded design creation","mode":"on-demand"},
+    {"id":"adobe-for-creativity","sources":["claude-plugins-official"],"role":"creative design workflows","mode":"registry-only"},
+    {"id":"cloudinary","sources":["openai-curated","claude-plugins-official"],"role":"media asset management and transformation","mode":"on-demand"},
+    {"id":"heygen","sources":["openai-curated"],"role":"AI avatar and video generation","mode":"registry-only"},
+    {"id":"hyperframes","sources":["openai-curated"],"role":"HTML to video and GSAP motion rendering","mode":"on-demand"},
+    {"id":"remotion","sources":["openai-curated"],"role":"React video composition","mode":"on-demand"},
+    {"id":"game-studio","sources":["openai-curated"],"role":"interactive and game-like web experiences","mode":"registry-only"},
+    {"id":"biorender","sources":["openai-curated"],"role":"scientific visual creation","mode":"registry-only"},
+    {"id":"documents","sources":["openai-primary-runtime"],"role":"document creation and editing","mode":"on-demand"},
+    {"id":"spreadsheets","sources":["openai-primary-runtime"],"role":"spreadsheet creation and analysis","mode":"on-demand"},
+    {"id":"presentations","sources":["openai-primary-runtime"],"role":"slide deck generation and review","mode":"on-demand"},
+    {"id":"latex","sources":["openai-bundled"],"role":"technical document compilation","mode":"on-demand"},
+    {"id":"readwise","sources":["openai-curated"],"role":"research highlights and reading knowledge","mode":"registry-only"},
+    {"id":"zotero","sources":["openai-curated"],"role":"citation and bibliography workflows","mode":"on-demand"}
+  ]
+}

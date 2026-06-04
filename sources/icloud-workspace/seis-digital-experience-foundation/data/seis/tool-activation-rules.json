@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-06-01",
+  "mission": "SEIS-M005",
+  "purpose": "Map user mission language to the smallest safe set of skill, connector, and MCP surfaces.",
+  "policy": {
+    "defaultIntent": "general-governance",
+    "defaultMode": "read-only-first",
+    "blanketActivationAllowed": false,
+    "preferLocalEvidence": true,
+    "escalationRequires": [
+      "explicit mission",
+      "auth readiness",
+      "risk owner",
+      "rollback path",
+      "validation command"
+    ]
+  },
+  "intents": [
+    {
+      "id": "mcp-skill-connector-governance",
+      "label": "MCP Skill Connector Governance",
+      "keywords": ["skill", "skills", "connector", "connectors", "mcp", "plugin", "plugins", "eklenti", "eklentiler", "beceri", "beceriler", "tool", "tools"],
+      "primaryAgents": ["governance-agent", "automation-agent", "security-agent"],
+      "requiredSurfaces": ["skill-runtime", "local-development-tools", "documentation-knowledge-mcps"],
+      "conditionalSurfaces": [
+        {
+          "id": "github-governance-connectors",
+          "keywords": ["github", "server", "push", "publish", "yayin", "repo"]
+        },
+        {
+          "id": "product-collaboration-connectors",
+          "keywords": ["notion", "linear", "slack", "gmail", "calendar", "drive"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors"],
+      "validation": ["npm run check:seis-mcp-connector-registry", "npm run check:seis-tool-activation"]
+    },
+    {
+      "id": "publication",
+      "label": "GitHub And Server Publication",
+      "keywords": ["github", "server", "push", "publish", "deploy", "remote", "origin", "yayin", "paylas", "aktar", "icloud"],
+      "primaryAgents": ["automation-agent", "security-agent", "governance-agent"],
+      "requiredSurfaces": ["local-development-tools", "github-governance-connectors"],
+      "conditionalSurfaces": [
+        {
+          "id": "cloud-infrastructure-mcps",
+          "keywords": ["vercel", "cloudflare", "netlify", "render", "aws", "azure", "google cloud", "cloud"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors", "data-backend-mcps"],
+      "validation": ["npm run automation:publish-readiness"]
+    },
+    {
+      "id": "experience-design",
+      "label": "Cinematic Experience Design",
+      "keywords": ["ui", "ux", "web", "mobile", "responsive", "animation", "animasyon", "cinematic", "sinematik", "3d", "3b", "motion", "hero", "scroll", "parallax"],
+      "primaryAgents": ["design-director-agent", "product-agent", "automation-agent"],
+      "requiredSurfaces": ["local-development-tools", "design-collaboration-connectors"],
+      "conditionalSurfaces": [
+        {
+          "id": "node-repl-browser-automation",
+          "keywords": ["web", "browser", "localhost", "screenshot", "responsive", "mobile", "animation", "3d", "3b"]
+        },
+        {
+          "id": "documentation-knowledge-mcps",
+          "keywords": ["accessibility", "seo", "performance", "a11y", "wcag"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors"],
+      "validation": ["npm run quality"]
+    },
+    {
+      "id": "ai-workflow-generation",
+      "label": "AI Workflow Generation",
+      "keywords": ["workflow", "automation", "otomasyon", "agent", "ajan", "ai", "llm", "output", "temporal", "rag", "knowledge graph"],
+      "primaryAgents": ["automation-agent", "research-agent", "governance-agent"],
+      "requiredSurfaces": ["skill-runtime", "local-development-tools", "documentation-knowledge-mcps"],
+      "conditionalSurfaces": [
+        {
+          "id": "data-backend-mcps",
+          "keywords": ["database", "db", "postgres", "supabase", "neon", "firebase", "vector"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors"],
+      "validation": ["npm run quality"]
+    },
+    {
+      "id": "security-observability",
+      "label": "Security And Observability",
+      "keywords": ["security", "guvenlik", "scan", "audit", "incident", "sentry", "datadog", "secret", "vulnerability", "observability"],
+      "primaryAgents": ["security-agent", "governance-agent", "automation-agent"],
+      "requiredSurfaces": ["local-development-tools", "observability-security-mcps"],
+      "conditionalSurfaces": [
+        {
+          "id": "github-governance-connectors",
+          "keywords": ["github", "pr", "issue", "repo"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors"],
+      "validation": ["npm run quality"]
+    },
+    {
+      "id": "general-governance",
+      "label": "General Governance",
+      "keywords": ["seis", "repo", "architecture", "governance", "plan", "roadmap", "docs", "documentation", "mimari", "gelistirme"],
+      "primaryAgents": ["governance-agent", "chief-architect-agent", "documentation-agent"],
+      "requiredSurfaces": ["local-development-tools", "documentation-knowledge-mcps"],
+      "conditionalSurfaces": [
+        {
+          "id": "skill-runtime",
+          "keywords": ["skill", "agent", "workflow", "ai"]
+        }
+      ],
+      "blockedByDefault": ["business-payment-connectors"],
+      "validation": ["npm run quality"]
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+package search
+
+import (
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+// setupTestFileForBefore creates a temporary test file with provided content for testing
+func setupTestFileForBefore(t *testing.T, name, content string) (string, func()) {
+	// Create a temporary directory for test files
+	tempDir, err := os.MkdirTemp("", "regex-before-test")
+	if err != nil {
+		t.Fatalf("Failed to create temp directory: %v", err)
+	}
+	// Create the test file
+	testFile := filepath.Join(tempDir, name)
+	err = os.WriteFile(testFile, []byte(content), 0644)
+	if err != nil {
+		os.RemoveAll(tempDir)
+		t.Fatalf("Failed to create test file: %v", err)
+	}
+	// Return a cleanup function
+	cleanup := func() {
+		os.RemoveAll(tempDir)
+	}
+	return testFile, cleanup
+}
+
+// TestInsertBeforeFirstFunction tests inserting content before the first function in a file
+func TestInsertBeforeFirstFunction(t *testing.T) {
+	content := `
+func firstFunction() {
+	// Code here
+}
+func secondFunction() {
+	// More code
+}`
+	expected := `
+// New content here
+func firstFunction() {
+	// Code here
+}
+func secondFunction() {
+	// More code
+}`
+	testFile, cleanup := setupTestFileForBefore(t, "functions.go", content)
+	defer cleanup()
+	result, err := InsertBeforeRegex(testFile, `func firstFunction\(\)`, "// New content here\n", 1, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeAllFunctions tests inserting content before all functions in a file
+func TestInsertBeforeAllFunctions(t *testing.T) {
+	content := `
+func firstFunction() {
+	// Code here
+}
+func secondFunction() {
+	// More code
+}`
+	expected := `
+// Comment before function
+func firstFunction() {
+	// Code here
+}
+// Comment before function
+func secondFunction() {
+	// More code
+}`
+	testFile, cleanup := setupTestFileForBefore(t, "all_functions.go", content)
+	defer cleanup()
+	result, err := InsertBeforeRegex(testFile, `func \w+\(\)`, "// Comment before function\n", 0, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeSpecificLine tests inserting content before a specific line
+func TestInsertBeforeSpecificLine(t *testing.T) {
+	content := `line 1
+line 2
+line 3
+line 4`
+	expected := `line 1
+INSERTED CONTENT
+line 2
+line 3
+line 4`
+	testFile, cleanup := setupTestFileForBefore(t, "lines.txt", content)
+	defer cleanup()
+	result, err := InsertBeforeRegex(testFile, `line 2`, "INSERTED CONTENT\n", 1, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeMultipleOccurrences tests inserting content before a specific occurrence
+// when multiple occurrences of the pattern exist
+func TestInsertBeforeMultipleOccurrences(t *testing.T) {
+	content := `repeated text
+some other content
+repeated text
+more content
+repeated text`
+	expected := `repeated text
+some other content
+INSERTED - repeated text
+more content
+repeated text`
+	testFile, cleanup := setupTestFileForBefore(t, "repeated.txt", content)
+	defer cleanup()
+	result, err := InsertBeforeRegex(testFile, `repeated text`, "INSERTED - ", 2, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestPatternNotFoundBefore tests handling of a pattern that doesn't exist in the file
+func TestPatternNotFoundBefore(t *testing.T) {
+	content := `This is some content
+that doesn't contain the pattern`
+	testFile, cleanup := setupTestFileForBefore(t, "no_pattern.txt", content)
+	defer cleanup()
+	_, err := InsertBeforeRegex(testFile, `non-existent pattern`, "INSERTED CONTENT\n", 1, false)
+	if err == nil {
+		t.Error("Expected an error but got none")
+	}
+}
+
+// TestInvalidRegexPatternBefore tests handling of an invalid regex pattern
+func TestInvalidRegexPatternBefore(t *testing.T) {
+	content := `This is some content
+with valid text`
+	testFile, cleanup := setupTestFileForBefore(t, "invalid_regex.txt", content)
+	defer cleanup()
+	_, err := InsertBeforeRegex(testFile, `[invalid regex`, "INSERTED CONTENT\n", 1, false)
+	if err == nil {
+		t.Error("Expected an error but got none")
+	}
+}
+
+// TestOccurrenceOutOfRangeBefore tests handling when the specified occurrence exceeds available matches
+func TestOccurrenceOutOfRangeBefore(t *testing.T) {
+	content := `pattern here
+some other text
+pattern here`
+	testFile, cleanup := setupTestFileForBefore(t, "occurrences.txt", content)
+	defer cleanup()
+	_, err := InsertBeforeRegex(testFile, `pattern here`, "INSERTED CONTENT\n", 3, false)
+	if err == nil {
+		t.Error("Expected an error but got none")
+	}
+}
+
+// TestEmptyFileBefore tests handling of an empty file
+func TestEmptyFileBefore(t *testing.T) {
+	content := ``
+	testFile, cleanup := setupTestFileForBefore(t, "empty.txt", content)
+	defer cleanup()
+	_, err := InsertBeforeRegex(testFile, `pattern`, "INSERTED CONTENT", 1, false)
+	if err == nil {
+		t.Error("Expected an error but got none")
+	}
+}
+
+// TestInsertBeforeRegex_WithAutoIndent_Spaces tests auto-indentation with spaces
+func TestInsertBeforeRegex_WithAutoIndent_Spaces(t *testing.T) {
+	content := `package main
+
+func main() {
+    fmt.Println("hello")
+}`
+
+	expected := `package main
+
+func main() {
+    newCode()
+    fmt.Println("hello")
+}`
+
+	testFile, cleanup := setupTestFileForBefore(t, "indent_before_spaces.go", content)
+	defer cleanup()
+
+	result, err := InsertBeforeRegex(testFile, `fmt\.Println\("hello"\)`, "newCode()\n", 1, true)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeRegex_WithAutoIndent_Tabs tests auto-indentation with tabs
+func TestInsertBeforeRegex_WithAutoIndent_Tabs(t *testing.T) {
+	content := `package main
+
+func main() {
+	if true {
+		fmt.Println("hello")
+	}
+}`
+
+	expected := `package main
+
+func main() {
+	if true {
+		newCode()
+		fmt.Println("hello")
+	}
+}`
+
+	testFile, cleanup := setupTestFileForBefore(t, "indent_before_tabs.go", content)
+	defer cleanup()
+
+	result, err := InsertBeforeRegex(testFile, `fmt\.Println\("hello"\)`, "newCode()\n", 1, true)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeRegex_WithAutoIndent_MultiLine tests auto-indentation with multiple lines
+func TestInsertBeforeRegex_WithAutoIndent_MultiLine(t *testing.T) {
+	content := `function test() {
+    if (condition) {
+        doSomething();
+    }
+}`
+
+	expected := `function test() {
+    if (condition) {
+        beforeCall();
+        anotherCall();
+        doSomething();
+    }
+}`
+
+	testFile, cleanup := setupTestFileForBefore(t, "multiline_indent_before.js", content)
+	defer cleanup()
+
+	result, err := InsertBeforeRegex(testFile, `doSomething\(\);`, "beforeCall();\nanotherCall();\n", 1, true)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	if result != expected {
+		t.Errorf("Expected:\n%s\n\nGot:\n%s", expected, result)
+	}
+}
+
+// TestInsertBeforeAllOccurrences_ManyMatches tests inserting before all occurrences
+// with many matches (reproduces MCP client crash scenario)
+func TestInsertBeforeAllOccurrences_ManyMatches(t *testing.T) {
+	content := `package testing
+
+import (
+	"context"
+	"fmt"
+	"strings"
+)
+
+// Service provides testing functionality
+type Service struct {
+	name string
+	id   int
+}
+
+// NewService creates a new Service instance
+func NewService(name string) *Service {
+	return &Service{
+		name: name,
+		id:   1,
+	}
+}
+
+// Process handles data processing
+func (s *Service) Process(ctx context.Context, data string) (string, error) {
+	if data == "" {
+		return "", fmt.Errorf("empty data")
+	}
+	result := strings.ToUpper(data)
+	return result, nil
+}
+`
+
+	testFile, cleanup := setupTestFileForBefore(t, "service.go", content)
+	defer cleanup()
+
+	// Insert "/* before */ " before all occurrences of "Service"
+	result, err := InsertBeforeRegex(testFile, `Service`, "/* before */ ", 0, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	// Count occurrences of "/* before */ " in result
+	count := 0
+	for i := 0; i < len(result); i++ {
+		if i+14 <= len(result) && result[i:i+14] == "/* before */ S" {
+			count++
+		}
+	}
+
+	// Should have 8 occurrences (matching all "Service" strings including NewService, *Service, &Service)
+	if count != 8 {
+		t.Errorf("Expected 8 insertions, got %d\n\nResult:\n%s", count, result)
+	}
+}
+
+// TestInsertBeforeAllOccurrences_WithDryRunSimulation tests the scenario
+// that caused MCP server crash - occurrence 0 with pattern "Service"
+func TestInsertBeforeAllOccurrences_WithDryRunSimulation(t *testing.T) {
+	content := `package testing
+
+// Service provides testing functionality
+type Service struct {
+	name string
+}
+
+func NewService(name string) *Service {
+	return &Service{
+		name: name,
+	}
+}
+
+func (s *Service) Process() {}
+`
+
+	testFile, cleanup := setupTestFileForBefore(t, "service_dryrun.go", content)
+	defer cleanup()
+
+	// This is the exact call that caused the MCP server to crash
+	result, err := InsertBeforeRegex(testFile, `Service`, "/* before */ ", 0, false)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	// Verify the result is valid and contains insertions
+	if len(result) == 0 {
+		t.Error("Result should not be empty")
+	}
+
+	// The result should be longer than the original content
+	if len(result) <= len(content) {
+		t.Errorf("Result should be longer than original. Original: %d, Result: %d", len(content), len(result))
+	}
+
+	t.Logf("Result length: %d, Original length: %d", len(result), len(content))
+	t.Logf("Result:\n%s", result)
+}

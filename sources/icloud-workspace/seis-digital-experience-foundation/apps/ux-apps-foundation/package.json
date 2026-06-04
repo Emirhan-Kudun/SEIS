@@ -1,0 +1,21 @@
+{
+  "name": "ux-apps",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A low-power full-stack UX Apps foundation with cinematic interface, local APIs, and governance checks.",
+  "scripts": {
+    "dev": "node src/server/server.mjs",
+    "serve": "npm run dev",
+    "serve:static": "python3 -m http.server 4177",
+    "start": "NODE_ENV=production node src/server/server.mjs",
+    "check": "node scripts/check.mjs",
+    "check:legacy": "node scripts/quality-check.cjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test",
+    "quality": "npm run check && npm run validate && npm run check:legacy && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

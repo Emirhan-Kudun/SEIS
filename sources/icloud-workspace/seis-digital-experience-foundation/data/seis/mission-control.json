@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-06-01",
+  "policy": {
+    "singleActiveMission": true,
+    "sourceOfTruth": "GitHub",
+    "archiveLayers": ["iCloud Drive", "Google Drive"],
+    "modelIndependence": true
+  },
+  "activeMission": {
+    "id": "SEIS-M015",
+    "title": "SEIS Capability Activation Hub",
+    "status": "active",
+    "ownerAgent": "automation-agent",
+    "supportAgents": [
+      "chief-architect-agent",
+      "governance-agent",
+      "security-agent",
+      "engineering-language-agent",
+      "documentation-agent"
+    ],
+    "domains": [
+      "governance",
+      "automation",
+      "engineering",
+      "ai",
+      "cloud",
+      "github",
+      "mcp"
+    ],
+    "purpose": "Connect usable SEIS apps, skills, plugins, MCPs, GitHub publication, cloud actions, and server handoff into one mission-routed activation hub.",
+    "scope": [
+      "capability activation snapshot",
+      "mission-routed skill, plugin, app, and MCP bridge",
+      "runtime API endpoint",
+      "Codex cloud action",
+      "token routing entry",
+      "quality gate validation",
+      "documentation for SEIS-M015"
+    ],
+    "nonScope": [
+      "website redesign",
+      "portfolio migration",
+      "large archive import",
+      "new runtime dependencies",
+      "blanket tool execution",
+      "server upload without UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH",
+      "remote writes without auth, deployment readiness, and mission approval",
+      "GitHub main push",
+      "blind OAuth connector calls",
+      "adding dependencies only to imply capability breadth"
+    ],
+    "validation": [
+      "capability activation hub includes live MCP runtime, registry, connector matrix, plugin skill, cloud, and shipment sources",
+      "blanket activation remains disabled",
+      "server exposes /api/seis-capability-activation-hub",
+      "Codex cloud config exposes a read-only capability activation hub action",
+      "token routing maps capability activation hub files",
+      "existing quality checks remain green"
+    ],
+    "rollback": "Revert SEIS-M015 capability activation hub snapshot, checker, docs, server endpoint, cloud config action, and routing entry without touching app UI.",
+    "completionCriteria": [
+      "capability activation hub exists and validates",
+      "server endpoint returns the activation hub snapshot",
+      "quality gate includes capability activation hub validation",
+      "usable apps, skills, plugins, and MCP surfaces are connected through mission routing",
+      "GitHub UIXAppTTR receives the committed update"
+    ]
+  },
+  "missionHistory": [
+    {
+      "id": "SEIS-M014",
+      "title": "SEIS GitHub Language Presence",
+      "status": "committed",
+      "commit": "a093585",
+      "note": "GitHub language presence gate and /api/seis-github-language-presence were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M013",
+      "title": "SEIS Product Engineering Operating Model",
+      "status": "committed",
+      "commit": "178c164",
+      "note": "Product engineering operating model and /api/seis-product-engineering-model were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M012",
+      "title": "SEIS Remote Shipment Gate",
+      "status": "committed",
+      "commit": "6f1d2af",
+      "note": "Remote shipment gate and /api/seis-remote-shipment-gate were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M011",
+      "title": "SEIS Server Cloud Deploy Envelope",
+      "status": "committed",
+      "commit": "0c2c9dd",
+      "note": "Server/cloud deploy envelope, .env.server.local template support, and /api/seis-deploy-envelope were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M010",
+      "title": "SEIS Cloud Server Environment",
+      "status": "committed",
+      "commit": "e4b466a",
+      "note": "Cloud/server environment profile and /api/seis-cloud-server-environment were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M009",
+      "title": "SEIS Connector Readiness Matrix",
+      "status": "committed",
+      "commit": "29281f6",
+      "note": "Connector readiness matrix and /api/seis-connector-readiness were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M008",
+      "title": "SEIS Operations Readiness API",
+      "status": "committed",
+      "commit": "29cd700",
+      "note": "Operations readiness snapshot and /api/seis-operations-readiness were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M007",
+      "title": "SEIS Runtime-Aware Tool Activation Planner And Deployment Readiness",
+      "status": "committed",
+      "commit": "f2efca2",
+      "note": "Runtime-aware planner, deployment readiness snapshot, cloud environment readiness, GitHub sync check, and server upload blocker reporting were committed and pushed to UIXAppTTR."
+    },
+    {
+      "id": "SEIS-M006",
+      "title": "SEIS MCP Runtime Readiness Snapshot",
+      "status": "committed",
+      "commit": "2dfb335",
+      "note": "Live MCP runtime readiness was captured from codex mcp list with 193 visible entries, 191 mapped SEIS surfaces, 14 blocked-auth entries, and 13 permission-gated entries. Remote publication is blocked until GitHub CLI authentication is available."
+    },
+    {
+      "id": "SEIS-M005",
+      "title": "SEIS Tool Activation Planner",
+      "status": "committed",
+      "commit": "ece7502",
+      "note": "Mission-aware tool activation planning was added so SEIS can select the smallest safe skill, connector, and MCP surface for each request. Remote publication is blocked until GitHub CLI authentication is available."
+    },
+    {
+      "id": "SEIS-M004",
+      "title": "SEIS MCP Skill Connector Governance",
+      "status": "committed",
+      "commit": "aa5efab",
+      "note": "Skills, connectors, and MCPs were placed under registry-first activation with risk classes, runtime observations, and quality validation. Remote publication is blocked until GitHub CLI authentication is available."
+    },
+    {
+      "id": "SEIS-M003",
+      "title": "SEIS Selective Index Extraction",
+      "status": "committed",
+      "commit": "e49ff71",
+      "note": "High-priority SEIS archive pack indexes were selectively extracted into a bounded active-context bridge. Remote publication is blocked until GitHub CLI authentication is available."
+    },
+    {
+      "id": "SEIS-M002",
+      "title": "SEIS Knowledge Intake Manifest",
+      "status": "committed",
+      "commit": "16f6a22",
+      "note": "SEIS.zip nested packs were manifest-first mapped from iCloud archive storage. Remote publication is blocked until GitHub CLI authentication is available."
+    },
+    {
+      "id": "SEIS-M001",
+      "title": "SEIS Supreme Foundation Governance",
+      "status": "committed",
+      "commit": "dfdb55c",
+      "note": "Foundation directive, mission lifecycle, agent registry, domain map, token routing, and quality gate were added locally. Remote publication is blocked until GitHub CLI authentication is available."
+    }
+  ],
+  "missionLifecycle": [
+    "research",
+    "analysis",
+    "planning",
+    "architecture",
+    "implementation",
+    "validation",
+    "documentation",
+    "commit",
+    "completion"
+  ],
+  "knownBlockers": [
+    {
+      "id": "GITHUB_AUTH_MISSING",
+      "status": "resolved",
+      "detail": "GitHub CLI authentication is available with workflow scope; guarded publication remains controlled by deployment readiness and branch rules."
+    },
+    {
+      "id": "LOCAL_PLUGIN_HOOK_BLOCKER",
+      "status": "monitoring",
+      "detail": "A missing local plugin hook previously blocked shell validation commands; rerun checks before publication."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "release-readiness",
+  "type": "ReadinessSignal",
+  "status": "blocked",
+  "gates": [],
+  "summary": {
+    "passed": 0,
+    "failed": 0,
+    "warnings": 0
+  },
+  "notes": "Dependency-light placeholder for future go-no-go gate evidence."
+}

@@ -1,0 +1,11 @@
+{
+  "tool": "license-checker",
+  "type": "ReadinessSignal",
+  "packages": {},
+  "summary": {
+    "packages": 0,
+    "unknownLicenses": 0,
+    "restrictedLicenses": 0
+  },
+  "notes": "Dependency-light placeholder for future package license inventory evidence."
+}

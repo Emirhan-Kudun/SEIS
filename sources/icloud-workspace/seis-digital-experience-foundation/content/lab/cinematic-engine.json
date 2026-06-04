@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "branch": "UIXAppTTR",
+  "engineMode": "cinematic-with-guardrails",
+  "commandDeck": [
+    {
+      "id": "motion-orchestrator",
+      "label": "Motion Orchestrator",
+      "status": "active",
+      "metric": "Canvas, parallax, reveal, hover depth",
+      "action": "Increase cinematic density only when reduced-motion and mobile checks stay green."
+    },
+    {
+      "id": "capability-router",
+      "label": "Capability Router",
+      "status": "active",
+      "metric": "10 families, 8 governed surfaces",
+      "action": "Route every plugin or skill through an owner agent before implementation."
+    },
+    {
+      "id": "deployment-lock",
+      "label": "Deployment Lock",
+      "status": "blocked",
+      "metric": "Server target missing",
+      "action": "Keep live deploy blocked until target, document root, access method, and rollback are known."
+    },
+    {
+      "id": "quality-loop",
+      "label": "Quality Loop",
+      "status": "active",
+      "metric": "Workspace, motion, mobile, cinematic, registry",
+      "action": "Run static gates before refresh, release, or publication attempts."
+    }
+  ],
+  "intensityModes": [
+    {
+      "id": "minimal",
+      "label": "Minimal",
+      "purpose": "Typography-first browsing and low-power review."
+    },
+    {
+      "id": "balanced",
+      "label": "Balanced",
+      "purpose": "Default mobile-safe polish with calm transitions."
+    },
+    {
+      "id": "cinematic",
+      "label": "Cinematic",
+      "purpose": "Full hero field, depth, parallax, and premium motion cadence."
+    }
+  ],
+  "rules": [
+    "Reduced motion always overrides cinematic intensity.",
+    "Mobile performance stays ahead of visual spectacle.",
+    "No cloud deployment starts without explicit server target details.",
+    "Every visible command must map to a quality gate or governance record."
+  ]
+}

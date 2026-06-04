@@ -1,0 +1,49 @@
+{
+  "run_id": "run-2026-05-08T08-04-59-617Z-content-intake",
+  "timestamp": "2026-05-08T08:04:59.617Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "content-intake-read-only",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "content-intake-hybrid",
+      "status": "invoked",
+      "reason": "Hybrid intake completed with read-only indexing.",
+      "duration_ms": 0,
+      "next_action": "Review suggested candidates and promote approved items manually."
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [],
+    "low": [
+      "Suggested candidates ready for approval."
+    ]
+  },
+  "audit": {
+    "threshold": 85,
+    "max_candidates": 300,
+    "totals": {
+      "candidates": 801,
+      "stored_candidates": 300,
+      "trimmed_candidates": 501,
+      "suggested": 791,
+      "blocked": 0,
+      "rejected": 10
+    }
+  },
+  "summary": "Hybrid read-only intake finished. No website code was modified.",
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Review suggested content intake queue",
+      "problem": "New Behance/drawing candidates require approval flow.",
+      "proposed_change": "Approve selected candidates in Notion+GitHub workflow before implementation.",
+      "labels": [
+        "content",
+        "ops"
+      ],
+      "source_link": "content-intake-ledger.json"
+    }
+  ]
+}

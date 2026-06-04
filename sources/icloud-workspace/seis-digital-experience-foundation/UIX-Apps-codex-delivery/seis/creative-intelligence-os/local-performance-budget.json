@@ -1,0 +1,43 @@
+{
+  "system": "SEIS Local Device Performance Budget",
+  "target_device": "2019 15-inch MacBook Pro i9",
+  "goal": "Full practical productivity without unnecessary local thermal pressure.",
+  "runtime_safe": true,
+  "modifies_main_site": false,
+  "default_mode": "low-intensity",
+  "low_intensity_commands": [
+    "git status --short --branch",
+    "rg --files",
+    "node scripts/branch-governance-check.cjs",
+    "node scripts/local-quality-gate.cjs",
+    "focused sed reads",
+    "focused rg searches"
+  ],
+  "medium_intensity_commands": [
+    "npm test",
+    "bash scripts/pre-merge-check.sh",
+    "single Next.js validation pass",
+    "single browser validation pass"
+  ],
+  "high_intensity_commands": [
+    "Next.js production build loops",
+    "Docker builds",
+    "large export image processing",
+    "broad browser automation",
+    "WebGL profiling",
+    "dependency installation"
+  ],
+  "agent_rules": [
+    "Do not start a dev server unless live rendering evidence is needed.",
+    "Do not run high-intensity commands by default.",
+    "Prefer docs, manifests, and focused checks for broad architecture prompts.",
+    "Run one verification pass instead of repeated loops.",
+    "Avoid parallel heavy jobs."
+  ],
+  "webgl_policy": {
+    "requires_static_fallback": true,
+    "requires_reduced_motion": true,
+    "requires_mobile_simplification": true,
+    "dependency_addition_requires_specific_scene": true
+  }
+}

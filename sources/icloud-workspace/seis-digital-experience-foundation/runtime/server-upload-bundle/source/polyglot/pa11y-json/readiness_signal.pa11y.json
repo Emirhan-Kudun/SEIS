@@ -1,0 +1,8 @@
+{
+  "tool": "pa11y",
+  "type": "ReadinessSignal",
+  "pageUrl": "https://uix-apps.local/",
+  "issues": [],
+  "standard": "WCAG2AA",
+  "notes": "Dependency-light placeholder for future inclusive QA crawl evidence."
+}

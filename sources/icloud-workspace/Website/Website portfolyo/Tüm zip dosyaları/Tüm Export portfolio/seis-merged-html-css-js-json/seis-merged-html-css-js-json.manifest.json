@@ -1,0 +1,401 @@
+{
+  "created_at": "2026-05-15T10:28:44.236Z",
+  "mode": "dual_zip_merge_filtered",
+  "allowed_extensions": [
+    ".html",
+    ".css",
+    ".js",
+    ".json"
+  ],
+  "source_zips": [
+    {
+      "name": "emirhan_zip",
+      "zip": "/Users/emirhan/Downloads/Emirhan-Kudun-website 2.zip",
+      "priority": 1
+    },
+    {
+      "name": "canonical_zip",
+      "zip": "/Users/emirhan/Downloads/canonical-all-html-css-js-json.zip",
+      "priority": 2
+    }
+  ],
+  "file_count": 62,
+  "output": {
+    "exports_zip": "/Users/emirhan/Documents/New project/exports/seis-merged-html-css-js-json.zip",
+    "downloads_zip": "/Users/emirhan/Downloads/seis-merged-html-css-js-json.zip"
+  },
+  "files": [
+    {
+      "path": ".vscode/settings.json",
+      "source": "canonical_zip",
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "size": 2
+    },
+    {
+      "path": "add-ons/exhibition-photo/app.js",
+      "source": "canonical_zip",
+      "sha256": "f58d28739a1d0d8a4c5cd83745a6d24f9966a3ddd07649c8f2b17bf0329fdce5",
+      "size": 4109
+    },
+    {
+      "path": "add-ons/exhibition-photo/gallery.json",
+      "source": "canonical_zip",
+      "sha256": "ad5bdc4c2c58ba469c7ed1e711bc07c33c7ee9cec6a23b047acf8c71b6c2619c",
+      "size": 1906
+    },
+    {
+      "path": "add-ons/exhibition-photo/index.html",
+      "source": "canonical_zip",
+      "sha256": "3d42c86af6f66908d8eebdbf5744bcb178d045af33a1a1be3120aecf22cd96c6",
+      "size": 2720
+    },
+    {
+      "path": "add-ons/exhibition-photo/styles.css",
+      "source": "canonical_zip",
+      "sha256": "ccbd5224c15312e126749d940e5a2be5c005df140d13c9327999e404f42b48c0",
+      "size": 4504
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/app/globals.css",
+      "source": "canonical_zip",
+      "sha256": "ffe048f16e42ef2e6f4df5fe2055632386d692892119d3b478110482afcd6ead",
+      "size": 2552
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/components.json",
+      "source": "canonical_zip",
+      "sha256": "fa630ec490ef716e4f15d4e0f5f96d5bba3250c8d6de264969350fc138b456d3",
+      "size": 345
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/package.json",
+      "source": "canonical_zip",
+      "sha256": "baed8db42170c441ad808fc7768e9a1b9d822935046c04ed9e3c549ab0055d44",
+      "size": 729
+    },
+    {
+      "path": "apps/seis-nextjs-foundation/tsconfig.json",
+      "source": "canonical_zip",
+      "sha256": "2b99a63d44bc75daeedbbb18b3c4e338b6b922f7070bf7b4158b0ba1a499617b",
+      "size": 593
+    },
+    {
+      "path": "config/automation-schedules.json",
+      "source": "canonical_zip",
+      "sha256": "46b5331c854c7eccc92668f7c1f3905094c7d1890ef6d4922ad8987a6de77c6f",
+      "size": 1056
+    },
+    {
+      "path": "config/branch-governance-policy.json",
+      "source": "canonical_zip",
+      "sha256": "8024e7063b60917ad5e6e53f2c0a770c14eb26f2841159c1e396fead00b8052a",
+      "size": 1755
+    },
+    {
+      "path": "config/connector-catalog.json",
+      "source": "canonical_zip",
+      "sha256": "0f11954668e6b1961651cc7e2414ac41692381a0d59419ea440ba871b369306c",
+      "size": 11442
+    },
+    {
+      "path": "config/connector-rotation-registry.json",
+      "source": "canonical_zip",
+      "sha256": "302df139a985a6cfcdddf225f6b13321cbba4dbfcc76884a0787738d798a56d0",
+      "size": 18094
+    },
+    {
+      "path": "config/integration-targets.json",
+      "source": "canonical_zip",
+      "sha256": "3fee5c080f884486edff10a0dc532b60583adfe4f375b98c169a60fc81a26bc3",
+      "size": 1742
+    },
+    {
+      "path": "config/mcp-catalog.json",
+      "source": "canonical_zip",
+      "sha256": "daa4ab3021ab97d48c12c52875398b979d8af49f9fe88748e2c7840d355539cf",
+      "size": 8338
+    },
+    {
+      "path": "config/quality-gate-policy.json",
+      "source": "canonical_zip",
+      "sha256": "8e72b9a7ef7d5a4286de4a61246b15fe73ab02fadfcfbdebe2ee8523ede47ef7",
+      "size": 1333
+    },
+    {
+      "path": "config/run-budget-policy.json",
+      "source": "canonical_zip",
+      "sha256": "dac5f05db02f51f382c53be65833a4b54d05763a061f599f52f2986a0cf9dd83",
+      "size": 851
+    },
+    {
+      "path": "connector-coverage-ledger.json",
+      "source": "canonical_zip",
+      "sha256": "d438904efeee2d7fb6a4f0c6ff9a2272d41324ecbcfbbe3683551f0d8856a7e0",
+      "size": 33589
+    },
+    {
+      "path": "contact.html",
+      "source": "canonical_zip",
+      "sha256": "049d96953137ffb20daa20069fad243db5064331a139c310f66238e21fd59bc1",
+      "size": 1009
+    },
+    {
+      "path": "content-intake-ledger.json",
+      "source": "canonical_zip",
+      "sha256": "1f1ba4e037d80646c461c49085297b1720df77a88148218f3f5f46897fa01094",
+      "size": 228312
+    },
+    {
+      "path": "exports/app.js",
+      "source": "canonical_zip",
+      "sha256": "7ade1180d0a4690e33b473cb78ceba4f37d8ee92a5609549d4143b1f63d71672",
+      "size": 14659
+    },
+    {
+      "path": "exports/i18n.json",
+      "source": "canonical_zip",
+      "sha256": "f147341d1ae8d8525981e9a63cecc2c9c22f01142fc830451e20974e21de4558",
+      "size": 11812
+    },
+    {
+      "path": "exports/index.separated.html",
+      "source": "canonical_zip",
+      "sha256": "2dd267c616ab59443e18f14bf373d013de8e12d5ded63fc9540500ff5b4ea7a4",
+      "size": 7985
+    },
+    {
+      "path": "exports/merged-separated/behance-future.json",
+      "source": "canonical_zip",
+      "sha256": "0bfd06db6b051aa9c2717059af01ccf983a75781d28ea9a0bf220a1192dbeb49",
+      "size": 415
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.css",
+      "source": "canonical_zip",
+      "sha256": "f3d77744107fc9e3f6187d24537e009b0ad159ff4f34d5d5deb1d9af029e4acf",
+      "size": 26174
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.html",
+      "source": "canonical_zip",
+      "sha256": "45cf1ab7db811b47929f5dc011528e8d9abd21711f818a7b874164948b824c81",
+      "size": 15763
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.js",
+      "source": "canonical_zip",
+      "sha256": "9045660918df3dc5521db0507db86b717fcf4d878b24d8ccc66ae9c8a7a67c9b",
+      "size": 6708
+    },
+    {
+      "path": "exports/merged-separated/merged-portfolio.json",
+      "source": "canonical_zip",
+      "sha256": "254327ad91cdf0b58fa7327fb610c12ed38ba45820e0f2ff086aa04145bb4e52",
+      "size": 563
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.css",
+      "source": "canonical_zip",
+      "sha256": "11168749a4190b55944ea9bb0de8c5afed04d8f321aff07502096095aa2c972d",
+      "size": 2964
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.html",
+      "source": "canonical_zip",
+      "sha256": "b73dd96394d9954f8ea413b9dc4f6feda322bf4074162d3550e9843126d564a8",
+      "size": 2755
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.js",
+      "source": "canonical_zip",
+      "sha256": "5109345fddcfd754999c26595055063335de5bfc326200a5a9d28a348348464a",
+      "size": 5165
+    },
+    {
+      "path": "exports/merged-separated/yurtdisi-ilham-italya.json",
+      "source": "canonical_zip",
+      "sha256": "2e938afa1f484cd6e4146f52b172706583a1c58fd81a3696af7de38e3e177bf0",
+      "size": 2964
+    },
+    {
+      "path": "exports/schema.json",
+      "source": "canonical_zip",
+      "sha256": "ba677f26f27b29d06c058b43ca4d57a10cb03ea61cb8c1e88af7bfe0abe03ebe",
+      "size": 233
+    },
+    {
+      "path": "exports/styles.css",
+      "source": "canonical_zip",
+      "sha256": "a4cb70f67362e6e1a93e61a5a8b6f14ad494887deee07ee428dbe0303b85dadf",
+      "size": 6400
+    },
+    {
+      "path": "index.html",
+      "source": "canonical_zip",
+      "sha256": "78fdd7bc62e7e27da1d8fa93c2d090ff206367b00e925521a262cd4daa75db40",
+      "size": 58256
+    },
+    {
+      "path": "manifest.json",
+      "source": "canonical_zip",
+      "sha256": "fe1961df3f5e808d5a5fdf3c3d1b5ec1eab4dd8bfb1fa1aa9d2aeff4b8e563b4",
+      "size": 526
+    },
+    {
+      "path": "merged-portfolio-two-zips-single.html",
+      "source": "canonical_zip",
+      "sha256": "58d8acde272041887676f10aab373578746bbd6be329cdb44f70c189bf032081",
+      "size": 45794
+    },
+    {
+      "path": "plan-ledger.json",
+      "source": "canonical_zip",
+      "sha256": "8cb85e38f3078e50cee356ba8ecf57fdc512c8ec113194639b56010b71efa438",
+      "size": 4485
+    },
+    {
+      "path": "script.js",
+      "source": "emirhan_zip",
+      "sha256": "8f5eddecbf9ef8e53e0080826adb3e707a5d7f51e114cacd77c7e6a6243875a4",
+      "size": 74168
+    },
+    {
+      "path": "scripts/automation-health-check.js",
+      "source": "canonical_zip",
+      "sha256": "6cc4093160f48c406c77d3aba2bbca48b4ae3fc699f9ce63b013f28bd93d6509",
+      "size": 2299
+    },
+    {
+      "path": "scripts/branch-governance-check.js",
+      "source": "canonical_zip",
+      "sha256": "5c3e93192f4afbf2b2062db854580dc254247f1d3d44914dea5b066f711cf71d",
+      "size": 12347
+    },
+    {
+      "path": "scripts/browser-validation-fallback.js",
+      "source": "canonical_zip",
+      "sha256": "6c85757cac84db191120ec1d6783adb6cc1af06560555286a75c0deebdd36aca",
+      "size": 2769
+    },
+    {
+      "path": "scripts/build-canonical-zip.js",
+      "source": "canonical_zip",
+      "sha256": "cbfaee7d0dd216988ceb6ef88db3c13caf2263aa25c8e4bdd100bb5ec29a95c8",
+      "size": 2666
+    },
+    {
+      "path": "scripts/canonicalize-duplicates.js",
+      "source": "canonical_zip",
+      "sha256": "ae0acb9b7e7687f1ce2af487d29afb2377bdf9dccc386dac8e0eba5ebb645ac4",
+      "size": 3257
+    },
+    {
+      "path": "scripts/content-intake-audit.js",
+      "source": "canonical_zip",
+      "sha256": "81bdf64578614060256ce0428f6b88e882018c8ba037037d582fc42a6dd3f6ce",
+      "size": 3926
+    },
+    {
+      "path": "scripts/content-intake-readonly.js",
+      "source": "canonical_zip",
+      "sha256": "96a3addb0c4a8390f4336d58c19690c3f18d4d47fdbbc45e3367e82ad7c56cd5",
+      "size": 10190
+    },
+    {
+      "path": "scripts/infrastructure-check.js",
+      "source": "canonical_zip",
+      "sha256": "1763401e4b8b6eef819af174a698de76d5517656a66ccc5838107d7b6a9d343c",
+      "size": 7151
+    },
+    {
+      "path": "scripts/local-quality-gate.js",
+      "source": "canonical_zip",
+      "sha256": "efd8c72b73f48542943294d430bf774dba81c582b92c906cb6d593f62836c041",
+      "size": 10202
+    },
+    {
+      "path": "scripts/monthly-connector-sweep.js",
+      "source": "canonical_zip",
+      "sha256": "7dbbcb6e2068697c5637081832380605c9d5e45ba6a65d6d75e074537ee80121",
+      "size": 395
+    },
+    {
+      "path": "scripts/pr-ready-report.js",
+      "source": "canonical_zip",
+      "sha256": "ff06f06c3ec5fe8807297314965b4ce827a3899997a8859333196ce845e725bf",
+      "size": 2884
+    },
+    {
+      "path": "scripts/quality-gate.js",
+      "source": "canonical_zip",
+      "sha256": "6ba9fd3bfe43cc28a142b4980a940581b23b21fbc79b6f1f469a70ef714a58d4",
+      "size": 4950
+    },
+    {
+      "path": "scripts/quarterly-mcp-audit.js",
+      "source": "canonical_zip",
+      "sha256": "232b0f02a3a641c794a4cccadbb728cd848a824beba9c4718eeb68b404284a94",
+      "size": 399
+    },
+    {
+      "path": "scripts/regression-smoke.js",
+      "source": "canonical_zip",
+      "sha256": "0537c146f2235d53eb11d96d94dbfbd390af5cd732c732a8be7cdca0664d315f",
+      "size": 3778
+    },
+    {
+      "path": "scripts/run-core-orchestration.js",
+      "source": "canonical_zip",
+      "sha256": "19d73a1a9d7adb2158c1a86f77c19922efca4194e8a9a2347954105b18a8c07b",
+      "size": 32194
+    },
+    {
+      "path": "scripts/security-static-check.js",
+      "source": "canonical_zip",
+      "sha256": "776bfe763e02c9368b8655edba71ee2df95a78ea72cc2b702a0c30113a3b3888",
+      "size": 3697
+    },
+    {
+      "path": "scripts/semantic-seo-check.js",
+      "source": "canonical_zip",
+      "sha256": "fcd888337e9a849d4bd011032c3969a3ef655f1adc0685862d0ee275d23d83d6",
+      "size": 2857
+    },
+    {
+      "path": "scripts/validate-commit-message.js",
+      "source": "canonical_zip",
+      "sha256": "2aabd511775bed1ca0ee6cf9daf57f00b7895003c0b746f799dd41aef040a603",
+      "size": 1053
+    },
+    {
+      "path": "scripts/weekly-portfolio-trend-sync.js",
+      "source": "canonical_zip",
+      "sha256": "847c03c50809e4f27a3215252d3f42f3b41005bd3f69c2347bf55141930577cc",
+      "size": 393
+    },
+    {
+      "path": "scripts/worktree-integration-audit.js",
+      "source": "canonical_zip",
+      "sha256": "5aa40e7057175e5c257a60538aced005dab0f461dc7ceabab1e6b9c50da04a4f",
+      "size": 3599
+    },
+    {
+      "path": "site-config.json",
+      "source": "emirhan_zip",
+      "sha256": "ad376ae721908f9d0e354fc7bb9cf4cefa3d5eab1d48058735a649aaa7b96f67",
+      "size": 67
+    },
+    {
+      "path": "style.css",
+      "source": "emirhan_zip",
+      "sha256": "a9e227c64e2a041ad6fee4eb80f683a51e467a58108a4d00052612168551621e",
+      "size": 47802
+    },
+    {
+      "path": "translations.json",
+      "source": "canonical_zip",
+      "sha256": "93399960c6739dfdf253cd79a580cc7e15391077ebc8bbd8251f3afb073e978c",
+      "size": 69710
+    }
+  ]
+}

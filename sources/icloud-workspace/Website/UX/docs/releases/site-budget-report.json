@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-06-02T06:49:33.942Z",
+  "budgets": {
+    "firstViewTransferBytes": 614400,
+    "largestGzipJsBytes": 225280,
+    "totalGzipJsBytes": 532480
+  },
+  "firstViewImages": [
+    {
+      "relativePath": "drawings/renk-11.jpg",
+      "bytes": 370264,
+      "missing": false
+    },
+    {
+      "relativePath": "favicon.svg",
+      "bytes": 235,
+      "missing": false
+    },
+    {
+      "relativePath": "icon-192.png",
+      "bytes": 4137,
+      "missing": false
+    },
+    {
+      "relativePath": "apple-touch-icon.png",
+      "bytes": 3535,
+      "missing": false
+    }
+  ],
+  "firstViewTransferBytes": 378171,
+  "firstViewTransferWithinBudget": true,
+  "jsArtifactAvailable": true,
+  "largestGzipJsBytes": 133530,
+  "largestGzipJsWithinBudget": true,
+  "totalGzipJsBytes": 441141,
+  "totalGzipJsWithinBudget": true,
+  "largestJsFiles": [
+    {
+      "file": "static/chunks/02p34n~u3kxct.js",
+      "bytes": 536361,
+      "gzipBytes": 133530
+    },
+    {
+      "file": "static/chunks/0l6~ddtc_e683.js",
+      "bytes": 227315,
+      "gzipBytes": 70828
+    },
+    {
+      "file": "static/chunks/0knxcotn3z51n.js",
+      "bytes": 212559,
+      "gzipBytes": 49561
+    },
+    {
+      "file": "static/chunks/0st6s1jpex4o4.js",
+      "bytes": 212559,
+      "gzipBytes": 48892
+    },
+    {
+      "file": "static/chunks/03~yq9q893hmn.js",
+      "bytes": 112594,
+      "gzipBytes": 39520
+    },
+    {
+      "file": "static/chunks/0imr3j_iy8.ac.js",
+      "bytes": 145564,
+      "gzipBytes": 38900
+    },
+    {
+      "file": "static/chunks/0qfkf6exuw7~2.js",
+      "bytes": 51921,
+      "gzipBytes": 15822
+    },
+    {
+      "file": "static/chunks/0n.q~r5d-mmxn.js",
+      "bytes": 54647,
+      "gzipBytes": 12823
+    }
+  ]
+}

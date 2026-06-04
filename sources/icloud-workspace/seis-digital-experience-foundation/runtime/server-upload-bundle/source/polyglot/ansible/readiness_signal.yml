@@ -1,0 +1,13 @@
+---
+- name: ReadinessSignal Ansible lane
+  hosts: localhost
+  gather_facts: false
+  vars:
+    lane: ansible
+    status: reference
+    runtime_weight: dependency-light
+    deployment_policy: blocked-until-target-and-auth
+  tasks:
+    - name: Preserve readiness metadata without changing hosts
+      ansible.builtin.debug:
+        msg: "ReadinessSignal lane={{ lane }} status={{ status }}"

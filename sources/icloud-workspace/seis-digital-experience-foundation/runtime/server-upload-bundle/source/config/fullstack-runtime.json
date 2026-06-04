@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "runtime": "node-fullstack",
+  "environment": {
+    "host": "127.0.0.1",
+    "port": 4173,
+    "timezone": "Europe/Istanbul"
+  },
+  "modules": [
+    {
+      "id": "static-site",
+      "status": "active",
+      "surface": "frontend",
+      "description": "Serves the portfolio HTML, CSS, JavaScript, manifest, sitemap, and public assets."
+    },
+    {
+      "id": "contact-api",
+      "status": "active",
+      "surface": "backend",
+      "description": "Accepts validated contact submissions and writes local JSONL runtime records."
+    },
+    {
+      "id": "brief-api",
+      "status": "active",
+      "surface": "backend",
+      "description": "Analyzes form content for readiness, timeline, scope, and next-step signals."
+    },
+    {
+      "id": "estimate-api",
+      "status": "active",
+      "surface": "backend",
+      "description": "Maps brief signals into package, cadence, priority, and deliverable estimates."
+    },
+    {
+      "id": "content-model",
+      "status": "prepared",
+      "surface": "data",
+      "description": "Defines portable service, project, language, and inquiry content shapes."
+    },
+    {
+      "id": "runtime-studio",
+      "status": "active",
+      "surface": "observability",
+      "description": "Exposes a compact health, i18n, availability, and API summary for the Plan section."
+    },
+    {
+      "id": "software-language-matrix",
+      "status": "active",
+      "surface": "governance",
+      "description": "Defines the governed polyglot branch lanes for frontend, backend, scripting, systems, data, and governance work."
+    },
+    {
+      "id": "readiness-apis",
+      "status": "active",
+      "surface": "release",
+      "description": "Exposes quality scorecard, release readiness, and orchestration readiness without adding deployment dependencies."
+    },
+    {
+      "id": "polyglot-foundation",
+      "status": "active",
+      "surface": "governance",
+      "description": "Preserves small starter code lanes for the governed software-language matrix."
+    },
+    {
+      "id": "preservation-snapshot",
+      "status": "active",
+      "surface": "release",
+      "description": "Exposes SHA-256 integrity metadata for canonical files while remote push authentication is blocked."
+    },
+    {
+      "id": "server-upload-bundle",
+      "status": "active",
+      "surface": "release",
+      "description": "Defines deterministic upload metadata and fallback notes for server publication."
+    },
+    {
+      "id": "server-target-profile",
+      "status": "prepared",
+      "surface": "release",
+      "description": "Defines the env-driven rsync/scp target profile for dry-run and explicit server upload execution."
+    },
+    {
+      "id": "development-program",
+      "status": "active",
+      "surface": "governance",
+      "description": "Coordinates the current UX Apps, cinematic UI, polyglot branch, and server delivery sprint."
+    },
+    {
+      "id": "cinematic-depth-layer",
+      "status": "active",
+      "surface": "frontend",
+      "description": "Adds a low-power decorative canvas depth layer to the development cockpit with reduced-motion fallback."
+    },
+    {
+      "id": "efficiency-mode",
+      "status": "active",
+      "surface": "governance",
+      "description": "Defines the token-heavy, machine-light operating profile for high reasoning throughput without unnecessary local CPU, GPU, or thermal pressure."
+    },
+    {
+      "id": "run-budget-policy",
+      "status": "active",
+      "surface": "governance",
+      "description": "Bounds scheduled automation profiles so heartbeat, daily, sweep, and shipment runs stay low-power and degrade safely."
+    }
+  ],
+  "storage": {
+    "runtimeDirectory": "runtime",
+    "contactSubmissions": "runtime/contact-submissions.jsonl",
+    "commitPolicy": "runtime data must stay untracked"
+  },
+  "qualityGates": [
+    "node --check server.mjs",
+    "node --check script.js",
+    "node scripts/fullstack-preflight.cjs",
+    "node scripts/software-language-matrix-check.cjs",
+    "node scripts/polyglot-foundation-check.cjs",
+    "node scripts/release-readiness-check.cjs",
+    "node scripts/preservation-snapshot-check.cjs",
+    "node scripts/server-upload-bundle-check.cjs",
+    "node scripts/server-target-check.cjs",
+    "node scripts/development-program-check.cjs",
+    "node scripts/efficiency-mode-check.cjs",
+    "node scripts/run-budget-policy-check.cjs",
+    "node scripts/cinematic-depth-check.cjs",
+    "node scripts/local-quality-gate.js"
+  ]
+}

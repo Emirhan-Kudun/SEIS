@@ -1,0 +1,28 @@
+{
+  "name": "seis-digital-experience-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:static": "node scripts/build-static.mjs",
+    "package:server": "npm run build:static",
+    "check:js": "node --check apps/web/src/scripts/motion-system.js && node --check apps/web/src/scripts/efficiency-governor.js && node --check apps/web/src/scripts/gallery-system.js && node --check apps/web/src/scripts/handoff-system.js && node --check apps/web/src/scripts/i18n-system.js && node --check apps/web/src/scripts/pwa-system.js && node --check apps/web/src/scripts/system-pulse.js && node --check apps/web/src/i18n/locales.js && node --check server/node/static-server.mjs && node --check server/edge/cloudflare-worker.js && node --check scripts/check-foundation.mjs && node --check scripts/check-workspace-routing.mjs && node --check scripts/check-development-process.mjs && node --check scripts/check-long-development-roadmap.mjs && node --check scripts/check-accessibility-review.mjs && node --check scripts/check-framework-decision.mjs && node --check scripts/check-case-study-detail-model.mjs && node --check scripts/check-case-study-content-quality-review.mjs && node --check scripts/check-case-study-detail-route-proposal.mjs && node --check scripts/check-case-study-static-route.mjs && node --check scripts/build-static.mjs && node --check scripts/check-polyglot.mjs && node --check scripts/check-locales.mjs && node --check scripts/check-static-build.mjs && node --check scripts/check-server-adapters.mjs && node --check scripts/check-deploy-readiness.mjs && node --check scripts/check-release-history.mjs && node --check scripts/check-server-drop.mjs && node --check scripts/configure-server-target.mjs && node --check scripts/create-release-backup.mjs && node --check scripts/create-server-drop.mjs && node --check scripts/create-upload-plan.mjs && node --check scripts/prepare-server-upload.mjs && node --check scripts/deploy-static-server.mjs && node --check scripts/restore-latest-release.mjs && node --check scripts/run-development-automation.mjs && node --check scripts/full-efficiency-ship.mjs && node --check scripts/check-github-publish-readiness.mjs",
+    "check:workspace": "node scripts/check-workspace-routing.mjs",
+    "check:foundation": "node scripts/check-foundation.mjs && node scripts/check-workspace-routing.mjs && node scripts/check-development-process.mjs && node scripts/check-long-development-roadmap.mjs && node scripts/check-accessibility-review.mjs && node scripts/check-framework-decision.mjs && node scripts/check-case-study-detail-model.mjs && node scripts/check-case-study-content-quality-review.mjs && node scripts/check-case-study-detail-route-proposal.mjs && node scripts/check-case-study-static-route.mjs && node scripts/check-polyglot.mjs && node scripts/check-locales.mjs && node scripts/check-server-adapters.mjs",
+    "check:release": "npm run package:server && npm run prepare:server && node scripts/check-static-build.mjs && node scripts/check-deploy-readiness.mjs && python3 server/python/verify_release.py",
+    "prepare:server": "node scripts/prepare-server-upload.mjs",
+    "backup:release": "node scripts/create-release-backup.mjs",
+    "plan:upload": "node scripts/create-upload-plan.mjs",
+    "check:history": "node scripts/check-release-history.mjs",
+    "drop:server": "node scripts/create-server-drop.mjs",
+    "check:drop": "node scripts/check-server-drop.mjs",
+    "restore:latest": "node scripts/restore-latest-release.mjs",
+    "release:ready": "npm run check:release && npm run backup:release && npm run plan:upload && npm run drop:server && npm run check:history && npm run check:drop",
+    "deploy:server": "node scripts/deploy-static-server.mjs",
+    "sync:icloud": "bash scripts/sync-icloud-github.sh",
+    "automation:develop": "node scripts/run-development-automation.mjs",
+    "ship:full-efficiency": "node scripts/full-efficiency-ship.mjs",
+    "automation:refresh-release": "npm run package:server && npm run prepare:server",
+    "automation:publish-readiness": "node scripts/check-github-publish-readiness.mjs"
+  }
+}

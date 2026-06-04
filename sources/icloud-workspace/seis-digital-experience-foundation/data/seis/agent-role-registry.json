@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-05-31",
+  "principle": "Models are replaceable. Roles are permanent.",
+  "roles": [
+    {
+      "id": "chief-architect-agent",
+      "title": "Chief Architect Agent",
+      "purpose": "Own system architecture, mission boundaries, long-term scalability, and final technical direction.",
+      "primaryDomains": ["repository-architecture", "systems-planning", "workflow-engine"],
+      "activation": "Required for foundation, architecture, and high-risk implementation missions."
+    },
+    {
+      "id": "design-director-agent",
+      "title": "Design Director Agent",
+      "purpose": "Own visual language, typography, interface rhythm, cinematic restraint, and humane experience quality.",
+      "primaryDomains": ["visual-communication-design", "ui-design", "ux-design", "motion-design"],
+      "activation": "Required for visual, UX, portfolio, and cinematic interface missions."
+    },
+    {
+      "id": "research-agent",
+      "title": "Research Agent",
+      "purpose": "Review source material, references, archives, documentation, and research evidence before planning.",
+      "primaryDomains": ["research", "knowledge-management", "visual-research"],
+      "activation": "Required when missions depend on external sources, archives, or unclear requirements."
+    },
+    {
+      "id": "product-agent",
+      "title": "Product Agent",
+      "purpose": "Translate creative and technical direction into user value, roadmap priorities, and product scope.",
+      "primaryDomains": ["product-design", "ux-design", "roadmap"],
+      "activation": "Required for feature prioritization and product experience missions."
+    },
+    {
+      "id": "data-agent",
+      "title": "Data Agent",
+      "purpose": "Own structured registries, knowledge maps, analytics contracts, and future data workflows.",
+      "primaryDomains": ["data-systems", "knowledge-graphs", "registries"],
+      "activation": "Required for JSON registries, domain maps, metrics, and structured knowledge."
+    },
+    {
+      "id": "security-agent",
+      "title": "Security Agent",
+      "purpose": "Protect secrets, dependency safety, authentication boundaries, and secure workflow defaults.",
+      "primaryDomains": ["security", "devops", "github-workflows"],
+      "activation": "Required for credentials, deployment, cloud, auth, and dependency changes."
+    },
+    {
+      "id": "governance-agent",
+      "title": "Governance Agent",
+      "purpose": "Own branch policy, mission lifecycle, commit discipline, PR readiness, and repository integrity.",
+      "primaryDomains": ["governance", "github-workflows", "repository-architecture"],
+      "activation": "Required for every mission."
+    },
+    {
+      "id": "documentation-agent",
+      "title": "Documentation Agent",
+      "purpose": "Keep docs purposeful, searchable, current, and linked to real operational decisions.",
+      "primaryDomains": ["documentation", "knowledge-management", "onboarding"],
+      "activation": "Required when architecture, decisions, workflows, or public docs change."
+    },
+    {
+      "id": "automation-agent",
+      "title": "Automation Agent",
+      "purpose": "Own scheduled checks, validation routines, release preparation, backups, and maintenance loops.",
+      "primaryDomains": ["automation", "devops", "github-actions"],
+      "activation": "Required for scripts, CI, scheduled runs, and publication workflows."
+    },
+    {
+      "id": "engineering-language-agent",
+      "title": "Engineering Language Agent",
+      "purpose": "Decide when and why a programming language or framework should be activated.",
+      "primaryDomains": ["multi-language-engineering", "frontend-engineering", "backend-engineering", "mobile-engineering"],
+      "activation": "Required before introducing a new language, framework, runtime, or dependency."
+    }
+  ]
+}

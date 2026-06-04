@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "mode": "development",
+    "workspace": "iCloud Drive/Github/UIX-Apps",
+    "branch": "UIXAppTTR",
+    "powerProfile": "low-power",
+    "serverTarget": "GitHub origin/UIXAppTTR"
+  },
+  "checks": [
+    {
+      "label": "Workspace",
+      "status": "ready",
+      "detail": "Continue development from the iCloud Drive GitHub folder so local work is preserved."
+    },
+    {
+      "label": "Branch",
+      "status": "guarded",
+      "detail": "Keep all implementation work on UIXAppTTR while main remains protected."
+    },
+    {
+      "label": "Server sync",
+      "status": "blocked-by-auth",
+      "detail": "GitHub server push requires local gh auth or a working HTTPS credential helper."
+    },
+    {
+      "label": "Machine load",
+      "status": "controlled",
+      "detail": "Prefer static checks, single-pass tests, and no watcher loops unless explicitly needed."
+    }
+  ],
+  "commands": [
+    {
+      "label": "Dev server",
+      "command": "npm run ux:dev",
+      "purpose": "Start the local UX Apps server when visual testing is needed."
+    },
+    {
+      "label": "Quality gate",
+      "command": "npm run ux:quality",
+      "purpose": "Run the focused UX Apps checks without building the whole monorepo."
+    },
+    {
+      "label": "Publish preflight",
+      "command": "npm run publish:preflight",
+      "purpose": "Verify branch, clean tree, remote, and auth readiness before any push."
+    },
+    {
+      "label": "Server sync check",
+      "command": "npm run check:github-server-sync",
+      "purpose": "Confirm local HEAD matches origin/UIXAppTTR and GitHub server after push."
+    }
+  ],
+  "rules": [
+    "Do not copy raw legacy files into the product surface.",
+    "Do not add dependencies for development visibility.",
+    "Do not run heavy watch/build loops in low-power mode.",
+    "Commit small reversible bundles before attempting server publication."
+  ]
+}

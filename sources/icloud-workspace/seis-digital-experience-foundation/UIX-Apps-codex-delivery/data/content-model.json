@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "locales": ["tr", "en", "fr", "it", "de"],
+  "entities": {
+    "service": {
+      "fields": ["id", "titleKey", "descriptionKey", "deliverables", "defaultTimelineWeeks"],
+      "ids": ["branding", "editorial", "ui-ux", "other"]
+    },
+    "project": {
+      "fields": ["id", "titleKey", "tagKey", "problemKey", "solutionKey", "resultKey", "links"]
+    },
+    "inquiry": {
+      "fields": ["name", "email", "service", "message", "readinessScore", "estimatePackage", "priority"]
+    },
+    "runtimeSignal": {
+      "fields": ["status", "openSlots", "responseHours", "apiCount", "defaultKeyCount"]
+    }
+  },
+  "serviceDefaults": {
+    "branding": {
+      "defaultTimelineWeeks": 3,
+      "deliverables": ["identity-audit", "visual-direction", "handoff-kit"]
+    },
+    "editorial": {
+      "defaultTimelineWeeks": 2,
+      "deliverables": ["content-map", "layout-system", "export-kit"]
+    },
+    "ui-ux": {
+      "defaultTimelineWeeks": 2,
+      "deliverables": ["screen-map", "component-direction", "prototype-notes"]
+    },
+    "other": {
+      "defaultTimelineWeeks": 1,
+      "deliverables": ["discovery-call", "scope-map", "next-step-plan"]
+    }
+  },
+  "migrationNotes": [
+    "The model is portable to a database or CMS without changing public UI copy keys.",
+    "Keep translation keys stable when content moves from local JSON to remote storage.",
+    "Runtime submissions remain local until a deliberate database adapter is added."
+  ]
+}

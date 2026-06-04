@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.appsai/mcp-server",
+  "description": "Build and deploy full-stack Next.js apps with 98 tools for React, AWS, and MongoDB.",
+  "repository": {
+    "url": "https://github.com/appsai-inc/mcp-server",
+    "source": "github"
+  },
+  "version": "1.0.13",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@appsai/mcp-server",
+      "version": "1.0.13",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "APPSAI_API_KEY",
+          "description": "Your AppsAI API key from Settings → Billing → API Keys",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

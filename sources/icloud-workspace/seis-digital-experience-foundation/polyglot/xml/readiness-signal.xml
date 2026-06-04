@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReadinessSignal lane="xml" status="reference">
+  <reducedMotionSafe>true</reducedMotionSafe>
+  <runtimeWeight>dependency-light</runtimeWeight>
+  <handoff>configuration-interchange</handoff>
+</ReadinessSignal>

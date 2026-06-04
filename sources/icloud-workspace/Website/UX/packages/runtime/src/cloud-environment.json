@@ -1,0 +1,74 @@
+[
+  {
+    "id": "site-public",
+    "name": "Public site runtime",
+    "provider": "vercel",
+    "environment": "production",
+    "requiredEnv": ["CONTACT_ENDPOINT"],
+    "optionalEnv": ["SEIS_RUNTIME_DIR", "SENTRY_DSN"],
+    "statusOverride": "needs_credentials",
+    "purpose": "Keeps the public portfolio contact and observability runtime configurable without hardcoded endpoints.",
+    "safety": "Public values must never include service-role keys; contact fallback remains available when unset.",
+    "setupCommand": "vercel env pull --environment=production"
+  },
+  {
+    "id": "supabase-intake",
+    "name": "Supabase intake dual-write",
+    "provider": "supabase",
+    "environment": "production",
+    "requiredEnv": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_BRIEFS_TABLE"],
+    "optionalEnv": [],
+    "statusOverride": "needs_credentials",
+    "purpose": "Enables server-side brief persistence while preserving the local JSONL fallback path.",
+    "safety": "Service role key is server-only and must be stored only in the deployment platform secret manager.",
+    "setupCommand": "vercel env add SUPABASE_SERVICE_ROLE_KEY production"
+  },
+  {
+    "id": "cleanup-cron",
+    "name": "Retention cleanup cron",
+    "provider": "vercel-cron",
+    "environment": "production",
+    "requiredEnv": ["CRON_SECRET"],
+    "optionalEnv": [],
+    "statusOverride": "needs_credentials",
+    "purpose": "Protects the 90-day retention policy for stored brief submissions.",
+    "safety": "Cron endpoint rejects requests without the bearer secret.",
+    "setupCommand": "vercel env add CRON_SECRET production"
+  },
+  {
+    "id": "github-publish",
+    "name": "GitHub source persistence",
+    "provider": "github",
+    "environment": "branch",
+    "requiredEnv": ["GITHUB_TOKEN"],
+    "optionalEnv": [],
+    "statusOverride": "configured",
+    "purpose": "Keeps the active Codex branch recoverable on the GitHub server.",
+    "safety": "Pushes remain bounded, non-interactive and branch-scoped.",
+    "setupCommand": "npm run github:preflight && npm run github:publish"
+  },
+  {
+    "id": "vercel-deploy",
+    "name": "Vercel deployment",
+    "provider": "vercel",
+    "environment": "preview-production",
+    "requiredEnv": ["VERCEL_TOKEN", "VERCEL_ORG_ID", "VERCEL_PROJECT_ID"],
+    "optionalEnv": [],
+    "statusOverride": "needs_credentials",
+    "purpose": "Deploys the Next.js portfolio to Vercel preview or production once credentials are available.",
+    "safety": "Deploy commands require explicit target confirmation and must not write tokens into git.",
+    "setupCommand": "vercel deploy --prod"
+  },
+  {
+    "id": "custom-server-static",
+    "name": "Custom server static fallback",
+    "provider": "ssh-rsync",
+    "environment": "production-fallback",
+    "requiredEnv": ["DEPLOY_HOST", "DEPLOY_USER", "DEPLOY_PATH"],
+    "optionalEnv": [],
+    "statusOverride": "needs_credentials",
+    "purpose": "Publishes the static fallback to a selected server after host, user and path are confirmed.",
+    "safety": "Dry-run is mandatory before live rsync; no upload runs without concrete credentials.",
+    "setupCommand": "npm run deploy:static:dry-run"
+  }
+]

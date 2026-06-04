@@ -1,0 +1,12 @@
+name: ReadinessSignal GitHub Actions lane
+
+on:
+  workflow_dispatch:
+
+jobs:
+  readiness-signal:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preserve readiness metadata
+        run: echo "ReadinessSignal lane=github-actions status=reference runtimeWeight=dependency-light"

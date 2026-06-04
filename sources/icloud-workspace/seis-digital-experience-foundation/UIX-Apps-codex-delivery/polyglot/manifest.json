@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "purpose": "Small polyglot starter surfaces for the UIX-Apps branch without adding runtime dependencies.",
+  "promotionRule": "Keep examples dependency-light, reversible, and quality-gated before any language becomes production runtime.",
+  "entries": [
+    {
+      "languageId": "html",
+      "path": "polyglot/frontend/preview.html",
+      "role": "semantic preview shell"
+    },
+    {
+      "languageId": "css",
+      "path": "polyglot/frontend/styles.css",
+      "role": "calm responsive styling"
+    },
+    {
+      "languageId": "javascript",
+      "path": "polyglot/frontend/app.js",
+      "role": "progressive enhancement sample"
+    },
+    {
+      "languageId": "typescript",
+      "path": "polyglot/typescript/contract.ts",
+      "role": "typed readiness contract"
+    },
+    {
+      "languageId": "nodejs",
+      "path": "polyglot/node/health.mjs",
+      "role": "Node health payload sample"
+    },
+    {
+      "languageId": "php",
+      "path": "polyglot/php/contact-health.php",
+      "role": "shared-hosting fallback health sample"
+    },
+    {
+      "languageId": "python",
+      "path": "polyglot/python/readiness.py",
+      "role": "offline readiness scoring sample"
+    },
+    {
+      "languageId": "java",
+      "path": "polyglot/java/ReadinessSignal.java",
+      "role": "enterprise signal model sample"
+    },
+    {
+      "languageId": "cpp",
+      "path": "polyglot/cpp/readiness_signal.cpp",
+      "role": "native systems signal sample"
+    },
+    {
+      "languageId": "csharp",
+      "path": "polyglot/csharp/ReadinessSignal.cs",
+      "role": ".NET signal model sample"
+    },
+    {
+      "languageId": "bash",
+      "path": "polyglot/bash/check-readiness.sh",
+      "role": "bounded local shell check sample"
+    },
+    {
+      "languageId": "sql",
+      "path": "polyglot/sql/content_model.sql",
+      "role": "future content database schema sample"
+    },
+    {
+      "languageId": "json",
+      "path": "polyglot/manifest.json",
+      "role": "polyglot source manifest"
+    },
+    {
+      "languageId": "yaml",
+      "path": "polyglot/governance.yml",
+      "role": "governance metadata sample"
+    },
+    {
+      "languageId": "go",
+      "path": "polyglot/go/readiness_signal.go",
+      "role": "Go readiness payload sample"
+    },
+    {
+      "languageId": "rust",
+      "path": "polyglot/rust/readiness_signal.rs",
+      "role": "Rust readiness payload sample"
+    },
+    {
+      "languageId": "ruby",
+      "path": "polyglot/ruby/readiness_signal.rb",
+      "role": "Ruby readiness payload sample"
+    },
+    {
+      "languageId": "swift",
+      "path": "polyglot/swift/ReadinessSignal.swift",
+      "role": "Swift readiness payload sample"
+    },
+    {
+      "languageId": "kotlin",
+      "path": "polyglot/kotlin/ReadinessSignal.kt",
+      "role": "Kotlin readiness payload sample"
+    },
+    {
+      "languageId": "dart",
+      "path": "polyglot/dart/readiness_signal.dart",
+      "role": "Dart readiness payload sample"
+    },
+    {
+      "languageId": "r",
+      "path": "polyglot/r/readiness_signal.R",
+      "role": "R readiness payload sample"
+    },
+    {
+      "languageId": "lua",
+      "path": "polyglot/lua/readiness_signal.lua",
+      "role": "Lua readiness payload sample"
+    },
+    {
+      "languageId": "elixir",
+      "path": "polyglot/elixir/readiness_signal.exs",
+      "role": "Elixir readiness payload sample"
+    },
+    {
+      "languageId": "scala",
+      "path": "polyglot/scala/ReadinessSignal.scala",
+      "role": "Scala readiness payload sample"
+    },
+    {
+      "languageId": "hcl",
+      "path": "polyglot/hcl/readiness_signal.tf",
+      "role": "HCL infrastructure declaration sample"
+    },
+    {
+      "languageId": "markdown",
+      "path": "polyglot/markdown/readiness-signal.md",
+      "role": "Markdown handoff narrative sample"
+    }
+  ]
+}

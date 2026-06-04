@@ -1,0 +1,158 @@
+.inspiration-body {
+  background: var(--bg);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+#italy-inspiration {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 72px 32px 90px;
+}
+
+.inspiration-hero {
+  max-width: 860px;
+  margin-bottom: 44px;
+}
+
+.inspiration-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.inspiration-title em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.inspiration-desc {
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.inspiration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.inspiration-link {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.64rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(200,169,110,0.3);
+  padding: 11px 14px;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.inspiration-link:hover {
+  border-color: rgba(255,255,255,0.45);
+  color: var(--white);
+  background: rgba(255,255,255,0.04);
+}
+
+.inspiration-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.inspiration-filter {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.inspiration-filter:hover,
+.inspiration-filter.active {
+  color: var(--accent);
+  border-color: rgba(200,169,110,0.45);
+  background: rgba(200,169,110,0.08);
+}
+
+.inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inspiration-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.inspiration-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.inspiration-meta {
+  padding: 14px 15px 16px;
+}
+
+.inspiration-cat {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+
+.inspiration-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.inspiration-empty {
+  display: none;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  padding: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.inspiration-empty.is-visible {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .inspiration-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  #italy-inspiration {
+    padding: 56px 22px 70px;
+  }
+
+  .inspiration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inspiration-title {
+    font-size: clamp(1.7rem, 9vw, 2.5rem);
+  }
+}

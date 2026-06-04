@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-remote-shipment-gate.mjs",
+  "generatedAt": "2026-06-01T12:57:53.532Z",
+  "mission": "SEIS-M012",
+  "purpose": "Provide a single secret-safe go/no-go gate for GitHub, cloud, MCP connector, bundle, and server upload readiness.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "data/seis/cloud-server-environment.json",
+      "data/seis/server-cloud-deploy-envelope.json",
+      "data/seis/deployment-readiness.json",
+      "data/seis/operations-readiness.json",
+      "data/seis/connector-readiness-matrix.json"
+    ]
+  },
+  "policy": {
+    "branch": "UIXAppTTR",
+    "mainPushAllowed": false,
+    "blanketConnectorExecutionAllowed": false,
+    "realServerUploadRequiresEnv": [
+      "UIX_UPLOAD_HOST",
+      "UIX_UPLOAD_USER",
+      "UIX_UPLOAD_PATH"
+    ],
+    "executeCommandRequiresManualReview": true
+  },
+  "gates": [
+    {
+      "id": "github",
+      "label": "GitHub UIXAppTTR sync",
+      "status": "ready",
+      "ready": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "evidence": {
+        "branch": "UIXAppTTR",
+        "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git"
+      }
+    },
+    {
+      "id": "cloud",
+      "label": "Codex cloud environment",
+      "status": "ready",
+      "ready": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "evidence": {
+        "id": "seis-cloud-uixappttr",
+        "branch": "UIXAppTTR"
+      }
+    },
+    {
+      "id": "connector",
+      "label": "Mission-routed MCP and connector readiness",
+      "status": "ready",
+      "ready": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "evidence": {
+        "runtimeItems": 215,
+        "surfaceCount": 11,
+        "blockedSurfaces": 2,
+        "authRequiredSurfaces": 7
+      }
+    },
+    {
+      "id": "bundle",
+      "label": "Server upload bundle",
+      "status": "ready",
+      "ready": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "evidence": {
+        "bundleDirectory": "runtime/server-upload-bundle/source",
+        "fileCount": 266
+      }
+    },
+    {
+      "id": "server-environment",
+      "label": "Server environment",
+      "status": "blocked",
+      "ready": false,
+      "blockerCount": 3,
+      "blockers": [
+        "missing server environment variable: UIX_UPLOAD_HOST",
+        "missing server environment variable: UIX_UPLOAD_USER",
+        "missing server environment variable: UIX_UPLOAD_PATH"
+      ],
+      "evidence": {
+        "requiredNames": [
+          "UIX_UPLOAD_HOST",
+          "UIX_UPLOAD_USER",
+          "UIX_UPLOAD_PATH"
+        ],
+        "envFileSupported": true,
+        "templatePath": "config/server-upload.env.example",
+        "localIgnoredPath": ".env.server.local"
+      }
+    }
+  ],
+  "commands": [
+    "npm run quality:seis",
+    "npm run quality:fullstack",
+    "npm run publish:preflight",
+    "npm run check:github-server-sync",
+    "npm run server-upload:dry-run",
+    "npm run server-upload:execute"
+  ],
+  "summary": {
+    "status": "blocked-by-server-environment",
+    "readyToPush": true,
+    "readyToUpload": false,
+    "safeToExecuteUpload": false,
+    "operationStatus": "ready-with-blockers",
+    "blockerCount": 3,
+    "blockers": [
+      "server-environment: missing server environment variable: UIX_UPLOAD_HOST",
+      "server-environment: missing server environment variable: UIX_UPLOAD_USER",
+      "server-environment: missing server environment variable: UIX_UPLOAD_PATH"
+    ]
+  },
+  "nextActions": [
+    "Fill .env.server.local from config/server-upload.env.example outside Git.",
+    "Run npm run server-upload:dry-run to confirm the upload command.",
+    "Regenerate this gate with npm run generate:seis-remote-shipment-gate."
+  ]
+}

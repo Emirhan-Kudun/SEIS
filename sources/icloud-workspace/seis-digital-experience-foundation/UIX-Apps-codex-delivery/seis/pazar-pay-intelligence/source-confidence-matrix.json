@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "confidence_levels": [
+    {
+      "level": "high",
+      "definition": "Direct connector metric with explicit source, geography, time window, and category definition.",
+      "allowed_language": "Source-backed signal",
+      "requires_human_review": false
+    },
+    {
+      "level": "medium",
+      "definition": "Estimated or modeled connector output with clear scope but incomplete market denominator.",
+      "allowed_language": "Estimated signal",
+      "requires_human_review": true
+    },
+    {
+      "level": "low",
+      "definition": "Directional proxy assembled from visibility, conversation, ecommerce, or news signals.",
+      "allowed_language": "Directional proxy",
+      "requires_human_review": true
+    }
+  ],
+  "source_boundaries": [
+    {
+      "signal": "search_visibility",
+      "never_claim_as": "exact revenue market share",
+      "minimum_context": ["domain", "competitors", "geography", "time_window"]
+    },
+    {
+      "signal": "conversation_share",
+      "never_claim_as": "total customer share",
+      "minimum_context": ["brand_terms", "channels", "sentiment_window", "time_window"]
+    },
+    {
+      "signal": "ecommerce_demand",
+      "never_claim_as": "full category sales share",
+      "minimum_context": ["category", "marketplace_or_channel", "geography", "time_window"]
+    },
+    {
+      "signal": "capital_market_context",
+      "never_claim_as": "investment advice",
+      "minimum_context": ["ticker_or_company", "peer_set", "market", "time_window"]
+    }
+  ]
+}

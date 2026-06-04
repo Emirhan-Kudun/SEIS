@@ -1,0 +1,310 @@
+{
+  "generatedAt": "2026-06-02T19:23:06.874Z",
+  "branch": "codex/seis-ux-cinematic-premium-foundation",
+  "head": "b83d610",
+  "cleanWorktree": false,
+  "status": "watch",
+  "summary": {
+    "environmentItems": 6,
+    "readyItems": 0,
+    "needsCredentialsItems": 6,
+    "requiredVariables": 12,
+    "missingVariables": 12,
+    "activationPlan": 5,
+    "deploymentTargets": 5
+  },
+  "localTools": {
+    "vercelCli": false,
+    "ghCli": true,
+    "rsync": true
+  },
+  "missingVariables": [
+    "CONTACT_ENDPOINT",
+    "CRON_SECRET",
+    "DEPLOY_HOST",
+    "DEPLOY_PATH",
+    "DEPLOY_USER",
+    "GITHUB_TOKEN",
+    "SUPABASE_BRIEFS_TABLE",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "SUPABASE_URL",
+    "VERCEL_ORG_ID",
+    "VERCEL_PROJECT_ID",
+    "VERCEL_TOKEN"
+  ],
+  "environmentItems": [
+    {
+      "id": "site-public",
+      "name": "Public site runtime",
+      "provider": "vercel",
+      "environment": "production",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "CONTACT_ENDPOINT"
+      ],
+      "requiredEnv": [
+        {
+          "key": "CONTACT_ENDPOINT",
+          "present": false
+        }
+      ],
+      "optionalEnv": [
+        {
+          "key": "SEIS_RUNTIME_DIR",
+          "present": false
+        },
+        {
+          "key": "SENTRY_DSN",
+          "present": false
+        }
+      ],
+      "setupCommand": "vercel env pull --environment=production",
+      "safety": "Public values must never include service-role keys; contact fallback remains available when unset."
+    },
+    {
+      "id": "supabase-intake",
+      "name": "Supabase intake dual-write",
+      "provider": "supabase",
+      "environment": "production",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "SUPABASE_BRIEFS_TABLE"
+      ],
+      "requiredEnv": [
+        {
+          "key": "SUPABASE_URL",
+          "present": false
+        },
+        {
+          "key": "SUPABASE_SERVICE_ROLE_KEY",
+          "present": false
+        },
+        {
+          "key": "SUPABASE_BRIEFS_TABLE",
+          "present": false
+        }
+      ],
+      "optionalEnv": [],
+      "setupCommand": "vercel env add SUPABASE_SERVICE_ROLE_KEY production",
+      "safety": "Service role key is server-only and must be stored only in the deployment platform secret manager."
+    },
+    {
+      "id": "cleanup-cron",
+      "name": "Retention cleanup cron",
+      "provider": "vercel-cron",
+      "environment": "production",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "CRON_SECRET"
+      ],
+      "requiredEnv": [
+        {
+          "key": "CRON_SECRET",
+          "present": false
+        }
+      ],
+      "optionalEnv": [],
+      "setupCommand": "vercel env add CRON_SECRET production",
+      "safety": "Cron endpoint rejects requests without the bearer secret."
+    },
+    {
+      "id": "github-publish",
+      "name": "GitHub source persistence",
+      "provider": "github",
+      "environment": "branch",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "GITHUB_TOKEN"
+      ],
+      "requiredEnv": [
+        {
+          "key": "GITHUB_TOKEN",
+          "present": false
+        }
+      ],
+      "optionalEnv": [],
+      "setupCommand": "npm run github:preflight && npm run github:publish",
+      "safety": "Pushes remain bounded, non-interactive and branch-scoped."
+    },
+    {
+      "id": "vercel-deploy",
+      "name": "Vercel deployment",
+      "provider": "vercel",
+      "environment": "preview-production",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "VERCEL_TOKEN",
+        "VERCEL_ORG_ID",
+        "VERCEL_PROJECT_ID"
+      ],
+      "requiredEnv": [
+        {
+          "key": "VERCEL_TOKEN",
+          "present": false
+        },
+        {
+          "key": "VERCEL_ORG_ID",
+          "present": false
+        },
+        {
+          "key": "VERCEL_PROJECT_ID",
+          "present": false
+        }
+      ],
+      "optionalEnv": [],
+      "setupCommand": "vercel deploy --prod",
+      "safety": "Deploy commands require explicit target confirmation and must not write tokens into git."
+    },
+    {
+      "id": "custom-server-static",
+      "name": "Custom server static fallback",
+      "provider": "ssh-rsync",
+      "environment": "production-fallback",
+      "status": "needs_credentials",
+      "missingEnv": [
+        "DEPLOY_HOST",
+        "DEPLOY_USER",
+        "DEPLOY_PATH"
+      ],
+      "requiredEnv": [
+        {
+          "key": "DEPLOY_HOST",
+          "present": false
+        },
+        {
+          "key": "DEPLOY_USER",
+          "present": false
+        },
+        {
+          "key": "DEPLOY_PATH",
+          "present": false
+        }
+      ],
+      "optionalEnv": [],
+      "setupCommand": "npm run deploy:static:dry-run",
+      "safety": "Dry-run is mandatory before live rsync; no upload runs without concrete credentials."
+    }
+  ],
+  "activationPlan": [
+    {
+      "id": "local-gates",
+      "name": "Local gates before cloud mutation",
+      "provider": "local",
+      "stage": "prepare",
+      "statusOverride": "active",
+      "requiresEnv": [],
+      "commands": [
+        "npm run checks",
+        "npm run typecheck",
+        "npm run build",
+        "npm run deploy:preflight"
+      ],
+      "proof": "Green local checks and a current deploy preflight report.",
+      "safety": "No remote mutation happens in this stage."
+    },
+    {
+      "id": "vercel-project-link",
+      "name": "Vercel project link and env sync",
+      "provider": "vercel",
+      "stage": "cloud-env",
+      "statusOverride": "needs_credentials",
+      "requiresEnv": [
+        "VERCEL_TOKEN",
+        "VERCEL_ORG_ID",
+        "VERCEL_PROJECT_ID"
+      ],
+      "commands": [
+        "npm i -g vercel",
+        "vercel pull --environment=preview",
+        "vercel env pull .env.local"
+      ],
+      "proof": ".vercel/project.json exists locally and env values are pulled outside git.",
+      "safety": "Vercel credentials stay in the shell, Vercel dashboard or ignored local files."
+    },
+    {
+      "id": "supabase-intake-link",
+      "name": "Supabase intake persistence",
+      "provider": "supabase",
+      "stage": "data-env",
+      "statusOverride": "needs_credentials",
+      "requiresEnv": [
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "SUPABASE_BRIEFS_TABLE"
+      ],
+      "commands": [
+        "vercel env add SUPABASE_URL production",
+        "vercel env add SUPABASE_SERVICE_ROLE_KEY production",
+        "vercel env add SUPABASE_BRIEFS_TABLE production"
+      ],
+      "proof": "Brief intake variables exist in the production provider secret store.",
+      "safety": "Service role keys remain server-only and never enter client bundles."
+    },
+    {
+      "id": "custom-server-dry-run",
+      "name": "Custom server static fallback dry-run",
+      "provider": "ssh-rsync",
+      "stage": "server-dry-run",
+      "statusOverride": "needs_credentials",
+      "requiresEnv": [
+        "DEPLOY_HOST",
+        "DEPLOY_USER",
+        "DEPLOY_PATH"
+      ],
+      "commands": [
+        "npm run server:preflight",
+        "npm run deploy:static:dry-run"
+      ],
+      "proof": "Dry-run output confirms target path and file delta before upload.",
+      "safety": "Live rsync remains blocked until the user confirms host, path and output."
+    },
+    {
+      "id": "rollback-share",
+      "name": "Rollback bundle and source share",
+      "provider": "github-icloud",
+      "stage": "rollback",
+      "statusOverride": "active",
+      "requiresEnv": [],
+      "commands": [
+        "git push -u origin codex/seis-ux-cinematic-premium-foundation",
+        "npm run share:icloud-github"
+      ],
+      "proof": "GitHub branch SHA and iCloud bundle path point to the same clean head.",
+      "safety": "Rollback remains available even if managed hosting or custom server deploy is delayed."
+    }
+  ],
+  "activationCommands": {
+    "installVercelCli": "npm i -g vercel",
+    "vercelPullPreview": "vercel env pull --environment=preview",
+    "vercelPullProduction": "vercel env pull --environment=production",
+    "vercelAddProduction": [
+      "vercel env add CONTACT_ENDPOINT production",
+      "vercel env add CRON_SECRET production",
+      "vercel env add SUPABASE_BRIEFS_TABLE production",
+      "vercel env add SUPABASE_SERVICE_ROLE_KEY production",
+      "vercel env add SUPABASE_URL production",
+      "vercel env add VERCEL_ORG_ID production",
+      "vercel env add VERCEL_PROJECT_ID production",
+      "vercel env add VERCEL_TOKEN production"
+    ],
+    "customServerShell": [
+      "export DEPLOY_HOST=<set-outside-git>",
+      "export DEPLOY_PATH=<set-outside-git>",
+      "export DEPLOY_USER=<set-outside-git>"
+    ],
+    "customServerDryRun": "npm run deploy:static:dry-run",
+    "githubPublishGate": "npm run github:preflight && npm run github:publish"
+  },
+  "docs": [
+    "https://vercel.com/docs/cli/env",
+    "https://vercel.com/docs/deployments/environments"
+  ],
+  "nextActions": [
+    "Install Vercel CLI only when live cloud operations are needed.",
+    "Add real Vercel, Supabase and server credentials only to provider secret stores or the local shell.",
+    "Run npm run deploy:preflight before any Vercel or custom server deploy.",
+    "Run npm run server:preflight before custom server rsync."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "report_type": "pazar_payi_signal_summary",
+  "version": "1.0.0",
+  "fields": {
+    "scope": {
+      "category": "",
+      "geography": "",
+      "time_window": "",
+      "competitors": []
+    },
+    "metric_boundary": {
+      "selected_preset": "",
+      "market_share_claim_type": "signal_only",
+      "confidence_level": "",
+      "source_limitations": []
+    },
+    "connector_steps": [],
+    "skipped_with_reason": [],
+    "signals": {
+      "search_visibility": [],
+      "share_of_voice": [],
+      "ecommerce_demand": [],
+      "b2b_gtm": [],
+      "capital_context": []
+    },
+    "next_safe_action": ""
+  },
+  "blocked_output": [
+    "exact market share without source denominator",
+    "investment advice",
+    "public claim without confidence label",
+    "CRM or ad campaign mutation"
+  ]
+}

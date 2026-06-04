@@ -1,0 +1,10 @@
+{
+  "id": "tech-github-system-506",
+  "company": "google",
+  "focus": "developer-tools",
+  "branch_policy": "pr-first",
+  "main_protection": true,
+  "rollback_safe": true,
+  "source_type": "public-github-open-source-pattern",
+  "status": "active"
+}

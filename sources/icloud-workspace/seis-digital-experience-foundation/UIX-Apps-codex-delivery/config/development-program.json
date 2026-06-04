@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "purpose": "Coordinate the next UIX Apps development sprint across UX, cinematic systems, polyglot code, quality, and server publication.",
+  "currentSprint": {
+    "id": "sprint-2026-05-development-cockpit",
+    "title": "Development Cockpit Foundation",
+    "status": "active",
+    "cadence": "low-power incremental delivery",
+    "branch": "codex/premium-local-foundation"
+  },
+  "automationPolicy": {
+    "polyglotLanguageGrowth": {
+      "minimumGovernedLanes": 26,
+      "targetDirection": "Preserve and expand governed software-language coverage when each new lane has a clear product, governance, or handoff role.",
+      "requiredChecks": [
+        "npm run check:software-languages",
+        "npm run check:polyglot-foundation"
+      ],
+      "promotionRules": [
+        "Every new language lane must update the software-language matrix, polyglot manifest, starter source file, checker marker, server handoff requirement, and docs.",
+        "Reference lanes stay dependency-free until a runtime need is explicit.",
+        "Prefer small contracts, adapters, readiness signals, schemas, or handoff files over new package managers or compilers.",
+        "Keep all language-lane changes reversible, reviewable, and compatible with low-power validation."
+      ]
+    }
+  },
+  "lanes": [
+    {
+      "id": "ux-apps",
+      "label": "UX Apps module",
+      "status": "active",
+      "focus": "Keep archive intelligence, cinematic program, and zip promotion lab visible in the canonical repo.",
+      "qualitySignal": "npm run ux:quality",
+      "nextAction": "Promote one reviewed zip insight into the UX Apps module per sprint."
+    },
+    {
+      "id": "cinematic-ui",
+      "label": "Cinematic UI",
+      "status": "active",
+      "focus": "Run a restrained canvas depth layer inside the development cockpit without increasing cognitive load.",
+      "qualitySignal": "npm run check:cinematic-depth",
+      "nextAction": "Tune cinematic-depth settings after visual smoke checks."
+    },
+    {
+      "id": "polyglot-branch",
+      "label": "Polyglot branch",
+      "status": "active",
+      "focus": "Keep at least 26 software languages represented as governed starter lanes rather than scattered experiments.",
+      "qualitySignal": "npm run check:software-languages && npm run check:polyglot-foundation",
+      "nextAction": "Expand language lanes only when the automation policy can add manifest, checker, handoff, docs, and rollback-safe starter coverage together."
+    },
+    {
+      "id": "server-delivery",
+      "label": "Server delivery",
+      "status": "blocked",
+      "focus": "Preserve upload-ready source bundles until GitHub/server credentials are configured.",
+      "qualitySignal": "npm run server-upload:dry-run",
+      "nextAction": "Configure UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH when the server target is known."
+    }
+  ],
+  "decisionSlots": [
+    {
+      "id": "next-cinematic-surface",
+      "question": "Which calm cinematic surface should be promoted first?",
+      "defaultOption": "development cockpit ambient depth layer"
+    },
+    {
+      "id": "server-target",
+      "question": "Which real server should receive the generated bundle?",
+      "defaultOption": "wait for explicit host/user/path credentials"
+    }
+  ]
+}

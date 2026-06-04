@@ -1,0 +1,1147 @@
+{
+  "version": "1.0.0",
+  "purpose": "Small polyglot starter surfaces for the UIX-Apps branch without adding runtime dependencies.",
+  "promotionRule": "Keep examples dependency-light, reversible, and quality-gated before any language becomes production runtime.",
+  "entries": [
+    {
+      "languageId": "html",
+      "path": "polyglot/frontend/preview.html",
+      "role": "semantic preview shell"
+    },
+    {
+      "languageId": "css",
+      "path": "polyglot/frontend/styles.css",
+      "role": "calm responsive styling"
+    },
+    {
+      "languageId": "javascript",
+      "path": "polyglot/frontend/app.js",
+      "role": "progressive enhancement sample"
+    },
+    {
+      "languageId": "typescript",
+      "path": "polyglot/typescript/contract.ts",
+      "role": "typed readiness contract"
+    },
+    {
+      "languageId": "nodejs",
+      "path": "polyglot/node/health.mjs",
+      "role": "Node health payload sample"
+    },
+    {
+      "languageId": "php",
+      "path": "polyglot/php/contact-health.php",
+      "role": "shared-hosting fallback health sample"
+    },
+    {
+      "languageId": "python",
+      "path": "polyglot/python/readiness.py",
+      "role": "offline readiness scoring sample"
+    },
+    {
+      "languageId": "java",
+      "path": "polyglot/java/ReadinessSignal.java",
+      "role": "enterprise signal model sample"
+    },
+    {
+      "languageId": "cpp",
+      "path": "polyglot/cpp/readiness_signal.cpp",
+      "role": "native systems signal sample"
+    },
+    {
+      "languageId": "csharp",
+      "path": "polyglot/csharp/ReadinessSignal.cs",
+      "role": ".NET signal model sample"
+    },
+    {
+      "languageId": "bash",
+      "path": "polyglot/bash/check-readiness.sh",
+      "role": "bounded local shell check sample"
+    },
+    {
+      "languageId": "sql",
+      "path": "polyglot/sql/content_model.sql",
+      "role": "future content database schema sample"
+    },
+    {
+      "languageId": "json",
+      "path": "polyglot/manifest.json",
+      "role": "polyglot source manifest"
+    },
+    {
+      "languageId": "yaml",
+      "path": "polyglot/governance.yml",
+      "role": "governance metadata sample"
+    },
+    {
+      "languageId": "go",
+      "path": "polyglot/go/readiness_signal.go",
+      "role": "Go readiness payload sample"
+    },
+    {
+      "languageId": "rust",
+      "path": "polyglot/rust/readiness_signal.rs",
+      "role": "Rust readiness payload sample"
+    },
+    {
+      "languageId": "wat",
+      "path": "polyglot/wat/readiness_signal.wat",
+      "role": "WebAssembly Text readiness module sample"
+    },
+    {
+      "languageId": "ruby",
+      "path": "polyglot/ruby/readiness_signal.rb",
+      "role": "Ruby readiness payload sample"
+    },
+    {
+      "languageId": "swift",
+      "path": "polyglot/swift/ReadinessSignal.swift",
+      "role": "Swift readiness payload sample"
+    },
+    {
+      "languageId": "kotlin",
+      "path": "polyglot/kotlin/ReadinessSignal.kt",
+      "role": "Kotlin readiness payload sample"
+    },
+    {
+      "languageId": "dart",
+      "path": "polyglot/dart/readiness_signal.dart",
+      "role": "Dart readiness payload sample"
+    },
+    {
+      "languageId": "r",
+      "path": "polyglot/r/readiness_signal.R",
+      "role": "R readiness payload sample"
+    },
+    {
+      "languageId": "lua",
+      "path": "polyglot/lua/readiness_signal.lua",
+      "role": "Lua readiness payload sample"
+    },
+    {
+      "languageId": "elixir",
+      "path": "polyglot/elixir/readiness_signal.exs",
+      "role": "Elixir readiness payload sample"
+    },
+    {
+      "languageId": "scala",
+      "path": "polyglot/scala/ReadinessSignal.scala",
+      "role": "Scala readiness payload sample"
+    },
+    {
+      "languageId": "hcl",
+      "path": "polyglot/hcl/readiness_signal.tf",
+      "role": "HCL infrastructure declaration sample"
+    },
+    {
+      "languageId": "markdown",
+      "path": "polyglot/markdown/readiness-signal.md",
+      "role": "Markdown handoff narrative sample"
+    },
+    {
+      "languageId": "graphql",
+      "path": "polyglot/graphql/readiness_signal.graphql",
+      "role": "GraphQL readiness schema sample"
+    },
+    {
+      "languageId": "openapi",
+      "path": "polyglot/openapi/readiness-signal.openapi.yaml",
+      "role": "OpenAPI readiness endpoint contract sample"
+    },
+    {
+      "languageId": "jsonschema",
+      "path": "polyglot/json-schema/readiness-signal.schema.json",
+      "role": "JSON Schema readiness validation sample"
+    },
+    {
+      "languageId": "protobuf",
+      "path": "polyglot/protobuf/readiness_signal.proto",
+      "role": "Protocol Buffers readiness message sample"
+    },
+    {
+      "languageId": "asyncapi",
+      "path": "polyglot/asyncapi/readiness-events.asyncapi.yaml",
+      "role": "AsyncAPI readiness event contract sample"
+    },
+    {
+      "languageId": "avro",
+      "path": "polyglot/avro/readiness-signal.avsc",
+      "role": "Avro readiness record schema sample"
+    },
+    {
+      "languageId": "toml",
+      "path": "polyglot/toml/readiness-signal.toml",
+      "role": "TOML readiness configuration sample"
+    },
+    {
+      "languageId": "xml",
+      "path": "polyglot/xml/readiness-signal.xml",
+      "role": "XML readiness interchange sample"
+    },
+    {
+      "languageId": "csv",
+      "path": "polyglot/csv/readiness-signal.csv",
+      "role": "CSV readiness operations handoff sample"
+    },
+    {
+      "languageId": "ini",
+      "path": "polyglot/ini/readiness-signal.ini",
+      "role": "INI readiness configuration sample"
+    },
+    {
+      "languageId": "jsonld",
+      "path": "polyglot/jsonld/readiness-signal.jsonld",
+      "role": "JSON-LD readiness semantic metadata sample"
+    },
+    {
+      "languageId": "turtle",
+      "path": "polyglot/turtle/readiness-signal.ttl",
+      "role": "Turtle readiness RDF graph sample"
+    },
+    {
+      "languageId": "sparql",
+      "path": "polyglot/sparql/readiness-signal.rq",
+      "role": "SPARQL readiness semantic query sample"
+    },
+    {
+      "languageId": "mermaid",
+      "path": "polyglot/mermaid/readiness-flow.mmd",
+      "role": "Mermaid readiness flow diagram sample"
+    },
+    {
+      "languageId": "plantuml",
+      "path": "polyglot/plantuml/readiness-flow.puml",
+      "role": "PlantUML readiness flow diagram sample"
+    },
+    {
+      "languageId": "make",
+      "path": "polyglot/make/readiness-signal.mk",
+      "role": "Make readiness recipe sample"
+    },
+    {
+      "languageId": "cmake",
+      "path": "polyglot/cmake/readiness-signal.cmake",
+      "role": "CMake readiness configuration sample"
+    },
+    {
+      "languageId": "taskfile",
+      "path": "polyglot/taskfile/readiness-signal.taskfile.yml",
+      "role": "Taskfile readiness handoff sample"
+    },
+    {
+      "languageId": "rego",
+      "path": "polyglot/rego/readiness_signal.rego",
+      "role": "Rego readiness policy sample"
+    },
+    {
+      "languageId": "cel",
+      "path": "polyglot/cel/readiness-signal.cel",
+      "role": "CEL readiness expression sample"
+    },
+    {
+      "languageId": "jsonnet",
+      "path": "polyglot/jsonnet/readiness-signal.jsonnet",
+      "role": "Jsonnet readiness configuration sample"
+    },
+    {
+      "languageId": "dhall",
+      "path": "polyglot/dhall/readiness-signal.dhall",
+      "role": "Dhall typed configuration readiness sample"
+    },
+    {
+      "languageId": "starlark",
+      "path": "polyglot/starlark/readiness_signal.star",
+      "role": "Starlark build-policy readiness sample"
+    },
+    {
+      "languageId": "kdl",
+      "path": "polyglot/kdl/readiness-signal.kdl",
+      "role": "KDL structured configuration readiness sample"
+    },
+    {
+      "languageId": "meson",
+      "path": "polyglot/meson/readiness-signal.meson",
+      "role": "Meson readiness build handoff sample"
+    },
+    {
+      "languageId": "just",
+      "path": "polyglot/just/readiness-signal.just",
+      "role": "Just readiness task recipe sample"
+    },
+    {
+      "languageId": "nix",
+      "path": "polyglot/nix/readiness-signal.nix",
+      "role": "Nix readiness environment policy sample"
+    },
+    {
+      "languageId": "hocon",
+      "path": "polyglot/hocon/readiness-signal.conf",
+      "role": "HOCON readiness service configuration sample"
+    },
+    {
+      "languageId": "properties",
+      "path": "polyglot/properties/readiness-signal.properties",
+      "role": "Java Properties readiness configuration sample"
+    },
+    {
+      "languageId": "dotenv",
+      "path": "polyglot/dotenv/readiness-signal.env",
+      "role": "dotenv readiness environment configuration sample"
+    },
+    {
+      "languageId": "powershell",
+      "path": "polyglot/powershell/readiness-signal.ps1",
+      "role": "PowerShell readiness scripting sample"
+    },
+    {
+      "languageId": "batch",
+      "path": "polyglot/batch/readiness-signal.bat",
+      "role": "Batch readiness scripting sample"
+    },
+    {
+      "languageId": "zsh",
+      "path": "polyglot/zsh/readiness-signal.zsh",
+      "role": "Zsh readiness scripting sample"
+    },
+    {
+      "languageId": "c",
+      "path": "polyglot/c/readiness_signal.h",
+      "role": "C readiness systems contract sample"
+    },
+    {
+      "languageId": "objectivec",
+      "path": "polyglot/objectivec/ReadinessSignal.h",
+      "role": "Objective-C readiness native bridge sample"
+    },
+    {
+      "languageId": "zig",
+      "path": "polyglot/zig/readiness_signal.zig",
+      "role": "Zig readiness systems contract sample"
+    },
+    {
+      "languageId": "ada",
+      "path": "polyglot/ada/readiness_signal.ads",
+      "role": "Ada readiness high-integrity systems sample"
+    },
+    {
+      "languageId": "pascal",
+      "path": "polyglot/pascal/readiness_signal.pas",
+      "role": "Pascal readiness classic application sample"
+    },
+    {
+      "languageId": "fortran",
+      "path": "polyglot/fortran/readiness_signal.f90",
+      "role": "Fortran readiness scientific computing sample"
+    },
+    {
+      "languageId": "cobol",
+      "path": "polyglot/cobol/readiness-signal.cob",
+      "role": "COBOL readiness enterprise transaction sample"
+    },
+    {
+      "languageId": "abap",
+      "path": "polyglot/abap/readiness_signal.abap",
+      "role": "ABAP readiness ERP integration sample"
+    },
+    {
+      "languageId": "plsql",
+      "path": "polyglot/plsql/readiness_signal.sql",
+      "role": "PL/SQL readiness database procedure sample"
+    },
+    {
+      "languageId": "tsql",
+      "path": "polyglot/tsql/readiness_signal.sql",
+      "role": "T-SQL readiness query sample"
+    },
+    {
+      "languageId": "cypher",
+      "path": "polyglot/cypher/readiness-signal.cypher",
+      "role": "Cypher readiness graph query sample"
+    },
+    {
+      "languageId": "datalog",
+      "path": "polyglot/datalog/readiness_signal.dl",
+      "role": "Datalog readiness logic-query sample"
+    },
+    {
+      "languageId": "groovy",
+      "path": "polyglot/groovy/readiness_signal.groovy",
+      "role": "Groovy readiness JVM scripting sample"
+    },
+    {
+      "languageId": "clojure",
+      "path": "polyglot/clojure/readiness_signal.clj",
+      "role": "Clojure readiness functional backend sample"
+    },
+    {
+      "languageId": "haskell",
+      "path": "polyglot/haskell/ReadinessSignal.hs",
+      "role": "Haskell readiness typed functional sample"
+    },
+    {
+      "languageId": "erlang",
+      "path": "polyglot/erlang/readiness_signal.erl",
+      "role": "Erlang readiness fault-tolerant actor sample"
+    },
+    {
+      "languageId": "ocaml",
+      "path": "polyglot/ocaml/readiness_signal.ml",
+      "role": "OCaml readiness typed functional tooling sample"
+    },
+    {
+      "languageId": "fsharp",
+      "path": "polyglot/fsharp/ReadinessSignal.fs",
+      "role": "F# readiness .NET functional sample"
+    },
+    {
+      "languageId": "scheme",
+      "path": "polyglot/scheme/readiness_signal.scm",
+      "role": "Scheme readiness minimal functional sample"
+    },
+    {
+      "languageId": "racket",
+      "path": "polyglot/racket/readiness_signal.rkt",
+      "role": "Racket readiness language-oriented DSL sample"
+    },
+    {
+      "languageId": "prolog",
+      "path": "polyglot/prolog/readiness_signal.pl",
+      "role": "Prolog readiness logic programming sample"
+    },
+    {
+      "languageId": "nim",
+      "path": "polyglot/nim/readiness_signal.nim",
+      "role": "Nim readiness efficient systems scripting sample"
+    },
+    {
+      "languageId": "crystal",
+      "path": "polyglot/crystal/readiness_signal.cr",
+      "role": "Crystal readiness compiled service sample"
+    },
+    {
+      "languageId": "vlang",
+      "path": "polyglot/vlang/readiness_signal.v",
+      "role": "V readiness compact systems application sample"
+    },
+    {
+      "languageId": "qml",
+      "path": "polyglot/qml/ReadinessSignal.qml",
+      "role": "QML readiness declarative UI sample"
+    },
+    {
+      "languageId": "glsl",
+      "path": "polyglot/glsl/readiness_signal.glsl",
+      "role": "GLSL readiness cinematic shader sample"
+    },
+    {
+      "languageId": "wgsl",
+      "path": "polyglot/wgsl/readiness_signal.wgsl",
+      "role": "WGSL readiness WebGPU shader sample"
+    },
+    {
+      "languageId": "scss",
+      "path": "polyglot/scss/readiness_signal.scss",
+      "role": "SCSS readiness design-token stylesheet sample"
+    },
+    {
+      "languageId": "less",
+      "path": "polyglot/less/readiness_signal.less",
+      "role": "Less readiness stylesheet variable sample"
+    },
+    {
+      "languageId": "stylus",
+      "path": "polyglot/stylus/readiness_signal.styl",
+      "role": "Stylus readiness expressive stylesheet sample"
+    },
+    {
+      "languageId": "liquid",
+      "path": "polyglot/liquid/readiness-signal.liquid",
+      "role": "Liquid readiness CMS template sample"
+    },
+    {
+      "languageId": "handlebars",
+      "path": "polyglot/handlebars/readiness-signal.hbs",
+      "role": "Handlebars readiness semantic template sample"
+    },
+    {
+      "languageId": "mustache",
+      "path": "polyglot/mustache/readiness-signal.mustache",
+      "role": "Mustache readiness logic-light template sample"
+    },
+    {
+      "languageId": "vue",
+      "path": "polyglot/vue/ReadinessSignal.vue",
+      "role": "Vue SFC readiness progressive component sample"
+    },
+    {
+      "languageId": "svelte",
+      "path": "polyglot/svelte/ReadinessSignal.svelte",
+      "role": "Svelte readiness compiled component sample"
+    },
+    {
+      "languageId": "astro",
+      "path": "polyglot/astro/ReadinessSignal.astro",
+      "role": "Astro readiness content-first island sample"
+    },
+    {
+      "languageId": "mdx",
+      "path": "polyglot/mdx/ReadinessSignal.mdx",
+      "role": "MDX readiness editorial component documentation sample"
+    },
+    {
+      "languageId": "ejs",
+      "path": "polyglot/ejs/readiness-signal.ejs",
+      "role": "EJS readiness server-rendered template sample"
+    },
+    {
+      "languageId": "pug",
+      "path": "polyglot/pug/readiness-signal.pug",
+      "role": "Pug readiness concise semantic template sample"
+    },
+    {
+      "languageId": "jinja",
+      "path": "polyglot/jinja/readiness-signal.jinja",
+      "role": "Jinja readiness Python-adjacent server template sample"
+    },
+    {
+      "languageId": "nunjucks",
+      "path": "polyglot/nunjucks/readiness-signal.njk",
+      "role": "Nunjucks readiness JavaScript template inheritance sample"
+    },
+    {
+      "languageId": "twig",
+      "path": "polyglot/twig/readiness-signal.twig",
+      "role": "Twig readiness PHP-adjacent CMS template sample"
+    },
+    {
+      "languageId": "blade",
+      "path": "polyglot/blade/readiness-signal.blade.php",
+      "role": "Blade readiness Laravel template sample"
+    },
+    {
+      "languageId": "erb",
+      "path": "polyglot/erb/readiness-signal.erb",
+      "role": "ERB readiness Ruby server template sample"
+    },
+    {
+      "languageId": "haml",
+      "path": "polyglot/haml/readiness-signal.haml",
+      "role": "Haml readiness concise Ruby template sample"
+    },
+    {
+      "languageId": "jsx",
+      "path": "polyglot/jsx/ReadinessSignal.jsx",
+      "role": "JSX readiness JavaScript component markup sample"
+    },
+    {
+      "languageId": "tsx",
+      "path": "polyglot/tsx/ReadinessSignal.tsx",
+      "role": "TSX readiness typed component markup sample"
+    },
+    {
+      "languageId": "webc",
+      "path": "polyglot/webc/readiness-signal.webc",
+      "role": "WebC readiness HTML component publishing sample"
+    },
+    {
+      "languageId": "xaml",
+      "path": "polyglot/xaml/ReadinessSignal.xaml",
+      "role": "XAML readiness enterprise desktop UI sample"
+    },
+    {
+      "languageId": "fxml",
+      "path": "polyglot/fxml/ReadinessSignal.fxml",
+      "role": "FXML readiness JavaFX layout sample"
+    },
+    {
+      "languageId": "razor",
+      "path": "polyglot/razor/ReadinessSignal.cshtml",
+      "role": "Razor readiness ASP.NET component template sample"
+    },
+    {
+      "languageId": "dockerfile",
+      "path": "polyglot/dockerfile/ReadinessSignal.Dockerfile",
+      "role": "Dockerfile readiness container packaging sample"
+    },
+    {
+      "languageId": "bicep",
+      "path": "polyglot/bicep/readiness_signal.bicep",
+      "role": "Bicep readiness Azure infrastructure handoff sample"
+    },
+    {
+      "languageId": "helm",
+      "path": "polyglot/helm/readiness-signal.yaml",
+      "role": "Helm readiness Kubernetes release template sample"
+    },
+    {
+      "languageId": "cue",
+      "path": "polyglot/cue/readiness_signal.cue",
+      "role": "CUE readiness schema-first configuration sample"
+    },
+    {
+      "languageId": "pkl",
+      "path": "polyglot/pkl/readiness_signal.pkl",
+      "role": "Pkl readiness typed configuration sample"
+    },
+    {
+      "languageId": "nickel",
+      "path": "polyglot/nickel/readiness_signal.ncl",
+      "role": "Nickel readiness programmable configuration sample"
+    },
+    {
+      "languageId": "promql",
+      "path": "polyglot/promql/readiness_signal.promql",
+      "role": "PromQL readiness metrics observability query sample"
+    },
+    {
+      "languageId": "logql",
+      "path": "polyglot/logql/readiness_signal.logql",
+      "role": "LogQL readiness log observability query sample"
+    },
+    {
+      "languageId": "flux",
+      "path": "polyglot/flux/readiness_signal.flux",
+      "role": "Flux readiness time-series data transformation sample"
+    },
+    {
+      "languageId": "jq",
+      "path": "polyglot/jq/readiness_signal.jq",
+      "role": "jq readiness JSON stream transformation sample"
+    },
+    {
+      "languageId": "jsonpath",
+      "path": "polyglot/jsonpath/readiness_signal.jsonpath",
+      "role": "JSONPath readiness JSON selection expression sample"
+    },
+    {
+      "languageId": "jsonata",
+      "path": "polyglot/jsonata/readiness_signal.jsonata",
+      "role": "JSONata readiness JSON transformation expression sample"
+    },
+    {
+      "languageId": "xpath",
+      "path": "polyglot/xpath/readiness_signal.xpath",
+      "role": "XPath readiness XML selection expression sample"
+    },
+    {
+      "languageId": "xquery",
+      "path": "polyglot/xquery/readiness_signal.xquery",
+      "role": "XQuery readiness XML query extraction sample"
+    },
+    {
+      "languageId": "xslt",
+      "path": "polyglot/xslt/readiness_signal.xsl",
+      "role": "XSLT readiness XML transformation handoff sample"
+    },
+    {
+      "languageId": "dot",
+      "path": "polyglot/dot/readiness_signal.dot",
+      "role": "Graphviz DOT readiness information architecture graph sample"
+    },
+    {
+      "languageId": "vega",
+      "path": "polyglot/vega/readiness_signal.vg.json",
+      "role": "Vega readiness declarative data visualization sample"
+    },
+    {
+      "languageId": "vegalite",
+      "path": "polyglot/vegalite/readiness_signal.vl.json",
+      "role": "Vega-Lite readiness concise analytics visualization sample"
+    },
+    {
+      "languageId": "thrift",
+      "path": "polyglot/thrift/readiness_signal.thrift",
+      "role": "Thrift readiness cross-language RPC contract sample"
+    },
+    {
+      "languageId": "flatbuffers",
+      "path": "polyglot/flatbuffers/readiness_signal.fbs",
+      "role": "FlatBuffers readiness low-latency binary schema sample"
+    },
+    {
+      "languageId": "capnp",
+      "path": "polyglot/capnp/readiness_signal.capnp",
+      "role": "Cap'n Proto readiness capability-oriented RPC schema sample"
+    },
+    {
+      "languageId": "smithy",
+      "path": "polyglot/smithy/readiness_signal.smithy",
+      "role": "Smithy readiness service model contract sample"
+    },
+    {
+      "languageId": "raml",
+      "path": "polyglot/raml/readiness-signal.raml",
+      "role": "RAML readiness REST API blueprint sample"
+    },
+    {
+      "languageId": "wsdl",
+      "path": "polyglot/wsdl/readiness-signal.wsdl",
+      "role": "WSDL readiness legacy SOAP service contract sample"
+    },
+    {
+      "languageId": "webidl",
+      "path": "polyglot/webidl/readiness_signal.webidl",
+      "role": "WebIDL readiness browser API interface contract sample"
+    },
+    {
+      "languageId": "asn1",
+      "path": "polyglot/asn1/readiness_signal.asn1",
+      "role": "ASN.1 readiness telecom and binary protocol schema sample"
+    },
+    {
+      "languageId": "midl",
+      "path": "polyglot/midl/readiness_signal.idl",
+      "role": "MIDL readiness COM and native interface contract sample"
+    },
+    {
+      "languageId": "julia",
+      "path": "polyglot/julia/readiness_signal.jl",
+      "role": "Julia readiness scientific computing and AI analytics sample"
+    },
+    {
+      "languageId": "matlab",
+      "path": "polyglot/matlab/readiness_signal.m",
+      "role": "MATLAB readiness technical computing and simulation sample"
+    },
+    {
+      "languageId": "sas",
+      "path": "polyglot/sas/readiness_signal.sas",
+      "role": "SAS readiness enterprise analytics and regulated reporting sample"
+    },
+    {
+      "languageId": "tex",
+      "path": "polyglot/tex/readiness_signal.tex",
+      "role": "TeX readiness durable technical publishing sample"
+    },
+    {
+      "languageId": "bibtex",
+      "path": "polyglot/bibtex/readiness_signal.bib",
+      "role": "BibTeX readiness citation and research bibliography sample"
+    },
+    {
+      "languageId": "typst",
+      "path": "polyglot/typst/readiness_signal.typ",
+      "role": "Typst readiness modern technical publishing sample"
+    },
+    {
+      "languageId": "tlaplus",
+      "path": "polyglot/tlaplus/readiness_signal.tla",
+      "role": "TLA+ readiness distributed systems specification sample"
+    },
+    {
+      "languageId": "alloy",
+      "path": "polyglot/alloy/readiness_signal.als",
+      "role": "Alloy readiness lightweight formal model sample"
+    },
+    {
+      "languageId": "coq",
+      "path": "polyglot/coq/readiness_signal.v",
+      "role": "Coq readiness proof-oriented correctness sample"
+    },
+    {
+      "languageId": "lean",
+      "path": "polyglot/lean/readiness_signal.lean",
+      "role": "Lean readiness theorem proving and verified specification sample"
+    },
+    {
+      "languageId": "agda",
+      "path": "polyglot/agda/readiness_signal.agda",
+      "role": "Agda readiness dependent type proof sample"
+    },
+    {
+      "languageId": "isabelle",
+      "path": "polyglot/isabelle/readiness_signal.thy",
+      "role": "Isabelle readiness higher-order logic proof sample"
+    },
+    {
+      "languageId": "gettext",
+      "path": "polyglot/gettext/readiness_signal.po",
+      "role": "Gettext PO readiness localization message catalog sample"
+    },
+    {
+      "languageId": "xliff",
+      "path": "polyglot/xliff/readiness_signal.xlf",
+      "role": "XLIFF readiness translation interchange sample"
+    },
+    {
+      "languageId": "resx",
+      "path": "polyglot/resx/readiness_signal.resx",
+      "role": "RESX readiness platform resource localization sample"
+    },
+    {
+      "languageId": "owl",
+      "path": "polyglot/owl/readiness_signal.owl",
+      "role": "OWL readiness ontology and semantic knowledge sample"
+    },
+    {
+      "languageId": "shacl",
+      "path": "polyglot/shacl/readiness_signal.ttl",
+      "role": "SHACL readiness semantic graph constraint validation sample"
+    },
+    {
+      "languageId": "rdfxml",
+      "path": "polyglot/rdfxml/readiness_signal.rdf",
+      "role": "RDF/XML readiness metadata interchange sample"
+    },
+    {
+      "languageId": "cloudformation",
+      "path": "polyglot/cloudformation/readiness_signal.yaml",
+      "role": "CloudFormation readiness AWS infrastructure declaration sample"
+    },
+    {
+      "languageId": "ansible",
+      "path": "polyglot/ansible/readiness_signal.yml",
+      "role": "Ansible Playbook readiness configuration automation sample"
+    },
+    {
+      "languageId": "kustomize",
+      "path": "polyglot/kustomize/kustomization.yaml",
+      "role": "Kustomize readiness Kubernetes overlay sample"
+    },
+    {
+      "languageId": "github-actions",
+      "path": "polyglot/github-actions/readiness_signal.yml",
+      "role": "GitHub Actions readiness CI delivery workflow sample"
+    },
+    {
+      "languageId": "gitlab-ci",
+      "path": "polyglot/gitlab-ci/readiness_signal.yml",
+      "role": "GitLab CI readiness delivery workflow sample"
+    },
+    {
+      "languageId": "circleci",
+      "path": "polyglot/circleci/readiness_signal.yml",
+      "role": "CircleCI readiness delivery workflow sample"
+    },
+    {
+      "languageId": "spdx",
+      "path": "polyglot/spdx/readiness_signal.spdx.json",
+      "role": "SPDX readiness software bill of materials and license governance sample"
+    },
+    {
+      "languageId": "cyclonedx",
+      "path": "polyglot/cyclonedx/readiness_signal.cdx.json",
+      "role": "CycloneDX readiness supply-chain component inventory sample"
+    },
+    {
+      "languageId": "sarif",
+      "path": "polyglot/sarif/readiness_signal.sarif.json",
+      "role": "SARIF readiness static-analysis results interchange sample"
+    },
+    {
+      "languageId": "slsa",
+      "path": "polyglot/slsa/readiness_signal.provenance.json",
+      "role": "SLSA readiness build provenance and release integrity sample"
+    },
+    {
+      "languageId": "in-toto",
+      "path": "polyglot/in-toto/readiness_signal.intoto.json",
+      "role": "in-toto readiness signed supply-chain attestation sample"
+    },
+    {
+      "languageId": "openvex",
+      "path": "polyglot/openvex/readiness_signal.openvex.json",
+      "role": "OpenVEX readiness vulnerability exploitability exchange sample"
+    },
+    {
+      "languageId": "opentelemetry",
+      "path": "polyglot/opentelemetry/readiness_signal.otel.yaml",
+      "role": "OpenTelemetry readiness observability pipeline configuration sample"
+    },
+    {
+      "languageId": "openmetrics",
+      "path": "polyglot/openmetrics/readiness_signal.openmetrics",
+      "role": "OpenMetrics readiness metrics exposition sample"
+    },
+    {
+      "languageId": "grafana-dashboard",
+      "path": "polyglot/grafana-dashboard/readiness_signal.dashboard.json",
+      "role": "Grafana dashboard readiness observability handoff sample"
+    },
+    {
+      "languageId": "gherkin",
+      "path": "polyglot/gherkin/readiness_signal.feature",
+      "role": "Gherkin readiness behavior-driven acceptance specification sample"
+    },
+    {
+      "languageId": "pact",
+      "path": "polyglot/pact/readiness_signal.pact.json",
+      "role": "Pact readiness consumer-provider contract testing sample"
+    },
+    {
+      "languageId": "junit-xml",
+      "path": "polyglot/junit-xml/readiness_signal.junit.xml",
+      "role": "JUnit XML readiness test result interchange sample"
+    },
+    {
+      "languageId": "lcov",
+      "path": "polyglot/lcov/readiness_signal.lcov",
+      "role": "LCOV readiness line coverage report sample"
+    },
+    {
+      "languageId": "cobertura",
+      "path": "polyglot/cobertura/readiness_signal.cobertura.xml",
+      "role": "Cobertura XML readiness coverage report handoff sample"
+    },
+    {
+      "languageId": "clover",
+      "path": "polyglot/clover/readiness_signal.clover.xml",
+      "role": "Clover XML readiness coverage metrics interchange sample"
+    },
+    {
+      "languageId": "postman",
+      "path": "polyglot/postman/readiness_signal.postman_collection.json",
+      "role": "Postman Collection readiness API exploration and handoff sample"
+    },
+    {
+      "languageId": "insomnia",
+      "path": "polyglot/insomnia/readiness_signal.insomnia.json",
+      "role": "Insomnia export readiness API workspace sample"
+    },
+    {
+      "languageId": "bruno",
+      "path": "polyglot/bruno/readiness_signal.bru",
+      "role": "Bruno Collection readiness file-based API handoff sample"
+    },
+    {
+      "languageId": "har",
+      "path": "polyglot/har/readiness_signal.har.json",
+      "role": "HTTP Archive readiness API traffic capture and performance trace sample"
+    },
+    {
+      "languageId": "rest-client",
+      "path": "polyglot/rest-client/readiness_signal.http",
+      "role": "REST Client HTTP readiness plain-text API request handoff sample"
+    },
+    {
+      "languageId": "httpie",
+      "path": "polyglot/httpie/readiness_signal.httpie.json",
+      "role": "HTTPie readiness human-readable API command handoff sample"
+    },
+    {
+      "languageId": "sitemap-xml",
+      "path": "polyglot/sitemap-xml/readiness_signal.sitemap.xml",
+      "role": "Sitemap XML readiness search indexing and discoverability sample"
+    },
+    {
+      "languageId": "robots-txt",
+      "path": "polyglot/robots-txt/readiness_signal.robots.txt",
+      "role": "Robots.txt readiness crawler policy and search governance sample"
+    },
+    {
+      "languageId": "rss-feed",
+      "path": "polyglot/rss-feed/readiness_signal.rss.xml",
+      "role": "RSS Feed readiness syndicated content and editorial feed sample"
+    },
+    {
+      "languageId": "security-txt",
+      "path": "polyglot/security-txt/readiness_signal.security.txt",
+      "role": "Security.txt readiness coordinated vulnerability disclosure sample"
+    },
+    {
+      "languageId": "ads-txt",
+      "path": "polyglot/ads-txt/readiness_signal.ads.txt",
+      "role": "Ads.txt readiness advertising authorization transparency sample"
+    },
+    {
+      "languageId": "humans-txt",
+      "path": "polyglot/humans-txt/readiness_signal.humans.txt",
+      "role": "Humans.txt readiness authorship and stewardship attribution sample"
+    },
+    {
+      "languageId": "web-app-manifest",
+      "path": "polyglot/web-app-manifest/readiness_signal.webmanifest",
+      "role": "Web App Manifest readiness installability and app identity sample"
+    },
+    {
+      "languageId": "browserconfig",
+      "path": "polyglot/browserconfig/readiness_signal.browserconfig.xml",
+      "role": "Browserconfig readiness Windows tile metadata sample"
+    },
+    {
+      "languageId": "assetlinks",
+      "path": "polyglot/assetlinks/readiness_signal.assetlinks.json",
+      "role": "Digital Asset Links readiness Android platform trust sample"
+    },
+    {
+      "languageId": "axe-json",
+      "path": "polyglot/axe-json/readiness_signal.axe.json",
+      "role": "axe JSON readiness accessibility audit evidence sample"
+    },
+    {
+      "languageId": "pa11y-json",
+      "path": "polyglot/pa11y-json/readiness_signal.pa11y.json",
+      "role": "Pa11y JSON readiness accessibility crawl report sample"
+    },
+    {
+      "languageId": "lighthouse-json",
+      "path": "polyglot/lighthouse-json/readiness_signal.lighthouse.json",
+      "role": "Lighthouse JSON readiness performance and accessibility audit sample"
+    },
+    {
+      "languageId": "osv-json",
+      "path": "polyglot/osv-json/readiness_signal.osv.json",
+      "role": "OSV JSON readiness open-source vulnerability evidence sample"
+    },
+    {
+      "languageId": "npm-audit-json",
+      "path": "polyglot/npm-audit-json/readiness_signal.npm-audit.json",
+      "role": "npm audit JSON readiness dependency audit report sample"
+    },
+    {
+      "languageId": "dependabot-alerts-json",
+      "path": "polyglot/dependabot-alerts-json/readiness_signal.dependabot-alerts.json",
+      "role": "Dependabot Alerts JSON readiness GitHub dependency alert intake sample"
+    },
+    {
+      "languageId": "gitleaks-json",
+      "path": "polyglot/gitleaks-json/readiness_signal.gitleaks.json",
+      "role": "Gitleaks JSON readiness secret scanning evidence sample"
+    },
+    {
+      "languageId": "trivy-json",
+      "path": "polyglot/trivy-json/readiness_signal.trivy.json",
+      "role": "Trivy JSON readiness filesystem, container, and infrastructure scan sample"
+    },
+    {
+      "languageId": "grype-json",
+      "path": "polyglot/grype-json/readiness_signal.grype.json",
+      "role": "Grype JSON readiness SBOM vulnerability matching sample"
+    },
+    {
+      "languageId": "license-checker-json",
+      "path": "polyglot/license-checker-json/readiness_signal.license-checker.json",
+      "role": "License Checker JSON readiness package license inventory sample"
+    },
+    {
+      "languageId": "scancode-json",
+      "path": "polyglot/scancode-json/readiness_signal.scancode.json",
+      "role": "ScanCode JSON readiness source license and compliance evidence sample"
+    },
+    {
+      "languageId": "ort-json",
+      "path": "polyglot/ort-json/readiness_signal.ort.json",
+      "role": "OSS Review Toolkit JSON readiness open-source review report sample"
+    },
+    {
+      "languageId": "zap-json",
+      "path": "polyglot/zap-json/readiness_signal.zap.json",
+      "role": "OWASP ZAP JSON readiness dynamic application security evidence sample"
+    },
+    {
+      "languageId": "nuclei-json",
+      "path": "polyglot/nuclei-json/readiness_signal.nuclei.json",
+      "role": "Nuclei JSON readiness template-based exposure finding sample"
+    },
+    {
+      "languageId": "burp-xml",
+      "path": "polyglot/burp-xml/readiness_signal.burp.xml",
+      "role": "Burp Suite XML readiness proxy-assisted security issue export sample"
+    },
+    {
+      "languageId": "openapi-diff-json",
+      "path": "polyglot/openapi-diff-json/readiness_signal.openapi-diff.json",
+      "role": "OpenAPI Diff JSON readiness API breaking-change evidence sample"
+    },
+    {
+      "languageId": "schemathesis-json",
+      "path": "polyglot/schemathesis-json/readiness_signal.schemathesis.json",
+      "role": "Schemathesis JSON readiness API property-test report sample"
+    },
+    {
+      "languageId": "dredd-json",
+      "path": "polyglot/dredd-json/readiness_signal.dredd.json",
+      "role": "Dredd JSON readiness API contract test execution sample"
+    },
+    {
+      "languageId": "sentry-issue-json",
+      "path": "polyglot/sentry-issue-json/readiness_signal.sentry-issue.json",
+      "role": "Sentry Issue JSON readiness application error triage sample"
+    },
+    {
+      "languageId": "datadog-monitor-json",
+      "path": "polyglot/datadog-monitor-json/readiness_signal.datadog-monitor.json",
+      "role": "Datadog Monitor JSON readiness service alert threshold sample"
+    },
+    {
+      "languageId": "alertmanager-json",
+      "path": "polyglot/alertmanager-json/readiness_signal.alertmanager.json",
+      "role": "Alertmanager JSON readiness alert routing evidence sample"
+    },
+    {
+      "languageId": "checkov-json",
+      "path": "polyglot/checkov-json/readiness_signal.checkov.json",
+      "role": "Checkov JSON readiness infrastructure policy scan sample"
+    },
+    {
+      "languageId": "tfsec-json",
+      "path": "polyglot/tfsec-json/readiness_signal.tfsec.json",
+      "role": "tfsec JSON readiness Terraform security finding sample"
+    },
+    {
+      "languageId": "terrascan-json",
+      "path": "polyglot/terrascan-json/readiness_signal.terrascan.json",
+      "role": "Terrascan JSON readiness policy-as-code violation sample"
+    },
+    {
+      "languageId": "dpia-json",
+      "path": "polyglot/dpia-json/readiness_signal.dpia.json",
+      "role": "DPIA JSON readiness privacy risk assessment sample"
+    },
+    {
+      "languageId": "consent-ledger-json",
+      "path": "polyglot/consent-ledger-json/readiness_signal.consent-ledger.json",
+      "role": "Consent Ledger JSON readiness consent evidence sample"
+    },
+    {
+      "languageId": "retention-policy-json",
+      "path": "polyglot/retention-policy-json/readiness_signal.retention-policy.json",
+      "role": "Retention Policy JSON readiness deletion review evidence sample"
+    },
+    {
+      "languageId": "design-tokens-json",
+      "path": "polyglot/design-tokens-json/readiness_signal.design-tokens.json",
+      "role": "Design Tokens JSON readiness visual system handoff sample"
+    },
+    {
+      "languageId": "style-dictionary-json",
+      "path": "polyglot/style-dictionary-json/readiness_signal.style-dictionary.json",
+      "role": "Style Dictionary JSON readiness token transformation sample"
+    },
+    {
+      "languageId": "figma-tokens-json",
+      "path": "polyglot/figma-tokens-json/readiness_signal.figma-tokens.json",
+      "role": "Figma Tokens JSON readiness design-to-code parity sample"
+    },
+    {
+      "languageId": "lottie-json",
+      "path": "polyglot/lottie-json/readiness_signal.lottie.json",
+      "role": "Lottie JSON readiness lightweight motion asset sample"
+    },
+    {
+      "languageId": "motion-spec-json",
+      "path": "polyglot/motion-spec-json/readiness_signal.motion-spec.json",
+      "role": "Motion Spec JSON readiness cinematic timing and restraint sample"
+    },
+    {
+      "languageId": "reduced-motion-json",
+      "path": "polyglot/reduced-motion-json/readiness_signal.reduced-motion.json",
+      "role": "Reduced Motion JSON readiness fallback accessibility sample"
+    },
+    {
+      "languageId": "release-readiness-json",
+      "path": "polyglot/release-readiness-json/readiness_signal.release-readiness.json",
+      "role": "Release Readiness JSON readiness gate status sample"
+    },
+    {
+      "languageId": "rollback-plan-json",
+      "path": "polyglot/rollback-plan-json/readiness_signal.rollback-plan.json",
+      "role": "Rollback Plan JSON readiness recovery path sample"
+    },
+    {
+      "languageId": "change-impact-json",
+      "path": "polyglot/change-impact-json/readiness_signal.change-impact.json",
+      "role": "Change Impact JSON readiness risk surface sample"
+    }
+  ]
+}

@@ -1,0 +1,1827 @@
+{
+  "system": "SEIS AUTONOMOUS FULLSTACK ENGINEERING CIVILIZATION OS",
+  "topic": "design-foundations",
+  "goals": [
+    "clarity",
+    "maintainability",
+    "responsive-consistency",
+    "accessibility",
+    "premium-visual-hierarchy"
+  ],
+  "token_contract": {
+    "typography": ["display", "heading", "body", "label", "caption"],
+    "spacing": ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"],
+    "radius": ["sm", "md", "lg", "xl"],
+    "shadow": ["soft", "medium", "elevated"],
+    "motion": ["calm", "standard", "expressive"]
+  },
+  "i18n": ["tr", "en", "fr", "it", "de"],
+  "rules": {
+    "mobile_first": true,
+    "semantic_html": true,
+    "reduced_motion": true,
+    "rollback_safe": true
+  },
+  "modules": [
+    {
+      "id": "design-module-001",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-002",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-003",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-004",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-005",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-006",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-007",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-008",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-009",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-010",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-011",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-012",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-013",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-014",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-015",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-016",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-017",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-018",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-019",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-020",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-021",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-022",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-023",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-024",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-025",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-026",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-027",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-028",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-029",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-030",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-031",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-032",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-033",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-034",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-035",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-036",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-037",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-038",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-039",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-040",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-041",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-042",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-043",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-044",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-045",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-046",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-047",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-048",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-049",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-050",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-051",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-052",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-053",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-054",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-055",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-056",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-057",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-058",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-059",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-060",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-061",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-062",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-063",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-064",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-065",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-066",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-067",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-068",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-069",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-070",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-071",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-072",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-073",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-074",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-075",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-076",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-077",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-078",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-079",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-080",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-081",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-082",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-083",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-084",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-085",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-086",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-087",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-088",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-089",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-090",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-091",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-092",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-093",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-094",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-095",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-096",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-097",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-098",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-099",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-100",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-101",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-102",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-103",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-104",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-105",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-106",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-107",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-108",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-109",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-110",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-111",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-112",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-113",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-114",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-115",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-116",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-117",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-118",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-119",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-120",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-121",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-122",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-123",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-124",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-125",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-126",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-127",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-128",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-129",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-130",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-131",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-132",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-133",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-134",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-135",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-136",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-137",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-138",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-139",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-140",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-141",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-142",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-143",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-144",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-145",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-146",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-147",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-148",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-149",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-150",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-151",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-152",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-153",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-154",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-155",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-156",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-157",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-158",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-159",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-160",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-161",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-162",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-163",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-164",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-165",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-166",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-167",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-168",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-169",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-170",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-171",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-172",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-173",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-174",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-175",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-176",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-177",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-178",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-179",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-180",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-181",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-182",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-183",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-184",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-185",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-186",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-187",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-188",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-189",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-190",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-191",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-192",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-193",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-194",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-195",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-196",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-197",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-198",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-199",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-200",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-201",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-202",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-203",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-204",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-205",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-206",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-207",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-208",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-209",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-210",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-211",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-212",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-213",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-214",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-215",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-216",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-217",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-218",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-219",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-220",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-221",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-222",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-223",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-224",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-225",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-226",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-227",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-228",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-229",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-230",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-231",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-232",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-233",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-234",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-235",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-236",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-237",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-238",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-239",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-240",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-241",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-242",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-243",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-244",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-245",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-246",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-247",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-248",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-249",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-250",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-251",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-252",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-253",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-254",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-255",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-256",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-257",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-258",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-259",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-260",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-261",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-262",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-263",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-264",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-265",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-266",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-267",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-268",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-269",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-270",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-271",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-272",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-273",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-274",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-275",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-276",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-277",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-278",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-279",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-280",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-281",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-282",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-283",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-284",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-285",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-286",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-287",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-288",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-289",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-290",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-291",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-292",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-293",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-294",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-295",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-296",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-297",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-298",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-299",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    },
+    {
+      "id": "design-module-300",
+      "status": "active",
+      "priority": "high",
+      "wcag_target": "AA"
+    }
+  ]
+}

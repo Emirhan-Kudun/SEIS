@@ -1,0 +1,21 @@
+system: supreme-creative-intelligence-os
+status: active
+checks:
+  - id: clarity
+    question: Does the change make the experience easier to understand?
+  - id: rhythm
+    question: Does the change improve visual or reading rhythm?
+  - id: atmosphere
+    question: Does the change preserve calm spatial continuity?
+  - id: restraint
+    question: Is the change necessary and refined?
+  - id: accessibility
+    question: Does the change preserve keyboard, contrast, and reduced-motion support?
+  - id: performance
+    question: Does the change avoid heavy rendering and layout instability?
+  - id: maintainability
+    question: Is the change easy to understand, reverse, and evolve?
+result_policy:
+  pass: all checks are acceptable
+  revise: one or more checks need refinement
+  reject: the change adds noise without clear value

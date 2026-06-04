@@ -1,0 +1,29 @@
+{
+  "canonicalizationPolicy": "Normalize duplicate mentions to one canonical connector id while preserving sources.",
+  "aliases": {
+    "zoom-plugin": "zoom",
+    "Tarayici": "browser",
+    "tarayici": "browser",
+    "ai-plugins-openai": "ai-plugins",
+    "netlify-skills": "netlify",
+    "huggingface-skills": "hugging-face",
+    "security-guidance": "codex-security",
+    "code-review": "coderabbit",
+    "pr-review-toolkit": "github-pr-review",
+    "azure-sdk-dotnet": "azure-sdk-dotnet",
+    "azure-sdk-typescript": "azure-sdk-typescript",
+    "azure-sdk-java": "azure-sdk-java",
+    "azure-sdk-rust": "azure-sdk-rust",
+    "aws-agents": "aws-agents",
+    "aws-dev-toolkit-duplicate": "aws-dev-toolkit",
+    "circleback-duplicate": "circleback",
+    "twilio-developer-kit-duplicate": "twilio-developer-kit",
+    "superpowers-duplicate": "superpowers"
+  },
+  "rules": [
+    "Prefer the installed OpenAI curated connector when the task is inside Codex and both sources exist.",
+    "Prefer Claude official skill cards when the task is Claude Code planning or project-agent routing.",
+    "Keep duplicates as sources on one canonical connector instead of creating separate always-on entries.",
+    "Do not merge connectors with different accounts or permission surfaces unless the task scope is explicit."
+  ]
+}

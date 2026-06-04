@@ -1,0 +1,8 @@
+{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Emirhan Kudun",
+        "jobTitle": "Frontend Engineer",
+        "url": "https://example.com",
+        "sameAs": ["https://github.com/"]
+      }

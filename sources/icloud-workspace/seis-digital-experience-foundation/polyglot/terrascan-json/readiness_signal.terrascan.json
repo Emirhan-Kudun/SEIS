@@ -1,0 +1,15 @@
+{
+  "tool": "terrascan",
+  "type": "ReadinessSignal",
+  "results": {
+    "violations": [],
+    "scanSummary": {
+      "policiesValidated": 0,
+      "violatedPolicies": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "notes": "Dependency-light placeholder for future policy-as-code violation evidence."
+}

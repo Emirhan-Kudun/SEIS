@@ -1,0 +1,936 @@
+{
+  "run_id": "run-2026-05-08T07-43-41-770Z-monthly-sweep",
+  "timestamp": "2026-05-08T07:43:41.770Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "monthly-full-connector-sweep",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "browser-use",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "core",
+      "group": "validation"
+    },
+    {
+      "connector": "build-web-apps",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "core",
+      "group": "validation"
+    },
+    {
+      "connector": "codex-security",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "core",
+      "group": "security"
+    },
+    {
+      "connector": "notion",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and set destination to move from suggested to approved flow.",
+      "tier": "core",
+      "group": "ops"
+    },
+    {
+      "connector": "linear",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and set destination to move from suggested to approved flow.",
+      "tier": "core",
+      "group": "ops"
+    },
+    {
+      "connector": "github",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and set destination to move from suggested to approved flow.",
+      "tier": "core",
+      "group": "ops"
+    },
+    {
+      "connector": "slack",
+      "status": "skipped_with_reason",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and set destination to move from suggested to approved flow.",
+      "tier": "core",
+      "group": "ops"
+    },
+    {
+      "connector": "openai-developers",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "twilio-developer-kit",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "supabase",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "hyperframes",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "media"
+    },
+    {
+      "connector": "temporal",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "render",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "yepcode",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "vantage",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "statsig",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "analytics"
+    },
+    {
+      "connector": "read-ai",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "analytics"
+    },
+    {
+      "connector": "ranked-ai",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "analytics"
+    },
+    {
+      "connector": "quicknode",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "marcopolo",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "daloopa",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "analytics"
+    },
+    {
+      "connector": "cloudinary",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "media"
+    },
+    {
+      "connector": "biorender",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "design"
+    },
+    {
+      "connector": "plugin-eval",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "quality"
+    },
+    {
+      "connector": "remotion",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "media"
+    },
+    {
+      "connector": "neon-postgres",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "coderabbit",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "quality"
+    },
+    {
+      "connector": "expo",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "zotero",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "research"
+    },
+    {
+      "connector": "life-science-research",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "research"
+    },
+    {
+      "connector": "chatgpt-apps",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "platform"
+    },
+    {
+      "connector": "sentry",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "cloudflare",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "circleci",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "box",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "knowledge"
+    },
+    {
+      "connector": "superpowers",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "quality"
+    },
+    {
+      "connector": "vercel",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "netlify",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "ops"
+    },
+    {
+      "connector": "figma",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "design"
+    },
+    {
+      "connector": "canva",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "design"
+    },
+    {
+      "connector": "atlassian-rovo",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "knowledge"
+    },
+    {
+      "connector": "latex-tectonic",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "authoring"
+    },
+    {
+      "connector": "presentations",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "authoring"
+    },
+    {
+      "connector": "spreadsheets",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "authoring"
+    },
+    {
+      "connector": "documents",
+      "status": "skipped_with_reason",
+      "reason": "no local adapter binding for this connector in monthly sweep",
+      "duration_ms": 0,
+      "next_action": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "tier": "rotation",
+      "group": "authoring"
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "One or more connectors are not locally bound."
+    ],
+    "low": []
+  },
+  "audit": {
+    "coverage": {
+      "total_connectors": 45,
+      "covered_connectors": 45,
+      "target": "100%",
+      "status": "met"
+    },
+    "metrics": {
+      "p95_ms": 0,
+      "fail_rate": 0,
+      "thresholds": {
+        "p95_ms_threshold": 8000,
+        "fail_rate_threshold": 0.05
+      },
+      "sla_alert": false
+    }
+  },
+  "summary": "Monthly connector sweep completed with step records for the full registry.",
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Enable or bind browser-use",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind build-web-apps",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind codex-security",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind notion",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and set destination to move from suggested to approved flow.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind linear",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and set destination to move from suggested to approved flow.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind github",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and set destination to move from suggested to approved flow.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind slack",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and set destination to move from suggested to approved flow.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind openai-developers",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind twilio-developer-kit",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind supabase",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind hyperframes",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind temporal",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind render",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind yepcode",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind vantage",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind statsig",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind read-ai",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind ranked-ai",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind quicknode",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind marcopolo",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind daloopa",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind cloudinary",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind biorender",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind plugin-eval",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind remotion",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind neon-postgres",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind coderabbit",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind expo",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind zotero",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind life-science-research",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind chatgpt-apps",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind sentry",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind cloudflare",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind circleci",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind box",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind superpowers",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind vercel",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind netlify",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind figma",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind canva",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind atlassian-rovo",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind latex-tectonic",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind presentations",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind spreadsheets",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Enable or bind documents",
+      "problem": "no local adapter binding for this connector in monthly sweep",
+      "proposed_change": "Keep in rotation registry and configure adapter when runtime binding is ready.",
+      "labels": [
+        "ops",
+        "coverage"
+      ],
+      "source_link": "reports/ecosystem/2026-05-08-monthly-sweep.json"
+    }
+  ]
+}

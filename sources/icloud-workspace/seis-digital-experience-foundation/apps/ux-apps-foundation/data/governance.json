@@ -1,0 +1,63 @@
+{
+  "activeBranch": "codex/ux-apps-foundation",
+  "protectedBranches": [
+    "main",
+    "stable"
+  ],
+  "branchFamilies": [
+    "feature/*",
+    "design/*",
+    "motion/*",
+    "api/*",
+    "data/*",
+    "docs/*",
+    "governance/*",
+    "observability/*",
+    "rollback/*"
+  ],
+  "mergePolicy": [
+    "Small reversible diffs",
+    "No dependency added without budget note",
+    "No animation that ignores reduced-motion",
+    "No direct changes to protected branches",
+    "No raw archive, dependency cache, framework output, or iCloud metadata committed",
+    "Quality command must pass before release"
+  ],
+  "handoffPolicy": {
+    "record": "docs/github-handoff.md",
+    "sourceCommit": "4e8fb380",
+    "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+    "longTermProgram": "docs/long-term-development-program.md",
+    "mode": "documented integration before merge",
+    "intakeRule": "Inspect bounded archive slices and adapt selected source; never mirror the full zip into the repo.",
+    "excludedArtifacts": [
+      "node_modules/",
+      ".next/",
+      ".runtime/",
+      "runtime/",
+      "__MACOSX/",
+      ".DS_Store"
+    ]
+  },
+  "cinematic3dPolicy": {
+    "mode": "calm depth and cinematic motion as usability support",
+    "constraints": [
+      "reduced-motion aware",
+      "GPU-conscious",
+      "responsive",
+      "dependency-budgeted",
+      "no spectacle-first animation"
+    ]
+  },
+  "releaseGates": [
+    "npm run quality",
+    "Keyboard navigation smoke check",
+    "Reduced-motion visual check",
+    "API health check",
+    "Rollback path documented"
+  ],
+  "rollback": {
+    "strategy": "Keep static frontend and JSON data compatible with native Node server.",
+    "minimumSafeState": "public/index.html, public/styles.css, public/app.js, src/server/server.mjs"
+  }
+}

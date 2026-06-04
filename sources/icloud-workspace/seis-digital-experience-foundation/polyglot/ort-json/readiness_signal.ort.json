@@ -1,0 +1,14 @@
+{
+  "tool": "oss-review-toolkit",
+  "type": "ReadinessSignal",
+  "analyzer": {
+    "result": "not-run"
+  },
+  "advisor": {
+    "results": []
+  },
+  "evaluator": {
+    "violations": []
+  },
+  "notes": "Dependency-light placeholder for future open-source review and policy evaluation evidence."
+}

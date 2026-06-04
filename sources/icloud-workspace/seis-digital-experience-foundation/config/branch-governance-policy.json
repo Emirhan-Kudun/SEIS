@@ -1,0 +1,97 @@
+{
+  "version": "1.0.0",
+  "primary_work_branch": "UIXAppTTR",
+  "single_branch_mode": true,
+  "single_branch_exceptions": [],
+  "absorbed_branch_lanes": [
+    {
+      "former_git_branch": "codex/premium-local-foundation",
+      "sub_agent": "premium-local-foundation-agent",
+      "status": "absorbed-into-primary",
+      "primary_branch": "UIXAppTTR",
+      "rule": "Do not switch, push, or develop on this former branch; route its work as a logical sub-agent lane inside UIXAppTTR."
+    }
+  ],
+  "protected_branches": [
+    "main",
+    "master"
+  ],
+  "allowed_branch_patterns": [
+    "^UIXAppTTR$"
+  ],
+  "critical_files": [
+    ".env",
+    ".gitignore",
+    "config.xml",
+    "package.json",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+    "vite.config.js",
+    "vite.config.ts",
+    "webpack.config.js",
+    "webpack.config.ts",
+    "tsconfig.json",
+    "netlify.toml",
+    "vercel.json",
+    "docker-compose.yml",
+    "Dockerfile",
+    ".env.local",
+    ".env.production",
+    "site-config.json",
+    "site-config.example.json"
+  ],
+  "forbidden_scope_mixes": [
+    [
+      "seo",
+      "ui"
+    ],
+    [
+      "feature",
+      "refactor"
+    ],
+    [
+      "config",
+      "style"
+    ],
+    [
+      "dependency",
+      "ui"
+    ],
+    [
+      "asset",
+      "responsive"
+    ],
+    [
+      "animation",
+      "performance"
+    ]
+  ],
+  "commit_prefixes": [
+    "feat",
+    "fix",
+    "style",
+    "refactor",
+    "chore",
+    "seo",
+    "perf",
+    "docs",
+    "config",
+    "test"
+  ],
+  "quality_gate": {
+    "minimum_score": 85,
+    "required_checks": [
+      "responsive",
+      "performance",
+      "seo",
+      "design_language",
+      "main_safety"
+    ]
+  },
+  "dependency_policy": {
+    "prefer_native": true,
+    "require_justification": true,
+    "forbid_unnecessary_packages": true
+  }
+}

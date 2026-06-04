@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-05-15T10:26:21.987Z",
+  "plan": "Unified Master Plan v3",
+  "mode": "single-phase-full-merge",
+  "source_set": [
+    "INTEGRATION-PLAYBOOK.md",
+    "INTEGRATION-PLAYBOOK 2.md",
+    "contracts/*",
+    "docs/seis-phase2-*",
+    "docs/seis-website-sprint-*",
+    "docs/seis-mega-feature-pack-v2..v12",
+    "docs/seis-*-pack-v14",
+    "docs/seis-cloud-track-*"
+  ],
+  "precedence": [
+    {
+      "order": 1,
+      "domain": "security-branch-rollback",
+      "winner": [
+        "contracts/git-pr-workflow-contract.md",
+        "config/branch-governance-policy.json"
+      ]
+    },
+    {
+      "order": 2,
+      "domain": "product-direction",
+      "winner": [
+        "INTEGRATION-PLAYBOOK.md"
+      ]
+    },
+    {
+      "order": 3,
+      "domain": "sprint-phase-feature-detail",
+      "winner": [
+        "plan-ledger.json",
+        "docs/*"
+      ]
+    }
+  ],
+  "conflict_notes": [
+    {
+      "topic": "runtime-positioning",
+      "options": [
+        "next-primary-static-fallback",
+        "static-first-next-secondary"
+      ],
+      "decision": "static-first-next-secondary-for-interview-wave",
+      "rationale": "interview-safe stability and immediate demo reliability"
+    },
+    {
+      "topic": "duplicate-legacy-docs",
+      "options": [
+        "overwrite-legacy",
+        "reference-preserve"
+      ],
+      "decision": "reference-preserve",
+      "rationale": "avoid risky rewrite and keep auditability"
+    }
+  ],
+  "outputs": [
+    "docs/unified-master-plan-v3.md",
+    "docs/unified-i18n-mapping-policy.md",
+    "docs/static-next-parity-checklist.md"
+  ]
+}

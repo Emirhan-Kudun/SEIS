@@ -1,0 +1,15 @@
+system: supreme-creative-intelligence-os
+status: active
+prompts:
+  - id: first-viewport
+    question: Does the first viewport clearly communicate identity, craft, and atmosphere?
+  - id: selected-work
+    question: Does the work presentation feel editorial and easy to scan?
+  - id: motion
+    question: Does motion connect context without delaying reading?
+  - id: mobile
+    question: Does the mobile version feel intentionally composed rather than compressed?
+  - id: contact
+    question: Is the contact path direct, calm, and low-friction?
+  - id: i18n
+    question: Do TR, EN, FR, IT, and DE labels fit without breaking rhythm?

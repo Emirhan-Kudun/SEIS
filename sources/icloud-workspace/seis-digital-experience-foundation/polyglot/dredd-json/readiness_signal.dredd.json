@@ -1,0 +1,14 @@
+{
+  "tool": "dredd",
+  "type": "ReadinessSignal",
+  "apiDescription": "openapi.json",
+  "endpoint": "https://uix-apps.local",
+  "results": [],
+  "summary": {
+    "tests": 0,
+    "passes": 0,
+    "failures": 0,
+    "errors": 0
+  },
+  "notes": "Dependency-light placeholder for future API contract test evidence."
+}

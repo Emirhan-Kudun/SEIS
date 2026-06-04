@@ -1,0 +1,480 @@
+{
+  "run_id": "run-2026-05-08T07-42-35-659Z-quarterly-mcp-audit",
+  "timestamp": "2026-05-08T07:42:35.659Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "quarterly-mcp-audit",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "browser-use",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "validation",
+      "last_status": "invoked"
+    },
+    {
+      "connector": "build-web-apps",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "validation",
+      "last_status": "invoked"
+    },
+    {
+      "connector": "codex-security",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "security",
+      "last_status": "invoked"
+    },
+    {
+      "connector": "notion",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "linear",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "github",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "slack",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "core",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "openai-developers",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "twilio-developer-kit",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "supabase",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "hyperframes",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "media",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "temporal",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "render",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "yepcode",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "vantage",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "statsig",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "analytics",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "read-ai",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "analytics",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "ranked-ai",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "analytics",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "quicknode",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "marcopolo",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "daloopa",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "analytics",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "cloudinary",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "media",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "biorender",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "design",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "plugin-eval",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "quality",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "remotion",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "media",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "neon-postgres",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "coderabbit",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "quality",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "expo",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "zotero",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "research",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "life-science-research",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "research",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "chatgpt-apps",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "platform",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "sentry",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "cloudflare",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "circleci",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "box",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "knowledge",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "superpowers",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "quality",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "vercel",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "netlify",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "ops",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "figma",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "design",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "canva",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "design",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "atlassian-rovo",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "knowledge",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "latex-tectonic",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "authoring",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "presentations",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "authoring",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "spreadsheets",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "authoring",
+      "last_status": "skipped_with_reason"
+    },
+    {
+      "connector": "documents",
+      "status": "invoked",
+      "reason": "quarterly audit read existing monthly coverage",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "tier": "rotation",
+      "group": "authoring",
+      "last_status": "skipped_with_reason"
+    }
+  ],
+  "risk_summary": {
+    "high": [],
+    "medium": [],
+    "low": [
+      "Quarterly connector coverage audit clean."
+    ]
+  },
+  "audit": {
+    "coverage": {
+      "total_connectors": 45,
+      "connectors_with_coverage": 45,
+      "connectors_missing_coverage": 0,
+      "target": "100%"
+    },
+    "approval_backlog": {
+      "suggested_count": 0,
+      "approved_count": 0
+    }
+  },
+  "summary": "Quarterly MCP audit completed using guarded-write and coverage-ledger verification.",
+  "suggested_actions": []
+}

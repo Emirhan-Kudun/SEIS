@@ -1,0 +1,23 @@
+openapi: 3.1.0
+info:
+  title: UIX Apps Readiness Signal
+  version: "1.0.0"
+paths:
+  /api/polyglot-foundation:
+    get:
+      summary: Return governed polyglot readiness metadata.
+      responses:
+        "200":
+          description: ReadinessSignal payload for governed language lanes.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ReadinessSignal
+                  - entries
+                properties:
+                  ReadinessSignal:
+                    type: string
+                  entries:
+                    type: integer

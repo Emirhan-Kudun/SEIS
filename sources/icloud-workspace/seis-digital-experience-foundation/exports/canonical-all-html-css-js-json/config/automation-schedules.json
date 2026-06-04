@@ -1,0 +1,33 @@
+{
+  "timezone": "Europe/Istanbul",
+  "automations": [
+    {
+      "id": "frontend-ecosystem-core-heartbeat",
+      "name": "Frontend Ecosystem Core Heartbeat",
+      "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17;BYMINUTE=40;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "daily_profile"
+    },
+    {
+      "id": "weekly-portfolio-trend-sync",
+      "name": "Weekly Portfolio Trend Sync",
+      "rrule": "FREQ=WEEKLY;BYDAY=FR;BYHOUR=18;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "weekly_profile"
+    },
+    {
+      "id": "monthly-full-connector-sweep",
+      "name": "Monthly Full Connector Sweep",
+      "rrule": "FREQ=MONTHLY;BYMONTHDAY=1;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "monthly_profile"
+    },
+    {
+      "id": "quarterly-mcp-ecosystem-audit",
+      "name": "Quarterly MCP Ecosystem Audit",
+      "rrule": "FREQ=MONTHLY;INTERVAL=3;BYMONTHDAY=7;BYHOUR=9;BYMINUTE=0;BYSECOND=0",
+      "status": "ACTIVE",
+      "run_profile": "quarterly_profile"
+    }
+  ]
+}

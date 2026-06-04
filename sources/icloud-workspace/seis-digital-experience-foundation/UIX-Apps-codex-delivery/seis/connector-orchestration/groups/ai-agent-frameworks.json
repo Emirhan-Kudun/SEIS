@@ -1,0 +1,29 @@
+{
+  "group": "ai-agent-frameworks",
+  "purpose": "AI agents, plugin development, code modernization, Claude Code setup, and agentic workflow skills.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": ["plugin install", "agent write action", "codebase rewrite", "external model call"],
+  "connectors": [
+    {"id":"agent-sdk-dev","sources":["claude-plugins-official"],"role":"agent SDK development guidance","mode":"registry-only"},
+    {"id":"agentforce-adlc","sources":["claude-plugins-official"],"role":"agent lifecycle and Salesforce-aligned planning","mode":"registry-only"},
+    {"id":"ai-plugins","sources":["claude-plugins-official"],"role":"AI plugin ecosystem guidance","mode":"registry-only"},
+    {"id":"atomic-agents","sources":["claude-plugins-official"],"role":"atomic agent architecture","mode":"registry-only"},
+    {"id":"mcp-server-dev","sources":["claude-plugins-official"],"role":"MCP server development","mode":"registry-only"},
+    {"id":"plugin-dev","sources":["claude-plugins-official"],"role":"plugin development workflows","mode":"registry-only"},
+    {"id":"data-agent-kit-starter-pack","sources":["claude-plugins-official"],"role":"data agent starter patterns","mode":"registry-only"},
+    {"id":"claude-code-setup","sources":["claude-plugins-official"],"role":"Claude Code setup guidance","mode":"registry-only"},
+    {"id":"claude-md-management","sources":["claude-plugins-official"],"role":"CLAUDE.md management","mode":"registry-only"},
+    {"id":"feature-dev","sources":["claude-plugins-official"],"role":"feature development workflow","mode":"registry-only"},
+    {"id":"code-modernization","sources":["claude-plugins-official"],"role":"code modernization planning","mode":"registry-only"},
+    {"id":"code-simplifier","sources":["claude-plugins-official"],"role":"code simplification guidance","mode":"registry-only"},
+    {"id":"commit-commands","sources":["claude-plugins-official"],"role":"commit workflow support","mode":"registry-only"},
+    {"id":"pr-review-toolkit","sources":["claude-plugins-official"],"role":"pull request review toolkit","mode":"registry-only"},
+    {"id":"qodo-skills","sources":["claude-plugins-official"],"role":"AI code review and test assistance","mode":"registry-only"},
+    {"id":"sourcegraph","sources":["claude-plugins-official"],"role":"code search and code intelligence","mode":"registry-only"},
+    {"id":"greptile","sources":["claude-plugins-official"],"role":"codebase context and review","mode":"registry-only"},
+    {"id":"remember","sources":["claude-plugins-official"],"role":"memory and persistence guidance","mode":"registry-only"},
+    {"id":"playground","sources":["claude-plugins-official"],"role":"experimental playground workflows","mode":"registry-only"},
+    {"id":"fakechat","sources":["claude-plugins-official"],"role":"simulated chat testing","mode":"registry-only"}
+  ]
+}

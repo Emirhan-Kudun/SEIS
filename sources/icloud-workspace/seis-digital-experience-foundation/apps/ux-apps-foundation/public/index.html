@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f1115">
+    <meta
+      name="description"
+      content="UX Apps is a calm full-stack foundation for cinematic, accessible, low-power UX systems."
+    >
+    <title>UX Apps</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="intro-curtain" id="intro-curtain" aria-hidden="true">
+      <span>UX Apps</span>
+    </div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="UX Apps home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        UX Apps
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#apps">Apps</a>
+        <a href="#cinematic">Cinematic</a>
+        <a href="#archive">Archive</a>
+        <a href="#promotion">Promotion</a>
+        <a href="#decisions">Decisions</a>
+        <a href="#motion">Motion</a>
+        <a href="#accessibility">Access</a>
+        <a href="#experience">Score</a>
+        <a href="#gaps">Gaps</a>
+        <a href="#development">Dev</a>
+        <a href="#stewardship">Usage</a>
+        <a href="#signals">Signals</a>
+        <a href="#governance">Governance</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero-section" aria-labelledby="hero-title">
+        <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+        <div class="hero-content">
+          <p class="eyebrow">Low-power full-stack UX operating system</p>
+          <h1 id="hero-title">Cinematic UX apps without cognitive noise.</h1>
+          <p class="hero-copy">
+            A dependency-light foundation for calm interfaces, humane workflows, local APIs,
+            and repository governance that can grow without exhausting the machine or the user.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#apps">Explore apps</a>
+            <a class="button secondary" href="/api/health">API health</a>
+            <button
+              class="button secondary motion-intensity-toggle"
+              id="motion-intensity-toggle"
+              type="button"
+              aria-pressed="true"
+            >
+              <span class="motion-toggle-indicator" aria-hidden="true"></span>
+              <span id="motion-intensity-label">Heavy</span>
+            </button>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="System snapshot">
+          <span class="panel-label">System mode</span>
+          <strong id="system-mode">Loading</strong>
+          <span id="system-stack">Local manifest pending</span>
+        </aside>
+      </section>
+
+      <section class="principles-section" aria-labelledby="principles-title">
+        <div>
+          <p class="eyebrow">Doctrine</p>
+          <h2 id="principles-title">Built for focus, not extraction.</h2>
+        </div>
+        <div class="principles-grid" id="principles-grid"></div>
+      </section>
+
+      <section id="apps" class="apps-section" aria-labelledby="apps-title">
+        <div class="section-heading">
+          <p class="eyebrow">App constellation</p>
+          <h2 id="apps-title">UX systems prepared as modular products.</h2>
+        </div>
+        <div class="app-grid" id="app-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="signals" class="signals-section" aria-labelledby="signals-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Observability</p>
+          <h2 id="signals-title">Explainable signals, no panic dashboard.</h2>
+        </div>
+        <dl class="signal-grid" id="signal-grid"></dl>
+      </section>
+
+      <section id="cinematic" class="cinematic-section" aria-labelledby="cinematic-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Cinematic spatial layer</p>
+          <h2 id="cinematic-title">A better path from zip ideas to useful 3D UX.</h2>
+          <p class="section-copy">
+            The archive is treated as a source reservoir. The app promotes calm motion, spatial hierarchy,
+            and 3D readiness through reviewed data contracts before adding heavy dependencies.
+          </p>
+        </div>
+        <div class="cinematic-layout">
+          <div class="spatial-stage" aria-label="Cinematic program map">
+            <div class="orbit orbit-one" aria-hidden="true"></div>
+            <div class="orbit orbit-two" aria-hidden="true"></div>
+            <div class="spatial-node node-a"><span>Audit</span></div>
+            <div class="spatial-node node-b"><span>Journey</span></div>
+            <div class="spatial-node node-c"><span>Motion</span></div>
+            <div class="stage-core">
+              <span>3D-ready</span>
+              <strong>UX system</strong>
+            </div>
+          </div>
+          <div class="program-panel">
+            <h3>Program lanes</h3>
+            <div class="program-grid" id="cinematic-program-grid"></div>
+          </div>
+        </div>
+        <div class="cinematic-details">
+          <article>
+            <h3>Quality presets</h3>
+            <ul id="cinematic-budget-list"></ul>
+          </article>
+          <article>
+            <h3>Source signals</h3>
+            <ul id="cinematic-source-list"></ul>
+          </article>
+          <article>
+            <h3>Motion depths</h3>
+            <ul id="cinematic-motion-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="archive" class="archive-section" aria-labelledby="archive-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Archive intelligence</p>
+          <h2 id="archive-title">Zip signals become product decisions.</h2>
+          <p class="section-copy">
+            The archive is filtered into source signals, feature candidates, and guardrails. Cache,
+            metadata, and local runtime noise stay outside the product surface.
+          </p>
+        </div>
+        <div class="archive-summary" id="archive-summary" aria-label="Archive analysis summary"></div>
+        <div class="archive-map" id="archive-map" aria-live="polite"></div>
+        <div class="archive-details">
+          <article>
+            <h3>Next feature candidates</h3>
+            <ul id="archive-next-list"></ul>
+          </article>
+          <article>
+            <h3>Composition scorecard</h3>
+            <ul id="archive-score-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="promotion" class="promotion-section" aria-labelledby="promotion-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Zip promotion lab</p>
+          <h2 id="promotion-title">Useful zip material gets a review path.</h2>
+          <p class="section-copy">
+            Each candidate is scored by source cleanliness, UX value, rollback safety, and dependency impact before
+            it becomes part of the app.
+          </p>
+        </div>
+        <div class="promotion-summary" id="promotion-summary" aria-label="Zip promotion summary"></div>
+        <div class="promotion-layout">
+          <div class="promotion-board" id="promotion-board" aria-live="polite"></div>
+          <aside class="promotion-rules" aria-label="Promotion rules">
+            <h3>Readiness model</h3>
+            <ul id="promotion-readiness-list"></ul>
+            <h3>Blocked imports</h3>
+            <ul id="promotion-blocked-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="decisions" class="decision-section" aria-labelledby="decision-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Decision queue</p>
+          <h2 id="decision-title">Turn ambition into reversible next moves.</h2>
+          <p class="section-copy">
+            Each idea is tracked with impact, effort, evidence, and rollback notes before it becomes implementation work.
+          </p>
+        </div>
+        <div class="decision-summary" id="decision-summary" aria-label="Decision queue summary"></div>
+        <div class="decision-layout">
+          <div class="decision-board" id="decision-board" aria-live="polite"></div>
+          <aside class="decision-principles" aria-label="Decision principles">
+            <h3>Decision principles</h3>
+            <ul id="decision-principles-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="motion" class="motion-section" aria-labelledby="motion-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Motion tokens</p>
+          <h2 id="motion-title">Cinematic motion, written as a contract.</h2>
+          <p class="section-copy">
+            Tokens define duration, easing, pressure, use, and fallback before animation becomes implementation.
+          </p>
+        </div>
+        <div class="motion-summary" id="motion-summary" aria-label="Motion token summary"></div>
+        <div class="motion-layout">
+          <div class="motion-token-grid" id="motion-token-grid" aria-live="polite"></div>
+          <aside class="motion-rules" aria-label="Motion rules">
+            <h3>Rules</h3>
+            <ul id="motion-rules-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="accessibility" class="accessibility-section" aria-labelledby="accessibility-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Accessibility affordances</p>
+          <h2 id="accessibility-title">Premium interaction still needs a quiet fallback.</h2>
+          <p class="section-copy">
+            Touch, focus, form, and motion behaviors are tracked as affordances before they become visual effects.
+          </p>
+        </div>
+        <div class="accessibility-summary" id="accessibility-summary" aria-label="Accessibility affordance summary"></div>
+        <div class="accessibility-layout">
+          <div class="accessibility-grid" id="accessibility-grid" aria-live="polite"></div>
+          <aside class="accessibility-rules" aria-label="Accessibility rules">
+            <h3>Rules</h3>
+            <ul id="accessibility-rules-list"></ul>
+            <h3>Blocked patterns</h3>
+            <ul id="accessibility-blocked-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="experience" class="experience-section" aria-labelledby="experience-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Experience scorecard</p>
+          <h2 id="experience-title">Release quality, shown without noise.</h2>
+          <p class="section-copy">
+            A calm scorecard keeps accessibility, motion, mobile performance, content clarity, governance, and publish readiness visible.
+          </p>
+        </div>
+        <div class="experience-summary" id="experience-summary" aria-label="Experience score summary"></div>
+        <div class="experience-layout">
+          <div class="experience-grid" id="experience-grid" aria-live="polite"></div>
+          <aside class="experience-rules" aria-label="Experience release rules">
+            <h3>Watch items</h3>
+            <ul id="experience-watch-list"></ul>
+            <h3>Release rule</h3>
+            <p id="experience-release-rule"></p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="gaps" class="gap-section" aria-labelledby="gap-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Gap closure register</p>
+          <h2 id="gap-title">Eksikler görünür, küçük ve geri alınabilir kalsın.</h2>
+          <p class="section-copy">
+            Shipment, motion, mobile, accessibility, server, and polyglot risks are tracked before they become code work.
+          </p>
+        </div>
+        <div class="gap-summary" id="gap-summary" aria-label="Gap closure summary"></div>
+        <div class="gap-layout">
+          <div class="gap-board" id="gap-board" aria-live="polite"></div>
+          <aside class="gap-rules" aria-label="Gap closure rules">
+            <h3>Closure rules</h3>
+            <ul id="gap-rules-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="governance" class="governance-section" aria-labelledby="governance-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Repository policy</p>
+          <h2 id="governance-title">Reversible growth rules.</h2>
+        </div>
+        <div class="policy-columns">
+          <article>
+            <h3>Branch families</h3>
+            <ul id="branch-list"></ul>
+          </article>
+          <article>
+            <h3>Release gates</h3>
+            <ul id="gate-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="development" class="development-section" aria-labelledby="development-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Development mode</p>
+          <h2 id="development-title">Work locally, publish only when the gate is clean.</h2>
+          <p class="section-copy">
+            The active workspace, branch, power profile, and GitHub publication gate are kept visible before the next code bundle ships.
+          </p>
+          <button class="refresh-status-button" id="development-refresh" type="button">Refresh status</button>
+        </div>
+        <div class="development-summary" id="development-summary" aria-label="Development mode summary"></div>
+        <div class="development-layout">
+          <div class="development-grid" id="development-checks" aria-live="polite"></div>
+          <aside class="development-rules" aria-label="Development commands and rules">
+            <h3>Commands</h3>
+            <ul id="development-command-list"></ul>
+            <p class="development-copy-status" id="development-copy-status" role="status"></p>
+            <h3>Rules</h3>
+            <ul id="development-rule-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="stewardship" class="stewardship-section" aria-labelledby="stewardship-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Weekly usage stewardship</p>
+          <h2 id="stewardship-title">Spend effort on source value, not noise.</h2>
+          <p class="section-copy">
+            Remaining weekly usage is directed into small, reversible source improvements while machine load and publication risk stay controlled.
+          </p>
+        </div>
+        <div class="stewardship-summary" id="stewardship-summary" aria-label="Weekly usage stewardship summary"></div>
+        <div class="stewardship-layout">
+          <div class="stewardship-grid" id="stewardship-preferred-list" aria-live="polite"></div>
+          <aside class="stewardship-rules" aria-label="Weekly usage rules">
+            <h3>Blocked spend</h3>
+            <ul id="stewardship-blocked-list"></ul>
+            <h3>Rules</h3>
+            <ul id="stewardship-rules-list"></ul>
+            <h3>Stop condition</h3>
+            <p id="stewardship-stop-condition"></p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">Start a system</p>
+          <h2 id="contact-title">Send a focused UX request.</h2>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label>
+            Name
+            <input name="name" autocomplete="name" required minlength="2">
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            Intention
+            <input name="intention" required minlength="3" placeholder="Research, design, product, governance">
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required minlength="12"></textarea>
+          </label>
+          <button class="button primary" type="submit">Send request</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>UX Apps</span>
+      <span>Calm interfaces. Local APIs. Sustainable growth.</span>
+    </footer>
+  </body>
+</html>

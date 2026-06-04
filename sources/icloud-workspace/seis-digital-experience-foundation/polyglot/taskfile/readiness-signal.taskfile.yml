@@ -1,0 +1,13 @@
+version: "3"
+
+vars:
+  ReadinessSignal: polyglot-foundation
+  UIX_POLYGLOT_LANE: taskfile
+  UIX_POLYGLOT_STATUS: reference
+  UIX_REDUCED_MOTION_SAFE: "true"
+  UIX_RUNTIME_WEIGHT: dependency-light
+
+tasks:
+  describe:
+    cmds:
+      - echo "{{.ReadinessSignal}} lane={{.UIX_POLYGLOT_LANE}} status={{.UIX_POLYGLOT_STATUS}} reduced_motion_safe={{.UIX_REDUCED_MOTION_SAFE}} runtime_weight={{.UIX_RUNTIME_WEIGHT}}"

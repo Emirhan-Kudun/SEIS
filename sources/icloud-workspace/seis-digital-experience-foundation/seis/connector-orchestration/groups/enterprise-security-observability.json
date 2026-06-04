@@ -1,0 +1,22 @@
+{
+  "group": "enterprise-security-observability",
+  "purpose": "Enterprise security, observability, incident response, quality gates, and operational monitoring.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": ["security scan with upload", "incident page mutation", "production monitoring changes", "private telemetry access"],
+  "connectors": [
+    {"id":"aikido","sources":["claude-plugins-official"],"role":"security and vulnerability context","mode":"registry-only"},
+    {"id":"crowdstrike-falcon-foundry","sources":["claude-plugins-official"],"role":"enterprise security workflows","mode":"registry-only"},
+    {"id":"zscaler","sources":["claude-plugins-official"],"role":"security access and network protection context","mode":"registry-only"},
+    {"id":"nightvision","sources":["claude-plugins-official"],"role":"application security testing","mode":"registry-only"},
+    {"id":"datadog","sources":["claude-plugins-official"],"role":"observability and operational telemetry","mode":"registry-only"},
+    {"id":"posthog","sources":["claude-plugins-official"],"role":"product analytics and feature metrics","mode":"registry-only"},
+    {"id":"logfire","sources":["claude-plugins-official"],"role":"application logging and traces","mode":"registry-only"},
+    {"id":"pagerduty","sources":["claude-plugins-official"],"role":"incident response workflows","mode":"registry-only"},
+    {"id":"sonarqube","sources":["claude-plugins-official"],"role":"code quality review","mode":"registry-only"},
+    {"id":"sonatype-guide","sources":["claude-plugins-official"],"role":"dependency and supply-chain guidance","mode":"on-demand"},
+    {"id":"semgrep","sources":["claude-plugins-official"],"role":"static analysis and security rules","mode":"on-demand"},
+    {"id":"auth0","sources":["claude-plugins-official"],"role":"identity and auth architecture","mode":"registry-only"},
+    {"id":"dataverse","sources":["claude-plugins-official"],"role":"data governance and enterprise data context","mode":"registry-only"}
+  ]
+}

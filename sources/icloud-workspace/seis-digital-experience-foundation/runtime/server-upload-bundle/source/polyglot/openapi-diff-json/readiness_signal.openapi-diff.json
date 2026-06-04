@@ -1,0 +1,14 @@
+{
+  "tool": "openapi-diff",
+  "type": "ReadinessSignal",
+  "source": "openapi-before.json",
+  "destination": "openapi-after.json",
+  "breakingDifferences": [],
+  "nonBreakingDifferences": [],
+  "summary": {
+    "breaking": 0,
+    "nonBreaking": 0,
+    "unclassified": 0
+  },
+  "notes": "Dependency-light placeholder for future API contract drift evidence."
+}

@@ -1,0 +1,10 @@
+{
+  "tool": "lottie",
+  "type": "ReadinessSignal",
+  "version": "5.12.0",
+  "frameRate": 30,
+  "inPoint": 0,
+  "outPoint": 0,
+  "layers": [],
+  "notes": "Dependency-light placeholder for future lightweight motion asset handoff evidence."
+}

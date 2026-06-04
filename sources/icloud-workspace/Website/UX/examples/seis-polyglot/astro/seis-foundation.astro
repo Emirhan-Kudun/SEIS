@@ -1,0 +1,11 @@
+---
+const signals = ["github-pushed", "icloud-exported", "cloud-watch"];
+---
+
+<section aria-label="SEIS static foundation">
+  <p>SEIS foundation</p>
+  <h2>Static-first delivery keeps rollback simple.</h2>
+  <ul>
+    {signals.map((signal) => <li>{signal}</li>)}
+  </ul>
+</section>

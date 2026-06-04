@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ReadinessSignal: RSS feed editorial lane stays dependency-light. -->
+<rss version="2.0">
+  <channel>
+    <title>UIX Apps ReadinessSignal</title>
+    <link>https://uix-apps.local/polyglot/rss-feed</link>
+    <description>Reference-only RSS lane for syndicated content readiness.</description>
+    <item>
+      <title>ReadinessSignal</title>
+      <link>https://uix-apps.local/polyglot/rss-feed/readiness-signal</link>
+      <description>lane=rss-feed status=reference runtimeWeight=dependency-light</description>
+      <guid>https://uix-apps.local/polyglot/rss-feed/readiness-signal</guid>
+    </item>
+  </channel>
+</rss>

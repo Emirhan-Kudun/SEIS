@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedBy": "scripts/generate-seis-github-language-presence.mjs",
+  "generatedAt": "2026-06-01T14:41:20.810Z",
+  "mission": "SEIS-M014",
+  "purpose": "Expose and govern SEIS polyglot source presence for GitHub language visibility without adding runtime dependencies.",
+  "source": {
+    "secretsStored": false,
+    "files": [
+      "polyglot/manifest.json",
+      "config/software-language-matrix.json",
+      ".gitattributes"
+    ]
+  },
+  "policy": {
+    "branch": "UIXAppTTR",
+    "runtimeDependencyAdded": false,
+    "githubLinguistVisible": true,
+    "promotionRule": "A language can move from reference to runtime only after a small contract, quality check, and rollback note exist.",
+    "defaultRuntime": "node-fullstack"
+  },
+  "manifest": {
+    "entryCount": 228,
+    "matrixLanguageCount": 228,
+    "missingFileCount": 0,
+    "missingManifestIdCount": 0,
+    "uniqueExtensionCount": 151,
+    "topExtensions": [
+      {
+        "extension": "json",
+        "count": 52
+      },
+      {
+        "extension": "xml",
+        "count": 8
+      },
+      {
+        "extension": "yml",
+        "count": 6
+      },
+      {
+        "extension": "yaml",
+        "count": 6
+      },
+      {
+        "extension": "txt",
+        "count": 4
+      },
+      {
+        "extension": "sql",
+        "count": 3
+      },
+      {
+        "extension": "php",
+        "count": 2
+      },
+      {
+        "extension": "ttl",
+        "count": 2
+      },
+      {
+        "extension": "h",
+        "count": 2
+      },
+      {
+        "extension": "v",
+        "count": 2
+      },
+      {
+        "extension": "html",
+        "count": 1
+      },
+      {
+        "extension": "css",
+        "count": 1
+      },
+      {
+        "extension": "js",
+        "count": 1
+      },
+      {
+        "extension": "ts",
+        "count": 1
+      },
+      {
+        "extension": "mjs",
+        "count": 1
+      },
+      {
+        "extension": "py",
+        "count": 1
+      },
+      {
+        "extension": "java",
+        "count": 1
+      },
+      {
+        "extension": "cpp",
+        "count": 1
+      },
+      {
+        "extension": "cs",
+        "count": 1
+      },
+      {
+        "extension": "sh",
+        "count": 1
+      },
+      {
+        "extension": "go",
+        "count": 1
+      },
+      {
+        "extension": "rs",
+        "count": 1
+      },
+      {
+        "extension": "wat",
+        "count": 1
+      },
+      {
+        "extension": "rb",
+        "count": 1
+      }
+    ]
+  },
+  "githubLinguist": {
+    "visibleRulePresent": true,
+    "overrideCount": 24,
+    "lines": [
+      "polyglot/** linguist-vendored=false linguist-generated=false",
+      "polyglot/dockerfile/*.Dockerfile linguist-language=Dockerfile",
+      "polyglot/terraform/*.tf linguist-language=HCL",
+      "polyglot/hcl/*.tf linguist-language=HCL",
+      "polyglot/graphql/*.graphql linguist-language=GraphQL",
+      "polyglot/protobuf/*.proto linguist-language=Protocol\\ Buffer",
+      "polyglot/plantuml/*.puml linguist-language=PlantUML",
+      "polyglot/mermaid/*.mmd linguist-language=Mermaid",
+      "polyglot/tsx/*.tsx linguist-language=TSX",
+      "polyglot/jsx/*.jsx linguist-language=JSX",
+      "polyglot/qml/*.qml linguist-language=QML",
+      "polyglot/zig/*.zig linguist-language=Zig",
+      "polyglot/swift/*.swift linguist-language=Swift",
+      "polyglot/kotlin/*.kt linguist-language=Kotlin",
+      "polyglot/rust/*.rs linguist-language=Rust",
+      "polyglot/go/*.go linguist-language=Go",
+      "polyglot/python/*.py linguist-language=Python",
+      "polyglot/ruby/*.rb linguist-language=Ruby",
+      "polyglot/elixir/*.exs linguist-language=Elixir",
+      "polyglot/erlang/*.erl linguist-language=Erlang",
+      "polyglot/fsharp/*.fs linguist-language=F#",
+      "polyglot/csharp/*.cs linguist-language=C#",
+      "polyglot/cpp/*.cpp linguist-language=C++",
+      "polyglot/objectivec/* linguist-language=Objective-C",
+      "polyglot/r/*.R linguist-language=R"
+    ]
+  },
+  "showcase": [
+    {
+      "languageId": "html",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/frontend/preview.html",
+      "exists": true
+    },
+    {
+      "languageId": "css",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/frontend/styles.css",
+      "exists": true
+    },
+    {
+      "languageId": "javascript",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/frontend/app.js",
+      "exists": true
+    },
+    {
+      "languageId": "typescript",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/typescript/contract.ts",
+      "exists": true
+    },
+    {
+      "languageId": "nodejs",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/node/health.mjs",
+      "exists": true
+    },
+    {
+      "languageId": "python",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/python/readiness.py",
+      "exists": true
+    },
+    {
+      "languageId": "go",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/go/readiness_signal.go",
+      "exists": true
+    },
+    {
+      "languageId": "rust",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/rust/readiness_signal.rs",
+      "exists": true
+    },
+    {
+      "languageId": "swift",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/swift/ReadinessSignal.swift",
+      "exists": true
+    },
+    {
+      "languageId": "kotlin",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/kotlin/ReadinessSignal.kt",
+      "exists": true
+    },
+    {
+      "languageId": "java",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/java/ReadinessSignal.java",
+      "exists": true
+    },
+    {
+      "languageId": "cpp",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/cpp/readiness_signal.cpp",
+      "exists": true
+    },
+    {
+      "languageId": "csharp",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/csharp/ReadinessSignal.cs",
+      "exists": true
+    },
+    {
+      "languageId": "php",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/php/contact-health.php",
+      "exists": true
+    },
+    {
+      "languageId": "ruby",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/ruby/readiness_signal.rb",
+      "exists": true
+    },
+    {
+      "languageId": "dart",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/dart/readiness_signal.dart",
+      "exists": true
+    },
+    {
+      "languageId": "r",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/r/readiness_signal.R",
+      "exists": true
+    },
+    {
+      "languageId": "elixir",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/elixir/readiness_signal.exs",
+      "exists": true
+    },
+    {
+      "languageId": "erlang",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/erlang/readiness_signal.erl",
+      "exists": true
+    },
+    {
+      "languageId": "fsharp",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/fsharp/ReadinessSignal.fs",
+      "exists": true
+    },
+    {
+      "languageId": "zig",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/zig/readiness_signal.zig",
+      "exists": true
+    },
+    {
+      "languageId": "vue",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/vue/ReadinessSignal.vue",
+      "exists": true
+    },
+    {
+      "languageId": "svelte",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/svelte/ReadinessSignal.svelte",
+      "exists": true
+    },
+    {
+      "languageId": "tsx",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/tsx/ReadinessSignal.tsx",
+      "exists": true
+    },
+    {
+      "languageId": "jsx",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/jsx/ReadinessSignal.jsx",
+      "exists": true
+    },
+    {
+      "languageId": "sql",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/sql/content_model.sql",
+      "exists": true
+    },
+    {
+      "languageId": "bash",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/bash/check-readiness.sh",
+      "exists": true
+    },
+    {
+      "languageId": "dockerfile",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/dockerfile/ReadinessSignal.Dockerfile",
+      "exists": true
+    },
+    {
+      "languageId": "hcl",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/hcl/readiness_signal.tf",
+      "exists": true
+    },
+    {
+      "languageId": "graphql",
+      "presentInMatrix": true,
+      "presentInManifest": true,
+      "path": "polyglot/graphql/readiness_signal.graphql",
+      "exists": true
+    }
+  ],
+  "summary": {
+    "status": "ready",
+    "ready": true,
+    "polyglotEntries": 228,
+    "softwareLanguageCount": 228,
+    "showcaseReadyCount": 30,
+    "githubLinguistOverrideCount": 24,
+    "blockerCount": 0,
+    "blockers": []
+  },
+  "nextActions": [
+    "Keep polyglot examples dependency-light and reversible.",
+    "Use .gitattributes Linguist hints only for existing polyglot samples.",
+    "Promote a language to runtime only after a contract, check, and rollback note exist.",
+    "Do not add package dependencies only to influence GitHub language charts."
+  ]
+}

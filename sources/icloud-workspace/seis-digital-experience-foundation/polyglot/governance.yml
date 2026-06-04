@@ -1,0 +1,12 @@
+version: "1.0.0"
+policy: polyglot-foundation
+default_runtime: node-fullstack
+required_status:
+  - active
+  - prepared
+  - reference
+  - planned
+constraints:
+  dependency_bloat: avoid
+  runtime_promotion: quality-gated
+  rollback: required

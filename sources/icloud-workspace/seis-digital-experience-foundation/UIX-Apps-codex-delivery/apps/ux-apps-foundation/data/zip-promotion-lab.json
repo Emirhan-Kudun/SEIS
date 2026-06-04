@@ -1,0 +1,105 @@
+{
+  "name": "Zip Promotion Lab",
+  "purpose": "Turn useful archive material into reviewed UX Apps features without importing cache, local metadata, or unrelated framework output.",
+  "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+  "mode": "high-efficiency-low-power",
+  "summary": {
+    "lanes": 6,
+    "readyCandidates": 3,
+    "deferredCandidates": 2,
+    "blockedCandidates": 1
+  },
+  "lanes": [
+    {
+      "id": "design-system-governance",
+      "label": "Design System Governance",
+      "source": "apps/seis-nextjs-foundation/app/design-lab/page.tsx",
+      "importStrategy": "Adapt summary cards, token parity language, and reusable UI discipline into data-backed static sections.",
+      "value": "Makes the repo feel more like a professional UX product system instead of a static catalog.",
+      "risk": "medium",
+      "status": "ready",
+      "nextAction": "Promote design signals into a small design system board."
+    },
+    {
+      "id": "quality-lab",
+      "label": "Quality Lab",
+      "source": "apps/seis-nextjs-foundation/app/quality-lab/page.tsx",
+      "importStrategy": "Convert performance, accessibility, and content governance groups into lightweight local quality cards.",
+      "value": "Keeps UI expansion connected to measurable health checks.",
+      "risk": "low",
+      "status": "ready",
+      "nextAction": "Add quality score rows to the full-stack surface and API."
+    },
+    {
+      "id": "accessibility-command",
+      "label": "Accessibility Command",
+      "source": "apps/seis-nextjs-foundation/app/accessibility-lab/page.tsx",
+      "importStrategy": "Use the keyboard, motion, contrast, and tap-safety concepts as a review checklist.",
+      "value": "Protects premium visuals from becoming inaccessible.",
+      "risk": "low",
+      "status": "ready",
+      "nextAction": "Add accessibility checks to the promotion readiness model."
+    },
+    {
+      "id": "branch-maturity-system",
+      "label": "Branch Maturity System",
+      "source": "seis/branch-maturity/manifest.json",
+      "importStrategy": "Keep the domain list and non-goals as governance metadata instead of copying scripts.",
+      "value": "Separates foundation, runtime, and experience growth into explainable domains.",
+      "risk": "medium",
+      "status": "deferred",
+      "nextAction": "Introduce a maturity matrix after promotion lab usage is stable."
+    },
+    {
+      "id": "publish-readiness",
+      "label": "Publish Readiness",
+      "source": "seis/publish-readiness/manifest.json",
+      "importStrategy": "Reuse the local-vs-remote gate distinction for GitHub shipment messaging.",
+      "value": "Prevents local progress from being mistaken for remote publication.",
+      "risk": "low",
+      "status": "deferred",
+      "nextAction": "Add remote readiness only after an origin is configured."
+    },
+    {
+      "id": "full-nextjs-import",
+      "label": "Full Next.js Import",
+      "source": "apps/seis-nextjs-foundation",
+      "importStrategy": "Do not import wholesale. Extract only stable contracts and small UI patterns.",
+      "value": "Could eventually provide richer app routes, but would change the repo's lightweight baseline.",
+      "risk": "high",
+      "status": "blocked",
+      "nextAction": "Keep blocked until dependency and deployment budgets are explicitly accepted."
+    }
+  ],
+  "readinessModel": [
+    {
+      "id": "source-clean",
+      "label": "Source is clean",
+      "definition": "Candidate comes from source or docs, not generated cache, dependency folders, or runtime logs."
+    },
+    {
+      "id": "contract-first",
+      "label": "Contract first",
+      "definition": "Candidate can be represented as JSON data, API output, or a documented checklist before runtime complexity."
+    },
+    {
+      "id": "ux-value",
+      "label": "UX value",
+      "definition": "Candidate improves comprehension, task flow, accessibility, or product maturity."
+    },
+    {
+      "id": "rollback-simple",
+      "label": "Rollback simple",
+      "definition": "Candidate can be removed in one small commit without breaking the root static baseline."
+    }
+  ],
+  "blockedImports": [
+    "node_modules",
+    ".next",
+    ".git",
+    "__MACOSX",
+    ".DS_Store",
+    "runtime/playwright-output",
+    "local credential files"
+  ]
+}

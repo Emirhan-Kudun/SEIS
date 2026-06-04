@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "purpose": "Track the local source surfaces that must survive until remote server publication is authenticated.",
+  "canonicalBranch": "UIXAppTTR",
+  "hashAlgorithm": "sha256",
+  "requiredPaths": [
+    "README.md",
+    "package.json",
+    "jest.config.js",
+    "server.mjs",
+    "index.html",
+    "script.js",
+    "style.css",
+    "translations.json",
+    "config/cinematic-depth.json",
+    "config/preservation-snapshot.json",
+    "config/development-program.json",
+    "config/server-target-profile.json",
+    "config/server-handoff.json",
+    "config/server-upload-bundle.json",
+    "config/software-language-matrix.json",
+    "config/fullstack-runtime.json",
+    "polyglot/manifest.json",
+    "docs/server-preservation-handoff.md",
+    "docs/cinematic-depth-layer.md",
+    "docs/development-program.md",
+    "docs/server-upload-bundle.md",
+    "docs/server-target-profile.md",
+    "docs/software-language-branch-foundation.md",
+    "docs/polyglot-foundation.md",
+    "docs/preservation-snapshot.md",
+    "docs/release-readiness-runtime.md",
+    "scripts/i18n-contract-check.cjs",
+    "scripts/server-handoff-check.cjs",
+    "scripts/software-language-matrix-check.cjs",
+    "scripts/build-server-upload-bundle.cjs",
+    "scripts/cinematic-depth-check.cjs",
+    "scripts/development-program-check.cjs",
+    "scripts/server-upload-dry-run.cjs",
+    "scripts/server-target-check.cjs",
+    "scripts/server-upload-bundle-check.cjs",
+    "scripts/preservation-snapshot-check.cjs",
+    "scripts/polyglot-foundation-check.cjs",
+    "scripts/release-readiness-check.cjs",
+    "scripts/fullstack-preflight.cjs"
+  ],
+  "manifestSources": [
+    {
+      "id": "polyglot",
+      "path": "polyglot/manifest.json",
+      "pathField": "path"
+    }
+  ],
+  "forbiddenPathFragments": [
+    "node_modules/",
+    ".next/",
+    "runtime/",
+    "logs/",
+    "__MACOSX/",
+    ".DS_Store"
+  ]
+}

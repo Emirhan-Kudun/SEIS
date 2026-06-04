@@ -1,0 +1,18 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "ReadinessSignal",
+      "digest": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000168"
+      }
+    }
+  ],
+  "predicateType": "https://uix-apps.local/polyglot/in-toto/reference",
+  "predicate": {
+    "lane": "in-toto",
+    "status": "reference",
+    "runtimeWeight": "dependency-light",
+    "promotionPolicy": "attest only after auth, target, and preflight are clean"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "purpose": "Coordinate the next UIX Apps development sprint across UX, cinematic systems, polyglot code, quality, and server publication.",
+  "currentSprint": {
+    "id": "sprint-2026-05-development-cockpit",
+    "title": "Development Cockpit Foundation",
+    "status": "active",
+    "cadence": "low-power incremental delivery",
+    "branch": "codex/premium-local-foundation"
+  },
+  "lanes": [
+    {
+      "id": "ux-apps",
+      "label": "UX Apps module",
+      "status": "active",
+      "focus": "Keep archive intelligence, cinematic program, and zip promotion lab visible in the canonical repo.",
+      "qualitySignal": "npm run ux:quality",
+      "nextAction": "Promote one reviewed zip insight into the UX Apps module per sprint."
+    },
+    {
+      "id": "cinematic-ui",
+      "label": "Cinematic UI",
+      "status": "active",
+      "focus": "Run a restrained canvas depth layer inside the development cockpit without increasing cognitive load.",
+      "qualitySignal": "npm run check:cinematic-depth",
+      "nextAction": "Tune cinematic-depth settings after visual smoke checks."
+    },
+    {
+      "id": "polyglot-branch",
+      "label": "Polyglot branch",
+      "status": "active",
+      "focus": "Keep many software languages represented as governed starter lanes rather than scattered experiments.",
+      "qualitySignal": "npm run check:polyglot-foundation",
+      "nextAction": "Expand only lanes that have a clear runtime or governance purpose."
+    },
+    {
+      "id": "server-delivery",
+      "label": "Server delivery",
+      "status": "blocked",
+      "focus": "Preserve upload-ready source bundles until GitHub/server credentials are configured.",
+      "qualitySignal": "npm run server-upload:dry-run",
+      "nextAction": "Configure UIX_UPLOAD_HOST, UIX_UPLOAD_USER, and UIX_UPLOAD_PATH when the server target is known."
+    }
+  ],
+  "decisionSlots": [
+    {
+      "id": "next-cinematic-surface",
+      "question": "Which calm cinematic surface should be promoted first?",
+      "defaultOption": "development cockpit ambient depth layer"
+    },
+    {
+      "id": "server-target",
+      "question": "Which real server should receive the generated bundle?",
+      "defaultOption": "wait for explicit host/user/path credentials"
+    }
+  ]
+}

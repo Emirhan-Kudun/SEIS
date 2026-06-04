@@ -1,0 +1,438 @@
+{
+  "run_id": "run-2026-05-07-quarterly-mcp-audit",
+  "timestamp": "2026-05-07T20:07:12+03:00",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-registry",
+  "write_mode": "guarded",
+  "steps": [
+    {
+      "connector": "codex-mcp-list-snapshot",
+      "status": "invoked",
+      "reason": "Global Codex MCP configuration snapshot captured successfully.",
+      "duration_ms": 223,
+      "next_action": "Use as the source of truth for active servers and remote endpoints."
+    },
+    {
+      "connector": "workspace-playbook-cross-check",
+      "status": "invoked",
+      "reason": "Always-on core and on-demand registry policy matched the local integration playbook.",
+      "duration_ms": 4,
+      "next_action": "Keep quarterly audit decisions aligned with the playbook split."
+    },
+    {
+      "connector": "public-source-verification",
+      "status": "invoked",
+      "reason": "Official/public maintenance signals were checked for the main candidate integrations.",
+      "duration_ms": 0,
+      "next_action": "Refresh maintenance signals again on the next quarterly run."
+    },
+    {
+      "connector": "runtime-usability-check",
+      "status": "skipped_with_reason",
+      "reason": "Several remote endpoints were visible as enabled but could not be fully exercised without account, repo, or destination context.",
+      "duration_ms": 0,
+      "next_action": "Keep them suggested until credentials and target mappings are explicitly approved."
+    }
+  ],
+  "active_snapshot": {
+    "local_stdio_servers": [
+      "adobe-express-developer",
+      "chrome-devtools",
+      "context7",
+      "eslint",
+      "fetch",
+      "flowbite",
+      "git-tools",
+      "hostinger-dns",
+      "hostinger-domains",
+      "hostinger-hosting",
+      "memory",
+      "netlify",
+      "next-devtools",
+      "official-filesystem",
+      "perplexity",
+      "playwright",
+      "semgrep",
+      "sequential-thinking",
+      "sqlite"
+    ],
+    "remote_endpoints": [
+      "atlassian",
+      "aws-knowledge",
+      "canva",
+      "cloudflare-api",
+      "cloudflare-docs",
+      "figma",
+      "github",
+      "linear",
+      "mdn",
+      "microsoft-learn",
+      "neon",
+      "notion",
+      "openai-docs",
+      "postman",
+      "sentry",
+      "supabase",
+      "vercel"
+    ]
+  },
+  "core_policy": {
+    "always_on_core": [
+      "official-filesystem",
+      "git-tools",
+      "context7",
+      "openai-docs",
+      "mdn",
+      "chrome-devtools",
+      "eslint",
+      "semgrep",
+      "next-devtools",
+      "fetch",
+      "sqlite"
+    ],
+    "on_demand_registry": [
+      "github",
+      "notion",
+      "linear",
+      "figma",
+      "canva",
+      "cloudinary",
+      "vercel",
+      "netlify",
+      "sentry",
+      "cloudflare-api",
+      "cloudflare-docs",
+      "hostinger-hosting",
+      "hostinger-domains",
+      "hostinger-dns",
+      "supabase",
+      "neon",
+      "perplexity"
+    ]
+  },
+  "add_now": [
+    {
+      "candidate": "official-filesystem",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Official MCP server and low-risk local workspace primitive; directly useful across every repo task.",
+      "risk": "Low. Scope stays limited to explicitly mounted paths.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled as a permanent core server; no change required."
+    },
+    {
+      "candidate": "git-tools",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Repository-scoped git access is high-signal for reviews, diffs, and release checks without broad external permissions.",
+      "risk": "Low. Repository-scoped and already aligned with guarded change review.",
+      "credential_need": "None beyond local repository access.",
+      "next_action": "Keep enabled in the core and continue treating local git state as the primary source of code history."
+    },
+    {
+      "candidate": "context7",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Actively maintained documentation retrieval improves day-to-day framework/library work without adding external account complexity.",
+      "risk": "Low. Read-only documentation context.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled in the core for documentation lookup."
+    },
+    {
+      "candidate": "openai-docs",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Official OpenAI documentation endpoint is stable and directly useful for product/API tasks while staying read-only.",
+      "risk": "Low. Read-only documentation context.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled in the core for official product and API reference."
+    },
+    {
+      "candidate": "mdn",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Trusted standards-oriented web platform reference with strong long-term maintenance value for frontend work.",
+      "risk": "Low. Read-only documentation context.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled in the core as the default web standards reference."
+    },
+    {
+      "candidate": "eslint",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Official lint tooling is low-friction and directly tied to production code quality.",
+      "risk": "Low. Local code analysis only.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled in the core for source-level validation."
+    },
+    {
+      "candidate": "semgrep",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "Security and static analysis coverage is production-relevant and complements the local QA pipeline.",
+      "risk": "Low to medium. Findings require triage, but access stays local and read-focused.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled in the core and use it as the default static security scanner."
+    },
+    {
+      "candidate": "next-devtools",
+      "target_layer": "always_on_core",
+      "status": "suggested",
+      "reason": "High-signal tool for Next.js work; official enough in practice and already part of the trusted local dev set.",
+      "risk": "Low. Local development scope only.",
+      "credential_need": "None.",
+      "next_action": "Keep enabled where Next.js repos are common; otherwise leave available but idle."
+    }
+  ],
+  "keep_registry_only": [
+    {
+      "candidate": "github",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official and useful, but repository linkage and issue/PR actions should stay explicit rather than always-on.",
+      "risk": "Medium. Repo metadata and issue actions can affect real project workflows if mis-targeted.",
+      "credential_need": "GitHub auth plus explicit repository mapping.",
+      "next_action": "Keep enabled, but only invoke after repository_full_name is configured for the target project."
+    },
+    {
+      "candidate": "notion",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official and maintained, but destination selection matters and there is no confirmed page/database target in this workspace.",
+      "risk": "Medium. Writes can clutter or misplace project logs if the destination is wrong.",
+      "credential_need": "Notion auth and an approved page or database id.",
+      "next_action": "Keep available and map a dedicated automation log destination before enabling writes."
+    },
+    {
+      "candidate": "linear",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official project-tracking surface, but it is only valuable when a specific team/project mapping exists.",
+      "risk": "Medium. Misfiled issues create process noise quickly.",
+      "credential_need": "Linear auth and explicit team/project routing.",
+      "next_action": "Keep available and only activate after callable tools and destination mapping are confirmed."
+    },
+    {
+      "candidate": "figma",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official design integration with real value for implementation handoff, but it should stay request-driven.",
+      "risk": "Medium. Design-file access can expose broader workspace context than a normal coding turn needs.",
+      "credential_need": "Figma auth.",
+      "next_action": "Keep in the registry and invoke only for design handoff or component extraction."
+    },
+    {
+      "candidate": "canva",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official design surface, but lower day-to-day value than the core coding and docs stack.",
+      "risk": "Low to medium. Mostly unnecessary noise outside specific content/design tasks.",
+      "credential_need": "Canva auth.",
+      "next_action": "Keep available for explicit marketing or presentation work only."
+    },
+    {
+      "candidate": "cloudinary",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official curated plugin and a strong fit for portfolio image workflows, but not needed on every run.",
+      "risk": "Medium. Media-library actions are account-scoped and should stay deliberate.",
+      "credential_need": "Cloudinary account auth or connector setup.",
+      "next_action": "Add to the on-demand registry when account context is ready; do not promote it to always-on core."
+    },
+    {
+      "candidate": "vercel",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official deployment integration with strong operational value, but production changes must remain explicit and gated.",
+      "risk": "Medium to high. Deployment, environment, or project actions can have user-facing impact.",
+      "credential_need": "Vercel auth and project mapping.",
+      "next_action": "Keep available as the primary deploy connector and invoke only on explicit deployment tasks."
+    },
+    {
+      "candidate": "netlify",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official maintained deploy surface and already aligned as fallback deploy in the playbook.",
+      "risk": "Medium. Deployment actions should remain deliberate and environment-specific.",
+      "credential_need": "Netlify auth and site mapping.",
+      "next_action": "Keep available as fallback deploy only; do not move into the always-on core."
+    },
+    {
+      "candidate": "sentry",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official observability surface is useful for incidents and regression triage, but not required in every session.",
+      "risk": "Medium. Production telemetry can expose sensitive operational details.",
+      "credential_need": "Sentry auth and org/project selection.",
+      "next_action": "Keep available for debugging workflows and activate only when issue triage is needed."
+    },
+    {
+      "candidate": "cloudflare-api",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official infrastructure surface with strong value for DNS/perimeter tasks, but privileges are too broad for daily default use.",
+      "risk": "High. Infrastructure mutations can affect routing, security, and availability.",
+      "credential_need": "Cloudflare auth with least-privilege scope.",
+      "next_action": "Keep available, but require explicit task intent and scoped credentials before use."
+    },
+    {
+      "candidate": "hostinger-hosting / hostinger-domains / hostinger-dns",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Scoped Hostinger endpoints are preferable to broad wrappers and fit the user's least-privilege preference.",
+      "risk": "Medium. Domain and hosting actions can affect live systems, but scope is narrower than generic admin bridges.",
+      "credential_need": "Hostinger auth.",
+      "next_action": "Keep the scoped trio in the registry and only invoke them for explicit hosting/domain work."
+    },
+    {
+      "candidate": "supabase / neon",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Official database integrations are useful when a database-backed project exists, but unnecessary for this mostly static portfolio workspace.",
+      "risk": "Medium to high. Database reads and writes can affect live or staging data.",
+      "credential_need": "Project auth and database context.",
+      "next_action": "Keep discoverable for database-backed work; do not include in the default portfolio core."
+    },
+    {
+      "candidate": "perplexity",
+      "target_layer": "on_demand_registry",
+      "status": "suggested",
+      "reason": "Maintained AI helper from a trusted vendor, but it is still API-key dependent and not a production system integration.",
+      "risk": "Medium. External AI usage adds cost, data-sharing, and prompt-scope considerations.",
+      "credential_need": "Perplexity API key.",
+      "next_action": "Keep dormant in the registry and only use it after explicit approval and credential setup."
+    }
+  ],
+  "reject": [
+    {
+      "candidate": "aws-knowledge",
+      "status": "suggested",
+      "reason": "Official, but not materially useful for the current frontend/design/portfolio workflow and adds unnecessary tool surface.",
+      "risk": "Low operational risk, but high focus cost from irrelevant capability.",
+      "credential_need": "None beyond endpoint access.",
+      "next_action": "Do not promote into the active default stack; leave out of quarterly core recommendations."
+    },
+    {
+      "candidate": "adobe-express-developer",
+      "status": "suggested",
+      "reason": "Official vendor tool, but it overlaps with Figma/Canva and is not referenced anywhere in the local playbook.",
+      "risk": "Low to medium. Extra design tooling increases tool-choice noise without a clear production need.",
+      "credential_need": "Adobe account context.",
+      "next_action": "Keep out of the preferred stack unless a specific Adobe Express workflow appears."
+    },
+    {
+      "candidate": "postman",
+      "status": "suggested",
+      "reason": "Official and useful for API-heavy work, but this workspace does not justify adding another always-available API surface.",
+      "risk": "Low operationally, medium in terms of distraction and unnecessary capability.",
+      "credential_need": "Optional account/project context.",
+      "next_action": "Do not add to the default portfolio stack; reconsider only if the project becomes API-centric."
+    },
+    {
+      "candidate": "atlassian",
+      "status": "suggested",
+      "reason": "Official, but duplicative against the current Notion + Linear + GitHub operating model.",
+      "risk": "Medium. Parallel work tracking systems tend to create process drift and duplicate records.",
+      "credential_need": "Atlassian auth and workspace mapping.",
+      "next_action": "Reject for this stack unless the operating model changes to Jira/Confluence."
+    }
+  ],
+  "skipped_with_reason": [
+    {
+      "candidate": "playwright",
+      "reason": "The browser-validation path is currently blocked because npm is missing in the runtime used by the heartbeat.",
+      "risk": "Medium. UI regressions can slip if browser validation stays unavailable.",
+      "credential_need": "None, but Node.js/npm runtime is required.",
+      "next_action": "Fix the runtime dependency before moving Playwright into mandatory core execution."
+    },
+    {
+      "candidate": "notion-log destination",
+      "reason": "No approved page or database id was available in this workspace for guarded write logging.",
+      "risk": "Medium. Logging cannot be automated reliably until a destination is fixed.",
+      "credential_need": "Notion auth plus a target page/database id.",
+      "next_action": "Approve a dedicated Notion log destination and keep writes suggested until then."
+    },
+    {
+      "candidate": "linear action sink",
+      "reason": "The endpoint is enabled globally, but no callable Linear tool surface was available in the current session.",
+      "risk": "Medium. Action packages cannot be emitted into the issue tracker today.",
+      "credential_need": "Linear auth and callable session tool exposure.",
+      "next_action": "Re-check tool exposure on the next run and only mark implemented after it becomes callable."
+    },
+    {
+      "candidate": "github issue/checklist sink",
+      "reason": "GitHub is enabled, but this workspace has no repository mapping and is not linked as a git repository target for issue actions.",
+      "risk": "Low to medium. Missing linkage blocks automation, but avoids accidental writes.",
+      "credential_need": "GitHub auth and explicit owner/name mapping.",
+      "next_action": "Provide repository mapping before enabling issue/checklist writes."
+    },
+    {
+      "candidate": "slack summary sink",
+      "reason": "Slack exists in the broader plugin ecosystem, but no callable Slack tool was available in this session.",
+      "risk": "Low. Reporting falls back to local files, but team notification remains manual.",
+      "credential_need": "Slack auth and channel mapping.",
+      "next_action": "Enable callable Slack tools only if routine channel delivery is actually needed."
+    },
+    {
+      "candidate": "cloudinary account context",
+      "reason": "Cloudinary is available as a plugin family, but this run did not have verified account/auth context to exercise it safely.",
+      "risk": "Low immediate risk because nothing was changed; medium future risk if enabled without account scoping.",
+      "credential_need": "Cloudinary auth and cloud/account mapping.",
+      "next_action": "Keep it suggested until account context is confirmed."
+    }
+  ],
+  "implemented": [],
+  "source_refs": [
+    {
+      "label": "MCP Registry",
+      "url": "https://modelcontextprotocol.io"
+    },
+    {
+      "label": "Hostinger MCP setup article",
+      "url": "https://support.hostinger.com/en/articles/15839159-how-to-set-up-model-context-protocol-mcp-for-hostinger-api"
+    },
+    {
+      "label": "Perplexity MCP documentation",
+      "url": "https://docs.perplexity.ai/guides/mcp-server"
+    },
+    {
+      "label": "Flowbite MCP documentation",
+      "url": "https://flowbite.com/docs/getting-started/mcp/"
+    },
+    {
+      "label": "Netlify MCP documentation",
+      "url": "https://docs.netlify.com/build/ai/netlify-mcp-server/"
+    },
+    {
+      "label": "Vercel MCP documentation",
+      "url": "https://vercel.com/docs/mcp/vercel-mcp"
+    },
+    {
+      "label": "Figma Dev Mode MCP server documentation",
+      "url": "https://help.figma.com/hc/en-us/articles/32132100833559-Dev-Mode-MCP-Server"
+    },
+    {
+      "label": "Cloudinary MCP server documentation",
+      "url": "https://cloudinary.com/documentation/mcp_server"
+    }
+  ],
+  "summary": "Quarterly audit completed using guarded write rules. Low-risk local and documentation-oriented MCPs remain the recommended always-on core. Account-scoped or workflow-specific integrations stay in the on-demand registry. No connector changes were implemented in this run.",
+  "next_actions": [
+    "Keep the current always-on core centered on local filesystem, git, docs, lint, and static analysis primitives.",
+    "Treat GitHub, Notion, Linear, design tools, deploy tools, observability, and infrastructure endpoints as on-demand only.",
+    "Fix the missing npm runtime before making Playwright a required core step.",
+    "Only approve writes for Notion, Linear, GitHub, Slack, or Cloudinary after destination and credential mappings are explicit."
+  ],
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Trim the default stack to low-risk core MCPs",
+      "proposed_change": "Prefer always-on local filesystem, git, docs, lint, and static-analysis servers; move account-scoped connectors behind explicit task triggers."
+    },
+    {
+      "status": "suggested",
+      "title": "Keep workflow sinks gated until mappings exist",
+      "proposed_change": "Do not mark Notion, Linear, GitHub, Slack, or Cloudinary as implemented until destination and credential mappings are explicitly approved."
+    }
+  ]
+}

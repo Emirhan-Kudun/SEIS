@@ -1,0 +1,222 @@
+{
+  "generatedAt": "2026-06-02T19:23:07.070Z",
+  "branch": "codex/seis-ux-cinematic-premium-foundation",
+  "head": "b83d610",
+  "strict": false,
+  "summary": {
+    "checks": 13,
+    "passing": 11,
+    "missingRequired": 0,
+    "watchItems": 2,
+    "credentialGaps": 9
+  },
+  "status": "watch",
+  "checks": [
+    {
+      "id": "clean-worktree",
+      "ok": false,
+      "severity": "warn",
+      "detail": "worktree has local changes"
+    },
+    {
+      "id": "static-fallback-index",
+      "ok": true,
+      "severity": "error",
+      "detail": "static fallback index exists"
+    },
+    {
+      "id": "static-fallback-manifest",
+      "ok": true,
+      "severity": "error",
+      "detail": "static fallback manifest references archive target"
+    },
+    {
+      "id": "vercel-config",
+      "ok": true,
+      "severity": "warn",
+      "detail": "vercel.json exists"
+    },
+    {
+      "id": "cloud-env-template",
+      "ok": true,
+      "severity": "error",
+      "detail": ".env.cloud.example exists"
+    },
+    {
+      "id": "deploy-script",
+      "ok": true,
+      "severity": "error",
+      "detail": "static deploy dry-run script registered"
+    },
+    {
+      "id": "preflight-script",
+      "ok": true,
+      "severity": "error",
+      "detail": "deploy preflight script registered"
+    },
+    {
+      "id": "rsync-command",
+      "ok": true,
+      "severity": "warn",
+      "detail": "rsync available for custom server fallback"
+    },
+    {
+      "id": "vercel-command",
+      "ok": false,
+      "severity": "warn",
+      "detail": "Vercel CLI available for cloud deploy"
+    },
+    {
+      "id": "github-origin-target",
+      "ok": true,
+      "severity": "error",
+      "detail": "GitHub origin target modeled"
+    },
+    {
+      "id": "vercel-target",
+      "ok": true,
+      "severity": "error",
+      "detail": "Vercel target modeled"
+    },
+    {
+      "id": "custom-server-target",
+      "ok": true,
+      "severity": "error",
+      "detail": "custom server target modeled"
+    },
+    {
+      "id": "cloud-registry",
+      "ok": true,
+      "severity": "error",
+      "detail": "cloud environment registry has expected surfaces"
+    }
+  ],
+  "environment": {
+    "vercel": [
+      {
+        "key": "VERCEL_TOKEN",
+        "present": false
+      },
+      {
+        "key": "VERCEL_ORG_ID",
+        "present": false
+      },
+      {
+        "key": "VERCEL_PROJECT_ID",
+        "present": false
+      }
+    ],
+    "customServer": [
+      {
+        "key": "DEPLOY_HOST",
+        "present": false
+      },
+      {
+        "key": "DEPLOY_USER",
+        "present": false
+      },
+      {
+        "key": "DEPLOY_PATH",
+        "present": false
+      }
+    ],
+    "supabase": [
+      {
+        "key": "SUPABASE_URL",
+        "present": false
+      },
+      {
+        "key": "SUPABASE_SERVICE_ROLE_KEY",
+        "present": false
+      },
+      {
+        "key": "SUPABASE_BRIEFS_TABLE",
+        "present": false
+      }
+    ]
+  },
+  "credentialGaps": [
+    {
+      "key": "VERCEL_TOKEN",
+      "present": false
+    },
+    {
+      "key": "VERCEL_ORG_ID",
+      "present": false
+    },
+    {
+      "key": "VERCEL_PROJECT_ID",
+      "present": false
+    },
+    {
+      "key": "DEPLOY_HOST",
+      "present": false
+    },
+    {
+      "key": "DEPLOY_USER",
+      "present": false
+    },
+    {
+      "key": "DEPLOY_PATH",
+      "present": false
+    },
+    {
+      "key": "SUPABASE_URL",
+      "present": false
+    },
+    {
+      "key": "SUPABASE_SERVICE_ROLE_KEY",
+      "present": false
+    },
+    {
+      "key": "SUPABASE_BRIEFS_TABLE",
+      "present": false
+    }
+  ],
+  "deploymentTargets": [
+    {
+      "id": "local-production-preview",
+      "name": "Local production preview",
+      "requiresEnv": [],
+      "command": "npm run start --workspace apps/site-next"
+    },
+    {
+      "id": "github-origin",
+      "name": "GitHub origin branch",
+      "requiresEnv": [],
+      "command": "npm run github:publish"
+    },
+    {
+      "id": "vercel-preview",
+      "name": "Vercel preview deployment",
+      "requiresEnv": [
+        "VERCEL_TOKEN",
+        "VERCEL_ORG_ID",
+        "VERCEL_PROJECT_ID"
+      ],
+      "command": "npm i -g vercel && vercel deploy"
+    },
+    {
+      "id": "custom-server",
+      "name": "Custom server handoff",
+      "requiresEnv": [
+        "DEPLOY_HOST",
+        "DEPLOY_USER",
+        "DEPLOY_PATH"
+      ],
+      "command": "rsync -az --delete apps/site-next/.next/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}"
+    },
+    {
+      "id": "static-fallback-archive",
+      "name": "Static fallback archive",
+      "requiresEnv": [],
+      "command": "open apps/static-fallback/index.html"
+    }
+  ],
+  "nextActions": [
+    "Run npm run lint && npm run checks before remote deploy.",
+    "Run npm run typecheck && npm run build && npm run report:budgets before remote deploy.",
+    "Use npm run deploy:static:dry-run before npm run deploy:static:live.",
+    "Store real Vercel, Supabase and server credentials outside git."
+  ]
+}

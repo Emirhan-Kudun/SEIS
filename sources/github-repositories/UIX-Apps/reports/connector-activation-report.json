@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "id": "seis-connector-activation-report",
+  "generatedAt": "2026-06-02T08:08:37.647Z",
+  "mode": "explicit-auth-only",
+  "policy": {
+    "default": "available_when_authenticated",
+    "secretHandling": "never_commit_tokens",
+    "execution": "use_only_when_relevant_to_the_current_task",
+    "mcp": "prefer_official_or_project_configured_servers"
+  },
+  "localSignals": {
+    "clean_worktree": true,
+    "publish_readiness_pass": true,
+    "github_auth": true,
+    "provider_token": false,
+    "site_selection": false,
+    "route_selection": false,
+    "project_selection": false,
+    "auth_scope": false,
+    "user_approval": false,
+    "channel_scope": false,
+    "destination_selection": false,
+    "workflow_scope": false,
+    "outputai_task_fit": false,
+    "figma_file_or_node": false,
+    "design_scope": false,
+    "known_local_url_or_file": false,
+    "ui_change_scope": false,
+    "low_power_browser_budget": false,
+    "ui_or_canvas_change": false,
+    "test_target_url": false,
+    "browser_budget": false,
+    "security_sensitive_change": false,
+    "scan_scope": false,
+    "no_autofix_confirmation": false,
+    "workspace_auth": false,
+    "project_destination": false,
+    "page_destination": false,
+    "drive_auth": false,
+    "folder_destination": false
+  },
+  "summary": {
+    "connectors": 15,
+    "activatable": 1,
+    "blocked": 14
+  },
+  "connectors": [
+    {
+      "id": "github",
+      "surface": "repository",
+      "status": "activatable",
+      "activationPolicy": "bounded-preflight-before-push",
+      "missing": [],
+      "qualityCommands": [
+        "npm run automation:publish-readiness"
+      ]
+    },
+    {
+      "id": "vercel",
+      "surface": "cloud-deploy",
+      "status": "blocked",
+      "activationPolicy": "requires_provider_token_and_site_selection",
+      "missing": [
+        "provider_token",
+        "site_selection",
+        "SEIS_SITE_URL"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "cloudflare",
+      "surface": "edge-deploy",
+      "status": "blocked",
+      "activationPolicy": "requires_provider_token_and_route_selection",
+      "missing": [
+        "provider_token",
+        "route_selection",
+        "SEIS_SITE_URL"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "netlify",
+      "surface": "static-deploy",
+      "status": "blocked",
+      "activationPolicy": "requires_provider_token_and_site_selection",
+      "missing": [
+        "provider_token",
+        "site_selection",
+        "SEIS_SITE_URL"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "sentry",
+      "surface": "observability",
+      "status": "blocked",
+      "activationPolicy": "quiet_error_signal_only_after_project_selection",
+      "missing": [
+        "project_selection",
+        "auth_scope"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "slack",
+      "surface": "release-notifications",
+      "status": "blocked",
+      "activationPolicy": "notify_only_after_user_approval",
+      "missing": [
+        "user_approval",
+        "channel_scope"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "google-drive",
+      "surface": "handoff-archive",
+      "status": "blocked",
+      "activationPolicy": "archive_only_after_user_approval",
+      "missing": [
+        "user_approval",
+        "destination_selection"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "output-ai",
+      "surface": "durable-workflow",
+      "status": "blocked",
+      "activationPolicy": "use_for_new_outputai_workflows_only",
+      "missing": [
+        "workflow_scope",
+        "outputai_task_fit"
+      ],
+      "qualityCommands": [
+        "npm run check:cloud-environment"
+      ]
+    },
+    {
+      "id": "figma",
+      "surface": "design-handoff",
+      "status": "blocked",
+      "activationPolicy": "read_design_context_only_after_file_or_node_is_explicit",
+      "missing": [
+        "figma_file_or_node",
+        "user_approval",
+        "design_scope"
+      ],
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map"
+      ]
+    },
+    {
+      "id": "browser",
+      "surface": "local-ui-validation",
+      "status": "blocked",
+      "activationPolicy": "use_for_known_local_or_file_url_smoke_checks_only",
+      "missing": [
+        "known_local_url_or_file",
+        "ui_change_scope",
+        "low_power_browser_budget"
+      ],
+      "qualityCommands": [
+        "npm run check:release-sync"
+      ]
+    },
+    {
+      "id": "playwright",
+      "surface": "e2e-render-validation",
+      "status": "blocked",
+      "activationPolicy": "run_only_for_ui_or_canvas_behavior_changes",
+      "missing": [
+        "ui_or_canvas_change",
+        "test_target_url",
+        "browser_budget"
+      ],
+      "qualityCommands": [
+        "npm run check:mobile-ergonomics"
+      ]
+    },
+    {
+      "id": "semgrep",
+      "surface": "static-security-review",
+      "status": "blocked",
+      "activationPolicy": "run_for_security_sensitive_code_paths_without_autofix",
+      "missing": [
+        "security_sensitive_change",
+        "scan_scope",
+        "no_autofix_confirmation"
+      ],
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map"
+      ]
+    },
+    {
+      "id": "linear",
+      "surface": "issue-planning",
+      "status": "blocked",
+      "activationPolicy": "create_or_update_issues_only_after_user_confirms_destination",
+      "missing": [
+        "workspace_auth",
+        "project_destination",
+        "user_approval"
+      ],
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map"
+      ]
+    },
+    {
+      "id": "notion",
+      "surface": "knowledge-base-handoff",
+      "status": "blocked",
+      "activationPolicy": "write_docs_only_after_workspace_and_page_are_confirmed",
+      "missing": [
+        "workspace_auth",
+        "page_destination",
+        "user_approval"
+      ],
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map"
+      ]
+    },
+    {
+      "id": "google-drive-artifact-archive",
+      "surface": "artifact-archive",
+      "status": "blocked",
+      "activationPolicy": "archive_release_artifacts_only_after_user_approval",
+      "missing": [
+        "drive_auth",
+        "folder_destination",
+        "user_approval"
+      ],
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map"
+      ]
+    }
+  ],
+  "nextActions": [
+    "Use only one activatable connector when it directly advances the current task."
+  ]
+}

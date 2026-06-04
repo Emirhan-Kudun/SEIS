@@ -1,0 +1,27 @@
+{
+  "group": "specialized-creative-learning",
+  "purpose": "Specialized UI frameworks, output styles, learning modes, scientific and niche development skills.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": ["generated publication", "external asset mutation", "regulated advice", "large code conversion"],
+  "connectors": [
+    {"id":"frontend-design","sources":["claude-plugins-official"],"role":"frontend design critique and generation","mode":"registry-only"},
+    {"id":"explanatory-output-style","sources":["claude-plugins-official"],"role":"explanatory response style","mode":"registry-only"},
+    {"id":"learning-output-style","sources":["claude-plugins-official"],"role":"learning-oriented response style","mode":"registry-only"},
+    {"id":"cwc-makers","sources":["claude-plugins-official"],"role":"maker workflow guidance","mode":"registry-only"},
+    {"id":"hookify","sources":["claude-plugins-official"],"role":"hook and automation workflows","mode":"registry-only"},
+    {"id":"laravel-boost","sources":["claude-plugins-official"],"role":"Laravel development guidance","mode":"registry-only"},
+    {"id":"liquid-lsp","sources":["claude-plugins-official"],"role":"Liquid language support","mode":"registry-only"},
+    {"id":"liquid-skills","sources":["claude-plugins-official"],"role":"Liquid development skills","mode":"registry-only"},
+    {"id":"math-olympiad","sources":["claude-plugins-official"],"role":"math reasoning workflows","mode":"registry-only"},
+    {"id":"microsoft-docs","sources":["claude-plugins-official"],"role":"Microsoft official documentation","mode":"on-demand"},
+    {"id":"qodo-skills","sources":["claude-plugins-official"],"role":"test and code quality assistance","mode":"registry-only"},
+    {"id":"qt-development-skills","sources":["claude-plugins-official"],"role":"Qt development guidance","mode":"registry-only"},
+    {"id":"quarkus-agent","sources":["claude-plugins-official"],"role":"Quarkus development guidance","mode":"registry-only"},
+    {"id":"ralph-loop","sources":["claude-plugins-official"],"role":"loop-based agent workflows","mode":"registry-only"},
+    {"id":"sap-fiori-mcp-server","sources":["claude-plugins-official"],"role":"SAP Fiori development workflows","mode":"registry-only"},
+    {"id":"save-to-spotify","sources":["claude-plugins-official"],"role":"Spotify saving workflow","mode":"registry-only"},
+    {"id":"ui5-typescript-conversion","sources":["claude-plugins-official"],"role":"UI5 TypeScript conversion","mode":"registry-only"},
+    {"id":"outputai","sources":["claude-plugins-official"],"role":"output generation workflow","mode":"registry-only"}
+  ]
+}

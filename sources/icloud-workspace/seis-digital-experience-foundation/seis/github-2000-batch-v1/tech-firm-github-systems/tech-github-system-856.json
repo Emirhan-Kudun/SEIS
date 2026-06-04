@@ -1,0 +1,10 @@
+{
+  "id": "tech-github-system-856",
+  "company": "nvidia",
+  "focus": "frontend-platform",
+  "branch_policy": "pr-first",
+  "main_protection": true,
+  "rollback_safe": true,
+  "source_type": "public-github-open-source-pattern",
+  "status": "active"
+}

@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "minimum_score": 85,
+  "production_files": [
+    "index.html",
+    "robots.txt",
+    "sitemap.xml",
+    "style.css",
+    "script.js",
+    "translations.json"
+  ],
+  "entry_html": [
+    "index.html"
+  ],
+  "required_meta": [
+    "viewport",
+    "description",
+    "robots",
+    "og:type",
+    "og:title",
+    "og:description",
+    "twitter:card"
+  ],
+  "required_i18n_locales": [
+    "tr",
+    "en",
+    "fr",
+    "it",
+    "de"
+  ],
+  "max_file_size_bytes": {
+    "index.html": 90000,
+    "style.css": 160000,
+    "script.js": 200000,
+    "translations.json": 200000
+  },
+  "content_policy": {
+    "production_scan_paths": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "translations.json"
+    ],
+    "intake_scan_paths": [
+      "merged-portfolio-two-zips-single.html",
+      "exports"
+    ],
+    "scan_extensions": [
+      ".html",
+      ".json",
+      ".js"
+    ],
+    "blocked_terms": [
+      "social media",
+      "sosyal medya",
+      "alcohol",
+      "alkol",
+      "wine",
+      "sarap",
+      "şarap",
+      "beer",
+      "bira",
+      "cocktail",
+      "food",
+      "yemek",
+      "restaurant",
+      "restoran"
+    ],
+    "allowed_context_terms": [
+      "dahil edilmemiştir",
+      "dahil edilmemistir",
+      "bulunmaz",
+      "not included",
+      "excluded"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "name": "UX Apps Archive Intelligence",
+  "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+  "entryCount": 80206,
+  "analyzedAt": "2026-05-23",
+  "noisePolicy": {
+    "excluded": [
+      "node_modules",
+      ".git",
+      "__MACOSX",
+      ".DS_Store",
+      "runtime caches",
+      "local logs"
+    ],
+    "rule": "Promote ideas and contracts, not raw archive structure."
+  },
+  "conversionMap": [
+    {
+      "id": "cinematic-budget-contract",
+      "source": "seis/cinematic-3d/performance-budget.json",
+      "signal": "Low, medium, and high quality presets with capped DPR, particle limits, and fallback requirements.",
+      "feature": "Cinematic quality contract",
+      "status": "implemented-foundation",
+      "guardrail": "No heavy 3D dependency until static and reduced-motion fallbacks are stable."
+    },
+    {
+      "id": "experience-signal-watch",
+      "source": "seis/cinematic-3d/experience-signals.json",
+      "signal": "Render readiness, motion sustainability, accessibility continuity, asset readiness, and release governance.",
+      "feature": "Experience signal watchlist",
+      "status": "ready-for-ui",
+      "guardrail": "Signals stay explainable and low-pressure instead of becoming a panic dashboard."
+    },
+    {
+      "id": "creative-feature-router",
+      "source": "seis/creative-intelligence-os/feature-router.json",
+      "signal": "Feature proposals are routed through atmosphere, editorial rhythm, motion restraint, minimalism, and quality gates.",
+      "feature": "Creative feature router",
+      "status": "ready-for-planning",
+      "guardrail": "New interface ideas must be refined before they become runtime UI."
+    },
+    {
+      "id": "spatial-scorecard",
+      "source": "seis/creative-intelligence-os/spatial-composition-scorecard.md",
+      "signal": "Portfolio screens are scored for first viewport signal, rhythm, breathing room, mobile spacing, and motion restraint.",
+      "feature": "UX composition scorecard",
+      "status": "ready-for-review",
+      "guardrail": "Aesthetic upgrades must improve clarity, not just visual density."
+    },
+    {
+      "id": "route-rollout-matrix",
+      "source": "apps/seis-nextjs-foundation/app/cinematic-3d/page.tsx",
+      "signal": "Cinematic 3D route accepts quality, motion, animation, sequence, panel, and zone modes.",
+      "feature": "Spatial route planning model",
+      "status": "candidate",
+      "guardrail": "Keep 3D as an isolated route before homepage promotion."
+    }
+  ],
+  "nextFeatures": [
+    {
+      "id": "archive-signal-reviewer",
+      "title": "Archive Signal Reviewer",
+      "phase": "next",
+      "summary": "A small review board that turns archive findings into approved, deferred, or rejected feature candidates.",
+      "acceptance": "Each candidate has source, value, risk, and rollout status."
+    },
+    {
+      "id": "composition-score-panel",
+      "title": "Composition Score Panel",
+      "phase": "next",
+      "summary": "A calm UX review panel for first viewport signal, heading rhythm, breathing room, mobile spacing, and motion restraint.",
+      "acceptance": "No score appears without a written rationale and a rollback-safe next action."
+    },
+    {
+      "id": "manual-spatial-preview",
+      "title": "Manual Spatial Preview",
+      "phase": "later",
+      "summary": "A manually activated 3D preview mode that starts as CSS/canvas and only graduates to WebGL when budgets are met.",
+      "acceptance": "Reduced-motion and compact viewport users receive equivalent static content."
+    }
+  ],
+  "scorecard": {
+    "scale": [
+      "5: calm, spacious, clear, emotionally coherent",
+      "4: strong rhythm with small refinements needed",
+      "3: functional but visually ordinary",
+      "2: cluttered, compressed, or inconsistent",
+      "1: noisy, unstable, or hard to read"
+    ],
+    "reviewAreas": [
+      "first viewport signal",
+      "heading rhythm",
+      "image/text balance",
+      "section breathing room",
+      "mobile spacing",
+      "interaction calmness",
+      "motion restraint",
+      "accessibility confidence"
+    ]
+  }
+}

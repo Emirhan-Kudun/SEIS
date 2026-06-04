@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "ReadinessSignal: Vega declarative visualization lane stays dependency-light.",
+  "width": 240,
+  "height": 120,
+  "data": [
+    {
+      "name": "ReadinessSignal",
+      "values": [
+        {
+          "lane": "vega",
+          "status": "reference",
+          "score": 129,
+          "reducedMotionSafe": true,
+          "runtimeWeight": "dependency-light"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "from": { "data": "ReadinessSignal" },
+      "encode": {
+        "enter": {
+          "x": { "value": 16 },
+          "y": { "value": 32 },
+          "text": { "field": "lane" },
+          "fill": { "value": "#1f2937" }
+        }
+      }
+    }
+  ]
+}

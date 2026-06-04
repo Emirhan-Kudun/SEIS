@@ -1,0 +1,15 @@
+{
+  "tool": "alertmanager",
+  "type": "ReadinessSignal",
+  "receiver": "uix-local-readiness",
+  "status": "resolved",
+  "alerts": [],
+  "groupLabels": {
+    "service": "uix-apps"
+  },
+  "commonLabels": {
+    "severity": "info",
+    "environment": "local"
+  },
+  "notes": "Dependency-light placeholder for future alert routing evidence."
+}

@@ -1,0 +1,41 @@
+{
+  "version": "0.1.0",
+  "mode": "full-efficiency-low-pressure",
+  "summary": {
+    "title": "Full efficiency without thermal pressure",
+    "status": "active",
+    "runtimeBudget": "static-first",
+    "computerPressure": "low",
+    "automationCadence": "bounded"
+  },
+  "principles": [
+    {
+      "id": "context-before-compute",
+      "label": "Context before compute",
+      "status": "active",
+      "signal": "Use deeper reasoning and targeted file reads before running heavy local commands.",
+      "guardrail": "Avoid broad scans of generated caches, dependency folders, and build output."
+    },
+    {
+      "id": "static-first-validation",
+      "label": "Static-first validation",
+      "status": "active",
+      "signal": "Prefer syntax checks, JSON contracts, locale checks, and focused foundation gates.",
+      "guardrail": "Run production packaging only when it proves release readiness."
+    },
+    {
+      "id": "cinematic-with-fallbacks",
+      "label": "Cinematic with fallbacks",
+      "status": "active",
+      "signal": "Increase atmosphere through CSS, canvas, and content rhythm before heavier 3D dependencies.",
+      "guardrail": "Every immersive effect keeps reduced-motion and mobile-safe behavior."
+    },
+    {
+      "id": "small-reversible-diffs",
+      "label": "Small reversible diffs",
+      "status": "active",
+      "signal": "Ship one coherent surface at a time so rollback stays simple.",
+      "guardrail": "Keep unrelated repo noise out of the current development slice."
+    }
+  ]
+}

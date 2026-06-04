@@ -1,0 +1,25 @@
+{
+  "group": "core-dev-security",
+  "purpose": "Repository, code review, security, CI, browser QA, and developer documentation.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": ["write", "push", "PR mutation", "security scan with external upload"],
+  "connectors": [
+    {"id":"github","sources":["openai-curated","claude-plugins-official"],"role":"repo source of truth and PR workflow","mode":"on-demand"},
+    {"id":"codex","sources":["openai-codex"],"role":"local implementation and review handoff","mode":"always-on-core"},
+    {"id":"codex-security","sources":["openai-curated"],"role":"security scan and finding validation","mode":"on-demand"},
+    {"id":"coderabbit","sources":["openai-curated","claude-plugins-official"],"role":"AI code review support","mode":"on-demand"},
+    {"id":"plugin-eval","sources":["openai-curated"],"role":"skill and plugin evaluation reports","mode":"on-demand"},
+    {"id":"build-web-apps","sources":["openai-curated"],"role":"frontend implementation patterns","mode":"on-demand"},
+    {"id":"browser","sources":["openai-bundled"],"role":"local UI inspection","mode":"on-demand"},
+    {"id":"chrome","sources":["openai-bundled"],"role":"profile or extension dependent browser checks","mode":"on-demand"},
+    {"id":"playwright","sources":["claude-plugins-official"],"role":"browser automation and regression checks","mode":"on-demand"},
+    {"id":"semgrep","sources":["claude-plugins-official"],"role":"static security analysis","mode":"on-demand"},
+    {"id":"sonarqube","sources":["claude-plugins-official"],"role":"code quality signal","mode":"registry-only"},
+    {"id":"sonatype-guide","sources":["claude-plugins-official"],"role":"dependency risk guidance","mode":"on-demand"},
+    {"id":"sentry","sources":["openai-curated"],"role":"error monitoring review","mode":"on-demand"},
+    {"id":"circleci","sources":["openai-curated"],"role":"CI pipeline review","mode":"on-demand"},
+    {"id":"superpowers","sources":["openai-curated","claude-plugins-official"],"role":"planning and software development methodology","mode":"on-demand"},
+    {"id":"serena","sources":["claude-plugins-official"],"role":"codebase navigation and semantic editing support","mode":"on-demand"}
+  ]
+}

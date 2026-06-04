@@ -1,0 +1,14 @@
+{
+  "ReadinessSignal": {
+    "lane": "httpie",
+    "status": "reference",
+    "runtimeWeight": "dependency-light",
+    "method": "GET",
+    "url": "https://uix-apps.local/polyglot/httpie/readiness-signal",
+    "headers": {
+      "Accept": "application/json",
+      "X-UIX-Lane": "httpie"
+    },
+    "promotionPolicy": "convert to runnable HTTPie command only after auth, target, and preflight are clean"
+  }
+}

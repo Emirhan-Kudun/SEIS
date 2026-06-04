@@ -1,0 +1,15 @@
+{
+  "tool": "motion-spec",
+  "type": "ReadinessSignal",
+  "principles": [
+    "restrained",
+    "reduced-motion-aware",
+    "low-power"
+  ],
+  "transitions": [],
+  "budgets": {
+    "maxDurationMs": 420,
+    "avoidContinuousMotion": true
+  },
+  "notes": "Dependency-light placeholder for future cinematic motion timing and restraint evidence."
+}

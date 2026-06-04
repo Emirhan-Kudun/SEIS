@@ -1,0 +1,17 @@
+{
+  "tool": "sentry",
+  "type": "ReadinessSignal",
+  "issue": {
+    "id": "UIX-ISSUE-0",
+    "title": "Placeholder application error",
+    "level": "info",
+    "status": "resolved",
+    "culprit": "readiness.signal"
+  },
+  "event": {
+    "count": 0,
+    "firstSeen": null,
+    "lastSeen": null
+  },
+  "notes": "Dependency-light placeholder for future application error triage evidence."
+}

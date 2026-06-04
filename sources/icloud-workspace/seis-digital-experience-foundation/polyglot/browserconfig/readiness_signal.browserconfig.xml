@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ReadinessSignal: Browserconfig lane stays dependency-light until Windows tile metadata is promoted. -->
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square150x150logo src="/icons/readiness-signal-150.png"/>
+      <TileColor>#111827</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

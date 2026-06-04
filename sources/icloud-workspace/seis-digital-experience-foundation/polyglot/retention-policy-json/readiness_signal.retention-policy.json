@@ -1,0 +1,12 @@
+{
+  "tool": "retention-policy",
+  "type": "ReadinessSignal",
+  "dataset": "uix-local-readiness",
+  "rules": [],
+  "summary": {
+    "retentionWindows": 0,
+    "deletionReviewsDue": 0,
+    "exceptions": 0
+  },
+  "notes": "Dependency-light placeholder for future data retention and deletion review evidence."
+}

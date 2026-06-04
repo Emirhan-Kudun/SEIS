@@ -1,0 +1,334 @@
+# SEIS External Source Bindings
+
+- Generated: 2026-06-03
+- Mode: submitted_plugin_uris_bound_to_environment_sources
+- Total submitted links: 301
+- Unique plugins: 300
+- External sources bound: 300
+- Download manifest plugins: 300
+
+## Source Groups
+
+| source | plugins | binding | download |
+| --- | ---: | --- | --- |
+| adobe-skills | 7 | source_catalog_bound | download_manifest_ready |
+| azure-skills | 1 | source_catalog_bound | download_manifest_ready |
+| claude-plugins-official | 142 | source_catalog_bound | download_manifest_ready |
+| openai-bundled | 3 | source_catalog_bound | download_manifest_ready |
+| openai-codex | 1 | source_catalog_bound | download_manifest_ready |
+| openai-curated | 132 | source_catalog_bound | download_manifest_ready |
+| openai-curated-remote | 6 | source_catalog_bound | download_manifest_ready |
+| openai-primary-runtime | 3 | source_catalog_bound | download_manifest_ready |
+| skills | 5 | source_catalog_bound | download_manifest_ready |
+
+## External Bindings
+
+| # | plugin | source | lane | binding | connection | download |
+| ---: | --- | --- | --- | --- | --- | --- |
+| 1 | base44 | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 2 | wix | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 3 | fal | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 4 | picsart | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 5 | posthog | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 6 | nvidia | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 7 | lovable | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 8 | replit | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 9 | shutterstock | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 10 | convex | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 11 | hg-insights | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 12 | rox | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 13 | calendly | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 14 | clay | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 15 | thoughtspot | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 16 | meticulate | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 17 | apollo | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 18 | mixpanel-headless | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 19 | close | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 20 | mixpanel | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 21 | docusign | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 22 | zoominfo | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 23 | datasite | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 24 | similarweb | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 25 | zoom | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 26 | datadog | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 27 | asana | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 28 | openai-developers | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 29 | twilio-developer-kit | openai-curated | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 30 | codex-security | openai-curated | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 31 | supabase | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 32 | heygen | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 33 | hyperframes | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 34 | temporal | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 35 | render | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 36 | yepcode | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 37 | windsor-ai | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 38 | waldo | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 39 | vantage | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 40 | streak | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 41 | statsig | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 42 | skywatch | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 43 | signnow | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 44 | semrush | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 45 | responsive | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 46 | readwise | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 47 | read-ai | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 48 | razorpay | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 49 | ranked-ai | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 50 | quicknode | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 51 | quartr | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 52 | pylon | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 53 | policynote | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 54 | pitchbook | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 55 | particl-market-research | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 56 | otter-ai | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 57 | omni-analytics | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 58 | network-solutions | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 59 | mt-newswires | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 60 | motherduck | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 61 | moody-s | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 62 | monday-com | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 63 | mem | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 64 | marcopolo | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 65 | keybid-puls | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 66 | hubspot | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 67 | hostinger | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 68 | highlevel | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 69 | help-scout | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 70 | happenstance | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 71 | granola | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 72 | fyxer | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 73 | govtribe | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 74 | fireflies | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 75 | egnyte | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 76 | circleback | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 77 | channel99 | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 78 | cb-insights | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 79 | carta-crm | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 80 | brex | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 81 | brand24 | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 82 | biorender | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 83 | binance | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 84 | attio | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 85 | alpaca | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 86 | plugin-eval | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 87 | remotion | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 88 | neon-postgres | openai-curated | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 89 | coderabbit | openai-curated | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 90 | expo | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 91 | zotero | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 92 | life-science-research | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 93 | test-android-apps | openai-curated | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 94 | build-web-data-visualization | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 95 | build-web-apps | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 96 | build-macos-apps | openai-curated | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 97 | build-ios-apps | openai-curated | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 98 | sentry | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 99 | cloudflare | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 100 | notion | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 101 | deepnote | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 102 | google-drive | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 103 | circleci | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 104 | github | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 105 | box | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 106 | superpowers | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 107 | game-studio | openai-curated | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 108 | vercel | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 109 | netlify | openai-curated | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 110 | jam | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 111 | hugging-face | openai-curated | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 112 | figma | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 113 | canva | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 114 | outlook-email | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 115 | gmail | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 116 | slack | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 117 | google-calendar | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 118 | linear | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 119 | atlassian-rovo | openai-curated | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 120 | azure-sdk-rust | skills | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 121 | azure-sdk-java | skills | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 122 | azure-sdk-dotnet | skills | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 123 | azure-sdk-python | skills | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 124 | deep-wiki | skills | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 125 | codex | openai-codex | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 126 | zscaler | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 127 | zoominfo | claude-plugins-official | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 128 | zoom-plugin | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 129 | zilliz | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 130 | zapier | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 131 | workos | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 132 | windsor-ai | claude-plugins-official | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 133 | vercel | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 134 | ui5-typescript-conversion | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 135 | ui5 | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 136 | twilio-developer-kit | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 137 | togetherai-skills | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 138 | terraform | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 139 | teamcity-cli | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 140 | superpowers | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 141 | supabase | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 142 | sumup | claude-plugins-official | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 143 | stripe | claude-plugins-official | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 144 | sonatype-guide | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 145 | sourcegraph | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 146 | sonarqube | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 147 | snowflake-cortex-code | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 148 | slack | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 149 | skill-creator | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 150 | serena | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 151 | sentry-cli | claude-plugins-official | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 152 | semgrep | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 153 | security-guidance | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 154 | sanity | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 155 | sagemaker-ai | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 156 | runway-api | claude-plugins-official | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 157 | rootly | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 158 | remember | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 159 | redis-development | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 160 | railway | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 161 | qt-development-skills | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 162 | qodo-skills | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 163 | prisma | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 164 | postman | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 165 | pr-review-toolkit | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 166 | posthog | claude-plugins-official | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 167 | plugin-dev | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 168 | playwright | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 169 | planetscale | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 170 | playground | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 171 | oracle-ai-data-platform-workbench-spark-connectors | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 172 | nvidia-skills | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 173 | nightvision | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 174 | netlify-skills | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 175 | neon | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 176 | mongodb | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 177 | miro | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 178 | microsoft-docs | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 179 | mercadopago | claude-plugins-official | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 180 | mcp-tunnels | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 181 | mcp-server-dev | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 182 | mcp-apps | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 183 | math-olympiad | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 184 | mapbox | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 185 | logfire | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 186 | liquid-skills | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 187 | liquid-lsp | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 188 | linear | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 189 | legalzoom | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 190 | learning-output-style | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 191 | laravel-boost | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 192 | intercom | claude-plugins-official | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 193 | imessage | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 194 | hunter | claude-plugins-official | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 195 | huggingface-skills | claude-plugins-official | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 196 | hookify | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 197 | greptile | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 198 | gitlab | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 199 | github | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 200 | frontend-design | claude-plugins-official | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 201 | firebase | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 202 | forge-skills | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 203 | figma | claude-plugins-official | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 204 | feature-dev | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 205 | fastly-agent-toolkit | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 206 | fakechat | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 207 | expo | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 208 | explanatory-output-style | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 209 | duckdb-skills | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 210 | dominodatalab | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 211 | discord | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 212 | deploy-on-aws | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 213 | dataverse | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 214 | datarobot-agent-skills | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 215 | datahub-skills | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 216 | datadog | claude-plugins-official | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 217 | databases-on-aws | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 218 | data-agent-kit-starter-pack | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 219 | cwc-makers | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 220 | crowdstrike-falcon-foundry | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 221 | convex | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 222 | context7 | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 223 | commit-commands | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 224 | coderabbit | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 225 | code-simplifier | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 226 | cloudinary | claude-plugins-official | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 227 | code-modernization | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 228 | cloudflare | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 229 | cloud-sql-postgresql | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 230 | clickhouse | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 231 | claude-md-management | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 232 | claude-code-setup | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 233 | circleback | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 234 | cds-mcp | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 235 | buildkite | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 236 | brightdata-plugin | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 237 | box | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 238 | bigdata-com | claude-plugins-official | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 239 | base44 | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 240 | azure | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 241 | aws-serverless | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 242 | aws-dev-toolkit | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 243 | aws-core | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 244 | aws-amplify | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 245 | aws-agents | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 246 | auth0 | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 247 | atomic-agents | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 248 | atlassian | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 249 | atlan | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 250 | asana | claude-plugins-official | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 251 | appwrite | claude-plugins-official | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 252 | apollo-skills | claude-plugins-official | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 253 | apollo | claude-plugins-official | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 254 | amplitude | claude-plugins-official | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 255 | amazon-location-service | claude-plugins-official | platform-native-and-polyglot | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 256 | alloydb | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 257 | airtable | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 258 | aikido | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 259 | ai-plugins | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 260 | agentforce-adlc | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 261 | agent-sdk-dev | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 262 | adobe-for-creativity | claude-plugins-official | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 263 | 42crunch-api-security-testing | claude-plugins-official | security-quality-and-governance | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 264 | azure | azure-skills | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 265 | adobe-cja | adobe-skills | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 266 | adobe-analytics | adobe-skills | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 267 | aem-6-5-lts | adobe-skills | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 268 | aem-cloud-service | adobe-skills | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 269 | aem-edge-delivery-services | adobe-skills | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 270 | stardust | adobe-skills | builder-and-prototyping | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 271 | adobe-for-creativity | adobe-skills | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 272 | latex | openai-bundled | specialized-domain-and-research | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 273 | chrome | openai-bundled | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 274 | browser | openai-bundled | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 275 | presentations | openai-primary-runtime | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 276 | spreadsheets | openai-primary-runtime | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 277 | documents | openai-primary-runtime | collaboration-calendar-and-support | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 278 | pinecone | claude-plugins-official | backend-data-and-api | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 279 | pigment | claude-plugins-official | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 280 | pagerduty | claude-plugins-official | cloud-devops-and-release | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 281 | outputai | claude-plugins-official | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 282 | dow-jones-factiva | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 283 | dovetail | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 284 | domotz-preview | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 285 | docket | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 286 | demandbase | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 287 | daloopa | openai-curated | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 288 | coveo | openai-curated | ai-workflow-docs-and-knowledge | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 289 | cube | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 290 | coupler-io | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 291 | conductor | openai-curated | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 292 | common-room | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 293 | cloudinary | openai-curated | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 294 | clickup | openai-curated | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 295 | public-equity-investing | openai-curated-remote | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 296 | product-design | openai-curated-remote | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 297 | investment-banking | openai-curated-remote | finance-investing-and-payments | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 298 | creative-production | openai-curated-remote | creative-production-and-design | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 299 | sales | openai-curated-remote | sales-gtm-and-market-intelligence | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+| 300 | data-analytics | openai-curated-remote | analytics-observability-and-growth | environment_source_bound | ready_to_connect_when_authenticated | download_manifest_ready |
+
+## Governance
+
+- All submitted plugin URIs are bound as external source references in environment sources.
+- Downloaded means a manifest is materialized in the repo; external plugin payloads stay in runtime cache or a user-confirmed target.
+- External connections still require the matching tool, account authentication, scoped task intent, and targeted validation.
+- Generated entries keep external source expansion auditable without committing credentials or vendor folders.

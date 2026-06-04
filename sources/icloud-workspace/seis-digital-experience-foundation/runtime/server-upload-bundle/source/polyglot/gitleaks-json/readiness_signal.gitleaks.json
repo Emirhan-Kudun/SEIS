@@ -1,0 +1,11 @@
+{
+  "tool": "gitleaks",
+  "type": "ReadinessSignal",
+  "scanKind": "secret-exposure-evidence",
+  "findings": [],
+  "summary": {
+    "leaks": 0,
+    "redacted": true
+  },
+  "notes": "Dependency-light placeholder for future secret scanning evidence ingestion."
+}

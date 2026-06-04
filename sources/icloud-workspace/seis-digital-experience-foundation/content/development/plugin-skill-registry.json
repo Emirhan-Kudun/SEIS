@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "repository": "UIXApps",
+  "branch": "UIXAppTTR",
+  "mode": "single-branch-sub-agent-surface",
+  "activationPolicy": {
+    "default": "registry-first",
+    "branching": "no-new-long-lived-branches",
+    "execution": "low-power-static-first",
+    "dependencyRule": "no dependency until product route and rollback are clear"
+  },
+  "surfaces": [
+    {
+      "id": "core-coding-skills",
+      "type": "skill-group",
+      "ownerAgent": "governance-agent",
+      "purpose": "Keep repo edits scoped, reviewable, reversible, and branch-safe.",
+      "activationRule": "Use for code, documentation, quality, and release changes inside UIXAppTTR.",
+      "allowedSurfaces": ["content/development", "docs/development", "scripts"],
+      "risk": "low",
+      "status": "active"
+    },
+    {
+      "id": "frontend-design-skills",
+      "type": "skill-group",
+      "ownerAgent": "interface-agent",
+      "purpose": "Preserve premium UI rhythm, responsive polish, accessibility, and visual consistency.",
+      "activationRule": "Use when app, web UI, navigation, content hierarchy, or design-system surfaces change.",
+      "allowedSurfaces": ["apps/web", "packages/design-tokens", "docs/quality"],
+      "risk": "medium",
+      "status": "active"
+    },
+    {
+      "id": "motion-3d-skills",
+      "type": "skill-group",
+      "ownerAgent": "motion-agent",
+      "purpose": "Govern cinematic motion, reduced-motion behavior, parallax, depth, and future 3D readiness.",
+      "activationRule": "Use after motion evidence and mobile ergonomics gates are green; avoid heavy runtime additions by default.",
+      "allowedSurfaces": ["apps/web/src/scripts", "apps/web/src/styles", "docs/architecture", "docs/quality"],
+      "risk": "medium",
+      "status": "guarded"
+    },
+    {
+      "id": "github-governance-connector",
+      "type": "connector",
+      "ownerAgent": "release-agent",
+      "purpose": "Write server-side status markers and support authenticated push or PR flow when local GitHub auth is ready.",
+      "activationRule": "Use connector markers when local gh auth is missing; use git push only after auth is verified.",
+      "allowedSurfaces": ["docs", "reports", "handoff"],
+      "risk": "medium",
+      "status": "active"
+    },
+    {
+      "id": "cloud-deployment-connectors",
+      "type": "connector-group",
+      "ownerAgent": "release-agent",
+      "purpose": "Prepare server, Cloudflare, Vercel, and static deployment handoff without live deploy by default.",
+      "activationRule": "Use only after server target, document root, deployment method, and rollback path are explicit.",
+      "allowedSurfaces": ["deploy", "handoff", "server", "docs/deployment"],
+      "risk": "high",
+      "status": "blocked-until-target"
+    },
+    {
+      "id": "polyglot-language-skills",
+      "type": "skill-group",
+      "ownerAgent": "polyglot-agent",
+      "purpose": "Keep many-language lanes as lightweight contracts, starters, and documentation until a service is justified.",
+      "activationRule": "Use for tiny language lanes only; no runtime service until a product route and server target exist.",
+      "allowedSurfaces": ["polyglot", "docs/polyglot", "scripts/check-polyglot.mjs"],
+      "risk": "medium",
+      "status": "active"
+    },
+    {
+      "id": "ai-workflow-skills",
+      "type": "skill-group",
+      "ownerAgent": "premium-local-foundation-agent",
+      "purpose": "Translate large AI-native prompts into scoped implementation, reports, automation, and governance updates.",
+      "activationRule": "Use when prompts affect repo governance, automation, long-term planning, or multi-agent workflow.",
+      "allowedSurfaces": ["content/development", "docs/governance", "reports"],
+      "risk": "medium",
+      "status": "active"
+    },
+    {
+      "id": "security-compliance-skills",
+      "type": "skill-group",
+      "ownerAgent": "governance-agent",
+      "purpose": "Preserve secret safety, dependency restraint, publish readiness, and deployment guardrails.",
+      "activationRule": "Use before remote publication, server upload, connector activation, or dependency changes.",
+      "allowedSurfaces": ["scripts", "docs/deployment", "docs/quality", "deploy"],
+      "risk": "high",
+      "status": "guarded"
+    }
+  ],
+  "rules": [
+    "All plugin and skill work lands in UIXAppTTR.",
+    "Each plugin or skill surface must map to an existing sub-agent.",
+    "Connector usage must produce a local report, status marker, or handoff note.",
+    "No plugin may add dependencies without a rollback path and quality gates.",
+    "GitHub server writes use connector markers until local gh auth is ready.",
+    "Cloud or server deployment connectors stay blocked until target details are explicit."
+  ]
+}

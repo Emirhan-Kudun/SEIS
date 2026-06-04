@@ -1,0 +1,11 @@
+Work on branch codex/premium-local-foundation.
+Only change files under add-ons/exhibition-photo.
+Do not modify root index.html or existing governance scripts.
+Keep minimal/premium visual style.
+Run:
+- bash scripts/pre-merge-check.sh
+- node scripts/local-quality-gate.js --strict
+Report:
+- changed files
+- design consistency notes
+- pass/fail checks

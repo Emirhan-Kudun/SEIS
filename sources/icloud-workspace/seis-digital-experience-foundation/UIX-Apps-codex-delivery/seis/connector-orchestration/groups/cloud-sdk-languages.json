@@ -1,0 +1,24 @@
+{
+  "group": "cloud-sdk-languages",
+  "purpose": "Cloud SDKs, AWS/Azure language specialists, infrastructure frameworks, and deployment platform skills.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": ["cloud provision", "infrastructure mutation", "SDK install", "credential use", "billing-impacting action"],
+  "connectors": [
+    {"id":"azure-sdk-dotnet","sources":["skills"],"role":"Azure SDK for .NET implementation guidance","mode":"registry-only"},
+    {"id":"azure-sdk-typescript","sources":["skills"],"role":"Azure SDK for TypeScript implementation guidance","mode":"registry-only"},
+    {"id":"azure-sdk-java","sources":["skills"],"role":"Azure SDK for Java implementation guidance","mode":"registry-only"},
+    {"id":"azure-sdk-rust","sources":["skills"],"role":"Azure SDK for Rust implementation guidance","mode":"registry-only"},
+    {"id":"aws-agents","sources":["claude-plugins-official"],"role":"AWS agent patterns","mode":"registry-only"},
+    {"id":"aws-amplify","sources":["claude-plugins-official"],"role":"AWS Amplify app deployment","mode":"registry-only"},
+    {"id":"aws-data-analytics","sources":["claude-plugins-official"],"role":"AWS data analytics services","mode":"registry-only"},
+    {"id":"databases-on-aws","sources":["claude-plugins-official"],"role":"AWS database planning","mode":"registry-only"},
+    {"id":"deploy-on-aws","sources":["claude-plugins-official"],"role":"AWS deployment planning","mode":"registry-only"},
+    {"id":"terraform","sources":["claude-plugins-official"],"role":"Infrastructure as Code planning","mode":"registry-only"},
+    {"id":"railway","sources":["claude-plugins-official"],"role":"Railway deployment planning","mode":"registry-only"},
+    {"id":"fastly-agent-toolkit","sources":["claude-plugins-official"],"role":"Fastly edge platform planning","mode":"registry-only"},
+    {"id":"amazon-location-service","sources":["claude-plugins-official"],"role":"location and maps services","mode":"registry-only"},
+    {"id":"convex-backend","sources":["claude-plugins-official"],"role":"Convex backend planning","mode":"registry-only"},
+    {"id":"planetscale","sources":["claude-plugins-official"],"role":"PlanetScale database planning","mode":"registry-only"}
+  ]
+}

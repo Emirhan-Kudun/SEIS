@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "presets": [
+    {
+      "id": "seo-share-snapshot",
+      "label": "SEO share snapshot",
+      "metric_scope": "share-of-search",
+      "connectors": ["semrush", "conductor"],
+      "required_inputs": ["domain", "competitors", "geography", "time_window"],
+      "outputs": ["keyword_visibility", "traffic_estimate", "competitor_gap", "confidence_level"],
+      "activation": "on-demand",
+      "blocked_actions": ["paid data retrieval without approval", "public claim based on unverified metric"]
+    },
+    {
+      "id": "brand-voice-snapshot",
+      "label": "Brand voice snapshot",
+      "metric_scope": "share-of-voice",
+      "connectors": ["conductor", "brand24", "waldo"],
+      "required_inputs": ["brand_terms", "competitors", "channels", "time_window"],
+      "outputs": ["mention_volume", "sentiment_signal", "citation_signal", "narrative_risks"],
+      "activation": "approval-gated",
+      "blocked_actions": ["personal data processing", "public claim based on unverified metric"]
+    },
+    {
+      "id": "ecommerce-demand-snapshot",
+      "label": "Ecommerce demand snapshot",
+      "metric_scope": "ecommerce-market-share",
+      "connectors": ["particl-market-research", "semrush"],
+      "required_inputs": ["category", "competitors", "geography", "time_window"],
+      "outputs": ["assortment_signal", "demand_signal", "price_position", "category_gap"],
+      "activation": "approval-gated",
+      "blocked_actions": ["paid data retrieval without approval", "vendor account read"]
+    },
+    {
+      "id": "b2b-gtm-position",
+      "label": "B2B GTM position",
+      "metric_scope": "b2b-gtm-share",
+      "connectors": ["demandbase", "channel99", "cb-insights"],
+      "required_inputs": ["target_accounts", "segments", "competitors", "time_window"],
+      "outputs": ["account_demand_signal", "channel_signal", "company_intelligence", "next_safe_action"],
+      "activation": "approval-gated",
+      "blocked_actions": ["CRM mutation", "ad campaign change", "personal data processing"]
+    },
+    {
+      "id": "capital-context-watch",
+      "label": "Capital context watch",
+      "metric_scope": "capital-market-context",
+      "connectors": ["quartr", "daloopa", "mt-newswires", "alpaca", "binance"],
+      "required_inputs": ["ticker_or_company", "peer_set", "market", "time_window"],
+      "outputs": ["public_market_signal", "kpi_context", "news_context", "risk_note"],
+      "activation": "approval-gated",
+      "blocked_actions": ["financial decision", "paid data retrieval without approval"]
+    }
+  ]
+}

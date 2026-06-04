@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "purpose": "Describe the deterministic source bundle that should be uploaded once server authentication is available.",
+  "canonical": {
+    "repo": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "UIXAppTTR",
+    "localRoot": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/UIX-Apps"
+  },
+  "bundle": {
+    "id": "uix-apps-polyglot-preservation-bundle",
+    "mode": "source-manifest",
+    "sourceOfTruth": "config/preservation-snapshot.json",
+    "serverTargetProfile": "config/server-target-profile.json",
+    "outputDirectory": "runtime/server-upload-bundle",
+    "buildCommand": "npm run build:server-upload-bundle",
+    "runtimeEndpoint": "/api/server-upload-bundle",
+    "integrityEndpoint": "/api/preservation-snapshot"
+  },
+  "uploadOrder": [
+    "git-auth",
+    "quality",
+    "publish-preflight",
+    "push-origin"
+  ],
+  "requiredCommands": [
+    "npm run build:server-upload-bundle",
+    "npm run server-upload:dry-run",
+    "npm run quality",
+    "npm run publish:preflight",
+    "GIT_TERMINAL_PROMPT=0 git push origin UIXAppTTR"
+  ],
+  "fallbackWhenAuthBlocked": [
+    "Keep commits in the iCloud canonical repo.",
+    "Expose /api/preservation-snapshot for SHA-256 source integrity.",
+    "Expose /api/server-upload-bundle for deterministic handoff metadata."
+  ],
+  "forbiddenBundleEntries": [
+    "node_modules/",
+    ".next/",
+    "runtime/",
+    "logs/",
+    "__MACOSX/",
+    ".DS_Store",
+    "*.zip"
+  ]
+}

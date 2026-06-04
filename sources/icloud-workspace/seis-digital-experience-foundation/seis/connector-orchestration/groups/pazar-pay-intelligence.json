@@ -1,0 +1,107 @@
+{
+  "group": "pazar-pay-intelligence",
+  "purpose": "Market share, competitive visibility, ecommerce demand, brand intelligence, GTM signal, and financial market context planning.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "high",
+  "approvalRequiredFor": [
+    "paid data retrieval",
+    "vendor account read",
+    "personal data processing",
+    "CRM mutation",
+    "financial decision",
+    "ad campaign change",
+    "public claim based on unverified metric"
+  ],
+  "connectors": [
+    {
+      "id": "semrush",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "SEO visibility, keyword demand, competitor traffic, and share-of-search research",
+      "mode": "on-demand"
+    },
+    {
+      "id": "conductor",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "brand visibility, citation, sentiment, and competitive share-of-voice analytics",
+      "mode": "on-demand"
+    },
+    {
+      "id": "brand24",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "brand mention volume, sentiment, and social conversation signal",
+      "mode": "registry-only"
+    },
+    {
+      "id": "waldo",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "brand intelligence and strategic market narrative monitoring",
+      "mode": "registry-only"
+    },
+    {
+      "id": "particl-market-research",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "ecommerce market intelligence, product demand, and competitive assortment signals",
+      "mode": "registry-only"
+    },
+    {
+      "id": "ranked-ai",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "SEO and PPC market-position planning",
+      "mode": "registry-only"
+    },
+    {
+      "id": "channel99",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "GTM performance and channel contribution intelligence",
+      "mode": "registry-only"
+    },
+    {
+      "id": "demandbase",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "B2B account demand and competitive account intelligence",
+      "mode": "registry-only"
+    },
+    {
+      "id": "cb-insights",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "private company, market category, and predictive company intelligence",
+      "mode": "registry-only"
+    },
+    {
+      "id": "pitchbook",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "private capital market context and competitor funding intelligence",
+      "mode": "registry-only"
+    },
+    {
+      "id": "quartr",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "public-company IR, transcripts, and category commentary",
+      "mode": "on-demand"
+    },
+    {
+      "id": "daloopa",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "financial KPI extraction and metric-backed market comparisons",
+      "mode": "registry-only"
+    },
+    {
+      "id": "mt-newswires",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "real-time financial and company news context",
+      "mode": "registry-only"
+    },
+    {
+      "id": "alpaca",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "public market data for quoted competitors and sector context",
+      "mode": "on-demand"
+    },
+    {
+      "id": "binance",
+      "sources": ["openai-curated", "market-share-intelligence"],
+      "role": "crypto market data when the category includes digital assets",
+      "mode": "on-demand"
+    }
+  ]
+}

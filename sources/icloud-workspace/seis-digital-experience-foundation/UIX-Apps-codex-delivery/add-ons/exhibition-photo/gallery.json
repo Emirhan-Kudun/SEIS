@@ -1,0 +1,62 @@
+{
+  "collection": "exhibition-photography-study",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "exhibition-01",
+      "title": "Hall Geometry",
+      "category": "exhibition",
+      "image": "assets/exhibition-01.jpg",
+      "alt": "Wide gallery hall with layered perspective and geometric rhythm."
+    },
+    {
+      "id": "exhibition-02",
+      "title": "Quiet Axis",
+      "category": "open-space",
+      "image": "assets/exhibition-02.jpg",
+      "alt": "Open exhibition area with strong axis and soft natural lighting."
+    },
+    {
+      "id": "exhibition-03",
+      "title": "Curated Passage",
+      "category": "exhibition",
+      "image": "assets/exhibition-03.jpg",
+      "alt": "Curated interior passage guiding movement between artworks."
+    },
+    {
+      "id": "exhibition-04",
+      "title": "Still Frame",
+      "category": "photography",
+      "image": "assets/exhibition-04.jpg",
+      "alt": "Balanced still composition emphasizing architectural detail."
+    },
+    {
+      "id": "exhibition-05",
+      "title": "Spatial Contrast",
+      "category": "exhibition",
+      "image": "assets/exhibition-05.jpg",
+      "alt": "High contrast gallery scene with deep visual layering."
+    },
+    {
+      "id": "exhibition-06",
+      "title": "Museum Corridor",
+      "category": "open-space",
+      "image": "assets/exhibition-06.jpg",
+      "alt": "Long museum corridor with refined light and linear structure."
+    },
+    {
+      "id": "exhibition-07",
+      "title": "Observation Point",
+      "category": "photography",
+      "image": "assets/exhibition-07.jpg",
+      "alt": "Observation angle focused on rhythm, proportion, and mood."
+    },
+    {
+      "id": "exhibition-08",
+      "title": "Gallery Silence",
+      "category": "photography",
+      "image": "assets/exhibition-08.jpg",
+      "alt": "Quiet visual study capturing texture and ambient exhibition tone."
+    }
+  ]
+}

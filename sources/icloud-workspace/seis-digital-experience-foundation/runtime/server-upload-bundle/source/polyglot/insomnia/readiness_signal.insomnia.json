@@ -1,0 +1,22 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-05-26T00:00:00.000Z",
+  "__export_source": "UIX-Apps ReadinessSignal",
+  "resources": [
+    {
+      "_id": "req_readiness_signal",
+      "_type": "request",
+      "parentId": "wrk_readiness_signal",
+      "name": "ReadinessSignal",
+      "method": "GET",
+      "url": "https://uix-apps.local/polyglot/insomnia/readiness-signal",
+      "description": "ReadinessSignal lane=insomnia status=reference runtimeWeight=dependency-light"
+    },
+    {
+      "_id": "wrk_readiness_signal",
+      "_type": "workspace",
+      "name": "ReadinessSignal Insomnia Export"
+    }
+  ]
+}

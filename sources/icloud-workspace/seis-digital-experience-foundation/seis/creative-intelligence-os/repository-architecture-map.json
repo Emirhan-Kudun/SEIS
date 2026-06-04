@@ -1,0 +1,41 @@
+{
+  "system": "SEIS Repository Civilization Architecture",
+  "runtime_safe": true,
+  "modifies_main_site": false,
+  "current_anchors": {
+    "static_site": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "translations.json"
+    ],
+    "nextjs_foundation": "apps/seis-nextjs-foundation",
+    "creative_docs": "docs/creative-intelligence",
+    "creative_manifests": "seis/creative-intelligence-os",
+    "automation_scripts": "scripts",
+    "ecosystem_reports": "reports/ecosystem",
+    "generated_exports": "exports"
+  },
+  "future_allowed_paths": {
+    "architecture_docs": "docs/architecture",
+    "governance_docs": "docs/governance",
+    "observability_docs": "docs/observability",
+    "release_governance": "seis/release-governance",
+    "observability_manifests": "seis/observability",
+    "design_system_package": "packages/design-system",
+    "motion_system_package": "packages/motion-system",
+    "content_model_package": "packages/content-model"
+  },
+  "migration_policy": {
+    "structural_changes_require_approval": true,
+    "prefer_additive_artifacts_first": true,
+    "rollback_note_required": true,
+    "quality_gate_required": true
+  },
+  "naming": {
+    "docs": "lowercase-kebab-case",
+    "manifests": "lowercase-kebab-case",
+    "components": "PascalCase",
+    "branches": "lowercase-purpose-oriented"
+  }
+}

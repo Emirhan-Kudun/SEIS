@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ReadinessSignal: JUnit XML test result lane stays dependency-light. -->
+<testsuites name="ReadinessSignal" tests="1" failures="0" errors="0" time="0">
+  <testsuite name="polyglot.junit-xml" tests="1" failures="0" errors="0" time="0">
+    <testcase classname="polyglot.ReadinessSignal" name="junit_xml_reference_lane" time="0">
+      <system-out>lane=junit-xml status=reference runtimeWeight=dependency-light</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

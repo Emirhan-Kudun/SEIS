@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uix-apps.local/schemas/readiness-signal.schema.json",
+  "title": "ReadinessSignal",
+  "type": "object",
+  "required": ["ReadinessSignal", "lane", "status", "reducedMotionSafe"],
+  "properties": {
+    "ReadinessSignal": { "type": "string", "const": "polyglot-foundation" },
+    "lane": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["active", "prepared", "reference"] },
+    "reducedMotionSafe": { "type": "boolean", "const": true },
+    "runtimeWeight": { "type": "string", "const": "dependency-light" }
+  }
+}

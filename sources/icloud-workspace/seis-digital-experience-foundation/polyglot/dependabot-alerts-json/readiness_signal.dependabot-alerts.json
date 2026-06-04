@@ -1,0 +1,12 @@
+{
+  "tool": "dependabot-alerts",
+  "type": "ReadinessSignal",
+  "repository": "emirhankudun-ux/UIX-Apps",
+  "alerts": [],
+  "summary": {
+    "open": 0,
+    "dismissed": 0,
+    "fixed": 0
+  },
+  "notes": "Dependency-light placeholder for future GitHub dependency alert triage."
+}

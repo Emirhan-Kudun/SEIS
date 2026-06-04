@@ -1,0 +1,32 @@
+{
+  "group": "vertical-specialists",
+  "purpose": "Specialized legal, science, satellite, gov, commerce, signing, telecom, and app/domain workflows.",
+  "defaultRunLevel": "safe-dry-run",
+  "riskLevel": "medium",
+  "approvalRequiredFor": ["legal filing", "purchase", "contract send", "message send", "regulated-data use"],
+  "connectors": [
+    {"id":"openai-developers","sources":["openai-curated"],"role":"OpenAI API and Agents SDK docs","mode":"on-demand"},
+    {"id":"twilio-developer-kit","sources":["openai-curated","claude-plugins-official"],"role":"communications APIs","mode":"registry-only"},
+    {"id":"stripe","sources":["openai-curated","claude-plugins-official"],"role":"payments and billing","mode":"on-demand"},
+    {"id":"razorpay","sources":["openai-curated"],"role":"payments in supported markets","mode":"registry-only"},
+    {"id":"quicknode","sources":["openai-curated"],"role":"blockchain infrastructure","mode":"registry-only"},
+    {"id":"network-solutions","sources":["openai-curated"],"role":"domain search and purchase planning","mode":"registry-only"},
+    {"id":"hostinger","sources":["openai-curated"],"role":"website hosting and building","mode":"registry-only"},
+    {"id":"wix","sources":["claude-plugins-official"],"role":"website building and management","mode":"registry-only"},
+    {"id":"signnow","sources":["openai-curated"],"role":"e-signature workflows","mode":"registry-only"},
+    {"id":"legalzoom","sources":["claude-plugins-official"],"role":"legal service workflows","mode":"registry-only"},
+    {"id":"taxdown","sources":["openai-curated"],"role":"Spain tax questions","mode":"registry-only"},
+    {"id":"govtribe","sources":["openai-curated"],"role":"US government contracts","mode":"registry-only"},
+    {"id":"policynote","sources":["openai-curated"],"role":"policy data search","mode":"registry-only"},
+    {"id":"skywatch","sources":["openai-curated"],"role":"satellite and aerial imagery","mode":"registry-only"},
+    {"id":"life-science-research","sources":["openai-curated"],"role":"scientific data and literature workflows","mode":"on-demand"},
+    {"id":"scite","sources":["openai-curated"],"role":"research-backed citation answers","mode":"registry-only"},
+    {"id":"hugging-face","sources":["openai-curated"],"role":"models, datasets, and Spaces","mode":"on-demand"},
+    {"id":"expo","sources":["openai-curated","claude-plugins-official"],"role":"React Native and Expo app work","mode":"on-demand"},
+    {"id":"build-ios-apps","sources":["openai-curated"],"role":"iOS app workflows","mode":"registry-only"},
+    {"id":"build-macos-apps","sources":["openai-curated"],"role":"macOS app workflows","mode":"registry-only"},
+    {"id":"test-android-apps","sources":["openai-curated"],"role":"Android testing workflows","mode":"registry-only"},
+    {"id":"jam","sources":["openai-curated"],"role":"bug report session analysis","mode":"on-demand"},
+    {"id":"marcopolo","sources":["openai-curated"],"role":"secure container data work","mode":"registry-only"}
+  ]
+}

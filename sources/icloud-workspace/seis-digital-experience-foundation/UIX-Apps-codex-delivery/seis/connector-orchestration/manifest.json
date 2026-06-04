@@ -1,0 +1,44 @@
+{
+  "name": "seis-connector-orchestration-control-plane",
+  "version": "1.3.0",
+  "defaultMode": "dry-run",
+  "executionPolicy": "registry-only-until-explicit-approval",
+  "sourceOfTruth": [
+    "docs/agents/plugin-connector-orchestration.md",
+    ".claude/agents/google-open-source-copilot.md",
+    "seis/connector-orchestration/groups/*.json",
+    "seis/connector-orchestration/aliases.json",
+    "seis/connector-orchestration/risk-matrix.json",
+    "seis/connector-orchestration/source-policy.json",
+    "seis/google-open-source-foundation/manifest.json",
+    "seis/big-tech-open-source-foundation/manifest.json",
+    "seis/pazar-pay-intelligence/manifest.json",
+    "docs/agents/google-open-source-foundation.md",
+    "docs/agents/big-tech-open-source-foundation.md",
+    "docs/agents/pazar-pay-intelligence-connectors.md"
+  ],
+  "guards": [
+    "no production deploy",
+    "no write actions without human approval",
+    "no secrets in repo",
+    "skipped_with_reason required for unavailable connectors",
+    "always-on core and on-demand registry stay separate",
+    "Google-origin and open-source tools stay registry-first until adoption lane is selected",
+    "major-firm open-source tools stay candidate-only until dependency impact and rollback path are clear",
+    "market-share connectors stay signal-only until metric scope, source confidence, and approval are explicit",
+    "Google Open Source Copilot stays subordinate to codex/premium-local-foundation"
+  ],
+  "reportFields": [
+    "runId",
+    "mode",
+    "groupsSelected",
+    "filters",
+    "connectorsReviewed",
+    "uniqueConnectorsReviewed",
+    "plannedSteps",
+    "skippedWithReason",
+    "approvalRequired",
+    "riskByGroup",
+    "riskSummary"
+  ]
+}

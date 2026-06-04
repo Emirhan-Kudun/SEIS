@@ -1,0 +1,23 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "UIX-Apps ReadinessSignal SPDX lane",
+  "documentNamespace": "https://uix-apps.local/polyglot/spdx/readiness-signal",
+  "creationInfo": {
+    "created": "2026-05-26T00:00:00Z",
+    "creators": ["Tool: UIX-Apps polyglot governance"]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-ReadinessSignal",
+      "name": "ReadinessSignal",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "summary": "Reference-only SPDX lane for dependency-light supply-chain governance."
+    }
+  ]
+}

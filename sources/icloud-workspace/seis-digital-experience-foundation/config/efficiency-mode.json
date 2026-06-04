@@ -1,0 +1,126 @@
+{
+  "version": "0.1.0",
+  "mode": "token-heavy-machine-light",
+  "name": "Full Efficiency Without Local Strain",
+  "purpose": "Use more reasoning, broader static analysis, and parallel low-cost checks while avoiding unnecessary CPU, GPU, thermal, browser, build, Docker, or dev-server load.",
+  "localMachinePolicy": {
+    "defaultProfile": "static-first",
+    "avoidByDefault": [
+      "long-running dev servers",
+      "production builds",
+      "Docker builds",
+      "broad browser automation",
+      "repeated coverage loops",
+      "GPU-heavy visual validation"
+    ],
+    "allowedFastChecks": [
+      "git status and diff review",
+      "node --check syntax checks",
+      "JSON contract parsing",
+      "targeted npm run check:* scripts",
+      "single-pass focused test runs",
+      "publish preflight without push"
+    ]
+  },
+  "agentPolicy": {
+    "reasoningBudget": "high",
+    "parallelism": "high-for-static-reads-and-short-checks",
+    "commitPolicy": "small reversible commits on UIXAppTTR",
+    "pushPolicy": "never push until publish preflight and GitHub auth are clean",
+    "reportingPolicy": "summarize passed checks, blockers, and next safe slice"
+  },
+  "usageStewardship": {
+    "cadence": "weekly-budget-aware",
+    "intent": "Spend remaining weekly model usage on durable source improvements, not artificial token burn.",
+    "preferredSpend": [
+      "small reversible implementation slices",
+      "targeted static checks",
+      "documentation and checker hardening",
+      "decision records that reduce future prompt repetition"
+    ],
+    "blockedSpend": [
+      "empty token burn",
+      "repeating broad scans after a clean signal",
+      "starting dev servers only to consume usage",
+      "remote pushes without auth preflight"
+    ],
+    "stopCondition": "Stop when the next safe slice needs secrets, server credentials, or a visual runtime decision."
+  },
+  "shipmentLoop": {
+    "mode": "preflight-before-push",
+    "machineLightChecks": [
+      "check:uixappttr-topology",
+      "check:workspace-routing",
+      "check:efficiency-mode",
+      "check:github-publication",
+      "check:server-handoff"
+    ],
+    "pushCommand": "git push origin UIXAppTTR",
+    "retryPolicy": "single attempt only; no retry loop when auth, network, or remote state fails"
+  },
+  "qualitySignals": [
+    "check:branch",
+    "check:i18n",
+    "check:software-languages",
+    "check:polyglot-foundation",
+    "check:server-handoff",
+    "check:automation-schedules",
+    "ux:quality"
+  ],
+  "deliveryLanes": [
+    {
+      "id": "local-staging",
+      "purpose": "Keep UI, UX, governance, and source quality moving while GitHub auth or server input is blocked.",
+      "focus": "Improve conversion, accessibility, multilingual clarity, and governance with small static changes.",
+      "allowedWork": [
+        "small reversible UI and content edits",
+        "static contract checks",
+        "documentation and governance hardening",
+        "release artifact refresh after source changes"
+      ]
+    },
+    {
+      "id": "github-shipment",
+      "purpose": "Commit and push only from the real UIXAppTTR Git checkout after preflight passes.",
+      "focus": "Prepare clean local commits and push only after auth and preflight pass.",
+      "requires": [
+        "Git workspace detected",
+        "GitHub CLI authentication available",
+        "publish preflight clean",
+        "target branch UIXAppTTR confirmed"
+      ]
+    },
+    {
+      "id": "server-preservation",
+      "purpose": "Prepare server upload bundles without live deployment until target values are explicit.",
+      "focus": "Preserve deployment optionality without forcing live server changes.",
+      "requires": [
+        "server target profile confirmed",
+        "upload path confirmed",
+        "rollback owner confirmed",
+        "dry run reviewed"
+      ]
+    },
+    {
+      "id": "portfolio-contact",
+      "purpose": "Keep the public portfolio contact path clear, accessible, and low-friction.",
+      "focus": "Improve conversion, accessibility, and multilingual clarity with small static changes."
+    },
+    {
+      "id": "polyglot-governance",
+      "purpose": "Keep language coverage explainable through manifests, docs, and checks.",
+      "focus": "Expand governed reference lanes only with manifest, docs, checks, and rollback-safe starters."
+    },
+    {
+      "id": "github-delivery",
+      "purpose": "Mirror local iCloud Git work to the GitHub server only when authentication is ready.",
+      "focus": "Prepare clean local commits and push only after auth and preflight pass."
+    }
+  ],
+  "blockedPatterns": [
+    "starting a dev server only to inspect static text",
+    "running Docker without a deployment decision",
+    "using browser automation when a static contract check answers the question",
+    "retrying GitHub push when gh auth is missing"
+  ]
+}

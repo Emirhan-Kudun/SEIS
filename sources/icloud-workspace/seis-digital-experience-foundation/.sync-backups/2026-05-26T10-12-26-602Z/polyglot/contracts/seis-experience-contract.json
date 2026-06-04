@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "motion": {
+    "supportsReducedMotion": true,
+    "continuousAnimationBudget": "one visible scene",
+    "mobileParticleLimit": 24,
+    "desktopParticleLimit": 64
+  },
+  "i18n": {
+    "locales": ["tr", "en", "fr", "it", "de", "es", "ar"],
+    "rtlLocales": ["ar"],
+    "fallbackLocale": "tr"
+  },
+  "assets": {
+    "curatedDrawingCount": 20,
+    "publicAssetBudgetBytes": 7000000
+  },
+  "deployment": {
+    "package": "dist/seis-static.zip",
+    "requiresDomainBeforeLiveDeploy": true,
+    "healthPaths": ["/health.json", "/_server/health"],
+    "releaseLedger": "releases/latest.json",
+    "serverAdapters": ["node", "php", "nginx", "apache", "python-verify", "ruby-verify", "cloudflare-worker", "docker", "java-contract", "csharp-contract", "sql-ledger", "lua-policy", "yaml-governance"]
+  },
+  "polyglotAtlas": {
+    "targetSurfaceCount": 80,
+    "promotionRule": "contracts before services",
+    "runtimeDependencyPolicy": "no new production dependency for atlas-only expansion"
+  }
+}

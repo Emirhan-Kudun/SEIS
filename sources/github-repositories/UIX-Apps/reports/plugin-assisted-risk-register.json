@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-risk-register-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-plugin-assisted-risk-register",
+  "sourcePath": "content/development/plugin-assisted-risk-register.json",
+  "summary": {
+    "sourceReviewMatrixPlugins": 300,
+    "riskRegisterPlugins": 300,
+    "waveRiskRecords": 4,
+    "laneRiskRecords": 12,
+    "riskItemRecords": 300,
+    "controlledLocalRiskItems": 20,
+    "authBlockedRiskItems": 280,
+    "riskControlDefinitionCount": 8,
+    "riskControlRecords": 2400,
+    "highRiskItems": 280,
+    "mediumRiskItems": 20,
+    "lowRiskItems": 0,
+    "authRiskItems": 280,
+    "pullRequestRequiredRiskItems": 300,
+    "codeScanningRequiredRiskItems": 300,
+    "rollbackOwnerRequiredRiskItems": 300,
+    "humanReviewRequiredRiskItems": 300,
+    "livePluginInvocationAllowedRiskItems": 0,
+    "liveAiInvocationAllowedRiskItems": 0,
+    "autonomousRepoModificationAllowedRiskItems": 0,
+    "credentialRecordingRiskItems": 0,
+    "promptPayloadRecordingRiskItems": 0,
+    "connectorPayloadRecordingRiskItems": 0,
+    "generatedPayloadCommitRiskItems": 0,
+    "validationCommandRecords": 2254,
+    "validationCommandCount": 8,
+    "validationCommands": [
+      "npm run check:plugin-assisted-risk-register",
+      "npm run check:plugin-assisted-review-matrix",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment",
+      "npm run check:workspace",
+      "git diff --check"
+    ],
+    "riskControlDefinitions": [
+      {
+        "id": "authentication_scope",
+        "label": "Authentication scope"
+      },
+      {
+        "id": "credential_handling",
+        "label": "Credential handling"
+      },
+      {
+        "id": "payload_handling",
+        "label": "Payload handling"
+      },
+      {
+        "id": "live_invocation",
+        "label": "Live invocation"
+      },
+      {
+        "id": "external_data_access",
+        "label": "External data access"
+      },
+      {
+        "id": "branch_protection",
+        "label": "Branch protection"
+      },
+      {
+        "id": "rollback_readiness",
+        "label": "Rollback readiness"
+      },
+      {
+        "id": "compliance_coverage",
+        "label": "Compliance coverage"
+      }
+    ]
+  },
+  "policy": {
+    "risk": "all_connected_plugin_review_items_require_risk_controls_before_runtime_use",
+    "escalation": "auth_payload_live_invocation_and_branch_protection_risks_stay_blocked_until_scoped",
+    "mitigation": "mitigate_with_generated_checks_human_review_rollback_owner_and_no_payload_commits",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "payloadHandling": "never_commit_connector_results_vendor_payloads_or_runtime_logs",
+    "invocationHandling": "no_live_plugin_or_ai_invocation_from_risk_register"
+  },
+  "waveRisks": [
+    {
+      "order": 1,
+      "waveId": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "riskItems": 95,
+      "controlledLocalRiskItems": 5,
+      "authBlockedRiskItems": 90,
+      "highRiskItems": 90,
+      "mediumRiskItems": 5,
+      "riskControlRecords": 760,
+      "nextRiskAction": "resolve_high_risk_auth_scope_or_prepare_controlled_local_review_packet"
+    },
+    {
+      "order": 2,
+      "waveId": "wave-2-product-experience",
+      "label": "Product experience",
+      "riskItems": 75,
+      "controlledLocalRiskItems": 6,
+      "authBlockedRiskItems": 69,
+      "highRiskItems": 69,
+      "mediumRiskItems": 6,
+      "riskControlRecords": 600,
+      "nextRiskAction": "resolve_high_risk_auth_scope_or_prepare_controlled_local_review_packet"
+    },
+    {
+      "order": 3,
+      "waveId": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "riskItems": 78,
+      "controlledLocalRiskItems": 2,
+      "authBlockedRiskItems": 76,
+      "highRiskItems": 76,
+      "mediumRiskItems": 2,
+      "riskControlRecords": 624,
+      "nextRiskAction": "resolve_high_risk_auth_scope_or_prepare_controlled_local_review_packet"
+    },
+    {
+      "order": 4,
+      "waveId": "wave-4-operations-research",
+      "label": "Operations and research",
+      "riskItems": 52,
+      "controlledLocalRiskItems": 7,
+      "authBlockedRiskItems": 45,
+      "highRiskItems": 45,
+      "mediumRiskItems": 7,
+      "riskControlRecords": 416,
+      "nextRiskAction": "resolve_high_risk_auth_scope_or_prepare_controlled_local_review_packet"
+    }
+  ],
+  "laneRisks": [
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "security-quality-and-governance",
+      "label": "Security, quality, and governance",
+      "riskItems": 19,
+      "controlledLocalRiskItems": 0,
+      "authBlockedRiskItems": 19,
+      "highRiskItems": 19,
+      "mediumRiskItems": 0,
+      "riskControlRecords": 152,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "keep_lane_high_risk_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "backend-data-and-api",
+      "label": "Backend, data, and API",
+      "riskItems": 31,
+      "controlledLocalRiskItems": 0,
+      "authBlockedRiskItems": 31,
+      "highRiskItems": 31,
+      "mediumRiskItems": 0,
+      "riskControlRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "keep_lane_high_risk_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "cloud-devops-and-release",
+      "label": "Cloud, DevOps, and release",
+      "riskItems": 31,
+      "controlledLocalRiskItems": 5,
+      "authBlockedRiskItems": 26,
+      "highRiskItems": 26,
+      "mediumRiskItems": 5,
+      "riskControlRecords": 248,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:server-target",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "lane": "platform-native-and-polyglot",
+      "label": "Platform native and polyglot",
+      "riskItems": 14,
+      "controlledLocalRiskItems": 0,
+      "authBlockedRiskItems": 14,
+      "highRiskItems": 14,
+      "mediumRiskItems": 0,
+      "riskControlRecords": 112,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "keep_lane_high_risk_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:software-languages",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "builder-and-prototyping",
+      "label": "Builder and prototyping",
+      "riskItems": 18,
+      "controlledLocalRiskItems": 1,
+      "authBlockedRiskItems": 17,
+      "highRiskItems": 17,
+      "mediumRiskItems": 1,
+      "riskControlRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-environment-sources",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "creative-production-and-design",
+      "label": "Creative production and design",
+      "riskItems": 18,
+      "controlledLocalRiskItems": 1,
+      "authBlockedRiskItems": 17,
+      "highRiskItems": 17,
+      "mediumRiskItems": 1,
+      "riskControlRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "lane": "ai-workflow-docs-and-knowledge",
+      "label": "AI workflow, docs, and knowledge",
+      "riskItems": 39,
+      "controlledLocalRiskItems": 4,
+      "authBlockedRiskItems": 35,
+      "highRiskItems": 35,
+      "mediumRiskItems": 4,
+      "riskControlRecords": 312,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:workspace",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "analytics-observability-and-growth",
+      "label": "Analytics, observability, and growth",
+      "riskItems": 30,
+      "controlledLocalRiskItems": 2,
+      "authBlockedRiskItems": 28,
+      "highRiskItems": 28,
+      "mediumRiskItems": 2,
+      "riskControlRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "sales-gtm-and-market-intelligence",
+      "label": "Sales, GTM, and market intelligence",
+      "riskItems": 30,
+      "controlledLocalRiskItems": 0,
+      "authBlockedRiskItems": 30,
+      "highRiskItems": 30,
+      "mediumRiskItems": 0,
+      "riskControlRecords": 240,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "keep_lane_high_risk_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "lane": "finance-investing-and-payments",
+      "label": "Finance, investing, and payments",
+      "riskItems": 18,
+      "controlledLocalRiskItems": 0,
+      "authBlockedRiskItems": 18,
+      "highRiskItems": 18,
+      "mediumRiskItems": 0,
+      "riskControlRecords": 144,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "keep_lane_high_risk_until_authentication_and_task_scope_exist",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "collaboration-calendar-and-support",
+      "label": "Collaboration, calendar, and support",
+      "riskItems": 35,
+      "controlledLocalRiskItems": 3,
+      "authBlockedRiskItems": 32,
+      "highRiskItems": 32,
+      "mediumRiskItems": 3,
+      "riskControlRecords": 280,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "lane": "specialized-domain-and-research",
+      "label": "Specialized domain and research",
+      "riskItems": 17,
+      "controlledLocalRiskItems": 4,
+      "authBlockedRiskItems": 13,
+      "highRiskItems": 13,
+      "mediumRiskItems": 4,
+      "riskControlRecords": 136,
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextRiskAction": "prepare_one_controlled_local_risk_packet_with_rollback_owner",
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-assisted-review-matrix",
+        "npm run check:plugin-assisted-risk-register"
+      ]
+    }
+  ]
+}

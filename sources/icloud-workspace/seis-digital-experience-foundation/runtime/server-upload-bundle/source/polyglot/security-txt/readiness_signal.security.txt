@@ -1,0 +1,5 @@
+# ReadinessSignal: Security.txt disclosure lane stays dependency-light.
+Contact: mailto:security@example.invalid
+Policy: https://uix-apps.local/polyglot/security-txt/readiness-signal
+Preferred-Languages: en, tr
+Canonical: https://uix-apps.local/.well-known/security.txt

@@ -1,0 +1,245 @@
+{
+  "generatedAt": "2026-05-27T18:01:08.084Z",
+  "workspace": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/Website/UX",
+  "totalServers": 214,
+  "byStatus": {
+    "true": 214
+  },
+  "byAuth": {
+    "unsupported": 159,
+    "o_auth": 16,
+    "not_logged_in": 39
+  },
+  "highlights": [
+    {
+      "name": "aws-documentation",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "stdio",
+        "command": "uvx",
+        "args": [
+          "awslabs.aws-documentation-mcp-server@latest"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      }
+    },
+    {
+      "name": "github",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://api.githubcopilot.com/mcp/readonly",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "google-drive-mcp",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://drivemcp.googleapis.com/mcp/v1",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "linear",
+      "status": true,
+      "auth": "o_auth",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.linear.app/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "mdn",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.mdn.mozilla.net/",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "microsoft-clarity",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@microsoft/clarity-mcp-server"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      }
+    },
+    {
+      "name": "microsoft-fabric-rti",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "stdio",
+        "command": "/Users/emirhan/.local/bin/uvx",
+        "args": [
+          "microsoft-fabric-rti-mcp"
+        ],
+        "env": {
+          "KUSTO_SERVICE_DEFAULT_DB": "Samples",
+          "KUSTO_SERVICE_URI": "https://help.kusto.windows.net/",
+          "FABRIC_API_BASE": "https://api.fabric.microsoft.com/v1"
+        },
+        "env_vars": [],
+        "cwd": null
+      }
+    },
+    {
+      "name": "microsoft-learn",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://learn.microsoft.com/api/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "microsoft-powerbi-modeling",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@microsoft/powerbi-modeling-mcp@latest",
+          "--start",
+          "--readonly"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      }
+    },
+    {
+      "name": "microsoft-workiq",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@microsoft/workiq@latest",
+          "mcp"
+        ],
+        "env": null,
+        "env_vars": [],
+        "cwd": null
+      }
+    },
+    {
+      "name": "notion",
+      "status": true,
+      "auth": "o_auth",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.notion.com/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "openai-docs",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://developers.openai.com/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "posthog",
+      "status": true,
+      "auth": "o_auth",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.posthog.com/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "sentry",
+      "status": true,
+      "auth": "o_auth",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.sentry.dev/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "slack",
+      "status": true,
+      "auth": "not_logged_in",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.slack.com/mcp",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "supabase",
+      "status": true,
+      "auth": "unsupported",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.supabase.com/mcp?read_only=true&features=database,docs",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    },
+    {
+      "name": "vercel",
+      "status": true,
+      "auth": "o_auth",
+      "command": {
+        "type": "streamable_http",
+        "url": "https://mcp.vercel.com",
+        "bearer_token_env_var": null,
+        "http_headers": null,
+        "env_http_headers": null
+      }
+    }
+  ],
+  "note": "Full MCP inventory was collected with codex mcp list --json. Use targeted MCPs only; running every connector blindly can trigger auth failures, privacy exposure, or unnecessary load."
+}

@@ -1,0 +1,11 @@
+{
+  "tool": "scancode",
+  "type": "ReadinessSignal",
+  "files": [],
+  "summary": {
+    "files": 0,
+    "licenseDetections": 0,
+    "copyrightDetections": 0
+  },
+  "notes": "Dependency-light placeholder for future source compliance evidence ingestion."
+}

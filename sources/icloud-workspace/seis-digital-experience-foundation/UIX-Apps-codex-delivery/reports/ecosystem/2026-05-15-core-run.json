@@ -1,0 +1,2514 @@
+{
+  "run_id": "run-2026-05-15T10-26-47-498Z-core-run",
+  "timestamp": "2026-05-15T10:26:50.769Z",
+  "timezone": "Europe/Istanbul",
+  "mode": "always-on-core-plus-on-demand-rotation-registry",
+  "profile": "daily_profile",
+  "write_mode": "guarded",
+  "detail_level": "detailed-audit",
+  "duration_ms": 3270,
+  "budget_policy": {
+    "max_total_duration_ms": 90000,
+    "max_parallel_calls": 3,
+    "max_fail_rate": 0.25,
+    "degrade_mode": "light_probe",
+    "budget_degraded": false
+  },
+  "steps": [
+    {
+      "target": "browser-validation",
+      "target_type": "core",
+      "connector": "browser-validation",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "live browser mcp runtime missing npm; fallback browser contract passed",
+      "duration_ms": 125,
+      "next_action": "Install npm to enable live browser mcp validation.",
+      "severity": "medium",
+      "exit_code": 0
+    },
+    {
+      "target": "local-qa-quality-gate",
+      "target_type": "core",
+      "connector": "local-qa-quality-gate",
+      "status": "invoked",
+      "execution_mode": "full_action",
+      "reason": "check passed",
+      "duration_ms": 104,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "local-qa-regression-smoke",
+      "target_type": "core",
+      "connector": "local-qa-regression-smoke",
+      "status": "invoked",
+      "execution_mode": "full_action",
+      "reason": "check passed",
+      "duration_ms": 99,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "local-qa-infrastructure-check",
+      "target_type": "core",
+      "connector": "local-qa-infrastructure-check",
+      "status": "invoked",
+      "execution_mode": "full_action",
+      "reason": "check passed",
+      "duration_ms": 145,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "local-qa-semantic-seo-check",
+      "target_type": "core",
+      "connector": "local-qa-semantic-seo-check",
+      "status": "invoked",
+      "execution_mode": "full_action",
+      "reason": "check passed",
+      "duration_ms": 94,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "security-review",
+      "target_type": "core",
+      "connector": "security-review",
+      "status": "invoked",
+      "execution_mode": "full_action",
+      "reason": "check passed",
+      "duration_ms": 95,
+      "next_action": "continue",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "notion-run-log",
+      "target_type": "connector",
+      "connector": "notion-run-log",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "linear-action-package",
+      "target_type": "connector",
+      "connector": "linear-action-package",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "github-issue-checklist-candidate",
+      "target_type": "connector",
+      "connector": "github-issue-checklist-candidate",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "slack-summary-candidate",
+      "target_type": "connector",
+      "connector": "slack-summary-candidate",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "supabase-event-store",
+      "target_type": "connector",
+      "connector": "supabase-event-store",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "sentry-monitoring-check",
+      "target_type": "connector",
+      "connector": "sentry-monitoring-check",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "vercel-preview-check",
+      "target_type": "connector",
+      "connector": "vercel-preview-check",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "semrush-seo-check",
+      "target_type": "connector",
+      "connector": "semrush-seo-check",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "twilio-fallback-check",
+      "target_type": "connector",
+      "connector": "twilio-fallback-check",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "hubspot-mirror-check",
+      "target_type": "connector",
+      "connector": "hubspot-mirror-check",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "connector disabled in integration-targets.json",
+      "duration_ms": 0,
+      "next_action": "Enable connector and configure destination fields.",
+      "severity": "medium"
+    },
+    {
+      "target": "atlassian-rovo",
+      "target_type": "connector",
+      "connector": "atlassian-rovo",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "attio",
+      "target_type": "connector",
+      "connector": "attio",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "biorender",
+      "target_type": "connector",
+      "connector": "biorender",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "box",
+      "target_type": "connector",
+      "connector": "box",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "brand24",
+      "target_type": "connector",
+      "connector": "brand24",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "brex",
+      "target_type": "connector",
+      "connector": "brex",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "browser-use",
+      "target_type": "connector",
+      "connector": "browser-use",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "build-web-apps",
+      "target_type": "connector",
+      "connector": "build-web-apps",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "canva",
+      "target_type": "connector",
+      "connector": "canva",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "carta-crm",
+      "target_type": "connector",
+      "connector": "carta-crm",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "channel99",
+      "target_type": "connector",
+      "connector": "channel99",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "circleback",
+      "target_type": "connector",
+      "connector": "circleback",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "circleci",
+      "target_type": "connector",
+      "connector": "circleci",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "clickup",
+      "target_type": "connector",
+      "connector": "clickup",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "cloudflare",
+      "target_type": "connector",
+      "connector": "cloudflare",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "cloudinary",
+      "target_type": "connector",
+      "connector": "cloudinary",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "codex-security",
+      "target_type": "connector",
+      "connector": "codex-security",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "coderabbit",
+      "target_type": "connector",
+      "connector": "coderabbit",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "conductor",
+      "target_type": "connector",
+      "connector": "conductor",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "coupler-io",
+      "target_type": "connector",
+      "connector": "coupler-io",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "coveo",
+      "target_type": "connector",
+      "connector": "coveo",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "daloopa",
+      "target_type": "connector",
+      "connector": "daloopa",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "demandbase",
+      "target_type": "connector",
+      "connector": "demandbase",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "docket",
+      "target_type": "connector",
+      "connector": "docket",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "documents",
+      "target_type": "connector",
+      "connector": "documents",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "domotz-preview",
+      "target_type": "connector",
+      "connector": "domotz-preview",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "dovetail",
+      "target_type": "connector",
+      "connector": "dovetail",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "egnyte",
+      "target_type": "connector",
+      "connector": "egnyte",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "expo",
+      "target_type": "connector",
+      "connector": "expo",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "figma",
+      "target_type": "connector",
+      "connector": "figma",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "fireflies",
+      "target_type": "connector",
+      "connector": "fireflies",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "fyxer",
+      "target_type": "connector",
+      "connector": "fyxer",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "google-calendar",
+      "target_type": "connector",
+      "connector": "google-calendar",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "google-drive",
+      "target_type": "connector",
+      "connector": "google-drive",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "granola",
+      "target_type": "connector",
+      "connector": "granola",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "happenstance",
+      "target_type": "connector",
+      "connector": "happenstance",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "heygen",
+      "target_type": "connector",
+      "connector": "heygen",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "highlevel",
+      "target_type": "connector",
+      "connector": "highlevel",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "hostinger",
+      "target_type": "connector",
+      "connector": "hostinger",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "hugging-face",
+      "target_type": "connector",
+      "connector": "hugging-face",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "hyperframes",
+      "target_type": "connector",
+      "connector": "hyperframes",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "jam",
+      "target_type": "connector",
+      "connector": "jam",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "keybid-puls",
+      "target_type": "connector",
+      "connector": "keybid-puls",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "latex-tectonic",
+      "target_type": "connector",
+      "connector": "latex-tectonic",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "life-science-research",
+      "target_type": "connector",
+      "connector": "life-science-research",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "marcopolo",
+      "target_type": "connector",
+      "connector": "marcopolo",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "mem",
+      "target_type": "connector",
+      "connector": "mem",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "monday-com",
+      "target_type": "connector",
+      "connector": "monday-com",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "motherduck",
+      "target_type": "connector",
+      "connector": "motherduck",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "neon-postgres",
+      "target_type": "connector",
+      "connector": "neon-postgres",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "netlify",
+      "target_type": "connector",
+      "connector": "netlify",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "network-solutions",
+      "target_type": "connector",
+      "connector": "network-solutions",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "omni-analytics",
+      "target_type": "connector",
+      "connector": "omni-analytics",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "openai-developers",
+      "target_type": "connector",
+      "connector": "openai-developers",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "otter-ai",
+      "target_type": "connector",
+      "connector": "otter-ai",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "particl-market-research",
+      "target_type": "connector",
+      "connector": "particl-market-research",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "presentations",
+      "target_type": "connector",
+      "connector": "presentations",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "quartr",
+      "target_type": "connector",
+      "connector": "quartr",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "quicknode",
+      "target_type": "connector",
+      "connector": "quicknode",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "ranked-ai",
+      "target_type": "connector",
+      "connector": "ranked-ai",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "read-ai",
+      "target_type": "connector",
+      "connector": "read-ai",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "readwise",
+      "target_type": "connector",
+      "connector": "readwise",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "remotion",
+      "target_type": "connector",
+      "connector": "remotion",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "render",
+      "target_type": "connector",
+      "connector": "render",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "scite",
+      "target_type": "connector",
+      "connector": "scite",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "signnow",
+      "target_type": "connector",
+      "connector": "signnow",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "skywatch",
+      "target_type": "connector",
+      "connector": "skywatch",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "spreadsheets",
+      "target_type": "connector",
+      "connector": "spreadsheets",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "statsig",
+      "target_type": "connector",
+      "connector": "statsig",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "streak",
+      "target_type": "connector",
+      "connector": "streak",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "stripe",
+      "target_type": "connector",
+      "connector": "stripe",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "superpowers",
+      "target_type": "connector",
+      "connector": "superpowers",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "temporal",
+      "target_type": "connector",
+      "connector": "temporal",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "vantage",
+      "target_type": "connector",
+      "connector": "vantage",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "waldo",
+      "target_type": "connector",
+      "connector": "waldo",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "windsor-ai",
+      "target_type": "connector",
+      "connector": "windsor-ai",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "yepcode",
+      "target_type": "connector",
+      "connector": "yepcode",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "zotero",
+      "target_type": "connector",
+      "connector": "zotero",
+      "status": "skipped_with_reason",
+      "execution_mode": "full_action",
+      "reason": "no local adapter binding for this connector in this phase",
+      "duration_ms": 0,
+      "next_action": "Keep in registry and configure adapter when runtime binding is available.",
+      "severity": "medium"
+    },
+    {
+      "target": "mcp-catalog-sync",
+      "target_type": "core",
+      "connector": "mcp-catalog-sync",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp catalog synchronized from codex mcp list",
+      "duration_ms": 2597,
+      "next_action": "continue",
+      "severity": "low"
+    },
+    {
+      "target": "adobe-express-developer",
+      "target_type": "mcp",
+      "connector": "adobe-express-developer",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "chrome-devtools",
+      "target_type": "mcp",
+      "connector": "chrome-devtools",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "claude-code",
+      "target_type": "mcp",
+      "connector": "claude-code",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "context7",
+      "target_type": "mcp",
+      "connector": "context7",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "eslint",
+      "target_type": "mcp",
+      "connector": "eslint",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "fetch",
+      "target_type": "mcp",
+      "connector": "fetch",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "flowbite",
+      "target_type": "mcp",
+      "connector": "flowbite",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "git-tools",
+      "target_type": "mcp",
+      "connector": "git-tools",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "hostinger-dns",
+      "target_type": "mcp",
+      "connector": "hostinger-dns",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "hostinger-domains",
+      "target_type": "mcp",
+      "connector": "hostinger-domains",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "hostinger-hosting",
+      "target_type": "mcp",
+      "connector": "hostinger-hosting",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "memory",
+      "target_type": "mcp",
+      "connector": "memory",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "netlify",
+      "target_type": "mcp",
+      "connector": "netlify",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "next-devtools",
+      "target_type": "mcp",
+      "connector": "next-devtools",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "official-filesystem",
+      "target_type": "mcp",
+      "connector": "official-filesystem",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "perplexity",
+      "target_type": "mcp",
+      "connector": "perplexity",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "playwright",
+      "target_type": "mcp",
+      "connector": "playwright",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "semgrep",
+      "target_type": "mcp",
+      "connector": "semgrep",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "sequential-thinking",
+      "target_type": "mcp",
+      "connector": "sequential-thinking",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "shadcn",
+      "target_type": "mcp",
+      "connector": "shadcn",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "sqlite",
+      "target_type": "mcp",
+      "connector": "sqlite",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "xcodebuildmcp",
+      "target_type": "mcp",
+      "connector": "xcodebuildmcp",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "alice_mcp",
+      "target_type": "mcp",
+      "connector": "alice_mcp",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "atlassian",
+      "target_type": "mcp",
+      "connector": "atlassian",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "aws-knowledge",
+      "target_type": "mcp",
+      "connector": "aws-knowledge",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "canva",
+      "target_type": "mcp",
+      "connector": "canva",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "cloudflare-api",
+      "target_type": "mcp",
+      "connector": "cloudflare-api",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "cloudflare-docs",
+      "target_type": "mcp",
+      "connector": "cloudflare-docs",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "exa",
+      "target_type": "mcp",
+      "connector": "exa",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "figma",
+      "target_type": "mcp",
+      "connector": "figma",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "github",
+      "target_type": "mcp",
+      "connector": "github",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "linear",
+      "target_type": "mcp",
+      "connector": "linear",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "mdn",
+      "target_type": "mcp",
+      "connector": "mdn",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "microsoft-learn",
+      "target_type": "mcp",
+      "connector": "microsoft-learn",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "neon",
+      "target_type": "mcp",
+      "connector": "neon",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "notion",
+      "target_type": "mcp",
+      "connector": "notion",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "openai-docs",
+      "target_type": "mcp",
+      "connector": "openai-docs",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "postman",
+      "target_type": "mcp",
+      "connector": "postman",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "sentry",
+      "target_type": "mcp",
+      "connector": "sentry",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "supabase",
+      "target_type": "mcp",
+      "connector": "supabase",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "vercel",
+      "target_type": "mcp",
+      "connector": "vercel",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "mcp light probe recorded",
+      "duration_ms": 0,
+      "next_action": "Configure auth/destination for deeper actions when needed.",
+      "severity": "low",
+      "exit_code": 0
+    },
+    {
+      "target": "plan-ledger-sync",
+      "target_type": "core",
+      "connector": "plan-ledger-sync",
+      "status": "invoked",
+      "execution_mode": "light_probe",
+      "reason": "playbook and plan-ledger are synchronized",
+      "duration_ms": 0,
+      "next_action": "continue",
+      "severity": "low"
+    }
+  ],
+  "summary_metrics": {
+    "connector_steps_count": 88,
+    "mcp_steps_count": 41,
+    "budget_degraded_count": 41,
+    "catalog_connector_count": 88,
+    "catalog_mcp_count": 41
+  },
+  "risk_summary": {
+    "high": [],
+    "medium": [
+      "live browser mcp runtime missing npm; fallback browser contract passed",
+      "connector disabled in integration-targets.json",
+      "no local adapter binding for this connector in this phase"
+    ],
+    "low": [
+      "check passed",
+      "mcp catalog synchronized from codex mcp list",
+      "mcp light probe recorded",
+      "playbook and plan-ledger are synchronized"
+    ]
+  },
+  "audit": {
+    "metrics": {
+      "p95_ms": 94,
+      "fail_rate": 0,
+      "failed_steps": 0,
+      "total_steps": 137,
+      "thresholds": {
+        "p95_ms_threshold": 8000,
+        "fail_rate_threshold": 0.05
+      }
+    },
+    "gates": {
+      "sla_alert": false,
+      "security_release_block": false,
+      "dual_approval_required": true
+    },
+    "plan_sync": {
+      "ok": true,
+      "reason": "in-sync",
+      "missing_in_ledger": [],
+      "missing_in_playbook": []
+    },
+    "approval_health": {
+      "stale_suggested_count": 0,
+      "expired_approved_count": 0
+    }
+  },
+  "summary": "Run completed. Core checks green; connector and MCP coverage recorded.",
+  "suggested_actions": [
+    {
+      "status": "suggested",
+      "title": "Resolve browser-validation",
+      "problem": "live browser mcp runtime missing npm; fallback browser contract passed",
+      "proposed_change": "Install npm to enable live browser mcp validation.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve notion-run-log",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve linear-action-package",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve github-issue-checklist-candidate",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve slack-summary-candidate",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve supabase-event-store",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve sentry-monitoring-check",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve vercel-preview-check",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve semrush-seo-check",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve twilio-fallback-check",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve hubspot-mirror-check",
+      "problem": "connector disabled in integration-targets.json",
+      "proposed_change": "Enable connector and configure destination fields.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve atlassian-rovo",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve attio",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve biorender",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve box",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve brand24",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve brex",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve browser-use",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve build-web-apps",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve canva",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve carta-crm",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve channel99",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve circleback",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve circleci",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve clickup",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve cloudflare",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve cloudinary",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve codex-security",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve coderabbit",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve conductor",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve coupler-io",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve coveo",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve daloopa",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve demandbase",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve docket",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve documents",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve domotz-preview",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve dovetail",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve egnyte",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve expo",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve figma",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve fireflies",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve fyxer",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve google-calendar",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve google-drive",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve granola",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve happenstance",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve heygen",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve highlevel",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve hostinger",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve hugging-face",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve hyperframes",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve jam",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve keybid-puls",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve latex-tectonic",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve life-science-research",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve marcopolo",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve mem",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve monday-com",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve motherduck",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve neon-postgres",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve netlify",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve network-solutions",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve omni-analytics",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve openai-developers",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve otter-ai",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve particl-market-research",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve presentations",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve quartr",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve quicknode",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve ranked-ai",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve read-ai",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve readwise",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve remotion",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve render",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve scite",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve signnow",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve skywatch",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve spreadsheets",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve statsig",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve streak",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve stripe",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve superpowers",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve temporal",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve vantage",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve waldo",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve windsor-ai",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve yepcode",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    },
+    {
+      "status": "suggested",
+      "title": "Resolve zotero",
+      "problem": "no local adapter binding for this connector in this phase",
+      "proposed_change": "Keep in registry and configure adapter when runtime binding is available.",
+      "labels": [
+        "ops"
+      ],
+      "source_link": "reports/ecosystem/2026-05-15-core-run.json"
+    }
+  ]
+}

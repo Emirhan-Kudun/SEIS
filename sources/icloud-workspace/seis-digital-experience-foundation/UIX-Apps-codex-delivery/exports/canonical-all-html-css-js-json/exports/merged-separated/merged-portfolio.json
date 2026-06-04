@@ -1,0 +1,12 @@
+{
+  "source": "merged-portfolio-two-zips-single.html",
+  "lang": "tr",
+  "title": "Emirhan Kudun — Grafik Tasarımcı &amp; UI/UX Designer",
+  "description": "Emirhan Kudun — Grafik Tasarım, UI/UX ve Motion Design alanlarında modern ve minimalist çözümler.",
+  "notes": "Behance embed section is enabled with category filtering and lazy loading.",
+  "related_files": {
+    "behance_future_registry": "./behance-future.json",
+    "italy_inspiration_page": "./yurtdisi-ilham-italya.html",
+    "italy_inspiration_data": "./yurtdisi-ilham-italya.json"
+  }
+}

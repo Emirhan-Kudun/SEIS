@@ -1,0 +1,224 @@
+{
+  "version": "1.0.0",
+  "mode": "low-power-registry-first",
+  "observedAt": "2026-05-25",
+  "githubRoot": "~/Library/Mobile Documents/com~apple~CloudDocs/Github",
+  "publicGitHubOwner": "emirhankudun-ux",
+  "canonicalTarget": {
+    "id": "uix-apps",
+    "name": "UIX-Apps",
+    "localPath": "UIX-Apps",
+    "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "UIXAppTTR",
+    "role": "canonical target for promoted UX Apps and SEIS work"
+  },
+  "analysisSummary": {
+    "publicGitHubRepoCount": 6,
+    "localIcloudRepoCount": 9,
+    "newPublicReposFound": [],
+    "newLocalReposFound": [],
+    "canonicalStatus": "UIX-Apps remains the single promoted target; other repositories stay as reviewed inputs.",
+    "developmentBias": "Prefer docs, UX patterns, agent governance notes, and small reversible source-intake records over wholesale copy."
+  },
+  "publicGitHubRepos": [
+    {
+      "id": "uix-apps",
+      "name": "UIX-Apps",
+      "fullName": "emirhankudun-ux/UIX-Apps",
+      "url": "https://github.com/emirhankudun-ux/UIX-Apps",
+      "localPath": "UIX-Apps",
+      "intakeMode": "canonical-target",
+      "promotionRule": "Keep as the only active target branch surface."
+    },
+    {
+      "id": "docs",
+      "name": "docs",
+      "fullName": "emirhankudun-ux/docs",
+      "url": "https://github.com/emirhankudun-ux/docs",
+      "localPath": "docs",
+      "intakeMode": "documentation-source",
+      "promotionRule": "Promote only reviewed documentation patterns, navigation ideas, or API reference structure."
+    },
+    {
+      "id": "claude-code",
+      "name": "claude-code",
+      "fullName": "emirhankudun-ux/claude-code",
+      "url": "https://github.com/emirhankudun-ux/claude-code",
+      "localPath": "claude-code",
+      "intakeMode": "agent-workflow-reference",
+      "promotionRule": "Promote only reusable agent workflow notes or governance ideas."
+    },
+    {
+      "id": "gemini-cli",
+      "name": "gemini-cli",
+      "fullName": "emirhankudun-ux/gemini-cli",
+      "url": "https://github.com/emirhankudun-ux/gemini-cli",
+      "localPath": "gemini-cli",
+      "intakeMode": "cli-reference",
+      "promotionRule": "Promote only reviewed CLI interaction concepts, never vendored tool source."
+    },
+    {
+      "id": "deepseek-coder",
+      "name": "DeepSeek-Coder",
+      "fullName": "emirhankudun-ux/DeepSeek-Coder",
+      "url": "https://github.com/emirhankudun-ux/DeepSeek-Coder",
+      "localPath": "DeepSeek-Coder",
+      "intakeMode": "ai-code-reference",
+      "promotionRule": "Promote only reviewed AI coding patterns, not model or dependency payloads."
+    },
+    {
+      "id": "awesome-deepseek-agent",
+      "name": "awesome-deepseek-agent",
+      "fullName": "emirhankudun-ux/awesome-deepseek-agent",
+      "url": "https://github.com/emirhankudun-ux/awesome-deepseek-agent",
+      "localPath": "awesome-deepseek-agent",
+      "intakeMode": "agent-curation-reference",
+      "promotionRule": "Promote only curated agent taxonomy ideas after attribution review."
+    }
+  ],
+  "localIcloudRepos": [
+    {
+      "id": "uix-apps",
+      "localPath": "UIX-Apps",
+      "remote": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+      "branch": "UIXAppTTR",
+      "observedState": "canonical; local branch has unpublished commits and one upstream commit to reconcile",
+      "intakeMode": "canonical-target"
+    },
+    {
+      "id": "docs",
+      "localPath": "docs",
+      "remote": "https://github.com/emirhankudun-ux/docs.git",
+      "branch": "main",
+      "observedState": "clean shallow clone",
+      "intakeMode": "documentation-source"
+    },
+    {
+      "id": "claude-code",
+      "localPath": "claude-code",
+      "remote": "https://github.com/emirhankudun-ux/claude-code.git",
+      "branch": "main",
+      "observedState": "clean",
+      "intakeMode": "agent-workflow-reference"
+    },
+    {
+      "id": "gemini-cli",
+      "localPath": "gemini-cli",
+      "remote": "https://github.com/emirhankudun-ux/gemini-cli.git",
+      "branch": "main",
+      "observedState": "clean",
+      "intakeMode": "cli-reference"
+    },
+    {
+      "id": "deepseek-coder",
+      "localPath": "DeepSeek-Coder",
+      "remote": "https://github.com/emirhankudun-ux/DeepSeek-Coder.git",
+      "branch": "main",
+      "observedState": "clean",
+      "intakeMode": "ai-code-reference"
+    },
+    {
+      "id": "awesome-deepseek-agent",
+      "localPath": "awesome-deepseek-agent",
+      "remote": "https://github.com/emirhankudun-ux/awesome-deepseek-agent.git",
+      "branch": "main",
+      "observedState": "clean",
+      "intakeMode": "agent-curation-reference"
+    },
+    {
+      "id": "ux",
+      "localPath": "UX",
+      "remote": "git@github.com:emirhankudun/emirhan-kudun-portfolio.git",
+      "branch": "codex/seis-ux-cinematic-premium-foundation",
+      "observedState": "dirty source checkout",
+      "intakeMode": "review-only-ux-source"
+    },
+    {
+      "id": "codex-local-archive",
+      "localPath": "Codex",
+      "remote": "",
+      "branch": "main",
+      "observedState": "local no-commit archive",
+      "intakeMode": "archive-only"
+    },
+    {
+      "id": "seis-digital-experience-foundation",
+      "localPath": "seis-digital-experience-foundation",
+      "remote": "",
+      "branch": "UIXAppTTR",
+      "observedState": "dirty local foundation reference",
+      "intakeMode": "foundation-reference"
+    }
+  ],
+  "promotionRules": [
+    "Do not copy another repository wholesale into UIX-Apps.",
+    "Do not copy .git, node_modules, build output, archives, secrets, or local machine metadata.",
+    "Promote reviewed source as small docs, config, scripts, source-intake records, or UX Apps module changes.",
+    "Keep every promoted change scoped, reversible, and covered by a focused check.",
+    "When a source repo is dirty or remote auth is unavailable, record it as review-only until a clean handoff is chosen."
+  ],
+  "promotionQueue": [
+    {
+      "sourceId": "docs",
+      "priority": "high",
+      "candidate": "documentation information architecture and API reference patterns",
+      "targetSurface": "docs/",
+      "status": "review-next",
+      "guardrail": "Promote structure and wording patterns only after attribution review."
+    },
+    {
+      "sourceId": "ux",
+      "priority": "high",
+      "candidate": "cinematic portfolio layout and metadata improvements",
+      "targetSurface": "apps/ux-apps-foundation/",
+      "status": "review-next",
+      "guardrail": "Do not overwrite the canonical module; promote one scoped UX pattern at a time."
+    },
+    {
+      "sourceId": "claude-code",
+      "priority": "medium",
+      "candidate": "agent workflow and review protocol ideas",
+      "targetSurface": "docs/agents/",
+      "status": "review-later",
+      "guardrail": "Summarize workflow ideas; do not vendor tool source."
+    },
+    {
+      "sourceId": "gemini-cli",
+      "priority": "medium",
+      "candidate": "CLI orchestration and GitHub workflow ideas",
+      "targetSurface": "docs/agents/",
+      "status": "review-later",
+      "guardrail": "Treat workflow files as reference only unless secrets and permissions are reviewed."
+    },
+    {
+      "sourceId": "deepseek-coder",
+      "priority": "low",
+      "candidate": "AI coding reference patterns",
+      "targetSurface": "docs/agents/",
+      "status": "watch",
+      "guardrail": "Promote only human-reviewed pattern notes, not model payloads."
+    },
+    {
+      "sourceId": "awesome-deepseek-agent",
+      "priority": "low",
+      "candidate": "agent taxonomy ideas",
+      "targetSurface": "docs/agents/",
+      "status": "watch",
+      "guardrail": "Keep curation as attributed notes."
+    },
+    {
+      "sourceId": "seis-digital-experience-foundation",
+      "priority": "medium",
+      "candidate": "foundation branch model and polyglot governance ideas",
+      "targetSurface": "docs/",
+      "status": "review-later",
+      "guardrail": "Use as a reference; keep UIX-Apps as the canonical branch target."
+    }
+  ],
+  "nextActions": [
+    "Review docs for documentation IA patterns that can improve UIX-Apps docs.",
+    "Review UX for cinematic portfolio patterns before any module promotion.",
+    "Review agent repos for governance ideas without vendoring external tool source.",
+    "Run publish preflight before any future push and stop if GitHub auth is missing."
+  ]
+}

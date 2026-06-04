@@ -1,0 +1,698 @@
+{
+  "version": 1,
+  "id": "seis-plugin-assisted-execution-ledger-report",
+  "generatedAt": "2026-06-03",
+  "sourceId": "seis-plugin-assisted-execution-ledger",
+  "sourcePath": "content/development/plugin-assisted-execution-ledger.json",
+  "summary": {
+    "sourceQueuePlugins": 300,
+    "executionLedgerPlugins": 300,
+    "waveExecutionRecords": 4,
+    "laneExecutionRecords": 12,
+    "pluginExecutionRecords": 300,
+    "plannedPhaseRecords": 48,
+    "readyPluginCount": 20,
+    "blockedUntilAuthPlugins": 280,
+    "reviewRequiredPlugins": 300,
+    "gateRecords": 1500,
+    "executableLaneRecords": 7,
+    "authBlockedLaneRecords": 5,
+    "executableWaveRecords": 4,
+    "partiallyBlockedWaveRecords": 4,
+    "livePluginInvocationAllowedExecutions": 0,
+    "liveAiInvocationAllowedExecutions": 0,
+    "autonomousRepoModificationAllowedExecutions": 0,
+    "credentialRecordingExecutionRecords": 0,
+    "promptPayloadRecordingExecutionRecords": 0,
+    "connectorPayloadRecordingExecutionRecords": 0,
+    "generatedPayloadCommitExecutionRecords": 0,
+    "validationCommandCount": 8,
+    "validationCommands": [
+      "npm run check:plugin-assisted-execution-ledger",
+      "npm run check:plugin-assisted-sprint-plan",
+      "npm run check:plugin-assisted-development-queue",
+      "npm run check:plugin-source-compliance-evidence",
+      "npm run check:environment-source-index",
+      "npm run check:plugin-environment-sources",
+      "npm run check:cloud-environment",
+      "git diff --check"
+    ]
+  },
+  "policy": {
+    "ledger": "execution_ledger_records_bounded_plugin_assisted_repo_work_only",
+    "execution": "generated_evidence_first_no_live_plugin_or_ai_invocation",
+    "blockers": "auth_branch_publish_and_connector_blockers_reported_separately",
+    "secretHandling": "never_record_or_commit_tokens_or_credentials",
+    "payloadHandling": "never_commit_connector_results_vendor_payloads_or_runtime_logs",
+    "reviewHandling": "human_review_required_before_live_connector_or_ai_work"
+  },
+  "waveExecutions": [
+    {
+      "order": 1,
+      "waveId": "wave-1-foundation",
+      "label": "Foundation and governance",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 95,
+      "readyPlugins": 5,
+      "blockedUntilAuthPlugins": 90,
+      "laneExecutionRecords": 4,
+      "phaseRecords": 16,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "acceptanceEvidence": {
+        "helperIds": [
+          "claude",
+          "codex",
+          "cortex",
+          "gemini",
+          "human-review",
+          "local-skill-runtime",
+          "plugin-runtime-router"
+        ],
+        "commands": [
+          "npm run check:cloud-environment",
+          "npm run check:plugin-assisted-execution-ledger"
+        ],
+        "requiredReport": "reports/plugin-assisted-execution-ledger.md"
+      }
+    },
+    {
+      "order": 2,
+      "waveId": "wave-2-product-experience",
+      "label": "Product experience",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 75,
+      "readyPlugins": 6,
+      "blockedUntilAuthPlugins": 69,
+      "laneExecutionRecords": 3,
+      "phaseRecords": 12,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "acceptanceEvidence": {
+        "helperIds": [
+          "claude",
+          "codex",
+          "cortex",
+          "gemini",
+          "human-review",
+          "openai"
+        ],
+        "commands": [
+          "npm run check:cloud-environment",
+          "npm run check:plugin-assisted-execution-ledger"
+        ],
+        "requiredReport": "reports/plugin-assisted-execution-ledger.md"
+      }
+    },
+    {
+      "order": 3,
+      "waveId": "wave-3-growth-intelligence",
+      "label": "Growth and intelligence",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 78,
+      "readyPlugins": 2,
+      "blockedUntilAuthPlugins": 76,
+      "laneExecutionRecords": 3,
+      "phaseRecords": 12,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "acceptanceEvidence": {
+        "helperIds": [
+          "claude",
+          "codex",
+          "cortex",
+          "gemini",
+          "human-review",
+          "openai"
+        ],
+        "commands": [
+          "npm run check:cloud-environment",
+          "npm run check:plugin-assisted-execution-ledger"
+        ],
+        "requiredReport": "reports/plugin-assisted-execution-ledger.md"
+      }
+    },
+    {
+      "order": 4,
+      "waveId": "wave-4-operations-research",
+      "label": "Operations and research",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 52,
+      "readyPlugins": 7,
+      "blockedUntilAuthPlugins": 45,
+      "laneExecutionRecords": 2,
+      "phaseRecords": 8,
+      "nextAction": "run_one_lane_local_bounded_change_with_generated_checks",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "acceptanceEvidence": {
+        "helperIds": [
+          "claude",
+          "gemini",
+          "human-review",
+          "openai"
+        ],
+        "commands": [
+          "npm run check:cloud-environment",
+          "npm run check:plugin-assisted-execution-ledger"
+        ],
+        "requiredReport": "reports/plugin-assisted-execution-ledger.md"
+      }
+    }
+  ],
+  "laneExecutions": [
+    {
+      "waveId": "wave-1-foundation",
+      "waveOrder": 1,
+      "lane": "security-quality-and-governance",
+      "label": "Security, quality, and governance",
+      "executionState": "auth_scope_required",
+      "pluginCount": 19,
+      "readyPlugins": 0,
+      "blockedUntilAuthPlugins": 19,
+      "actionRecords": 95,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "gemini",
+        "human-review"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "waveOrder": 1,
+      "lane": "backend-data-and-api",
+      "label": "Backend, data, and API",
+      "executionState": "auth_scope_required",
+      "pluginCount": 31,
+      "readyPlugins": 0,
+      "blockedUntilAuthPlugins": 31,
+      "actionRecords": 155,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "local-skill-runtime"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "waveOrder": 1,
+      "lane": "cloud-devops-and-release",
+      "label": "Cloud, DevOps, and release",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 31,
+      "readyPlugins": 5,
+      "blockedUntilAuthPlugins": 26,
+      "actionRecords": 155,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "plugin-runtime-router"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:server-target"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-1-foundation",
+      "waveOrder": 1,
+      "lane": "platform-native-and-polyglot",
+      "label": "Platform native and polyglot",
+      "executionState": "auth_scope_required",
+      "pluginCount": 14,
+      "readyPlugins": 0,
+      "blockedUntilAuthPlugins": 14,
+      "actionRecords": 70,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "local-skill-runtime",
+        "plugin-runtime-router"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:software-languages"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "waveOrder": 2,
+      "lane": "builder-and-prototyping",
+      "label": "Builder and prototyping",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 18,
+      "readyPlugins": 1,
+      "blockedUntilAuthPlugins": 17,
+      "actionRecords": 90,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "gemini",
+        "openai"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:plugin-environment-sources"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "waveOrder": 2,
+      "lane": "creative-production-and-design",
+      "label": "Creative production and design",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 18,
+      "readyPlugins": 1,
+      "blockedUntilAuthPlugins": 17,
+      "actionRecords": 90,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-2-product-experience",
+      "waveOrder": 2,
+      "lane": "ai-workflow-docs-and-knowledge",
+      "label": "AI workflow, docs, and knowledge",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 39,
+      "readyPlugins": 4,
+      "blockedUntilAuthPlugins": 35,
+      "actionRecords": 195,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "gemini"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes",
+        "npm run check:workspace"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "waveOrder": 3,
+      "lane": "analytics-observability-and-growth",
+      "label": "Analytics, observability, and growth",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 30,
+      "readyPlugins": 2,
+      "blockedUntilAuthPlugins": 28,
+      "actionRecords": 150,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "gemini"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "waveOrder": 3,
+      "lane": "sales-gtm-and-market-intelligence",
+      "label": "Sales, GTM, and market intelligence",
+      "executionState": "auth_scope_required",
+      "pluginCount": 30,
+      "readyPlugins": 0,
+      "blockedUntilAuthPlugins": 30,
+      "actionRecords": 150,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-3-growth-intelligence",
+      "waveOrder": 3,
+      "lane": "finance-investing-and-payments",
+      "label": "Finance, investing, and payments",
+      "executionState": "auth_scope_required",
+      "pluginCount": 18,
+      "readyPlugins": 0,
+      "blockedUntilAuthPlugins": 18,
+      "actionRecords": 90,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "codex",
+        "cortex",
+        "human-review"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "keep_queued_until_authentication_and_task_scope_exist",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "waveOrder": 4,
+      "lane": "collaboration-calendar-and-support",
+      "label": "Collaboration, calendar, and support",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 35,
+      "readyPlugins": 3,
+      "blockedUntilAuthPlugins": 32,
+      "actionRecords": 175,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:connector-activation-report",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    },
+    {
+      "waveId": "wave-4-operations-research",
+      "waveOrder": 4,
+      "lane": "specialized-domain-and-research",
+      "label": "Specialized domain and research",
+      "executionState": "local_bounded_ready",
+      "pluginCount": 17,
+      "readyPlugins": 4,
+      "blockedUntilAuthPlugins": 13,
+      "actionRecords": 85,
+      "phaseRecords": 4,
+      "helperIds": [
+        "claude",
+        "gemini",
+        "human-review",
+        "openai"
+      ],
+      "repoScope": "generated_source_contracts_or_task_scoped_repo_files_only",
+      "nextAction": "select_one_ready_plugin_and_apply_reversible_repo_change",
+      "rollbackStrategy": "revert_generated_manifest_commit_or_regenerate_previous_contract",
+      "blockerPolicy": "report_auth_branch_publish_and_connector_blockers_separately",
+      "gates": [
+        "explicit_task_scope",
+        "human_review",
+        "generated_checks",
+        "environment_gate",
+        "rollback_path"
+      ],
+      "validationCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:plugin-assisted-development-queue",
+        "npm run check:plugin-assisted-execution-ledger",
+        "npm run check:plugin-capability-lanes"
+      ],
+      "safeToInvokeLivePlugin": false,
+      "safeToInvokeLiveAi": false,
+      "safeToAutonomouslyModifyRepo": false,
+      "recordsCredentials": false,
+      "recordsPromptPayloads": false,
+      "recordsConnectorPayloads": false,
+      "commitsGeneratedPayloads": false
+    }
+  ]
+}

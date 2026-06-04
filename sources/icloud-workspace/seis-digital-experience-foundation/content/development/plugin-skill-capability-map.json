@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "repository": "UIXApps",
+  "branch": "UIXAppTTR",
+  "source": "Codex plugin and skill catalog",
+  "coveragePolicy": {
+    "mode": "capability-family-map",
+    "granularity": "map plugin and skill families to UIXAppTTR surfaces before activation",
+    "defaultActivation": "manual-request-or-task-fit",
+    "outputRequirement": "Every activation must leave code, a report, a status marker, or a handoff note.",
+    "dependencyPolicy": "No runtime dependency may be added without rollback, quality gates, and product route."
+  },
+  "capabilities": [
+    {
+      "id": "repo-governance-and-github",
+      "label": "Repository governance and GitHub operations",
+      "surfaceId": "github-governance-connector",
+      "ownerAgent": "release-agent",
+      "activationMode": "guarded-active",
+      "risk": "medium",
+      "pluginExamples": ["GitHub", "github", "codex", "CodeRabbit", "greptile"],
+      "preferredOutputs": ["server marker", "branch status", "pull request note", "release handoff"],
+      "guardrails": [
+        "Keep main protected.",
+        "Keep all implementation work inside UIXAppTTR.",
+        "Use connector markers while local gh auth is unavailable.",
+        "Do not force-push or overwrite remote-only server files."
+      ]
+    },
+    {
+      "id": "frontend-design-and-browser-quality",
+      "label": "Frontend design, browser validation, and UI polish",
+      "surfaceId": "frontend-design-skills",
+      "ownerAgent": "interface-agent",
+      "activationMode": "active",
+      "risk": "medium",
+      "pluginExamples": ["frontend-design", "Build Web Apps", "Browser", "playwright", "stardust"],
+      "preferredOutputs": ["UI code", "responsive report", "accessibility note", "browser validation result"],
+      "guardrails": [
+        "Preserve premium calm UI hierarchy.",
+        "Do not start heavy browser runs unless visual verification is needed.",
+        "Keep text readable on mobile and desktop.",
+        "Prefer existing design tokens and local patterns."
+      ]
+    },
+    {
+      "id": "creative-design-and-asset-workflow",
+      "label": "Creative design and asset workflow",
+      "surfaceId": "frontend-design-skills",
+      "ownerAgent": "interface-agent",
+      "activationMode": "task-fit",
+      "risk": "medium",
+      "pluginExamples": ["Figma", "figma", "Adobe Photoshop", "Adobe Express", "Canva", "Cloudinary"],
+      "preferredOutputs": ["asset inventory", "design handoff", "image optimization note", "component reference"],
+      "guardrails": [
+        "Do not copy legacy assets blindly.",
+        "Extract only valuable, licensed, and product-relevant assets.",
+        "Keep visual density calm and purposeful.",
+        "Document asset origin when it affects reuse."
+      ]
+    },
+    {
+      "id": "motion-three-dimensional-and-video",
+      "label": "Motion, 3D, cinematic web, and video systems",
+      "surfaceId": "motion-3d-skills",
+      "ownerAgent": "motion-agent",
+      "activationMode": "guarded",
+      "risk": "medium",
+      "pluginExamples": ["Game Studio", "Remotion", "HyperFrames by HeyGen", "runway-api", "HeyGen"],
+      "preferredOutputs": ["motion budget", "animation module", "reduced-motion fallback", "3D readiness note"],
+      "guardrails": [
+        "Reduced motion support is mandatory.",
+        "Keep mobile performance ahead of spectacle.",
+        "Avoid heavy WebGL or video generation until a concrete surface needs it.",
+        "Every cinematic effect must support comprehension."
+      ]
+    },
+    {
+      "id": "cloud-hosting-and-deployment",
+      "label": "Cloud hosting, server upload, and deployment",
+      "surfaceId": "cloud-deployment-connectors",
+      "ownerAgent": "release-agent",
+      "activationMode": "blocked-until-target",
+      "risk": "high",
+      "pluginExamples": ["Vercel", "vercel", "Netlify", "Cloudflare", "Render", "Deploy on AWS"],
+      "preferredOutputs": ["server target note", "upload plan", "rollback plan", "deployment preflight"],
+      "guardrails": [
+        "Blocked until server target, document root, access method, and rollback path are explicit.",
+        "No live deploy from guesswork.",
+        "Prefer static package and dry-run handoff before upload.",
+        "Record every publication attempt."
+      ]
+    },
+    {
+      "id": "security-compliance-and-supply-chain",
+      "label": "Security, compliance, dependency, and supply-chain checks",
+      "surfaceId": "security-compliance-skills",
+      "ownerAgent": "governance-agent",
+      "activationMode": "guarded",
+      "risk": "high",
+      "pluginExamples": ["Codex Security", "semgrep", "sonarqube", "aikido", "sonatype-guide"],
+      "preferredOutputs": ["security report", "dependency risk note", "secrets check", "remediation plan"],
+      "guardrails": [
+        "Never expose secrets.",
+        "Do not add dependency bloat.",
+        "Prefer static checks before network-heavy scans.",
+        "Security findings must be actionable and scoped."
+      ]
+    },
+    {
+      "id": "ai-workflow-and-knowledge-systems",
+      "label": "AI workflow, knowledge, and documentation systems",
+      "surfaceId": "ai-workflow-skills",
+      "ownerAgent": "premium-local-foundation-agent",
+      "activationMode": "active",
+      "risk": "medium",
+      "pluginExamples": ["OpenAI Developers", "openai-docs", "Notion", "Mem", "deep-wiki", "Documents"],
+      "preferredOutputs": ["workflow contract", "documentation page", "prompt library", "governance note"],
+      "guardrails": [
+        "Translate large prompts into scoped tasks.",
+        "Keep AI actions transparent and auditable.",
+        "Do not create duplicate automation loops.",
+        "Preserve human review for high-risk changes."
+      ]
+    },
+    {
+      "id": "polyglot-and-cross-platform-apps",
+      "label": "Polyglot and cross-platform app lanes",
+      "surfaceId": "polyglot-language-skills",
+      "ownerAgent": "polyglot-agent",
+      "activationMode": "active",
+      "risk": "medium",
+      "pluginExamples": ["Build iOS Apps", "Build macOS Apps", "Expo", "Test Android Apps", "qt-development-skills"],
+      "preferredOutputs": ["language contract", "starter file", "platform decision note", "cross-platform matrix"],
+      "guardrails": [
+        "Many languages stay contract-first until a real product route exists.",
+        "Do not promote a language lane into a service without server target.",
+        "Keep examples small, readable, and dependency-free.",
+        "Prefer PWA-first until native need is documented."
+      ]
+    },
+    {
+      "id": "data-analytics-and-observability",
+      "label": "Data, analytics, monitoring, and observability",
+      "surfaceId": "core-coding-skills",
+      "ownerAgent": "governance-agent",
+      "activationMode": "task-fit",
+      "risk": "medium",
+      "pluginExamples": ["PostHog", "Amplitude", "Sentry", "grafana", "Datadog", "Microsoft Clarity"],
+      "preferredOutputs": ["metrics contract", "event taxonomy", "observability note", "dashboard requirement"],
+      "guardrails": [
+        "No analytics SDK until privacy and product route are clear.",
+        "Prefer documentation and taxonomy before instrumentation.",
+        "Keep monitoring useful, not noisy.",
+        "Do not collect unnecessary user data."
+      ]
+    },
+    {
+      "id": "backend-database-and-api-foundations",
+      "label": "Backend, database, API, and integration foundations",
+      "surfaceId": "core-coding-skills",
+      "ownerAgent": "governance-agent",
+      "activationMode": "guarded",
+      "risk": "high",
+      "pluginExamples": ["Supabase", "MongoDB", "Neon Postgres", "prisma", "firebase", "apollo"],
+      "preferredOutputs": ["API contract", "schema note", "integration plan", "local stub"],
+      "guardrails": [
+        "No database provisioning until the product route is explicit.",
+        "Keep credentials out of source control.",
+        "Prefer contracts and local stubs before live services.",
+        "Document rollback and migration risk."
+      ]
+    }
+  ],
+  "rules": [
+    "Every capability must resolve to an existing plugin-skill registry surface.",
+    "Every registry surface must have at least one capability family.",
+    "High-risk capability families must not auto-activate.",
+    "Cloud deployment remains blocked until the target is explicit.",
+    "All plugin and skill output must stay inside UIXAppTTR."
+  ]
+}

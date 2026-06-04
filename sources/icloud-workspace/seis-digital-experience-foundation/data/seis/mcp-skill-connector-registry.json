@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-06-01",
+  "mission": "SEIS-M004",
+  "policy": {
+    "mode": "registry-first-tool-activation",
+    "blanketActivationAllowed": false,
+    "defaultExecution": "read-only-first",
+    "localFirst": true,
+    "remoteWriteRequires": [
+      "explicit mission",
+      "owner agent",
+      "auth readiness",
+      "rollback path",
+      "validation command"
+    ],
+    "blockerRule": "Record auth, startup, transport, or scope failures instead of retrying blindly."
+  },
+  "runtimeObservations": [
+    {
+      "id": "codex-mcp-list",
+      "status": "available",
+      "detail": "codex mcp list returned many enabled MCP servers across local, cloud, design, docs, data, and collaboration surfaces."
+    },
+    {
+      "id": "github-local-cli",
+      "status": "available-authenticated",
+      "detail": "Local GitHub publication is available after publish preflight; gh auth status includes repo and workflow scopes."
+    },
+    {
+      "id": "github-app-connector",
+      "status": "blocked-transport",
+      "detail": "Read-only GitHub connector inspection returned a ChatGPT app transport handshake failure."
+    },
+    {
+      "id": "output-ai-skill",
+      "status": "available-guided",
+      "detail": "Output.ai context is loaded; workflow creation must use the Output planning command rather than manual workflow scaffolding."
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "skill-runtime",
+      "label": "Skill Runtime",
+      "ownerAgent": "governance-agent",
+      "domains": ["governance-core", "ai-core"],
+      "examples": ["using-superpowers", "output-meta-project-context", "project skills"],
+      "status": "active",
+      "risk": "medium",
+      "activationRule": "Load relevant skills before implementation or tool-heavy planning.",
+      "guardrails": ["do not invoke unrelated skills", "skill guidance does not override explicit user constraints"]
+    },
+    {
+      "id": "local-development-tools",
+      "label": "Local Development Tools",
+      "ownerAgent": "automation-agent",
+      "domains": ["engineering-core", "governance-core"],
+      "examples": ["exec_command", "apply_patch", "git", "npm scripts"],
+      "status": "active",
+      "risk": "high",
+      "activationRule": "Use for repo edits, validation, manifests, and commits inside the canonical iCloud workspace.",
+      "guardrails": ["avoid destructive commands", "require explicit confirmation for destructive operations", "stage only mission files", "run focused checks before broad quality"]
+    },
+    {
+      "id": "node-repl-browser-automation",
+      "label": "Node REPL And Browser Automation",
+      "ownerAgent": "automation-agent",
+      "domains": ["engineering-core", "experience-core"],
+      "examples": ["node_repl", "Browser", "Chrome DevTools", "Playwright"],
+      "status": "guarded",
+      "risk": "medium",
+      "activationRule": "Use for local browser inspection, screenshots, and interactive UI verification when a web surface changes.",
+      "guardrails": ["avoid heavy browser loops", "prefer current localhost target", "capture evidence only when useful"]
+    },
+    {
+      "id": "github-governance-connectors",
+      "label": "GitHub Governance Connectors",
+      "ownerAgent": "governance-agent",
+      "domains": ["governance-core"],
+      "examples": ["gh CLI", "GitHub app connector", "GitHub MCP"],
+      "status": "guarded-auth-ready-transport-limited",
+      "risk": "high",
+      "activationRule": "Use after publish-readiness verifies branch, sync, auth, workflow scope, and transport; never push directly to main.",
+      "guardrails": ["run publish-readiness first", "prefer PR-ready scoped commits", "report local vs remote state separately"]
+    },
+    {
+      "id": "design-collaboration-connectors",
+      "label": "Design Collaboration Connectors",
+      "ownerAgent": "design-director-agent",
+      "domains": ["creative-core", "experience-core"],
+      "examples": ["Figma", "FigJam", "Canva", "Adobe"],
+      "status": "guarded",
+      "risk": "medium",
+      "activationRule": "Use when the mission creates, reviews, or syncs a design artifact.",
+      "guardrails": ["load required design skill first", "reuse design systems before creating new components", "avoid design writes without target context"]
+    },
+    {
+      "id": "documentation-knowledge-mcps",
+      "label": "Documentation And Knowledge MCPs",
+      "ownerAgent": "research-agent",
+      "domains": ["ai-core", "data-core", "engineering-core"],
+      "examples": ["Context7", "MDN", "Microsoft Learn", "OpenAI docs", "AWS docs"],
+      "status": "active-read-only",
+      "risk": "low",
+      "activationRule": "Use for current or primary documentation when local knowledge is insufficient.",
+      "guardrails": ["cite sources when used", "prefer primary docs", "avoid loading broad docs unnecessarily"]
+    },
+    {
+      "id": "cloud-infrastructure-mcps",
+      "label": "Cloud Infrastructure MCPs",
+      "ownerAgent": "security-agent",
+      "domains": ["engineering-core", "governance-core"],
+      "examples": ["AWS", "Azure", "Google Cloud", "Vercel", "Cloudflare", "Netlify", "Render"],
+      "status": "blocked-until-target-and-rollback",
+      "risk": "high",
+      "activationRule": "Use only after target environment, cost boundary, secret policy, and rollback plan are explicit.",
+      "guardrails": ["read-only first", "no live deploy without confirmation", "no secret exposure"]
+    },
+    {
+      "id": "data-backend-mcps",
+      "label": "Data And Backend MCPs",
+      "ownerAgent": "data-agent",
+      "domains": ["data-core", "engineering-core"],
+      "examples": ["Supabase", "Neon", "Postgres", "BigQuery", "AlloyDB", "Firebase", "Appwrite"],
+      "status": "guarded",
+      "risk": "high",
+      "activationRule": "Use when a mission explicitly requires schema, database, auth, or backend inspection.",
+      "guardrails": ["read-only first", "no migrations without mission approval", "no production writes by default"]
+    },
+    {
+      "id": "observability-security-mcps",
+      "label": "Observability And Security MCPs",
+      "ownerAgent": "security-agent",
+      "domains": ["governance-core", "engineering-core"],
+      "examples": ["Sentry", "Aikido", "Semgrep", "Datadog", "PagerDuty", "Rootly"],
+      "status": "guarded",
+      "risk": "high",
+      "activationRule": "Use for vulnerability, reliability, incident, or runtime diagnostics missions.",
+      "guardrails": ["read-only inspection first", "avoid noisy scans", "prioritize actionable findings", "do not expose secrets"]
+    },
+    {
+      "id": "product-collaboration-connectors",
+      "label": "Product And Collaboration Connectors",
+      "ownerAgent": "product-agent",
+      "domains": ["governance-core", "experience-core"],
+      "examples": ["Linear", "Notion", "Slack", "Google Drive", "Gmail", "Calendar"],
+      "status": "permission-gated",
+      "risk": "medium",
+      "activationRule": "Use when the mission requires external planning, handoff, communication, or workspace context.",
+      "guardrails": ["read before write", "ask before sending messages", "separate private context from repo state"]
+    },
+    {
+      "id": "business-payment-connectors",
+      "label": "Business And Payment Connectors",
+      "ownerAgent": "security-agent",
+      "domains": ["governance-core", "data-core"],
+      "examples": ["Stripe", "Razorpay", "MercadoPago", "HubSpot", "Apollo"],
+      "status": "blocked-until-business-mission",
+      "risk": "high",
+      "activationRule": "Use only for explicit business, CRM, payment, or go-to-market missions.",
+      "guardrails": ["no live financial action without explicit confirmation", "do not store secrets", "record auth blockers"]
+    }
+  ]
+}

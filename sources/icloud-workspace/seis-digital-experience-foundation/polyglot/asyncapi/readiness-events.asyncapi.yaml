@@ -1,0 +1,22 @@
+asyncapi: 3.0.0
+info:
+  title: UIX Apps Readiness Events
+  version: "1.0.0"
+channels:
+  readiness.signal:
+    address: readiness.signal
+    messages:
+      ReadinessSignal:
+        payload:
+          type: object
+          required:
+            - lane
+            - status
+            - reducedMotionSafe
+          properties:
+            lane:
+              type: string
+            status:
+              type: string
+            reducedMotionSafe:
+              type: boolean

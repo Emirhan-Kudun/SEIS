@@ -1,0 +1,37 @@
+{
+  "week_of": "2026-05-08",
+  "run_id": "run-2026-05-08-001",
+  "connector_steps": [
+    {
+      "connector": "browser",
+      "result": "invoked",
+      "severity": "low",
+      "reason": "core step executed",
+      "duration_ms": 0,
+      "next_action": "continue"
+    }
+  ],
+  "notes": [
+    {
+      "source": "Behance",
+      "insight": "",
+      "recommended_change": "",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "source": "Dribbble",
+      "insight": "",
+      "recommended_change": "",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "source": "Awwwards",
+      "insight": "",
+      "recommended_change": "",
+      "priority": "medium",
+      "status": "todo"
+    }
+  ]
+}

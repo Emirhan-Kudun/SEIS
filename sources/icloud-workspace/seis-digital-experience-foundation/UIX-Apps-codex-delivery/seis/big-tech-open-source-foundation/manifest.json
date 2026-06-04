@@ -1,0 +1,101 @@
+{
+  "name": "seis-big-tech-open-source-foundation",
+  "version": "1.0.0",
+  "generated_at": "2026-05-21",
+  "branch_alignment": "codex/premium-local-foundation",
+  "intent": "Evaluate official, verified, and actively maintained open-source technology from major firms before SEIS implementation work.",
+  "operating_mode": "registry-first, no dependency or cloud activation without task scope",
+  "evaluation_policy": [
+    "Prefer official vendor pages, verified GitHub organizations, or foundation governance pages.",
+    "Mark tools as candidate only when they fit SEIS architecture, accessibility, performance, or maintainability goals.",
+    "Keep cloud deployment, database mutation, account reads, and AI model calls approval-gated.",
+    "Favor portable open standards and avoid vendor lock-in unless the feature explicitly benefits from the platform."
+  ],
+  "firms": [
+    {
+      "id": "google",
+      "official_sources": ["https://opensource.google/", "https://github.com/google", "https://github.com/GoogleChrome"],
+      "candidate_projects": ["lighthouse", "web-vitals", "material-web", "firebase-js-sdk", "adk-python", "adk-js"],
+      "default_decision": "Use for web quality, official docs, Firebase/Cloud planning, and Google AI review only when scoped."
+    },
+    {
+      "id": "microsoft",
+      "official_sources": ["https://opensource.microsoft.com/", "https://github.com/microsoft", "https://dotnet.microsoft.com/en-us/platform/open-source"],
+      "candidate_projects": ["typescript", "playwright", "vscode", "dotnet", "fluentui"],
+      "default_decision": "Use TypeScript and Playwright as primary candidates for code clarity and UI validation; keep Azure provisioning gated."
+    },
+    {
+      "id": "meta",
+      "official_sources": ["https://opensource.fb.com/", "https://opensource.fb.com/projects/react/", "https://pytorch.org/foundation/"],
+      "candidate_projects": ["react", "react-native", "docusaurus", "pytorch", "executorch"],
+      "default_decision": "Use React ecosystem knowledge where the current app already depends on React; keep PyTorch/AI use registry-only unless needed."
+    },
+    {
+      "id": "aws",
+      "official_sources": ["https://aws.amazon.com/opensource/", "https://github.com/aws", "https://docs.aws.amazon.com/cdk/v2/guide/home.html"],
+      "candidate_projects": ["aws-cdk", "amplify-js", "firecracker", "smithy", "aws-sdk-js-v3"],
+      "default_decision": "Use for infrastructure patterns and IaC review; block deploy/provision until explicit approval."
+    },
+    {
+      "id": "apple",
+      "official_sources": ["https://opensource.apple.com/", "https://github.com/apple", "https://www.swift.org/"],
+      "candidate_projects": ["swift", "webkit", "swift-nio", "swift-collections"],
+      "default_decision": "Use for Apple-platform or WebKit compatibility work; keep out of core web stack unless task-specific."
+    },
+    {
+      "id": "cloudflare",
+      "official_sources": ["https://developers.cloudflare.com/workers/", "https://github.com/cloudflare", "https://blog.cloudflare.com/workerd-open-source-workers-runtime/"],
+      "candidate_projects": ["workerd", "wrangler", "workers-sdk", "pingora", "quiche"],
+      "default_decision": "Use for edge runtime planning and local worker validation; block production deployment."
+    },
+    {
+      "id": "vercel",
+      "official_sources": ["https://vercel.com/oss", "https://github.com/vercel", "https://nextjs.org/"],
+      "candidate_projects": ["next.js", "turborepo", "ai-sdk", "swr", "turbopack"],
+      "default_decision": "Use Next.js/Turborepo alignment because this repo already has a Next foundation; keep deployment approval-gated."
+    },
+    {
+      "id": "openai",
+      "official_sources": ["https://platform.openai.com/docs", "https://openai.github.io/openai-agents-python/", "https://github.com/openai"],
+      "candidate_projects": ["agents-sdk-python", "agents-sdk-js", "codex-cli", "openai-node", "openai-python"],
+      "default_decision": "Use official docs and SDKs for explicit AI feature scopes; keep model calls and secrets approval-gated."
+    }
+  ],
+  "adoption_lanes": [
+    {
+      "id": "frontend-quality",
+      "preferred_candidates": ["typescript", "playwright", "lighthouse", "web-vitals", "react", "next.js"],
+      "activation": "local-first"
+    },
+    {
+      "id": "docs-and-governance",
+      "preferred_candidates": ["docusaurus", "vscode", "material-design-icons"],
+      "activation": "registry-only"
+    },
+    {
+      "id": "cloud-and-edge",
+      "preferred_candidates": ["cloud-run", "aws-cdk", "workerd", "wrangler", "vercel"],
+      "activation": "approval-gated"
+    },
+    {
+      "id": "ai-and-agent-systems",
+      "preferred_candidates": ["adk-python", "adk-js", "agents-sdk-python", "agents-sdk-js", "pytorch"],
+      "activation": "approval-gated"
+    },
+    {
+      "id": "native-and-runtime",
+      "preferred_candidates": ["swift", "webkit", "go", "firecracker", "dotnet"],
+      "activation": "registry-only"
+    }
+  ],
+  "blocked_by_default": [
+    "cloud deploy",
+    "cloud provisioning",
+    "database mutation",
+    "secret access",
+    "paid API usage",
+    "external model call",
+    "large dependency addition",
+    "full framework migration"
+  ]
+}

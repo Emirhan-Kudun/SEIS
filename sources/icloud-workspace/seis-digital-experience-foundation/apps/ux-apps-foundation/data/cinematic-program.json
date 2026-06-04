@@ -1,0 +1,91 @@
+{
+  "name": "Cinematic Spatial UX Program",
+  "sourceArchive": "/Users/emirhan/Downloads/Github a gönderilecekler.zip",
+  "sourceSignals": [
+    {
+      "id": "seis-cinematic-3d",
+      "sourcePath": "New project/seis/cinematic-3d",
+      "usefulIdea": "Quality, motion, animation, sequence, and fallback controls should be treated as product settings before any heavy 3D implementation."
+    },
+    {
+      "id": "creative-intelligence-os",
+      "sourcePath": "New project/seis/creative-intelligence-os",
+      "usefulIdea": "Atmosphere tokens and local performance budgets keep cinematic UI calm, readable, and thermally safe."
+    },
+    {
+      "id": "next-3d-route",
+      "sourcePath": "New project/apps/seis-nextjs-foundation/app/cinematic-3d",
+      "usefulIdea": "A dedicated route or section should isolate experimental depth before it is promoted into the main product surface."
+    }
+  ],
+  "qualityPresets": [
+    {
+      "id": "low",
+      "label": "Low-power",
+      "target": "mobile, battery-sensitive laptops, reduced data sessions",
+      "particleCount": 24,
+      "depth": "CSS and 2D canvas only",
+      "fallback": "static spatial map"
+    },
+    {
+      "id": "medium",
+      "label": "Balanced cinematic",
+      "target": "default desktop review",
+      "particleCount": 54,
+      "depth": "canvas atmosphere plus CSS perspective",
+      "fallback": "reduced-motion cards"
+    },
+    {
+      "id": "high",
+      "label": "Future 3D",
+      "target": "explicit desktop experiment only",
+      "particleCount": 120,
+      "depth": "budgeted WebGL or Three.js proposal",
+      "fallback": "same content in HTML"
+    }
+  ],
+  "motionDepths": [
+    {
+      "id": "calm",
+      "label": "Calm",
+      "allowed": ["subtle opacity", "small translate", "slow canvas drift"],
+      "blocked": ["auto-play spectacle", "large parallax", "unclamped device pixel ratio"]
+    },
+    {
+      "id": "cinematic",
+      "label": "Cinematic",
+      "allowed": ["guided sequence", "depth cards", "soft orbit indicators"],
+      "blocked": ["continuous physics", "video texture loops", "motion without reduced fallback"]
+    },
+    {
+      "id": "immersive",
+      "label": "Immersive",
+      "allowed": ["desktop-only prototype", "explicit opt-in", "diagnostic budget panel"],
+      "blocked": ["mobile default", "homepage replacement", "dependency without budget note"]
+    }
+  ],
+  "productLanes": [
+    {
+      "id": "audit",
+      "title": "UX Audit Room",
+      "summary": "A calm review space for interface hierarchy, accessibility, and content clarity."
+    },
+    {
+      "id": "journey",
+      "title": "Journey Map Studio",
+      "summary": "A spatial map for user flows, decision points, friction, and service moments."
+    },
+    {
+      "id": "motion",
+      "title": "Cinematic Motion Planner",
+      "summary": "A reduced-motion-aware planning surface for transitions, sequence, pacing, and emphasis."
+    }
+  ],
+  "rules": [
+    "No raw zip mirroring.",
+    "No 3D dependency without a budget note.",
+    "Every motion feature must have a reduced-motion equivalent.",
+    "Cinematic depth must clarify product structure, not distract from it.",
+    "The native Node/static app remains the rollback-safe baseline."
+  ]
+}

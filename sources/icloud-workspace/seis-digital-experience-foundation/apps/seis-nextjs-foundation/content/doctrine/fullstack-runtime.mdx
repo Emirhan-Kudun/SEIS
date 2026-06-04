@@ -1,0 +1,15 @@
+---
+title: Full-Stack Runtime Doctrine
+summary: The backend stays useful, observable, and light enough for local machines.
+---
+
+# Full-Stack Runtime Doctrine
+
+The runtime is intentionally small: typed APIs, local JSONL queues, optional mail provider delivery, and protected admin reads.
+
+- No database service is required for local development.
+- Contact submissions survive provider outages through a local queue.
+- Admin APIs stay disabled until a token is configured.
+- Metrics remain explainable and low-noise.
+
+This keeps the site deployable without turning the portfolio into an infrastructure burden.

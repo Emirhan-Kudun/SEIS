@@ -1,0 +1,12 @@
+$ReadinessSignal: (
+  lane: "scss",
+  status: "reference",
+  score: 90,
+  reduced-motion-safe: true,
+  runtime-weight: "dependency-light"
+);
+
+@mixin readiness-signal-layer {
+  --uix-polyglot-lane: "scss";
+  --uix-polyglot-status: "reference";
+}
