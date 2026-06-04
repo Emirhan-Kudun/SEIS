@@ -19,6 +19,7 @@ import {
   ecosystemSourceKindSummary,
   ecosystemSourceProofCards,
   ecosystemSourceReadinessMatrix,
+  ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
   polyglotSourceContracts
@@ -54,6 +55,7 @@ export function GET() {
     ecosystemSidePanelReceiptCount: ecosystemSidePanelReceipts.length,
     ecosystemPlatformSourceMirrorCount: ecosystemPlatformSourceMirror.length,
     ecosystemSourceProofCardCount: ecosystemSourceProofCards.length,
+    ecosystemSourceExecutionQueueCount: ecosystemSourceExecutionQueue.length,
     ecosystemSourceSignalMapCount: ecosystemSourceSignalMap.length,
     ecosystemAiHelperLaneCount: ecosystemAiHelperLanes.length,
     ecosystemSourceExportIndexCount: ecosystemSourceExportIndex.length,

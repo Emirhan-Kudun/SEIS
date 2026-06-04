@@ -5,6 +5,7 @@ import {
   ecosystemConnectionStateSummary,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
 } from "@seis/content";
@@ -21,6 +22,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const sourceApiLinks = [
+  "/api/source-execution-queue",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -36,6 +38,7 @@ export default function SourcesPage() {
   const metrics = [
     { label: "Plugin sources", value: ecosystemSourceTotal, detail: "complete submitted ledger" },
     { label: "Signal groups", value: ecosystemSourceSignalMap.length, detail: "derived source families" },
+    { label: "Queue items", value: ecosystemSourceExecutionQueue.length, detail: "now / next / blocked" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -72,6 +75,28 @@ export default function SourcesPage() {
             </article>
           ))}
         </div>
+
+        <section className="source-execution-section" aria-label="Source execution queue">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Execution queue</p>
+              <h2>Next source-family actions without unsafe bulk provider calls.</h2>
+            </div>
+            <p>Queue signal map ve aggressive lane bilgilerini birlestirir; her item tek ailelik, geri alinabilir bir sonraki is olarak okunur.</p>
+          </div>
+          <div className="source-execution-grid">
+            {ecosystemSourceExecutionQueue.map((item) => (
+              <article className="source-execution-card" data-priority={item.priority} key={item.id}>
+                <span>{item.priority} / {item.signalState.replace(/_/g, " ")}</span>
+                <strong>{item.count}</strong>
+                <h3>{item.sourceFamilyLabel}</h3>
+                <p>{item.action}</p>
+                <small>{item.laneIds.length} lanes / {item.acceptanceCriteria.length} checks</small>
+                <em>{item.guardrail}</em>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="source-signal-section" aria-label="Source signal map">
           <div className="section-heading">

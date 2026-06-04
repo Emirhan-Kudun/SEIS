@@ -2,6 +2,7 @@ import {
   ecosystemConnectionStateSummary,
   ecosystemInstallPolicySummary,
   ecosystemSourceGroups,
+  ecosystemSourceExecutionQueue,
   ecosystemSourceOutputManifest,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -42,6 +43,7 @@ export function GET() {
       totalSources: ecosystemSourceTotal,
       groups: ecosystemSourceGroups.length,
       signalMapItems: ecosystemSourceSignalMap.length,
+      queueItems: ecosystemSourceExecutionQueue.length,
       connectionStates: ecosystemConnectionStateSummary,
       installPolicies: ecosystemInstallPolicySummary,
       totals

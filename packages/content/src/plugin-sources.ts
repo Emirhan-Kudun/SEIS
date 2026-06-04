@@ -206,6 +206,24 @@ export type EcosystemSourceSignalMapItem = {
   outputPath: string;
 };
 
+export type EcosystemSourceExecutionPriority = "now" | "next" | "blocked" | "backlog";
+
+export type EcosystemSourceExecutionQueueItem = {
+  id: string;
+  label: string;
+  priority: EcosystemSourceExecutionPriority;
+  sourceFamilyId: string;
+  sourceFamilyLabel: string;
+  sourceIds: string[];
+  count: number;
+  signalState: EcosystemSourceSignalMapItem["strongestState"];
+  laneIds: string[];
+  outputPath: string;
+  action: string;
+  guardrail: string;
+  acceptanceCriteria: string[];
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -900,6 +918,15 @@ function getSignalState(records: EcosystemSourceRecord[]): EcosystemSourceSignal
   return "cataloged";
 }
 
+function getExecutionPriority(
+  signalState: EcosystemSourceSignalMapItem["strongestState"]
+): EcosystemSourceExecutionPriority {
+  if (signalState === "live_evidence") return "now";
+  if (signalState === "callable") return "next";
+  if (signalState === "gated" || signalState === "blocked") return "blocked";
+  return "backlog";
+}
+
 function createSourceSignalMapItem(group: EcosystemSourceGroup): EcosystemSourceSignalMapItem {
   const records = ecosystemSourceFlatList.filter((source) => source.groupId === group.id);
   const strongestState = getSignalState(records);
@@ -1153,6 +1180,64 @@ export const ecosystemAggressiveDevelopmentLanes: EcosystemAggressiveDevelopment
     guardrail: "Do not query private datasets, financial accounts or paid sources just to increase activity."
   })
 ];
+
+function getLaneIdsForSourceIds(sourceIds: string[]): string[] {
+  const sourceSet = new Set(sourceIds);
+  return ecosystemAggressiveDevelopmentLanes
+    .filter((lane) => lane.sourceIds.some((sourceId) => sourceSet.has(sourceId)))
+    .map((lane) => lane.id)
+    .sort();
+}
+
+function getExecutionGuardrail(priority: EcosystemSourceExecutionPriority): string {
+  if (priority === "now") return "Use local evidence and read-only source outputs before any external write.";
+  if (priority === "next") return "Promote exactly one callable provider when a concrete portfolio task needs it.";
+  if (priority === "blocked") return "Stop at the blocker until user auth or provider connection setup changes.";
+  return "Keep visible in the backlog; do not bulk-invoke or install catalog-only providers.";
+}
+
+function createSourceExecutionQueueItem(
+  signal: EcosystemSourceSignalMapItem
+): EcosystemSourceExecutionQueueItem {
+  const priority = getExecutionPriority(signal.strongestState);
+  const sourceIds = getGroupSourceIds(signal.id);
+
+  return {
+    id: `${signal.id}-execution`,
+    label: `${signal.label} execution queue`,
+    priority,
+    sourceFamilyId: signal.id,
+    sourceFamilyLabel: signal.label,
+    sourceIds,
+    count: sourceIds.length,
+    signalState: signal.strongestState,
+    laneIds: getLaneIdsForSourceIds(sourceIds),
+    outputPath: "/api/source-execution-queue",
+    action: signal.action,
+    guardrail: getExecutionGuardrail(priority),
+    acceptanceCriteria: [
+      "Source family remains visible in /sources.",
+      "Machine-readable queue is available at /api/source-execution-queue.",
+      "No credentialed provider call is made by this queue.",
+      "Next work stays bounded to one source family or one local surface."
+    ]
+  };
+}
+
+const executionPriorityOrder: Record<EcosystemSourceExecutionPriority, number> = {
+  now: 0,
+  next: 1,
+  blocked: 2,
+  backlog: 3
+};
+
+export const ecosystemSourceExecutionQueue: EcosystemSourceExecutionQueueItem[] = ecosystemSourceSignalMap
+  .map(createSourceExecutionQueueItem)
+  .sort((left, right) =>
+    executionPriorityOrder[left.priority] - executionPriorityOrder[right.priority] ||
+    right.count - left.count ||
+    left.label.localeCompare(right.label)
+  );
 
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
@@ -1600,10 +1685,11 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 12,
+    count: 13,
     sourceIds: [
       "source-package",
       "source-signal-map",
+      "source-execution-queue",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1617,6 +1703,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-execution-queue-json",
+    label: "Source execution queue JSON",
+    artifactType: "api",
+    path: "/api/source-execution-queue",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceExecutionQueue.length,
+    sourceIds: ecosystemSourceExecutionQueue.map((item) => item.id),
+    purpose: "Turn source family signals into now, next, blocked and backlog execution items.",
+    guardrail: "Queue safe local work only; do not perform credentialed provider actions."
   },
   {
     id: "source-signal-map-json",
@@ -1878,6 +1975,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-execution-queue-api",
+    label: "Source execution queue API",
+    path: "/api/source-execution-queue",
+    role: "Prioritized execution queue generated from source family signals and aggressive development lanes.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -1971,6 +2075,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     count: ecosystemSourceSignalMap.length,
     purpose: "Shows every plugin family as a compact readiness and action map.",
     useWhen: "Use this when deciding which source family should drive the next aggressive portfolio pass."
+  },
+  {
+    id: "source-execution-queue",
+    label: "Source execution queue",
+    format: "json",
+    path: "/api/source-execution-queue",
+    status: "primary",
+    sourceIds: ecosystemSourceExecutionQueue.map((item) => item.id),
+    count: ecosystemSourceExecutionQueue.length,
+    purpose: "Converts source signals into a prioritized local execution queue.",
+    useWhen: "Use this when continuing aggressive development and choosing the next bounded source-family action."
   },
   {
     id: "source-proof",
@@ -2103,6 +2218,7 @@ export const ecosystemSourceOutputManifest = {
   proofCardCount: ecosystemSourceProofCards.length,
   aiHelperLaneCount: ecosystemAiHelperLanes.length,
   sourceSignalMapCount: ecosystemSourceSignalMap.length,
+  sourceExecutionQueueCount: ecosystemSourceExecutionQueue.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

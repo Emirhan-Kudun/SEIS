@@ -17,6 +17,8 @@ write-capable actions.
   source routing, runtime, MCP, GitHub and deployment status.
 - `/api/source-signal-map`: derived signal map for each plugin family,
   including invoked, callable, blocked, auth-gated and manifest-only counts.
+- `/api/source-execution-queue`: prioritized now, next, blocked and backlog
+  queue generated from source-family signals and aggressive sprint lanes.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -83,6 +85,19 @@ source family reports:
 
 Use this when deciding which plugin family should drive the next aggressive but
 bounded development pass.
+
+The `/api/source-execution-queue` endpoint turns the signal map into a bounded
+execution queue. It reports:
+
+- `now`: source families with live evidence or the strongest local signal,
+- `next`: callable families that should be promoted one concrete task at a
+  time,
+- `blocked`: auth, reauth or provider-connection gates,
+- `backlog`: cataloged families that remain visible but should not be bulk-run.
+
+The queue does not execute provider calls. It gives the next safe source-family
+action, the linked aggressive sprint lanes, the guardrail and acceptance
+criteria for a reversible local pass.
 
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
@@ -170,6 +185,7 @@ open or download?". It indexes:
 
 - the complete source package,
 - the source signal map,
+- the source execution queue,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -233,6 +249,7 @@ after a GitHub publish. It aggregates:
 
 - source counts and aggressive development lanes,
 - source signal map entries,
+- source execution queue entries,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

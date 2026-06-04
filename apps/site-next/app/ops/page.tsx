@@ -6,6 +6,7 @@ import {
   ecosystemAiHelperLanes,
   ecosystemOutputSurfaces,
   ecosystemSourceExportIndex,
+  ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
   polyglotSourceContracts
@@ -24,6 +25,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const apiLinks = [
   "/api/ops-command-center",
+  "/api/source-execution-queue",
   "/api/source-signal-map",
   "/api/aggressive-development-plan",
   "/api/source-package",
@@ -44,6 +46,7 @@ export default function OpsPage() {
   const metrics = [
     { label: "Plugin sources", value: ecosystemSourceTotal, detail: "complete source ledger" },
     { label: "Signal groups", value: ecosystemSourceSignalMap.length, detail: "source family map" },
+    { label: "Queue items", value: ecosystemSourceExecutionQueue.length, detail: "bounded next actions" },
     { label: "Aggressive lanes", value: ecosystemAggressiveDevelopmentLanes.length, detail: "governed sprint map" },
     { label: "Runtime ready", value: `${runtime.summary.active + runtime.summary.configured}/${runtime.summary.total}`, detail: "connectors + skills" },
     { label: "Deploy ready", value: `${activeDeploymentTargets.length}/${deploymentTargets.length}`, detail: "publish targets" },
