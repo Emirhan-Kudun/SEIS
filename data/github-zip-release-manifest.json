@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-06-04T20:37:53.724Z",
+  "sourceArchive": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github.zip",
+  "repository": "emirhankudun-ux/github-unified-source",
+  "branch": "full-icloud-archive-20260604",
+  "releaseTag": "icloud-github-zip-20260604",
+  "releaseUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/tag/icloud-github-zip-20260604",
+  "partCount": 9,
+  "totalBytes": 16500481948,
+  "parts": [
+    {
+      "name": "Github.zip.part-aa",
+      "bytes": 1887436800,
+      "sha256": "cac03c293f97b79b932f4e4e959075654103db5f51780ce3beb5bd81a6e5f4ff",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-aa"
+    },
+    {
+      "name": "Github.zip.part-ab",
+      "bytes": 1887436800,
+      "sha256": "8d9b38b4eee2ea3bc8b4ee406494897f43aa976797a88bb06141be7aa1963aa6",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ab"
+    },
+    {
+      "name": "Github.zip.part-ac",
+      "bytes": 1887436800,
+      "sha256": "f0c79e35141c4789162da4531ad7539e5ede7f89937c1f71dced17c24d415b5f",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ac"
+    },
+    {
+      "name": "Github.zip.part-ad",
+      "bytes": 1887436800,
+      "sha256": "26c6449fa40a6930e5ef7a3d27e228c74888ec962d3c1cb6fd3efefbb1e8012b",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ad"
+    },
+    {
+      "name": "Github.zip.part-ae",
+      "bytes": 1887436800,
+      "sha256": "29ebba1540d9f70877fe141914e1725ced2b67f95a608b72f97833150cb828be",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ae"
+    },
+    {
+      "name": "Github.zip.part-af",
+      "bytes": 1887436800,
+      "sha256": "da73fa5588083409beb96f5274895fc9ac868dbc66b31a919ecd992e123a2b2f",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-af"
+    },
+    {
+      "name": "Github.zip.part-ag",
+      "bytes": 1887436800,
+      "sha256": "e7248166304d50cf9560d0f742e79b9e95a0a8d124d9c045e43771ff2d2e62fa",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ag"
+    },
+    {
+      "name": "Github.zip.part-ah",
+      "bytes": 1887436800,
+      "sha256": "68d4f268c46f5e0f16de2c4f0581d5f3db8c022c8feeda9d336c1d0dcd9aedf0",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ah"
+    },
+    {
+      "name": "Github.zip.part-ai",
+      "bytes": 1400987548,
+      "sha256": "bd29c00a401ef7cb5878a82fad64fd099ba0fa5cc3dab3c7f016a34ffc865284",
+      "releaseDownloadUrl": "https://github.com/emirhankudun-ux/github-unified-source/releases/download/icloud-github-zip-20260604/Github.zip.part-ai"
+    }
+  ]
+}
