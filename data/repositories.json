@@ -1,0 +1,95 @@
+{
+  "owner": "emirhankudun-ux",
+  "generatedAt": "2026-06-04T00:00:00+03:00",
+  "sourceCommand": "gh repo list emirhankudun-ux --limit 1000 --json nameWithOwner,isPrivate,isArchived,isFork,url,defaultBranchRef,updatedAt",
+  "repositories": [
+    {
+      "name": "DeepSeek-Coder",
+      "nameWithOwner": "emirhankudun-ux/DeepSeek-Coder",
+      "url": "https://github.com/emirhankudun-ux/DeepSeek-Coder",
+      "visibility": "public",
+      "state": "active",
+      "kind": "fork",
+      "defaultBranch": "main",
+      "updatedAt": "2026-05-17T09:37:58Z",
+      "localSource": "../../DeepSeek-Coder"
+    },
+    {
+      "name": "UIX-Apps",
+      "nameWithOwner": "emirhankudun-ux/UIX-Apps",
+      "url": "https://github.com/emirhankudun-ux/UIX-Apps",
+      "visibility": "public",
+      "state": "active",
+      "kind": "source",
+      "defaultBranch": "UIXAppTTR",
+      "updatedAt": "2026-06-04T14:11:17Z",
+      "localSource": "../../UIX-Apps"
+    },
+    {
+      "name": "awesome-deepseek-agent",
+      "nameWithOwner": "emirhankudun-ux/awesome-deepseek-agent",
+      "url": "https://github.com/emirhankudun-ux/awesome-deepseek-agent",
+      "visibility": "public",
+      "state": "active",
+      "kind": "fork",
+      "defaultBranch": "main",
+      "updatedAt": "2026-05-17T09:37:35Z",
+      "localSource": "../../awesome-deepseek-agent"
+    },
+    {
+      "name": "claude-code",
+      "nameWithOwner": "emirhankudun-ux/claude-code",
+      "url": "https://github.com/emirhankudun-ux/claude-code",
+      "visibility": "public",
+      "state": "active",
+      "kind": "fork",
+      "defaultBranch": "main",
+      "updatedAt": "2026-05-17T09:38:33Z",
+      "localSource": "../../claude-code"
+    },
+    {
+      "name": "docs",
+      "nameWithOwner": "emirhankudun-ux/docs",
+      "url": "https://github.com/emirhankudun-ux/docs",
+      "visibility": "public",
+      "state": "active",
+      "kind": "source",
+      "defaultBranch": "main",
+      "updatedAt": "2026-05-19T16:11:49Z",
+      "localSource": "../../docs"
+    },
+    {
+      "name": "emirhan-kudun-portfolio",
+      "nameWithOwner": "emirhankudun-ux/emirhan-kudun-portfolio",
+      "url": "https://github.com/emirhankudun-ux/emirhan-kudun-portfolio",
+      "visibility": "private",
+      "state": "active",
+      "kind": "source",
+      "defaultBranch": "codex/seis-ux-cinematic-premium-foundation",
+      "updatedAt": "2026-06-04T14:31:34Z",
+      "localSource": "../../Website/emirhan-kudun-portfolio"
+    },
+    {
+      "name": "gemini-cli",
+      "nameWithOwner": "emirhankudun-ux/gemini-cli",
+      "url": "https://github.com/emirhankudun-ux/gemini-cli",
+      "visibility": "public",
+      "state": "active",
+      "kind": "fork",
+      "defaultBranch": "main",
+      "updatedAt": "2026-05-17T19:13:04Z",
+      "localSource": "../../gemini-cli"
+    },
+    {
+      "name": "seis-trusted-marketplace-plugin",
+      "nameWithOwner": "emirhankudun-ux/seis-trusted-marketplace-plugin",
+      "url": "https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin",
+      "visibility": "private",
+      "state": "active",
+      "kind": "source",
+      "defaultBranch": "main",
+      "updatedAt": "2026-06-04T14:09:24Z",
+      "localSource": "./repositories/seis-trusted-marketplace-plugin"
+    }
+  ]
+}
