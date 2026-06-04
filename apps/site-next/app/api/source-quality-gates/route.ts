@@ -3,6 +3,7 @@ import {
   ecosystemSourceActionPackets,
   ecosystemSourceOutputManifest,
   ecosystemSourceQualityGates,
+  ecosystemSourceRunbook,
   ecosystemSourceTotal
 } from "@seis/content";
 
@@ -24,9 +25,11 @@ export function GET() {
       actionPackets: ecosystemSourceActionPackets.length,
       boardColumns: ecosystemSourceActionBoard.columns.length,
       qualityGates: ecosystemSourceQualityGates.length,
+      runbookSteps: ecosystemSourceRunbook.steps.length,
       requiredGateCount,
       recommendedGateCount
     },
+    runbookHandoff: "/api/source-runbook",
     gates: ecosystemSourceQualityGates
   });
 }

@@ -8,6 +8,7 @@ import {
   ecosystemSourceActionBoard,
   ecosystemSourceActionPackets,
   ecosystemSourceQualityGates,
+  ecosystemSourceRunbook,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -29,6 +30,7 @@ const sourceApiLinks = [
   "/api/source-action-board",
   "/api/source-action-packets",
   "/api/source-quality-gates",
+  "/api/source-runbook",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -48,6 +50,7 @@ export default function SourcesPage() {
     { label: "Board columns", value: ecosystemSourceActionBoard.columns.length, detail: "priority control" },
     { label: "Action packets", value: ecosystemSourceActionPackets.length, detail: "agent-ready handoff" },
     { label: "Quality gates", value: ecosystemSourceQualityGates.length, detail: "local validation" },
+    { label: "Runbook steps", value: ecosystemSourceRunbook.steps.length, detail: "safe sequence" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -124,6 +127,27 @@ export default function SourcesPage() {
                 <p>{column.nextMove}</p>
                 <small>{column.leadingPacketId || "no active packet"}</small>
                 <em>{column.riskNote}</em>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="source-runbook-section" aria-label="Source aggressive runbook">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Runbook</p>
+              <h2>Ordered execution sequence for the next aggressive source pass.</h2>
+            </div>
+            <p>{ecosystemSourceRunbook.operatingRule}</p>
+          </div>
+          <div className="source-runbook-list">
+            {ecosystemSourceRunbook.steps.map((step) => (
+              <article className="source-runbook-card" data-phase={step.phase} key={step.id}>
+                <span>{step.order} / {step.phase}</span>
+                <h3>{step.label}</h3>
+                <code>{step.command}</code>
+                <p>{step.expectedSignal}</p>
+                <small>{step.gateIds.length} gates / {step.handoffPath}</small>
               </article>
             ))}
           </div>

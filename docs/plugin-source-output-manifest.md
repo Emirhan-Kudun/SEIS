@@ -26,6 +26,8 @@ write-capable actions.
   including leading next moves and risk notes.
 - `/api/source-quality-gates`: validation gate map for aggressive source work,
   including commands, pass signals and failure responses.
+- `/api/source-runbook`: ordered runbook for clean-branch preflight,
+  implementation, validation and GitHub publish.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -146,6 +148,20 @@ failure response for each gate:
 These gates are local validation contracts. They do not authenticate providers,
 read private workspaces or execute external writes.
 
+The `/api/source-runbook` endpoint turns the board and quality gates into an
+ordered execution sequence:
+
+- confirm the branch and clean working tree,
+- read the action board and leading packet,
+- edit one bounded source surface,
+- run required quality gates,
+- run recommended content/runtime and smoke checks,
+- commit, preflight and push only when clean.
+
+Use the runbook as the main handoff when another agent continues aggressive
+source development. It explains where to stop before credentialed providers,
+paid media, private workspaces or force pushes.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -236,6 +252,7 @@ open or download?". It indexes:
 - the source action packets,
 - the source action board,
 - the source quality gates,
+- the source runbook,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -303,6 +320,7 @@ after a GitHub publish. It aggregates:
 - source action packets for agent handoff,
 - source action board columns for operator control,
 - source quality gates for validation control,
+- source runbook steps for ordered execution,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

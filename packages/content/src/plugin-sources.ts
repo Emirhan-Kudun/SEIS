@@ -299,6 +299,28 @@ export type EcosystemSourceQualityGate = {
   failureResponse: string;
 };
 
+export type EcosystemSourceRunbookStep = {
+  id: string;
+  label: string;
+  order: number;
+  phase: "preflight" | "contract" | "implementation" | "validation" | "publish";
+  gateIds: string[];
+  command: string;
+  expectedSignal: string;
+  stopRule: string;
+  handoffPath: string;
+};
+
+export type EcosystemSourceRunbook = {
+  id: string;
+  label: string;
+  packetId: string | null;
+  boardPath: string;
+  qualityGatePath: string;
+  steps: EcosystemSourceRunbookStep[];
+  operatingRule: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1530,6 +1552,83 @@ export const ecosystemSourceQualityGates: EcosystemSourceQualityGate[] = [
   }
 ];
 
+export const ecosystemSourceRunbook: EcosystemSourceRunbook = {
+  id: "source-aggressive-runbook",
+  label: "Source aggressive runbook",
+  packetId: ecosystemSourceActionBoard.nextPacketId,
+  boardPath: ecosystemSourceActionBoard.handoffPath,
+  qualityGatePath: "/api/source-quality-gates",
+  operatingRule: "Start from the board, work the leading now packet, run required gates first, then publish only after preflight is clean.",
+  steps: [
+    {
+      id: "confirm-clean-branch",
+      label: "Confirm clean branch and source target",
+      order: 1,
+      phase: "preflight",
+      gateIds: [],
+      command: "git status --short --branch",
+      expectedSignal: "Branch is codex/seis-ux-cinematic-premium-foundation and unrelated dirty files are absent.",
+      stopRule: "Stop and report unrelated dirty files before editing.",
+      handoffPath: "/api/source-runbook"
+    },
+    {
+      id: "read-action-board",
+      label: "Read action board and leading packet",
+      order: 2,
+      phase: "contract",
+      gateIds: ["source-smoke-gate"],
+      command: "fetch /api/source-action-board",
+      expectedSignal: "Board returns the leading now packet and operating rule.",
+      stopRule: "Stop if the board route is unavailable or nextPacketId is empty.",
+      handoffPath: "/api/source-action-board"
+    },
+    {
+      id: "edit-bounded-source-surface",
+      label: "Edit one bounded source surface",
+      order: 3,
+      phase: "implementation",
+      gateIds: [],
+      command: "apply one reversible content/API/UI/docs change",
+      expectedSignal: "The change is visible in /sources and represented in a machine-readable API.",
+      stopRule: "Stop before provider authentication, paid media, external project creation or private workspace reads.",
+      handoffPath: "/sources"
+    },
+    {
+      id: "run-required-gates",
+      label: "Run required source quality gates",
+      order: 4,
+      phase: "validation",
+      gateIds: ["content-typecheck-gate", "site-next-typecheck-gate", "source-boundary-gate", "lint-gate"],
+      command: "npx tsc -p packages/content/tsconfig.json --noEmit && npx tsc -p apps/site-next/tsconfig.json --noEmit && npm run check:source-boundaries && npm run lint",
+      expectedSignal: "Required type, source boundary and lint gates pass.",
+      stopRule: "Stop and fix the first failing gate before any commit.",
+      handoffPath: "/api/source-quality-gates"
+    },
+    {
+      id: "run-recommended-gates",
+      label: "Run recommended content/runtime and smoke checks",
+      order: 5,
+      phase: "validation",
+      gateIds: ["content-runtime-gate", "source-smoke-gate"],
+      command: "npm run check:content && npm run check:runtime && fetch /api/source-runbook",
+      expectedSignal: "Content/runtime checks pass and runbook route returns the updated handoff.",
+      stopRule: "Report any local preview blocker separately from code validation.",
+      handoffPath: "/api/source-runbook"
+    },
+    {
+      id: "publish-after-preflight",
+      label: "Commit, preflight and push",
+      order: 6,
+      phase: "publish",
+      gateIds: [],
+      command: "git commit, npm run github:preflight, git push origin codex/seis-ux-cinematic-premium-foundation",
+      expectedSignal: "Preflight reports ready=true and GitHub accepts the branch push.",
+      stopRule: "Never force push; report fetch-first, auth or vulnerability warnings separately.",
+      handoffPath: "GitHub origin branch"
+    }
+  ]
+};
+
 export const ecosystemPluginInstallPlan: EcosystemPluginInstallPlan[] = [
   {
     id: "already-available-session-capabilities",
@@ -1976,7 +2075,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 16,
+    count: 17,
     sourceIds: [
       "source-package",
       "source-signal-map",
@@ -1984,6 +2083,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
       "source-action-packets",
       "source-action-board",
       "source-quality-gates",
+      "source-runbook",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -1997,6 +2097,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-runbook-json",
+    label: "Source aggressive runbook JSON",
+    artifactType: "api",
+    path: "/api/source-runbook",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceRunbook.steps.length,
+    sourceIds: ecosystemSourceRunbook.steps.map((step) => step.id),
+    purpose: "Publish the ordered preflight, implementation, validation and publish steps for aggressive source work.",
+    guardrail: "Runbook coordinates local validation and GitHub publish only; external provider writes remain out of scope."
   },
   {
     id: "source-quality-gates-json",
@@ -2330,6 +2441,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-runbook-api",
+    label: "Source aggressive runbook API",
+    path: "/api/source-runbook",
+    role: "Ordered runbook for preflight, implementation, validation and GitHub publish of bounded source work.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2469,6 +2587,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     useWhen: "Use this before committing or asking another helper to continue aggressive source development."
   },
   {
+    id: "source-runbook",
+    label: "Source aggressive runbook",
+    format: "json",
+    path: "/api/source-runbook",
+    status: "primary",
+    sourceIds: ecosystemSourceRunbook.steps.map((step) => step.id),
+    count: ecosystemSourceRunbook.steps.length,
+    purpose: "Orders source work from clean-branch preflight through validation and GitHub publish.",
+    useWhen: "Use this when continuing aggressive development and needing the exact safe execution sequence."
+  },
+  {
     id: "source-proof",
     label: "Sources proof",
     format: "json",
@@ -2603,6 +2732,7 @@ export const ecosystemSourceOutputManifest = {
   sourceActionPacketCount: ecosystemSourceActionPackets.length,
   sourceActionBoardColumnCount: ecosystemSourceActionBoard.columns.length,
   sourceQualityGateCount: ecosystemSourceQualityGates.length,
+  sourceRunbookStepCount: ecosystemSourceRunbook.steps.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

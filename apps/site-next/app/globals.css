@@ -1931,6 +1931,7 @@ summary:focus-visible {
 .ops-target-grid,
 .ops-export-grid,
 .source-board-grid,
+.source-runbook-list,
 .source-quality-grid,
 .source-action-grid,
 .source-signal-grid {
@@ -1998,6 +1999,12 @@ summary:focus-visible {
   padding-top: clamp(1.2rem, 3vw, 2rem);
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-runbook-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -2005,6 +2012,9 @@ summary:focus-visible {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .source-quality-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.source-runbook-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .source-action-grid {
@@ -2024,6 +2034,7 @@ summary:focus-visible {
 .ops-api-panel,
 .source-api-dock,
 .source-board-card,
+.source-runbook-card,
 .source-quality-card,
 .source-action-card,
 .source-execution-card,
@@ -2060,6 +2071,8 @@ summary:focus-visible {
 .ops-export-card span,
 .source-board-card span,
 .source-board-card small,
+.source-runbook-card span,
+.source-runbook-card small,
 .source-quality-card span,
 .source-quality-card small,
 .source-action-card span,
@@ -2079,6 +2092,7 @@ summary:focus-visible {
 .ops-target-card h3,
 .ops-export-card h3,
 .source-board-card h3,
+.source-runbook-card h3,
 .source-quality-card h3,
 .source-action-card h3,
 .source-execution-card h3,
@@ -2101,6 +2115,7 @@ summary:focus-visible {
 .ops-api-panel p,
 .source-api-dock p,
 .source-board-card p,
+.source-runbook-card p,
 .source-quality-card p,
 .source-action-card p,
 .source-execution-card p,
@@ -2114,6 +2129,7 @@ summary:focus-visible {
   align-content: start;
 }
 .source-board-card,
+.source-runbook-card,
 .source-quality-card,
 .source-action-card,
 .source-execution-card {
@@ -2136,6 +2152,7 @@ summary:focus-visible {
 }
 .ops-target-card code,
 .ops-export-card code,
+.source-runbook-card code,
 .source-quality-card code {
   color: var(--accent-2);
   font-family: var(--font-mono), monospace;
@@ -3465,6 +3482,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-board-grid,
+  .source-runbook-list,
   .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
@@ -3578,6 +3596,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-board-grid,
+  .source-runbook-list,
   .source-quality-grid,
   .source-action-grid,
   .source-execution-grid,
