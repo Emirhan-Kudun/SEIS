@@ -14,6 +14,7 @@ All project discovery, governance, migration records, branch consolidation plann
 - Migration audit: [`docs/github-branch-migration-audit.md`](./docs/github-branch-migration-audit.md)
 - Branch migration runner: [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh)
 - Repository depot runner: [`scripts/migrate-repositories-to-seis-depot.sh`](./scripts/migrate-repositories-to-seis-depot.sh)
+- Codex plugin guide: [`docs/seis-codex-plugin.md`](./docs/seis-codex-plugin.md)
 
 ## Repository Policy
 
@@ -40,6 +41,7 @@ Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Ke
 - connector and MCP capability registry
 - trusted marketplace intake for GitHub, MCP, Copilot, and model sources
 - local SEIS Trusted Marketplace plugin bridge for the `UIXAppTTR` branch
+- local SEIS Codex plugin workflow for repository and plugin development
 - release refresh support without dependency bloat
 - GitHub repository consolidation audit and migration scripts
 - centralized source tracking branches under `sources/<repo>/<branch>`
