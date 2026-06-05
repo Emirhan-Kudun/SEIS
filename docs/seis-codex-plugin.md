@@ -10,6 +10,7 @@ The local `seis` Codex plugin connects Codex work back to the canonical SEIS rep
 |---|---|
 | Plugin name | `seis` |
 | Local plugin root | `/Users/emirhankudun/plugins/seis` |
+| SEIS source mirror | `plugins/seis` |
 | Personal marketplace | `/Users/emirhankudun/.agents/plugins/marketplace.json` |
 | Installed plugin | `seis@personal` |
 | Installed cache root | `/Users/emirhankudun/.codex/plugins/cache/personal/seis/0.1.0` |
@@ -47,6 +48,10 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/update_
 ```
 
 Start a new Codex thread after reinstalling so new skills and tools are picked up.
+
+## Source Sync
+
+Develop locally in `/Users/emirhankudun/plugins/seis`, then mirror stable plugin source into SEIS under `plugins/seis` so the canonical repository keeps the plugin history.
 
 ## Next Development Targets
 
