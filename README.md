@@ -1,0 +1,83 @@
+# UI-UX Digital Lab Workspace
+
+This workspace is the operational core for a low-pressure, high-efficiency UI/UX
+development loop.
+
+## What Is Included
+
+- governance-first automation scripts
+- a lightweight cinematic web foundation
+- a gap closure register
+- provider-neutral cloud environment contracts
+- connector and MCP capability registry
+- trusted marketplace intake for GitHub, MCP, Copilot, and model sources
+- local SEIS Trusted Marketplace plugin bridge for the `UIXAppTTR` branch
+- release refresh support without dependency bloat
+
+## Quick Start
+
+```bash
+npm run automation:develop
+```
+
+## Core Commands
+
+```bash
+npm run check:workspace
+npm run check:release-sync
+npm run check:ai-stack
+npm run check:cloud-environment
+npm run check:monthly-branch-hardening
+npm run check:trusted-marketplace-intake
+npm run check:seis-trusted-marketplace-plugin
+npm run automation:code-plan
+npm run automation:server-cloud-report
+npm run automation:refresh-release
+npm run automation:publish-readiness
+```
+
+Cloud and connector contracts live in `deploy/cloud-environment.json` and
+`content/development/connector-capability-registry.json`. The trusted
+marketplace intake lives in
+`content/development/trusted-marketplace-intake.json`. Together they keep
+GitHub, server upload, cloud provider selection, MCP/connector usage,
+marketplace curation, and rollback rules explicit before any credentialed
+remote action.
+
+The local Codex plugin bridge is documented in
+`content/development/seis-trusted-marketplace-plugin.json` and
+`docs/development/seis-trusted-marketplace-plugin.md`. It binds the personal
+`seis-trusted-marketplace` plugin to the `UIXAppTTR` repo workflow without
+turning local plugin readiness into an automatic public publish.
+
+The current monthly hardening plan lives in
+`content/development/monthly-branch-hardening.json` and
+`docs/development/monthly-branch-hardening.md`. It keeps the active strategy
+explicit: strengthen the `UIXAppTTR` repo and branch first, then expand the
+plugin on top of validated repo contracts.
+
+## AI CLI Router
+
+Use one workspace command to switch between installed AI tools:
+
+```bash
+npm run ai -- list
+npm run ai -- auto "local coding assistant"
+npm run ai -- auto "local coding assistant" :: --version
+npm run ai -- codex
+npm run ai -- claude
+npm run ai -- gemini
+npm run ai -- ollama
+npm run ai -- kimi
+npm run ai -- aider
+npm run ai -- interpreter
+```
+
+Reference: `docs/development/ai-cli-stack.md` and `scripts/ai-routing-policy.cjs`
+
+## Safety Rules
+
+- no automatic push
+- no automatic deploy
+- no heavy local process by default
+- reduced-motion support is mandatory
