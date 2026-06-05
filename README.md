@@ -14,6 +14,35 @@ development loop.
 - local SEIS Trusted Marketplace plugin bridge for the `UIXAppTTR` branch
 - release refresh support without dependency bloat
 
+---
+
+## 🎯 SEIS Hub - Tüm Projeler
+
+SEIS, aşağıdaki tüm projelerin merkezi deposu ve yönetim hub'ıdır.
+
+### 🤖 AI & Yapay Zeka Araçları
+- **[gemini-cli](https://github.com/emirhankudun-ux/gemini-cli)** - Gemini AI'ı doğrudan terminalinizde kullanın
+- **[claude-code](https://github.com/emirhankudun-ux/claude-code)** - Claude Code ile hızlı kod yazımı ve refactoring
+
+### 🎨 UI & Uygulamalar  
+- **[UIX-Apps](https://github.com/emirhankudun-ux/UIX-Apps)** - Kullanıcı arayüzü uygulamaları ve bileşenleri
+- **[emirhan-kudun-portfolio](https://github.com/emirhankudun-ux/emirhan-kudun-portfolio)** - Premium UX portföy sistemi
+
+### 📚 Belgeler & Kaynaklar
+- **[docs](https://github.com/emirhankudun-ux/docs)** - SEIS ve tüm projeler için belgelendirme
+- **[github-unified-source](https://github.com/emirhankudun-ux/github-unified-source)** - Unified GitHub kaynak envanteri
+
+### 🛠️ Governance & Plugin
+- **[seis-trusted-marketplace-plugin](https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin)** - Codex marketplace yönetimi
+
+### 📦 Model & Koleksiyonlar
+- **[DeepSeek-Coder](https://github.com/emirhankudun-ux/DeepSeek-Coder)** - DeepSeek kod modeli (Arşiv)
+- **[awesome-deepseek-agent](https://github.com/emirhankudun-ux/awesome-deepseek-agent)** - DeepSeek agent koleksiyonu (Arşiv)
+
+📖 **Detaylı liste için:** [`PROJECTS.md`](./PROJECTS.md)
+
+---
+
 ## Quick Start
 
 ```bash
