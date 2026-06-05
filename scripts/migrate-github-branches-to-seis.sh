@@ -71,9 +71,9 @@ for repo in "${SOURCE_REPOS[@]}"; do
     target_ref="refs/heads/sources/${repo}/${branch}"
 
     if [[ "$DRY_RUN" == "1" ]]; then
-      echo "Would push ${repo}/${branch} -> ${target_ref} (${sha})"
+      echo "Would force-update ${repo}/${branch} -> ${target_ref} (${sha})"
     else
-      git -C "$mirror" push origin "${sha}:${target_ref}"
+      git -C "$mirror" push origin "+${sha}:${target_ref}"
     fi
   done < <(git -C "$mirror" for-each-ref --format='%(refname:lstrip=3) %(objectname)' "refs/remotes/${remote_name}")
 done
