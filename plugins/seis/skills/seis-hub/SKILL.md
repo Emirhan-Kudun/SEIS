@@ -25,6 +25,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
 4. Do not delete source repositories until `sources/<repo>/<branch>` refs and `repositories/<repo>` snapshots are verified in SEIS.
 5. For plugin changes, validate the plugin before reporting completion.
 6. For marketplace-backed plugin updates, use the cachebuster/reinstall flow instead of hand-editing marketplace entries.
+7. Prefer OpenAI/Codex plugin families for core SEIS work: `openai-curated`, `openai-bundled`, and `openai-primary-runtime`.
 
 ## Development Workflow
 
@@ -72,6 +73,18 @@ When source repositories are missing or branch visibility is confusing, make `ma
 ## Installed Plugin Rule
 
 Use installed and enabled plugins first. Record plugin availability in SEIS instead of assuming every mentioned plugin URI is installed. Keep platform lanes mapped to real installed plugins under `data/installed-codex-plugins-2026-06-05.json` and `docs/platform/installed-plugin-operating-model.md`.
+
+## OpenAI-First Plugin Rule
+
+For SEIS core workflows, route Design, Developer Tools, Productivity, Research, and Security work to OpenAI/Codex plugin families first:
+
+- Design: Build Web Apps, Browser, Chrome, Figma, Canva, MagicPath, Wix, Base44, Hostinger, Replit, Lovable.
+- Developer tools: GitHub, CodeRabbit, CircleCI, Cloudflare, Vercel, Netlify, Supabase, Neon Postgres, Convex, Render, Temporal, OpenAI Developers.
+- Productivity: Google Drive, Google Calendar, Gmail, Slack, Teams, SharePoint, Outlook, Notion, Box, Documents, Spreadsheets, Presentations, Linear, Atlassian Rovo, Asana.
+- Research: Hugging Face, Life Science Research, Zotero, Scite, NGS Analysis, Deepnote, Quartr, FactSet, LSEG, S&P, Morningstar.
+- Security: Codex Security, Sentry, Datadog, CodeRabbit, Jam, Semrush, Conductor, Statsig.
+
+Use non-OpenAI or non-installed plugin URI families only when the OpenAI/Codex route cannot satisfy the request or the user explicitly asks for that provider.
 
 ## Deletion Gate
 
