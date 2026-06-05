@@ -145,6 +145,26 @@ export default function SourcesPage() {
               <small>local gates</small>
             </article>
           </div>
+          <div className="source-continuation-rail">
+            <article className="source-continuation-card">
+              <span>Stop rules</span>
+              <strong>{ecosystemSourceContinuationBrief.stopRules.length}</strong>
+              <p>{ecosystemSourceContinuationBrief.stopRules.slice(0, 2).join(" / ")}</p>
+              <small>{ecosystemSourceContinuationBrief.guardrail}</small>
+            </article>
+            <article className="source-continuation-card">
+              <span>Evidence</span>
+              <strong>{ecosystemSourceContinuationBrief.evidencePaths.length}</strong>
+              <p>{ecosystemSourceContinuationBrief.evidencePaths.join(" / ")}</p>
+              <small>review surfaces</small>
+            </article>
+            <article className="source-continuation-card">
+              <span>Publish</span>
+              <strong>preflight</strong>
+              <p>{ecosystemSourceContinuationBrief.publishCommand}</p>
+              <small>branch-safe handoff</small>
+            </article>
+          </div>
         </section>
 
         <section className="source-execution-section" aria-label="Source execution queue">

@@ -1932,6 +1932,7 @@ summary:focus-visible {
 .ops-export-grid,
 .source-digest-grid,
 .source-continuation-grid,
+.source-continuation-rail,
 .source-board-grid,
 .source-runbook-list,
 .source-receipt-grid,
@@ -2035,6 +2036,10 @@ summary:focus-visible {
 }
 .source-continuation-grid {
   grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.8fr));
+}
+.source-continuation-rail {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.65rem;
 }
 .source-board-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3536,6 +3541,7 @@ summary:focus-visible {
   .source-api-dock,
   .source-digest-grid,
   .source-continuation-grid,
+  .source-continuation-rail,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,
@@ -3653,6 +3659,7 @@ summary:focus-visible {
   .source-api-dock,
   .source-digest-grid,
   .source-continuation-grid,
+  .source-continuation-rail,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,
