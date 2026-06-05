@@ -20,6 +20,7 @@
       "start": "2026-06-08T10:00:00+03:00",
       "end": "2026-06-08T11:00:00+03:00",
       "timezone": "Europe/Istanbul",
+      "recurrence": "RRULE:FREQ=WEEKLY;COUNT=12",
       "url": "https://www.google.com/calendar/event?eid=ZWg5djhtamRjdHZjaGY2aTljczRqMDJkZjQgZW1pcmhhbmt1ZHVuQG0"
     }
   },
