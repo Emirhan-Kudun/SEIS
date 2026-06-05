@@ -4,14 +4,23 @@
   "canonical_repository": "emirhankudun-ux/SEIS",
   "canonical_default_branch": "UIXAppTTR",
   "canonical_status": "general_github_center_and_general_depot",
-  "strategy": "Use SEIS as the canonical GitHub hub and general repository. Preserve source history under namespaced refs sources/<repo>/<branch> once git push authentication is available.",
+  "strategy": "Use SEIS as the canonical GitHub hub and general repository. Source branch names are centralized under sources/<repo>/<branch>. Preserve full source history under those refs once git push authentication is available.",
   "github_setup_completed": {
     "seis_readme_declares_canonical_hub": true,
     "project_registry_updated": true,
+    "branch_registry_added": true,
     "central_runbook_added": true,
     "migration_audit_added": true,
     "migration_runner_added": true,
-    "source_repository_markers_added": true
+    "source_repository_markers_added": true,
+    "source_tracking_refs_created": true
+  },
+  "source_tracking_refs": {
+    "count": 26,
+    "registry": "BRANCHES.md",
+    "ref_pattern": "refs/heads/sources/<repo>/<branch>",
+    "status": "created_as_seis_tracking_refs",
+    "history_status": "full source history pending authenticated git push"
   },
   "repository_actions": [
     {
@@ -22,6 +31,7 @@
       "central_files": [
         "README.md",
         "PROJECTS.md",
+        "BRANCHES.md",
         "docs/seis-canonical-github-hub.md",
         "docs/github-branch-migration-audit.md",
         "scripts/migrate-github-branches-to-seis.sh"
@@ -102,6 +112,7 @@
   ],
   "automation": {
     "migration_script": "scripts/migrate-github-branches-to-seis.sh",
+    "branch_registry": "BRANCHES.md",
     "audit_document": "docs/github-branch-migration-audit.md",
     "runbook": "docs/seis-canonical-github-hub.md",
     "dry_run_default": true,
@@ -112,7 +123,7 @@
     ]
   },
   "blocked_operations": [
-    "Whole repository deletion is not available through the current GitHub connector tools.",
+    "Whole repository deletion/archive/private visibility is not available through the current GitHub connector tools.",
     "Cross-repository full-history branch creation requires git push authentication because GitHub refs can only point to objects already present in the target repository."
   ]
 }
