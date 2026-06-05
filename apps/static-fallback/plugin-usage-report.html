@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plugin Usage Report</title>
+    <meta name="description" content="Strict plugin usage evidence report for Emirhan Web System." />
+    <style>
+      :root { color-scheme: light; --paper: #f7f6f1; --ink: #181818; --muted: #6e6a61; --line: #d9d4c7; --gold: #b9975b; --sage: #7f8d82; --clay: #a4644b; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+      a { color: inherit; text-decoration: none; }
+      .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header { min-height: 72px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+      nav { display: flex; gap: 16px; color: var(--muted); font-size: 14px; }
+      h1, h2 { margin: 0; font-family: Georgia, serif; font-weight: 500; letter-spacing: 0; }
+      h1 { max-width: 860px; font-size: clamp(52px, 7.2vw, 94px); line-height: 0.92; }
+      h2 { font-size: clamp(34px, 4vw, 56px); line-height: 1; }
+      .hero { padding: clamp(54px, 9vw, 112px) 0 50px; }
+      .lead { max-width: 760px; margin: 24px 0 0; color: var(--muted); font-size: clamp(18px, 2vw, 21px); }
+      section { padding: 54px 0; border-top: 1px solid var(--line); }
+      .stats, .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+      article { min-width: 0; background: #fff; border: 1px solid var(--line); padding: 22px; }
+      article small { color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; }
+      article h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.12; }
+      article p { margin: 0; color: var(--muted); font-size: 14px; }
+      .stats article strong { display: block; font-family: Georgia, serif; font-size: 44px; font-weight: 500; line-height: 1; }
+      .ok { border-color: rgba(127, 141, 130, 0.72); }
+      .blocked { border-color: rgba(164, 100, 75, 0.5); }
+      footer { padding: 34px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+      @media (max-width: 900px) { header { display: block; padding: 22px 0; } nav { margin-top: 14px; flex-wrap: wrap; } .stats, .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a href="./emirhan-web-system.html"><strong>Emirhan Web System</strong></a>
+        <nav aria-label="Report navigation">
+          <a href="#called">Called</a>
+          <a href="#blocked">Blocked</a>
+          <a href="#skipped">Skipped</a>
+        </nav>
+      </header>
+      <main>
+        <section class="hero">
+          <h1>Plugin usage evidence, not wishful thinking.</h1>
+          <p class="lead">This page records which screenshot-listed Codex plugins were actually called, which ones were blocked by auth, scope, plan, or token state, and which ones were not called on purpose.</p>
+          <div class="stats">
+            <article><strong>12</strong><p>called or attempted</p></article>
+            <article><strong>4</strong><p>successful</p></article>
+            <article><strong>8</strong><p>blocked by auth, scope, plan, or token</p></article>
+            <article><strong>12</strong><p>intentionally skipped</p></article>
+          </div>
+        </section>
+        <section id="called">
+          <h2>Called</h2>
+          <div class="grid">
+            <article class="ok"><small>used success</small><h3>GitHub</h3><p>PR, branch, comments, repository checks, and branch files.</p></article>
+            <article class="ok"><small>used success</small><h3>Vercel</h3><p>Team/project lookup worked; project is not created yet.</p></article>
+            <article class="blocked"><small>paid plan</small><h3>Canva</h3><p>Brand template search was attempted and blocked by paid-plan requirement.</p></article>
+            <article class="blocked"><small>reauth</small><h3>Figma</h3><p>Account check for FigJam architecture output requested reauthentication.</p></article>
+            <article class="blocked"><small>reauth/empty</small><h3>Supabase</h3><p>Project list checked; organization access needs reauthentication.</p></article>
+            <article class="blocked"><small>scope/empty</small><h3>Airtable</h3><p>Bases checked; workspace listing needs extra scopes.</p></article>
+            <article class="ok"><small>used success</small><h3>Cloudinary</h3><p>Usage, folders, and image resources were read.</p></article>
+            <article class="blocked"><small>reauth</small><h3>Linear</h3><p>Projects, issues, and docs calls requested reauthentication.</p></article>
+            <article class="ok"><small>used success</small><h3>Notion</h3><p>Teams and authenticated self-user context were checked.</p></article>
+            <article class="blocked"><small>invalid token</small><h3>Vantage</h3><p>Dashboard and budget calls returned invalid token.</p></article>
+            <article class="blocked"><small>reauth</small><h3>Common Room</h3><p>Catalog access requested reauthentication.</p></article>
+            <article class="ok"><small>discovery</small><h3>tool_search</h3><p>Callable tools were exposed for this connector pass.</p></article>
+          </div>
+        </section>
+        <section id="skipped">
+          <h2>Not run on purpose</h2>
+          <div class="grid">
+            <article class="blocked"><small>approval needed</small><h3>Codex Security</h3><p>Full repo scan needs explicit security-scan authorization.</p></article>
+            <article class="blocked"><small>missing input</small><h3>Jam</h3><p>Needs a Jam recording link or id.</p></article>
+            <article class="blocked"><small>unsafe context</small><h3>HeyGen</h3><p>Avatar consent needs a real avatar/video context.</p></article>
+            <article class="blocked"><small>paid checkout</small><h3>Happenstance</h3><p>Exposed action starts a paid checkout session.</p></article>
+            <article class="blocked"><small>missing property</small><h3>KeyBid Puls</h3><p>Needs a real estate/property URL or screenshot.</p></article>
+            <article class="blocked"><small>missing context</small><h3>Asana</h3><p>Needs workspace/project/task-list context.</p></article>
+            <article class="blocked"><small>not callable</small><h3>Cloudflare</h3><p>No callable action was exposed in this pass.</p></article>
+            <article class="blocked"><small>not callable</small><h3>PostHog / Sentry / Neon</h3><p>No callable action was exposed in this pass.</p></article>
+          </div>
+        </section>
+      </main>
+      <footer>Source rule: installed is not the same as used. Used means a real tool call happened.</footer>
+    </div>
+  </body>
+</html>
