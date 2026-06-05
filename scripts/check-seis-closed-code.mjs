@@ -7,6 +7,7 @@ const required = [
   'docs/platform/seis-closed-code-architecture.md',
   'docs/platform/google-workspace-ops.md',
   'docs/platform/plugin-stack.md',
+  'docs/platform/installed-plugin-operating-model.md',
   'docs/repository-visibility-and-main-sync.md',
   'integrations/google-workspace.json',
   'roadmap/seis-closed-code-backlog.md',
@@ -19,7 +20,9 @@ const required = [
   'packages/data/README.md',
   'data/github-zip-import-inventory.json',
   'data/repository-visibility-audit-2026-06-05.json',
+  'data/installed-codex-plugins-2026-06-05.json',
   'plugins/seis/.codex-plugin/plugin.json',
+  'plugins/seis/scripts/seis-installed-plugin-audit.sh',
 ];
 
 const missing = required.filter((path) => !existsSync(path));
