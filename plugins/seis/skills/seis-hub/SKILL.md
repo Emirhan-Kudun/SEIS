@@ -36,6 +36,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
    - GitHub publishing
 2. Gather local and GitHub state:
    - run `scripts/seis-status.sh` from this plugin when local status is useful
+   - run `scripts/seis-zip-audit.sh` before importing a large workspace zip
    - inspect SEIS files such as `README.md`, `PROJECTS.md`, `BRANCHES.md`, and `docs/repository-depot-migration-status.md`
 3. Make the smallest useful change.
 4. Validate:
@@ -48,10 +49,15 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
 
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-status.sh
+/Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/update_plugin_cachebuster.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/read_marketplace_name.py
 ```
+
+## Zip Import Rule
+
+Do not commit large workspace zip files directly into SEIS. Audit them first, then import only curated source snapshots or use Git LFS/object storage for binary archives. A zip that contains `.git`, `__MACOSX`, virtual environments, SDKs, or build caches should be treated as a source archive, not normal repo source.
 
 ## Deletion Gate
 
