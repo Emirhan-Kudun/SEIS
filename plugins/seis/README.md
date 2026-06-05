@@ -32,3 +32,15 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validat
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
 ```
+
+## Repository Visibility
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-repo-visibility-audit.sh
+```
+
+## Branch Sync Check
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
+```
