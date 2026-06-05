@@ -30,6 +30,8 @@ write-capable actions.
   implementation, validation and GitHub publish.
 - `/api/source-execution-receipts`: evidence receipt set for board, packets,
   quality gates, runbook, UI and package outputs.
+- `/api/source-execution-digest`: compact execution summary across board,
+  packets, quality gates, runbook and receipts.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -177,6 +179,20 @@ the source execution system:
 Receipts describe public and local evidence. They do not claim that every
 provider was authenticated, invoked or allowed to perform writes.
 
+The `/api/source-execution-digest` endpoint is the fastest source-governance
+overview. It summarizes:
+
+- total submitted plugin sources,
+- action board columns,
+- action packet count,
+- quality gate count,
+- runbook step count,
+- execution receipt count,
+- the leading next action and public guardrail.
+
+Use the digest when another agent or reviewer needs one compact status payload
+before opening the deeper board, packet, gate, runbook or receipt outputs.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -269,6 +285,7 @@ open or download?". It indexes:
 - the source quality gates,
 - the source runbook,
 - the source execution receipts,
+- the source execution digest,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -338,6 +355,7 @@ after a GitHub publish. It aggregates:
 - source quality gates for validation control,
 - source runbook steps for ordered execution,
 - source execution receipts for evidence review,
+- source execution digest metrics for compact status review,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

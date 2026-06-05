@@ -1930,6 +1930,7 @@ summary:focus-visible {
 .ops-lane-grid,
 .ops-target-grid,
 .ops-export-grid,
+.source-digest-grid,
 .source-board-grid,
 .source-runbook-list,
 .source-receipt-grid,
@@ -2011,8 +2012,19 @@ summary:focus-visible {
   padding-top: clamp(1.2rem, 3vw, 2rem);
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-digest-section {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(214, 177, 111, 0.075), transparent 28%),
+    rgba(255, 255, 255, 0.026);
+  padding: clamp(1rem, 2.5vw, 1.6rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.source-digest-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .source-board-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2042,6 +2054,7 @@ summary:focus-visible {
 .ops-export-card,
 .ops-api-panel,
 .source-api-dock,
+.source-digest-card,
 .source-board-card,
 .source-runbook-card,
 .source-receipt-card,
@@ -2059,6 +2072,7 @@ summary:focus-visible {
 .ops-stage-card strong,
 .ops-lane-card strong,
 .ops-export-card strong,
+.source-digest-card strong,
 .source-board-card strong,
 .source-receipt-card strong,
 .source-action-card strong,
@@ -2080,6 +2094,8 @@ summary:focus-visible {
 .ops-target-card span,
 .ops-target-card small,
 .ops-export-card span,
+.source-digest-card span,
+.source-digest-card small,
 .source-board-card span,
 .source-board-card small,
 .source-runbook-card span,
@@ -2128,6 +2144,7 @@ summary:focus-visible {
 .ops-target-card p,
 .ops-api-panel p,
 .source-api-dock p,
+.source-digest-card p,
 .source-board-card p,
 .source-runbook-card p,
 .source-receipt-card p,
@@ -2143,6 +2160,7 @@ summary:focus-visible {
   gap: 0.55rem;
   align-content: start;
 }
+.source-digest-card,
 .source-board-card,
 .source-runbook-card,
 .source-receipt-card,
@@ -3497,6 +3515,7 @@ summary:focus-visible {
   .ops-command-split,
   .ops-api-panel,
   .source-api-dock,
+  .source-digest-grid,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,
@@ -3612,6 +3631,7 @@ summary:focus-visible {
   .ops-command-split,
   .ops-api-panel,
   .source-api-dock,
+  .source-digest-grid,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,

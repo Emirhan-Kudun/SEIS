@@ -10,6 +10,7 @@ import {
   ecosystemSourceQualityGates,
   ecosystemSourceRunbook,
   ecosystemSourceExecutionReceipts,
+  ecosystemSourceExecutionDigest,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -33,6 +34,7 @@ const sourceApiLinks = [
   "/api/source-quality-gates",
   "/api/source-runbook",
   "/api/source-execution-receipts",
+  "/api/source-execution-digest",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -54,6 +56,7 @@ export default function SourcesPage() {
     { label: "Quality gates", value: ecosystemSourceQualityGates.length, detail: "local validation" },
     { label: "Runbook steps", value: ecosystemSourceRunbook.steps.length, detail: "safe sequence" },
     { label: "Receipts", value: ecosystemSourceExecutionReceipts.length, detail: "proof surfaces" },
+    { label: "Digest metrics", value: ecosystemSourceExecutionDigest.metrics.length, detail: "fast overview" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -90,6 +93,26 @@ export default function SourcesPage() {
             </article>
           ))}
         </div>
+
+        <section className="source-digest-section" aria-label="Source execution digest">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Execution digest</p>
+              <h2>{ecosystemSourceExecutionDigest.headline}</h2>
+            </div>
+            <p>{ecosystemSourceExecutionDigest.summary}</p>
+          </div>
+          <div className="source-digest-grid">
+            {ecosystemSourceExecutionDigest.metrics.map((metric) => (
+              <article className="source-digest-card" key={metric.id}>
+                <span>{metric.label}</span>
+                <strong>{metric.value}</strong>
+                <p>{metric.signal}</p>
+                <small>{metric.evidencePath}</small>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="source-execution-section" aria-label="Source execution queue">
           <div className="section-heading">

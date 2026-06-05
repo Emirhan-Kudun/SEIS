@@ -8,6 +8,7 @@ import {
   ecosystemSourceQualityGates,
   ecosystemSourceRunbook,
   ecosystemSourceExecutionReceipts,
+  ecosystemSourceExecutionDigest,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
@@ -43,6 +44,7 @@ export function GET() {
       sourceQualityGates: ecosystemSourceQualityGates.length,
       sourceRunbookSteps: ecosystemSourceRunbook.steps.length,
       sourceExecutionReceipts: ecosystemSourceExecutionReceipts.length,
+      sourceExecutionDigestMetrics: ecosystemSourceExecutionDigest.metrics.length,
       sourceExecutionQueue: ecosystemSourceExecutionQueue.length,
       sourceSignalMap: ecosystemSourceSignalMap.length,
       polyglotSourceContracts: polyglotSourceContracts.length,
@@ -65,6 +67,7 @@ export function GET() {
     sourceQualityGates: ecosystemSourceQualityGates,
     sourceRunbook: ecosystemSourceRunbook,
     sourceExecutionReceipts: ecosystemSourceExecutionReceipts,
+    sourceExecutionDigest: ecosystemSourceExecutionDigest,
     sourceExecutionQueue: ecosystemSourceExecutionQueue,
     sourceSignalMap: ecosystemSourceSignalMap,
     exportIndex: ecosystemSourceExportIndex

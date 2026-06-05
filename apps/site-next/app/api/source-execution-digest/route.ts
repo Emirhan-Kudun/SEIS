@@ -1,6 +1,5 @@
 import {
   ecosystemSourceExecutionDigest,
-  ecosystemSourceExecutionReceipts,
   ecosystemSourceOutputManifest,
   ecosystemSourceRunbook,
   ecosystemSourceTotal
@@ -13,16 +12,14 @@ export function GET() {
     generatedAt: new Date().toISOString(),
     policy: {
       source: ecosystemSourceOutputManifest.policy,
-      receipts: "Execution receipts describe public/local evidence and do not claim full provider authentication.",
+      digest: "Digest summarizes local source governance evidence and does not perform provider actions.",
       guardrail: ecosystemSourceRunbook.operatingRule
     },
     summary: {
       totalSources: ecosystemSourceTotal,
       digestMetrics: ecosystemSourceExecutionDigest.metrics.length,
-      receipts: ecosystemSourceExecutionReceipts.length,
-      runbookSteps: ecosystemSourceRunbook.steps.length
+      leadingPacketId: ecosystemSourceExecutionDigest.leadingPacketId
     },
-    digestHandoff: "/api/source-execution-digest",
-    receipts: ecosystemSourceExecutionReceipts
+    digest: ecosystemSourceExecutionDigest
   });
 }

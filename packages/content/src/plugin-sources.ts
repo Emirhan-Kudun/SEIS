@@ -333,6 +333,26 @@ export type EcosystemSourceExecutionReceipt = {
   nextAction: string;
 };
 
+export type EcosystemSourceExecutionDigestMetric = {
+  id: string;
+  label: string;
+  value: number;
+  evidencePath: string;
+  signal: string;
+};
+
+export type EcosystemSourceExecutionDigest = {
+  id: string;
+  label: string;
+  headline: string;
+  summary: string;
+  leadingPacketId: string | null;
+  primaryEvidencePath: string;
+  metrics: EcosystemSourceExecutionDigestMetric[];
+  nextAction: string;
+  guardrail: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -1939,6 +1959,61 @@ export const ecosystemPlatformSourceMirror: EcosystemPlatformSourceMirror[] = [
   }
 ];
 
+export const ecosystemSourceExecutionDigest: EcosystemSourceExecutionDigest = {
+  id: "source-execution-digest",
+  label: "Source execution digest",
+  headline: "Source governance is visible, sequenced and receipt-backed.",
+  summary: "Board, packets, quality gates, runbook and receipts are all derived from the local source registry without bulk provider calls.",
+  leadingPacketId: ecosystemSourceActionBoard.nextPacketId,
+  primaryEvidencePath: "/sources",
+  nextAction: "Continue from the leading now packet, then run the required quality gates before committing.",
+  guardrail: "Digest is public/local evidence only; it does not claim every external provider is authenticated or invoked.",
+  metrics: [
+    {
+      id: "source-count",
+      label: "Plugin sources",
+      value: ecosystemSourceTotal,
+      evidencePath: "/api/source-package",
+      signal: "Complete submitted plugin ledger remains machine-readable."
+    },
+    {
+      id: "board-columns",
+      label: "Board columns",
+      value: ecosystemSourceActionBoard.columns.length,
+      evidencePath: "/api/source-action-board",
+      signal: "Priority control exists for now, next, blocked and backlog work."
+    },
+    {
+      id: "action-packets",
+      label: "Action packets",
+      value: ecosystemSourceActionPackets.length,
+      evidencePath: "/api/source-action-packets",
+      signal: "Source families have bounded agent-ready handoff contracts."
+    },
+    {
+      id: "quality-gates",
+      label: "Quality gates",
+      value: ecosystemSourceQualityGates.length,
+      evidencePath: "/api/source-quality-gates",
+      signal: "Local validation gates are published before push."
+    },
+    {
+      id: "runbook-steps",
+      label: "Runbook steps",
+      value: ecosystemSourceRunbook.steps.length,
+      evidencePath: "/api/source-runbook",
+      signal: "Aggressive source work has an ordered execution sequence."
+    },
+    {
+      id: "execution-receipts",
+      label: "Execution receipts",
+      value: ecosystemSourceExecutionReceipts.length,
+      evidencePath: "/api/source-execution-receipts",
+      signal: "Public proof surfaces are collected for review."
+    }
+  ]
+};
+
 export const ecosystemSourceProofCards: EcosystemSourceProofCard[] = [
   {
     id: "platform-side-panel-proof",
@@ -2156,7 +2231,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 18,
+    count: 19,
     sourceIds: [
       "source-package",
       "source-signal-map",
@@ -2166,6 +2241,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
       "source-quality-gates",
       "source-runbook",
       "source-execution-receipts",
+      "source-execution-digest",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -2179,6 +2255,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-execution-digest-json",
+    label: "Source execution digest JSON",
+    artifactType: "api",
+    path: "/api/source-execution-digest",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceExecutionDigest.metrics.length,
+    sourceIds: ecosystemSourceExecutionDigest.metrics.map((metric) => metric.id),
+    purpose: "Summarize source governance metrics across board, packets, gates, runbook and receipts.",
+    guardrail: "Digest summarizes local evidence only; it does not perform provider actions."
   },
   {
     id: "source-execution-receipts-json",
@@ -2548,6 +2635,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-execution-digest-api",
+    label: "Source execution digest API",
+    path: "/api/source-execution-digest",
+    role: "Compact source governance summary for board, packets, gates, runbook and receipts.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2709,6 +2803,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     useWhen: "Use this when verifying what the portfolio can prove about aggressive source work."
   },
   {
+    id: "source-execution-digest",
+    label: "Source execution digest",
+    format: "json",
+    path: "/api/source-execution-digest",
+    status: "primary",
+    sourceIds: ecosystemSourceExecutionDigest.metrics.map((metric) => metric.id),
+    count: ecosystemSourceExecutionDigest.metrics.length,
+    purpose: "Provides a compact status summary for the source governance stack.",
+    useWhen: "Use this when you need the fastest machine-readable source execution overview."
+  },
+  {
     id: "source-proof",
     label: "Sources proof",
     format: "json",
@@ -2845,6 +2950,7 @@ export const ecosystemSourceOutputManifest = {
   sourceQualityGateCount: ecosystemSourceQualityGates.length,
   sourceRunbookStepCount: ecosystemSourceRunbook.steps.length,
   sourceExecutionReceiptCount: ecosystemSourceExecutionReceipts.length,
+  sourceExecutionDigestMetricCount: ecosystemSourceExecutionDigest.metrics.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,
