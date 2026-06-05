@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-06-05 17:28:27 +03",
+  "title": "Plugin Usage Evidence Log",
+  "scope": "Screenshot-listed Codex plugins/connectors tested for Emirhan Web System.",
+  "source_visibility_note": "Only plugins that were actually called through tool_search or MCP/app tools should be treated as used in Codex Sources. Names listed in screenshots are not counted as used unless a real call was made.",
+  "summary": {
+    "called_or_attempted": 12,
+    "successful": 4,
+    "blocked_by_auth_or_scope": 6,
+    "blocked_by_plan_or_token": 2,
+    "intentionally_not_called": 12
+  },
+  "actually_called": [
+    {
+      "plugin": "GitHub",
+      "category": "developer_tools",
+      "status": "used_success",
+      "evidence": "Fetched PR #1, checked repository/installations, created PR comments, and wrote branch files through the GitHub connector.",
+      "system_value": "Repo, PR, review surface, and release workflow tracking."
+    },
+    {
+      "plugin": "Vercel",
+      "category": "deployment_infra",
+      "status": "used_success_no_project_yet",
+      "evidence": "Listed Vercel teams and projects. Team was visible; project list was empty and deploy tool asked for CLI/Git integration.",
+      "system_value": "Ready for preview deployment once the Git integration or CLI auth path is completed."
+    },
+    {
+      "plugin": "Canva",
+      "category": "design",
+      "status": "used_blocked_paid_plan",
+      "evidence": "Searched brand templates for portfolio presentation. Canva returned a paid-plan requirement.",
+      "system_value": "Design output path is known, but paid-plan access is required for this template workflow."
+    },
+    {
+      "plugin": "Figma",
+      "category": "design",
+      "status": "used_blocked_reauth",
+      "evidence": "Called Figma account check for a FigJam connector architecture diagram. Figma requested reauthentication.",
+      "system_value": "After reauth, use it for design system files, FigJam architecture, and Figma-to-code sync."
+    },
+    {
+      "plugin": "Supabase",
+      "category": "data_backend",
+      "status": "used_blocked_reauth_or_empty",
+      "evidence": "Listed projects successfully and got an empty project list; organization call requested reauthentication.",
+      "system_value": "Candidate backend for contacts, briefs, projects, integration events, and mobile sync."
+    },
+    {
+      "plugin": "Airtable",
+      "category": "data_operations",
+      "status": "used_blocked_scope_or_empty",
+      "evidence": "Listed bases successfully and got an empty base list; workspace listing required additional permissions.",
+      "system_value": "Candidate no-code operations layer for leads, tasks, and project intake."
+    },
+    {
+      "plugin": "Cloudinary",
+      "category": "asset_management",
+      "status": "used_success",
+      "evidence": "Fetched usage details, searched folders, and listed image resources from the media library.",
+      "system_value": "Asset library and transformation layer for portfolio visuals, thumbnails, and social output."
+    },
+    {
+      "plugin": "Linear",
+      "category": "productivity",
+      "status": "used_blocked_reauth",
+      "evidence": "Tried listing projects, issues, and docs. Linear returned reauthentication errors.",
+      "system_value": "Task tracking and product backlog after auth is refreshed."
+    },
+    {
+      "plugin": "Notion",
+      "category": "productivity",
+      "status": "used_success",
+      "evidence": "Fetched Notion teams and authenticated self-user context without exposing personal contact data.",
+      "system_value": "Documentation, planning, and knowledge-base layer for the web system."
+    },
+    {
+      "plugin": "Vantage",
+      "category": "cloud_cost",
+      "status": "used_blocked_invalid_token",
+      "evidence": "Tried dashboards and budgets. Vantage returned invalid token.",
+      "system_value": "Future cloud-cost monitoring once token is refreshed."
+    },
+    {
+      "plugin": "Common Room",
+      "category": "gtm_intelligence",
+      "status": "used_blocked_reauth",
+      "evidence": "Tried catalog access. Common Room returned reauthentication requirement.",
+      "system_value": "Future buyer intelligence and lead context for the CRM layer."
+    },
+    {
+      "plugin": "tool_search",
+      "category": "plugin_discovery",
+      "status": "used_success",
+      "evidence": "Searched and exposed callable tools for Figma, GitHub, and adjacent connector workflows.",
+      "system_value": "Discovery layer that turns installed plugins into callable Codex tools."
+    }
+  ],
+  "intentionally_not_called": [
+    {
+      "plugin": "Codex Security",
+      "reason": "A full repository security scan uses a subagent workflow and needs explicit authorization before substantive scanning.",
+      "next_action": "Ask for a Codex Security repo scan explicitly when ready."
+    },
+    {
+      "plugin": "Jam",
+      "reason": "Jam needs a Jam recording/link/id. None was provided.",
+      "next_action": "Paste a Jam link to turn it into a bug ticket or reproduction report."
+    },
+    {
+      "plugin": "HeyGen",
+      "reason": "The available action creates avatar consent and needs an avatar group/context. Starting consent without that would be wrong.",
+      "next_action": "Provide the intended HeyGen avatar/video workflow."
+    },
+    {
+      "plugin": "Happenstance",
+      "reason": "The exposed action starts a paid checkout session, so it was not triggered for a portfolio setup audit.",
+      "next_action": "Use only after deciding to buy/use the prospecting workflow."
+    },
+    {
+      "plugin": "KeyBid Puls",
+      "reason": "Requires a real estate/property investment URL or screenshot; not relevant to this portfolio setup.",
+      "next_action": "Use only for a short-term rental ROI project."
+    },
+    {
+      "plugin": "Asana",
+      "reason": "Callable task tools need workspace/project/user-task-list context first.",
+      "next_action": "Connect/select Asana workspace if tasks should be created."
+    },
+    {
+      "plugin": "Cloudflare",
+      "reason": "Tool discovery did not expose a callable Cloudflare action in this pass.",
+      "next_action": "Use Cloudflare after domain, Workers, Pages, or DNS target is selected."
+    },
+    {
+      "plugin": "PostHog",
+      "reason": "Tool discovery did not expose a callable PostHog action in this pass.",
+      "next_action": "Use after project/auth exists for analytics and feature flags."
+    },
+    {
+      "plugin": "Sentry",
+      "reason": "Tool discovery did not expose a callable Sentry action in this pass.",
+      "next_action": "Use after a Sentry project is connected for issue tracking."
+    },
+    {
+      "plugin": "Neon Postgres",
+      "reason": "Tool discovery did not expose a callable Neon action in this pass.",
+      "next_action": "Use after choosing Neon as the first database host."
+    },
+    {
+      "plugin": "Expo",
+      "reason": "Mobile plan exists, but no native project was initialized in this turn.",
+      "next_action": "Start the Expo app shell after the web foundation is stable."
+    },
+    {
+      "plugin": "Remotion",
+      "reason": "No video brief, script, or render target was selected in this turn.",
+      "next_action": "Use for a portfolio intro video once visual direction is approved."
+    }
+  ],
+  "auth_queue": [
+    "Figma reauthentication",
+    "Linear reauthentication",
+    "Common Room reauthentication",
+    "Vantage token refresh",
+    "Canva paid-plan or alternate free workflow",
+    "Supabase organization auth refresh",
+    "Airtable workspace scopes"
+  ]
+}
