@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-05",
+  "purpose": "Runtime registry summary for growing the portfolio into a mobile, data-backed, plugin-aware web system.",
+  "detected_bundle_count_local": 185,
+  "detected_sources_local": {
+    "openai_curated": 172,
+    "openai_curated_remote": 6,
+    "other_runtime_or_personal": 7
+  },
+  "status_note": "Detected bundles are installed or cached plugin/app bundles in the local Codex environment. Authentication and callable tools still vary by provider.",
+  "activation_policy": [
+    "Use plugin families by workflow, not all at once.",
+    "Keep OAuth tokens and API keys outside this repository.",
+    "Log reads, writes, deploys, reviews, and syncs through integration_events.",
+    "Start high-risk providers as read-only.",
+    "Expose only approved data to mobile surfaces."
+  ],
+  "strategic_categories": {
+    "design": ["figma", "canva", "product-design", "creative-production", "cloudinary", "shutterstock", "fal", "picsart", "magicpath"],
+    "developer_tools": ["build-web-apps", "build-web-data-visualization", "build-ios-apps", "build-macos-apps", "expo", "github", "coderabbit", "circleci", "sentry", "datadog", "jam", "superpowers"],
+    "deployment_infra": ["vercel", "netlify", "cloudflare", "render", "replit", "hostinger", "wix", "base44", "lovable"],
+    "data_backend": ["supabase", "neon-postgres", "convex", "airtable", "motherduck", "deepnote", "metabase", "omni-analytics", "thoughtspot", "posthog", "mixpanel", "mixpanel-headless"],
+    "productivity": ["google-drive", "notion", "gmail", "outlook-email", "slack", "teams", "google-calendar", "zoom", "granola", "read-ai", "fireflies", "otter-ai", "documents", "presentations", "spreadsheets"],
+    "research": ["zotero", "life-science-research", "hugging-face", "dow-jones-factiva", "quartr", "scite", "cb-insights", "pitchbook", "factset", "lseg", "morningstar"],
+    "security_observability": ["codex-security", "sentry", "datadog", "vantage", "docusign", "signnow", "box", "egnyte", "sharepoint"],
+    "business_gtm": ["apollo", "zoominfo", "hubspot", "common-room", "demandbase", "clay", "intercom", "pipedrive", "outreach", "close", "attio"],
+    "commerce_payments": ["stripe", "shopify", "quickbooks", "razorpay", "brex"],
+    "media_video": ["remotion", "heygen", "hyperframes", "fal", "cloudinary", "shutterstock"],
+    "local_runtime": ["browser", "chrome", "latex", "documents", "presentations", "spreadsheets", "seis"]
+  },
+  "launch_phases": [
+    {"phase": "foundation", "plugins": ["build-web-apps", "browser", "google-drive", "github", "vercel", "coderabbit"]},
+    {"phase": "data_core", "plugins": ["supabase", "neon-postgres", "airtable", "convex", "motherduck"]},
+    {"phase": "mobile", "plugins": ["expo", "build-ios-apps", "test-android-apps"]},
+    {"phase": "design_assets", "plugins": ["figma", "canva", "cloudinary", "fal", "shutterstock"]},
+    {"phase": "security_scale", "plugins": ["codex-security", "sentry", "datadog", "posthog", "cloudflare"]}
+  ]
+}
