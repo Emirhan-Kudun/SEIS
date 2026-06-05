@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connector Control Center</title>
+    <meta name="description" content="Emirhan Web System connector, plugin, auth, deploy, data and mobile control center." />
+    <style>
+      :root { color-scheme: light; --paper: #f7f6f1; --ink: #181818; --muted: #6e6a61; --line: #d9d4c7; --gold: #b9975b; --sage: #7f8d82; --clay: #a4644b; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+      a { color: inherit; text-decoration: none; }
+      .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header { min-height: 72px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+      nav { display: flex; gap: 16px; color: var(--muted); font-size: 14px; }
+      .brand { font-weight: 800; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr); gap: clamp(28px, 6vw, 78px); align-items: end; padding: clamp(54px, 9vw, 112px) 0 50px; }
+      h1, h2 { margin: 0; font-family: Georgia, serif; font-weight: 500; letter-spacing: 0; }
+      h1 { max-width: 860px; font-size: clamp(52px, 7.2vw, 94px); line-height: 0.92; }
+      h2 { font-size: clamp(34px, 4vw, 56px); line-height: 1; }
+      .lead { margin: 24px 0 0; max-width: 720px; color: var(--muted); font-size: clamp(18px, 2vw, 21px); }
+      .score { background: var(--ink); color: #fff; padding: clamp(24px, 4vw, 36px); }
+      .score span { display: block; font-family: Georgia, serif; font-size: clamp(64px, 8vw, 104px); line-height: 0.9; }
+      .score strong { display: block; margin-top: 12px; color: var(--gold); text-transform: uppercase; font-size: 12px; letter-spacing: 0.04em; }
+      .score p { color: rgba(255, 255, 255, 0.72); }
+      section { padding: 54px 0; border-top: 1px solid var(--line); }
+      .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+      article { min-width: 0; background: #fff; border: 1px solid var(--line); padding: 22px; }
+      article small { color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; }
+      article h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.12; }
+      article p { margin: 0; color: var(--muted); font-size: 14px; }
+      .queue { display: grid; gap: 12px; margin-top: 24px; }
+      .queue article { display: grid; grid-template-columns: 62px minmax(0, 0.42fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+      .queue strong { font-family: Georgia, serif; font-size: 34px; font-weight: 500; line-height: 1; }
+      footer { padding: 34px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+      @media (max-width: 900px) { .hero, .grid, .queue article { grid-template-columns: 1fr; } header { display: block; padding: 22px 0; } nav { margin-top: 14px; flex-wrap: wrap; } }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="brand" href="./emirhan-web-system.html">Emirhan Web System</a>
+        <nav aria-label="Connector navigation">
+          <a href="#truth">Durum</a>
+          <a href="#modules">Moduller</a>
+          <a href="#auth">Auth</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <h1>Uc indirilmis eklentiyle sinirli degiliz.</h1>
+            <p class="lead">Bu kontrol merkezi 185 local bundle'i ve onlarin gercek baglanti seviyesini ayirir: bundle, callable tool, auth ve production hattina bagli durum.</p>
+          </div>
+          <aside class="score"><span>185</span><strong>tespit edilen bundle</strong><p>Sag panelde gorunen sayi yalnizca arayuz durumudur; sistem kapsami registry ile izlenir.</p></aside>
+        </section>
+
+        <section id="truth">
+          <h2>Baglanti gercegi</h2>
+          <div class="grid">
+            <article><small>production wired</small><h3>GitHub</h3><p>PR #1 acildi, branch yazildi, Portfolio Quality workflow success.</p></article>
+            <article><small>auth connected</small><h3>Google Drive</h3><p>PortfolioWebsite kaynagi incelendi ve referans olarak kullanildi.</p></article>
+            <article><small>tool callable</small><h3>Vercel</h3><p>Team gorunuyor; project veya CLI/Git integration gerekli.</p></article>
+            <article><small>auth needed</small><h3>CodeRabbit</h3><p>CLI kurulu fakat login degil; review icin auth bekliyor.</p></article>
+          </div>
+        </section>
+
+        <section id="modules">
+          <h2>Modul aileleri</h2>
+          <div class="grid">
+            <article><small>Design</small><h3>Figma, Canva, Cloudinary</h3><p>Brand kit, asset library ve sosyal ciktilar.</p></article>
+            <article><small>Developer</small><h3>GitHub, Vercel, CodeRabbit</h3><p>Branch, PR, deploy, review ve CI akisi.</p></article>
+            <article><small>Data</small><h3>Supabase, Neon, Airtable</h3><p>Contact, brief, project ve integration event modeli.</p></article>
+            <article><small>Mobile</small><h3>Expo, iOS, Android</h3><p>Expo Go shell ve mobil entegrasyon durum ekranlari.</p></article>
+          </div>
+        </section>
+
+        <section id="auth">
+          <h2>Auth sirasi</h2>
+          <div class="queue">
+            <article><strong>1</strong><div><small>CodeRabbit</small><h3>PR review</h3></div><p>Run fresh auth and open URL in Safari if needed.</p></article>
+            <article><strong>2</strong><div><small>Vercel</small><h3>Preview deploy</h3></div><p>Connect Git integration or complete CLI auth.</p></article>
+            <article><strong>3</strong><div><small>Supabase / Neon</small><h3>Data host</h3></div><p>Pick first Postgres provider and apply schema.</p></article>
+            <article><strong>4</strong><div><small>Figma / Canva / Cloudinary</small><h3>Asset workflow</h3></div><p>Connect when design and media production starts.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <footer>Connector Control Center - Emirhan Web System.</footer>
+    </div>
+  </body>
+</html>
