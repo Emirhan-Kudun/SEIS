@@ -15,6 +15,7 @@ const requiredFiles = [
   "assets/capability-map.json",
   "assets/marketplace-listing.json",
   "assets/bridge-health-snapshot.json",
+  "assets/requested-ecosystem-bundle.json",
   "README.md",
   "CHANGELOG.md",
   "LICENSE",
@@ -26,7 +27,8 @@ const requiredFiles = [
   "examples/personal-marketplace.example.json",
   ".github/workflows/validate.yml",
   "scripts/plugin-doctor.mjs",
-  "scripts/create-bridge-health-snapshot.mjs"
+  "scripts/create-bridge-health-snapshot.mjs",
+  "scripts/create-requested-ecosystem-bundle.mjs"
 ];
 
 function fail(message) {
@@ -72,6 +74,7 @@ const connection = readJson("assets/seis-repo-connection.json");
 const capabilityMap = readJson("assets/capability-map.json");
 const marketplaceListing = readJson("assets/marketplace-listing.json");
 const bridgeSnapshot = readJson("assets/bridge-health-snapshot.json");
+const ecosystemBundle = readJson("assets/requested-ecosystem-bundle.json");
 const marketplaceExample = readJson("examples/personal-marketplace.example.json");
 const skill = readText("skills/seis-trusted-marketplace/SKILL.md");
 const readme = readText("README.md");
@@ -160,6 +163,17 @@ if (bridgeSnapshot) {
   ensure((bridgeSnapshot.capabilityReadiness || []).length === requiredCapabilityIds.length, "Bridge snapshot must include all capability lanes");
 }
 
+if (ecosystemBundle) {
+  ensure(ecosystemBundle.id === "seis-requested-ecosystem-bundle", "Requested ecosystem bundle id must stay stable");
+  ensure(ecosystemBundle.mode === "curated-not-activated", "Requested ecosystem bundle must stay curated-not-activated");
+  ensure(ecosystemBundle.summary?.totalPlugins >= 303, "Requested ecosystem bundle must include the UIX inventory plus local requested additions");
+  ensure(ecosystemBundle.summary?.uniquePluginUris === ecosystemBundle.summary?.totalPlugins, "Requested ecosystem bundle plugin URIs must stay unique");
+  ensure((ecosystemBundle.policy?.requiredLocalUris || []).includes("plugin://seis-trusted-marketplace@personal"), "Requested ecosystem bundle must include the personal SEIS plugin");
+  ensure((ecosystemBundle.policy?.requiredLocalUris || []).includes("plugin://magicpath@openai-curated"), "Requested ecosystem bundle must include MagicPath");
+  ensure((ecosystemBundle.policy?.requiredLocalUris || []).includes("plugin://superhuman@openai-curated"), "Requested ecosystem bundle must include Superhuman");
+  ensure((ecosystemBundle.plugins || []).every((plugin) => plugin.activationPolicy === "activate_only_when_relevant_authenticated_scoped_and_user_approved"), "Requested ecosystem bundle must keep every plugin behind activation gates");
+}
+
 if (marketplaceExample) {
   const plugin = marketplaceExample.plugins?.[0];
   ensure(marketplaceExample.name === "personal", "Example marketplace must be named personal");
@@ -188,6 +202,7 @@ ensure(workflow.includes("npm run doctor:strict"), "GitHub workflow must run npm
 ensure(workflow.includes("npm run bridge:snapshot:check"), "GitHub workflow must check the bridge snapshot");
 ensure(readme.includes("npm run doctor"), "README must document npm run doctor");
 ensure(readme.includes("npm run doctor:strict"), "README must document npm run doctor:strict");
+ensure(readme.includes("npm run ecosystem:bundle"), "README must document npm run ecosystem:bundle");
 
 if (failures.length > 0) {
   console.error("SEIS Trusted Marketplace plugin validation failed:");

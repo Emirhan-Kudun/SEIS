@@ -9,6 +9,8 @@ npm run doctor
 npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
+npm run ecosystem:bundle
+npm run ecosystem:bundle:check
 ```
 
 The doctor command reads the existing plugin manifests, connection asset,
@@ -30,6 +32,11 @@ the release path.
 The snapshot policy lists the required bridge check IDs and capability lane IDs.
 Keep those IDs stable unless the UIXAppTTR repo contract is updated in the same
 bounded pass.
+
+The ecosystem bundle command mirrors the UIXAppTTR submitted plugin inventory
+into this personal plugin repo and adds the local personal plugin entries the
+user requested in chat. The check variant fails when that generated bundle is
+stale.
 
 Use JSON output when another script needs to consume the report:
 
@@ -53,5 +60,7 @@ npm --silent run doctor:json
 3. Run `npm run doctor:strict`.
 4. Run `npm run bridge:snapshot`.
 5. Run `npm run bridge:snapshot:check`.
-6. Reinstall with `codex plugin add seis-trusted-marketplace@personal`.
-7. Update the `UIXAppTTR` repo contract only when the bridge shape changes.
+6. Run `npm run ecosystem:bundle`.
+7. Run `npm run ecosystem:bundle:check`.
+8. Reinstall with `codex plugin add seis-trusted-marketplace@personal`.
+9. Update the `UIXAppTTR` repo contract only when the bridge shape changes.

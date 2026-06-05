@@ -70,6 +70,8 @@ npm run doctor
 npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
+npm run ecosystem:bundle
+npm run ecosystem:bundle:check
 npm run validate
 python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhan/plugins/seis-trusted-marketplace
 ```
@@ -91,6 +93,11 @@ The snapshot also records the required bridge checks and eight capability lane
 IDs so the UIXAppTTR product repo can validate the exact contract, not only the
 summary counts.
 
+`npm run ecosystem:bundle` reads the UIXAppTTR plugin download-readiness
+inventory and writes `assets/requested-ecosystem-bundle.json`. The bundle keeps
+the submitted plugins curated, lane-routed, and blocked from live activation
+until target, auth, approval, and rollback are explicit.
+
 For machine-readable output, use:
 
 ```bash
@@ -98,6 +105,8 @@ npm --silent run doctor:json
 npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
+npm run ecosystem:bundle
+npm run ecosystem:bundle:check
 ```
 
 The matching UIXAppTTR repo-side contract is protected by:

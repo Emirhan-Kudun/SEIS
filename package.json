@@ -7,11 +7,13 @@
   "scripts": {
     "bridge:snapshot": "node scripts/create-bridge-health-snapshot.mjs",
     "bridge:snapshot:check": "node scripts/create-bridge-health-snapshot.mjs --check",
+    "ecosystem:bundle": "node scripts/create-requested-ecosystem-bundle.mjs",
+    "ecosystem:bundle:check": "node scripts/create-requested-ecosystem-bundle.mjs --check",
     "doctor": "node scripts/plugin-doctor.mjs",
     "doctor:strict": "node scripts/plugin-doctor.mjs --strict",
     "doctor:json": "node scripts/plugin-doctor.mjs --json",
     "validate": "node scripts/validate-plugin.mjs",
-    "check": "npm run validate && npm run doctor:strict && npm run bridge:snapshot:check"
+    "check": "npm run validate && npm run doctor:strict && npm run bridge:snapshot:check && npm run ecosystem:bundle:check"
   },
   "engines": {
     "node": ">=18"
