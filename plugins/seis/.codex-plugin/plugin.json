@@ -1,6 +1,6 @@
 {
   "name": "seis",
-  "version": "0.1.0+codex.20260605133104",
+  "version": "0.1.0+codex.20260605134523",
   "description": "SEIS-centered Codex development workflow for the emirhankudun-ux ecosystem.",
   "author": {
     "name": "emirhankudun-ux",
@@ -26,7 +26,8 @@
     "capabilities": [
       "Repository workflow",
       "Plugin development",
-      "Migration safety"
+      "Migration safety",
+      "OpenAI-first plugin routing"
     ],
     "websiteURL": "https://github.com/emirhankudun-ux/SEIS",
     "defaultPrompt": [
