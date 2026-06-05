@@ -9,6 +9,7 @@ All project discovery, governance, migration records, branch consolidation plann
 - Canonical repository: `emirhankudun-ux/SEIS`
 - Default branch: `UIXAppTTR`
 - Central project index: [`PROJECTS.md`](./PROJECTS.md)
+- Central branch registry: [`BRANCHES.md`](./BRANCHES.md)
 - Consolidation manifest: [`data/github-repository-consolidation.json`](./data/github-repository-consolidation.json)
 - Migration audit: [`docs/github-branch-migration-audit.md`](./docs/github-branch-migration-audit.md)
 - Migration runner: [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh)
@@ -40,6 +41,7 @@ Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Ke
 - local SEIS Trusted Marketplace plugin bridge for the `UIXAppTTR` branch
 - release refresh support without dependency bloat
 - GitHub repository consolidation audit and migration scripts
+- centralized source tracking branches under `sources/<repo>/<branch>`
 
 ## Quick Start
 
@@ -64,6 +66,8 @@ npm run automation:publish-readiness
 ```
 
 ## GitHub Consolidation
+
+SEIS already contains source tracking refs for all discovered source branches. See [`BRANCHES.md`](./BRANCHES.md).
 
 Use the migration runner in dry-run mode first:
 
