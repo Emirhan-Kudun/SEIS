@@ -12,7 +12,8 @@ All project discovery, governance, migration records, branch consolidation plann
 - Central branch registry: [`BRANCHES.md`](./BRANCHES.md)
 - Consolidation manifest: [`data/github-repository-consolidation.json`](./data/github-repository-consolidation.json)
 - Migration audit: [`docs/github-branch-migration-audit.md`](./docs/github-branch-migration-audit.md)
-- Migration runner: [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh)
+- Branch migration runner: [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh)
+- Repository depot runner: [`scripts/migrate-repositories-to-seis-depot.sh`](./scripts/migrate-repositories-to-seis-depot.sh)
 
 ## Repository Policy
 
@@ -28,7 +29,7 @@ SEIS is now the general center for these repositories:
 - `docs`
 - `awesome-deepseek-agent`
 
-Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Keep those repositories available until the expected `sources/<repo>/<branch>` refs are verified in SEIS.
+Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Keep those repositories available until the expected `sources/<repo>/<branch>` refs and `repositories/<repo>` snapshots are verified in SEIS.
 
 ## What Is Included
 
@@ -42,6 +43,7 @@ Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Ke
 - release refresh support without dependency bloat
 - GitHub repository consolidation audit and migration scripts
 - centralized source tracking branches under `sources/<repo>/<branch>`
+- source repository file snapshots under `repositories/<repo>` after depot import
 
 ## Quick Start
 
@@ -69,7 +71,7 @@ npm run automation:publish-readiness
 
 SEIS already contains source tracking refs for all discovered source branches. See [`BRANCHES.md`](./BRANCHES.md).
 
-Use the migration runner in dry-run mode first:
+Use the branch migration runner in dry-run mode first:
 
 ```bash
 DRY_RUN=1 scripts/migrate-github-branches-to-seis.sh
@@ -79,6 +81,18 @@ After GitHub push authentication is available, preserve source repository branch
 
 ```bash
 DRY_RUN=0 scripts/migrate-github-branches-to-seis.sh
+```
+
+Use the depot runner to import each source repository default branch into `repositories/<repo>`:
+
+```bash
+DRY_RUN=1 scripts/migrate-repositories-to-seis-depot.sh
+```
+
+After branch refs and file snapshots are verified, run the depot import for real:
+
+```bash
+DRY_RUN=0 scripts/migrate-repositories-to-seis-depot.sh
 ```
 
 Repository deletion is intentionally separate and requires explicit verification plus `DELETE_SOURCE_REPOS=1`.
@@ -106,6 +120,6 @@ Reference: `docs/development/ai-cli-stack.md` and `scripts/ai-routing-policy.cjs
 
 - no automatic push
 - no automatic deploy
-- no source repository deletion before verified SEIS refs
+- no source repository deletion before verified SEIS refs and depot snapshots
 - no heavy local process by default
 - reduced-motion support is mandatory
