@@ -37,6 +37,8 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
 2. Gather local and GitHub state:
    - run `scripts/seis-status.sh` from this plugin when local status is useful
    - run `scripts/seis-zip-audit.sh` before importing a large workspace zip
+   - run `scripts/seis-repo-visibility-audit.sh` when old repositories seem missing
+   - run `scripts/seis-main-branch-sync.sh` before making `main` mirror the canonical branch
    - inspect SEIS files such as `README.md`, `PROJECTS.md`, `BRANCHES.md`, and `docs/repository-depot-migration-status.md`
 3. Make the smallest useful change.
 4. Validate:
@@ -50,6 +52,8 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-status.sh
 /Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
+/Users/emirhankudun/plugins/seis/scripts/seis-repo-visibility-audit.sh
+/Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/update_plugin_cachebuster.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/read_marketplace_name.py
@@ -58,6 +62,10 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/read_ma
 ## Zip Import Rule
 
 Do not commit large workspace zip files directly into SEIS. Audit them first, then import only curated source snapshots or use Git LFS/object storage for binary archives. A zip that contains `.git`, `__MACOSX`, virtual environments, SDKs, or build caches should be treated as a source archive, not normal repo source.
+
+## Main Branch Rule
+
+When source repositories are missing or branch visibility is confusing, make `main` mirror the canonical SEIS branch so GitHub visitors land on the same content. Keep `sources/<repo>/<branch>` refs visible as recovery/index refs; do not delete them as part of the main-branch sync.
 
 ## Deletion Gate
 
