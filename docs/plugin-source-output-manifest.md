@@ -32,6 +32,8 @@ write-capable actions.
   quality gates, runbook, UI and package outputs.
 - `/api/source-execution-digest`: compact execution summary across board,
   packets, quality gates, runbook and receipts.
+- `/api/source-continuation-brief`: shortest next-pass handoff with read-first
+  surfaces, validation commands and stop rules.
 - `/api/ecosystem-sources`: JSON source output with groups, flat plugin refs,
   output surfaces and polyglot contracts.
 - `/api/source-connection-evidence`: focused JSON evidence for invoked,
@@ -193,6 +195,18 @@ overview. It summarizes:
 Use the digest when another agent or reviewer needs one compact status payload
 before opening the deeper board, packet, gate, runbook or receipt outputs.
 
+The `/api/source-continuation-brief` endpoint is the fastest "continue from
+here" handoff. It reports:
+
+- the leading packet and priority,
+- the source surfaces to read first,
+- local validation commands,
+- publish preflight guidance,
+- stop rules and guardrails.
+
+Use this when the next operator or AI helper needs to continue without
+re-scanning the full source universe.
+
 The `/api/source-readiness` endpoint is the fastest operational view. It groups
 the requested plugin universe into:
 
@@ -286,6 +300,7 @@ open or download?". It indexes:
 - the source runbook,
 - the source execution receipts,
 - the source execution digest,
+- the source continuation brief,
 - the Sources proof receipt,
 - the install and connection plan,
 - the platform side-panel receipt,
@@ -356,6 +371,7 @@ after a GitHub publish. It aggregates:
 - source runbook steps for ordered execution,
 - source execution receipts for evidence review,
 - source execution digest metrics for compact status review,
+- source continuation brief paths for the next pass,
 - runtime connector and skill readiness,
 - MCP readiness,
 - GitHub origin branch status,

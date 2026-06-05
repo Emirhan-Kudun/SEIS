@@ -353,6 +353,24 @@ export type EcosystemSourceExecutionDigest = {
   guardrail: string;
 };
 
+export type EcosystemSourceContinuationBrief = {
+  id: string;
+  label: string;
+  headline: string;
+  summary: string;
+  packetId: string | null;
+  packetLabel: string;
+  priority: EcosystemSourceExecutionPriority | "none";
+  primaryHandoffPath: string;
+  readFirstPaths: string[];
+  validationCommands: string[];
+  publishCommand: string;
+  nextMove: string;
+  stopRules: string[];
+  evidencePaths: string[];
+  guardrail: string;
+};
+
 export type EcosystemSidePanelReceipt = {
   id: string;
   label: string;
@@ -2014,6 +2032,48 @@ export const ecosystemSourceExecutionDigest: EcosystemSourceExecutionDigest = {
   ]
 };
 
+const leadingSourceActionPacket = ecosystemSourceActionPackets.find((packet) => packet.id === ecosystemSourceActionBoard.nextPacketId) || ecosystemSourceActionPackets[0] || null;
+const requiredSourceQualityGateCommands = ecosystemSourceQualityGates
+  .filter((gate) => gate.priority === "required")
+  .map((gate) => gate.command);
+
+export const ecosystemSourceContinuationBrief: EcosystemSourceContinuationBrief = {
+  id: "source-continuation-brief",
+  label: "Source continuation brief",
+  headline: "Continue from one visible packet, then prove it with local gates.",
+  summary: "A compact handoff for the next aggressive source pass: read these surfaces, make one reversible edit, run these gates and stop before external provider escalation.",
+  packetId: leadingSourceActionPacket?.id || null,
+  packetLabel: leadingSourceActionPacket?.label || "No action packet selected",
+  priority: leadingSourceActionPacket?.priority || "none",
+  primaryHandoffPath: "/api/source-continuation-brief",
+  readFirstPaths: [
+    ...new Set([
+      "/api/source-continuation-brief",
+      "/api/source-execution-digest",
+      ecosystemSourceActionBoard.handoffPath,
+      "/api/source-quality-gates",
+      "/api/source-runbook",
+      ...(leadingSourceActionPacket?.evidencePaths || [])
+    ])
+  ],
+  validationCommands: [
+    ...new Set([
+      ...(leadingSourceActionPacket?.localValidation || requiredSourceQualityGateCommands),
+      "npm run check:content",
+      "npm run check:runtime"
+    ])
+  ],
+  publishCommand: "npm run github:preflight, then git push origin HEAD",
+  nextMove: leadingSourceActionPacket?.firstMove || ecosystemSourceExecutionDigest.nextAction,
+  stopRules: [
+    ecosystemSourceRunbook.operatingRule,
+    leadingSourceActionPacket?.stopCondition || "Stop if no leading packet is available.",
+    "Report local validation, GitHub push state and Dependabot/security warnings separately."
+  ],
+  evidencePaths: ["/sources", "/ops", "/api/source-package", "/api/source-export-index"],
+  guardrail: "Continuation brief is local coordination only; it does not authenticate providers, create external projects or execute writes."
+};
+
 export const ecosystemSourceProofCards: EcosystemSourceProofCard[] = [
   {
     id: "platform-side-panel-proof",
@@ -2231,7 +2291,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     artifactType: "api",
     path: "/api/source-export-index",
     downloadMode: "machine_readable_json",
-    count: 19,
+    count: 20,
     sourceIds: [
       "source-package",
       "source-signal-map",
@@ -2242,6 +2302,7 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
       "source-runbook",
       "source-execution-receipts",
       "source-execution-digest",
+      "source-continuation-brief",
       "source-proof",
       "source-install-plan",
       "source-side-panel",
@@ -2255,6 +2316,17 @@ export const ecosystemSourceDeliveryArtifacts: EcosystemSourceDeliveryArtifact[]
     ],
     purpose: "Collect the strongest downloadable and inspectable source outputs into one index.",
     guardrail: "Index existing outputs; do not duplicate secret-bearing provider data."
+  },
+  {
+    id: "source-continuation-brief-json",
+    label: "Source continuation brief JSON",
+    artifactType: "api",
+    path: "/api/source-continuation-brief",
+    downloadMode: "machine_readable_json",
+    count: ecosystemSourceContinuationBrief.readFirstPaths.length + ecosystemSourceContinuationBrief.validationCommands.length,
+    sourceIds: [ecosystemSourceContinuationBrief.id, ...(ecosystemSourceContinuationBrief.packetId ? [ecosystemSourceContinuationBrief.packetId] : [])],
+    purpose: "Provide the shortest handoff for continuing source development from the leading packet.",
+    guardrail: "Brief coordinates local continuation only; it does not execute provider actions."
   },
   {
     id: "source-execution-digest-json",
@@ -2642,6 +2714,13 @@ export const ecosystemOutputSurfaces: EcosystemOutputSurface[] = [
     sourceMode: "api"
   },
   {
+    id: "source-continuation-brief-api",
+    label: "Source continuation brief API",
+    path: "/api/source-continuation-brief",
+    role: "Shortest next-pass handoff with read-first surfaces, validation commands and stop rules.",
+    sourceMode: "api"
+  },
+  {
     id: "source-export-index-api",
     label: "Source export index API",
     path: "/api/source-export-index",
@@ -2814,6 +2893,17 @@ export const ecosystemSourceExportIndex: EcosystemSourceExportIndexItem[] = [
     useWhen: "Use this when you need the fastest machine-readable source execution overview."
   },
   {
+    id: "source-continuation-brief",
+    label: "Source continuation brief",
+    format: "json",
+    path: "/api/source-continuation-brief",
+    status: "primary",
+    sourceIds: [ecosystemSourceContinuationBrief.id, ...(ecosystemSourceContinuationBrief.packetId ? [ecosystemSourceContinuationBrief.packetId] : [])],
+    count: ecosystemSourceContinuationBrief.readFirstPaths.length,
+    purpose: "Packages the leading packet, read-first surfaces, validation commands and stop rules for the next pass.",
+    useWhen: "Use this when the next agent or operator says continue and needs the shortest safe handoff."
+  },
+  {
     id: "source-proof",
     label: "Sources proof",
     format: "json",
@@ -2951,6 +3041,7 @@ export const ecosystemSourceOutputManifest = {
   sourceRunbookStepCount: ecosystemSourceRunbook.steps.length,
   sourceExecutionReceiptCount: ecosystemSourceExecutionReceipts.length,
   sourceExecutionDigestMetricCount: ecosystemSourceExecutionDigest.metrics.length,
+  sourceContinuationBriefReadPathCount: ecosystemSourceContinuationBrief.readFirstPaths.length,
   exportIndexCount: ecosystemSourceExportIndex.length,
   deliveryArtifactCount: ecosystemSourceDeliveryArtifacts.length,
   groupCount: ecosystemSourceGroups.length,

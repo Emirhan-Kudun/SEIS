@@ -9,6 +9,7 @@ import {
   ecosystemSourceRunbook,
   ecosystemSourceExecutionReceipts,
   ecosystemSourceExecutionDigest,
+  ecosystemSourceContinuationBrief,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal,
@@ -45,6 +46,7 @@ export function GET() {
       sourceRunbookSteps: ecosystemSourceRunbook.steps.length,
       sourceExecutionReceipts: ecosystemSourceExecutionReceipts.length,
       sourceExecutionDigestMetrics: ecosystemSourceExecutionDigest.metrics.length,
+      sourceContinuationBriefReadPaths: ecosystemSourceContinuationBrief.readFirstPaths.length,
       sourceExecutionQueue: ecosystemSourceExecutionQueue.length,
       sourceSignalMap: ecosystemSourceSignalMap.length,
       polyglotSourceContracts: polyglotSourceContracts.length,
@@ -68,6 +70,7 @@ export function GET() {
     sourceRunbook: ecosystemSourceRunbook,
     sourceExecutionReceipts: ecosystemSourceExecutionReceipts,
     sourceExecutionDigest: ecosystemSourceExecutionDigest,
+    sourceContinuationBrief: ecosystemSourceContinuationBrief,
     sourceExecutionQueue: ecosystemSourceExecutionQueue,
     sourceSignalMap: ecosystemSourceSignalMap,
     exportIndex: ecosystemSourceExportIndex

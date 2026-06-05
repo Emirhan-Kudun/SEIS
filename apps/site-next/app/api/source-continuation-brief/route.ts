@@ -13,16 +13,17 @@ export function GET() {
     generatedAt: new Date().toISOString(),
     policy: {
       source: ecosystemSourceOutputManifest.policy,
-      digest: "Digest summarizes local source governance evidence and does not perform provider actions.",
+      continuation: "Brief coordinates the next local source pass and does not perform provider actions.",
       guardrail: ecosystemSourceRunbook.operatingRule
     },
     summary: {
       totalSources: ecosystemSourceTotal,
-      digestMetrics: ecosystemSourceExecutionDigest.metrics.length,
-      continuationReadFirstPaths: ecosystemSourceContinuationBrief.readFirstPaths.length,
-      leadingPacketId: ecosystemSourceExecutionDigest.leadingPacketId
+      readFirstPaths: ecosystemSourceContinuationBrief.readFirstPaths.length,
+      validationCommands: ecosystemSourceContinuationBrief.validationCommands.length,
+      leadingPacketId: ecosystemSourceContinuationBrief.packetId,
+      digestMetrics: ecosystemSourceExecutionDigest.metrics.length
     },
-    continuationBrief: ecosystemSourceContinuationBrief,
-    digest: ecosystemSourceExecutionDigest
+    digest: ecosystemSourceExecutionDigest,
+    continuationBrief: ecosystemSourceContinuationBrief
   });
 }

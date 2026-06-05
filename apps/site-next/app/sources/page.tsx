@@ -11,6 +11,7 @@ import {
   ecosystemSourceRunbook,
   ecosystemSourceExecutionReceipts,
   ecosystemSourceExecutionDigest,
+  ecosystemSourceContinuationBrief,
   ecosystemSourceExecutionQueue,
   ecosystemSourceSignalMap,
   ecosystemSourceTotal
@@ -35,6 +36,7 @@ const sourceApiLinks = [
   "/api/source-runbook",
   "/api/source-execution-receipts",
   "/api/source-execution-digest",
+  "/api/source-continuation-brief",
   "/api/source-signal-map",
   "/api/source-package",
   "/api/ecosystem-sources",
@@ -57,6 +59,7 @@ export default function SourcesPage() {
     { label: "Runbook steps", value: ecosystemSourceRunbook.steps.length, detail: "safe sequence" },
     { label: "Receipts", value: ecosystemSourceExecutionReceipts.length, detail: "proof surfaces" },
     { label: "Digest metrics", value: ecosystemSourceExecutionDigest.metrics.length, detail: "fast overview" },
+    { label: "Brief paths", value: ecosystemSourceContinuationBrief.readFirstPaths.length, detail: "continue handoff" },
     { label: "Invoked", value: ecosystemConnectionStateSummary.tool_invoked, detail: "strongest platform evidence" },
     { label: "Callable or discovered", value: ecosystemConnectionStateSummary.session_available + ecosystemConnectionStateSummary.tool_discovered, detail: "task-routed next" },
     { label: "Blocked", value: ecosystemConnectionStateSummary.reauth_required + ecosystemConnectionStateSummary.missing_connection, detail: "auth/setup required" },
@@ -111,6 +114,36 @@ export default function SourcesPage() {
                 <small>{metric.evidencePath}</small>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="source-continuation-section" aria-label="Source continuation brief">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Continuation brief</p>
+              <h2>{ecosystemSourceContinuationBrief.headline}</h2>
+            </div>
+            <p>{ecosystemSourceContinuationBrief.summary}</p>
+          </div>
+          <div className="source-continuation-grid">
+            <article className="source-continuation-card">
+              <span>{ecosystemSourceContinuationBrief.priority} packet</span>
+              <strong>{ecosystemSourceContinuationBrief.packetLabel}</strong>
+              <p>{ecosystemSourceContinuationBrief.nextMove}</p>
+              <small>{ecosystemSourceContinuationBrief.primaryHandoffPath}</small>
+            </article>
+            <article className="source-continuation-card">
+              <span>Read first</span>
+              <strong>{ecosystemSourceContinuationBrief.readFirstPaths.length}</strong>
+              <p>{ecosystemSourceContinuationBrief.readFirstPaths.slice(0, 4).join(" / ")}</p>
+              <small>source surfaces</small>
+            </article>
+            <article className="source-continuation-card">
+              <span>Validate</span>
+              <strong>{ecosystemSourceContinuationBrief.validationCommands.length}</strong>
+              <p>{ecosystemSourceContinuationBrief.validationCommands.slice(0, 3).join(" / ")}</p>
+              <small>local gates</small>
+            </article>
           </div>
         </section>
 

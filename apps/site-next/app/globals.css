@@ -1931,6 +1931,7 @@ summary:focus-visible {
 .ops-target-grid,
 .ops-export-grid,
 .source-digest-grid,
+.source-continuation-grid,
 .source-board-grid,
 .source-runbook-list,
 .source-receipt-grid,
@@ -2020,11 +2021,20 @@ summary:focus-visible {
   padding: clamp(1rem, 2.5vw, 1.6rem);
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
+.source-continuation-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  margin: clamp(1rem, 3vw, 2rem) 0;
+}
 .source-signal-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .source-digest-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.source-continuation-grid {
+  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.8fr));
 }
 .source-board-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2055,6 +2065,7 @@ summary:focus-visible {
 .ops-api-panel,
 .source-api-dock,
 .source-digest-card,
+.source-continuation-card,
 .source-board-card,
 .source-runbook-card,
 .source-receipt-card,
@@ -2073,6 +2084,7 @@ summary:focus-visible {
 .ops-lane-card strong,
 .ops-export-card strong,
 .source-digest-card strong,
+.source-continuation-card strong,
 .source-board-card strong,
 .source-receipt-card strong,
 .source-action-card strong,
@@ -2096,6 +2108,8 @@ summary:focus-visible {
 .ops-export-card span,
 .source-digest-card span,
 .source-digest-card small,
+.source-continuation-card span,
+.source-continuation-card small,
 .source-board-card span,
 .source-board-card small,
 .source-runbook-card span,
@@ -2145,6 +2159,7 @@ summary:focus-visible {
 .ops-api-panel p,
 .source-api-dock p,
 .source-digest-card p,
+.source-continuation-card p,
 .source-board-card p,
 .source-runbook-card p,
 .source-receipt-card p,
@@ -2161,6 +2176,7 @@ summary:focus-visible {
   align-content: start;
 }
 .source-digest-card,
+.source-continuation-card,
 .source-board-card,
 .source-runbook-card,
 .source-receipt-card,
@@ -2170,6 +2186,9 @@ summary:focus-visible {
   display: grid;
   gap: 0.55rem;
   align-content: start;
+}
+.source-continuation-card p {
+  overflow-wrap: anywhere;
 }
 .source-signal-card div {
   display: flex;
@@ -3516,6 +3535,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-digest-grid,
+  .source-continuation-grid,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,
@@ -3632,6 +3652,7 @@ summary:focus-visible {
   .ops-api-panel,
   .source-api-dock,
   .source-digest-grid,
+  .source-continuation-grid,
   .source-board-grid,
   .source-runbook-list,
   .source-receipt-grid,

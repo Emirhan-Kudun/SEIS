@@ -1,4 +1,5 @@
 import {
+  ecosystemSourceContinuationBrief,
   ecosystemSourceExecutionDigest,
   ecosystemSourceExecutionReceipts,
   ecosystemSourceOutputManifest,
@@ -19,9 +20,11 @@ export function GET() {
     summary: {
       totalSources: ecosystemSourceTotal,
       digestMetrics: ecosystemSourceExecutionDigest.metrics.length,
+      continuationReadFirstPaths: ecosystemSourceContinuationBrief.readFirstPaths.length,
       receipts: ecosystemSourceExecutionReceipts.length,
       runbookSteps: ecosystemSourceRunbook.steps.length
     },
+    continuationHandoff: "/api/source-continuation-brief",
     digestHandoff: "/api/source-execution-digest",
     receipts: ecosystemSourceExecutionReceipts
   });
