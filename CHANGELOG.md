@@ -12,3 +12,4 @@
 - Added deterministic bridge health snapshot generation for UIXAppTTR validation.
 - Added bridge health snapshot check mode for CI and stale-evidence detection.
 - Added explicit bridge snapshot check and capability ID policy.
+- Added strict plugin doctor mode to fail CI on readiness regressions.

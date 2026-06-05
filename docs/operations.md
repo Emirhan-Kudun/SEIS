@@ -6,6 +6,7 @@ Use this page when maintaining the private personal plugin repo.
 
 ```bash
 npm run doctor
+npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
 ```
@@ -13,6 +14,10 @@ npm run bridge:snapshot:check
 The doctor command reads the existing plugin manifests, connection asset,
 capability map, README, skill, and Git metadata. It does not call external
 services, install dependencies, or write files.
+
+Use `npm run doctor` when you want a readable readiness report. Use
+`npm run doctor:strict` in CI or release checks when a failing doctor result
+must stop the run.
 
 The bridge snapshot command writes `assets/bridge-health-snapshot.json`. It is
 deterministic and intentionally omits timestamps and local Git status so normal
@@ -45,7 +50,7 @@ npm --silent run doctor:json
 
 1. Edit the plugin source.
 2. Run `npm run validate`.
-3. Run `npm run doctor`.
+3. Run `npm run doctor:strict`.
 4. Run `npm run bridge:snapshot`.
 5. Run `npm run bridge:snapshot:check`.
 6. Reinstall with `codex plugin add seis-trusted-marketplace@personal`.

@@ -184,9 +184,10 @@ for (const phrase of [
 }
 
 ensure(workflow.includes("npm run validate"), "GitHub workflow must run npm run validate");
-ensure(workflow.includes("npm run doctor"), "GitHub workflow must run npm run doctor");
+ensure(workflow.includes("npm run doctor:strict"), "GitHub workflow must run npm run doctor:strict");
 ensure(workflow.includes("npm run bridge:snapshot:check"), "GitHub workflow must check the bridge snapshot");
 ensure(readme.includes("npm run doctor"), "README must document npm run doctor");
+ensure(readme.includes("npm run doctor:strict"), "README must document npm run doctor:strict");
 
 if (failures.length > 0) {
   console.error("SEIS Trusted Marketplace plugin validation failed:");

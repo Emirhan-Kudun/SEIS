@@ -21,8 +21,8 @@ jobs:
       - name: Validate plugin package
         run: npm run validate
 
-      - name: Run plugin doctor
-        run: npm run doctor
+      - name: Run strict plugin doctor
+        run: npm run doctor:strict
 
       - name: Check bridge health snapshot
         run: npm run bridge:snapshot:check

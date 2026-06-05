@@ -67,6 +67,7 @@ See:
 
 ```bash
 npm run doctor
+npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
 npm run validate
@@ -76,6 +77,9 @@ python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plu
 `npm run doctor` prints a lightweight readiness report for manifest parity,
 private/personal mode, `UIXAppTTR` binding, GitHub workflow presence,
 safe-install docs, and the eight capability lanes.
+
+`npm run doctor:strict` uses the same report but exits non-zero when a check or
+capability lane needs attention. CI and `npm run check` use this strict mode.
 
 `npm run bridge:snapshot` writes `assets/bridge-health-snapshot.json`, a stable
 evidence file that the UIXAppTTR product repo can validate without depending on
@@ -91,6 +95,7 @@ For machine-readable output, use:
 
 ```bash
 npm --silent run doctor:json
+npm run doctor:strict
 npm run bridge:snapshot
 npm run bridge:snapshot:check
 ```
