@@ -13,7 +13,7 @@ The local `seis` Codex plugin connects Codex work back to the canonical SEIS rep
 | SEIS source mirror | `plugins/seis` |
 | Personal marketplace | `/Users/emirhankudun/.agents/plugins/marketplace.json` |
 | Installed plugin | `seis@personal` |
-| Installed cache root | `/Users/emirhankudun/.codex/plugins/cache/personal/seis/0.1.0+codex.20260605124712` |
+| Installed cache root | `/Users/emirhankudun/.codex/plugins/cache/personal/seis/0.1.0+codex.20260605125627` |
 
 ## Current Components
 
@@ -21,6 +21,8 @@ The local `seis` Codex plugin connects Codex work back to the canonical SEIS rep
 - `skills/seis-hub/SKILL.md` defines the SEIS-centered Codex workflow.
 - `scripts/seis-status.sh` reports local SEIS/plugin/GitHub auth status.
 - `scripts/seis-zip-audit.sh` audits large workspace zip files before import.
+- `scripts/seis-repo-visibility-audit.sh` checks old repository visibility.
+- `scripts/seis-main-branch-sync.sh` checks or performs a `main` branch mirror sync.
 - `README.md` documents local validation and status commands.
 
 ## Validate
@@ -30,6 +32,8 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validat
 python3 /Users/emirhankudun/.codex/skills/.system/skill-creator/scripts/quick_validate.py /Users/emirhankudun/plugins/seis/skills/seis-hub
 bash -n /Users/emirhankudun/plugins/seis/scripts/seis-status.sh
 bash -n /Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
+bash -n /Users/emirhankudun/plugins/seis/scripts/seis-repo-visibility-audit.sh
+bash -n /Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
 ```
 
 If the system Python does not have `PyYAML`, use a temporary validation venv.
@@ -65,6 +69,33 @@ For `Github.zip`, SEIS stores the audit at:
 
 - [`data/github-zip-import-inventory.json`](../data/github-zip-import-inventory.json)
 - [`docs/github-zip-import-decision.md`](./github-zip-import-decision.md)
+
+## Repository Visibility Audit
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-repo-visibility-audit.sh
+```
+
+SEIS stores the current connector-backed audit at:
+
+- [`data/repository-visibility-audit-2026-06-05.json`](../data/repository-visibility-audit-2026-06-05.json)
+- [`docs/repository-visibility-and-main-sync.md`](./repository-visibility-and-main-sync.md)
+
+## Main Branch Sync
+
+Dry-run:
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
+```
+
+Authenticated local sync:
+
+```bash
+DRY_RUN=0 /Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
+```
+
+The GitHub connector can also force-update `main` to the canonical branch SHA when local push auth is unavailable.
 
 ## Next Development Targets
 
