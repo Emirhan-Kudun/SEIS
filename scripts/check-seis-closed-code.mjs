@@ -27,6 +27,7 @@ const required = [
   'data/plugin-install-pass-2026-06-05.json',
   'data/openai-plugin-priority-2026-06-05.json',
   'data/openai-curated-build-workbench-2026-06-05.json',
+  'data/openai-curated-install-verification-2026-06-05.json',
   'plugins/seis/.codex-plugin/plugin.json',
   'plugins/seis/scripts/seis-installed-plugin-audit.sh',
 ];
