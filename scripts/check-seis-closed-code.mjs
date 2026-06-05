@@ -8,6 +8,7 @@ const required = [
   'docs/platform/google-workspace-ops.md',
   'docs/platform/plugin-stack.md',
   'docs/platform/installed-plugin-operating-model.md',
+  'docs/platform/openai-first-plugin-policy.md',
   'docs/repository-visibility-and-main-sync.md',
   'integrations/google-workspace.json',
   'roadmap/seis-closed-code-backlog.md',
@@ -22,6 +23,7 @@ const required = [
   'data/repository-visibility-audit-2026-06-05.json',
   'data/installed-codex-plugins-2026-06-05.json',
   'data/plugin-install-pass-2026-06-05.json',
+  'data/openai-plugin-priority-2026-06-05.json',
   'plugins/seis/.codex-plugin/plugin.json',
   'plugins/seis/scripts/seis-installed-plugin-audit.sh',
 ];
