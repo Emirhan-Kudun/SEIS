@@ -1,6 +1,6 @@
 {
   "name": "seis",
-  "version": "0.1.0+codex.20260605125627",
+  "version": "0.1.0+codex.20260605133104",
   "description": "SEIS-centered Codex development workflow for the emirhankudun-ux ecosystem.",
   "author": {
     "name": "emirhankudun-ux",
@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/emirhankudun-ux/SEIS",
   "repository": "https://github.com/emirhankudun-ux/SEIS",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "keywords": [
     "seis",
     "codex",
