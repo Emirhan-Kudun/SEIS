@@ -28,19 +28,26 @@ SEIS still shows `26` source tracking branches under `sources/<repo>/<branch>`. 
 
 ## Main Branch Decision
 
-`main` and `UIXAppTTR` were divergent. To make GitHub easier to understand as a single center, `main` should mirror the current canonical SEIS branch.
+`main` and `UIXAppTTR` were divergent. To make GitHub easier to understand as a single center, `main` now mirrors the current canonical SEIS branch.
 
-Before sync:
+Before first sync:
 
 ```text
 UIXAppTTR cc027b6eebbe00cb788484a4480c30f0b849bb32
 main      c9566327e4a52492f590def3f59f6788a9a1568f
 ```
 
+First sync completed:
+
+```text
+UIXAppTTR ad1b545207b2a5e9f0acd9371e68fd5d6dab7cfa
+main      ad1b545207b2a5e9f0acd9371e68fd5d6dab7cfa
+```
+
 Decision:
 
 - keep `UIXAppTTR` as the configured default branch for now
-- force-update `main` to the latest canonical SEIS commit after this audit/plugin update
+- keep `main` mirrored to the latest canonical SEIS commit
 - keep `sources/*` branch refs visible as recovery/index refs
 - do not delete branch refs or repositories as part of this sync
 
