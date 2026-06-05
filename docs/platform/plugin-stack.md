@@ -2,6 +2,15 @@
 
 SEIS uses installed and enabled Codex plugins as the operating layer for the closed-code platform. The current audited registry is `data/installed-codex-plugins-2026-06-05.json`, with the reader-facing operating model in `docs/platform/installed-plugin-operating-model.md`.
 
+## OpenAI-First Policy
+
+For core SEIS work, prioritize OpenAI/Codex plugin families first: `openai-curated`, `openai-bundled`, and `openai-primary-runtime`. The local `seis@personal` plugin coordinates repo context, migration safety, and routing. External or non-installed plugin URI families are fallback paths unless the user explicitly asks for that provider.
+
+Policy records:
+
+- `docs/platform/openai-first-plugin-policy.md`
+- `data/openai-plugin-priority-2026-06-05.json`
+
 ## Audit Snapshot
 
 | Metric | Value |
@@ -12,6 +21,16 @@ SEIS uses installed and enabled Codex plugins as the operating layer for the clo
 | Not installed plugins after install pass | 0 |
 | Install pass | 36 attempted, 36 succeeded, 0 failed |
 | Local SEIS plugin | `seis@personal` |
+
+## Priority Categories
+
+| Category | Primary OpenAI/Codex plugins |
+|---|---|
+| Design | `build-web-apps@openai-curated`, `browser@openai-bundled`, `chrome@openai-bundled`, `figma@openai-curated`, `canva@openai-curated`, `magicpath@openai-curated`, `wix@openai-curated`, `base44@openai-curated`, `hostinger@openai-curated`, `replit@openai-curated`, `lovable@openai-curated` |
+| Developer tools | `github@openai-curated`, `coderabbit@openai-curated`, `circleci@openai-curated`, `cloudflare@openai-curated`, `vercel@openai-curated`, `netlify@openai-curated`, `supabase@openai-curated`, `neon-postgres@openai-curated`, `convex@openai-curated`, `render@openai-curated`, `temporal@openai-curated`, `openai-developers@openai-curated`, `expo@openai-curated`, `build-ios-apps@openai-curated`, `build-macos-apps@openai-curated`, `test-android-apps@openai-curated` |
+| Productivity | `google-drive@openai-curated`, `google-calendar@openai-curated`, `gmail@openai-curated`, `slack@openai-curated`, `teams@openai-curated`, `sharepoint@openai-curated`, `outlook-email@openai-curated`, `outlook-calendar@openai-curated`, `notion@openai-curated`, `box@openai-curated`, `documents@openai-primary-runtime`, `spreadsheets@openai-primary-runtime`, `presentations@openai-primary-runtime`, `linear@openai-curated`, `atlassian-rovo@openai-curated`, `asana@openai-curated`, `calendly@openai-curated`, `zoom@openai-curated` |
+| Research | `hugging-face@openai-curated`, `life-science-research@openai-curated`, `zotero@openai-curated`, `scite@openai-curated`, `ngs-analysis@openai-curated`, `deepnote@openai-curated`, `quartr@openai-curated`, `factset@openai-curated`, `lseg@openai-curated`, `s-p@openai-curated`, `morningstar@openai-curated`, `moody-s@openai-curated`, `dow-jones-factiva@openai-curated` |
+| Security | `codex-security@openai-curated`, `sentry@openai-curated`, `datadog@openai-curated`, `coderabbit@openai-curated`, `jam@openai-curated`, `semrush@openai-curated`, `conductor@openai-curated`, `statsig@openai-curated` |
 
 ## Platform Lanes
 
@@ -36,7 +55,8 @@ SEIS uses installed and enabled Codex plugins as the operating layer for the clo
 
 ## Rules
 
-- Use installed and enabled plugins first.
+- Use OpenAI/Codex plugin families first for core SEIS work.
+- Use installed and enabled plugins before any non-installed or externally mentioned URI family.
 - Keep SEIS repo docs as source of truth after external tool actions.
 - Do not treat a mentioned plugin URI as installed unless it appears in the audited registry.
 - Keep Google Workspace artifacts mirrored in `integrations/google-workspace.json`.
