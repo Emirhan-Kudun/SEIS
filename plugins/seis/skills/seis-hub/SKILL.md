@@ -33,6 +33,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
    - repository consolidation
    - plugin development
    - SEIS docs/governance
+   - OpenAI-curated build workflow
    - migration verification
    - GitHub publishing
 2. Gather local and GitHub state:
@@ -42,6 +43,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
    - run `scripts/seis-main-branch-sync.sh` before making `main` mirror the canonical branch
    - run `scripts/seis-installed-plugin-audit.sh` when plugin availability matters
    - inspect SEIS files such as `README.md`, `PROJECTS.md`, `BRANCHES.md`, and `docs/repository-depot-migration-status.md`
+   - inspect `docs/platform/openai-curated-build-workbench.md` before starting product build work
 3. Make the smallest useful change.
 4. Validate:
    - plugin manifest with `plugin-creator/scripts/validate_plugin.py`
@@ -85,6 +87,18 @@ For SEIS core workflows, route Design, Developer Tools, Productivity, Research, 
 - Security: Codex Security, Sentry, Datadog, CodeRabbit, Jam, Semrush, Conductor, Statsig.
 
 Use non-OpenAI or non-installed plugin URI families only when the OpenAI/Codex route cannot satisfy the request or the user explicitly asks for that provider.
+
+## OpenAI-curated Build Workflow
+
+When the user wants to build SEIS with OpenAI-curated plugins:
+
+1. Start from `docs/platform/openai-curated-build-workbench.md`.
+2. Choose the build module: web cockpit, backend state, workspace ops, security quality gate, mobile shell, macOS inspector, or research memory.
+3. Route through the matching OpenAI/Codex plugin category.
+4. Make a durable repo change under the module path.
+5. Keep `main` mirrored with `UIXAppTTR` after GitHub writes.
+
+Default first module: `apps/web` web cockpit, because it makes the rest of SEIS visible and usable.
 
 ## Deletion Gate
 
