@@ -14,6 +14,26 @@ SEIS uses installed and enabled Codex plugins first. Mentioned plugin URIs are n
 - Install pass result: 36 attempted, 36 succeeded, 0 failed
 - Canonical local SEIS plugin: `seis@personal`
 - Canonical repository: `emirhankudun-ux/SEIS`
+- Primary plugin policy: OpenAI-first
+
+## OpenAI-First Rule
+
+For core SEIS work, use OpenAI/Codex plugin families first: `openai-curated`, `openai-bundled`, and `openai-primary-runtime`. Use external or non-installed plugin URI families only when the OpenAI/Codex route cannot satisfy the request or the user explicitly asks for that provider.
+
+Policy records:
+
+- `docs/platform/openai-first-plugin-policy.md`
+- `data/openai-plugin-priority-2026-06-05.json`
+
+## Priority Categories
+
+| Category | Primary OpenAI/Codex route |
+|---|---|
+| Design | Build Web Apps, Browser, Chrome, Figma, Canva, MagicPath, Wix, Base44, Hostinger, Replit, Lovable. |
+| Developer tools | GitHub, CodeRabbit, CircleCI, Cloudflare, Vercel, Netlify, Supabase, Neon Postgres, Convex, Render, Temporal, OpenAI Developers, Expo, Build iOS Apps, Build macOS Apps, Test Android Apps. |
+| Productivity | Google Drive, Google Calendar, Gmail, Slack, Teams, SharePoint, Outlook, Notion, Box, Documents, Spreadsheets, Presentations, Linear, Atlassian Rovo, Asana, Calendly, Zoom. |
+| Research | Hugging Face, Life Science Research, Zotero, Scite, NGS Analysis, Deepnote, Quartr, FactSet, LSEG, S&P, Morningstar, Moody's, Dow Jones Factiva. |
+| Security | Codex Security, Sentry, Datadog, CodeRabbit, Jam, Semrush, Conductor, Statsig. |
 
 ## Platform Lanes
 
@@ -37,7 +57,7 @@ The 2026-06-05 install pass installed every plugin that the local Codex listing 
 ## Operating Rules
 
 1. Start SEIS work with `seis@personal` for repo orientation and safety gates.
-2. Use the lane-specific plugin before falling back to generic shell or manual steps.
+2. Use the OpenAI/Codex category plugin before falling back to generic shell, external plugin URI families, or manual steps.
 3. Write durable outcomes back to SEIS docs, data files, or integration manifests.
 4. Keep Google Drive, Calendar, Sheets, Docs, and external tools linked from `integrations/google-workspace.json`.
 5. Do not delete old repositories or branch refs based only on plugin availability. Deletion still requires verified import evidence.
