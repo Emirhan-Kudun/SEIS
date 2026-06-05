@@ -5,6 +5,7 @@ import path from "node:path";
 import process from "node:process";
 
 const root = process.cwd();
+const checkOnly = process.argv.includes("--check");
 const snapshotPath = path.join(root, "assets", "bridge-health-snapshot.json");
 
 function readJson(relativePath) {
@@ -70,6 +71,10 @@ function writeJson(file, value) {
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
 }
 
+function stableJson(value) {
+  return `${JSON.stringify(value, null, 2)}\n`;
+}
+
 const codexManifest = readJson(".codex-plugin/plugin.json");
 const rootManifest = readJson("plugin.json");
 const connection = readJson("assets/seis-repo-connection.json");
@@ -112,5 +117,16 @@ const snapshot = {
   }
 };
 
-writeJson(snapshotPath, snapshot);
-console.log(`Bridge health snapshot written: ${path.relative(root, snapshotPath)}`);
+if (checkOnly) {
+  const expected = stableJson(snapshot);
+  const current = fs.existsSync(snapshotPath) ? fs.readFileSync(snapshotPath, "utf8") : "";
+  if (current !== expected) {
+    console.error("Bridge health snapshot is stale.");
+    console.error("Run npm run bridge:snapshot to refresh assets/bridge-health-snapshot.json.");
+    process.exit(1);
+  }
+  console.log("Bridge health snapshot check passed.");
+} else {
+  writeJson(snapshotPath, snapshot);
+  console.log(`Bridge health snapshot written: ${path.relative(root, snapshotPath)}`);
+}

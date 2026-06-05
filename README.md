@@ -68,6 +68,7 @@ See:
 ```bash
 npm run doctor
 npm run bridge:snapshot
+npm run bridge:snapshot:check
 npm run validate
 python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhan/plugins/seis-trusted-marketplace
 ```
@@ -80,11 +81,15 @@ safe-install docs, and the eight capability lanes.
 evidence file that the UIXAppTTR product repo can validate without depending on
 terminal-only doctor output.
 
+`npm run bridge:snapshot:check` verifies that the tracked snapshot is current
+without rewriting it. CI uses this mode so stale evidence fails loudly.
+
 For machine-readable output, use:
 
 ```bash
 npm --silent run doctor:json
 npm run bridge:snapshot
+npm run bridge:snapshot:check
 ```
 
 The matching UIXAppTTR repo-side contract is protected by:

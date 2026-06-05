@@ -23,3 +23,6 @@ jobs:
 
       - name: Run plugin doctor
         run: npm run doctor
+
+      - name: Check bridge health snapshot
+        run: npm run bridge:snapshot:check

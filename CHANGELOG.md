@@ -10,3 +10,4 @@
 - Added private/personal setup and public/publish-ready documentation.
 - Added plugin doctor reporting for lightweight operational readiness.
 - Added deterministic bridge health snapshot generation for UIXAppTTR validation.
+- Added bridge health snapshot check mode for CI and stale-evidence detection.
