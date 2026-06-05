@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-06-05",
+  "title": "Emirhan Web System Connector Control",
+  "detected_bundle_count": 185,
+  "surface_note": "Right-side downloaded plugin count is not the system boundary. This registry tracks bundle, callable tool, auth, and production wiring separately.",
+  "connection_levels": [
+    {"level": "bundle_detected", "label": "Bundle detected", "description": "Plugin/app/runtime bundle was visible in local Codex cache."},
+    {"level": "tool_callable", "label": "Tool callable", "description": "Tool can be called in the active session."},
+    {"level": "auth_connected", "label": "Auth connected", "description": "OAuth, token, or connector session is usable."},
+    {"level": "production_wired", "label": "Production wired", "description": "Provider is producing work in repo, deploy, data, monitoring, review, or workflow."}
+  ],
+  "current_truth": [
+    {"provider": "GitHub", "category": "developer_tools", "level": "production_wired", "status": "connected", "evidence": "PR #1 opened, branch written, Portfolio Quality workflow succeeded."},
+    {"provider": "Google Drive", "category": "productivity", "level": "auth_connected", "status": "connected", "evidence": "PortfolioWebsite source inspected; no ZIP found, visible files used as reference."},
+    {"provider": "Browser", "category": "local_runtime", "level": "production_wired", "status": "connected", "evidence": "Local site used for desktop/mobile QA earlier; current dashboard was HTTP-smoke tested."},
+    {"provider": "Vercel", "category": "deployment_infra", "level": "tool_callable", "status": "auth_or_project_needed", "evidence": "Team visible; project list empty, deploy tool asks for CLI or Git integration."},
+    {"provider": "CodeRabbit", "category": "developer_tools", "level": "bundle_detected", "status": "auth_needed", "evidence": "CLI installed but auth status is Not logged in."},
+    {"provider": "Codex Security", "category": "security_observability", "level": "bundle_detected", "status": "approval_needed", "evidence": "Full repo scan requires explicit subagent authorization."},
+    {"provider": "Supabase / Neon", "category": "data_backend", "level": "bundle_detected", "status": "provider_choice_needed", "evidence": "Postgres schema is ready; first data host choice is pending."},
+    {"provider": "Expo", "category": "mobile", "level": "bundle_detected", "status": "runtime_needed", "evidence": "Node/npm/npx unavailable in current shell; Expo Go setup waits for package runner."}
+  ],
+  "auth_queue": [
+    {"provider": "CodeRabbit", "priority": 1, "reason": "PR review and quality control.", "next_action": "/Users/emirhankudun/.local/bin/coderabbit auth login --agent", "safari_fallback": true},
+    {"provider": "Vercel", "priority": 2, "reason": "Preview and production deploy.", "next_action": "Connect Vercel Git integration or complete Vercel CLI auth.", "safari_fallback": true},
+    {"provider": "Supabase or Neon", "priority": 3, "reason": "Contacts, briefs, projects, assets, and integration events.", "next_action": "Pick first Postgres host and complete OAuth/project setup.", "safari_fallback": true},
+    {"provider": "Figma / Canva / Cloudinary", "priority": 4, "reason": "Design system, asset library, and social outputs.", "next_action": "Complete connector auth when the asset workflow starts.", "safari_fallback": true}
+  ]
+}
