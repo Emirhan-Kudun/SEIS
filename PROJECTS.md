@@ -1,46 +1,55 @@
-# 🎯 Tüm SEIS Projeleri
+# SEIS Project Registry
 
-SEIS Hub'ında yönetilen tüm projelerinin kapsamlı listesi.
+SEIS is the canonical GitHub center and general repository for all `emirhankudun-ux` project work.
 
-## 🤖 AI & Yapay Zeka Araçları
+This registry tracks every repository that belongs under the SEIS umbrella. Source repositories stay online until their expected branch history is verified under namespaced SEIS refs.
 
-| Proje | Açıklama | Dil | Durum | Link |
-|-------|----------|------|-------|------|
-| **gemini-cli** | Gemini AI'ı doğrudan terminalinizde kullanın | TypeScript | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/gemini-cli) |
-| **claude-code** | Claude Code ile kod yazımı, refactoring ve git workflows | Shell/Python | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/claude-code) |
+## Canonical Repository
 
-## 🎨 UI & Uygulamalar
+| Field | Value |
+|---|---|
+| Canonical repository | [`emirhankudun-ux/SEIS`](https://github.com/emirhankudun-ux/SEIS) |
+| Default branch | `UIXAppTTR` |
+| Central manifest | [`data/github-repository-consolidation.json`](./data/github-repository-consolidation.json) |
+| Migration audit | [`docs/github-branch-migration-audit.md`](./docs/github-branch-migration-audit.md) |
+| Migration script | [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh) |
 
-| Proje | Açıklama | Dil | Durum | Link |
-|-------|----------|------|-------|------|
-| **UIX-Apps** | Kullanıcı arayüzü uygulamaları ve bileşenleri | JavaScript | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/UIX-Apps) |
-| **emirhan-kudun-portfolio** | SEIS premium AI-native UX portföy sistemi | TypeScript | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/emirhan-kudun-portfolio) |
+## Repository Registry
 
-## 📚 Belgelendirme & Kaynaklar
+| Repository | Role | Default branch | SEIS namespace | Status |
+|---|---|---|---|---|
+| [`SEIS`](https://github.com/emirhankudun-ux/SEIS) | Canonical hub and general repository | `UIXAppTTR` | root | active canonical center |
+| [`UIX-Apps`](https://github.com/emirhankudun-ux/UIX-Apps) | Source repository | `UIXAppTTR` | `sources/UIX-Apps/*` | marked for SEIS consolidation |
+| [`emirhan-kudun-portfolio`](https://github.com/emirhankudun-ux/emirhan-kudun-portfolio) | Source repository | `codex/seis-ux-cinematic-premium-foundation` | `sources/emirhan-kudun-portfolio/*` | marked for SEIS consolidation |
+| [`github-unified-source`](https://github.com/emirhankudun-ux/github-unified-source) | Source repository | `main` | `sources/github-unified-source/*` | marked for SEIS consolidation |
+| [`seis-trusted-marketplace-plugin`](https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin) | Source repository | `main` | `sources/seis-trusted-marketplace-plugin/*` | marked for SEIS consolidation |
+| [`gemini-cli`](https://github.com/emirhankudun-ux/gemini-cli) | Source repository | `main` | `sources/gemini-cli/*` | marked for SEIS consolidation |
+| [`DeepSeek-Coder`](https://github.com/emirhankudun-ux/DeepSeek-Coder) | Source repository | `main` | `sources/DeepSeek-Coder/*` | marked for SEIS consolidation |
+| [`claude-code`](https://github.com/emirhankudun-ux/claude-code) | Source repository | `main` | `sources/claude-code/*` | marked for SEIS consolidation |
+| [`docs`](https://github.com/emirhankudun-ux/docs) | Source repository | `main` | `sources/docs/*` | marked for SEIS consolidation |
+| [`awesome-deepseek-agent`](https://github.com/emirhankudun-ux/awesome-deepseek-agent) | Source repository | `main` | `sources/awesome-deepseek-agent/*` | marked for SEIS consolidation |
 
-| Proje | Açıklama | Tür | Durum | Link |
-|-------|----------|------|-------|------|
-| **docs** | SEIS ve tüm projeler için belgelendirme | MDX | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/docs) |
-| **github-unified-source** | Unified GitHub kaynak envanteri ve kod bundle | JavaScript | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/github-unified-source) |
+## Operating Rules
 
-## 🛠️ Governance & Plugin
+- New planning and governance starts in SEIS.
+- Source repository changes should reference SEIS when possible.
+- Each source repository keeps `MOVED_TO_SEIS.md` as its visible GitHub marker.
+- Do not delete a source repository until its expected `sources/<repo>/<branch>` refs are present and verified in SEIS.
+- Deletion is separate from consolidation and requires explicit `DELETE_SOURCE_REPOS=1` in the migration runner.
 
-| Proje | Açıklama | Dil | Durum | Link |
-|-------|----------|------|-------|------|
-| **seis-trusted-marketplace-plugin** | Codex plugin repository - SEIS marketplace yönetimi | JavaScript | ✅ Aktif | [Repo](https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin) |
+## Current Branch State
 
-## 📦 Model & Koleksiyonlar (Arşiv)
+SEIS currently carries these central branches:
 
-| Proje | Açıklama | Dil | Durum | Link |
-|-------|----------|------|-------|------|
-| **DeepSeek-Coder** | DeepSeek kod yazımı modeli | Python | ⏸️ Pasif | [Repo](https://github.com/emirhankudun-ux/DeepSeek-Coder) |
-| **awesome-deepseek-agent** | DeepSeek agent koleksiyonu | - | ⏸️ Pasif | [Repo](https://github.com/emirhankudun-ux/awesome-deepseek-agent) |
+- `UIXAppTTR`
+- `main`
+- `codex/seis-ux-cinematic-premium-foundation`
+- `codex/requested-plugin-governance-20260602`
+- `claude/3d-animated-portfolio-POXSm`
+- `claude/claude-md-docs-A72cU`
+- `claude/ecstatic-darwin-fuoHJ`
+- `claude/github-branch-repo-dev-SFUpD`
+- `seis/server-cloud-activation-20260602`
+- `seis/server-cloud-activation-20260602-2`
 
----
-
-**Açıklama:**
-- ✅ = Aktif geliştirme ve destek
-- ⏸️ = Pasif/Arşiv durumu
-- Tüm projeler `emirhankudun-ux` profili altında yönetilir
-
-**Son güncelleme:** 2026-06-05
+Last updated: 2026-06-05
