@@ -9,6 +9,7 @@ This local Codex plugin makes SEIS the default operating center for the `emirhan
 - local Codex plugin development loop
 - migration and deletion safety rules
 - installed Codex plugin audit and lane mapping
+- OpenAI-first plugin routing for Design, Developer Tools, Productivity, Research, and Security
 
 ## Local Paths
 
@@ -51,3 +52,7 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validat
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-installed-plugin-audit.sh
 ```
+
+## OpenAI-First Routing
+
+Use `openai-curated`, `openai-bundled`, and `openai-primary-runtime` plugin families first for core SEIS work. External or non-installed plugin URI families are fallback paths unless the user explicitly requests them.
