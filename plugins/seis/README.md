@@ -8,6 +8,7 @@ This local Codex plugin makes SEIS the default operating center for the `emirhan
 - source repository consolidation checks
 - local Codex plugin development loop
 - migration and deletion safety rules
+- installed Codex plugin audit and lane mapping
 
 ## Local Paths
 
@@ -43,4 +44,10 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validat
 
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
+```
+
+## Installed Plugin Audit
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-installed-plugin-audit.sh
 ```
