@@ -21,6 +21,7 @@ const required = [
   'data/github-zip-import-inventory.json',
   'data/repository-visibility-audit-2026-06-05.json',
   'data/installed-codex-plugins-2026-06-05.json',
+  'data/plugin-install-pass-2026-06-05.json',
   'plugins/seis/.codex-plugin/plugin.json',
   'plugins/seis/scripts/seis-installed-plugin-audit.sh',
 ];
