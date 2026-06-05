@@ -5,21 +5,41 @@ The Web lane is the browser product surface for SEIS CLOSED CODE.
 ## Initial Direction
 
 - prefer an app-first interface, not a marketing landing page
-- use dense, operational layouts for repository, data, and platform work
+- use dense, operational layouts for repository, data, plugin, and platform work
 - keep shared UI in `packages/ui`
 - keep shared product rules in `packages/core`
+- build from [`openai-curated-cockpit.md`](./openai-curated-cockpit.md)
 
-## Plugin Stack
+## OpenAI/Codex Plugin Stack
 
 - Build Web Apps
 - Browser
-- Vercel
+- Chrome
+- Figma
+- Canva
+- MagicPath
 - GitHub
+- Vercel
+- Netlify
+- Cloudflare
+- CodeRabbit
+- Codex Security
 - SEIS plugin
 
 ## First Build Tasks
 
-1. Establish a Next.js or Vite shell.
-2. Add Drive/Calendar status cards.
-3. Add repository visibility and source-branch panels.
-4. Add data dashboard entry points.
+1. Establish a Vite or Next.js app shell.
+2. Add the SEIS cockpit first screen from `openai-curated-cockpit.md`.
+3. Render plugin registry and workbench JSON from `data/`.
+4. Add Drive/Calendar status cards from `integrations/google-workspace.json`.
+5. Add repository visibility and source-branch panels.
+6. Add data dashboard and security gate entry points.
+
+## First Screen Panels
+
+- branch status
+- plugin status
+- build workbench
+- workspace ops
+- source safety
+- security gate
