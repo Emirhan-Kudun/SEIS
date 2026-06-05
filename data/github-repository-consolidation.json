@@ -3,81 +3,107 @@
   "owner": "emirhankudun-ux",
   "canonical_repository": "emirhankudun-ux/SEIS",
   "canonical_default_branch": "UIXAppTTR",
-  "strategy": "Use SEIS as the canonical GitHub hub. Preserve source history under namespaced refs sources/<repo>/<branch> once git push authentication is available.",
+  "canonical_status": "general_github_center_and_general_depot",
+  "strategy": "Use SEIS as the canonical GitHub hub and general repository. Preserve source history under namespaced refs sources/<repo>/<branch> once git push authentication is available.",
+  "github_setup_completed": {
+    "seis_readme_declares_canonical_hub": true,
+    "project_registry_updated": true,
+    "central_runbook_added": true,
+    "migration_audit_added": true,
+    "migration_runner_added": true,
+    "source_repository_markers_added": true
+  },
   "repository_actions": [
     {
       "repository": "emirhankudun-ux/SEIS",
-      "role": "canonical_hub",
+      "role": "canonical_hub_and_general_depot",
       "default_branch": "UIXAppTTR",
-      "status": "active"
+      "status": "active_canonical_center",
+      "central_files": [
+        "README.md",
+        "PROJECTS.md",
+        "docs/seis-canonical-github-hub.md",
+        "docs/github-branch-migration-audit.md",
+        "scripts/migrate-github-branches-to-seis.sh"
+      ]
     },
     {
       "repository": "emirhankudun-ux/UIX-Apps",
       "role": "source_repository",
       "default_branch": "UIXAppTTR",
       "target_namespace": "sources/UIX-Apps/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/emirhan-kudun-portfolio",
       "role": "source_repository",
       "default_branch": "codex/seis-ux-cinematic-premium-foundation",
       "target_namespace": "sources/emirhan-kudun-portfolio/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/github-unified-source",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/github-unified-source/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/seis-trusted-marketplace-plugin",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/seis-trusted-marketplace-plugin/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/gemini-cli",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/gemini-cli/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/DeepSeek-Coder",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/DeepSeek-Coder/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/claude-code",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/claude-code/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/docs",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/docs/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     },
     {
       "repository": "emirhankudun-ux/awesome-deepseek-agent",
       "role": "source_repository",
       "default_branch": "main",
       "target_namespace": "sources/awesome-deepseek-agent/*",
-      "status": "marked_for_consolidation"
+      "status": "marked_for_consolidation",
+      "marker_file": "MOVED_TO_SEIS.md"
     }
   ],
   "automation": {
     "migration_script": "scripts/migrate-github-branches-to-seis.sh",
     "audit_document": "docs/github-branch-migration-audit.md",
+    "runbook": "docs/seis-canonical-github-hub.md",
     "dry_run_default": true,
     "deletion_requires": [
       "GitHub CLI authentication",
