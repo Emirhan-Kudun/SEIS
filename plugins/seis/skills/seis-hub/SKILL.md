@@ -39,6 +39,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
    - run `scripts/seis-zip-audit.sh` before importing a large workspace zip
    - run `scripts/seis-repo-visibility-audit.sh` when old repositories seem missing
    - run `scripts/seis-main-branch-sync.sh` before making `main` mirror the canonical branch
+   - run `scripts/seis-installed-plugin-audit.sh` when plugin availability matters
    - inspect SEIS files such as `README.md`, `PROJECTS.md`, `BRANCHES.md`, and `docs/repository-depot-migration-status.md`
 3. Make the smallest useful change.
 4. Validate:
@@ -54,6 +55,7 @@ SEIS is the general center for repository discovery, branch consolidation, sourc
 /Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
 /Users/emirhankudun/plugins/seis/scripts/seis-repo-visibility-audit.sh
 /Users/emirhankudun/plugins/seis/scripts/seis-main-branch-sync.sh
+/Users/emirhankudun/plugins/seis/scripts/seis-installed-plugin-audit.sh
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/update_plugin_cachebuster.py /Users/emirhankudun/plugins/seis
 python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/read_marketplace_name.py
@@ -66,6 +68,10 @@ Do not commit large workspace zip files directly into SEIS. Audit them first, th
 ## Main Branch Rule
 
 When source repositories are missing or branch visibility is confusing, make `main` mirror the canonical SEIS branch so GitHub visitors land on the same content. Keep `sources/<repo>/<branch>` refs visible as recovery/index refs; do not delete them as part of the main-branch sync.
+
+## Installed Plugin Rule
+
+Use installed and enabled plugins first. Record plugin availability in SEIS instead of assuming every mentioned plugin URI is installed. Keep platform lanes mapped to real installed plugins under `data/installed-codex-plugins-2026-06-05.json` and `docs/platform/installed-plugin-operating-model.md`.
 
 ## Deletion Gate
 
