@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./activation-policy": "./src/activation-policy.ts",
-    "./registry": "./src/registry.json"
+    "./registry": "./src/registry.json",
+    "./seis-concept": "./src/seis-concept.ts"
   }
 }

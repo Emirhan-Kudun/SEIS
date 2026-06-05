@@ -1,0 +1,11 @@
+{
+  "name": "@seis/uix-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node ../../scripts/serve-static-app.mjs .",
+    "build": "node ../../scripts/build-static-app.mjs . dist",
+    "check": "node ../../scripts/check-static-app.mjs ."
+  }
+}

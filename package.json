@@ -10,8 +10,11 @@
   "scripts": {
     "dev:next": "npm run dev --workspace apps/site-next",
     "dev:vite": "npm run dev --workspace apps/site-vite",
-    "build": "npm run build --workspace apps/site-next && npm run build --workspace apps/site-vite",
-    "typecheck": "tsc -p packages/content/tsconfig.json --noEmit && tsc -p packages/runtime/tsconfig.json --noEmit && tsc -p apps/site-next/tsconfig.json --noEmit && tsc -p apps/site-vite/tsconfig.json --noEmit",
+    "dev:uix": "npm run dev --workspace apps/uix-web",
+    "build:uix": "npm run build --workspace apps/uix-web",
+    "check:uix": "npm run check --workspace apps/uix-web",
+    "build": "npm run build --workspace apps/site-next && npm run build --workspace apps/site-vite && npm run build:uix",
+    "typecheck": "tsc -p packages/content/tsconfig.json --noEmit && tsc -p packages/runtime/tsconfig.json --noEmit && tsc -p apps/site-next/tsconfig.json --noEmit && tsc -p apps/site-vite/tsconfig.json --noEmit && npm run check:uix",
     "lint": "node scripts/lint.mjs",
     "check:content": "node scripts/check-content.mjs",
     "check:runtime": "node scripts/check-runtime.mjs",

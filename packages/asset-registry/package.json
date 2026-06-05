@@ -1,0 +1,9 @@
+{
+  "name": "@seis/asset-registry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./legacy-assets": "./legacy-assets.json"
+  }
+}

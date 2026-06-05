@@ -2,6 +2,7 @@ import registry from "./registry.json";
 import deploymentTargets from "./deployment-targets.json";
 import mcpReadiness from "./mcp-readiness.generated.json";
 import sourceArchives from "./source-archives.json";
+export * from "./seis-concept";
 
 export type RuntimeStatus = "active" | "configured" | "needs_credentials" | "unavailable" | "skipped_with_reason";
 

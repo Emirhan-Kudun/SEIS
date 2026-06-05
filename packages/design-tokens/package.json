@@ -1,0 +1,9 @@
+{
+  "name": "@seis/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./seis.css": "./seis.tokens.css"
+  }
+}

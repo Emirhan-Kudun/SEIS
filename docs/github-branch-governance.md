@@ -1,6 +1,6 @@
 # GitHub Branch Governance
 
-The active development branch is `codex/seis-ux-cinematic-premium-foundation`.
+The active SEIS Concept migration branch is `seis-concept`.
 
 ## Repository Target
 
@@ -10,9 +10,10 @@ The active development branch is `codex/seis-ux-cinematic-premium-foundation`.
 
 ## Branch Policy
 
-- Use the single active branch for the current foundation work.
+- Use `seis-concept` for the current aggressive migration work.
 - Keep changes in small reversible commits.
 - Future phase branches may use:
+  - `codex/seis-ux-*` for portfolio foundation work.
   - `codex/3d-*` for motion and WebGL work.
   - `codex/content-*` for Behance, drawings, copy and localization.
   - `codex/deploy-*` for GitHub, Vercel or server publishing.
@@ -50,6 +51,7 @@ npm run github:publish
 ## Review Gates
 
 - `npm run check:content`
+- `npm run check:uix`
 - `npm run lint`
 - `npm run typecheck`
 - `npm run check:runtime`

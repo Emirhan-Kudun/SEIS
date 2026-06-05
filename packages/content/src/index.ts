@@ -1,5 +1,6 @@
 import rawContent from "./data.json";
 export * from "./plugin-sources";
+export * from "./uix-static";
 
 export const locales = ["tr", "en", "fr", "it", "de"] as const;
 
