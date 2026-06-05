@@ -2,16 +2,30 @@
 
 SEIS is the single `main`-centered closed-code operating repository for the `emirhankudun-ux` platform ecosystem.
 
-It coordinates Android, Web, macOS, full-stack, data, Google Workspace operations, Codex plugin development, source archive verification, and repository consolidation from one center.
+It coordinates Android, Web, macOS, full-stack, data, Google Workspace operations, Codex plugin development, OpenAI-curated plugin routing, source archive verification, and repository consolidation from one center.
 
 ## Start Here
 
+- OpenAI-curated build workbench: [`docs/platform/openai-curated-build-workbench.md`](./docs/platform/openai-curated-build-workbench.md)
+- OpenAI-first plugin policy: [`docs/platform/openai-first-plugin-policy.md`](./docs/platform/openai-first-plugin-policy.md)
 - Closed-code operating brief: [`SEIS_CLOSED_CODE.md`](./SEIS_CLOSED_CODE.md)
 - Closed-code license notice: [`LICENSE`](./LICENSE)
 - Architecture: [`docs/platform/seis-closed-code-architecture.md`](./docs/platform/seis-closed-code-architecture.md)
 - Plugin stack: [`docs/platform/plugin-stack.md`](./docs/platform/plugin-stack.md)
 - Google Workspace ops: [`docs/platform/google-workspace-ops.md`](./docs/platform/google-workspace-ops.md)
 - Roadmap: [`roadmap/seis-closed-code-backlog.md`](./roadmap/seis-closed-code-backlog.md)
+
+## OpenAI-curated Build Route
+
+SEIS uses OpenAI/Codex plugin families first for core work: `openai-curated`, `openai-bundled`, and `openai-primary-runtime`. The local `seis@personal` plugin coordinates repository context, migration safety, branch sync, and plugin routing.
+
+| Category | First route |
+|---|---|
+| Design | Build Web Apps, Browser, Chrome, Figma, Canva, MagicPath |
+| Developer tools | GitHub, CodeRabbit, CircleCI, Cloudflare, Vercel, Netlify, Convex, Supabase, Neon Postgres |
+| Productivity | Google Drive, Google Calendar, Gmail, Slack, Teams, Notion, Documents, Spreadsheets, Presentations |
+| Research | Hugging Face, Zotero, Life Science Research, Scite, Deepnote |
+| Security | Codex Security, Sentry, Datadog, CodeRabbit, Jam |
 
 ## Platform Lanes
 
@@ -24,13 +38,14 @@ It coordinates Android, Web, macOS, full-stack, data, Google Workspace operation
 | Core package | [`packages/core`](./packages/core) | Shared rules and platform contracts |
 | UI package | [`packages/ui`](./packages/ui) | Shared operational UI primitives |
 | Data package | [`packages/data`](./packages/data) | Inventory and analytics adapters |
-| Data records | [`data`](./data) | Zip, repo visibility, and migration records |
+| Data records | [`data`](./data) | Zip, repo visibility, plugin, and migration records |
 | Integrations | [`integrations`](./integrations) | Google Drive, Calendar, and external IDs |
 
 ## Google Workspace
 
 - Operating plan: https://docs.google.com/document/d/1EvyhGA4ulJHsEB2DCzZAYxDrUv1X6dGj0PFa0splrps
 - Platform backlog: https://docs.google.com/spreadsheets/d/1sxnxOz9ZRzwZAz2FmHt_3YzAhQjKL2sQbYR1uWdGsaQ
+- Installed plugin operating model: https://docs.google.com/document/d/10A-Ld9TBu6HSsB0W1dJ3p6Y14Hqr3VMLeMgYJ89mX64
 - Weekly build review: https://www.google.com/calendar/event?eid=ZWg5djhtamRjdHZjaGY2aTljczRqMDJkZjQgZW1pcmhhbmt1ZHVuQG0
 
 ## Repository Consolidation
@@ -56,6 +71,7 @@ Some source repositories are no longer visible through GitHub lookup, but SEIS k
 ## Safety Rules
 
 - closed code by default
+- OpenAI/Codex plugin families first for core build work
 - no automatic deploy
 - no direct Git commit of large binary archives
 - no source repository deletion before verified SEIS refs and depot snapshots
