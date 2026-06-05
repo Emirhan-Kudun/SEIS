@@ -14,6 +14,7 @@ const requiredFiles = [
   "assets/seis-repo-connection.json",
   "assets/capability-map.json",
   "assets/marketplace-listing.json",
+  "assets/bridge-health-snapshot.json",
   "README.md",
   "CHANGELOG.md",
   "LICENSE",
@@ -24,7 +25,8 @@ const requiredFiles = [
   "docs/operations.md",
   "examples/personal-marketplace.example.json",
   ".github/workflows/validate.yml",
-  "scripts/plugin-doctor.mjs"
+  "scripts/plugin-doctor.mjs",
+  "scripts/create-bridge-health-snapshot.mjs"
 ];
 
 function fail(message) {
@@ -69,6 +71,7 @@ const rootManifest = readJson("plugin.json");
 const connection = readJson("assets/seis-repo-connection.json");
 const capabilityMap = readJson("assets/capability-map.json");
 const marketplaceListing = readJson("assets/marketplace-listing.json");
+const bridgeSnapshot = readJson("assets/bridge-health-snapshot.json");
 const marketplaceExample = readJson("examples/personal-marketplace.example.json");
 const skill = readText("skills/seis-trusted-marketplace/SKILL.md");
 const readme = readText("README.md");
@@ -124,6 +127,18 @@ if (marketplaceListing) {
   ensure(marketplaceListing.privatePersonal?.recommended === true, "Marketplace listing must recommend private personal mode");
   ensure(marketplaceListing.privatePersonal?.installation === "codex plugin add seis-trusted-marketplace@personal", "Marketplace listing must include install command");
   ensure(Array.isArray(marketplaceListing.publicPublishReady?.recommendedBeforePublicRelease), "Marketplace listing must include public readiness checklist");
+}
+
+if (bridgeSnapshot) {
+  ensure(bridgeSnapshot.id === "seis-trusted-marketplace-bridge-health-snapshot", "Bridge snapshot id must stay stable");
+  ensure(bridgeSnapshot.schemaVersion === 1, "Bridge snapshot schema version must stay stable");
+  ensure(bridgeSnapshot.mode === "private-personal", "Bridge snapshot must keep private-personal mode");
+  ensure(bridgeSnapshot.plugin?.name === "seis-trusted-marketplace", "Bridge snapshot must name the plugin");
+  ensure(bridgeSnapshot.repositoryBinding?.branch === "UIXAppTTR", "Bridge snapshot must bind to UIXAppTTR");
+  ensure(bridgeSnapshot.marketplace?.installation === "codex plugin add seis-trusted-marketplace@personal", "Bridge snapshot must keep the personal install command");
+  ensure(bridgeSnapshot.summary?.checksPassed === bridgeSnapshot.summary?.checksTotal, "Bridge snapshot checks must all pass");
+  ensure(bridgeSnapshot.summary?.lanesReady === requiredCapabilityIds.length, "Bridge snapshot must report all capability lanes ready");
+  ensure((bridgeSnapshot.capabilityReadiness || []).length === requiredCapabilityIds.length, "Bridge snapshot must include all capability lanes");
 }
 
 if (marketplaceExample) {

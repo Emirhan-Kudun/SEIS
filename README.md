@@ -67,6 +67,7 @@ See:
 
 ```bash
 npm run doctor
+npm run bridge:snapshot
 npm run validate
 python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py /Users/emirhan/plugins/seis-trusted-marketplace
 ```
@@ -75,10 +76,15 @@ python3 /Users/emirhan/.codex/skills/.system/plugin-creator/scripts/validate_plu
 private/personal mode, `UIXAppTTR` binding, GitHub workflow presence,
 safe-install docs, and the eight capability lanes.
 
+`npm run bridge:snapshot` writes `assets/bridge-health-snapshot.json`, a stable
+evidence file that the UIXAppTTR product repo can validate without depending on
+terminal-only doctor output.
+
 For machine-readable output, use:
 
 ```bash
 npm --silent run doctor:json
+npm run bridge:snapshot
 ```
 
 The matching UIXAppTTR repo-side contract is protected by:

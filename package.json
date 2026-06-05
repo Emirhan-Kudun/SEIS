@@ -5,10 +5,11 @@
   "description": "Private personal Codex plugin repository for SEIS trusted marketplace governance.",
   "type": "module",
   "scripts": {
+    "bridge:snapshot": "node scripts/create-bridge-health-snapshot.mjs",
     "doctor": "node scripts/plugin-doctor.mjs",
     "doctor:json": "node scripts/plugin-doctor.mjs --json",
     "validate": "node scripts/validate-plugin.mjs",
-    "check": "npm run validate && npm run doctor"
+    "check": "npm run validate && npm run doctor && npm run bridge:snapshot"
   },
   "engines": {
     "node": ">=18"
