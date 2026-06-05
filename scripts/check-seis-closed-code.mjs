@@ -1,0 +1,35 @@
+import { existsSync } from 'node:fs';
+
+const required = [
+  'SEIS_CLOSED_CODE.md',
+  'LICENSE',
+  'README.md',
+  'docs/platform/seis-closed-code-architecture.md',
+  'docs/platform/google-workspace-ops.md',
+  'docs/platform/plugin-stack.md',
+  'docs/repository-visibility-and-main-sync.md',
+  'integrations/google-workspace.json',
+  'roadmap/seis-closed-code-backlog.md',
+  'apps/android/README.md',
+  'apps/web/README.md',
+  'apps/macos/README.md',
+  'apps/fullstack/README.md',
+  'packages/core/README.md',
+  'packages/ui/README.md',
+  'packages/data/README.md',
+  'data/github-zip-import-inventory.json',
+  'data/repository-visibility-audit-2026-06-05.json',
+  'plugins/seis/.codex-plugin/plugin.json',
+];
+
+const missing = required.filter((path) => !existsSync(path));
+
+if (missing.length > 0) {
+  console.error('SEIS CLOSED CODE governance check failed. Missing files:');
+  for (const path of missing) {
+    console.error(`- ${path}`);
+  }
+  process.exit(1);
+}
+
+console.log(`SEIS CLOSED CODE governance check passed (${required.length} files).`);
