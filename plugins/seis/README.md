@@ -26,3 +26,9 @@ python3 /Users/emirhankudun/.codex/skills/.system/plugin-creator/scripts/validat
 ```bash
 /Users/emirhankudun/plugins/seis/scripts/seis-status.sh
 ```
+
+## Zip Audit
+
+```bash
+/Users/emirhankudun/plugins/seis/scripts/seis-zip-audit.sh
+```
