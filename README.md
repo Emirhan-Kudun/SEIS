@@ -1,7 +1,33 @@
-# UI-UX Digital Lab Workspace
+# SEIS
 
-This workspace is the operational core for a low-pressure, high-efficiency UI/UX
-development loop.
+SEIS is the canonical GitHub hub and general repository for all projects under `emirhankudun-ux`.
+
+All project discovery, governance, migration records, branch consolidation planning, release readiness, plugin coordination, and long-term repository decisions start here. Other repositories remain available as source repositories until their branch history and contents are fully verified under SEIS.
+
+## Canonical Role
+
+- Canonical repository: `emirhankudun-ux/SEIS`
+- Default branch: `UIXAppTTR`
+- Central project index: [`PROJECTS.md`](./PROJECTS.md)
+- Consolidation manifest: [`data/github-repository-consolidation.json`](./data/github-repository-consolidation.json)
+- Migration audit: [`docs/github-branch-migration-audit.md`](./docs/github-branch-migration-audit.md)
+- Migration runner: [`scripts/migrate-github-branches-to-seis.sh`](./scripts/migrate-github-branches-to-seis.sh)
+
+## Repository Policy
+
+SEIS is now the general center for these repositories:
+
+- `UIX-Apps`
+- `emirhan-kudun-portfolio`
+- `github-unified-source`
+- `seis-trusted-marketplace-plugin`
+- `gemini-cli`
+- `DeepSeek-Coder`
+- `claude-code`
+- `docs`
+- `awesome-deepseek-agent`
+
+Each source repository has a `MOVED_TO_SEIS.md` marker on its default branch. Keep those repositories available until the expected `sources/<repo>/<branch>` refs are verified in SEIS.
 
 ## What Is Included
 
@@ -13,35 +39,7 @@ development loop.
 - trusted marketplace intake for GitHub, MCP, Copilot, and model sources
 - local SEIS Trusted Marketplace plugin bridge for the `UIXAppTTR` branch
 - release refresh support without dependency bloat
-
----
-
-## 🎯 SEIS Hub - Tüm Projeler
-
-SEIS, aşağıdaki tüm projelerin merkezi deposu ve yönetim hub'ıdır.
-
-### 🤖 AI & Yapay Zeka Araçları
-- **[gemini-cli](https://github.com/emirhankudun-ux/gemini-cli)** - Gemini AI'ı doğrudan terminalinizde kullanın
-- **[claude-code](https://github.com/emirhankudun-ux/claude-code)** - Claude Code ile hızlı kod yazımı ve refactoring
-
-### 🎨 UI & Uygulamalar  
-- **[UIX-Apps](https://github.com/emirhankudun-ux/UIX-Apps)** - Kullanıcı arayüzü uygulamaları ve bileşenleri
-- **[emirhan-kudun-portfolio](https://github.com/emirhankudun-ux/emirhan-kudun-portfolio)** - Premium UX portföy sistemi
-
-### 📚 Belgeler & Kaynaklar
-- **[docs](https://github.com/emirhankudun-ux/docs)** - SEIS ve tüm projeler için belgelendirme
-- **[github-unified-source](https://github.com/emirhankudun-ux/github-unified-source)** - Unified GitHub kaynak envanteri
-
-### 🛠️ Governance & Plugin
-- **[seis-trusted-marketplace-plugin](https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin)** - Codex marketplace yönetimi
-
-### 📦 Model & Koleksiyonlar
-- **[DeepSeek-Coder](https://github.com/emirhankudun-ux/DeepSeek-Coder)** - DeepSeek kod modeli (Arşiv)
-- **[awesome-deepseek-agent](https://github.com/emirhankudun-ux/awesome-deepseek-agent)** - DeepSeek agent koleksiyonu (Arşiv)
-
-📖 **Detaylı liste için:** [`PROJECTS.md`](./PROJECTS.md)
-
----
+- GitHub repository consolidation audit and migration scripts
 
 ## Quick Start
 
@@ -65,25 +63,21 @@ npm run automation:refresh-release
 npm run automation:publish-readiness
 ```
 
-Cloud and connector contracts live in `deploy/cloud-environment.json` and
-`content/development/connector-capability-registry.json`. The trusted
-marketplace intake lives in
-`content/development/trusted-marketplace-intake.json`. Together they keep
-GitHub, server upload, cloud provider selection, MCP/connector usage,
-marketplace curation, and rollback rules explicit before any credentialed
-remote action.
+## GitHub Consolidation
 
-The local Codex plugin bridge is documented in
-`content/development/seis-trusted-marketplace-plugin.json` and
-`docs/development/seis-trusted-marketplace-plugin.md`. It binds the personal
-`seis-trusted-marketplace` plugin to the `UIXAppTTR` repo workflow without
-turning local plugin readiness into an automatic public publish.
+Use the migration runner in dry-run mode first:
 
-The current monthly hardening plan lives in
-`content/development/monthly-branch-hardening.json` and
-`docs/development/monthly-branch-hardening.md`. It keeps the active strategy
-explicit: strengthen the `UIXAppTTR` repo and branch first, then expand the
-plugin on top of validated repo contracts.
+```bash
+DRY_RUN=1 scripts/migrate-github-branches-to-seis.sh
+```
+
+After GitHub push authentication is available, preserve source repository branch history under namespaced SEIS refs:
+
+```bash
+DRY_RUN=0 scripts/migrate-github-branches-to-seis.sh
+```
+
+Repository deletion is intentionally separate and requires explicit verification plus `DELETE_SOURCE_REPOS=1`.
 
 ## AI CLI Router
 
@@ -108,5 +102,6 @@ Reference: `docs/development/ai-cli-stack.md` and `scripts/ai-routing-policy.cjs
 
 - no automatic push
 - no automatic deploy
+- no source repository deletion before verified SEIS refs
 - no heavy local process by default
 - reduced-motion support is mandatory
