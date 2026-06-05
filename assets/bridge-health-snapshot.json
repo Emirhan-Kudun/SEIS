@@ -19,6 +19,25 @@
     "installation": "codex plugin add seis-trusted-marketplace@personal",
     "privatePersonalRecommended": true
   },
+  "policy": {
+    "requiredCheckIds": [
+      "manifest-parity",
+      "private-personal-mode",
+      "uixappttr-binding",
+      "github-workflow",
+      "safe-install-docs"
+    ],
+    "requiredCapabilityIds": [
+      "data-engineering",
+      "development",
+      "design",
+      "learning",
+      "monitoring",
+      "productivity",
+      "security",
+      "testing"
+    ]
+  },
   "checks": [
     {
       "id": "manifest-parity",

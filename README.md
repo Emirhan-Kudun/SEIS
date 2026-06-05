@@ -83,6 +83,9 @@ terminal-only doctor output.
 
 `npm run bridge:snapshot:check` verifies that the tracked snapshot is current
 without rewriting it. CI uses this mode so stale evidence fails loudly.
+The snapshot also records the required bridge checks and eight capability lane
+IDs so the UIXAppTTR product repo can validate the exact contract, not only the
+summary counts.
 
 For machine-readable output, use:
 

@@ -22,6 +22,10 @@ The check variant compares the generated snapshot to the tracked file without
 rewriting it. Use it in CI and before publishing so stale bridge evidence blocks
 the release path.
 
+The snapshot policy lists the required bridge check IDs and capability lane IDs.
+Keep those IDs stable unless the UIXAppTTR repo contract is updated in the same
+bounded pass.
+
 Use JSON output when another script needs to consume the report:
 
 ```bash

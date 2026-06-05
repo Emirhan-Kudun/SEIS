@@ -7,6 +7,23 @@ import process from "node:process";
 const root = process.cwd();
 const checkOnly = process.argv.includes("--check");
 const snapshotPath = path.join(root, "assets", "bridge-health-snapshot.json");
+const requiredCheckIds = [
+  "manifest-parity",
+  "private-personal-mode",
+  "uixappttr-binding",
+  "github-workflow",
+  "safe-install-docs"
+];
+const requiredCapabilityIds = [
+  "data-engineering",
+  "development",
+  "design",
+  "learning",
+  "monitoring",
+  "productivity",
+  "security",
+  "testing"
+];
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(root, relativePath), "utf8"));
@@ -106,6 +123,10 @@ const snapshot = {
     path: connection.plugin?.marketplacePath,
     installation: marketplaceListing.privatePersonal?.installation,
     privatePersonalRecommended: marketplaceListing.privatePersonal?.recommended === true
+  },
+  policy: {
+    requiredCheckIds,
+    requiredCapabilityIds
   },
   checks,
   capabilityReadiness,

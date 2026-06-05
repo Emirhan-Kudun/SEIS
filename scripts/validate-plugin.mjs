@@ -98,6 +98,21 @@ const requiredCapabilityIds = [
   "security",
   "testing"
 ];
+const requiredCheckIds = [
+  "manifest-parity",
+  "private-personal-mode",
+  "uixappttr-binding",
+  "github-workflow",
+  "safe-install-docs"
+];
+
+function ensureExactIds(actualIds, expectedIds, label) {
+  const actual = new Set(actualIds || []);
+  ensure(actual.size === expectedIds.length, `${label} must expose exactly ${expectedIds.length} ids`);
+  for (const id of expectedIds) {
+    ensure(actual.has(id), `${label} missing ${id}`);
+  }
+}
 
 if (capabilityMap) {
   ensure(capabilityMap.id === "seis-trusted-marketplace-capability-map", "Capability map id must stay stable");
@@ -136,6 +151,10 @@ if (bridgeSnapshot) {
   ensure(bridgeSnapshot.plugin?.name === "seis-trusted-marketplace", "Bridge snapshot must name the plugin");
   ensure(bridgeSnapshot.repositoryBinding?.branch === "UIXAppTTR", "Bridge snapshot must bind to UIXAppTTR");
   ensure(bridgeSnapshot.marketplace?.installation === "codex plugin add seis-trusted-marketplace@personal", "Bridge snapshot must keep the personal install command");
+  ensureExactIds(bridgeSnapshot.policy?.requiredCheckIds, requiredCheckIds, "Bridge snapshot required check policy");
+  ensureExactIds(bridgeSnapshot.policy?.requiredCapabilityIds, requiredCapabilityIds, "Bridge snapshot required capability policy");
+  ensureExactIds((bridgeSnapshot.checks || []).map((check) => check.id), requiredCheckIds, "Bridge snapshot checks");
+  ensureExactIds((bridgeSnapshot.capabilityReadiness || []).map((capability) => capability.id), requiredCapabilityIds, "Bridge snapshot capability readiness");
   ensure(bridgeSnapshot.summary?.checksPassed === bridgeSnapshot.summary?.checksTotal, "Bridge snapshot checks must all pass");
   ensure(bridgeSnapshot.summary?.lanesReady === requiredCapabilityIds.length, "Bridge snapshot must report all capability lanes ready");
   ensure((bridgeSnapshot.capabilityReadiness || []).length === requiredCapabilityIds.length, "Bridge snapshot must include all capability lanes");
