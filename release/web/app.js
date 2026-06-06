@@ -89,6 +89,7 @@ const state = {
   commands: [],
   qualitySignals: [],
   thresholds: [],
+  publishGate: null,
   filter: "all"
 };
 
@@ -456,6 +457,39 @@ function getMarketplaceStatusClass(status) {
   return "status-watch";
 }
 
+function renderPublishGate() {
+  const panel = el("[data-publish-gate-panel]");
+  const summary = el("[data-publish-gate-summary]");
+  const levelsBoard = el("[data-publish-gate-levels]");
+  if (!panel || !levelsBoard) return;
+
+  const gate = state.publishGate;
+  if (!gate) {
+    panel.classList.add("status-watch");
+    levelsBoard.replaceChildren(create("p", "", "Publish gate contract is unavailable; keep publication blocked."));
+    return;
+  }
+
+  const remote = gate.remote || {};
+  const environment = gate.currentEnvironmentPolicy || {};
+  if (summary) {
+    summary.textContent = `${remote.name || "origin"} targets ${remote.targetBranch || "UIXAppTTR"}; current policy: ${environment.expectedResult || "publish gated"}.`;
+  }
+
+  levelsBoard.replaceChildren();
+  (gate.readinessLevels || []).forEach((level, index) => {
+    const item = create("article", "publish-gate-level");
+    const marker = create("span", "publish-gate-level__marker", String(index + 1));
+    const copy = create("div");
+    copy.append(
+      create("h4", "", level.id || "gate"),
+      create("p", "", level.meaning || "Publication remains gated until this level is explicit.")
+    );
+    item.append(marker, copy);
+    levelsBoard.append(item);
+  });
+}
+
 function renderCommands() {
   const board = el("#command-board");
   if (!board) return;
@@ -548,6 +582,27 @@ async function loadCinematicEngine() {
         action: "Keep the interface usable while engine data is unavailable."
       }
     ];
+  }
+}
+
+async function loadPublishGate() {
+  try {
+    state.publishGate = await fetchJson("../../content/development/publish-gate-contract.json");
+  } catch (_error) {
+    state.publishGate = {
+      remote: { name: "origin", targetBranch: "UIXAppTTR" },
+      currentEnvironmentPolicy: { expectedResult: "publish gated" },
+      readinessLevels: [
+        {
+          id: "configured",
+          meaning: "Local remote configuration can be reviewed, but publishing remains blocked."
+        },
+        {
+          id: "publish-preflight",
+          meaning: "UIXAppTTR, upstream, clean worktree, and GitHub auth must be ready."
+        }
+      ]
+    };
   }
 }
 
@@ -700,12 +755,20 @@ async function init() {
   setupTouchFeedback();
   setupCapabilityFilters();
   setupCinematicField();
-  await Promise.allSettled([loadGaps(), loadCapabilities(), loadMarketplace(), loadCinematicEngine(), loadQualityConsole()]);
+  await Promise.allSettled([
+    loadGaps(),
+    loadCapabilities(),
+    loadMarketplace(),
+    loadCinematicEngine(),
+    loadQualityConsole(),
+    loadPublishGate()
+  ]);
   renderGapBoard();
   renderCapabilities();
   renderMarketplace();
   renderCommands();
   renderQualityConsole();
+  renderPublishGate();
 }
 
 init().catch((error) => {
@@ -716,4 +779,5 @@ init().catch((error) => {
   renderCapabilities();
   renderMarketplace();
   renderQualityConsole();
+  renderPublishGate();
 });
