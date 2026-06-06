@@ -1,4 +1,4 @@
-const CACHE_NAME = "seis-foundation-v8";
+const CACHE_NAME = "seis-foundation-v9";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -19,6 +19,7 @@ const CORE_ASSETS = [
   "./src/scripts/pwa-system.js",
   "./src/i18n/locales.js",
   "./src/content/artworks.js",
+  "./content/portfolio/portfolio-website.json",
   "./content/lab/development-mode.json",
   "./content/lab/efficiency-governor.json",
   "./content/lab/system-pulse.json",
@@ -47,7 +48,7 @@ self.addEventListener("fetch", event => {
 async function cacheCoreAssets() {
   const cache = await caches.open(CACHE_NAME);
   const urls = CORE_ASSETS.map(path => new URL(path, self.registration.scope).toString());
-  await cache.addAll(urls);
+  await Promise.allSettled(urls.map(url => cache.add(url)));
 }
 
 async function clearOldCaches() {
