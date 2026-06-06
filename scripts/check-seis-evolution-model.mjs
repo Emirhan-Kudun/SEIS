@@ -4,6 +4,7 @@ const modelPath = "content/development/seis-evolution-model.json";
 const docsPath = "docs/strategy/seis-evolution-model.md";
 const packagePath = "package.json";
 const backlogPath = "content/development/backlog.json";
+const branchReportPath = "scripts/report-seis-branch-update.mjs";
 
 const failures = [];
 
@@ -14,7 +15,7 @@ const ensure = (condition, message) => {
   }
 };
 
-for (const path of [modelPath, docsPath, packagePath, backlogPath]) {
+for (const path of [modelPath, docsPath, packagePath, backlogPath, branchReportPath]) {
   ensure(existsSync(path), `missing ${path}`);
 }
 
@@ -89,6 +90,19 @@ if (model) {
 
   ensure((model.metrics?.preferredSignals || []).length >= 4, "model must define preferred signals");
   ensure((model.metrics?.antiSignals || []).length >= 4, "model must define anti-signals");
+
+  const branchProtocol = model.branchUpdateProtocol || {};
+  ensure(branchProtocol.id === "seis-branch-update-protocol", "model must define the branch update protocol");
+  ensure(branchProtocol.canonicalBranch === "UIXAppTTR", "branch update protocol must target UIXAppTTR");
+  ensure(branchProtocol.remoteStatus === "blocked-no-remote-configured", "branch protocol must record the current no-remote gate");
+  ensure(Array.isArray(branchProtocol.updateSequence) && branchProtocol.updateSequence.length >= 4, "branch protocol must define the update sequence");
+  for (const step of branchProtocol.updateSequence || []) {
+    ensure(step.step && step.command && step.gate, "each branch update step must define step, command, and gate");
+  }
+  for (const blockedAction of ["force-pushing UIXAppTTR", "claiming GitHub branch update when no remote exists"]) {
+    ensure((branchProtocol.blockedActions || []).includes(blockedAction), `branch protocol missing blocked action: ${blockedAction}`);
+  }
+  ensure((branchProtocol.localProofCommands || []).includes("npm run branch:update-status"), "branch protocol must expose branch:update-status proof command");
 }
 
 for (const requiredText of [
@@ -101,7 +115,9 @@ for (const requiredText of [
   "Activation Queue",
   "Decision Matrix",
   "SEIS-001",
-  "evo-001"
+  "evo-001",
+  "Branch Update Protocol",
+  "npm run branch:update-status"
 ]) {
   ensure(docs.includes(requiredText), `docs missing required text: ${requiredText}`);
 }
@@ -109,6 +125,11 @@ for (const requiredText of [
 ensure(
   manifest?.scripts?.["check:seis-evolution-model"] === "node scripts/check-seis-evolution-model.mjs",
   "package.json must expose check:seis-evolution-model"
+);
+
+ensure(
+  manifest?.scripts?.["branch:update-status"] === "node scripts/report-seis-branch-update.mjs",
+  "package.json must expose branch:update-status"
 );
 
 if (failures.length > 0) {

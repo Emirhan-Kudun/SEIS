@@ -84,6 +84,7 @@ Some source repositories are no longer visible through GitHub lookup, but SEIS k
 ```bash
 npm run check:workspace
 npm run check:seis-evolution-model
+npm run branch:update-status
 npm run check:release-sync
 npm run check:ai-stack
 npm run check:cloud-environment

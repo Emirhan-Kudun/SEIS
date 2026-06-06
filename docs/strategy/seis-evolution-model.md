@@ -64,6 +64,26 @@ Primary backlog links:
 
 Preferred signals are focused check pass rate, reversible slices shipped, preserved accessibility/reduced-motion protections, and explicit publish gates. Anti-signals are dependency growth without a decision record, large binary import pressure, automatic deploy before confirmed target, and branch sprawl.
 
+
+## Branch Update Protocol
+
+SEIS branch updates must stay explicit because the canonical GitHub branch is `UIXAppTTR`, while this local execution checkout may operate on a temporary local branch such as `work`. The model therefore records branch-update gates instead of silently rewriting refs.
+
+Local branch update status can be checked with:
+
+```bash
+npm run branch:update-status
+```
+
+The safe sequence is:
+
+1. Commit the current local branch only after focused checks pass.
+2. Confirm remotes with `git remote -v`; remote update claims are blocked when no GitHub remote is configured.
+3. Create or align `UIXAppTTR` only when it does not overwrite a divergent branch.
+4. Push with `git push -u origin UIXAppTTR` only after GitHub authentication, remote URL, and branch contract are explicit.
+
+Blocked actions remain force-pushing `UIXAppTTR`, deleting remote branches without review, claiming a GitHub branch update when no remote exists, or rewriting divergent local branch refs without review.
+
 ## Quality Gates
 
 Use the focused model validator for this layer:

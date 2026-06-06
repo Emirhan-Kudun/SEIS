@@ -245,5 +245,47 @@
       "automatic deploy before confirmed target",
       "branch sprawl or unreviewed remote cleanup"
     ]
+  },
+  "branchUpdateProtocol": {
+    "id": "seis-branch-update-protocol",
+    "canonicalBranch": "UIXAppTTR",
+    "observedLocalBranch": "work",
+    "remoteStatus": "blocked-no-remote-configured",
+    "intent": "Keep SEIS branch updates explicit, auditable, and non-destructive when the local checkout is not already on the canonical GitHub branch.",
+    "updateSequence": [
+      {
+        "step": "commit-current-branch",
+        "command": "git status --short && git commit",
+        "gate": "only after focused checks pass and the worktree contains the intended files"
+      },
+      {
+        "step": "confirm-remote",
+        "command": "git remote -v",
+        "gate": "remote update is blocked when no GitHub remote is configured"
+      },
+      {
+        "step": "align-canonical-branch",
+        "command": "git branch UIXAppTTR HEAD",
+        "gate": "only create the local branch when it does not already exist; never overwrite a divergent branch without review"
+      },
+      {
+        "step": "push-canonical-branch",
+        "command": "git push -u origin UIXAppTTR",
+        "gate": "only after GitHub authentication, remote URL, and branch contract are explicit"
+      }
+    ],
+    "blockedActions": [
+      "force-pushing UIXAppTTR",
+      "deleting remote branches without authentication and branch review",
+      "claiming GitHub branch update when no remote exists",
+      "rewriting local divergent branch refs without review"
+    ],
+    "localProofCommands": [
+      "npm run check:seis-evolution-model",
+      "npm run branch:update-status",
+      "git status --short",
+      "git branch --show-current",
+      "git remote -v"
+    ]
   }
 }
