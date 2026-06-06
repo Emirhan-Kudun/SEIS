@@ -17,6 +17,7 @@ const requiredFiles = [
   "deploy/cloud-environment.json",
   "content/development/connector-capability-registry.json",
   "content/development/trusted-marketplace-intake.json",
+  "content/development/publish-gate-contract.json",
   "apps/web/index.html",
   "apps/web/styles.css",
   "apps/web/app.js",
@@ -82,7 +83,9 @@ ensure(html.includes("id=\"marketplace\""), "index.html must keep the marketplac
 ensure(html.includes("data-marketplace-channels"), "index.html must include visible marketplace channels.");
 ensure(html.includes("data-marketplace-sources"), "index.html must include visible marketplace sources.");
 ensure(js.includes("trusted-marketplace-intake.json"), "app.js must load trusted marketplace intake data.");
+ensure(js.includes("publish-gate-contract.json"), "app.js must load publish gate contract data.");
 ensure(js.includes("renderMarketplace"), "app.js must render trusted marketplace data.");
+ensure(js.includes("renderPublishGate"), "app.js must render publish gate data.");
 
 const releaseSync = spawnSync("node", ["scripts/check-release-sync.cjs"], {
   cwd: ROOT,
