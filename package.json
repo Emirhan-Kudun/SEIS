@@ -24,6 +24,7 @@
     "check:software-languages": "node scripts/check-polyglot.mjs",
     "check:polyglot-foundation": "node scripts/check-polyglot.mjs",
     "check:development-program": "node scripts/check-development-process.mjs",
+    "check:github-seis-model": "node scripts/check-github-seis-model.mjs",
     "check:monthly-branch-hardening": "node scripts/check-monthly-branch-hardening.mjs",
     "check:server-handoff": "node scripts/check-server-adapters.mjs",
     "check:server-target": "node scripts/check-server-targets.mjs",
@@ -58,7 +59,7 @@
     "automation:fullstack-language-matrix": "node scripts/create-fullstack-language-matrix.cjs",
     "automation:refresh-release": "node scripts/automation-refresh-release.cjs",
     "automation:publish-readiness": "node scripts/automation-publish-readiness.cjs",
-    "quality": "npm run check:workspace && npm run check:foundation && npm run check:release-sync && npm run check:cloud-environment && npm run check:motion-evidence && npm run check:mobile-ergonomics && npm run check:software-languages && npm run check:server-target && npm run check:code-automation-plan && npm run check:monthly-branch-hardening && npm run check:aggressive-capability-map && npm run check:trusted-marketplace-intake && npm run check:seis-trusted-marketplace-plugin && npm run check:connector-activation-report && npm run check:server-cloud-report"
+    "quality": "npm run check:workspace && npm run check:foundation && npm run check:github-seis-model && npm run check:release-sync && npm run check:cloud-environment && npm run check:motion-evidence && npm run check:mobile-ergonomics && npm run check:software-languages && npm run check:server-target && npm run check:code-automation-plan && npm run check:monthly-branch-hardening && npm run check:aggressive-capability-map && npm run check:trusted-marketplace-intake && npm run check:seis-trusted-marketplace-plugin && npm run check:connector-activation-report && npm run check:server-cloud-report"
   },
   "engines": {
     "node": ">=18"
