@@ -81,9 +81,106 @@ const fallbackMarketplace = {
   ]
 };
 
+const fallbackPortfolio = {
+  services: [
+    {
+      id: "ux-product-strategy",
+      label: "UX / Product Strategy",
+      summary: "Information architecture, product narrative, interaction strategy, and calm launch planning.",
+      pluginAssist: ["OpenAI Models", "Lovable", "Figma MCP"]
+    },
+    {
+      id: "cinematic-interface-design",
+      label: "Cinematic Interface Design",
+      summary: "Premium landing pages, portfolio systems, editorial UI, responsive composition, and low-motion visual direction.",
+      pluginAssist: ["Lovable", "Figma MCP", "Browser + Playwright"]
+    },
+    {
+      id: "frontend-governance",
+      label: "Frontend Governance",
+      summary: "Static-first implementation, accessibility checks, release handoff, rollback planning, and repository-safe plugin workflows.",
+      pluginAssist: ["GitHub MCP", "Browser + Playwright", "Vercel / Cloudflare / Netlify"]
+    }
+  ],
+  pluginStack: [
+    {
+      id: "lovable",
+      label: "Lovable",
+      lane: "AI-native builder",
+      role: "Rapid visual drafts and product iteration before clean code migration.",
+      status: "preferred-prototype"
+    },
+    {
+      id: "figma-mcp-server",
+      label: "Figma MCP",
+      lane: "Design source",
+      role: "Pull structured design intent into implementation when a concrete Figma target exists.",
+      status: "candidate-after-target"
+    },
+    {
+      id: "browser-playwright",
+      label: "Browser + Playwright",
+      lane: "Quality review",
+      role: "Validate responsive behavior, interaction pacing, and visible regressions with lightweight checks.",
+      status: "active-local-check"
+    },
+    {
+      id: "github-mcp-server",
+      label: "GitHub MCP",
+      lane: "Repository workflow",
+      role: "Connect issues, pull requests, and release status after repository scope is explicit.",
+      status: "candidate-after-repo-scope"
+    },
+    {
+      id: "openai-models",
+      label: "OpenAI Models",
+      lane: "Content intelligence",
+      role: "Case-study writing, UX critique, accessibility language, and portfolio content QA.",
+      status: "model-selection-only"
+    },
+    {
+      id: "vercel-cloudflare-netlify",
+      label: "Vercel / Cloudflare / Netlify",
+      lane: "Static hosting",
+      role: "Deploy only after domain, rollback owner, and publish target are confirmed.",
+      status: "blocked-until-target"
+    }
+  ],
+  contact: {
+    headline: "Yeni portfolyo işi için sakin, kapsamı net bir başlangıç yapılabilir.",
+    summary: "İlk adım; hedef, referans, yayın kanalı, plugin izinleri ve rollback beklentisini netleştiren küçük bir keşif notudur.",
+    primaryAction: "Kapsam notu hazırla",
+    secondaryAction: "Plugin hattını incele"
+  },
+  featuredProjects: [
+    {
+      id: "seis-foundation",
+      title: "SEIS Foundation",
+      type: "Operating system case study",
+      summary: "A calm, low-pressure web foundation for portfolio, governance, release handoff, and plugin-aware production.",
+      pluginAssist: ["OpenAI Models", "Browser + Playwright", "GitHub MCP"]
+    },
+    {
+      id: "uix-apps-portfolio",
+      title: "UIX Apps Portfolio Surface",
+      type: "Cinematic portfolio website",
+      summary: "A premium static portfolio shell with case studies, visual archive, motion controls, and plugin lane transparency.",
+      pluginAssist: ["Lovable", "Figma MCP", "OpenAI Models"]
+    },
+    {
+      id: "legacy-archive",
+      title: "Legacy Visual Archive",
+      type: "Artwork and media curation",
+      summary: "A lightweight drawing archive that keeps older assets inspectable without overloading the portfolio experience.",
+      pluginAssist: ["Browser + Playwright", "OpenAI Models"]
+    }
+  ]
+};
+
 const state = {
   mode: "cinematic",
   gaps: [],
+  portfolio: fallbackPortfolio,
   capabilities: fallbackCapabilities,
   marketplace: fallbackMarketplace,
   commands: [],
@@ -399,6 +496,82 @@ function renderCapabilities() {
   });
 }
 
+function renderPortfolio() {
+  const status = el("[data-portfolio-status]");
+  const serviceBoard = el("#portfolio-service-board");
+  const pluginBoard = el("#portfolio-plugin-board");
+  const projectBoard = el("#portfolio-project-board");
+  const portfolio = state.portfolio || fallbackPortfolio;
+  const services = portfolio.services || fallbackPortfolio.services;
+  const plugins = portfolio.pluginStack || fallbackPortfolio.pluginStack;
+  const projects = portfolio.featuredProjects || fallbackPortfolio.featuredProjects;
+  const contact = portfolio.contact || fallbackPortfolio.contact;
+
+  if (status) {
+    status.textContent = `${projects.length || 1} projects - ${plugins.length} plugin lanes - static portfolio ready.`;
+  }
+
+  if (serviceBoard) {
+    serviceBoard.replaceChildren();
+    services.forEach((service) => {
+      const card = create("article", "service-card");
+      const assist = (service.pluginAssist || []).join(", ");
+      card.append(
+        create("span", "", service.label),
+        create("h3", "", getServiceTitle(service.id)),
+        create("p", "", service.summary),
+        create("p", "plugin-stack-card__assist", assist ? `Plugin assist: ${assist}` : "Plugin assist: scoped after brief")
+      );
+      serviceBoard.append(card);
+    });
+  }
+
+  if (pluginBoard) {
+    pluginBoard.replaceChildren();
+    plugins.forEach((plugin) => {
+      const card = create("article", `plugin-stack-card ${getMarketplaceStatusClass(plugin.status)}`);
+      card.append(
+        create("span", "", plugin.status),
+        create("h3", "", plugin.label),
+        create("p", "", plugin.role),
+        create("p", "plugin-stack-card__assist", `Lane: ${plugin.lane}`)
+      );
+      pluginBoard.append(card);
+    });
+  }
+
+  if (projectBoard) {
+    projectBoard.replaceChildren();
+    projects.forEach((project) => {
+      const card = create("article", "project-card");
+      const assist = (project.pluginAssist || []).join(", ");
+      card.append(
+        create("span", "", project.type),
+        create("h3", "", project.title),
+        create("p", "", project.summary),
+        create("p", "plugin-stack-card__assist", assist ? `Plugin assist: ${assist}` : "Plugin assist: scoped per project")
+      );
+      projectBoard.append(card);
+    });
+  }
+
+  const contactHeadline = el("[data-contact-headline]");
+  const contactSummary = el("[data-contact-summary]");
+  const contactPrimary = el("[data-contact-primary]");
+  const contactSecondary = el("[data-contact-secondary]");
+  if (contactHeadline) contactHeadline.textContent = contact.headline;
+  if (contactSummary) contactSummary.textContent = contact.summary;
+  if (contactPrimary) contactPrimary.textContent = contact.primaryAction;
+  if (contactSecondary) contactSecondary.textContent = contact.secondaryAction;
+}
+
+function getServiceTitle(id) {
+  if (id.includes("strategy")) return "Calm product direction";
+  if (id.includes("interface")) return "Cinematic web presence";
+  if (id.includes("governance")) return "Safe release workflow";
+  return "Scoped portfolio service";
+}
+
 function renderMarketplace() {
   const status = el("[data-marketplace-status]");
   const channelsBoard = el("[data-marketplace-channels]");
@@ -507,14 +680,33 @@ function renderQualityConsole() {
 }
 
 async function fetchJson(path) {
-  const response = await fetch(path);
-  if (!response.ok) throw new Error(`${path} failed: ${response.status}`);
-  return response.json();
+  const candidates = path.startsWith("../../") ? [path, `./${path.slice(6)}`] : [path];
+  let lastError;
+
+  for (const candidate of candidates) {
+    try {
+      const response = await fetch(candidate);
+      if (!response.ok) throw new Error(`${candidate} failed: ${response.status}`);
+      return response.json();
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError;
 }
 
 async function loadGaps() {
   const payload = await fetchJson("../../data/gap-closure-register.json");
   state.gaps = payload.gaps || [];
+}
+
+async function loadPortfolio() {
+  try {
+    state.portfolio = await fetchJson("../../content/portfolio/portfolio-website.json");
+  } catch (_error) {
+    state.portfolio = fallbackPortfolio;
+  }
 }
 
 async function loadCapabilities() {
@@ -700,8 +892,16 @@ async function init() {
   setupTouchFeedback();
   setupCapabilityFilters();
   setupCinematicField();
-  await Promise.allSettled([loadGaps(), loadCapabilities(), loadMarketplace(), loadCinematicEngine(), loadQualityConsole()]);
+  await Promise.allSettled([
+    loadGaps(),
+    loadPortfolio(),
+    loadCapabilities(),
+    loadMarketplace(),
+    loadCinematicEngine(),
+    loadQualityConsole()
+  ]);
   renderGapBoard();
+  renderPortfolio();
   renderCapabilities();
   renderMarketplace();
   renderCommands();
@@ -713,6 +913,7 @@ init().catch((error) => {
   if (board) {
     board.replaceChildren(create("p", "", `Runtime unavailable: ${error.message}`));
   }
+  renderPortfolio();
   renderCapabilities();
   renderMarketplace();
   renderQualityConsole();
