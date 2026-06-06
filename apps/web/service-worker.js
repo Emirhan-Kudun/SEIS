@@ -1,4 +1,4 @@
-const CACHE_NAME = "seis-foundation-v8";
+const CACHE_NAME = "seis-foundation-v9";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -23,7 +23,8 @@ const CORE_ASSETS = [
   "./content/lab/efficiency-governor.json",
   "./content/lab/system-pulse.json",
   "./content/lab/weekly-usage-governor.json",
-  "./content/lab/handoff-checklist.json"
+  "./content/lab/handoff-checklist.json",
+  "./content/development/github-seis-model.json"
 ];
 
 self.addEventListener("install", event => {
