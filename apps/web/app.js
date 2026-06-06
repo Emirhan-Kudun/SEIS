@@ -93,6 +93,7 @@ const state = {
   evolutionModel: null,
   aggressiveMap: null,
   executionPlan: null,
+  localCycle: null,
   filter: "all"
 };
 
@@ -590,6 +591,36 @@ function renderExecutionPlan() {
   });
 }
 
+function renderLocalCycle() {
+  const panel = el("[data-local-cycle-panel]");
+  const summary = el("[data-local-cycle-summary]");
+  const grid = el("[data-local-cycle-grid]");
+  if (!panel || !grid) return;
+
+  const report = state.localCycle;
+  const commands = (report?.commands || []).slice(0, 6);
+  if (summary) {
+    const posture = report?.publishPosture?.reason || "publish gated";
+    summary.textContent = `${report?.passed ? "Passed" : "Blocked"}; push remains ${report?.publishPosture?.pushAllowed ? "allowed" : "blocked"}; ${posture}.`;
+  }
+
+  grid.replaceChildren();
+  if (!commands.length) {
+    grid.append(create("p", "", "Local aggressive cycle report unavailable; run automation before increasing speed."));
+    return;
+  }
+
+  commands.forEach((entry) => {
+    const card = create("article", "local-cycle-card");
+    card.append(
+      create("span", "", entry.status || "unknown"),
+      create("p", "", entry.command || "local check"),
+      create("p", "", entry.summary || "No summary recorded.")
+    );
+    grid.append(card);
+  });
+}
+
 function renderCommands() {
   const board = el("#command-board");
   if (!board) return;
@@ -682,6 +713,24 @@ async function loadCinematicEngine() {
         action: "Keep the interface usable while engine data is unavailable."
       }
     ];
+  }
+}
+
+async function loadLocalCycle() {
+  try {
+    state.localCycle = await fetchJson("../../content/development/aggressive-local-run-report.json");
+  } catch (_error) {
+    state.localCycle = {
+      passed: false,
+      publishPosture: { pushAllowed: false, reason: "report missing" },
+      commands: [
+        {
+          command: "npm run automation:aggressive-local-cycle",
+          status: "needed",
+          summary: "Generate the local aggressive run report before increasing speed."
+        }
+      ]
+    };
   }
 }
 
@@ -924,7 +973,8 @@ async function init() {
     loadPublishGate(),
     loadEvolutionModel(),
     loadAggressiveMap(),
-    loadExecutionPlan()
+    loadExecutionPlan(),
+    loadLocalCycle()
   ]);
   renderGapBoard();
   renderCapabilities();
@@ -935,6 +985,7 @@ async function init() {
   renderEvolutionQueue();
   renderAggressiveLanes();
   renderExecutionPlan();
+  renderLocalCycle();
 }
 
 init().catch((error) => {
@@ -949,4 +1000,5 @@ init().catch((error) => {
   renderEvolutionQueue();
   renderAggressiveLanes();
   renderExecutionPlan();
+  renderLocalCycle();
 });

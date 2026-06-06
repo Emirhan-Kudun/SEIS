@@ -546,6 +546,48 @@ h2 {
   }
 }
 
+.local-cycle-panel {
+  margin-top: 1rem;
+  border: 1px solid rgba(154, 106, 47, 0.22);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(248, 241, 226, 0.55));
+  padding: 1rem;
+}
+
+.local-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.local-cycle-card {
+  border: 1px solid rgba(47, 111, 115, 0.22);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.66);
+  padding: 0.75rem;
+}
+
+.local-cycle-card span {
+  display: inline-flex;
+  color: var(--teal);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.local-cycle-card p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 860px) {
+  .local-cycle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .gap-card h3 {
   margin: 0.1rem 0 0.45rem;
   font-size: 1.1rem;

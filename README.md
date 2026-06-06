@@ -89,6 +89,7 @@ npm run check:seis-evolution-model
 npm run check:github-remote-configuration
 npm run check:publish-gate-contract
 npm run check:aggressive-execution-plan
+npm run check:aggressive-local-cycle
 npm run check:release-sync
 npm run check:ai-stack
 npm run check:cloud-environment
