@@ -20,6 +20,7 @@ const requiredFiles = [
   "content/development/publish-gate-contract.json",
   "content/development/seis-evolution-model.json",
   "content/development/aggressive-capability-map.json",
+  "content/development/aggressive-cockpit-report.json",
   "apps/web/index.html",
   "apps/web/styles.css",
   "apps/web/app.js",
@@ -86,6 +87,7 @@ ensure(html.includes("data-marketplace-channels"), "index.html must include visi
 ensure(html.includes("data-marketplace-sources"), "index.html must include visible marketplace sources.");
 ensure(html.includes("data-evolution-queue-panel"), "index.html must include visible evolution queue panel.");
 ensure(html.includes("data-aggressive-lanes-panel"), "index.html must include visible aggressive lanes panel.");
+ensure(html.includes("data-aggressive-report-panel"), "index.html must include visible aggressive report panel.");
 ensure(js.includes("trusted-marketplace-intake.json"), "app.js must load trusted marketplace intake data.");
 ensure(js.includes("publish-gate-contract.json"), "app.js must load publish gate contract data.");
 ensure(js.includes("seis-evolution-model.json"), "app.js must load SEIS evolution model data.");
@@ -93,6 +95,7 @@ ensure(js.includes("renderMarketplace"), "app.js must render trusted marketplace
 ensure(js.includes("renderPublishGate"), "app.js must render publish gate data.");
 ensure(js.includes("renderEvolutionQueue"), "app.js must render SEIS evolution queue data.");
 ensure(js.includes("renderAggressiveLanes"), "app.js must render aggressive capability lanes data.");
+ensure(js.includes("renderAggressiveReport"), "app.js must render aggressive cockpit report data.");
 
 const releaseSync = spawnSync("node", ["scripts/check-release-sync.cjs"], {
   cwd: ROOT,

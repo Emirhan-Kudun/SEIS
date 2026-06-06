@@ -1,0 +1,182 @@
+{
+  "id": "seis-aggressive-cockpit-report",
+  "version": 1,
+  "status": "active",
+  "mode": "aggressive-safe-activation",
+  "branch": "UIXAppTTR",
+  "generatedFrom": [
+    "content/development/aggressive-capability-map.json",
+    "content/development/seis-evolution-model.json",
+    "content/development/publish-gate-contract.json",
+    "content/development/github-remote-configuration.json"
+  ],
+  "summary": {
+    "mission": "Grow SEIS aggressively without credential leaks, dependency bloat, force pushes, or blind connector writes.",
+    "timeboxMinutes": 10,
+    "laneCount": 5,
+    "readinessReady": 6,
+    "immediateActionCount": 5,
+    "publishExpectedResult": "configured-but-not-publish-ready",
+    "remoteTarget": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "targetBranch": "UIXAppTTR"
+  },
+  "immediateActions": [
+    {
+      "order": 1,
+      "id": "evo-001",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Refine the development cockpit hierarchy",
+      "nextAction": "Audit the current cockpit sections and improve one visible hierarchy issue without changing the dependency stack.",
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore the previous static markup and style block for the touched section."
+    },
+    {
+      "order": 2,
+      "id": "evo-002",
+      "backlogId": "SEIS-002",
+      "layer": "experience",
+      "title": "Tune mobile motion timing",
+      "nextAction": "Reduce any mobile reveal or transition pressure only after checking the current motion policy.",
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore the prior motion constants or CSS transition values."
+    },
+    {
+      "order": 3,
+      "id": "evo-003",
+      "backlogId": "SEIS-003",
+      "layer": "deployment",
+      "title": "Confirm production server target",
+      "nextAction": "Collect domain, host, document root, upload method, and rollback path before any upload claim.",
+      "validationProfile": "expandedFoundation",
+      "rollback": "Revert target records and keep the local release package unchanged."
+    },
+    {
+      "order": 4,
+      "id": "evo-004",
+      "backlogId": "SEIS-005",
+      "layer": "platform",
+      "title": "Choose the mobile starting path",
+      "nextAction": "Compare PWA-first, Expo, and native paths against accessibility, motion, cost, and rollback constraints.",
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Reopen the decision record and return to PWA-first static operation."
+    },
+    {
+      "order": 5,
+      "id": "evo-005",
+      "backlogId": "SEIS-006",
+      "layer": "automation",
+      "title": "Keep agent workstreams inside UIXAppTTR",
+      "nextAction": "Record agent-driven changes as small UIXAppTTR commits with focused validators and no long-lived branch sprawl.",
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Revert the smallest agent commit and preserve branch history."
+    }
+  ],
+  "laneSummaries": [
+    {
+      "id": "github-shipment",
+      "surfaceCount": 3,
+      "firstSurfaces": [
+        "GitHub CLI",
+        "GitHub connector",
+        "publish preflight"
+      ],
+      "allowedActionCount": 4,
+      "firstBlockedAction": "force push",
+      "qualityCommands": [
+        "npm run publish:preflight"
+      ]
+    },
+    {
+      "id": "cloud-environment",
+      "surfaceCount": 8,
+      "firstSurfaces": [
+        "GitHub Pages",
+        "Cloudflare Pages",
+        "Vercel",
+        "Netlify"
+      ],
+      "allowedActionCount": 3,
+      "firstBlockedAction": "live deploy without SEIS_SITE_URL and provider token",
+      "qualityCommands": [
+        "npm run check:cloud-environment",
+        "npm run check:server-target"
+      ]
+    },
+    {
+      "id": "design-and-browser-quality",
+      "surfaceCount": 4,
+      "firstSurfaces": [
+        "frontend-design skill",
+        "Browser",
+        "Playwright",
+        "Figma"
+      ],
+      "allowedActionCount": 3,
+      "firstBlockedAction": "broad browser crawls without UI change",
+      "qualityCommands": [
+        "npm run check:mobile-ergonomics",
+        "npm run check:motion-evidence"
+      ]
+    },
+    {
+      "id": "connector-and-mcp-governance",
+      "surfaceCount": 5,
+      "firstSurfaces": [
+        "MCP registry",
+        "connector registry",
+        "plugin skill map",
+        "skill router"
+      ],
+      "allowedActionCount": 3,
+      "firstBlockedAction": "blanket OAuth calls",
+      "qualityCommands": [
+        "npm run check:aggressive-capability-map",
+        "npm run check:code-automation-plan"
+      ]
+    },
+    {
+      "id": "polyglot-language-presence",
+      "surfaceCount": 3,
+      "firstSurfaces": [
+        "polyglot manifest",
+        "language atlas",
+        "GitHub Linguist overrides"
+      ],
+      "allowedActionCount": 3,
+      "firstBlockedAction": "new runtime dependency for atlas-only growth",
+      "qualityCommands": [
+        "npm run check:software-languages"
+      ]
+    }
+  ],
+  "blockedGates": [
+    "push claim",
+    "deployment claim",
+    "automatic deploy without confirmed target",
+    "unconfirmed overwrite",
+    "branch cleanup without review",
+    "switch or publish from UIXAppTTR",
+    "clean worktree",
+    "GitHub authentication ready",
+    "remote branch state reviewed",
+    "target deployment path confirmed when publishing release artifacts"
+  ],
+  "qualityCommands": [
+    "npm run check:aggressive-cockpit-report",
+    "npm run publish:preflight",
+    "npm run check:cloud-environment",
+    "npm run check:server-target",
+    "npm run check:mobile-ergonomics",
+    "npm run check:motion-evidence",
+    "npm run check:aggressive-capability-map",
+    "npm run check:code-automation-plan",
+    "npm run check:software-languages",
+    "npm run check:publish-gate-contract",
+    "npm run check:github-remote-configuration",
+    "npm run automation:publish-readiness",
+    "npm run check:seis-evolution-model",
+    "npm run check:workspace"
+  ],
+  "rollback": "Regenerate this report from source governance records, or revert the smallest cockpit/report commit."
+}

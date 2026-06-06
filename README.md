@@ -94,6 +94,7 @@ npm run check:cloud-environment
 npm run check:monthly-branch-hardening
 npm run check:trusted-marketplace-intake
 npm run check:seis-trusted-marketplace-plugin
+npm run check:aggressive-cockpit-report
 npm run automation:develop
 npm run automation:publish-readiness
 ```

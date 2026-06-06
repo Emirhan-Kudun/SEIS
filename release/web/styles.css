@@ -491,6 +491,65 @@ h2 {
   }
 }
 
+.aggressive-report-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+  gap: 0.9rem;
+  align-items: start;
+  margin-top: 1rem;
+  border: 1px solid rgba(133, 61, 37, 0.2);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.62);
+  padding: 1rem;
+}
+
+.aggressive-report-panel h3 {
+  margin: 0.15rem 0 0.45rem;
+  font-size: 1.2rem;
+}
+
+.aggressive-report-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.aggressive-report-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.aggressive-report-metric {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 238, 225, 0.48));
+  padding: 0.75rem;
+}
+
+.aggressive-report-metric span {
+  display: block;
+  color: var(--teal);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.aggressive-report-metric strong {
+  display: block;
+  margin-top: 0.22rem;
+  color: var(--rose);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .aggressive-report-panel,
+  .aggressive-report-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
 .gap-card h3 {
   margin: 0.1rem 0 0.45rem;
   font-size: 1.1rem;

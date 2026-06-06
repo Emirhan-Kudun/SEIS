@@ -92,6 +92,7 @@ const state = {
   publishGate: null,
   evolutionModel: null,
   aggressiveMap: null,
+  aggressiveReport: null,
   filter: "all"
 };
 
@@ -555,6 +556,33 @@ function renderAggressiveLanes() {
   });
 }
 
+function renderAggressiveReport() {
+  const panel = el("[data-aggressive-report-panel]");
+  const summary = el("[data-aggressive-report-summary]");
+  const metrics = el("[data-aggressive-report-metrics]");
+  if (!panel || !metrics) return;
+
+  const report = state.aggressiveReport;
+  const reportSummary = report?.summary || {};
+  if (summary) {
+    summary.textContent = reportSummary.mission || "Aggressive cockpit report keeps speed tied to blockers, checks, and rollback.";
+  }
+
+  const metricItems = [
+    ["lanes", reportSummary.laneCount || 0],
+    ["ready", reportSummary.readinessReady || 0],
+    ["actions", reportSummary.immediateActionCount || 0],
+    ["timebox", `${reportSummary.timeboxMinutes || 10}m`]
+  ];
+
+  metrics.replaceChildren();
+  metricItems.forEach(([label, value]) => {
+    const item = create("article", "aggressive-report-metric");
+    item.append(create("span", "", label), create("strong", "", String(value)));
+    metrics.append(item);
+  });
+}
+
 function renderCommands() {
   const board = el("#command-board");
   if (!board) return;
@@ -647,6 +675,22 @@ async function loadCinematicEngine() {
         action: "Keep the interface usable while engine data is unavailable."
       }
     ];
+  }
+}
+
+async function loadAggressiveReport() {
+  try {
+    state.aggressiveReport = await fetchJson("../../content/development/aggressive-cockpit-report.json");
+  } catch (_error) {
+    state.aggressiveReport = {
+      summary: {
+        mission: "Aggressive cockpit report unavailable; keep speed bounded by local checks.",
+        laneCount: 0,
+        readinessReady: 0,
+        immediateActionCount: 0,
+        timeboxMinutes: 10
+      }
+    };
   }
 }
 
@@ -868,7 +912,8 @@ async function init() {
     loadQualityConsole(),
     loadPublishGate(),
     loadEvolutionModel(),
-    loadAggressiveMap()
+    loadAggressiveMap(),
+    loadAggressiveReport()
   ]);
   renderGapBoard();
   renderCapabilities();
@@ -878,6 +923,7 @@ async function init() {
   renderPublishGate();
   renderEvolutionQueue();
   renderAggressiveLanes();
+  renderAggressiveReport();
 }
 
 init().catch((error) => {
@@ -891,4 +937,5 @@ init().catch((error) => {
   renderPublishGate();
   renderEvolutionQueue();
   renderAggressiveLanes();
+  renderAggressiveReport();
 });
