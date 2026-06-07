@@ -140,7 +140,7 @@ The current setup only has `typecheck` and `lint`. There are no automated tests.
 2. **Accessibility always.** Every page must have an axe assertion in the e2e suite.
 3. **Reduced-motion always.** Every animated component must be tested in both motion modes.
 4. **Use Vitest for units, Playwright for e2e.** Do not mix test frameworks.
-5. **Tests live next to source.** Not in a top-level `__tests__/` folder.
+5. **Tests live next to source.** Unit and integration tests should live next to the source files (not in a top-level `__tests__/` folder). E2E tests should live in a dedicated `e2e/` directory within each app.
 6. **Content tests are not optional.** Broken content data must fail CI before deploy.
 
 ---
@@ -149,6 +149,7 @@ The current setup only has `typecheck` and `lint`. There are no automated tests.
 
 - Main branch is sacred — never push directly to `main` without a PR.
 - Run `npm run typecheck && npm run lint` before every commit.
+- Run `npm run github:preflight` before pushing to remote to run all preflight validations locally.
 - Once tests exist: run `npm test` before every commit.
 - Prefer small, scoped commits: content update, style fix, and feature work stay separate.
 - Experimental or risky work must use isolated branches.
