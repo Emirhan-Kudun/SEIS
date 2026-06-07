@@ -107,6 +107,28 @@ const requiredFiles = [
   "polyglot/meson/release-policy.meson",
   "polyglot/just/release-policy.just",
   "polyglot/taskfile/release-policy.taskfile.yml",
+  "polyglot/terraform/seis_deploy_guard.tf",
+  "polyglot/vue/SeisReleasePolicy.vue",
+  "polyglot/svelte/SeisReleasePolicy.svelte",
+  "polyglot/scss/release_policy.scss",
+  "polyglot/mdx/release-policy.mdx",
+  "polyglot/astro/ReleasePolicy.astro",
+  "polyglot/gleam/release_policy.gleam",
+  "polyglot/haxe/SeisReleasePolicy.hx",
+  "polyglot/latex/release-policy.tex",
+  "polyglot/cypher/release_policy.cypher",
+  "polyglot/sml/release_policy.sml",
+  "polyglot/vala/SeisReleasePolicy.vala",
+  "polyglot/coffeescript/release_policy.coffee",
+  "polyglot/fish/release_policy.fish",
+  "polyglot/pkl/release-policy.pkl",
+  "polyglot/assembly/readiness_contract.asm",
+  "polyglot/vhdl/readiness_contract.vhd",
+  "polyglot/systemverilog/readiness_contract.sv",
+  "polyglot/carbon/release_policy.carbon",
+  "polyglot/odin/release_policy.odin",
+  "polyglot/wren/release_policy.wren",
+  "polyglot/idris/ReleasePolicy.idr",
   "server/php/health.php",
   "server/node/static-server.mjs",
   "server/express/plugin-source-routes.mjs",
@@ -127,8 +149,8 @@ for (const file of requiredFiles) {
 if (existsSync("polyglot/manifest.json")) {
   const manifest = JSON.parse(readFileSync("polyglot/manifest.json", "utf8"));
   const languages = manifest.languages || [];
-  if (languages.length < 105) {
-    failures.push("polyglot manifest must include at least 105 language/config surfaces");
+  if (languages.length < 130) {
+    failures.push("polyglot manifest must include at least 130 language/config surfaces");
   }
   for (const language of languages) {
     for (const entrypoint of language.entrypoints || []) {

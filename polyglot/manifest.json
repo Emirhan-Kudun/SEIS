@@ -567,6 +567,116 @@
       "language": "Taskfile",
       "role": "cross-platform task runner release policy",
       "entrypoints": ["polyglot/taskfile/release-policy.taskfile.yml"]
+    },
+    {
+      "language": "Terraform",
+      "role": "infrastructure-as-code deploy guard and server target governance",
+      "entrypoints": ["polyglot/terraform/seis_deploy_guard.tf"]
+    },
+    {
+      "language": "Vue",
+      "role": "reactive component release status with motion-aware transitions",
+      "entrypoints": ["polyglot/vue/SeisReleasePolicy.vue"]
+    },
+    {
+      "language": "Svelte",
+      "role": "reactive component release status with reduced-motion support",
+      "entrypoints": ["polyglot/svelte/SeisReleasePolicy.svelte"]
+    },
+    {
+      "language": "SCSS",
+      "role": "design token–driven motion policy with prefers-reduced-motion mixin",
+      "entrypoints": ["polyglot/scss/release_policy.scss"]
+    },
+    {
+      "language": "MDX",
+      "role": "human-readable release policy documentation with embedded code",
+      "entrypoints": ["polyglot/mdx/release-policy.mdx"]
+    },
+    {
+      "language": "Astro",
+      "role": "server-rendered release status component with motion-reduced style",
+      "entrypoints": ["polyglot/astro/ReleasePolicy.astro"]
+    },
+    {
+      "language": "Gleam",
+      "role": "type-safe functional release and motion policy on the BEAM VM",
+      "entrypoints": ["polyglot/gleam/release_policy.gleam"]
+    },
+    {
+      "language": "Haxe",
+      "role": "multi-platform release and motion policy in abstract enum style",
+      "entrypoints": ["polyglot/haxe/SeisReleasePolicy.hx"]
+    },
+    {
+      "language": "LaTeX",
+      "role": "typeset release policy governance document",
+      "entrypoints": ["polyglot/latex/release-policy.tex"]
+    },
+    {
+      "language": "Cypher",
+      "role": "graph-based release gate and motion mode relationship model",
+      "entrypoints": ["polyglot/cypher/release_policy.cypher"]
+    },
+    {
+      "language": "Standard ML",
+      "role": "strongly-typed ML-family release and motion policy",
+      "entrypoints": ["polyglot/sml/release_policy.sml"]
+    },
+    {
+      "language": "Vala",
+      "role": "GObject-based release and motion policy for Linux desktop surfaces",
+      "entrypoints": ["polyglot/vala/SeisReleasePolicy.vala"]
+    },
+    {
+      "language": "CoffeeScript",
+      "role": "concise JS-compiled release and motion policy",
+      "entrypoints": ["polyglot/coffeescript/release_policy.coffee"]
+    },
+    {
+      "language": "Fish Shell",
+      "role": "interactive shell release policy and motion mode resolution",
+      "entrypoints": ["polyglot/fish/release_policy.fish"]
+    },
+    {
+      "language": "Pkl",
+      "role": "Apple structured config release policy with typesafe motion modes",
+      "entrypoints": ["polyglot/pkl/release-policy.pkl"]
+    },
+    {
+      "language": "Assembly (x86-64)",
+      "role": "low-level native readiness contract and motion mode resolver",
+      "entrypoints": ["polyglot/assembly/readiness_contract.asm"]
+    },
+    {
+      "language": "VHDL",
+      "role": "hardware-description readiness contract with motion mode logic",
+      "entrypoints": ["polyglot/vhdl/readiness_contract.vhd"]
+    },
+    {
+      "language": "SystemVerilog",
+      "role": "hardware-description readiness contract with enum motion modes",
+      "entrypoints": ["polyglot/systemverilog/readiness_contract.sv"]
+    },
+    {
+      "language": "Carbon",
+      "role": "Google experimental systems language release and motion policy",
+      "entrypoints": ["polyglot/carbon/release_policy.carbon"]
+    },
+    {
+      "language": "Odin",
+      "role": "modern systems language release and motion policy",
+      "entrypoints": ["polyglot/odin/release_policy.odin"]
+    },
+    {
+      "language": "Wren",
+      "role": "lightweight scripting language release and motion policy",
+      "entrypoints": ["polyglot/wren/release_policy.wren"]
+    },
+    {
+      "language": "Idris",
+      "role": "dependently-typed functional release and motion policy",
+      "entrypoints": ["polyglot/idris/ReleasePolicy.idr"]
     }
   ]
 }
