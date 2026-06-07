@@ -57,14 +57,14 @@ describe("registry.json", () => {
   });
 
   it("every connector has a valid status", () => {
-    const { connectors } = registry as { connectors: Array<{ status: string }> };
+    const { connectors } = registry as unknown as { connectors: Array<{ status: string }> };
     for (const c of connectors) {
       expect(RuntimeStatusSchema.safeParse(c.status).success, `Invalid status: ${c.status}`).toBe(true);
     }
   });
 
   it("connectors that require env vars list at least one env var name", () => {
-    const { connectors } = registry as {
+    const { connectors } = registry as unknown as {
       connectors: Array<{ status: string; requiresEnv: string[] }>;
     };
     const configured = connectors.filter((c) => c.status === "configured");
