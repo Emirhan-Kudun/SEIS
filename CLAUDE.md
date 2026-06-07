@@ -163,13 +163,24 @@ When writing tests for SEIS, follow these rules:
 
 ---
 
-## Multi-AI Workflow
+## Contributors & AI Partners
 
-- **Claude Code** — deep code reasoning, refactors, architecture review, bug analysis, high-risk implementation review, test writing
-- **Codex / GPT** — primary language/reasoning layer for local repo work, terminal tasks, Git flow, installation
-- **Gemini** — broad-context reading, documentation synthesis, research-heavy tasks, Google ecosystem
-- Keep exactly one assistant in writer mode at a time. Others operate as reviewers, researchers, or planners.
+SEIS is built with a multi-firm AI-native workflow. Each assistant has a defined role.
+
+| Firm / Tool | Product | Role in SEIS |
+|---|---|---|
+| **Anthropic** | Claude Code, Claude API | Deep code reasoning, refactors, architecture review, bug analysis, test writing, high-risk implementation review |
+| **OpenAI** | Codex, GPT-4o, ChatGPT | Primary language and reasoning layer for local repo work, terminal tasks, Git flow, Turkish/English synthesis, durable planning |
+| **Google** | Gemini CLI, Gemini Code Assist | Broad-context reading, documentation synthesis, research-heavy tasks, Google ecosystem workflows |
+| **GitHub / Microsoft** | Copilot, Actions, MCP | Inline suggestions, CI/CD orchestration, repository automation |
+| **OpenCode / Aider** | Aider, OpenCode | Scoped implementation partner, fast patch generator, second opinion |
+| **Qwen / Alibaba** | Qwen Code | Supplementary code generation, polyglot support |
+| **Meta / Community** | Llama / Ollama | Offline drafts, private local notes, lightweight summaries, experiments — never canonical |
+
+**Collaboration rules:**
+- Keep exactly one assistant in **writer mode** at a time. Others operate as reviewers, researchers, or planners.
 - Before switching writer role between assistants, inspect `git status`, summarize active changes, and preserve unrelated work.
+- Do not let assistants overwrite each other's edits without a human-readable handoff note or a clean Git diff review.
 - Never place API keys, tokens, private credentials, or `.env` contents into prompts, commits, or agent handoff files.
 
 ## AI Handoff Workflow
