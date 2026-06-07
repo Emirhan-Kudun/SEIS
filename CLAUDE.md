@@ -145,6 +145,25 @@ The current setup only has `typecheck` and `lint`. There are no automated tests.
 
 ---
 
+## Contributors & AI Partners
+
+The portfolio is built with a multi-firm AI-native workflow. Each assistant has a defined role.
+
+| Firm / Tool | Product | Role |
+|---|---|---|
+| **Anthropic** | Claude Code, Claude API | Deep code reasoning, refactors, architecture review, test writing, accessibility audits |
+| **OpenAI** | Codex, GPT-4o, ChatGPT | Primary language/reasoning layer, Turkish/English synthesis, durable planning, terminal tasks |
+| **Google** | Gemini CLI, Gemini Code Assist | Broad-context reading, documentation synthesis, design research, Google ecosystem |
+| **GitHub / Microsoft** | Copilot, Actions | Inline suggestions, CI/CD, repository automation |
+| **Vercel** | v0, Vercel AI SDK | UI prototyping, deployment configuration, edge runtime |
+| **OpenCode / Aider** | Aider, OpenCode | Scoped implementation, fast patches, second opinions |
+| **Meta / Community** | Llama / Ollama | Offline drafts, local experiments — secondary only |
+
+**Collaboration rules:**
+- Keep exactly one assistant in **writer mode** at a time. Others operate as reviewers or researchers.
+- Before switching writer role, inspect `git status` and preserve unrelated work.
+- Never place API keys, tokens, or credentials in prompts, commits, or generated files.
+
 ## Git Workflow
 
 - Main branch is sacred — never push directly to `main` without a PR.

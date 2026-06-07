@@ -21,8 +21,8 @@ apps/*/.next/
 .env.*
 !.env.example
 
-# Local runtime data
-runtime/
+# Local runtime data (root-level only, not packages/runtime/)
+/runtime/
 .serena/
 
 # IDE
