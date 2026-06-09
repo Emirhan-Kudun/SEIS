@@ -15,7 +15,6 @@ const ConnectorSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   category: z.string().min(1),
-  status: RuntimeStatusSchema,
   scope: z.string().min(1),
   requiresEnv: z.array(z.string()),
   notes: z.string(),
@@ -30,9 +29,13 @@ const DeploymentTargetSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   category: z.string().min(1),
-  status: RuntimeStatusSchema,
+  statusOverride: z.string().optional(),
   scope: z.string().min(1),
   requiresEnv: z.array(z.string()),
+  targetUrl: z.string().optional(),
+  command: z.string().optional(),
+  persistence: z.string().optional(),
+  safety: z.string().optional(),
   notes: z.string(),
 });
 
@@ -56,20 +59,21 @@ describe("registry.json", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("every connector has a valid status", () => {
-    const { connectors } = registry as unknown as { connectors: Array<{ status: string }> };
+  it("every connector has a non-empty scope", () => {
+    const { connectors } = registry as unknown as { connectors: Array<{ scope: string }> };
     for (const c of connectors) {
-      expect(RuntimeStatusSchema.safeParse(c.status).success, `Invalid status: ${c.status}`).toBe(true);
+      expect(c.scope.trim().length, `empty scope on connector`).toBeGreaterThan(0);
     }
   });
 
-  it("connectors that require env vars list at least one env var name", () => {
+  it("connectors with env requirements list at least one env var name", () => {
     const { connectors } = registry as unknown as {
-      connectors: Array<{ status: string; requiresEnv: string[] }>;
+      connectors: Array<{ requiresEnv: string[] }>;
     };
-    const configured = connectors.filter((c) => c.status === "configured");
-    for (const c of configured) {
-      expect(c.requiresEnv.length, `configured connector has no requiresEnv`).toBeGreaterThan(0);
+    for (const c of connectors) {
+      if (c.requiresEnv.length > 0) {
+        expect(c.requiresEnv.every((e) => e.trim().length > 0)).toBe(true);
+      }
     }
   });
 });

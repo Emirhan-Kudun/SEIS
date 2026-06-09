@@ -56,9 +56,9 @@ const DrawingItemSchema = z.object({
 });
 
 const DataSchema = z.object({
-  meta: SiteMetaSchema,
+  site: SiteMetaSchema,
   services: z.array(ServiceItemSchema).min(1),
-  work: z.array(WorkItemSchema).min(1),
+  works: z.array(WorkItemSchema).min(1),
   drawings: z.array(DrawingItemSchema).min(1),
 });
 
@@ -68,8 +68,8 @@ describe("data.json", () => {
     expect(result.success, result.error?.message).toBe(true);
   });
 
-  it("has a valid email in meta", () => {
-    const result = SiteMetaSchema.safeParse((rawData as any).meta);
+  it("has a valid email in site", () => {
+    const result = SiteMetaSchema.safeParse((rawData as any).site);
     expect(result.success).toBe(true);
   });
 
@@ -88,8 +88,8 @@ describe("data.json", () => {
   });
 
   it("every work item has a non-empty impact field", () => {
-    const work = (rawData as any).work as Array<{ impact: string }>;
-    for (const item of work) {
+    const works = (rawData as any).works as Array<{ impact: string }>;
+    for (const item of works) {
       expect(item.impact.trim().length).toBeGreaterThan(0);
     }
   });
