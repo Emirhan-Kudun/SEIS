@@ -18,7 +18,11 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: "npm run dev:next",
+    // CI: serve the pre-built production output (faster, tests the real build)
+    // Dev: use hot-reloading dev server
+    command: process.env.CI
+      ? "npm run start --workspace apps/site-next"
+      : "npm run dev:next",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,
