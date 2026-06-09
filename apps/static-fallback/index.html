@@ -1,309 +1,432 @@
-<!doctype html>
-<html lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Emirhan Kudun - Static Portfolio Fallback</title>
-    <meta name="description" content="Low-dependency static fallback for Emirhan Kudun Behance-forward cinematic portfolio." />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <nav class="nav">
-      <a href="#home">Emirhan Kudun</a>
-      <div>
-        <a href="#work">Work</a>
-        <a href="#behance">Behance</a>
-        <a href="#drawings">Drawings</a>
-        <a href="#lab">Lab</a>
-        <a href="#contact">Contact</a>
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Emirhan Kudun — UI/UX, Branding, Cinematic 3D ve Dijital Sistemler. İstanbul tabanlı Creative Technologist ve Premium Tasarımcı." />
+  <title>Emirhan Kudun — Premium Dijital Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080a0e;
+      --bg-2: #0d1117;
+      --bg-3: #111520;
+      --surface: #161b26;
+      --surface-2: #1e2535;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.15);
+      --text: #e8eaf0;
+      --text-2: #9aa3b5;
+      --text-3: #5c6478;
+      --gold: #c9a74a;
+      --gold-dim: #8a7030;
+      --gold-glow: rgba(201,167,74,0.15);
+      --teal: #3db8a3;
+      --teal-dim: #1e6b60;
+      --teal-glow: rgba(61,184,163,0.12);
+      --ivory: #f0ece4;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --nav-h: 68px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: 0.18s ease;
+    }
+    html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--surface-2) var(--bg); }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--gold-glow); color: var(--gold); }
+    h1,h2,h3,h4 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+    h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+    p { color: var(--text-2); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 100;
+      display: flex; align-items: center;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      background: rgba(8,10,14,0.85);
+      backdrop-filter: blur(20px) saturate(1.5);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .nav.scrolled { background: rgba(8,10,14,0.97); }
+    .nav-brand {
+      font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600;
+      color: var(--text); letter-spacing: 0.01em; flex: 0 0 auto; position: relative;
+    }
+    .nav-brand::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 100%; height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left; transition: transform var(--transition);
+    }
+    .nav-brand:hover::after { transform: scaleX(1); }
+    .nav-links { display: flex; gap: 2rem; margin-left: auto; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-3);
+      transition: color var(--transition-fast); position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 100%; height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left; transition: transform var(--transition-fast);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .lang-toggle { margin-left: 2.5rem; display: flex; gap: 0.4rem; }
+    .lang-btn {
+      background: none; border: 1px solid var(--border); color: var(--text-3);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      padding: 4px 9px; border-radius: 4px; cursor: pointer;
+      transition: all var(--transition-fast); font-family: 'Inter', sans-serif;
+    }
+    .lang-btn:hover { border-color: var(--border-hover); color: var(--text); }
+    .lang-btn.active { border-color: var(--gold-dim); color: var(--gold); background: var(--gold-glow); }
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text); padding: 8px; margin-left: auto; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 1rem;
+        position: fixed; top: var(--nav-h); left: 0; right: 0;
+        background: var(--bg-2); padding: 2rem; border-bottom: 1px solid var(--border);
+      }
+      .lang-toggle { margin-left: auto; }
+      .nav-menu-btn { display: flex; margin-left: 1rem; }
+    }
+    #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.6; }
+    .section { position: relative; z-index: 1; padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 7rem); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding-top: calc(var(--nav-h) + 4rem); overflow: hidden; }
+    .hero-content { z-index: 2; }
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+    .hero-title { margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.9s 0.4s ease forwards; }
+    .hero-title .accent { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: var(--gold); display: block; }
+    .hero-lead { font-size: 1.05rem; max-width: 48ch; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.9s 0.6s ease forwards; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.8s ease forwards; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gold); color: #080a0e; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); transition: all var(--transition-fast); border: 1px solid var(--gold); }
+    .btn-primary:hover { background: transparent; color: var(--gold); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: var(--text); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; padding: 0.85rem 1.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border); transition: all var(--transition-fast); }
+    .btn-secondary:hover { border-color: var(--border-hover); background: var(--surface); }
+    .hero-visual { position: relative; z-index: 2; opacity: 0; animation: fadeIn 1.2s 0.6s ease forwards; }
+    .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); }
+    .hero-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .hero-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--teal)); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #080a0e; font-weight: 600; flex-shrink: 0; }
+    .hero-card-name { font-size: 1rem; font-weight: 600; }
+    .hero-card-role { font-size: 0.78rem; color: var(--text-3); }
+    .hero-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .metric-item { text-align: center; }
+    .metric-value { font-size: 1.5rem; font-weight: 600; color: var(--gold); display: block; }
+    .metric-label { font-size: 0.72rem; color: var(--text-3); letter-spacing: 0.05em; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { display: inline-flex; font-size: 0.72rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; border: 1px solid; letter-spacing: 0.04em; }
+    .tag-gold { border-color: var(--gold-dim); color: var(--gold); background: var(--gold-glow); }
+    .tag-teal { border-color: var(--teal-dim); color: var(--teal); background: var(--teal-glow); }
+    .tag-default { border-color: var(--border); color: var(--text-3); }
+    .scroll-indicator { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-3); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; animation: bounce 2s infinite; z-index: 2; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+    @media (max-width: 900px) { #hero { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+    .proof-belt { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 1.2rem 0; position: relative; z-index: 1; }
+    .proof-track { display: flex; gap: 4rem; white-space: nowrap; animation: marquee 30s linear infinite; width: max-content; }
+    .proof-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+    .proof-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    #services { background: var(--bg); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all var(--transition); position: relative; overflow: hidden; cursor: default; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
+    .service-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .service-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .service-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-2); }
+    #works { background: var(--bg-2); }
+    .works-header { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; margin-bottom: 3rem; }
+    .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .work-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all var(--transition); display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .work-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+    .work-kicker { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .work-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .work-summary { font-size: 0.88rem; line-height: 1.7; color: var(--text-2); flex: 1; }
+    .work-impact { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--text-3); line-height: 1.5; }
+    .work-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); transition: gap var(--transition-fast); }
+    .work-link:hover { gap: 0.7rem; }
+    #stack { background: var(--bg); }
+    .stack-intro { max-width: 52ch; margin-bottom: 3rem; }
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .stack-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; transition: all var(--transition-fast); }
+    .stack-item:hover { border-color: var(--border-hover); }
+    .stack-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .stack-dot.active { background: var(--teal); }
+    .stack-dot.planned { background: var(--gold-dim); }
+    .stack-name { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+    .stack-role { font-size: 0.72rem; color: var(--text-3); margin-top: 2px; }
+    .stack-badge { margin-left: auto; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .stack-badge.active { color: var(--teal); }
+    .stack-badge.planned { color: var(--gold-dim); }
+    #evolution { background: var(--bg-2); }
+    .evolution-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .evo-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: border-color var(--transition-fast); }
+    .evo-card:hover { border-color: var(--border-hover); }
+    .evo-status { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+    .evo-status-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .evo-status.live .evo-status-dot { background: var(--teal); } .evo-status.live { color: var(--teal); }
+    .evo-status.next .evo-status-dot { background: var(--gold); } .evo-status.next { color: var(--gold); }
+    .evo-status.planned .evo-status-dot { background: var(--text-3); } .evo-status.planned { color: var(--text-3); }
+    .evo-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .evo-time { font-size: 0.72rem; color: var(--text-3); margin-bottom: 0.75rem; }
+    .evo-summary { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; }
+    #contact { background: var(--bg); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all var(--transition-fast); }
+    .contact-link:hover { border-color: var(--border-hover); transform: translateX(4px); }
+    .contact-link-icon { width: 36px; height: 36px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .contact-link-label { font-size: 0.82rem; color: var(--text-3); }
+    .contact-link-value { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.5rem; }
+    .form-input, .form-select, .form-textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.9rem; padding: 0.85rem 1rem; transition: border-color var(--transition-fast); outline: none; }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold-dim); }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .contact-layout { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
+    .qa-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+    .qa-question { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; cursor: pointer; user-select: none; gap: 1rem; }
+    .qa-question h4 { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+    .qa-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform var(--transition-fast); }
+    .qa-item.open .qa-icon { transform: rotate(45deg); }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .qa-item.open .qa-answer { max-height: 200px; padding-bottom: 1.25rem; }
+    .qa-answer p { font-size: 0.88rem; line-height: 1.7; color: var(--text-2); }
+    footer { position: relative; z-index: 1; background: var(--bg-2); border-top: 1px solid var(--border); padding: 3rem clamp(1.5rem, 8vw, 7rem); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); }
+    .footer-copy { font-size: 0.78rem; color: var(--text-3); margin-top: 0.4rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-link { font-size: 0.8rem; color: var(--text-3); transition: color var(--transition-fast); }
+    .footer-link:hover { color: var(--text); }
+    @media (max-width: 600px) { footer { grid-template-columns: 1fr; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .gradient-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); opacity: 0.4; }
+    .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface); border: 1px solid var(--gold-dim); border-radius: var(--radius-sm); padding: 1rem 1.5rem; font-size: 0.88rem; color: var(--text); z-index: 999; max-width: 320px; transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .toast.show { transform: translateY(0); }
+    .toast strong { color: var(--gold); }
+    .mt-sm { margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+<canvas id="canvas-bg"></canvas>
+<nav class="nav" id="main-nav">
+  <a href="#hero" class="nav-brand">Emirhan Kudun</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero">Ana Sayfa</a></li>
+    <li><a href="#services">Hizmetler</a></li>
+    <li><a href="#works">Projeler</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">İletişim</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-menu-btn" id="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+  </button>
+</nav>
+<section id="hero" class="section">
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-tr="Creative Technologist / Premium Tasarımcı / SEIS Kurucu" data-en="Creative Technologist / Premium Designer / SEIS Founder">Creative Technologist / Premium Tasarımcı / SEIS Kurucu</p>
+    <h1 class="hero-title">
+      <span data-tr="Sinematik netlik" data-en="Cinematic clarity">Sinematik netlik</span>
+      <span class="accent" data-tr="üreten premium" data-en="through premium">üreten premium</span>
+      <span data-tr="dijital sistemler." data-en="digital systems.">dijital sistemler.</span>
+    </h1>
+    <p class="hero-lead" data-tr="Behance, çizim arşivi, seçili işler ve 3D animasyonu tek, sakin ve güçlü bir portfolyo deneyiminde birleştiren İstanbul tabanlı dijital sistem tasarımcısı." data-en="Istanbul-based digital system designer unifying Behance, drawing archive, selected works and 3D motion into one calm, powerful portfolio experience.">Behance, çizim arşivi, seçili işler ve 3D animasyonu tek, sakin ve güçlü bir portfolyo deneyiminde birleştiren İstanbul tabanlı dijital sistem tasarımcısı.</p>
+    <div class="hero-actions">
+      <a href="#works" class="btn-primary" data-tr="Çalışmaları İncele →" data-en="View Work →">Çalışmaları İncele →</a>
+      <a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="btn-secondary" data-tr="Behance Vitrin" data-en="Behance Portfolio">Behance Vitrin</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <div class="hero-avatar">EK</div>
+        <div><div class="hero-card-name">Emirhan Kudun</div><div class="hero-card-role" data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</div></div>
       </div>
-    </nav>
-
-    <main>
-      <section class="hero" id="home">
-        <p>Creative Technologist / Premium Designer / SEIS Founder</p>
-        <h1>Sinematik netlik ureten premium dijital sistemler.</h1>
-        <span>Static fallback: Behance, secili isler ve cizim arsivini dusuk bagimlilikli bir portfolyo akisi olarak koruyan surum.</span>
-        <div class="hero-metrics">
-          <strong>20 cizim</strong>
-          <strong>5 dil</strong>
-          <strong>Behance hazir</strong>
+      <div class="hero-metrics">
+        <div class="metric-item"><span class="metric-value">20+</span><span class="metric-label" data-tr="Çizim" data-en="Drawings">Çizim</span></div>
+        <div class="metric-item"><span class="metric-value">5</span><span class="metric-label" data-tr="Dil" data-en="Languages">Dil</span></div>
+        <div class="metric-item"><span class="metric-value">∞</span><span class="metric-label" data-tr="Proje" data-en="Projects">Proje</span></div>
+      </div>
+      <div class="hero-tags">
+        <span class="tag tag-gold">UI / UX</span><span class="tag tag-teal">Branding</span><span class="tag tag-gold">3D Motion</span><span class="tag tag-default">Editorial</span><span class="tag tag-teal">WebGL</span><span class="tag tag-default">Next.js</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><div class="scroll-line"></div><span data-tr="Keşfet" data-en="Scroll">Keşfet</span></div>
+</section>
+<div class="proof-belt"><div class="proof-track">
+  <span class="proof-item"><span class="proof-dot"></span><span>Behance</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>UI / UX Design</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Branding</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>3D Motion</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Editorial Systems</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>WebGL</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Digital Publishing</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Next.js</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Istanbul</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Typography</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Visual Systems</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Behance</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>UI / UX Design</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Branding</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>3D Motion</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Editorial Systems</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>WebGL</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Digital Publishing</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Next.js</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Istanbul</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Typography</span></span>
+  <span class="proof-item"><span class="proof-dot"></span><span>Visual Systems</span></span>
+</div></div>
+<div class="gradient-divider"></div>
+<section id="services" class="section"><div class="container">
+  <div class="section-label"><p class="eyebrow" data-tr="Hizmetler" data-en="Services">Hizmetler</p></div>
+  <h2 class="reveal" data-tr="Hizmetler net, sistem derin" data-en="Services precise, systems deep">Hizmetler net, sistem derin</h2>
+  <div class="services-grid">
+    <article class="service-card reveal"><div class="service-icon">🎨</div><h3 class="service-title" data-tr="Marka ve Görsel Kimlik" data-en="Branding &amp; Visual Identity">Marka ve Görsel Kimlik</h3><p class="service-desc" data-tr="Logo, kimlik, kampanya görselleri ve tekrar kullanılabilir marka kararları ile pratik bir görsel sistem." data-en="Logo, identity, campaign visuals and reusable brand decisions shaped into a practical visual system.">Logo, kimlik, kampanya görselleri ve tekrar kullanılabilir marka kararları ile pratik bir görsel sistem.</p></article>
+    <article class="service-card reveal"><div class="service-icon">⬡</div><h3 class="service-title" data-tr="UI/UX Görsel Tasarım" data-en="UI/UX Visual Design">UI/UX Görsel Tasarım</h3><p class="service-desc" data-tr="Net hiyerarşi, sakin aksiyon yolları, erişilebilir kontrast ve premium ritm ile arayüz görselleri." data-en="Interface visuals with clear hierarchy, calm action paths, accessibility-aware contrast and premium rhythm.">Net hiyerarşi, sakin aksiyon yolları, erişilebilir kontrast ve premium ritm ile arayüz görselleri.</p></article>
+    <article class="service-card reveal"><div class="service-icon">📐</div><h3 class="service-title" data-tr="Editoryal Sistemler" data-en="Editorial Systems">Editoryal Sistemler</h3><p class="service-desc" data-tr="Tipografi, grid ve okuma konforu üzerine kurulu dergi, katalog, broşür ve uzun form mizanpajlar." data-en="Magazine, catalogue, brochure and long-form layouts built around typography, grid and reading comfort.">Tipografi, grid ve okuma konforu üzerine kurulu dergi, katalog, broşür ve uzun form mizanpajlar.</p></article>
+    <article class="service-card reveal"><div class="service-icon">🌐</div><h3 class="service-title" data-tr="Sinematik 3D &amp; Motion" data-en="Cinematic 3D &amp; Motion">Sinematik 3D &amp; Motion</h3><p class="service-desc" data-tr="WebGL atmosferler, scroll-reaktif sahneler ve reduced-motion fallback'li kısıtlı hareket sistemleri." data-en="WebGL atmospheres, scroll-reactive scenes and restrained motion systems with reduced-motion fallbacks.">WebGL atmosferler, scroll-reaktif sahneler ve reduced-motion fallback'li kısıtlı hareket sistemleri.</p></article>
+    <article class="service-card reveal"><div class="service-icon">🏗️</div><h3 class="service-title" data-tr="Dijital Yayın Sistemleri" data-en="Digital Publishing Systems">Dijital Yayın Sistemleri</h3><p class="service-desc" data-tr="Hafif web mimarileri, içerik modelleri, portfolyo yayıncılığı ve sürdürülebilir yönetim yüzeyleri." data-en="Lightweight web architectures, content models, portfolio publishing and governance surfaces that stay maintainable.">Hafif web mimarileri, içerik modelleri, portfolyo yayıncılığı ve sürdürülebilir yönetim yüzeyleri.</p></article>
+  </div>
+</div></section>
+<div class="gradient-divider"></div>
+<section id="works" class="section"><div class="container">
+  <div class="works-header">
+    <div><div class="section-label"><p class="eyebrow" data-tr="Seçili İşler" data-en="Selected Works">Seçili İşler</p></div><h2 class="reveal" data-tr="Seçili işler ve sistemler" data-en="Selected works and systems">Seçili işler ve sistemler</h2></div>
+    <a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="btn-secondary reveal" data-tr="Behance'de Gör →" data-en="View on Behance →">Behance'de Gör →</a>
+  </div>
+  <div class="works-grid">
+    <article class="work-card reveal"><p class="work-kicker" data-tr="Portfolyo Sistemi" data-en="Portfolio System">Portfolyo Sistemi</p><h3 class="work-title" data-tr="Sinematik Portfolyo OS" data-en="Cinematic Portfolio OS">Sinematik Portfolyo OS</h3><p class="work-summary" data-tr="Görsel bir tasarımcı için premium ana sayfa, çok dilli içerik modeli ve çizim temelli hikaye anlatımı katmanı." data-en="A premium homepage, multilingual content model and drawing-led storytelling layer for a visual designer.">Görsel bir tasarımcı için premium ana sayfa, çok dilli içerik modeli ve çizim temelli hikaye anlatımı katmanı.</p><p class="work-impact" data-tr="Dağınık portfolyo materyalini tutarlı, hızlı ve editoryal dengeli bir websiteye dönüştürür." data-en="Turns fragmented portfolio material into a coherent, fast and editorially balanced website.">→ Dağınık portfolyo materyalini tutarlı, hızlı ve editoryal dengeli bir websiteye dönüştürür.</p><a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="work-link" data-tr="İncele →" data-en="View →">İncele →</a></article>
+    <article class="work-card reveal"><p class="work-kicker" data-tr="Behance Köprüsü" data-en="Behance Bridge">Behance Köprüsü</p><h3 class="work-title" data-tr="Behance Portfolyo Köprüsü" data-en="Behance Portfolio Bridge">Behance Portfolyo Köprüsü</h3><p class="work-summary" data-tr="Behance profili, seçili çalışmalar ve embed-ready portfolyo slotları için genel arayüz köprüsü." data-en="A public-facing bridge for Behance profile, selected works and embed-ready portfolio slots.">Behance profili, seçili çalışmalar ve embed-ready portfolyo slotları için genel arayüz köprüsü.</p><p class="work-impact" data-tr="Dış portfolyo linkleri, çizim projeleri ve Behance sayfalarını site içinde tutarlı kılar." data-en="Keeps external portfolio links, drawing projects and Behance project pages coherent inside the site.">→ Dış portfolyo linkleri, çizim projeleri ve Behance sayfalarını site içinde tutarlı kılar.</p><a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="work-link" data-tr="Behance →" data-en="Behance →">Behance →</a></article>
+    <article class="work-card reveal"><p class="work-kicker" data-tr="3D Galeri" data-en="3D Gallery">3D Galeri</p><h3 class="work-title" data-tr="Sinematik Çizim Galerisi" data-en="Cinematic Drawing Gallery">Sinematik Çizim Galerisi</h3><p class="work-summary" data-tr="Çizimler, iş kartları ve Behance yüzeylerinin tek sinematik alanda hareket ettiği WebGL galerisi." data-en="A WebGL-led gallery where drawings, work cards and Behance surfaces move through one cinematic space.">Çizimler, iş kartları ve Behance yüzeylerinin tek sinematik alanda hareket ettiği WebGL galerisi.</p><p class="work-impact" data-tr="Portfolyoya derinlik ve bellek katarken hareketi kontrollü tutar." data-en="Adds depth and memory to the portfolio while keeping motion controlled.">→ Portfolyoya derinlik ve bellek katarken hareketi kontrollü tutar.</p><a href="#contact" class="work-link" data-tr="Konuşalım →" data-en="Let's Talk →">Konuşalım →</a></article>
+    <article class="work-card reveal"><p class="work-kicker" data-tr="Marka Kimliği" data-en="Brand Identity">Marka Kimliği</p><h3 class="work-title" data-tr="Marka Netlik Sistemi" data-en="Brand Clarity System">Marka Netlik Sistemi</h3><p class="work-summary" data-tr="Tipografi, renk ve ritmin kanallar arasında tutarlı kaldığı modüler bir kimlik yönü." data-en="A modular identity direction where typography, color and rhythm stay consistent across channels.">Tipografi, renk ve ritmin kanallar arasında tutarlı kaldığı modüler bir kimlik yönü.</p><p class="work-impact" data-tr="Üretim hızını artırır ve görsel sapmayı azaltır." data-en="Improves production speed and reduces visual drift.">→ Üretim hızını artırır ve görsel sapmayı azaltır.</p><a href="#contact" class="work-link" data-tr="Konuşalım →" data-en="Let's Talk →">Konuşalım →</a></article>
+    <article class="work-card reveal"><p class="work-kicker" data-tr="Editoryal Tasarım" data-en="Editorial Design">Editoryal Tasarım</p><h3 class="work-title" data-tr="Editoryal Okuma Akışı" data-en="Editorial Reading Flow">Editoryal Okuma Akışı</h3><p class="work-summary" data-tr="Hiyerarşi, boşluk ve kontrollü yoğunlukla yorgunluğu azaltmak için tasarlanmış uzun form düzen sistemi." data-en="A long-form layout system designed to reduce fatigue with hierarchy, whitespace and controlled density.">Hiyerarşi, boşluk ve kontrollü yoğunlukla yorgunluğu azaltmak için tasarlanmış uzun form düzen sistemi.</p><p class="work-impact" data-tr="Yoğun bilgiyi taramayı ve hatırlamayı kolaylaştırır." data-en="Makes dense information easier to scan and remember.">→ Yoğun bilgiyi taramayı ve hatırlamayı kolaylaştırır.</p><a href="#contact" class="work-link" data-tr="Konuşalım →" data-en="Let's Talk →">Konuşalım →</a></article>
+    <article class="work-card reveal"><p class="work-kicker">UI/UX Visual</p><h3 class="work-title" data-tr="Aksiyon Netliği Arayüzü" data-en="Action Clarity Interface">Aksiyon Netliği Arayüzü</h3><p class="work-summary" data-tr="Sakin karar alma, net aksiyonlar ve azaltılmış bilişsel yük odaklı görsel UI yönü." data-en="A visual UI direction focused on calm decision-making, clear calls to action and reduced cognitive load.">Sakin karar alma, net aksiyonlar ve azaltılmış bilişsel yük odaklı görsel UI yönü.</p><p class="work-impact" data-tr="Kullanıcıların kritik aksiyonları aşırı uyarılmadan bulmasına yardımcı olur." data-en="Helps users find critical actions without overstimulation.">→ Kullanıcıların kritik aksiyonları aşırı uyarılmadan bulmasına yardımcı olur.</p><a href="#contact" class="work-link" data-tr="Konuşalım →" data-en="Let's Talk →">Konuşalım →</a></article>
+  </div>
+</div></section>
+<div class="gradient-divider"></div>
+<section id="stack" class="section"><div class="container">
+  <div class="section-label"><p class="eyebrow" data-tr="Teknoloji Stack" data-en="Technology Stack">Teknoloji Stack</p></div>
+  <h2 class="reveal" data-tr="Çok dilli portfolyo katmanı" data-en="Polyglot portfolio branch">Çok dilli portfolyo katmanı</h2>
+  <div class="stack-intro reveal"><p data-tr="TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell ve API yüzeylerini tek governance altında taşır." data-en="Carries TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell and API surfaces under single governance.">TypeScript, React, Next.js, Node, WebGL, CSS, HTML, JSON, shell ve API yüzeylerini tek governance altında taşır.</p></div>
+  <div class="stack-grid">
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">TypeScript</div><div class="stack-role" data-tr="Tip katmanı" data-en="Type layer">Tip katmanı</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">React</div><div class="stack-role" data-tr="UI bileşenleri" data-en="UI components">UI bileşenleri</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">Next.js</div><div class="stack-role">App Router</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">WebGL / 3D</div><div class="stack-role" data-tr="Sinematik sahneler" data-en="Cinematic scenes">Sinematik sahneler</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">CSS / Tailwind</div><div class="stack-role" data-tr="Design sistem" data-en="Design system">Design sistem</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">Node.js</div><div class="stack-role" data-tr="API yüzeyleri" data-en="API surfaces">API yüzeyleri</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">Figma</div><div class="stack-role" data-tr="UI/UX tasarım" data-en="UI/UX design">UI/UX tasarım</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot active"></div><div><div class="stack-name">Vercel</div><div class="stack-role">Deployment</div></div><span class="stack-badge active" data-tr="Aktif" data-en="Active">Aktif</span></div>
+    <div class="stack-item reveal"><div class="stack-dot planned"></div><div><div class="stack-name">Three.js</div><div class="stack-role">3D motion expand</div></div><span class="stack-badge planned" data-tr="Planlı" data-en="Planned">Planlı</span></div>
+    <div class="stack-item reveal"><div class="stack-dot planned"></div><div><div class="stack-name">Framer Motion</div><div class="stack-role" data-tr="Animasyon sistemi" data-en="Animation system">Animasyon sistemi</div></div><span class="stack-badge planned" data-tr="Planlı" data-en="Planned">Planlı</span></div>
+  </div>
+</div></section>
+<div class="gradient-divider"></div>
+<section id="evolution" class="section"><div class="container">
+  <div class="section-label"><p class="eyebrow" data-tr="Gelişim Yolu" data-en="Evolution Roadmap">Gelişim Yolu</p></div>
+  <h2 class="reveal" data-tr="Uzun vadeli portfolyo gelişimi" data-en="Long-term portfolio evolution">Uzun vadeli portfolyo gelişimi</h2>
+  <div class="evolution-grid">
+    <div class="evo-card reveal"><div class="evo-status live"><div class="evo-status-dot"></div><span data-tr="Canlı" data-en="Live">Canlı</span></div><div class="evo-title" data-tr="Behance Galeri Sistemi" data-en="Behance Gallery System">Behance Galeri Sistemi</div><div class="evo-time" data-tr="Mevcut temel" data-en="Live foundation">Mevcut temel</div><p class="evo-summary" data-tr="Gerçek Behance proje görselleri ve iframe embed kodları birinci sınıf portfolyo içeriği olarak işlenir." data-en="Real Behance project visuals and iframe embed codes are now treated as first-class portfolio content.">Gerçek Behance proje görselleri ve iframe embed kodları birinci sınıf portfolyo içeriği olarak işlenir.</p></div>
+    <div class="evo-card reveal"><div class="evo-status next"><div class="evo-status-dot"></div><span data-tr="Sıradaki" data-en="Next">Sıradaki</span></div><div class="evo-title" data-tr="Çizim Arşivi Genişlemesi" data-en="Drawing Archive Expansion">Çizim Arşivi Genişlemesi</div><div class="evo-time" data-tr="Yakın iyileştirme" data-en="Next refinement">Yakın iyileştirme</div><p class="evo-summary" data-tr="Çizim arşivi basit galeriden küratöryel görsel araştırma katmanına dönüşecek." data-en="The drawing archive will evolve into a curated visual research layer.">Çizim arşivi basit galeriden küratöryel görsel araştırma katmanına dönüşecek.</p></div>
+    <div class="evo-card reveal"><div class="evo-status next"><div class="evo-status-dot"></div><span data-tr="Sıradaki" data-en="Next">Sıradaki</span></div><div class="evo-title" data-tr="Sinematik Motion Geçişi" data-en="Cinematic Motion Pass">Sinematik Motion Geçişi</div><div class="evo-time" data-tr="Yakın iyileştirme" data-en="Next refinement">Yakın iyileştirme</div><p class="evo-summary" data-tr="3D motion, reduced-motion ve mobil performansı korurken daha güçlü sahne geçişleriyle büyüyecek." data-en="3D motion can grow through stronger scene transitions while keeping reduced-motion and mobile performance intact.">3D motion, reduced-motion ve mobil performansı korurken daha güçlü sahne geçişleriyle büyüyecek.</p></div>
+    <div class="evo-card reveal"><div class="evo-status planned"><div class="evo-status-dot"></div><span data-tr="Planlı" data-en="Planned">Planlı</span></div><div class="evo-title" data-tr="İletişim ve Brief Yönlendirme" data-en="Contact &amp; Brief Routing">İletişim ve Brief Yönlendirme</div><div class="evo-time" data-tr="Planlanan" data-en="Planned">Planlanan</div><p class="evo-summary" data-tr="Brief yakalama bugün email-önce; veritabanı iletimi için temiz bir adaptör yolu mevcut." data-en="Brief capture is email-first today with a clean adapter path for database delivery later.">Brief yakalama bugün email-önce; veritabanı iletimi için temiz bir adaptör yolu mevcut.</p></div>
+    <div class="evo-card reveal"><div class="evo-status planned"><div class="evo-status-dot"></div><span data-tr="Planlı" data-en="Planned">Planlı</span></div><div class="evo-title" data-tr="Yayın Hazırlığı" data-en="Publishing Readiness">Yayın Hazırlığı</div><div class="evo-time" data-tr="Planlanan" data-en="Planned">Planlanan</div><p class="evo-summary" data-tr="GitHub, Vercel ve özel sunucu yayıncılığı credential-aware kalarak deploymentların kaynak dosyalarda secret gerektirmemesini sağlar." data-en="GitHub, Vercel and custom server publishing stay credential-aware so deployments do not require secrets in source.">GitHub, Vercel ve özel sunucu yayıncılığı credential-aware kalarak deploymentların kaynak dosyalarda secret gerektirmemesini sağlar.</p></div>
+  </div>
+</div></section>
+<div class="gradient-divider"></div>
+<section id="contact" class="section"><div class="container">
+  <div class="section-label"><p class="eyebrow" data-tr="İletişim" data-en="Contact">İletişim</p></div>
+  <h2 class="reveal" data-tr="Yeni bir sistemi birlikte netleştirelim" data-en="Let's clarify a new system together">Yeni bir sistemi birlikte netleştirelim</h2>
+  <p class="reveal mt-sm" style="max-width:52ch" data-tr="Branding, editorial, UI/UX visual design, 3D ve dijital sistem projeleri için kısa ama net bir brief yeterli." data-en="For branding, editorial, UI/UX visual design, 3D and digital system projects, a short but clear brief is enough.">Branding, editorial, UI/UX visual design, 3D ve dijital sistem projeleri için kısa ama net bir brief yeterli.</p>
+  <div class="contact-layout">
+    <div class="contact-info reveal">
+      <div class="contact-links">
+        <a href="mailto:emirhan@kudun.com" class="contact-link"><div class="contact-link-icon">✉</div><div><div class="contact-link-label" data-tr="E-Posta" data-en="Email">E-Posta</div><div class="contact-link-value">emirhan@kudun.com</div></div></a>
+        <a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="contact-link"><div class="contact-link-icon">✦</div><div><div class="contact-link-label">Behance</div><div class="contact-link-value">behance.net/emirhankudun</div></div></a>
+        <a href="https://www.linkedin.com/in/emirhan-kudun/" target="_blank" rel="noopener" class="contact-link"><div class="contact-link-icon">🔗</div><div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/emirhan-kudun</div></div></a>
+        <a href="https://www.instagram.com/emirhankudun/" target="_blank" rel="noopener" class="contact-link"><div class="contact-link-icon">◉</div><div><div class="contact-link-label">Instagram</div><div class="contact-link-value">@emirhankudun</div></div></a>
+      </div>
+      <div style="margin-top:2.5rem">
+        <h3 style="font-size:1rem;margin-bottom:1.25rem;color:var(--text-2)" data-tr="Sıkça Sorulan Sorular" data-en="FAQ">Sıkça Sorulan Sorular</h3>
+        <div id="qa-list"></div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <form id="brief-form" onsubmit="submitBrief(event)">
+        <div class="form-grid">
+          <div class="form-group"><label class="form-label" for="f-name" data-tr="İsim" data-en="Name">İsim</label><input class="form-input" id="f-name" type="text" placeholder="Ada" required /></div>
+          <div class="form-group"><label class="form-label" for="f-email" data-tr="E-Posta" data-en="Email">E-Posta</label><input class="form-input" id="f-email" type="email" placeholder="ada@firma.com" required /></div>
         </div>
-      </section>
-
-      <section id="work" class="grid">
-        <article>
-          <small>Portfolio System</small>
-          <h2>Cinematic Portfolio OS</h2>
-          <p>Premium homepage, multilingual content and drawing-led storytelling.</p>
-        </article>
-        <article>
-          <small>Brand Identity</small>
-          <h2>Brand Clarity System</h2>
-          <p>Typography, color and rhythm held inside a practical visual system.</p>
-        </article>
-        <article>
-          <small>Editorial</small>
-          <h2>Reading Flow</h2>
-          <p>Long-form hierarchy designed for calm scanning and reduced fatigue.</p>
-        </article>
-        <article>
-          <small>Behance Bridge</small>
-          <h2>Behance Portfolio Bridge</h2>
-          <p>External portfolio links, drawing projects and embed-ready showcase slots.</p>
-        </article>
-      </section>
-
-      <section class="behance-visuals" aria-label="Behance visuals">
-        <p>Behance / Visuals</p>
-        <h2>Behance gorselleri ve cizimler ayni portfolyo yuzeyinde.</h2>
-        <div class="visual-grid">
-          <a href="https://www.behance.net/gallery/245560201/Social-Media-post">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg" alt="Social Media post Behance visual" />
-            <span>Social Media post</span>
-          </a>
-          <a href="https://www.behance.net/gallery/205108621/Global-Warming-Poster">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg" alt="Global Warming Poster Behance visual" />
-            <span>Global Warming Poster</span>
-          </a>
-          <a href="https://www.behance.net/gallery/205105339/Italy-Gift-Coffee-Cup-Set">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7e2c7e205105339.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" alt="Italy Gift Coffee Cup Set Behance visual" />
-            <span>Italy Gift Coffee Cup Set</span>
-          </a>
-          <a href="https://www.behance.net/gallery/182702163/Turkish-mythology-childrens-theater-play-posters">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/91d11d182702163.Y3JvcCwyNDAwLDE4NzcsMCw3MTI.jpg" alt="Turkish mythology theater posters Behance visual" />
-            <span>Turkish mythology theater posters</span>
-          </a>
-          <a href="https://www.behance.net/gallery/181320969/30-Agustos-Beldeport-Outdoor-Poster">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/99bc2a181320969.Y3JvcCwxMTkxLDkzMSwxMDMsMA.jpg" alt="30 Agustos Outdoor Poster Behance visual" />
-            <span>30 Agustos Outdoor Poster</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="portfolio-index" aria-label="Unified portfolio index">
-        <p>Portfolyo / Indeks</p>
-        <h2>Birlesik portfolyo indeksi.</h2>
-        <span>Behance gorselleri, cizimler ve secili isler tek, dusuk bagimlilikli yuzeyde korunur.</span>
-        <div class="index-grid">
-          <a href="https://www.behance.net/gallery/245560201/Social-Media-post">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg" alt="Social Media post portfolio index" />
-            <span><small>Behance / Social</small>Social Media post</span>
-          </a>
-          <a href="https://www.behance.net/gallery/205108621/Global-Warming-Poster">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg" alt="Global Warming Poster portfolio index" />
-            <span><small>Behance / Poster</small>Global Warming Poster</span>
-          </a>
-          <a href="#drawings">
-            <img src="drawings/karakalem-01.jpg" alt="Karakalem 01 portfolio index" />
-            <span><small>Drawing / Graphite</small>Karakalem 01</span>
-          </a>
-          <a href="#drawings">
-            <img src="drawings/renk-11.jpg" alt="Renk 11 portfolio index" />
-            <span><small>Drawing / Color</small>Renk 11</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="collections" aria-label="Portfolio collections">
-        <p>Portfolio / Collections</p>
-        <h2>Portfolyo koleksiyonlari.</h2>
-        <span>Behance isleri, cizimler ve sinematik web dili uzun sureli portfolyo buyumesi icin ayrik koleksiyonlara bolunur.</span>
-        <div class="collection-grid">
-          <article data-accent="gold">
-            <div class="collection-media">
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg" alt="Behance campaign portfolio collection" />
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg" alt="Poster portfolio collection" />
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7e2c7e205105339.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" alt="Coffee cup portfolio collection" />
-            </div>
-            <small>Campaign proof / visual communication</small>
-            <h3>Behance Campaign Systems</h3>
-            <p>Poster, social and campaign visuals presented as a polished proof wall.</p>
-          </article>
-          <article data-accent="ivory">
-            <div class="collection-media">
-              <img src="drawings/karakalem-01.jpg" alt="Graphite drawing archive collection" />
-              <img src="drawings/renk-11.jpg" alt="Color drawing archive collection" />
-              <img src="drawings/renk-04.jpg" alt="Featured drawing archive collection" />
-            </div>
-            <small>Drawing archive / visual research</small>
-            <h3>Drawing Archive Studio</h3>
-            <p>Graphite and color works become an authored visual research archive.</p>
-          </article>
-          <article data-accent="teal">
-            <div class="collection-media">
-              <img src="drawings/renk-05.jpg" alt="Cinematic web drawing collection" />
-              <img src="drawings/karakalem-03.jpg" alt="Cinematic web graphite collection" />
-              <img src="drawings/renk-10.jpg" alt="Cinematic web color collection" />
-            </div>
-            <small>Website system / 3D motion</small>
-            <h3>Cinematic Web Portfolio</h3>
-            <p>The website itself is treated as a design object with motion, editorial flow and calm interaction.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="flow" aria-label="Portfolio discovery flow">
-        <p>Portfolyo / Akis</p>
-        <h2>Behance, cizim ve isler icin net kesif rotasi</h2>
-        <span>Ziyaretci once Behance kanitini, sonra cizim arsivini, en sonda uygulanabilir is sistemlerini okur.</span>
-        <div class="flow-grid">
-          <article data-lane="behance">
-            <div class="flow-head"><span>01</span><small>10 Behance</small></div>
-            <div class="flow-media">
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/521bd3245560201.Y3JvcCw0NTAwLDM1MTksMCw0OTA.jpg" alt="" />
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/92a26d205108621.Y3JvcCwxMTkyLDkzMywxMDMsMA.jpg" alt="" />
-              <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7e2c7e205105339.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" alt="" />
-            </div>
-            <h3>Behance gorselleri</h3>
-            <p>Canli Behance gorselleri ve embed kodlari portfolyonun dis kaynakli kanit katmanini tasir.</p>
-          </article>
-          <article data-lane="drawings">
-            <div class="flow-head"><span>02</span><small>20 cizim</small></div>
-            <div class="flow-media">
-              <img src="drawings/karakalem-01.jpg" alt="" />
-              <img src="drawings/renk-11.jpg" alt="" />
-              <img src="drawings/renk-04.jpg" alt="" />
-            </div>
-            <h3>Cizim arsivi</h3>
-            <p>Karakalem ve renk etutleri ana vitrine bagli sakin bir gorsel arastirma arsivi kurar.</p>
-          </article>
-          <article data-lane="works">
-            <div class="flow-head"><span>03</span><small>6 is</small></div>
-            <div class="flow-media">
-              <span>CP</span>
-              <span>BB</span>
-              <span>DG</span>
-            </div>
-            <h3>Secili isler</h3>
-            <p>Hizmet, marka ve arayuz dusuncesi uygulanabilir proje yuzeylerine baglanir.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="behance" class="behance">
-        <p>Behance / Embed</p>
-        <h2>Behance embed kodlari hazir.</h2>
-        <div class="embed-grid">
-          <article>
-            <small>Social visual design</small>
-            <h3>Social Media post Embed</h3>
-            <div class="embed-frame">
-              <iframe src="https://www.behance.net/embed/project/245560201?ilo0=1" title="Social Media post Behance embed" loading="lazy" allow="clipboard-write *; fullscreen *;"></iframe>
-            </div>
-            <pre><code>&lt;div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;"&gt;&lt;iframe src="https://www.behance.net/embed/project/245560201?ilo0=1" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen allow="clipboard-write *; fullscreen *;"&gt;&lt;/iframe&gt;&lt;/div&gt;</code></pre>
-            <a href="https://www.behance.net/gallery/245560201/Social-Media-post">Open Behance</a>
-          </article>
-          <article>
-            <small>Poster design</small>
-            <h3>Global Warming Poster Embed</h3>
-            <div class="embed-frame">
-              <iframe src="https://www.behance.net/embed/project/205108621?ilo0=1" title="Global Warming Poster Behance embed" loading="lazy" allow="clipboard-write *; fullscreen *;"></iframe>
-            </div>
-            <pre><code>&lt;div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 78.2178%;"&gt;&lt;iframe src="https://www.behance.net/embed/project/205108621?ilo0=1" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen allow="clipboard-write *; fullscreen *;"&gt;&lt;/iframe&gt;&lt;/div&gt;</code></pre>
-            <a href="https://www.behance.net/gallery/205108621/Global-Warming-Poster">Open Behance</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="drawings" class="drawings" aria-label="Selected drawings">
-        <figure>
-          <img src="drawings/karakalem-01.jpg" alt="Karakalem 01 drawing" />
-          <figcaption>Karakalem 01 <span>graphite</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/karakalem-02.jpg" alt="Karakalem 02 drawing" />
-          <figcaption>Karakalem 02 <span>graphite</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/karakalem-03.jpg" alt="Karakalem 03 drawing" />
-          <figcaption>Karakalem 03 <span>graphite</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/renk-01.jpg" alt="Renk 01 drawing" />
-          <figcaption>Renk 01 <span>color</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/renk-04.jpg" alt="Renk 04 drawing" />
-          <figcaption>Renk 04 <span>color</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/renk-11.jpg" alt="Renk 11 drawing" />
-          <figcaption>Renk 11 <span>color</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/renk-05.jpg" alt="Renk 05 drawing" />
-          <figcaption>Renk 05 <span>color</span></figcaption>
-        </figure>
-        <figure>
-          <img src="drawings/renk-10.jpg" alt="Renk 10 drawing" />
-          <figcaption>Renk 10 <span>color</span></figcaption>
-        </figure>
-      </section>
-
-      <section id="lab" class="lab">
-        <p>Lab / Long-term</p>
-        <h2>Uzun sureli gelisim laboratuvari.</h2>
-        <div class="lab-grid">
-          <article>
-            <small>Live / Foundation</small>
-            <h3>Behance gallery system</h3>
-            <p>Gercek Behance gorselleri ve iframe embed kodlari portfolyo icerigi olarak tutulur.</p>
-          </article>
-          <article>
-            <small>Next / Refinement</small>
-            <h3>Drawing archive expansion</h3>
-            <p>Cizim arsivi daha guclu gruplama, notlar ve mobil galeri ritmiyle buyur.</p>
-          </article>
-          <article>
-            <small>Next / Motion</small>
-            <h3>Cinematic motion pass</h3>
-            <p>3D sahne daha guclu scroll gecisleriyle gelisir, reduced-motion destegi korunur.</p>
-          </article>
-          <article>
-            <small>Planned / Publishing</small>
-            <h3>Publish readiness</h3>
-            <p>GitHub, Vercel ve custom server hedefleri secrets yazmadan credential-aware kalir.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="contact">
-        <p>Q&A / Iletisim</p>
-        <h2>Iletisim, brief formu ve sosyal baglantilar.</h2>
-        <div class="contact-grid">
-          <div>
-            <a class="mail-link" href="mailto:emirhan@kudun.com">emirhan@kudun.com</a>
-            <div class="social-links" aria-label="Sosyal baglantilar">
-              <a href="https://www.behance.net/emirhankudun"><span>Be</span>Behance</a>
-              <a href="https://www.youtube.com/channel/UCfrSLi2oSqyITgNxxZbcC4Q"><span>YT</span>YouTube</a>
-              <a href="https://www.instagram.com/emirhankudun/"><span>IG</span>Instagram</a>
-              <a href="https://www.linkedin.com/in/emirhan-kudun/"><span>in</span>LinkedIn</a>
-            </div>
-            <form action="mailto:emirhan@kudun.com" method="post" enctype="text/plain">
-              <label>Isim <input name="name" required /></label>
-              <label>Email <input name="email" type="email" required /></label>
-              <label>Mesaj <textarea name="message" required></textarea></label>
-              <button type="submit">Brief gonder</button>
-            </form>
-          </div>
-          <div class="qa-list">
-            <article>
-              <h3>Projeye baslamak icin ne lazim?</h3>
-              <p>Kisa hedef, referanslar, zaman araligi ve beklenen teslim formatlari yeterli.</p>
-            </article>
-            <article>
-              <h3>Behance ve cizimler birlikte kullanilir mi?</h3>
-              <p>Evet. Behance gorselleri is kaniti, cizimler sanatsal arka plan olarak birlikte gorunur.</p>
-            </article>
-            <article>
-              <h3>3D animasyon agir olur mu?</h3>
-              <p>Premium hareket korunur; reduced-motion ve fallback yuzeyleriyle performans guvende kalir.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+        <div class="form-group"><label class="form-label" for="f-service" data-tr="Hizmet" data-en="Service">Hizmet</label><select class="form-select" id="f-service"><option value="">Seçin...</option><option value="brand" data-tr="Marka &amp; Görsel Kimlik" data-en="Branding &amp; Visual Identity">Marka &amp; Görsel Kimlik</option><option value="ui-ux">UI/UX Görsel Tasarım</option><option value="editorial" data-tr="Editoryal Sistemler" data-en="Editorial Systems">Editoryal Sistemler</option><option value="3d" data-tr="Sinematik 3D &amp; Motion" data-en="Cinematic 3D &amp; Motion">Sinematik 3D &amp; Motion</option><option value="digital" data-tr="Dijital Yayın Sistemleri" data-en="Digital Publishing">Dijital Yayın Sistemleri</option></select></div>
+        <div class="form-group"><label class="form-label" for="f-scope" data-tr="Kapsam ve Hedef" data-en="Scope &amp; Goal">Kapsam ve Hedef</label><textarea class="form-textarea" id="f-scope" placeholder="Projeniz hakkında kısa bir açıklama..." required></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center" data-tr="Brief Gönder →" data-en="Send Brief →">Brief Gönder →</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+<footer>
+  <div><div class="footer-brand">Emirhan Kudun</div><div class="footer-copy" data-tr="Creative Technologist · İstanbul, Türkiye · 2024–2025" data-en="Creative Technologist · Istanbul, Turkey · 2024–2025">Creative Technologist · İstanbul, Türkiye · 2024–2025</div></div>
+  <div class="footer-links">
+    <a href="https://www.behance.net/emirhankudun" target="_blank" rel="noopener" class="footer-link">Behance</a>
+    <a href="https://www.linkedin.com/in/emirhan-kudun/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    <a href="https://www.instagram.com/emirhankudun/" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+    <a href="mailto:emirhan@kudun.com" class="footer-link">Email</a>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const LANG_KEY='ek-lang';let currentLang=localStorage.getItem(LANG_KEY)||'tr';
+function setLang(lang){currentLang=lang;localStorage.setItem(LANG_KEY,lang);document.documentElement.lang=lang==='tr'?'tr':'en';document.querySelectorAll('[data-tr]').forEach(el=>{if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=lang==='tr'?(el.getAttribute('data-tr')||''):(el.getAttribute('data-en')||'');}else{el.textContent=lang==='tr'?(el.getAttribute('data-tr')||''):(el.getAttribute('data-en')||'');}});document.querySelector('#btn-tr').classList.toggle('active',lang==='tr');document.querySelector('#btn-en').classList.toggle('active',lang==='en');buildQA();}
+const qaData={tr:[{q:'Projeye başlamak için ne lazım?',a:'Kısa hedef, marka/ürün bağlamı, varsa referans linkleri, zaman aralığı ve beklenen teslim formatları yeterli.'},{q:'Teslimatlar nasıl olur?',a:'UI/UX ekranları, marka görselleri, editorial tasarım, 3D web sahnesi, statik dosyalar veya frontend uygulama olarak planlanabilir.'},{q:'Behance ve çizimler birlikte kullanılır mı?',a:'Evet. Behance görselleri iş kanıtı, çizimler sanatsal arka plan olarak aynı portfolyo hikayesinde birlikte görünür.'},{q:'3D animasyon siteyi ağırlaştırır mı?',a:'DPR sınırı, reduced-motion desteği ve fallback yüzeyleriyle performans korunur.'},{q:'Zaman planını nasıl netleştiriyoruz?',a:'Brief formundaki kapsam bilgisine göre önce hızlı kapsam cevabı, sonra parçalanmış teslim planı çıkarılır.'}],en:[{q:'What do I need to start a project?',a:'A short goal, brand/product context, reference links if available, timeline and expected delivery formats are enough.'},{q:'How are deliverables structured?',a:'UI/UX screens, brand visuals, editorial design, 3D web scene, static files or frontend application can be planned.'},{q:'Can Behance and drawings be used together?',a:'Yes. Behance visuals serve as proof of work and drawings as artistic background within the same portfolio story.'},{q:'Does 3D animation slow down the site?',a:'DPR limits, reduced-motion support and fallback surfaces keep performance intact.'},{q:'How do we define the timeline?',a:'Based on the brief scope, a quick response then a phased delivery plan is prepared.'}]};
+function buildQA(){const c=document.getElementById('qa-list');if(!c)return;c.innerHTML=(qaData[currentLang]||qaData.tr).map((item,i)=>`<div class="qa-item" id="qa-${i}"><div class="qa-question" onclick="toggleQA(${i})"><h4>${item.q}</h4><span class="qa-icon">+</span></div><div class="qa-answer"><p>${item.a}</p></div></div>`).join('');}
+function toggleQA(i){const it=document.getElementById('qa-'+i);const was=it.classList.contains('open');document.querySelectorAll('.qa-item').forEach(e=>e.classList.remove('open'));if(!was)it.classList.add('open');}
+const navEl=document.getElementById('main-nav');window.addEventListener('scroll',()=>{navEl.classList.toggle('scrolled',window.scrollY>40);updateNav();},{passive:true});
+function updateNav(){const secs=['hero','services','works','stack','evolution','contact'];let a='hero';const sy=window.scrollY+120;secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=sy)a=id;});document.querySelectorAll('.nav-links a').forEach(lnk=>lnk.classList.toggle('active',lnk.getAttribute('href')==='#'+a));}
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');}
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';obs.observe(el);});
+(function(){const cv=document.getElementById('canvas-bg');const cx=cv.getContext('2d');let w,h,ps;const N=80;function resize(){w=cv.width=window.innerWidth;h=cv.height=window.innerHeight;}function init(){ps=Array.from({length:N},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.5+.3,a:Math.random()*.5+.1,c:Math.random()>.7?'#c9a74a':Math.random()>.5?'#3db8a3':'#5c6478'}));}
+function draw(){cx.clearRect(0,0,w,h);for(let i=0;i<ps.length;i++){for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<140){cx.beginPath();cx.moveTo(ps[i].x,ps[i].y);cx.lineTo(ps[j].x,ps[j].y);cx.strokeStyle=`rgba(92,100,120,${(1-d/140)*.15})`;cx.lineWidth=.5;cx.stroke();}}}ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle=p.c;cx.globalAlpha=p.a;cx.fill();cx.globalAlpha=1;});requestAnimationFrame(draw);}resize();init();draw();window.addEventListener('resize',()=>{resize();init();});})();
+function submitBrief(e){e.preventDefault();const n=document.getElementById('f-name').value,em=document.getElementById('f-email').value,s=document.getElementById('f-service').value,sc=document.getElementById('f-scope').value;window.location.href=`mailto:emirhan@kudun.com?subject=${encodeURIComponent('Brief: '+(s||'Genel')+' — '+n)}&body=${encodeURIComponent('İsim: '+n+'\nEmail: '+em+'\nHizmet: '+s+'\n\nKapsam:\n'+sc)}`;showToast(currentLang==='tr'?'<strong>Teşekkürler!</strong> Mail uygulaması açılıyor...':'<strong>Thanks!</strong> Opening mail app...');}
+function showToast(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000);}
+document.addEventListener('DOMContentLoaded',()=>{setLang(currentLang);buildQA();updateNav();});
+</script>
+</body>
 </html>
