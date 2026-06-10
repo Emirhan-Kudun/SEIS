@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "id": "seis-trusted-marketplace-capability-map",
+  "summary": "Capability routing map for the SEIS Trusted Marketplace plugin.",
+  "capabilities": [
+    {
+      "id": "data-engineering",
+      "label": "Data Engineering",
+      "designerValue": "Prepare reliable data, spreadsheet, warehouse, and content pipelines before dashboards or AI workflows use them.",
+      "routingSignals": [
+        "database",
+        "warehouse",
+        "spreadsheet",
+        "ETL",
+        "schema",
+        "data quality"
+      ],
+      "activationGates": [
+        "target dataset known",
+        "read/write scope explicit",
+        "credentials outside repository",
+        "sample or dry-run available"
+      ],
+      "qualitySignals": [
+        "schema contract",
+        "source freshness",
+        "row-level sampling",
+        "rollback path"
+      ]
+    },
+    {
+      "id": "development",
+      "label": "Development",
+      "designerValue": "Turn marketplace ideas into small, reversible code or documentation changes on the correct branch.",
+      "routingSignals": [
+        "repo",
+        "branch",
+        "feature",
+        "script",
+        "automation",
+        "refactor"
+      ],
+      "activationGates": [
+        "UIXAppTTR branch confirmed",
+        "unrelated dirty files preserved",
+        "one bounded change selected",
+        "local validation chosen"
+      ],
+      "qualitySignals": [
+        "git status",
+        "workspace check",
+        "diff check",
+        "publish readiness"
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "designerValue": "Protect visual quality, product fit, accessibility, and calm interaction design before tool activation.",
+      "routingSignals": [
+        "Figma",
+        "visual",
+        "brand",
+        "layout",
+        "accessibility",
+        "responsive"
+      ],
+      "activationGates": [
+        "target screen or asset known",
+        "design system intent preserved",
+        "accessibility impact reviewed",
+        "motion restraint respected"
+      ],
+      "qualitySignals": [
+        "contrast",
+        "keyboard flow",
+        "mobile ergonomics",
+        "reduced motion"
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "Learning",
+      "designerValue": "Explain plugin, repo, and marketplace decisions in clear non-coder language so the system remains understandable.",
+      "routingSignals": [
+        "teach",
+        "explain",
+        "learn",
+        "why",
+        "workflow",
+        "beginner"
+      ],
+      "activationGates": [
+        "avoid jargon",
+        "show trade-offs",
+        "name safe next action",
+        "separate local and GitHub state"
+      ],
+      "qualitySignals": [
+        "plain-language summary",
+        "decision trace",
+        "short examples",
+        "blocked-state clarity"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitoring",
+      "designerValue": "Track plugin health, branch readiness, external service status, and release blockers without noisy always-on scanning.",
+      "routingSignals": [
+        "status",
+        "monitor",
+        "logs",
+        "health",
+        "readiness",
+        "alerts"
+      ],
+      "activationGates": [
+        "time window known",
+        "service target known",
+        "read-only check preferred",
+        "sensitive data excluded"
+      ],
+      "qualitySignals": [
+        "readiness snapshot",
+        "latest commit",
+        "connector status",
+        "explicit blocker list"
+      ]
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "designerValue": "Reduce repetitive work by turning trusted marketplace decisions into reusable cards, commands, and safe workflows.",
+      "routingSignals": [
+        "task",
+        "workflow",
+        "automation",
+        "summary",
+        "repeat",
+        "organize"
+      ],
+      "activationGates": [
+        "manual workflow understood",
+        "automation stays reversible",
+        "human approval point clear",
+        "output location known"
+      ],
+      "qualitySignals": [
+        "small checklist",
+        "repeatable command",
+        "documentation link",
+        "manual fallback"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "designerValue": "Keep credentials, permissions, publishers, and supply-chain risk visible before any plugin, MCP, or GitHub integration is activated.",
+      "routingSignals": [
+        "secret",
+        "permission",
+        "publisher",
+        "scan",
+        "risk",
+        "supply chain"
+      ],
+      "activationGates": [
+        "publisher trust checked",
+        "minimum permissions preferred",
+        "no secrets in git",
+        "rollback or removal path documented"
+      ],
+      "qualitySignals": [
+        "verified publisher",
+        "permission list",
+        "secret hygiene",
+        "security check"
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "designerValue": "Prove plugin packaging, repo binding, and marketplace readiness with lightweight checks before heavier CI or live use.",
+      "routingSignals": [
+        "test",
+        "validate",
+        "CI",
+        "check",
+        "workflow",
+        "quality gate"
+      ],
+      "activationGates": [
+        "local validator passes",
+        "plugin manifest valid",
+        "branch contract aligned",
+        "CI workflow present"
+      ],
+      "qualitySignals": [
+        "npm run validate",
+        "Codex plugin validation",
+        "GitHub workflow",
+        "installation smoke test"
+      ]
+    }
+  ]
+}

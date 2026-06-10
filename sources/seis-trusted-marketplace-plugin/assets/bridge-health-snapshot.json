@@ -1,0 +1,175 @@
+{
+  "id": "seis-trusted-marketplace-bridge-health-snapshot",
+  "schemaVersion": 1,
+  "mode": "private-personal",
+  "plugin": {
+    "name": "seis-trusted-marketplace",
+    "version": "0.1.0+codex.20260604140545",
+    "displayName": "SEIS Trusted Marketplace",
+    "sourceRepository": "https://github.com/emirhankudun-ux/seis-trusted-marketplace-plugin.git"
+  },
+  "repositoryBinding": {
+    "productRepository": "https://github.com/emirhankudun-ux/UIX-Apps.git",
+    "branch": "UIXAppTTR",
+    "localWorkspace": "/Users/emirhan/Library/Mobile Documents/com~apple~CloudDocs/Github/_SEIS_WORKSPACE/UIX-Apps-origin-clean"
+  },
+  "marketplace": {
+    "name": "personal",
+    "path": "/Users/emirhan/.agents/plugins/marketplace.json",
+    "installation": "codex plugin add seis-trusted-marketplace@personal",
+    "privatePersonalRecommended": true
+  },
+  "policy": {
+    "requiredCheckIds": [
+      "manifest-parity",
+      "private-personal-mode",
+      "uixappttr-binding",
+      "github-workflow",
+      "safe-install-docs"
+    ],
+    "requiredCapabilityIds": [
+      "data-engineering",
+      "development",
+      "design",
+      "learning",
+      "monitoring",
+      "productivity",
+      "security",
+      "testing"
+    ]
+  },
+  "checks": [
+    {
+      "id": "manifest-parity",
+      "status": "pass"
+    },
+    {
+      "id": "private-personal-mode",
+      "status": "pass"
+    },
+    {
+      "id": "uixappttr-binding",
+      "status": "pass"
+    },
+    {
+      "id": "github-workflow",
+      "status": "pass"
+    },
+    {
+      "id": "safe-install-docs",
+      "status": "pass"
+    }
+  ],
+  "capabilityReadiness": [
+    {
+      "id": "data-engineering",
+      "label": "Data Engineering",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "development",
+      "label": "Development",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "learning",
+      "label": "Learning",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitoring",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "status": "ready",
+      "evidence": {
+        "routingSignals": 6,
+        "activationGates": 4,
+        "qualitySignals": 4,
+        "documentedInSkill": true,
+        "documentedInReadme": true
+      },
+      "missing": []
+    }
+  ],
+  "summary": {
+    "checksPassed": 5,
+    "checksTotal": 5,
+    "lanesReady": 8,
+    "lanesTotal": 8
+  }
+}
