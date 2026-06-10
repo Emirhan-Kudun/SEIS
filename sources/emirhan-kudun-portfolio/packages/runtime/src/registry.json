@@ -1,0 +1,127 @@
+{
+  "connectors": [
+    {
+      "id": "content-package",
+      "name": "Shared Content Registry",
+      "category": "content",
+      "scope": "Portfolio data, translations, works, drawings and SEO metadata",
+      "requiresEnv": [],
+      "notes": "Local workspace package used by Next, Vite and static fallback."
+    },
+    {
+      "id": "next-api-runtime",
+      "name": "Next.js API Runtime",
+      "category": "runtime",
+      "scope": "Health, connector, skill, contact and brief endpoints",
+      "requiresEnv": [],
+      "notes": "Runs locally without external credentials."
+    },
+    {
+      "id": "mcp-readiness-matrix",
+      "name": "MCP Readiness Matrix",
+      "category": "runtime",
+      "scope": "Live codex mcp list snapshot, archive comparison and skipped-with-reason reporting",
+      "requiresEnv": [],
+      "notes": "Read-only readiness surface; write-capable tools stay skipped until a target and approval exist."
+    },
+    {
+      "id": "openai-platform",
+      "name": "OpenAI Platform",
+      "category": "ai",
+      "scope": "Future AI-assisted briefs, summaries and workflow support",
+      "requiresEnv": ["OPENAI_API_KEY"],
+      "notes": "Credential-gated; no calls are made unless configured."
+    },
+    {
+      "id": "vercel-platform",
+      "name": "Vercel Platform",
+      "category": "deployment",
+      "scope": "Environment pull, deploy, logs and platform readiness",
+      "requiresEnv": ["VERCEL_TOKEN"],
+      "notes": "CLI is intentionally not installed globally by this implementation."
+    },
+    {
+      "id": "github-publish",
+      "name": "GitHub Publish Flow",
+      "category": "repository",
+      "scope": "Remote publishing, PR flow and repository governance",
+      "requiresEnv": ["GITHUB_TOKEN"],
+      "notes": "Auth-gated to avoid terminal prompt failures."
+    },
+    {
+      "id": "figma-design-sync",
+      "name": "Figma Design Sync",
+      "category": "design",
+      "scope": "Design system review and future frame handoff",
+      "requiresEnv": ["FIGMA_ACCESS_TOKEN"],
+      "notes": "Optional connector for design operations."
+    },
+    {
+      "id": "semrush-seo",
+      "name": "Semrush SEO Intelligence",
+      "category": "marketing",
+      "scope": "Future SEO metrics and keyword visibility checks",
+      "requiresEnv": ["SEMRUSH_API_KEY"],
+      "notes": "Optional; homepage metadata works without it."
+    },
+    {
+      "id": "google-drive-assets",
+      "name": "Google Drive Asset Source",
+      "category": "assets",
+      "scope": "Future Drive-backed document and media workflows",
+      "requiresEnv": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+      "notes": "Optional; local drawing assets are bundled."
+    },
+    {
+      "id": "rootly-incident",
+      "name": "Rootly Incident Integration",
+      "category": "ops",
+      "scope": "Incident workflows and escalation notes",
+      "requiresEnv": ["ROOTLY_API_TOKEN"],
+      "statusOverride": "unavailable",
+      "notes": "No API token is configured in this environment."
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-design",
+      "name": "Frontend Design",
+      "category": "design",
+      "scope": "Premium UI, typography, visual rhythm and responsive polish",
+      "requiresEnv": [],
+      "notes": "Used for the main interface direction."
+    },
+    {
+      "id": "content-governance",
+      "name": "Content Governance",
+      "category": "content",
+      "scope": "Source selection, multilingual content and archive boundaries",
+      "requiresEnv": [],
+      "notes": "Prevents bulk import of generated noise."
+    },
+    {
+      "id": "runtime-status",
+      "name": "Runtime Status Registry",
+      "category": "runtime",
+      "scope": "Connector status normalization and credential-aware readiness",
+      "requiresEnv": [],
+      "notes": "Keeps active runtime safe and inspectable."
+    },
+    {
+      "id": "low-power-validation",
+      "name": "Low Power Validation",
+      "category": "quality",
+      "scope": "Static checks before heavier builds or browser testing",
+      "requiresEnv": [],
+      "notes": "Matches the repository execution philosophy."
+    },
+    {
+      "id": "vercel-readiness",
+      "name": "Vercel Readiness",
+      "category": "deployment",
+      "scope": "Project configuration, environment notes and deploy prerequisites",
+      "requiresEnv": ["VERCEL_TOKEN"],
+      "notes": "Ready for CLI workflow after Vercel CLI installation."
+    }
+  ]
+}

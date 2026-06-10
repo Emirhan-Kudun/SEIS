@@ -1,0 +1,34 @@
+{
+  "name": "seis-trusted-marketplace",
+  "version": "0.1.0+codex.20260604140545",
+  "description": "Private personal Codex plugin for SEIS marketplace governance across data engineering, development, design, learning, monitoring, productivity, security, and testing.",
+  "author": {
+    "name": "Emirhan Kudun"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SEIS Trusted Marketplace",
+    "shortDescription": "Govern trusted SEIS plugins with UIXAppTTR repo gates.",
+    "longDescription": "SEIS Trusted Marketplace helps Codex review trusted plugin, MCP, GitHub Marketplace, Copilot, model, data, testing, monitoring, security, productivity, learning, design, and development sources before installing, publishing, or activating them live. It is a private personal plugin repository bound to the UIX-Apps UIXAppTTR branch through an explicit repo connection asset, capability map, validation script, and matching quality contract.",
+    "developerName": "Emirhan Kudun",
+    "category": "Productivity",
+    "capabilities": [
+      "Plugin curation",
+      "MCP registry review",
+      "Marketplace readiness",
+      "Designer-friendly governance",
+      "UIXAppTTR repo binding",
+      "Quality-gated activation",
+      "Data engineering routing",
+      "Development workflow routing",
+      "Design-system review",
+      "Learning support",
+      "Monitoring readiness",
+      "Productivity automation",
+      "Security posture review",
+      "Testing and validation"
+    ],
+    "brandColor": "#2F6F73",
+    "defaultPrompt": "Open the SEIS Trusted Marketplace workflow, check the UIXAppTTR repo binding, choose the right capability lane, and help me decide which trusted plugin, MCP server, GitHub marketplace source, or repo workflow should be reviewed next."
+  }
+}

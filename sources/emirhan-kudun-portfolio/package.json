@@ -1,0 +1,32 @@
+{
+  "name": "seis-premium-portfolio-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:next": "npm run dev --workspace apps/site-next",
+    "dev:vite": "npm run dev --workspace apps/site-vite",
+    "build": "npm run build --workspace apps/site-next && npm run build --workspace apps/site-vite",
+    "typecheck": "tsc -p packages/content/tsconfig.json --noEmit && tsc -p packages/runtime/tsconfig.json --noEmit && tsc -p apps/site-next/tsconfig.json --noEmit && tsc -p apps/site-vite/tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:runtime": "node scripts/check-runtime.mjs",
+    "check:source-boundaries": "node scripts/check-source-boundaries.mjs",
+    "collect:mcp-readiness": "node scripts/collect-mcp-readiness.mjs",
+    "github:preflight": "node scripts/origin-push-preflight.mjs",
+    "github:publish": "node scripts/github-publish.mjs",
+    "deploy:static:dry-run": "bash scripts/deploy-static.sh",
+    "deploy:static:live": "bash scripts/deploy-static.sh --live"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

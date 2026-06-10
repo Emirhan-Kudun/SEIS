@@ -1,0 +1,54 @@
+name: Portfolio Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "codex/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate portfolio
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check content
+        run: npm run check:content
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Check runtime registry
+        run: npm run check:runtime
+
+      - name: Check source boundaries
+        run: npm run check:source-boundaries
+
+      - name: Build Next site
+        run: npm run build --workspace apps/site-next
+
+      - name: Build Vite preview
+        run: npm run build --workspace apps/site-vite
