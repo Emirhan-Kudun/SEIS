@@ -6,7 +6,7 @@ Drive Sheet: https://docs.google.com/spreadsheets/d/1sxnxOz9ZRzwZAz2FmHt_3YzAhQj
 
 Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/openai-curated-build-workbench.md)
 
-- Web cockpit: create the first browser-first SEIS operating surface under `apps/web`
+- Web cockpit: first static milestone shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
 - Backend state: choose Convex-first state with Supabase/Neon as Postgres reporting lanes
 - Workspace ops: keep Drive, Calendar, Sheet, and plugin operating docs linked into SEIS
 - Security quality gate: create a security/deletion/deploy gate before automation expansion
@@ -32,6 +32,8 @@ Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/ope
 
 ## Done
 
+- Web cockpit first milestone: static JSON-backed cockpit at `apps/web/cockpit.html` with repo, plugin, build, workspace, and safety panels
+- Consolidated all ecosystem repositories into SEIS: snapshots under `sources/`, full history under `sources/<repo>/<branch>` branches
 - Installed all locally visible Codex plugins: 179 active, 0 missing
 - Added OpenAI-first plugin policy
 - Added OpenAI-curated build workbench

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SEIS operating cockpit: repository, plugin, workspace, build, and security status from local SEIS records.">
+    <meta name="theme-color" content="#0e1116">
+    <meta name="color-scheme" content="dark">
+    <meta name="robots" content="noindex, nofollow">
+    <title>SEIS Cockpit</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./src/styles/cockpit.css">
+  </head>
+  <body class="cockpit">
+    <a class="skip-link" href="#cockpit-main">Skip to content</a>
+
+    <header class="cockpit-topbar" aria-label="System status">
+      <a class="cockpit-brand" href="./index.html">SEIS</a>
+      <div class="topbar-stats" id="topbar-stats" role="status"></div>
+    </header>
+
+    <div class="cockpit-shell">
+      <nav class="cockpit-nav" aria-label="Cockpit sections">
+        <a href="#panel-repository">Repository</a>
+        <a href="#panel-plugins">Plugins</a>
+        <a href="#panel-workspace">Workspace</a>
+        <a href="#panel-build">Build</a>
+        <a href="#panel-security">Security</a>
+        <a href="#panel-research">Research</a>
+      </nav>
+
+      <main id="cockpit-main" class="cockpit-grid">
+        <section class="panel" id="panel-repository" aria-labelledby="repository-title">
+          <h2 id="repository-title">Repository</h2>
+          <div data-panel="repository"></div>
+        </section>
+
+        <section class="panel" id="panel-plugins" aria-labelledby="plugins-title">
+          <h2 id="plugins-title">Plugin lanes</h2>
+          <div data-panel="plugins"></div>
+        </section>
+
+        <section class="panel" id="panel-build" aria-labelledby="build-title">
+          <h2 id="build-title">Build workbench</h2>
+          <div data-panel="build"></div>
+        </section>
+
+        <section class="panel" id="panel-workspace" aria-labelledby="workspace-title">
+          <h2 id="workspace-title">Workspace ops</h2>
+          <div data-panel="workspace"></div>
+        </section>
+
+        <section class="panel" id="panel-security" aria-labelledby="security-title">
+          <h2 id="security-title">Source safety</h2>
+          <div data-panel="security"></div>
+        </section>
+
+        <section class="panel" id="panel-research" aria-labelledby="research-title">
+          <h2 id="research-title">Research memory</h2>
+          <div data-panel="research"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="cockpit-gates" aria-label="Governance gates">
+      <ul id="gate-list"></ul>
+    </footer>
+
+    <script src="./src/data/cockpit-status.js"></script>
+    <script src="./src/scripts/cockpit.js"></script>
+  </body>
+</html>
