@@ -29,7 +29,12 @@ Add a client provider in the app shell and ensure `NEXT_PUBLIC_CONVEX_URL` is av
 
 ## First Build Tasks
 
-1. Decide backend ownership: Convex-first or Supabase-first.
+1. ~~Decide backend ownership~~: decided Convex-first — see
+   [`docs/decisions/backend-state-decision-record.md`](../../docs/decisions/backend-state-decision-record.md)
+   and the committed state model [`state-model.json`](./state-model.json)
+   (guarded by `npm run check:backend-state-model`).
 2. Define auth provider and JWT strategy.
-3. Add repo visibility and migration status models.
-4. Add Drive/Calendar integration metadata.
+3. ~~Add repo visibility and migration status models~~: covered by the
+   `repositories` and `source_branches` entities in `state-model.json`.
+4. ~~Add Drive/Calendar integration metadata~~: covered by the
+   `workspace_links` entity in `state-model.json`.

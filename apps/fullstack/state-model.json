@@ -1,0 +1,96 @@
+{
+  "name": "SEIS backend state model",
+  "date": "2026-06-11",
+  "decision_record": "docs/decisions/backend-state-decision-record.md",
+  "backend": {
+    "reactive": "convex",
+    "reporting": "supabase_or_neon_postgres",
+    "status": "model_committed_backend_not_provisioned"
+  },
+  "entities": {
+    "plugin_registry": {
+      "description": "Installed Codex plugins with lane assignment and policy compliance.",
+      "fields": {
+        "plugin_id": "string — plugin identifier, e.g. build-web-apps@openai-curated",
+        "lane_id": "string — references plugin_lanes.lane_id",
+        "channel": "string — openai-curated | openai-bundled | openai-primary-runtime | other",
+        "installed": "boolean",
+        "policy_compliant": "boolean — true when channel satisfies the OpenAI-first policy"
+      },
+      "seed_sources": [
+        "data/installed-codex-plugins-2026-06-05.json",
+        "data/openai-plugin-priority-2026-06-05.json"
+      ],
+      "sync_rule": "Regenerate from the Codex plugin list export; never hand-edit records."
+    },
+    "plugin_lanes": {
+      "description": "Operational lanes grouping plugins by build surface.",
+      "fields": {
+        "lane_id": "string — e.g. web_frontend_design",
+        "label": "string — display label",
+        "active_count": "number",
+        "missing_count": "number"
+      },
+      "seed_sources": ["data/installed-codex-plugins-2026-06-05.json"],
+      "sync_rule": "Derived from plugin_registry aggregation once live; static counts until then."
+    },
+    "repositories": {
+      "description": "Canonical repository state and consolidated source repositories.",
+      "fields": {
+        "repository": "string — owner/name",
+        "role": "string — canonical | consolidated_source",
+        "default_branch": "string",
+        "snapshot_path": "string|null — sources/<name>/ for consolidated sources",
+        "history_preserved": "boolean — full history exists under sources/<repo>/<branch> refs",
+        "archive_ready": "boolean"
+      },
+      "seed_sources": [
+        "data/github-repository-consolidation.json",
+        "data/repository-visibility-audit-2026-06-05.json",
+        "sources/README.md"
+      ],
+      "sync_rule": "Update when repositories are consolidated, archived, or deleted."
+    },
+    "source_branches": {
+      "description": "Full-history source refs preserved inside SEIS.",
+      "fields": {
+        "ref": "string — sources/<repo>/<branch>",
+        "origin_repository": "string — owner/name",
+        "origin_branch": "string",
+        "verified": "boolean — ref pushed and listed in sources/README.md"
+      },
+      "seed_sources": ["sources/README.md"],
+      "sync_rule": "Append-only; refs are recovery anchors and must not be rewritten."
+    },
+    "workspace_links": {
+      "description": "Google Workspace operating artifacts linked into SEIS.",
+      "fields": {
+        "link_id": "string — e.g. operating_plan, weekly_build_review",
+        "kind": "string — drive_document | drive_spreadsheet | calendar_event",
+        "title": "string",
+        "url": "string",
+        "recurrence": "string|null — calendar events only"
+      },
+      "seed_sources": ["integrations/google-workspace.json"],
+      "sync_rule": "Update this model whenever Drive or Calendar artifacts change."
+    },
+    "governance_gates": {
+      "description": "Operating gates the cockpit footer renders.",
+      "fields": {
+        "gate_id": "string — e.g. closed_code, no_deploy",
+        "label": "string",
+        "state": "string — enforced | open | blocked"
+      },
+      "seed_sources": [
+        "docs/platform/openai-curated-build-workbench.md",
+        "SEIS_CLOSED_CODE.md"
+      ],
+      "sync_rule": "Gate state changes require a decision record entry before edit."
+    }
+  },
+  "consumer_contract": {
+    "static_consumer": "apps/web/src/data/cockpit-status.js via scripts/create-cockpit-status.mjs",
+    "live_consumer": "apps/web cockpit panels query Convex tables with the same entity shapes",
+    "rule": "Panel shapes in the cockpit must keep working unchanged when the data source switches from the static bundle to live backend queries."
+  }
+}
