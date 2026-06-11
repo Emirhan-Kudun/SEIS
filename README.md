@@ -4,6 +4,16 @@ SEIS is the single `main`-centered closed-code operating repository for the `emi
 
 It coordinates Android, Web, macOS, full-stack, data, Google Workspace operations, Codex plugin development, OpenAI-curated plugin routing, source archive verification, and repository consolidation from one center.
 
+## Single Repository
+
+All other ecosystem repositories have been consolidated into SEIS; this is
+the only repository under active development. Their tracked files live as
+snapshots under [`sources/`](./sources/README.md), and every branch of every
+origin repository is preserved with full commit history under the
+`sources/<repo>/<branch>` branch namespace. The origin repositories
+(`docs`, `emirhan-kudun-portfolio`, `github-unified-source`, `memories`,
+`seis-trusted-marketplace-plugin`) are legacy pointers only.
+
 ## Start Here
 
 - OpenAI-curated build workbench: [`docs/platform/openai-curated-build-workbench.md`](./docs/platform/openai-curated-build-workbench.md)
