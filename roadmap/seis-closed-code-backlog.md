@@ -7,7 +7,7 @@ Drive Sheet: https://docs.google.com/spreadsheets/d/1sxnxOz9ZRzwZAz2FmHt_3YzAhQj
 Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/openai-curated-build-workbench.md)
 
 - Web cockpit: first static milestone shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
-- Backend state: choose Convex-first state with Supabase/Neon as Postgres reporting lanes
+- Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, define auth/JWT strategy before provisioning
 - Workspace ops: keep Drive, Calendar, Sheet, and plugin operating docs linked into SEIS
 - Security quality gate: create a security/deletion/deploy gate before automation expansion
 - Mobile shell: prepare Expo shell after cockpit contracts stabilize

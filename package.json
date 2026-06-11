@@ -63,7 +63,8 @@
     "check:github-remote-configuration": "node scripts/check-github-remote-configuration.mjs",
     "check:publish-gate-contract": "node scripts/check-publish-gate-contract.mjs",
     "automation:cockpit-status": "node scripts/create-cockpit-status.mjs",
-    "check:cockpit-status": "node scripts/create-cockpit-status.mjs --check"
+    "check:cockpit-status": "node scripts/create-cockpit-status.mjs --check",
+    "check:backend-state-model": "node scripts/check-backend-state-model.mjs"
   },
   "engines": {
     "node": ">=18"
