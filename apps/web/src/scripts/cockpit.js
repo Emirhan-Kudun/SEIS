@@ -148,11 +148,22 @@
     el("p", { class: "note", text: status.safety.deletionGate }),
   );
 
-  // Research panel (placeholder until docs/research lane exists)
+  // Research panel
   panel("research").append(
+    statusTable([
+      ["Lane", el("span", { class: "mono", text: status.research.lane })],
+      ["Notes", String(status.research.notes.length)],
+    ]),
+    el(
+      "ul",
+      { class: "link-list" },
+      status.research.notes.map((note) =>
+        el("li", {}, [el("span", { class: "mono", text: note })]),
+      ),
+    ),
     el("p", {
       class: "note",
-      text: "Research memory lane not started. Planned home: docs/research (build order step 7).",
+      text: "Source-backed notes only; decision-affecting notes link a record in docs/decisions.",
     }),
   );
 

@@ -16,7 +16,9 @@ The macOS lane is for local desktop tools around SEIS: repo inspection, archive 
 
 ## First Build Tasks
 
-1. Define a small SwiftUI shell.
-2. Show SEIS branch and repo visibility status.
-3. Add plugin status and zip audit views.
-4. Add export links to Drive docs and Calendar reviews.
+1. ~~Define a small SwiftUI shell~~: scaffold at
+   [`SEISInspector/ContentView.swift`](./SEISInspector/ContentView.swift),
+   view map in [`inspector-contract.json`](./inspector-contract.json).
+2. Show SEIS branch and repo visibility status (branch_status view).
+3. Add plugin status and zip audit views (contract defined; detail views pending).
+4. Add export links to Drive docs and Calendar reviews (workspace_links view).

@@ -10,7 +10,8 @@ window.SEIS_COCKPIT_STATUS = {
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
-    "sources/README.md"
+    "sources/README.md",
+    "docs/research/README.md"
   ],
   "branch": {
     "canonicalRepository": "Emirhan-Kudun/SEIS",
@@ -111,43 +112,49 @@ window.SEIS_COCKPIT_STATUS = {
         "lane": "developer_tools",
         "path": "apps/fullstack",
         "deliverable": "Backend decision record and first state model for plugin registry, repo visibility, and workspace links.",
-        "status": "ready_to_decide"
+        "status": "model_committed"
       },
       {
         "id": "mobile_shell",
         "lane": "developer_tools",
         "path": "apps/android",
         "deliverable": "Expo mobile shell for SEIS status, build review, and plugin health.",
-        "status": "ready_to_plan"
+        "status": "contract_committed"
       },
       {
         "id": "macos_inspector",
         "lane": "developer_tools",
         "path": "apps/macos",
         "deliverable": "SwiftUI desktop inspector for local SEIS repo, plugin cache, zip audits, and branch sync.",
-        "status": "ready_to_plan"
+        "status": "contract_committed"
       },
       {
         "id": "workspace_ops",
         "lane": "productivity",
         "path": "integrations",
         "deliverable": "Workspace operating layer for docs, backlog, calendar, mail, and team updates.",
-        "status": "active"
+        "status": "operating_layer_committed"
       },
       {
         "id": "research_memory",
         "lane": "research",
         "path": "docs/research",
         "deliverable": "Research notebook lane for model, citation, dataset, and technical reference decisions.",
-        "status": "ready_to_create"
+        "status": "lane_active"
       },
       {
         "id": "security_quality_gate",
         "lane": "security",
         "path": "docs/security",
         "deliverable": "Security and quality gate before source repo deletion, deployment, or automation expansion.",
-        "status": "ready_to_create"
+        "status": "gate_live"
       }
+    ]
+  },
+  "research": {
+    "lane": "docs/research",
+    "notes": [
+      "notes/2026-06-12-backend-state-reference.md"
     ]
   },
   "workspace": {

@@ -1,0 +1,40 @@
+{
+  "name": "SEIS mobile shell contract",
+  "date": "2026-06-12",
+  "platform": "expo_react_native",
+  "status": "contract_committed_app_not_scaffolded",
+  "purpose": "Mobile surface for SEIS status, build review, and plugin health.",
+  "data_contract": {
+    "source": "apps/fullstack/state-model.json",
+    "rule": "Screens consume the same entity shapes as the web cockpit; no mobile-only state."
+  },
+  "screens": [
+    {
+      "screen_id": "status",
+      "title": "SEIS Status",
+      "entities": ["repositories", "governance_gates"],
+      "purpose": "Branch mirror, consolidation state, and gate states at a glance."
+    },
+    {
+      "screen_id": "build_review",
+      "title": "Build Review",
+      "entities": ["workspace_links"],
+      "purpose": "Weekly build review event, Drive operating docs, and backlog mirror."
+    },
+    {
+      "screen_id": "plugin_health",
+      "title": "Plugin Health",
+      "entities": ["plugin_registry", "plugin_lanes"],
+      "purpose": "Installed counts, lane breakdown, and OpenAI-first policy compliance."
+    }
+  ],
+  "navigation": {
+    "kind": "bottom_tabs",
+    "order": ["status", "build_review", "plugin_health"]
+  },
+  "scaffold_plan": {
+    "template": "npx create-expo-app --template blank-typescript",
+    "blocked_by": "Dependency budget: written approval required before adding the Expo runtime.",
+    "first_smoke_test": "Render the status screen from a bundled snapshot of cockpit-status data on the Android emulator."
+  }
+}
