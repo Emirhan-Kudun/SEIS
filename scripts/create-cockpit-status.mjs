@@ -17,6 +17,7 @@ const visibility = read("data/repository-visibility-audit-2026-06-05.json");
 const zipInventory = read("data/github-zip-import-inventory.json");
 const consolidation = read("data/github-repository-consolidation.json");
 const workspace = read("integrations/google-workspace.json");
+const securityGates = read("data/security-gate-status.json");
 const sourcesManifest = readFileSync(resolve(root, "sources/README.md"), "utf8");
 
 const laneLabels = {
@@ -46,6 +47,7 @@ const status = {
     "data/github-zip-import-inventory.json",
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
+    "data/security-gate-status.json",
     "sources/README.md",
   ],
   branch: {
@@ -102,12 +104,11 @@ const status = {
     deletionGate:
       "Origin repositories may be archived or deleted: snapshots live under sources/ and full history under sources/<repo>/<branch> branches.",
   },
-  gates: [
-    { id: "closed_code", label: "Closed code", state: "enforced" },
-    { id: "no_deploy", label: "No deploy before security gate", state: "enforced" },
-    { id: "no_large_binaries", label: "No large binaries in Git", state: "enforced" },
-    { id: "delete_after_verification", label: "Source repos deletable (history preserved)", state: "open" },
-  ],
+  gates: securityGates.gates.map((gate) => ({
+    id: gate.gate_id,
+    label: gate.label,
+    state: gate.state,
+  })),
 };
 
 const banner =

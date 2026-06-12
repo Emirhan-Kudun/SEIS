@@ -8,8 +8,8 @@ Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/ope
 
 - Web cockpit: first static milestone shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
 - Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, define auth/JWT strategy before provisioning
-- Workspace ops: keep Drive, Calendar, Sheet, and plugin operating docs linked into SEIS
-- Security quality gate: create a security/deletion/deploy gate before automation expansion
+- Workspace ops: operating layer committed at `integrations/workspace-operations.json` (5 lanes, mail/team-updates pending provisioning)
+- Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; deployment and automation gates blocked pending secret scan and error-tracking choice
 - Mobile shell: prepare Expo shell after cockpit contracts stabilize
 - macOS inspector: prepare SwiftUI inspector for local repo/plugin/zip status
 - Research memory: create source-backed notes for model, dataset, citation, and technical decisions

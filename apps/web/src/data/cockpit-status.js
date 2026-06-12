@@ -9,6 +9,7 @@ window.SEIS_COCKPIT_STATUS = {
     "data/github-zip-import-inventory.json",
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
+    "data/security-gate-status.json",
     "sources/README.md"
   ],
   "branch": {
@@ -197,19 +198,24 @@ window.SEIS_COCKPIT_STATUS = {
       "state": "enforced"
     },
     {
-      "id": "no_deploy",
-      "label": "No deploy before security gate",
-      "state": "enforced"
-    },
-    {
       "id": "no_large_binaries",
       "label": "No large binaries in Git",
       "state": "enforced"
     },
     {
-      "id": "delete_after_verification",
+      "id": "source_deletion",
       "label": "Source repos deletable (history preserved)",
       "state": "open"
+    },
+    {
+      "id": "deployment",
+      "label": "Deployment",
+      "state": "blocked"
+    },
+    {
+      "id": "automation_expansion",
+      "label": "Automation expansion",
+      "state": "blocked"
     }
   ]
 };

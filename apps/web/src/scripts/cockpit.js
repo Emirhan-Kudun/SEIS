@@ -157,10 +157,11 @@
   );
 
   // Footer gates
+  const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(
     ...status.gates.map((gate) =>
       el("li", {}, [
-        badge(gate.state, gate.state === "enforced" ? "accent" : "ok"),
+        badge(gate.state, gateTone[gate.state] ?? ""),
         document.createTextNode(` ${gate.label}`),
       ]),
     ),
