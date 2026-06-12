@@ -1,0 +1,39 @@
+{
+  "name": "SEIS macOS inspector contract",
+  "date": "2026-06-12",
+  "platform": "swiftui",
+  "status": "contract_committed_scaffold_started",
+  "purpose": "Local desktop inspector for SEIS repo state, plugin cache, zip audits, and workspace links.",
+  "data_contract": {
+    "source": "apps/fullstack/state-model.json",
+    "rule": "Views consume the same entity shapes as the web cockpit; the inspector reads local SEIS JSON records directly."
+  },
+  "views": [
+    {
+      "view_id": "branch_status",
+      "title": "Branch Status",
+      "entities": ["repositories", "source_branches"],
+      "purpose": "Canonical branch mirror and full-history source refs."
+    },
+    {
+      "view_id": "plugin_status",
+      "title": "Plugin Status",
+      "entities": ["plugin_registry", "plugin_lanes"],
+      "purpose": "Installed plugin counts and lane assignment."
+    },
+    {
+      "view_id": "zip_audit",
+      "title": "Zip Audit",
+      "entities": ["governance_gates"],
+      "purpose": "iCloud zip inventory status and the no-large-binaries gate."
+    },
+    {
+      "view_id": "workspace_links",
+      "title": "Workspace",
+      "entities": ["workspace_links"],
+      "purpose": "Drive docs and Calendar reviews opened in the browser."
+    }
+  ],
+  "safety": "No destructive actions (repo or archive deletion) are exposed in the UI; gates render read-only.",
+  "scaffold": "apps/macos/SEISInspector/ContentView.swift"
+}

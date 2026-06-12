@@ -38,6 +38,19 @@ const consolidatedSources = [...sourcesManifest.matchAll(/^\| `sources\/([a-z0-9
 );
 const fullHistoryBranches = [...sourcesManifest.matchAll(/^\| `sources\/[^`]*[^/`]` \|/gim)].length;
 
+const researchIndex = readFileSync(resolve(root, "docs/research/README.md"), "utf8");
+const researchNotes = [...researchIndex.matchAll(/^\| \[`(notes\/[^`]+)`\]/gim)].map((m) => m[1]);
+
+const moduleStatusOverrides = {
+  web_cockpit: "first_milestone_shipped",
+  backend_state: "model_committed",
+  workspace_ops: "operating_layer_committed",
+  security_quality_gate: "gate_live",
+  mobile_shell: "contract_committed",
+  macos_inspector: "contract_committed",
+  research_memory: "lane_active",
+};
+
 const status = {
   generatedBy: "scripts/create-cockpit-status.mjs",
   sources: [
@@ -49,6 +62,7 @@ const status = {
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "sources/README.md",
+    "docs/research/README.md",
   ],
   branch: {
     canonicalRepository: "Emirhan-Kudun/SEIS",
@@ -77,8 +91,12 @@ const status = {
       lane: m.lane,
       path: m.owner_path,
       deliverable: m.deliverable,
-      status: m.id === "web_cockpit" ? "first_milestone_shipped" : m.status,
+      status: moduleStatusOverrides[m.id] ?? m.status,
     })),
+  },
+  research: {
+    lane: "docs/research",
+    notes: researchNotes,
   },
   workspace: {
     drive: Object.entries(workspace.drive).map(([id, doc]) => ({
