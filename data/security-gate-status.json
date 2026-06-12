@@ -1,0 +1,37 @@
+{
+  "name": "SEIS security quality gate status",
+  "date": "2026-06-11",
+  "policy": "docs/security/security-quality-gate.md",
+  "gates": [
+    {
+      "gate_id": "closed_code",
+      "label": "Closed code",
+      "state": "enforced",
+      "guard": "scripts/check-seis-closed-code.mjs via CI governance job"
+    },
+    {
+      "gate_id": "no_large_binaries",
+      "label": "No large binaries in Git",
+      "state": "enforced",
+      "guard": "Zip archives stay inventoried in data/github-zip-import-inventory.json, never committed"
+    },
+    {
+      "gate_id": "source_deletion",
+      "label": "Source repos deletable (history preserved)",
+      "state": "open",
+      "guard": "sources/README.md manifest: snapshots, full-history refs, README pointers verified"
+    },
+    {
+      "gate_id": "deployment",
+      "label": "Deployment",
+      "state": "blocked",
+      "guard": "Requires recorded secret scan, error tracking choice, and rollback contract"
+    },
+    {
+      "gate_id": "automation_expansion",
+      "label": "Automation expansion",
+      "state": "blocked",
+      "guard": "Requires open deployment gate, state-model coverage, and documented kill switch"
+    }
+  ]
+}

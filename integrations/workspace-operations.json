@@ -1,0 +1,50 @@
+{
+  "name": "SEIS workspace operations layer",
+  "date": "2026-06-11",
+  "principle": "Integrations are operating surfaces; repository records stay the source of truth.",
+  "artifact_registry": "integrations/google-workspace.json",
+  "lanes": {
+    "docs": {
+      "surface": "google_drive",
+      "status": "active",
+      "artifacts": ["operating_plan", "installed_plugin_operating_model"],
+      "plugin_route": ["google-drive@openai-curated", "documents@openai-curated"],
+      "cadence": "on_change",
+      "seis_record_rule": "Every Drive operating doc keeps a counterpart record or link in docs/platform."
+    },
+    "backlog": {
+      "surface": "google_sheets",
+      "status": "active",
+      "artifacts": ["platform_backlog"],
+      "repo_mirror": "roadmap/seis-closed-code-backlog.md",
+      "plugin_route": ["spreadsheets@openai-curated"],
+      "cadence": "weekly",
+      "seis_record_rule": "roadmap/seis-closed-code-backlog.md is the source of truth; the Sheet mirrors it."
+    },
+    "calendar": {
+      "surface": "google_calendar",
+      "status": "active",
+      "artifacts": ["weekly_build_review"],
+      "plugin_route": ["google-calendar@openai-curated"],
+      "cadence": "weekly",
+      "seis_record_rule": "Build review outcomes land in the backlog Done section or a decision record."
+    },
+    "mail": {
+      "surface": "gmail",
+      "status": "not_provisioned",
+      "artifacts": [],
+      "plugin_route": ["gmail@openai-curated"],
+      "cadence": "on_demand",
+      "seis_record_rule": "Mail becomes an operating lane only after a durable artifact (label/filter scheme) is registered here."
+    },
+    "team_updates": {
+      "surface": "slack_or_teams",
+      "status": "not_provisioned",
+      "artifacts": [],
+      "plugin_route": ["slack@openai-curated", "teams@openai-curated"],
+      "cadence": "on_demand",
+      "seis_record_rule": "Team update channels are registered here before any automation posts to them."
+    }
+  },
+  "sync_rule": "Update this file and integrations/google-workspace.json together; check:workspace-operations guards artifact references."
+}
