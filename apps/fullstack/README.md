@@ -33,7 +33,9 @@ Add a client provider in the app shell and ensure `NEXT_PUBLIC_CONVEX_URL` is av
    [`docs/decisions/backend-state-decision-record.md`](../../docs/decisions/backend-state-decision-record.md)
    and the committed state model [`state-model.json`](./state-model.json)
    (guarded by `npm run check:backend-state-model`).
-2. Define auth provider and JWT strategy.
+2. ~~Define auth provider and JWT strategy~~: decided Convex Auth + GitHub
+   OAuth + short-lived JWT — see
+   [`docs/decisions/auth-jwt-decision-record.md`](../../docs/decisions/auth-jwt-decision-record.md).
 3. ~~Add repo visibility and migration status models~~: covered by the
    `repositories` and `source_branches` entities in `state-model.json`.
 4. ~~Add Drive/Calendar integration metadata~~: covered by the

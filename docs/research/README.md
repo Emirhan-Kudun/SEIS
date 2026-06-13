@@ -23,3 +23,4 @@ itself always lands here.
 | Note | Decision link |
 | --- | --- |
 | [`notes/2026-06-12-backend-state-reference.md`](./notes/2026-06-12-backend-state-reference.md) | `docs/decisions/backend-state-decision-record.md` |
+| [`notes/2026-06-13-auth-jwt-reference.md`](./notes/2026-06-13-auth-jwt-reference.md) | `docs/decisions/auth-jwt-decision-record.md` |

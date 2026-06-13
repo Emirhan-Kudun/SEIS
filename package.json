@@ -67,7 +67,9 @@
     "check:backend-state-model": "node scripts/check-backend-state-model.mjs",
     "check:workspace-operations": "node scripts/check-workspace-operations.mjs",
     "check:security-gate": "node scripts/check-security-gate.mjs",
-    "check:app-shell-contracts": "node scripts/check-app-shell-contracts.mjs"
+    "check:app-shell-contracts": "node scripts/check-app-shell-contracts.mjs",
+    "security:secret-scan": "node scripts/security-secret-scan.mjs",
+    "check:secret-scan": "node scripts/security-secret-scan.mjs --check"
   },
   "engines": {
     "node": ">=18"

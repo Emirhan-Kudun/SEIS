@@ -35,10 +35,17 @@ Origin repositories may be archived or deleted. Conditions, all met:
 
 No deployment until all conditions hold:
 
-- A secret scan of the full tree (including `sources/`) is recorded here.
-- Runtime error tracking is chosen and configured (Sentry route per the
+- [x] A secret scan of the full tree (including `sources/`) is recorded.
+  `scripts/security-secret-scan.mjs` → `data/secret-scan-results.json`,
+  guarded by `npm run check:secret-scan`. Deployable surface clean; the one
+  generated third-party bundle is allowlisted with a documented reason.
+- [ ] Runtime error tracking is chosen and configured (Sentry route per the
   workbench security row).
-- A rollback contract exists for the deployed surface.
+- [ ] A rollback contract exists for the deployed surface.
+
+Auth posture for the eventual deployed surface is decided in
+`docs/decisions/auth-jwt-decision-record.md` (Convex Auth, GitHub OAuth,
+short-lived JWT).
 
 ### automation_expansion — blocked
 
@@ -61,3 +68,8 @@ allowed set (`enforced`, `open`, `blocked`).
 - 2026-06-11: Gate created. `source_deletion` opened after consolidation
   verification (snapshots, full-history refs, README pointers all in place).
   `deployment` and `automation_expansion` start blocked.
+- 2026-06-13: Secret-scan condition of the `deployment` gate met. Scan is
+  clean across the deployable surface (533 files); 47 matches in the
+  generated `github-code-bundle.txt` are upstream third-party test fixtures
+  and were allowlisted with a documented reason. `deployment` stays blocked
+  on error-tracking and rollback conditions.
