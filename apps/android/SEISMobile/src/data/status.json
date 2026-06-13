@@ -1,0 +1,227 @@
+{
+  "generatedBy": "scripts/create-cockpit-status.mjs",
+  "sources": [
+    "data/installed-codex-plugins-2026-06-05.json",
+    "data/openai-curated-build-workbench-2026-06-05.json",
+    "data/repository-visibility-audit-2026-06-05.json",
+    "data/github-zip-import-inventory.json",
+    "data/github-repository-consolidation.json",
+    "integrations/google-workspace.json",
+    "data/security-gate-status.json",
+    "sources/README.md",
+    "docs/research/README.md"
+  ],
+  "branch": {
+    "canonicalRepository": "Emirhan-Kudun/SEIS",
+    "defaultBranch": "main",
+    "mirrorBranch": "UIXAppTTR",
+    "decision": "Make main mirror the canonical SEIS branch so the visible single branch path carries the latest SEIS hub and plugin work. Keep sources/* refs as recovery/index refs.",
+    "seisBranchCount": 36,
+    "sourceTrackingRefs": 26
+  },
+  "plugins": {
+    "installedEnabled": 179,
+    "notInstalled": 0,
+    "policy": "Use openai-curated, openai-bundled, and openai-primary-runtime plugins first for core SEIS build work.",
+    "lanes": [
+      {
+        "id": "repository_and_governance",
+        "label": "Repository & Governance",
+        "active": 7,
+        "missing": 0
+      },
+      {
+        "id": "android_ios_mobile",
+        "label": "Android / iOS Mobile",
+        "active": 3,
+        "missing": 0
+      },
+      {
+        "id": "web_frontend_design",
+        "label": "Web Frontend & Design",
+        "active": 11,
+        "missing": 0
+      },
+      {
+        "id": "macos_desktop",
+        "label": "macOS Desktop",
+        "active": 1,
+        "missing": 0
+      },
+      {
+        "id": "fullstack_backend_deploy",
+        "label": "Full-stack & Deploy",
+        "active": 10,
+        "missing": 0
+      },
+      {
+        "id": "data_analytics_visualization",
+        "label": "Data & Analytics",
+        "active": 14,
+        "missing": 0
+      },
+      {
+        "id": "workspace_communications",
+        "label": "Workspace & Comms",
+        "active": 26,
+        "missing": 0
+      },
+      {
+        "id": "observability_quality_security",
+        "label": "Quality & Security",
+        "active": 10,
+        "missing": 0
+      },
+      {
+        "id": "ai_media_research",
+        "label": "AI, Media & Research",
+        "active": 16,
+        "missing": 0
+      },
+      {
+        "id": "business_gtm_finance_ops",
+        "label": "Business & Ops",
+        "active": 74,
+        "missing": 0
+      }
+    ]
+  },
+  "workbench": {
+    "goal": "Turn SEIS from a repository hub into a usable closed-code operating cockpit.",
+    "buildOrder": [
+      "web_cockpit",
+      "backend_state",
+      "workspace_ops",
+      "security_quality_gate",
+      "mobile_shell",
+      "macos_inspector",
+      "research_memory"
+    ],
+    "modules": [
+      {
+        "id": "web_cockpit",
+        "lane": "design",
+        "path": "apps/web",
+        "deliverable": "Browser-first SEIS cockpit with repo, plugin, workspace, security, and build status panels.",
+        "status": "first_milestone_shipped"
+      },
+      {
+        "id": "backend_state",
+        "lane": "developer_tools",
+        "path": "apps/fullstack",
+        "deliverable": "Backend decision record and first state model for plugin registry, repo visibility, and workspace links.",
+        "status": "model_committed"
+      },
+      {
+        "id": "mobile_shell",
+        "lane": "developer_tools",
+        "path": "apps/android",
+        "deliverable": "Expo mobile shell for SEIS status, build review, and plugin health.",
+        "status": "contract_committed"
+      },
+      {
+        "id": "macos_inspector",
+        "lane": "developer_tools",
+        "path": "apps/macos",
+        "deliverable": "SwiftUI desktop inspector for local SEIS repo, plugin cache, zip audits, and branch sync.",
+        "status": "contract_committed"
+      },
+      {
+        "id": "workspace_ops",
+        "lane": "productivity",
+        "path": "integrations",
+        "deliverable": "Workspace operating layer for docs, backlog, calendar, mail, and team updates.",
+        "status": "operating_layer_committed"
+      },
+      {
+        "id": "research_memory",
+        "lane": "research",
+        "path": "docs/research",
+        "deliverable": "Research notebook lane for model, citation, dataset, and technical reference decisions.",
+        "status": "lane_active"
+      },
+      {
+        "id": "security_quality_gate",
+        "lane": "security",
+        "path": "docs/security",
+        "deliverable": "Security and quality gate before source repo deletion, deployment, or automation expansion.",
+        "status": "gate_live"
+      }
+    ]
+  },
+  "research": {
+    "lane": "docs/research",
+    "notes": [
+      "notes/2026-06-12-backend-state-reference.md",
+      "notes/2026-06-13-auth-jwt-reference.md"
+    ]
+  },
+  "workspace": {
+    "drive": [
+      {
+        "id": "operating_plan",
+        "title": "SEIS CLOSED CODE Operating Plan",
+        "url": "https://docs.google.com/document/d/1EvyhGA4ulJHsEB2DCzZAYxDrUv1X6dGj0PFa0splrps"
+      },
+      {
+        "id": "platform_backlog",
+        "title": "SEIS CLOSED CODE Platform Backlog",
+        "url": "https://docs.google.com/spreadsheets/d/1sxnxOz9ZRzwZAz2FmHt_3YzAhQjKL2sQbYR1uWdGsaQ"
+      },
+      {
+        "id": "installed_plugin_operating_model",
+        "title": "SEIS Installed Plugin Operating Model",
+        "url": "https://docs.google.com/document/d/10A-Ld9TBu6HSsB0W1dJ3p6Y14Hqr3VMLeMgYJ89mX64"
+      }
+    ],
+    "calendar": {
+      "title": "SEIS CLOSED CODE - Weekly Build Review",
+      "recurrence": "RRULE:FREQ=WEEKLY;COUNT=12",
+      "url": "https://www.google.com/calendar/event?eid=ZWg5djhtamRjdHZjaGY2aTljczRqMDJkZjQgZW1pcmhhbmt1ZHVuQG0"
+    }
+  },
+  "safety": {
+    "consolidatedSources": [
+      "docs",
+      "emirhan-kudun-portfolio",
+      "github-unified-source",
+      "memories",
+      "seis-trusted-marketplace-plugin"
+    ],
+    "fullHistoryBranches": 16,
+    "zipImport": {
+      "sizeBytes": 1146306309,
+      "entryCount": 48365,
+      "sha256": "76cb95a3caf3b45aa11ef487fe766b441b031296c9adddadcd51658b420e0fd7",
+      "status": "inventoried_not_committed"
+    },
+    "deletionGate": "Origin repositories may be archived or deleted: snapshots live under sources/ and full history under sources/<repo>/<branch> branches."
+  },
+  "gates": [
+    {
+      "id": "closed_code",
+      "label": "Closed code",
+      "state": "enforced"
+    },
+    {
+      "id": "no_large_binaries",
+      "label": "No large binaries in Git",
+      "state": "enforced"
+    },
+    {
+      "id": "source_deletion",
+      "label": "Source repos deletable (history preserved)",
+      "state": "open"
+    },
+    {
+      "id": "deployment",
+      "label": "Deployment",
+      "state": "blocked"
+    },
+    {
+      "id": "automation_expansion",
+      "label": "Automation expansion",
+      "state": "blocked"
+    }
+  ]
+}

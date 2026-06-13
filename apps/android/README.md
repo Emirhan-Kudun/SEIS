@@ -18,12 +18,14 @@ The Android lane starts with Expo and validates through the Test Android Apps wo
 
 ## First Build Tasks
 
-1. ~~Choose package manager and Expo template~~: blank-typescript template
-   recorded in [`shell-contract.json`](./shell-contract.json); Expo install
-   waits on dependency-budget approval.
-2. ~~Define app navigation~~: bottom tabs over three screens (status,
-   build review, plugin health) in `shell-contract.json`; auth shell follows
-   the fullstack auth/JWT decision.
+1. ~~Choose package manager and Expo template~~: Expo SDK 51 blank-typescript,
+   hand-authored under [`SEISMobile/`](./SEISMobile/); deps declared in
+   `SEISMobile/package.json`, `node_modules` not vendored. Owner approved the
+   runtime 2026-06-13. Install: `cd apps/android/SEISMobile && npm install`.
+2. ~~Define app navigation~~: bottom tabs over three screens (Status, Build
+   Review, Plugin Health) implemented in `SEISMobile/App.tsx`, each rendering
+   from the generated `SEISMobile/src/data/status.json` snapshot; auth shell
+   follows the fullstack auth/JWT decision.
 3. Connect full-stack backend when `apps/fullstack` is provisioned.
 4. Add Android emulator smoke tests (first: render the status screen from a
    bundled cockpit-status snapshot).

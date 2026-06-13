@@ -2,11 +2,13 @@
   "name": "SEIS mobile shell contract",
   "date": "2026-06-12",
   "platform": "expo_react_native",
-  "status": "contract_committed_app_not_scaffolded",
+  "status": "scaffold_committed_install_pending",
   "purpose": "Mobile surface for SEIS status, build review, and plugin health.",
+  "scaffold": "apps/android/SEISMobile/App.tsx",
   "data_contract": {
     "source": "apps/fullstack/state-model.json",
-    "rule": "Screens consume the same entity shapes as the web cockpit; no mobile-only state."
+    "rule": "Screens consume the same entity shapes as the web cockpit; no mobile-only state.",
+    "snapshot": "apps/android/SEISMobile/src/data/status.json from scripts/create-cockpit-status.mjs"
   },
   "screens": [
     {
@@ -33,8 +35,9 @@
     "order": ["status", "build_review", "plugin_health"]
   },
   "scaffold_plan": {
-    "template": "npx create-expo-app --template blank-typescript",
-    "blocked_by": "Dependency budget: written approval required before adding the Expo runtime.",
-    "first_smoke_test": "Render the status screen from a bundled snapshot of cockpit-status data on the Android emulator."
+    "template": "Expo SDK 51 blank-typescript (hand-authored under SEISMobile/)",
+    "approved": "2026-06-13: owner approved the Expo runtime; deps declared in SEISMobile/package.json, node_modules not vendored.",
+    "install": "cd apps/android/SEISMobile && npm install",
+    "first_smoke_test": "npm run android renders the Status screen from src/data/status.json on the Android emulator."
   }
 }
