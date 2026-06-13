@@ -10,7 +10,7 @@ Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/ope
 - Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, define auth/JWT strategy before provisioning
 - Workspace ops: operating layer committed at `integrations/workspace-operations.json` (5 lanes, mail/team-updates pending provisioning)
 - Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; deployment and automation gates blocked pending secret scan and error-tracking choice
-- Mobile shell: screen contract committed at `apps/android/shell-contract.json`; Expo scaffold waits on dependency-budget approval
+- Mobile shell: Expo app scaffolded under `apps/android/SEISMobile/` (3 screens from the shared status snapshot); run `npm install` there to launch
 - macOS inspector: contract + SwiftUI scaffold committed under `apps/macos/`; detail views pending
 - Research memory: lane live at `docs/research/` with first sourced note; next sourced note: auth/JWT strategy
 

@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "SEIS Mobile",
+    "slug": "seis-mobile",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "platforms": ["android"],
+    "android": {
+      "package": "com.emirhankudun.seis"
+    }
+  }
+}

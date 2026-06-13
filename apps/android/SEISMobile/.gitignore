@@ -1,0 +1,6 @@
+# Expo / React Native — never vendor build output or dependencies
+node_modules/
+.expo/
+dist/
+*.log
+.DS_Store
