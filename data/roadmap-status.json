@@ -1,0 +1,69 @@
+{
+  "generated": "structured roadmap source consumed by scripts/create-cockpit-status.mjs and roadmap/seis-closed-code-backlog.md",
+  "sprint": {
+    "id": "openai-curated-build",
+    "title": "OpenAI-curated Build",
+    "source": "docs/platform/openai-curated-build-workbench.md",
+    "lanes": [
+      {
+        "id": "web_cockpit",
+        "title": "Web cockpit",
+        "status": "shipped",
+        "next": "wire live GitHub refs instead of static records"
+      },
+      {
+        "id": "backend_state",
+        "title": "Backend state",
+        "status": "decided",
+        "next": "provision Convex project once auth/JWT decision record is implemented"
+      },
+      {
+        "id": "workspace_ops",
+        "title": "Workspace ops",
+        "status": "in_progress",
+        "next": "provision mail and team-update lanes (5 lanes committed)"
+      },
+      {
+        "id": "security_quality_gate",
+        "title": "Security quality gate",
+        "status": "in_progress",
+        "next": "choose error-tracking vendor to unblock the automation gate (secret scan shipped)"
+      },
+      {
+        "id": "mobile_shell",
+        "title": "Mobile shell",
+        "status": "scaffolded",
+        "next": "wire remaining screens to the shared status snapshot"
+      },
+      {
+        "id": "macos_inspector",
+        "title": "macOS inspector",
+        "status": "scaffolded",
+        "next": "build SwiftUI detail views from the inspector contract"
+      },
+      {
+        "id": "research_memory",
+        "title": "Research memory",
+        "status": "active",
+        "next": "add the error-tracking decision reference note"
+      }
+    ]
+  },
+  "tiers": {
+    "p1": [
+      "Android: create Expo app shell",
+      "Web: create browser app shell",
+      "Full-stack: choose Convex-first or Supabase-first backend",
+      "Data: normalize repo visibility and zip inventory",
+      "Governance: keep main synced with canonical SEIS branch",
+      "Drive: keep operating docs and backlog linked",
+      "Calendar: run weekly build review"
+    ],
+    "p2": [
+      "macOS: create SwiftUI shell",
+      "Data: dashboard source inventory",
+      "Plugin: add optional MCP helpers once command shape stabilizes"
+    ],
+    "done_count": 10
+  }
+}

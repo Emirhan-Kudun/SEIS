@@ -6,13 +6,16 @@ Drive Sheet: https://docs.google.com/spreadsheets/d/1sxnxOz9ZRzwZAz2FmHt_3YzAhQj
 
 Source: [`docs/platform/openai-curated-build-workbench.md`](../docs/platform/openai-curated-build-workbench.md)
 
-- Web cockpit: first static milestone shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
-- Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, define auth/JWT strategy before provisioning
+Structured sprint status (consumed by the cockpit Roadmap panel) lives at
+[`data/roadmap-status.json`](../data/roadmap-status.json); keep the two in sync.
+
+- Web cockpit: static milestone plus a Roadmap panel shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
+- Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, provision the Convex project once the auth/JWT decision record is implemented
 - Workspace ops: operating layer committed at `integrations/workspace-operations.json` (5 lanes, mail/team-updates pending provisioning)
-- Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; deployment and automation gates blocked pending secret scan and error-tracking choice
+- Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; secret scan shipped, automation gate still blocked pending an error-tracking choice
 - Mobile shell: Expo app scaffolded under `apps/android/SEISMobile/` (3 screens from the shared status snapshot); run `npm install` there to launch
 - macOS inspector: contract + SwiftUI scaffold committed under `apps/macos/`; detail views pending
-- Research memory: lane live at `docs/research/` with first sourced note; next sourced note: auth/JWT strategy
+- Research memory: lane live at `docs/research/` with backend-state and auth/JWT notes; next sourced note: error-tracking decision reference
 
 ## P1
 

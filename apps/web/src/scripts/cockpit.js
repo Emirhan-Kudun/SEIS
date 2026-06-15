@@ -167,6 +167,30 @@
     }),
   );
 
+  // Roadmap panel
+  const roadmapTone = { shipped: "ok", decided: "ok", active: "accent", in_progress: "accent", scaffolded: "warn" };
+  panel("roadmap").append(
+    el("p", { class: "note", text: `Active sprint: ${status.roadmap.sprint}` }),
+    el(
+      "ul",
+      { class: "lane-list" },
+      status.roadmap.lanes.map((lane) =>
+        el("li", {}, [
+          el("span", {}, [
+            el("strong", { text: lane.title }),
+            document.createTextNode(` — next: ${lane.next}`),
+          ]),
+          badge(lane.status.replace(/_/g, " "), roadmapTone[lane.status] ?? ""),
+        ]),
+      ),
+    ),
+    statusTable([
+      ["P1 open", String(status.roadmap.tiers.p1)],
+      ["P2 open", String(status.roadmap.tiers.p2)],
+      ["Done", String(status.roadmap.tiers.done)],
+    ]),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(

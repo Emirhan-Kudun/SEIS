@@ -9,7 +9,8 @@
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "sources/README.md",
-    "docs/research/README.md"
+    "docs/research/README.md",
+    "data/roadmap-status.json"
   ],
   "branch": {
     "canonicalRepository": "Emirhan-Kudun/SEIS",
@@ -155,6 +156,59 @@
       "notes/2026-06-12-backend-state-reference.md",
       "notes/2026-06-13-auth-jwt-reference.md"
     ]
+  },
+  "roadmap": {
+    "sprint": "OpenAI-curated Build",
+    "source": "docs/platform/openai-curated-build-workbench.md",
+    "lanes": [
+      {
+        "id": "web_cockpit",
+        "title": "Web cockpit",
+        "status": "shipped",
+        "next": "wire live GitHub refs instead of static records"
+      },
+      {
+        "id": "backend_state",
+        "title": "Backend state",
+        "status": "decided",
+        "next": "provision Convex project once auth/JWT decision record is implemented"
+      },
+      {
+        "id": "workspace_ops",
+        "title": "Workspace ops",
+        "status": "in_progress",
+        "next": "provision mail and team-update lanes (5 lanes committed)"
+      },
+      {
+        "id": "security_quality_gate",
+        "title": "Security quality gate",
+        "status": "in_progress",
+        "next": "choose error-tracking vendor to unblock the automation gate (secret scan shipped)"
+      },
+      {
+        "id": "mobile_shell",
+        "title": "Mobile shell",
+        "status": "scaffolded",
+        "next": "wire remaining screens to the shared status snapshot"
+      },
+      {
+        "id": "macos_inspector",
+        "title": "macOS inspector",
+        "status": "scaffolded",
+        "next": "build SwiftUI detail views from the inspector contract"
+      },
+      {
+        "id": "research_memory",
+        "title": "Research memory",
+        "status": "active",
+        "next": "add the error-tracking decision reference note"
+      }
+    ],
+    "tiers": {
+      "p1": 7,
+      "p2": 3,
+      "done": 10
+    }
   },
   "workspace": {
     "drive": [
