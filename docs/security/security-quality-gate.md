@@ -39,8 +39,9 @@ No deployment until all conditions hold:
   `scripts/security-secret-scan.mjs` → `data/secret-scan-results.json`,
   guarded by `npm run check:secret-scan`. Deployable surface clean; the one
   generated third-party bundle is allowlisted with a documented reason.
-- [ ] Runtime error tracking is chosen and configured (Sentry route per the
-  workbench security row).
+- [x] Runtime error tracking is chosen (Sentry route per the workbench
+  security row). Decided in `docs/decisions/error-tracking-decision-record.md`;
+  SDK and DSN provisioned only when a deployed surface exists.
 - [ ] A rollback contract exists for the deployed surface.
 
 Auth posture for the eventual deployed surface is decided in
@@ -73,3 +74,7 @@ allowed set (`enforced`, `open`, `blocked`).
   generated `github-code-bundle.txt` are upstream third-party test fixtures
   and were allowlisted with a documented reason. `deployment` stays blocked
   on error-tracking and rollback conditions.
+- 2026-06-15: Error-tracking condition of the `deployment` gate met. Sentry
+  chosen as the runtime error-tracking provider
+  (`docs/decisions/error-tracking-decision-record.md`), SDK/DSN deferred to
+  provisioning. `deployment` stays blocked on the rollback-contract condition.

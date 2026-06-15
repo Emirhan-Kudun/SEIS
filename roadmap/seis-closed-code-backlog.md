@@ -12,10 +12,10 @@ Structured sprint status (consumed by the cockpit Roadmap panel) lives at
 - Web cockpit: static milestone plus a Roadmap panel shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
 - Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, provision the Convex project once the auth/JWT decision record is implemented
 - Workspace ops: operating layer committed at `integrations/workspace-operations.json` (5 lanes, mail/team-updates pending provisioning)
-- Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; secret scan shipped, automation gate still blocked pending an error-tracking choice
+- Security quality gate: gate live at `docs/security/security-quality-gate.md` + `data/security-gate-status.json`; secret scan + error-tracking (Sentry) shipped, deployment gate still blocked pending a rollback contract
 - Mobile shell: Expo app scaffolded under `apps/android/SEISMobile/` (3 screens from the shared status snapshot); run `npm install` there to launch
 - macOS inspector: contract + SwiftUI scaffold committed under `apps/macos/`; detail views pending
-- Research memory: lane live at `docs/research/` with backend-state and auth/JWT notes; next sourced note: error-tracking decision reference
+- Research memory: lane live at `docs/research/` with backend-state, auth/JWT, and error-tracking notes; next sourced note: rollback-contract decision reference
 
 ## P1
 

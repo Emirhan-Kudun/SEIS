@@ -156,7 +156,8 @@ window.SEIS_COCKPIT_STATUS = {
     "lane": "docs/research",
     "notes": [
       "notes/2026-06-12-backend-state-reference.md",
-      "notes/2026-06-13-auth-jwt-reference.md"
+      "notes/2026-06-13-auth-jwt-reference.md",
+      "notes/2026-06-15-error-tracking-reference.md"
     ]
   },
   "roadmap": {
@@ -185,7 +186,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "security_quality_gate",
         "title": "Security quality gate",
         "status": "in_progress",
-        "next": "choose error-tracking vendor to unblock the automation gate (secret scan shipped)"
+        "next": "draft the rollback contract to open the deployment gate (secret scan + error-tracking shipped)"
       },
       {
         "id": "mobile_shell",
@@ -203,7 +204,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "research_memory",
         "title": "Research memory",
         "status": "active",
-        "next": "add the error-tracking decision reference note"
+        "next": "add the rollback-contract decision reference note"
       }
     ],
     "tiers": {
