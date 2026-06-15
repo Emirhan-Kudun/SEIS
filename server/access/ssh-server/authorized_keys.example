@@ -1,0 +1,5 @@
+# SEIS SSH server authorized keys (TEMPLATE).
+# Copy to ./authorized_keys (gitignored) and add one real public key per line.
+# Only PUBLIC keys belong here. Never put a private key in this repo.
+#
+# ssh-ed25519 AAAA...your-real-public-key... operator@laptop

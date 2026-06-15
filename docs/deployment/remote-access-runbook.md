@@ -12,18 +12,27 @@ Selected:
 
 ## 1. SSH cloud
 
-### 1a. Hardened cloud VM (`cloud-vm-ssh`)
+### 1a. Hardened SSH server (`cloud-vm-ssh`)
 
-1. Provision a small cloud VM. Add operator public keys to `~/.ssh/authorized_keys`.
-2. Create the login group and install the hardening drop-in:
-   ```bash
-   sudo groupadd seis-ssh && sudo usermod -aG seis-ssh <operator>
-   sudo cp server/access/sshd_hardening.example.conf /etc/ssh/sshd_config.d/10-seis-hardening.conf
-   sudo sshd -t && sudo systemctl reload ssh
-   ```
-3. Restrict inbound to the SSH port at the firewall / security group.
-4. Verify: `ssh -p 22 <operator>@<host> 'echo ok'` and confirm
-   `sshd -T | grep -i passwordauthentication` returns `no`.
+Use the self-contained kit in
+[`server/access/ssh-server/`](../../server/access/ssh-server/README.md). It ships
+both a Docker server and a bare-metal installer, key-only and hardened. No keys
+are committed — host keys are generated at first start and `authorized_keys` is
+supplied by you (both gitignored).
+
+```bash
+cd server/access/ssh-server
+cp .env.example .env
+cp authorized_keys.example authorized_keys   # add real PUBLIC keys
+# Docker:
+docker compose up -d --build
+# or bare metal:
+sudo SSH_USER=seis AUTHORIZED_KEYS_SRC=./authorized_keys ./install.sh
+```
+
+Verify: `ssh -p <port> <user>@<host> 'echo ok'` and confirm
+`sshd -T | grep -i passwordauthentication` returns `no`. Rollback on bare metal:
+`sudo ./uninstall.sh`.
 
 ### 1b. Browser web SSH terminal (`web-ssh-terminal`)
 
