@@ -31,9 +31,10 @@ Origin repositories may be archived or deleted. Conditions, all met:
 - Full branch history exists under `sources/<repo>/<branch>` refs in SEIS.
 - Every origin repository carries a moved-to-SEIS pointer in its README.
 
-### deployment — blocked
+### deployment — open
 
-No deployment until all conditions hold:
+All conditions now hold; deployment is permitted but never automatic, and any
+live upload is still gated by the `deploy/server-targets.json` confirmation flow.
 
 - [x] A secret scan of the full tree (including `sources/`) is recorded.
   `scripts/security-secret-scan.mjs` → `data/secret-scan-results.json`,
@@ -42,7 +43,9 @@ No deployment until all conditions hold:
 - [x] Runtime error tracking is chosen (Sentry route per the workbench
   security row). Decided in `docs/decisions/error-tracking-decision-record.md`;
   SDK and DSN provisioned only when a deployed surface exists.
-- [ ] A rollback contract exists for the deployed surface.
+- [x] A rollback contract exists for the deployed surface. Defined in
+  `docs/decisions/rollback-contract-decision-record.md` (checksum-pinned,
+  version-pinned, named owner, manual only).
 
 Auth posture for the eventual deployed surface is decided in
 `docs/decisions/auth-jwt-decision-record.md` (Convex Auth, GitHub OAuth,
@@ -78,3 +81,9 @@ allowed set (`enforced`, `open`, `blocked`).
   chosen as the runtime error-tracking provider
   (`docs/decisions/error-tracking-decision-record.md`), SDK/DSN deferred to
   provisioning. `deployment` stays blocked on the rollback-contract condition.
+- 2026-06-15: Rollback-contract condition met
+  (`docs/decisions/rollback-contract-decision-record.md`): checksum-pinned,
+  version-pinned re-publish of retained `releases/<timestamp>/` packages with a
+  named owner, manual only. All three conditions now hold, so `deployment`
+  opens. `automation_expansion` stays blocked on state-model write coverage and
+  a documented kill switch.

@@ -184,6 +184,22 @@
       ],
       "validationProfile": "lowPowerDefault",
       "rollback": "Restore the previous cockpit.css and remove the scroll-spy block from cockpit.js."
+    },
+    {
+      "id": "evo-log-004",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-003",
+      "layer": "governance",
+      "title": "Rollback contract defined; deployment gate opened",
+      "summary": "Defined a checksum-pinned, version-pinned, manual rollback contract reusing the existing release tooling, meeting the last deployment-gate condition. The deployment gate moved to open; automation_expansion stays blocked on state-model coverage and a kill switch.",
+      "evidence": [
+        "docs/decisions/rollback-contract-decision-record.md",
+        "docs/research/notes/2026-06-15-rollback-contract-reference.md",
+        "data/security-gate-status.json",
+        "docs/security/security-quality-gate.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Restore the prior deployment-gate guard text and re-block the gate; no deployed surface is affected."
     }
   ],
   "activationQueue": [

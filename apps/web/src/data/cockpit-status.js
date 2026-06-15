@@ -157,7 +157,8 @@ window.SEIS_COCKPIT_STATUS = {
     "notes": [
       "notes/2026-06-12-backend-state-reference.md",
       "notes/2026-06-13-auth-jwt-reference.md",
-      "notes/2026-06-15-error-tracking-reference.md"
+      "notes/2026-06-15-error-tracking-reference.md",
+      "notes/2026-06-15-rollback-contract-reference.md"
     ]
   },
   "roadmap": {
@@ -186,7 +187,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "security_quality_gate",
         "title": "Security quality gate",
         "status": "in_progress",
-        "next": "draft the rollback contract to open the deployment gate (secret scan + error-tracking shipped)"
+        "next": "define state-model write coverage and a kill switch to open the automation gate (deployment gate now open)"
       },
       {
         "id": "mobile_shell",
@@ -204,7 +205,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "research_memory",
         "title": "Research memory",
         "status": "active",
-        "next": "add the rollback-contract decision reference note"
+        "next": "add the automation kill-switch decision reference note"
       }
     ],
     "tiers": {
@@ -273,7 +274,7 @@ window.SEIS_COCKPIT_STATUS = {
     {
       "id": "deployment",
       "label": "Deployment",
-      "state": "blocked"
+      "state": "open"
     },
     {
       "id": "automation_expansion",
