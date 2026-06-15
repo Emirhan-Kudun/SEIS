@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "note": "Connection, verification, and rollback model for each remote access candidate. Mirrors deploy/access-targets.json. No secrets here; only public access metadata.",
+  "candidates": [
+    {
+      "id": "cloud-vm-ssh",
+      "tier": "ssh-cloud-global",
+      "connectionModel": "key_only_ssh_on_hardened_cloud_vm",
+      "hardening": ["disable_password_auth", "disable_root_login", "fail2ban_or_crowdsec", "ufw_or_security_group_allowlist"],
+      "verify": ["ssh -p <port> <user>@<host> 'echo ok'", "sshd -T | grep -i passwordauthentication"],
+      "rollback": "revoke_authorized_keys_and_close_inbound_port"
+    },
+    {
+      "id": "bastion-jump-host",
+      "tier": "ssh-cloud-global",
+      "connectionModel": "single_entry_bastion_then_proxyjump_to_private_hosts",
+      "hardening": ["bastion_only_inbound", "proxyjump_for_internal_hosts", "session_recording_optional"],
+      "verify": ["ssh -J <bastion> <user>@<private-host> 'echo ok'"],
+      "rollback": "remove_bastion_key_and_restrict_security_group"
+    },
+    {
+      "id": "web-ssh-terminal",
+      "tier": "ssh-cloud-global",
+      "connectionModel": "browser_terminal_behind_auth_proxy_to_ssh_backend",
+      "hardening": ["tls_only", "sso_or_oauth_in_front", "rate_limit", "per_session_audit_log"],
+      "verify": ["GET <public_url>/healthz", "browser login then interactive shell"],
+      "rollback": "disable_gateway_route_and_rotate_session_secret"
+    },
+    {
+      "id": "cloud-dev-environment",
+      "tier": "ssh-cloud-global",
+      "connectionModel": "on_demand_cloud_workspace_from_devcontainer_or_image",
+      "hardening": ["ephemeral_workspaces", "scoped_git_credentials", "no_persistent_secrets_in_image"],
+      "verify": ["workspace boots", "git clone <git_source> succeeds", "toolchain available"],
+      "rollback": "stop_and_delete_workspace_and_revoke_token"
+    },
+    {
+      "id": "netbird",
+      "tier": "vpn-team-company",
+      "connectionModel": "wireguard_mesh_with_central_management_and_sso",
+      "hardening": ["sso_login", "acl_groups_per_team_and_company", "device_posture_optional", "key_rotation"],
+      "verify": ["peer shows connected in management UI", "ping across mesh", "ACL denies out-of-group host"],
+      "rollback": "disable_setup_key_and_remove_peer_group_from_acl"
+    },
+    {
+      "id": "wireguard",
+      "tier": "vpn-team-company",
+      "connectionModel": "self_hosted_wireguard_server_with_manual_or_scripted_peers",
+      "hardening": ["per_peer_keypair", "least_privilege_allowedips", "firewall_forwarding_rules"],
+      "verify": ["wg show", "handshake present", "ping across subnet"],
+      "rollback": "remove_peer_block_and_reload_wg_config"
+    },
+    {
+      "id": "tailscale",
+      "tier": "vpn-team-company",
+      "connectionModel": "managed_wireguard_mesh_with_tailnet_acls",
+      "hardening": ["sso_login", "tailnet_acl_policy", "key_expiry", "tailnet_lock_optional"],
+      "verify": ["tailscale status", "ping across tailnet", "ACL denies out-of-scope node"],
+      "rollback": "revoke_node_and_tighten_acl_policy"
+    },
+    {
+      "id": "openvpn",
+      "tier": "vpn-team-company",
+      "connectionModel": "self_hosted_openvpn_server_with_pki_and_certs",
+      "hardening": ["per_user_certificate", "tls_auth_key", "crl_revocation", "mfa_plugin_optional"],
+      "verify": ["client connects", "routes pushed", "ping internal host"],
+      "rollback": "revoke_certificate_and_publish_crl"
+    }
+  ]
+}

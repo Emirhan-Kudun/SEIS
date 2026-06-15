@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "requiresUserConfirmation": true,
+  "summary": "Provider-neutral remote access plan. SSH-cloud is the global lane for everyone; VPN is the private lane for team members and companies. Every tier stays inactive until its confirmation questions are answered.",
+  "tiers": [
+    {
+      "id": "ssh-cloud-global",
+      "audience": "global-public",
+      "intent": "Cloud SSH for everyone: a hardened cloud VM, a browser-based web SSH terminal, and cloud development environments for developers.",
+      "activeTarget": null,
+      "confirmationFlow": {
+        "status": "blocked_until_confirmed",
+        "decisionOwner": "user",
+        "requiredQuestions": [
+          {
+            "id": "ssh-host",
+            "question": "Which cloud host or VM should accept SSH connections?",
+            "blocks": ["activeTarget", "host"]
+          },
+          {
+            "id": "ssh-public-url",
+            "question": "Which public URL should serve the browser web SSH terminal?",
+            "blocks": ["public_url"]
+          },
+          {
+            "id": "ssh-auth",
+            "question": "Which identity/auth provider gates access (SSO, GitHub, key-only)?",
+            "blocks": ["auth_provider"]
+          },
+          {
+            "id": "ssh-rollback",
+            "question": "Who can revoke keys and shut access if it is exposed to the wrong people?",
+            "blocks": ["rollback_contact"]
+          }
+        ],
+        "safeDefault": "keep activeTarget null until host, public URL, auth provider, and rollback owner are confirmed"
+      },
+      "candidates": [
+        {
+          "id": "cloud-vm-ssh",
+          "type": "hardened-ssh-vm",
+          "status": "ready-after-host-confirmation",
+          "requiredInput": ["host", "ssh_port", "admin_key_source"]
+        },
+        {
+          "id": "bastion-jump-host",
+          "type": "single-entry-bastion",
+          "status": "ready-after-allowed-cidr-confirmation",
+          "requiredInput": ["bastion_host", "allowed_cidr", "admin_key_source"]
+        },
+        {
+          "id": "web-ssh-terminal",
+          "type": "browser-ssh-gateway",
+          "status": "ready-after-public-url-and-auth-confirmation",
+          "requiredInput": ["public_url", "auth_provider", "backend_host"]
+        },
+        {
+          "id": "cloud-dev-environment",
+          "type": "cloud-developer-workspace",
+          "status": "ready-after-workspace-provider-confirmation",
+          "requiredInput": ["workspace_provider", "workspace_image", "git_source"]
+        }
+      ]
+    },
+    {
+      "id": "vpn-team-company",
+      "audience": "team-and-companies",
+      "intent": "Private VPN for team members and partner companies. Access is identity-scoped, not public.",
+      "activeTarget": null,
+      "recommendation": "netbird",
+      "recommendationReason": "WireGuard-based mesh that is self-hostable, brings SSO + ACLs out of the box, and scales from a small team to multiple companies without per-peer manual config. WireGuard alone is the recommended fallback when full self-control of the protocol layer is required.",
+      "confirmationFlow": {
+        "status": "blocked_until_confirmed",
+        "decisionOwner": "user",
+        "requiredQuestions": [
+          {
+            "id": "vpn-solution",
+            "question": "Which VPN solution is approved (netbird, wireguard, tailscale, openvpn)?",
+            "blocks": ["activeTarget"]
+          },
+          {
+            "id": "vpn-control-plane",
+            "question": "Which management/control plane URL or tailnet identifies the network?",
+            "blocks": ["control_plane"]
+          },
+          {
+            "id": "vpn-identity",
+            "question": "Which SSO/identity source authorizes team members and companies?",
+            "blocks": ["identity_source"]
+          },
+          {
+            "id": "vpn-acl",
+            "question": "Where are the access rules (ACLs) defined and who owns them?",
+            "blocks": ["acl_source", "rollback_contact"]
+          }
+        ],
+        "safeDefault": "keep activeTarget null until the solution, control plane, identity source, and ACL owner are confirmed"
+      },
+      "candidates": [
+        {
+          "id": "netbird",
+          "type": "self-hostable-wireguard-mesh",
+          "status": "ready-after-management-and-identity-confirmation",
+          "requiredInput": ["control_plane", "setup_key_source", "identity_source", "acl_source"]
+        },
+        {
+          "id": "wireguard",
+          "type": "self-hosted-wireguard",
+          "status": "ready-after-endpoint-and-peer-confirmation",
+          "requiredInput": ["control_plane", "subnet", "peer_management"]
+        },
+        {
+          "id": "tailscale",
+          "type": "managed-wireguard-mesh",
+          "status": "ready-after-tailnet-and-identity-confirmation",
+          "requiredInput": ["control_plane", "auth_key_source", "identity_source", "acl_source"]
+        },
+        {
+          "id": "openvpn",
+          "type": "self-hosted-openvpn",
+          "status": "ready-after-endpoint-and-ca-confirmation",
+          "requiredInput": ["control_plane", "ca_source", "identity_source"]
+        }
+      ]
+    }
+  ]
+}
