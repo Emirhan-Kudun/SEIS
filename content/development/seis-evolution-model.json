@@ -1,6 +1,6 @@
 {
   "id": "seis-evolution-model",
-  "version": 1,
+  "version": 2,
   "branch": "UIXAppTTR",
   "mode": "calm-ai-native-evolution",
   "purpose": "Keep GitHub-hosted SEIS improvement work modular, humane, observable, and rollback-safe while the ecosystem grows across design, code, content, plugins, and deployment surfaces.",
@@ -138,6 +138,54 @@
     ],
     "decisionBias": "Improve the static, accessible, rollback-safe foundation before adding frameworks, deploy automation, or heavier visual systems."
   },
+  "shippedIncrements": [
+    {
+      "id": "evo-log-001",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Roadmap panel surfaced in the cockpit",
+      "summary": "Added a canonical roadmap source and a Roadmap panel so the active sprint, per-lane next actions, and P1/P2/Done counts render alongside the existing cockpit panels.",
+      "evidence": [
+        "data/roadmap-status.json",
+        "apps/web/cockpit.html",
+        "apps/web/src/scripts/cockpit.js",
+        "scripts/create-cockpit-status.mjs"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Remove the roadmap panel markup, renderer block, and data source; regenerate the cockpit bundle."
+    },
+    {
+      "id": "evo-log-002",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-003",
+      "layer": "governance",
+      "title": "Error-tracking provider decided (Sentry)",
+      "summary": "Resolved the error-tracking condition of the deployment security gate with a sourced research note and a decision record; the gate now blocks only on the rollback contract. No runtime added.",
+      "evidence": [
+        "docs/decisions/error-tracking-decision-record.md",
+        "docs/research/notes/2026-06-15-error-tracking-reference.md",
+        "data/security-gate-status.json",
+        "docs/security/security-quality-gate.md"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Reopen the decision record and restore the prior deployment-gate guard text."
+    },
+    {
+      "id": "evo-log-003",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Cockpit visual system refresh",
+      "summary": "Elevated the cockpit styling (layered surfaces, accent system, hover elevation, stat and gate chips) and added scroll-spy nav highlighting, keeping reduced-motion support and semantic structure intact.",
+      "evidence": [
+        "apps/web/src/styles/cockpit.css",
+        "apps/web/src/scripts/cockpit.js"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore the previous cockpit.css and remove the scroll-spy block from cockpit.js."
+    }
+  ],
   "activationQueue": [
     {
       "id": "evo-001",

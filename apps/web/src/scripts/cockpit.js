@@ -201,4 +201,32 @@
       ]),
     ),
   );
+
+  // Scroll-spy: highlight the nav link for the panel currently in view.
+  const navLinks = new Map(
+    [...document.querySelectorAll(".cockpit-nav a")].map((link) => [
+      link.getAttribute("href").slice(1),
+      link,
+    ]),
+  );
+  if ("IntersectionObserver" in window && navLinks.size) {
+    const setActive = (id) => {
+      for (const [linkId, link] of navLinks) {
+        link.classList.toggle("active", linkId === id);
+      }
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-104px 0px -55% 0px", threshold: [0.1, 0.5, 1] },
+    );
+    for (const id of navLinks.keys()) {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    }
+  }
 })();
