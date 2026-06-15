@@ -1,0 +1,30 @@
+# SEIS web-ssh-terminal (example)
+# Browser SSH terminal: ttyd runs the shell, Caddy terminates TLS and enforces
+# auth in front of it. ttyd MUST NOT be exposed directly — only via this proxy.
+#
+# Backend (systemd, bound to localhost only):
+#   ttyd --interface 127.0.0.1 --port 7681 --writable login
+#
+# Replace shell.example.com and the auth block with your real domain/provider.
+
+shell.example.com {
+	encode zstd gzip
+
+	# Option A — forward auth to your SSO/OAuth gateway (recommended)
+	# forward_auth oauth2-proxy:4180 {
+	# 	uri /oauth2/auth
+	# 	copy_headers X-Auth-Request-User X-Auth-Request-Email
+	# }
+
+	# Option B — basic auth as a stopgap (replace with a real bcrypt hash)
+	# basic_auth {
+	# 	operator JDJhJDE0J...replace-with-bcrypt-hash
+	# }
+
+	# WebSocket-aware reverse proxy to the localhost ttyd backend
+	reverse_proxy 127.0.0.1:7681
+
+	log {
+		output file /var/log/caddy/web-ssh.log
+	}
+}

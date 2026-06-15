@@ -13,7 +13,10 @@ work in [`server-target-selection.md`](./server-target-selection.md).
 
 - Access manifest: `deploy/access-targets.json`
 - Connection matrix: `deploy/access-matrix.json`
+- Local value shape: `deploy/access-targets.local.example.json`
 - Validator: `npm run check:access-targets`
+- Setup steps: [`remote-access-runbook.md`](./remote-access-runbook.md)
+- Example configs: `server/access/`
 
 Both lanes start with `activeTarget: null`. Access stays blocked until the
 confirmation questions for that lane are answered. No keys, certificates, real

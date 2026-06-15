@@ -1,0 +1,38 @@
+{
+  "_comment": "SEIS VPN ACL example for NetBird. Each team and partner company is a group; rules grant least-privilege access between groups. Apply via the NetBird management API or dashboard. No secrets here.",
+  "groups": [
+    { "name": "seis-core", "description": "Internal SEIS operators" },
+    { "name": "seis-dev", "description": "Developers needing dev-network access" },
+    { "name": "company-acme", "description": "Partner company Acme members" },
+    { "name": "company-globex", "description": "Partner company Globex members" },
+    { "name": "servers-internal", "description": "Internal hosts/VMs" }
+  ],
+  "policies": [
+    {
+      "name": "core-full-internal",
+      "enabled": true,
+      "description": "Core operators reach all internal servers",
+      "rules": [
+        { "sources": ["seis-core"], "destinations": ["servers-internal"], "protocol": "all", "action": "accept" }
+      ]
+    },
+    {
+      "name": "dev-ssh-only",
+      "enabled": true,
+      "description": "Developers reach internal servers over SSH only",
+      "rules": [
+        { "sources": ["seis-dev"], "destinations": ["servers-internal"], "protocol": "tcp", "ports": ["22"], "action": "accept" }
+      ]
+    },
+    {
+      "name": "company-scoped",
+      "enabled": true,
+      "description": "Each partner company is isolated to its own group; no cross-company or internal access by default",
+      "rules": [
+        { "sources": ["company-acme"], "destinations": ["company-acme"], "protocol": "all", "action": "accept" },
+        { "sources": ["company-globex"], "destinations": ["company-globex"], "protocol": "all", "action": "accept" }
+      ]
+    }
+  ],
+  "defaultAction": "deny"
+}
