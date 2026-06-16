@@ -200,6 +200,23 @@
       ],
       "validationProfile": "expandedFoundation",
       "rollback": "Restore the prior deployment-gate guard text and re-block the gate; no deployed surface is affected."
+    },
+    {
+      "id": "evo-log-005",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-006",
+      "layer": "automation",
+      "title": "Automation kill-switch contract; automation_expansion gate opened",
+      "summary": "Added an automation registry mapping each generator to a state-model entity and disable path, a global SEIS_AUTOMATION_DISABLED kill switch, and a check:automation-registry validator wired into the quality gate. This met the last two automation_expansion conditions; the gate opened and the full five-gate set is resolved. Automation stays permitted-but-governed, never automatic.",
+      "evidence": [
+        "data/automation-registry.json",
+        "scripts/check-automation-registry.mjs",
+        "docs/decisions/automation-kill-switch-decision-record.md",
+        "docs/research/notes/2026-06-15-automation-kill-switch-reference.md",
+        "data/security-gate-status.json"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Restore the prior automation_expansion guard text, re-block the gate, and remove the registry plus check script; no automation runtime exists."
     }
   ],
   "activationQueue": [

@@ -51,15 +51,19 @@ Auth posture for the eventual deployed surface is decided in
 `docs/decisions/auth-jwt-decision-record.md` (Convex Auth, GitHub OAuth,
 short-lived JWT).
 
-### automation_expansion — blocked
+### automation_expansion — open
 
-No new write-capable automation (scheduled jobs, bots, server-side sync)
-until all conditions hold:
+All conditions now hold; write-capable automation is permitted but governed —
+each new automation must register before it runs, and none is automatic.
 
-- The deployment gate is open.
-- The automation's writes are covered by an entity in
-  `apps/fullstack/state-model.json` with a sync rule.
-- A kill switch (disable path) is documented with the automation.
+- [x] The deployment gate is open.
+- [x] The automation's writes are covered by an entity in
+  `apps/fullstack/state-model.json` with a sync rule, recorded in
+  `data/automation-registry.json` and checked by
+  `npm run check:automation-registry`.
+- [x] A kill switch (disable path) is documented with the automation. The global
+  `SEIS_AUTOMATION_DISABLED` flag and per-automation disable paths are defined in
+  `docs/decisions/automation-kill-switch-decision-record.md`.
 
 ## Changing Gate State
 
@@ -87,3 +91,10 @@ allowed set (`enforced`, `open`, `blocked`).
   named owner, manual only. All three conditions now hold, so `deployment`
   opens. `automation_expansion` stays blocked on state-model write coverage and
   a documented kill switch.
+- 2026-06-15: `automation_expansion` opened. Write coverage registered in
+  `data/automation-registry.json` against state-model entities and checked by
+  `npm run check:automation-registry`; global `SEIS_AUTOMATION_DISABLED` kill
+  switch and per-automation disable paths documented in
+  `docs/decisions/automation-kill-switch-decision-record.md`. Permitted but
+  governed — new write-capable automation must register before it runs. All five
+  gates are now resolved.

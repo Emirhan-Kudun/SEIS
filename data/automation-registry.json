@@ -1,0 +1,48 @@
+{
+  "name": "SEIS automation registry",
+  "date": "2026-06-15",
+  "decision_record": "docs/decisions/automation-kill-switch-decision-record.md",
+  "purpose": "Register every persistent-record automation with the state-model entity it writes, its sync rule, and its disable path, so the automation_expansion gate stays auditable and reversible.",
+  "global_kill_switch": {
+    "flag": "SEIS_AUTOMATION_DISABLED",
+    "default": "false",
+    "effect": "When truthy, registered automations must exit before writing; only --check (read-only verification) is allowed.",
+    "ultimate_disable": "Remove the npm script or CI step, or revert the automation's commit; state-model records are restored from their seed_sources."
+  },
+  "coverage_rule": "Any new write-capable automation (scheduled job, bot, or external/server-side write) must be added here, mapped to a state-model entity with a sync rule, and given a disable path before the automation_expansion gate permits it to run.",
+  "automations": [
+    {
+      "id": "cockpit-status",
+      "command": "npm run automation:cockpit-status",
+      "scope": "repo_local",
+      "writes": [
+        "apps/web/src/data/cockpit-status.js",
+        "apps/android/SEISMobile/src/data/status.json"
+      ],
+      "state_model_entity": "governance_gates",
+      "sync_rule": "Regenerate from the data/*.json sources; never hand-edit the generated bundle.",
+      "verify_command": "npm run check:cockpit-status",
+      "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:cockpit-status script; the bundle is reproducible from sources."
+    },
+    {
+      "id": "plugin-environment-sources",
+      "command": "npm run automation:plugin-environment-sources",
+      "scope": "repo_local",
+      "writes": ["data records derived from the Codex plugin export"],
+      "state_model_entity": "plugin_registry",
+      "sync_rule": "Regenerate from the Codex plugin list export; never hand-edit records.",
+      "verify_command": "npm run check:plugin-environment-sources",
+      "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:plugin-environment-sources script."
+    },
+    {
+      "id": "plugin-capability-lanes",
+      "command": "npm run automation:plugin-capability-lanes",
+      "scope": "repo_local",
+      "writes": ["plugin capability lane records"],
+      "state_model_entity": "plugin_lanes",
+      "sync_rule": "Derived from plugin_registry aggregation once live; static counts until then.",
+      "verify_command": "npm run check:plugin-capability-lanes",
+      "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:plugin-capability-lanes script."
+    }
+  ]
+}

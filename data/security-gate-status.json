@@ -30,8 +30,8 @@
     {
       "gate_id": "automation_expansion",
       "label": "Automation expansion",
-      "state": "blocked",
-      "guard": "Deployment gate now open; still blocked on state-model write coverage and a documented kill switch"
+      "state": "open",
+      "guard": "All conditions met: deployment gate open, write coverage registered in data/automation-registry.json against state-model entities, kill switch documented (docs/decisions/automation-kill-switch-decision-record.md). Permitted but governed: new write-capable automation must register before it runs (npm run check:automation-registry)"
     }
   ]
 }

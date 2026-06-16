@@ -158,7 +158,8 @@ window.SEIS_COCKPIT_STATUS = {
       "notes/2026-06-12-backend-state-reference.md",
       "notes/2026-06-13-auth-jwt-reference.md",
       "notes/2026-06-15-error-tracking-reference.md",
-      "notes/2026-06-15-rollback-contract-reference.md"
+      "notes/2026-06-15-rollback-contract-reference.md",
+      "notes/2026-06-15-automation-kill-switch-reference.md"
     ]
   },
   "roadmap": {
@@ -186,8 +187,8 @@ window.SEIS_COCKPIT_STATUS = {
       {
         "id": "security_quality_gate",
         "title": "Security quality gate",
-        "status": "in_progress",
-        "next": "define state-model write coverage and a kill switch to open the automation gate (deployment gate now open)"
+        "status": "shipped",
+        "next": "all five gates resolved; re-verify gate states when the backend is provisioned"
       },
       {
         "id": "mobile_shell",
@@ -205,7 +206,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "research_memory",
         "title": "Research memory",
         "status": "active",
-        "next": "add the automation kill-switch decision reference note"
+        "next": "add the backend provisioning reference note when Convex setup begins"
       }
     ],
     "tiers": {
@@ -279,7 +280,7 @@ window.SEIS_COCKPIT_STATUS = {
     {
       "id": "automation_expansion",
       "label": "Automation expansion",
-      "state": "blocked"
+      "state": "open"
     }
   ]
 };

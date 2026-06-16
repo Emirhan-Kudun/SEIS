@@ -65,13 +65,14 @@ link, evidence files, and rollback.
 | `evo-log-002` | 2026-06-15 | Governance | Error-tracking provider decided (Sentry) | `SEIS-003` |
 | `evo-log-003` | 2026-06-15 | Experience | Cockpit visual system refresh | `SEIS-001` |
 | `evo-log-004` | 2026-06-15 | Governance | Rollback contract defined; deployment gate opened | `SEIS-003` |
+| `evo-log-005` | 2026-06-15 | Automation | Automation kill-switch contract; automation_expansion gate opened | `SEIS-006` |
 
 These increments hold the model at **Calm Experience System** maturity while
-advancing deployment governance: the deployment security gate's three conditions
-(secret scan, error tracking, rollback contract) are now all met and the gate is
-open, while the cockpit gained a roadmap surface plus a calmer, accessible visual
-system with reduced-motion support preserved. Deployment stays manual and
-target-confirmed; `automation_expansion` remains blocked.
+advancing governed automation: the full five-gate security set is now resolved —
+`closed_code` and `no_large_binaries` enforced; `source_deletion`, `deployment`,
+and `automation_expansion` open — with deployment and automation kept manual,
+registered, and reversible. The cockpit also gained a roadmap surface plus a
+calmer, accessible visual system with reduced-motion support preserved.
 
 ## Decision Matrix
 

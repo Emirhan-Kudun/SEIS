@@ -26,3 +26,4 @@ itself always lands here.
 | [`notes/2026-06-13-auth-jwt-reference.md`](./notes/2026-06-13-auth-jwt-reference.md) | `docs/decisions/auth-jwt-decision-record.md` |
 | [`notes/2026-06-15-error-tracking-reference.md`](./notes/2026-06-15-error-tracking-reference.md) | `docs/decisions/error-tracking-decision-record.md` |
 | [`notes/2026-06-15-rollback-contract-reference.md`](./notes/2026-06-15-rollback-contract-reference.md) | `docs/decisions/rollback-contract-decision-record.md` |
+| [`notes/2026-06-15-automation-kill-switch-reference.md`](./notes/2026-06-15-automation-kill-switch-reference.md) | `docs/decisions/automation-kill-switch-decision-record.md` |

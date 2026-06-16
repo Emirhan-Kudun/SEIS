@@ -26,8 +26,8 @@
       {
         "id": "security_quality_gate",
         "title": "Security quality gate",
-        "status": "in_progress",
-        "next": "define state-model write coverage and a kill switch to open the automation gate (deployment gate now open)"
+        "status": "shipped",
+        "next": "all five gates resolved; re-verify gate states when the backend is provisioned"
       },
       {
         "id": "mobile_shell",
@@ -45,7 +45,7 @@
         "id": "research_memory",
         "title": "Research memory",
         "status": "active",
-        "next": "add the automation kill-switch decision reference note"
+        "next": "add the backend provisioning reference note when Convex setup begins"
       }
     ]
   },
