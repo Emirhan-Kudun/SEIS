@@ -29,6 +29,16 @@ coverage/
 # OS
 Thumbs.db
 
+# SSH server kit secrets (never commit private/host keys or real auth files)
+server/access/ssh-server/.env
+server/access/ssh-server/authorized_keys
+server/access/ssh-server/keys/*
+!server/access/ssh-server/keys/.gitkeep
+*_key
+id_rsa
+id_ed25519
+*.pem
+
 # Local sync safety
 .sync-backups/
 .serena/

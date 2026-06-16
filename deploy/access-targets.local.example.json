@@ -1,0 +1,28 @@
+{
+  "_comment": "Shape reference only. Copy real values into a git-ignored local file or your secret store. Never commit real hosts, keys, or identity secrets.",
+  "ssh-cloud-global": {
+    "activeTarget": "web-ssh-terminal",
+    "values": {
+      "public_url": "https://shell.example.com",
+      "auth_provider": "github-oauth",
+      "backend_host": "10.0.0.10",
+      "host": "vm.example.com",
+      "ssh_port": "22",
+      "admin_key_source": "1password://vault/seis-ssh-admin",
+      "workspace_provider": "coder",
+      "workspace_image": "ghcr.io/example/seis-dev:latest",
+      "git_source": "git@github.com:emirhan-kudun/seis.git",
+      "rollback_contact": "emirhankudun@gmail.com"
+    }
+  },
+  "vpn-team-company": {
+    "activeTarget": "netbird",
+    "values": {
+      "control_plane": "https://netbird.example.com",
+      "setup_key_source": "1password://vault/seis-netbird-setupkey",
+      "identity_source": "google-workspace-oidc",
+      "acl_source": "server/access/netbird-acl.example.json",
+      "rollback_contact": "emirhankudun@gmail.com"
+    }
+  }
+}

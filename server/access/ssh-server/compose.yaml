@@ -1,0 +1,41 @@
+# SEIS SSH server — self-contained, key-only.
+# Usage:
+#   cp .env.example .env                # set SSH_USER / host port
+#   cp authorized_keys.example authorized_keys && edit it (add your public keys)
+#   docker compose up -d --build
+#
+# Host keys land in ./keys (gitignored). authorized_keys and .env are gitignored too.
+services:
+  ssh-server:
+    build: .
+    image: seis/ssh-server:local
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${SSH_HOST_PORT:-2222}:2222"
+    volumes:
+      - ./keys:/keys
+      - ./authorized_keys:/authorized_keys:ro
+    # Drop privileges where possible; sshd needs CAP_SYS_CHROOT for sftp/internal-sftp.
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+      - SYS_CHROOT
+    read_only: false
+    healthcheck:
+      test: ["CMD", "sh", "-c", "ss -ltn | grep -q ':2222'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Optional browser terminal. Uncomment to expose web SSH (keep it behind the
+  # Caddy + SSO proxy in server/access/web-ssh.example.Caddyfile — never raw).
+  # web-ssh:
+  #   image: tsl0922/ttyd:latest
+  #   restart: unless-stopped
+  #   command: ttyd -p 7681 -i 0.0.0.0 ssh -p 2222 ${SSH_USER:-seis}@ssh-server
+  #   depends_on: [ssh-server]
+  #   ports:
+  #     - "127.0.0.1:7681:7681"

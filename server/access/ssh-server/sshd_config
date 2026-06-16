@@ -1,0 +1,35 @@
+# SEIS containerized sshd — key-only, hardened
+Port 2222
+AddressFamily any
+ListenAddress 0.0.0.0
+
+# Host keys live on a mounted, gitignored volume (generated at first start)
+HostKey /keys/ssh_host_ed25519_key
+HostKey /keys/ssh_host_rsa_key
+
+# Key-only authentication
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitRootLogin no
+PubkeyAuthentication yes
+AuthenticationMethods publickey
+AuthorizedKeysFile /etc/ssh/authorized_keys/%u
+
+# Limit who may log in
+AllowGroups seis-ssh
+
+# Reduce attack surface
+X11Forwarding no
+AllowAgentForwarding no
+AllowTcpForwarding yes
+PermitTunnel no
+MaxAuthTries 3
+MaxSessions 10
+LoginGraceTime 20
+ClientAliveInterval 300
+ClientAliveCountMax 2
+
+# Audit
+LogLevel VERBOSE
+PrintMotd no
+Subsystem sftp internal-sftp

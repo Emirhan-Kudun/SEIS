@@ -1,0 +1,9 @@
+# Never commit real secrets for the SSH server.
+.env
+authorized_keys
+keys/*
+!keys/.gitkeep
+# Any private key, anywhere under this kit
+*_key
+id_*
+*.pem

@@ -1,0 +1,20 @@
+# SEIS web SSH terminal (ttyd) — bound to localhost, fronted by Caddy + SSO.
+# Install: cp to /etc/systemd/system/seis-web-ssh.service then
+#   systemctl daemon-reload && systemctl enable --now seis-web-ssh
+# Requires: ttyd installed, and the Caddy site from ../web-ssh.example.Caddyfile.
+[Unit]
+Description=SEIS web SSH terminal (ttyd, localhost only)
+After=network.target
+
+[Service]
+# Never bind ttyd to a public interface; Caddy terminates TLS and enforces auth.
+ExecStart=/usr/bin/ttyd --interface 127.0.0.1 --port 7681 --writable login
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
