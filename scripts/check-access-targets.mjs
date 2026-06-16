@@ -3,7 +3,10 @@ import { existsSync, readFileSync } from "node:fs";
 const targetsPath = "deploy/access-targets.json";
 const matrixPath = "deploy/access-matrix.json";
 const docsPath = "docs/deployment/remote-access.md";
+// Real values live here on the deploy machine; this file is gitignored.
+const localPath = "deploy/access-targets.local.json";
 
+const strict = process.argv.includes("--strict");
 const failures = [];
 
 if (!existsSync(targetsPath)) failures.push(`missing ${targetsPath}`);
@@ -11,6 +14,7 @@ if (!existsSync(matrixPath)) failures.push(`missing ${matrixPath}`);
 
 const targets = existsSync(targetsPath) ? JSON.parse(readFileSync(targetsPath, "utf8")) : null;
 const matrix = existsSync(matrixPath) ? JSON.parse(readFileSync(matrixPath, "utf8")) : null;
+const local = existsSync(localPath) ? JSON.parse(readFileSync(localPath, "utf8")) : {};
 
 const docs = existsSync(docsPath) ? readFileSync(docsPath, "utf8") : "";
 if (!docs) {
@@ -49,11 +53,16 @@ for (const tier of tiers) {
   const activeCandidate = activeTarget
     ? candidates.find(candidate => candidate.id === activeTarget)
     : null;
-  const activeValues = tier.targetConfig?.values || {};
+  const activeValues = {
+    ...(tier.targetConfig?.values || {}),
+    ...((local[tier.id] && local[tier.id].values) || {})
+  };
   const missingActiveInput = activeCandidate
     ? (activeCandidate.requiredInput || []).filter(key => !activeValues[key])
     : [];
-  if (activeCandidate && missingActiveInput.length > 0) {
+  // A recorded selection awaiting local (gitignored) values is a reported state,
+  // not a failure — unless --strict is requested (e.g. on the deploy machine).
+  if (strict && activeCandidate && missingActiveInput.length > 0) {
     failures.push(`tier ${tier.id} active target missing configured input: ${missingActiveInput.join(", ")}`);
   }
 
@@ -69,10 +78,10 @@ for (const tier of tiers) {
   tierReports.push({
     id: tier.id,
     audience: tier.audience || null,
-    activeTarget,
-    accessBlocked: !activeTarget,
-    activeTargetReady: Boolean(activeTarget && missingActiveInput.length === 0),
-    missingActiveInput,
+    selected: activeTarget,
+    noSelection: !activeTarget,
+    pendingLocalValues: missingActiveInput,
+    readyToOpen: Boolean(activeTarget && missingActiveInput.length === 0),
     blockedBy,
     recommendation: tier.recommendation || null,
     candidateRequirements: candidates.map(candidate => ({
@@ -102,11 +111,14 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
+const anyPending = tierReports.some(tier => tier.selected && tier.pendingLocalValues.length > 0);
 console.log(JSON.stringify({
   ok: true,
-  anyAccessOpen: tierReports.some(tier => !tier.accessBlocked),
+  strict,
+  allTiersSelected: tierReports.every(tier => Boolean(tier.selected)),
+  anyReadyToOpen: tierReports.some(tier => tier.readyToOpen),
   tiers: tierReports,
-  nextCommand: tierReports.every(tier => tier.accessBlocked)
-    ? "answer confirmation questions in deploy/access-targets.json then set activeTarget"
+  nextCommand: anyPending
+    ? "fill real values in deploy/access-targets.local.json (gitignored) then run: npm run check:access-targets -- --strict"
     : "verify with deploy/access-matrix.json before opening access"
 }, null, 2));
