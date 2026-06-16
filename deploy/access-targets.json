@@ -7,7 +7,12 @@
       "id": "ssh-cloud-global",
       "audience": "global-public",
       "intent": "Cloud SSH for everyone: a hardened cloud VM, a browser-based web SSH terminal, and cloud development environments for developers.",
-      "activeTarget": null,
+      "activeTarget": "web-ssh-terminal",
+      "targetConfig": {
+        "valuesFrom": "deploy/access-targets.local.json (gitignored — shape in access-targets.local.example.json)",
+        "note": "Selection is recorded here; real host/url/auth values live in the gitignored local file and are applied at deploy time. Access opens only after local values + matrix verify.",
+        "values": {}
+      },
       "confirmationFlow": {
         "status": "blocked_until_confirmed",
         "decisionOwner": "user",
@@ -66,7 +71,12 @@
       "id": "vpn-team-company",
       "audience": "team-and-companies",
       "intent": "Private VPN for team members and partner companies. Access is identity-scoped, not public.",
-      "activeTarget": null,
+      "activeTarget": "netbird",
+      "targetConfig": {
+        "valuesFrom": "deploy/access-targets.local.json (gitignored — shape in access-targets.local.example.json)",
+        "note": "Selection is recorded here; real control-plane/identity/ACL values live in the gitignored local file and are applied at deploy time. Access opens only after local values + matrix verify.",
+        "values": {}
+      },
       "recommendation": "netbird",
       "recommendationReason": "WireGuard-based mesh that is self-hostable, brings SSO + ACLs out of the box, and scales from a small team to multiple companies without per-peer manual config. WireGuard alone is the recommended fallback when full self-control of the protocol layer is required.",
       "confirmationFlow": {

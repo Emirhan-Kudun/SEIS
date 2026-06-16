@@ -90,8 +90,20 @@ Every candidate declares a `rollback` action in `deploy/access-matrix.json`
 The lane's `rollback_contact` owns that action and must be set before access is
 opened.
 
-## Safe Default
+## Activation State
 
-If both lanes keep `activeTarget` as `null`, no remote access is exposed and the
-manifest stays a plan only. That is the intended resting state until you confirm
-a target.
+Both lanes now record a selected `activeTarget` — `web-ssh-terminal` for SSH
+cloud and `netbird` for VPN. Recording the selection does **not** open access:
+the real host/url/auth/control-plane values live in the gitignored
+`deploy/access-targets.local.json` (shape in `access-targets.local.example.json`)
+and are applied at deploy time.
+
+- `npm run check:access-targets` reports each lane's `selected`,
+  `pendingLocalValues`, and `readyToOpen`.
+- On the deploy machine, after filling local values, run
+  `npm run check:access-targets -- --strict` — it fails if any selected lane is
+  still missing its required input.
+- Access opens only after local values are in place **and** the
+  `deploy/access-matrix.json` `verify` steps pass.
+
+To stand down a lane, set its `activeTarget` back to `null`.
