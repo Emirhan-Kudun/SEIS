@@ -9,7 +9,8 @@
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "sources/README.md",
-    "docs/research/README.md"
+    "docs/research/README.md",
+    "data/roadmap-status.json"
   ],
   "branch": {
     "canonicalRepository": "Emirhan-Kudun/SEIS",
@@ -153,8 +154,64 @@
     "lane": "docs/research",
     "notes": [
       "notes/2026-06-12-backend-state-reference.md",
-      "notes/2026-06-13-auth-jwt-reference.md"
+      "notes/2026-06-13-auth-jwt-reference.md",
+      "notes/2026-06-15-error-tracking-reference.md",
+      "notes/2026-06-15-rollback-contract-reference.md",
+      "notes/2026-06-15-automation-kill-switch-reference.md"
     ]
+  },
+  "roadmap": {
+    "sprint": "OpenAI-curated Build",
+    "source": "docs/platform/openai-curated-build-workbench.md",
+    "lanes": [
+      {
+        "id": "web_cockpit",
+        "title": "Web cockpit",
+        "status": "shipped",
+        "next": "flip the cockpit-source adapter to a live Convex source at provisioning (data seam in place)"
+      },
+      {
+        "id": "backend_state",
+        "title": "Backend state",
+        "status": "schema_and_queries_generated",
+        "next": "provision Convex with the generated schema.ts + queries.ts when a live surface is opened"
+      },
+      {
+        "id": "workspace_ops",
+        "title": "Workspace ops",
+        "status": "in_progress",
+        "next": "provision mail and team-update lanes (5 lanes committed)"
+      },
+      {
+        "id": "security_quality_gate",
+        "title": "Security quality gate",
+        "status": "shipped",
+        "next": "all five gates resolved; re-verify gate states when the backend is provisioned"
+      },
+      {
+        "id": "mobile_shell",
+        "title": "Mobile shell",
+        "status": "scaffolded",
+        "next": "wire remaining screens to the shared status snapshot"
+      },
+      {
+        "id": "macos_inspector",
+        "title": "macOS inspector",
+        "status": "scaffolded",
+        "next": "build SwiftUI detail views from the inspector contract"
+      },
+      {
+        "id": "research_memory",
+        "title": "Research memory",
+        "status": "active",
+        "next": "add the backend provisioning reference note when Convex setup begins"
+      }
+    ],
+    "tiers": {
+      "p1": 7,
+      "p2": 3,
+      "done": 10
+    }
   },
   "workspace": {
     "drive": [
@@ -216,12 +273,12 @@
     {
       "id": "deployment",
       "label": "Deployment",
-      "state": "blocked"
+      "state": "open"
     },
     {
       "id": "automation_expansion",
       "label": "Automation expansion",
-      "state": "blocked"
+      "state": "open"
     }
   ]
 }

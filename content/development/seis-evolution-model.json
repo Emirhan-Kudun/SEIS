@@ -1,6 +1,6 @@
 {
   "id": "seis-evolution-model",
-  "version": 1,
+  "version": 2,
   "branch": "UIXAppTTR",
   "mode": "calm-ai-native-evolution",
   "purpose": "Keep GitHub-hosted SEIS improvement work modular, humane, observable, and rollback-safe while the ecosystem grows across design, code, content, plugins, and deployment surfaces.",
@@ -138,6 +138,135 @@
     ],
     "decisionBias": "Improve the static, accessible, rollback-safe foundation before adding frameworks, deploy automation, or heavier visual systems."
   },
+  "shippedIncrements": [
+    {
+      "id": "evo-log-001",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Roadmap panel surfaced in the cockpit",
+      "summary": "Added a canonical roadmap source and a Roadmap panel so the active sprint, per-lane next actions, and P1/P2/Done counts render alongside the existing cockpit panels.",
+      "evidence": [
+        "data/roadmap-status.json",
+        "apps/web/cockpit.html",
+        "apps/web/src/scripts/cockpit.js",
+        "scripts/create-cockpit-status.mjs"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Remove the roadmap panel markup, renderer block, and data source; regenerate the cockpit bundle."
+    },
+    {
+      "id": "evo-log-002",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-003",
+      "layer": "governance",
+      "title": "Error-tracking provider decided (Sentry)",
+      "summary": "Resolved the error-tracking condition of the deployment security gate with a sourced research note and a decision record; the gate now blocks only on the rollback contract. No runtime added.",
+      "evidence": [
+        "docs/decisions/error-tracking-decision-record.md",
+        "docs/research/notes/2026-06-15-error-tracking-reference.md",
+        "data/security-gate-status.json",
+        "docs/security/security-quality-gate.md"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Reopen the decision record and restore the prior deployment-gate guard text."
+    },
+    {
+      "id": "evo-log-003",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Cockpit visual system refresh",
+      "summary": "Elevated the cockpit styling (layered surfaces, accent system, hover elevation, stat and gate chips) and added scroll-spy nav highlighting, keeping reduced-motion support and semantic structure intact.",
+      "evidence": [
+        "apps/web/src/styles/cockpit.css",
+        "apps/web/src/scripts/cockpit.js"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore the previous cockpit.css and remove the scroll-spy block from cockpit.js."
+    },
+    {
+      "id": "evo-log-004",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-003",
+      "layer": "governance",
+      "title": "Rollback contract defined; deployment gate opened",
+      "summary": "Defined a checksum-pinned, version-pinned, manual rollback contract reusing the existing release tooling, meeting the last deployment-gate condition. The deployment gate moved to open; automation_expansion stays blocked on state-model coverage and a kill switch.",
+      "evidence": [
+        "docs/decisions/rollback-contract-decision-record.md",
+        "docs/research/notes/2026-06-15-rollback-contract-reference.md",
+        "data/security-gate-status.json",
+        "docs/security/security-quality-gate.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Restore the prior deployment-gate guard text and re-block the gate; no deployed surface is affected."
+    },
+    {
+      "id": "evo-log-005",
+      "date": "2026-06-15",
+      "backlogId": "SEIS-006",
+      "layer": "automation",
+      "title": "Automation kill-switch contract; automation_expansion gate opened",
+      "summary": "Added an automation registry mapping each generator to a state-model entity and disable path, a global SEIS_AUTOMATION_DISABLED kill switch, and a check:automation-registry validator wired into the quality gate. This met the last two automation_expansion conditions; the gate opened and the full five-gate set is resolved. Automation stays permitted-but-governed, never automatic.",
+      "evidence": [
+        "data/automation-registry.json",
+        "scripts/check-automation-registry.mjs",
+        "docs/decisions/automation-kill-switch-decision-record.md",
+        "docs/research/notes/2026-06-15-automation-kill-switch-reference.md",
+        "data/security-gate-status.json"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Restore the prior automation_expansion guard text, re-block the gate, and remove the registry plus check script; no automation runtime exists."
+    },
+    {
+      "id": "evo-log-006",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-004",
+      "layer": "platform",
+      "title": "Convex schema generated from the state model",
+      "summary": "Added a generator that materializes apps/fullstack/state-model.json into an idiomatic Convex schema at apps/fullstack/convex/schema.ts (6 tables), with a check:convex-schema validator in the quality gate and registration under the automation kill-switch contract. Deferred source: no convex dependency added until provisioning; the static cockpit is unaffected.",
+      "evidence": [
+        "scripts/create-convex-schema.mjs",
+        "apps/fullstack/convex/schema.ts",
+        "data/automation-registry.json",
+        "apps/fullstack/README.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Remove convex/schema.ts and the generator/check scripts; the committed state model is unchanged."
+    },
+    {
+      "id": "evo-log-007",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-004",
+      "layer": "platform",
+      "title": "Convex read queries generated from the state model",
+      "summary": "Added a generator that emits apps/fullstack/convex/queries.ts with one owner-only list query per state-model entity (6 queries), with check:convex-queries in the quality gate and registration under the automation kill-switch contract. Completes the live-consumer read path from the same single source; deferred until provisioning.",
+      "evidence": [
+        "scripts/create-convex-queries.mjs",
+        "apps/fullstack/convex/queries.ts",
+        "data/automation-registry.json",
+        "apps/fullstack/README.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Remove convex/queries.ts and the generator/check scripts; schema and state model are unchanged."
+    },
+    {
+      "id": "evo-log-008",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Cockpit data-source adapter (static now, live-ready)",
+      "summary": "Introduced apps/web/src/data/cockpit-source.js so the renderer resolves data through one seam instead of the static global, with an idempotent render(status) and a SEIS_COCKPIT_REFRESH hook. A live Convex source can register same-shaped data at provisioning with no markup change. Added a source-mode chip to the topbar.",
+      "evidence": [
+        "apps/web/src/data/cockpit-source.js",
+        "apps/web/src/scripts/cockpit.js",
+        "apps/web/cockpit.html",
+        "apps/web/README.md"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore cockpit.js to read window.SEIS_COCKPIT_STATUS directly and remove cockpit-source.js plus its script tag."
+    }
+  ],
   "activationQueue": [
     {
       "id": "evo-001",

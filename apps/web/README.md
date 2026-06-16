@@ -43,3 +43,14 @@ The Web lane is the browser product surface for SEIS CLOSED CODE.
 - workspace ops
 - source safety
 - security gate
+- roadmap
+
+## Data Source
+
+The cockpit reads through one adapter, `src/data/cockpit-source.js`, instead of
+the static global directly. Today it resolves the generated static bundle
+(`src/data/cockpit-status.js`); at backend provisioning a live Convex source can
+register the same-shaped data via `SEIS_COCKPIT_SOURCE.provideLive(status)` and
+the renderer refreshes with no markup change. The shapes match
+`apps/fullstack/state-model.json` and the generated reads in
+`apps/fullstack/convex/queries.ts`.

@@ -1,14 +1,12 @@
-// Renders the SEIS cockpit panels from the generated status bundle in
-// src/data/cockpit-status.js (window.SEIS_COCKPIT_STATUS).
+// Renders the SEIS cockpit panels from the resolved data source
+// (src/data/cockpit-source.js): the static bundle today, a live Convex source
+// after provisioning. Both return one status object with the same shapes.
 (function () {
   "use strict";
 
-  const status = window.SEIS_COCKPIT_STATUS;
-  if (!status) {
-    document.getElementById("topbar-stats").textContent =
-      "cockpit-status bundle missing — run npm run automation:cockpit-status";
-    return;
-  }
+  const source = window.SEIS_COCKPIT_SOURCE || null;
+  const resolveStatus = () =>
+    source ? source.resolve() : window.SEIS_COCKPIT_STATUS || null;
 
   const el = (tag, attrs = {}, children = []) => {
     const node = document.createElement(tag);
@@ -36,6 +34,32 @@
 
   const panel = (name) => document.querySelector(`[data-panel="${name}"]`);
 
+  const MUTABLE_PANELS = [
+    "repository",
+    "plugins",
+    "build",
+    "workspace",
+    "security",
+    "research",
+    "roadmap",
+  ];
+  const clearSurfaces = () => {
+    document.getElementById("topbar-stats").replaceChildren();
+    document.getElementById("gate-list").replaceChildren();
+    for (const name of MUTABLE_PANELS) {
+      const node = panel(name);
+      if (node) node.replaceChildren();
+    }
+  };
+
+  function render(status) {
+    if (!status) {
+      document.getElementById("topbar-stats").textContent =
+        "cockpit-status bundle missing — run npm run automation:cockpit-status";
+      return;
+    }
+    clearSurfaces();
+
   // Top status bar
   const topbar = document.getElementById("topbar-stats");
   topbar.append(
@@ -57,6 +81,10 @@
       document.createTextNode("sources "),
       el("strong", { text: String(status.safety.consolidatedSources.length) }),
       document.createTextNode(" consolidated"),
+    ]),
+    el("span", {}, [
+      document.createTextNode("source "),
+      el("strong", { text: source ? source.mode : "static" }),
     ]),
   );
 
@@ -167,6 +195,30 @@
     }),
   );
 
+  // Roadmap panel
+  const roadmapTone = { shipped: "ok", decided: "ok", active: "accent", in_progress: "accent", scaffolded: "warn" };
+  panel("roadmap").append(
+    el("p", { class: "note", text: `Active sprint: ${status.roadmap.sprint}` }),
+    el(
+      "ul",
+      { class: "lane-list" },
+      status.roadmap.lanes.map((lane) =>
+        el("li", {}, [
+          el("span", {}, [
+            el("strong", { text: lane.title }),
+            document.createTextNode(` — next: ${lane.next}`),
+          ]),
+          badge(lane.status.replace(/_/g, " "), roadmapTone[lane.status] ?? ""),
+        ]),
+      ),
+    ),
+    statusTable([
+      ["P1 open", String(status.roadmap.tiers.p1)],
+      ["P2 open", String(status.roadmap.tiers.p2)],
+      ["Done", String(status.roadmap.tiers.done)],
+    ]),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(
@@ -177,4 +229,38 @@
       ]),
     ),
   );
+  }
+
+  // Initial paint, plus a refresh hook a live provider can call after it
+  // supplies same-shaped data via SEIS_COCKPIT_SOURCE.provideLive().
+  window.SEIS_COCKPIT_REFRESH = () => render(resolveStatus());
+  render(resolveStatus());
+
+  // Scroll-spy: highlight the nav link for the panel currently in view.
+  const navLinks = new Map(
+    [...document.querySelectorAll(".cockpit-nav a")].map((link) => [
+      link.getAttribute("href").slice(1),
+      link,
+    ]),
+  );
+  if ("IntersectionObserver" in window && navLinks.size) {
+    const setActive = (id) => {
+      for (const [linkId, link] of navLinks) {
+        link.classList.toggle("active", linkId === id);
+      }
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-104px 0px -55% 0px", threshold: [0.1, 0.5, 1] },
+    );
+    for (const id of navLinks.keys()) {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    }
+  }
 })();

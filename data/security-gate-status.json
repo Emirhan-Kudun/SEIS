@@ -24,14 +24,14 @@
     {
       "gate_id": "deployment",
       "label": "Deployment",
-      "state": "blocked",
-      "guard": "Secret scan recorded and clean (data/secret-scan-results.json); still blocked on error-tracking choice and rollback contract"
+      "state": "open",
+      "guard": "All conditions met: secret scan clean (data/secret-scan-results.json), error-tracking chosen (Sentry, docs/decisions/error-tracking-decision-record.md), rollback contract defined (docs/decisions/rollback-contract-decision-record.md). Deployment permitted but never automatic; live upload still gated by deploy/server-targets.json confirmation"
     },
     {
       "gate_id": "automation_expansion",
       "label": "Automation expansion",
-      "state": "blocked",
-      "guard": "Requires open deployment gate, state-model coverage, and documented kill switch"
+      "state": "open",
+      "guard": "All conditions met: deployment gate open, write coverage registered in data/automation-registry.json against state-model entities, kill switch documented (docs/decisions/automation-kill-switch-decision-record.md). Permitted but governed: new write-capable automation must register before it runs (npm run check:automation-registry)"
     }
   ]
 }

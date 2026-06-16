@@ -21,6 +21,7 @@ const zipInventory = read("data/github-zip-import-inventory.json");
 const consolidation = read("data/github-repository-consolidation.json");
 const workspace = read("integrations/google-workspace.json");
 const securityGates = read("data/security-gate-status.json");
+const roadmap = read("data/roadmap-status.json");
 const sourcesManifest = readFileSync(resolve(root, "sources/README.md"), "utf8");
 
 const laneLabels = {
@@ -66,6 +67,7 @@ const status = {
     "data/security-gate-status.json",
     "sources/README.md",
     "docs/research/README.md",
+    "data/roadmap-status.json",
   ],
   branch: {
     canonicalRepository: "Emirhan-Kudun/SEIS",
@@ -100,6 +102,21 @@ const status = {
   research: {
     lane: "docs/research",
     notes: researchNotes,
+  },
+  roadmap: {
+    sprint: roadmap.sprint.title,
+    source: roadmap.sprint.source,
+    lanes: roadmap.sprint.lanes.map((lane) => ({
+      id: lane.id,
+      title: lane.title,
+      status: lane.status,
+      next: lane.next,
+    })),
+    tiers: {
+      p1: roadmap.tiers.p1.length,
+      p2: roadmap.tiers.p2.length,
+      done: roadmap.tiers.done_count,
+    },
   },
   workspace: {
     drive: Object.entries(workspace.drive).map(([id, doc]) => ({

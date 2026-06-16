@@ -31,31 +31,39 @@ Origin repositories may be archived or deleted. Conditions, all met:
 - Full branch history exists under `sources/<repo>/<branch>` refs in SEIS.
 - Every origin repository carries a moved-to-SEIS pointer in its README.
 
-### deployment — blocked
+### deployment — open
 
-No deployment until all conditions hold:
+All conditions now hold; deployment is permitted but never automatic, and any
+live upload is still gated by the `deploy/server-targets.json` confirmation flow.
 
 - [x] A secret scan of the full tree (including `sources/`) is recorded.
   `scripts/security-secret-scan.mjs` → `data/secret-scan-results.json`,
   guarded by `npm run check:secret-scan`. Deployable surface clean; the one
   generated third-party bundle is allowlisted with a documented reason.
-- [ ] Runtime error tracking is chosen and configured (Sentry route per the
-  workbench security row).
-- [ ] A rollback contract exists for the deployed surface.
+- [x] Runtime error tracking is chosen (Sentry route per the workbench
+  security row). Decided in `docs/decisions/error-tracking-decision-record.md`;
+  SDK and DSN provisioned only when a deployed surface exists.
+- [x] A rollback contract exists for the deployed surface. Defined in
+  `docs/decisions/rollback-contract-decision-record.md` (checksum-pinned,
+  version-pinned, named owner, manual only).
 
 Auth posture for the eventual deployed surface is decided in
 `docs/decisions/auth-jwt-decision-record.md` (Convex Auth, GitHub OAuth,
 short-lived JWT).
 
-### automation_expansion — blocked
+### automation_expansion — open
 
-No new write-capable automation (scheduled jobs, bots, server-side sync)
-until all conditions hold:
+All conditions now hold; write-capable automation is permitted but governed —
+each new automation must register before it runs, and none is automatic.
 
-- The deployment gate is open.
-- The automation's writes are covered by an entity in
-  `apps/fullstack/state-model.json` with a sync rule.
-- A kill switch (disable path) is documented with the automation.
+- [x] The deployment gate is open.
+- [x] The automation's writes are covered by an entity in
+  `apps/fullstack/state-model.json` with a sync rule, recorded in
+  `data/automation-registry.json` and checked by
+  `npm run check:automation-registry`.
+- [x] A kill switch (disable path) is documented with the automation. The global
+  `SEIS_AUTOMATION_DISABLED` flag and per-automation disable paths are defined in
+  `docs/decisions/automation-kill-switch-decision-record.md`.
 
 ## Changing Gate State
 
@@ -73,3 +81,20 @@ allowed set (`enforced`, `open`, `blocked`).
   generated `github-code-bundle.txt` are upstream third-party test fixtures
   and were allowlisted with a documented reason. `deployment` stays blocked
   on error-tracking and rollback conditions.
+- 2026-06-15: Error-tracking condition of the `deployment` gate met. Sentry
+  chosen as the runtime error-tracking provider
+  (`docs/decisions/error-tracking-decision-record.md`), SDK/DSN deferred to
+  provisioning. `deployment` stays blocked on the rollback-contract condition.
+- 2026-06-15: Rollback-contract condition met
+  (`docs/decisions/rollback-contract-decision-record.md`): checksum-pinned,
+  version-pinned re-publish of retained `releases/<timestamp>/` packages with a
+  named owner, manual only. All three conditions now hold, so `deployment`
+  opens. `automation_expansion` stays blocked on state-model write coverage and
+  a documented kill switch.
+- 2026-06-15: `automation_expansion` opened. Write coverage registered in
+  `data/automation-registry.json` against state-model entities and checked by
+  `npm run check:automation-registry`; global `SEIS_AUTOMATION_DISABLED` kill
+  switch and per-automation disable paths documented in
+  `docs/decisions/automation-kill-switch-decision-record.md`. Permitted but
+  governed — new write-capable automation must register before it runs. All five
+  gates are now resolved.

@@ -53,6 +53,30 @@ Primary backlog links:
 | `evo-004` | `SEIS-005` | Platform | Compare PWA-first, Expo, and native paths against accessibility, cost, and rollback constraints. | Documented mobile path decision before native expansion. |
 | `evo-005` | `SEIS-006` | Automation | Keep agent-driven work as small `UIXAppTTR` commits with focused validators. | Traceable output, no forced push, checks before commit. |
 
+## Evolution Log (Shipped Increments)
+
+Delivered increments are recorded in `shippedIncrements` in the model JSON so the
+evolution stays traceable and reversible. Each entry names its layer, backlog
+link, evidence files, and rollback.
+
+| ID | Date | Layer | Increment | Backlog |
+| --- | --- | --- | --- | --- |
+| `evo-log-001` | 2026-06-15 | Experience | Roadmap panel surfaced in the cockpit | `SEIS-001` |
+| `evo-log-002` | 2026-06-15 | Governance | Error-tracking provider decided (Sentry) | `SEIS-003` |
+| `evo-log-003` | 2026-06-15 | Experience | Cockpit visual system refresh | `SEIS-001` |
+| `evo-log-004` | 2026-06-15 | Governance | Rollback contract defined; deployment gate opened | `SEIS-003` |
+| `evo-log-005` | 2026-06-15 | Automation | Automation kill-switch contract; automation_expansion gate opened | `SEIS-006` |
+| `evo-log-006` | 2026-06-16 | Platform | Convex schema generated from the state model | `SEIS-004` |
+| `evo-log-007` | 2026-06-16 | Platform | Convex read queries generated from the state model | `SEIS-004` |
+| `evo-log-008` | 2026-06-16 | Experience | Cockpit data-source adapter (static now, live-ready) | `SEIS-001` |
+
+These increments hold the model at **Calm Experience System** maturity while
+advancing governed automation: the full five-gate security set is now resolved —
+`closed_code` and `no_large_binaries` enforced; `source_deletion`, `deployment`,
+and `automation_expansion` open — with deployment and automation kept manual,
+registered, and reversible. The cockpit also gained a roadmap surface plus a
+calmer, accessible visual system with reduced-motion support preserved.
+
 ## Decision Matrix
 
 - If a request is broad or strategic, update a governance or strategy record before runtime surfaces.
