@@ -67,6 +67,7 @@ link, evidence files, and rollback.
 | `evo-log-004` | 2026-06-15 | Governance | Rollback contract defined; deployment gate opened | `SEIS-003` |
 | `evo-log-005` | 2026-06-15 | Automation | Automation kill-switch contract; automation_expansion gate opened | `SEIS-006` |
 | `evo-log-006` | 2026-06-16 | Platform | Convex schema generated from the state model | `SEIS-004` |
+| `evo-log-007` | 2026-06-16 | Platform | Convex read queries generated from the state model | `SEIS-004` |
 
 These increments hold the model at **Calm Experience System** maturity while
 advancing governed automation: the full five-gate security set is now resolved —

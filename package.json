@@ -58,7 +58,7 @@
     "automation:fullstack-language-matrix": "node scripts/create-fullstack-language-matrix.cjs",
     "automation:refresh-release": "node scripts/automation-refresh-release.cjs",
     "automation:publish-readiness": "node scripts/automation-publish-readiness.cjs",
-    "quality": "npm run check:workspace && npm run check:foundation && npm run check:release-sync && npm run check:cloud-environment && npm run check:motion-evidence && npm run check:mobile-ergonomics && npm run check:software-languages && npm run check:server-target && npm run check:code-automation-plan && npm run check:monthly-branch-hardening && npm run check:aggressive-capability-map && npm run check:trusted-marketplace-intake && npm run check:seis-trusted-marketplace-plugin && npm run check:connector-activation-report && npm run check:server-cloud-report && npm run check:seis-evolution-model && npm run check:github-remote-configuration && npm run check:publish-gate-contract && npm run check:automation-registry && npm run check:convex-schema",
+    "quality": "npm run check:workspace && npm run check:foundation && npm run check:release-sync && npm run check:cloud-environment && npm run check:motion-evidence && npm run check:mobile-ergonomics && npm run check:software-languages && npm run check:server-target && npm run check:code-automation-plan && npm run check:monthly-branch-hardening && npm run check:aggressive-capability-map && npm run check:trusted-marketplace-intake && npm run check:seis-trusted-marketplace-plugin && npm run check:connector-activation-report && npm run check:server-cloud-report && npm run check:seis-evolution-model && npm run check:github-remote-configuration && npm run check:publish-gate-contract && npm run check:automation-registry && npm run check:convex-schema && npm run check:convex-queries",
     "check:seis-evolution-model": "node scripts/check-seis-evolution-model.mjs",
     "check:github-remote-configuration": "node scripts/check-github-remote-configuration.mjs",
     "check:publish-gate-contract": "node scripts/check-publish-gate-contract.mjs",
@@ -72,7 +72,9 @@
     "check:secret-scan": "node scripts/security-secret-scan.mjs --check",
     "check:automation-registry": "node scripts/check-automation-registry.mjs",
     "automation:convex-schema": "node scripts/create-convex-schema.mjs",
-    "check:convex-schema": "node scripts/create-convex-schema.mjs --check"
+    "check:convex-schema": "node scripts/create-convex-schema.mjs --check",
+    "automation:convex-queries": "node scripts/create-convex-queries.mjs",
+    "check:convex-queries": "node scripts/create-convex-queries.mjs --check"
   },
   "engines": {
     "node": ">=18"

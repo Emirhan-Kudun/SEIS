@@ -60,6 +60,23 @@
       "sync_rule": "Regenerate from apps/fullstack/state-model.json; never hand-edit the schema. Deferred source until backend provisioning.",
       "verify_command": "npm run check:convex-schema",
       "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:convex-schema script; schema.ts is reproducible from the state model."
+    },
+    {
+      "id": "convex-queries",
+      "command": "npm run automation:convex-queries",
+      "scope": "repo_local",
+      "writes": ["apps/fullstack/convex/queries.ts"],
+      "state_model_entities": [
+        "plugin_registry",
+        "plugin_lanes",
+        "repositories",
+        "source_branches",
+        "workspace_links",
+        "governance_gates"
+      ],
+      "sync_rule": "Regenerate from apps/fullstack/state-model.json; one list query per entity. Deferred source until backend provisioning.",
+      "verify_command": "npm run check:convex-queries",
+      "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:convex-queries script; queries.ts is reproducible from the state model."
     }
   ]
 }

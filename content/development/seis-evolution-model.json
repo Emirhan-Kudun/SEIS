@@ -233,6 +233,22 @@
       ],
       "validationProfile": "expandedFoundation",
       "rollback": "Remove convex/schema.ts and the generator/check scripts; the committed state model is unchanged."
+    },
+    {
+      "id": "evo-log-007",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-004",
+      "layer": "platform",
+      "title": "Convex read queries generated from the state model",
+      "summary": "Added a generator that emits apps/fullstack/convex/queries.ts with one owner-only list query per state-model entity (6 queries), with check:convex-queries in the quality gate and registration under the automation kill-switch contract. Completes the live-consumer read path from the same single source; deferred until provisioning.",
+      "evidence": [
+        "scripts/create-convex-queries.mjs",
+        "apps/fullstack/convex/queries.ts",
+        "data/automation-registry.json",
+        "apps/fullstack/README.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Remove convex/queries.ts and the generator/check scripts; schema and state model are unchanged."
     }
   ],
   "activationQueue": [

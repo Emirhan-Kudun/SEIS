@@ -175,8 +175,8 @@ window.SEIS_COCKPIT_STATUS = {
       {
         "id": "backend_state",
         "title": "Backend state",
-        "status": "schema_generated",
-        "next": "provision Convex with the generated convex/schema.ts when a live surface is opened"
+        "status": "schema_and_queries_generated",
+        "next": "provision Convex with the generated schema.ts + queries.ts when a live surface is opened"
       },
       {
         "id": "workspace_ops",
