@@ -24,6 +24,7 @@ origin repository is preserved with full commit history under the
 - SEIS evolution model: [`docs/strategy/seis-evolution-model.md`](./docs/strategy/seis-evolution-model.md)
 - GitHub remote configuration: [`docs/deployment/github-remote-configuration.md`](./docs/deployment/github-remote-configuration.md)
 - Publish gate contract: [`docs/deployment/publish-gate-contract.md`](./docs/deployment/publish-gate-contract.md)
+- Remote access (SSH cloud + VPN): [`docs/deployment/remote-access.md`](./docs/deployment/remote-access.md)
 - Plugin stack: [`docs/platform/plugin-stack.md`](./docs/platform/plugin-stack.md)
 - Google Workspace ops: [`docs/platform/google-workspace-ops.md`](./docs/platform/google-workspace-ops.md)
 - Roadmap: [`roadmap/seis-closed-code-backlog.md`](./roadmap/seis-closed-code-backlog.md)
