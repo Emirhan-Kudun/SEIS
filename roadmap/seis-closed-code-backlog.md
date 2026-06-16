@@ -10,7 +10,7 @@ Structured sprint status (consumed by the cockpit Roadmap panel) lives at
 [`data/roadmap-status.json`](../data/roadmap-status.json); keep the two in sync.
 
 - Web cockpit: static milestone plus a Roadmap panel shipped at `apps/web/cockpit.html`; next, wire live GitHub refs instead of static records
-- Backend state: Convex-first decided with state model committed at `apps/fullstack/state-model.json`; next, provision the Convex project once the auth/JWT decision record is implemented
+- Backend state: Convex-first decided; state model committed at `apps/fullstack/state-model.json` and materialized into `apps/fullstack/convex/schema.ts` via `npm run automation:convex-schema`; next, provision the Convex project with the generated schema when a live surface is opened
 - Workspace ops: operating layer committed at `integrations/workspace-operations.json` (5 lanes, mail/team-updates pending provisioning)
 - Security quality gate: all five gates resolved — `closed_code`/`no_large_binaries` enforced; `source_deletion`/`deployment`/`automation_expansion` open. Secret scan + error-tracking (Sentry) + rollback contract + automation kill-switch shipped; deployment and automation stay manual and governed
 - Mobile shell: Expo app scaffolded under `apps/android/SEISMobile/` (3 screens from the shared status snapshot); run `npm install` there to launch

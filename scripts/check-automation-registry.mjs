@@ -46,8 +46,16 @@ for (const item of automations) {
   if (!Array.isArray(item.writes) || item.writes.length === 0) {
     errors.push(`${id}: writes must be a non-empty array`);
   }
-  if (!item.state_model_entity || !knownEntities.has(item.state_model_entity)) {
-    errors.push(`${id}: state_model_entity must reference a known entity (got ${item.state_model_entity})`);
+  // Coverage may name one entity (state_model_entity) or several
+  // (state_model_entities) when an automation materializes the whole model.
+  const entities = item.state_model_entities ?? (item.state_model_entity ? [item.state_model_entity] : []);
+  if (entities.length === 0) {
+    errors.push(`${id}: must reference at least one state_model_entity`);
+  }
+  for (const entity of entities) {
+    if (!knownEntities.has(entity)) {
+      errors.push(`${id}: references unknown state-model entity: ${entity}`);
+    }
   }
 }
 

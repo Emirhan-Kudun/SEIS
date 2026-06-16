@@ -40,3 +40,21 @@ Add a client provider in the app shell and ensure `NEXT_PUBLIC_CONVEX_URL` is av
    `repositories` and `source_branches` entities in `state-model.json`.
 4. ~~Add Drive/Calendar integration metadata~~: covered by the
    `workspace_links` entity in `state-model.json`.
+5. ~~Materialize the backend schema~~: generated at
+   [`convex/schema.ts`](./convex/schema.ts) from `state-model.json` by
+   `npm run automation:convex-schema` (guarded by `npm run check:convex-schema`).
+
+## Generated Convex Schema
+
+`convex/schema.ts` is generated from the committed state model so the live
+backend uses the exact entity shapes the static cockpit already renders (the
+`consumer_contract`). It is **deferred source**: it compiles once `convex` is
+installed at provisioning, and no dependency is added before then. Regenerate
+after any change to `state-model.json`:
+
+```bash
+npm run automation:convex-schema
+```
+
+The generator is registered in `data/automation-registry.json` under the
+automation kill-switch contract.

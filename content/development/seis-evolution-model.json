@@ -217,6 +217,22 @@
       ],
       "validationProfile": "expandedFoundation",
       "rollback": "Restore the prior automation_expansion guard text, re-block the gate, and remove the registry plus check script; no automation runtime exists."
+    },
+    {
+      "id": "evo-log-006",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-004",
+      "layer": "platform",
+      "title": "Convex schema generated from the state model",
+      "summary": "Added a generator that materializes apps/fullstack/state-model.json into an idiomatic Convex schema at apps/fullstack/convex/schema.ts (6 tables), with a check:convex-schema validator in the quality gate and registration under the automation kill-switch contract. Deferred source: no convex dependency added until provisioning; the static cockpit is unaffected.",
+      "evidence": [
+        "scripts/create-convex-schema.mjs",
+        "apps/fullstack/convex/schema.ts",
+        "data/automation-registry.json",
+        "apps/fullstack/README.md"
+      ],
+      "validationProfile": "expandedFoundation",
+      "rollback": "Remove convex/schema.ts and the generator/check scripts; the committed state model is unchanged."
     }
   ],
   "activationQueue": [

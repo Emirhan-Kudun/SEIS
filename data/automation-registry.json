@@ -43,6 +43,23 @@
       "sync_rule": "Derived from plugin_registry aggregation once live; static counts until then.",
       "verify_command": "npm run check:plugin-capability-lanes",
       "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:plugin-capability-lanes script."
+    },
+    {
+      "id": "convex-schema",
+      "command": "npm run automation:convex-schema",
+      "scope": "repo_local",
+      "writes": ["apps/fullstack/convex/schema.ts"],
+      "state_model_entities": [
+        "plugin_registry",
+        "plugin_lanes",
+        "repositories",
+        "source_branches",
+        "workspace_links",
+        "governance_gates"
+      ],
+      "sync_rule": "Regenerate from apps/fullstack/state-model.json; never hand-edit the schema. Deferred source until backend provisioning.",
+      "verify_command": "npm run check:convex-schema",
+      "disable_path": "Honor SEIS_AUTOMATION_DISABLED, or remove the automation:convex-schema script; schema.ts is reproducible from the state model."
     }
   ]
 }

@@ -175,8 +175,8 @@ window.SEIS_COCKPIT_STATUS = {
       {
         "id": "backend_state",
         "title": "Backend state",
-        "status": "decided",
-        "next": "provision Convex project once auth/JWT decision record is implemented"
+        "status": "schema_generated",
+        "next": "provision Convex with the generated convex/schema.ts when a live surface is opened"
       },
       {
         "id": "workspace_ops",
