@@ -249,6 +249,22 @@
       ],
       "validationProfile": "expandedFoundation",
       "rollback": "Remove convex/queries.ts and the generator/check scripts; schema and state model are unchanged."
+    },
+    {
+      "id": "evo-log-008",
+      "date": "2026-06-16",
+      "backlogId": "SEIS-001",
+      "layer": "experience",
+      "title": "Cockpit data-source adapter (static now, live-ready)",
+      "summary": "Introduced apps/web/src/data/cockpit-source.js so the renderer resolves data through one seam instead of the static global, with an idempotent render(status) and a SEIS_COCKPIT_REFRESH hook. A live Convex source can register same-shaped data at provisioning with no markup change. Added a source-mode chip to the topbar.",
+      "evidence": [
+        "apps/web/src/data/cockpit-source.js",
+        "apps/web/src/scripts/cockpit.js",
+        "apps/web/cockpit.html",
+        "apps/web/README.md"
+      ],
+      "validationProfile": "lowPowerDefault",
+      "rollback": "Restore cockpit.js to read window.SEIS_COCKPIT_STATUS directly and remove cockpit-source.js plus its script tag."
     }
   ],
   "activationQueue": [

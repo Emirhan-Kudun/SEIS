@@ -1,14 +1,12 @@
-// Renders the SEIS cockpit panels from the generated status bundle in
-// src/data/cockpit-status.js (window.SEIS_COCKPIT_STATUS).
+// Renders the SEIS cockpit panels from the resolved data source
+// (src/data/cockpit-source.js): the static bundle today, a live Convex source
+// after provisioning. Both return one status object with the same shapes.
 (function () {
   "use strict";
 
-  const status = window.SEIS_COCKPIT_STATUS;
-  if (!status) {
-    document.getElementById("topbar-stats").textContent =
-      "cockpit-status bundle missing — run npm run automation:cockpit-status";
-    return;
-  }
+  const source = window.SEIS_COCKPIT_SOURCE || null;
+  const resolveStatus = () =>
+    source ? source.resolve() : window.SEIS_COCKPIT_STATUS || null;
 
   const el = (tag, attrs = {}, children = []) => {
     const node = document.createElement(tag);
@@ -36,6 +34,32 @@
 
   const panel = (name) => document.querySelector(`[data-panel="${name}"]`);
 
+  const MUTABLE_PANELS = [
+    "repository",
+    "plugins",
+    "build",
+    "workspace",
+    "security",
+    "research",
+    "roadmap",
+  ];
+  const clearSurfaces = () => {
+    document.getElementById("topbar-stats").replaceChildren();
+    document.getElementById("gate-list").replaceChildren();
+    for (const name of MUTABLE_PANELS) {
+      const node = panel(name);
+      if (node) node.replaceChildren();
+    }
+  };
+
+  function render(status) {
+    if (!status) {
+      document.getElementById("topbar-stats").textContent =
+        "cockpit-status bundle missing — run npm run automation:cockpit-status";
+      return;
+    }
+    clearSurfaces();
+
   // Top status bar
   const topbar = document.getElementById("topbar-stats");
   topbar.append(
@@ -57,6 +81,10 @@
       document.createTextNode("sources "),
       el("strong", { text: String(status.safety.consolidatedSources.length) }),
       document.createTextNode(" consolidated"),
+    ]),
+    el("span", {}, [
+      document.createTextNode("source "),
+      el("strong", { text: source ? source.mode : "static" }),
     ]),
   );
 
@@ -201,6 +229,12 @@
       ]),
     ),
   );
+  }
+
+  // Initial paint, plus a refresh hook a live provider can call after it
+  // supplies same-shaped data via SEIS_COCKPIT_SOURCE.provideLive().
+  window.SEIS_COCKPIT_REFRESH = () => render(resolveStatus());
+  render(resolveStatus());
 
   // Scroll-spy: highlight the nav link for the panel currently in view.
   const navLinks = new Map(

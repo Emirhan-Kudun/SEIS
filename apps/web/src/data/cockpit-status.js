@@ -170,7 +170,7 @@ window.SEIS_COCKPIT_STATUS = {
         "id": "web_cockpit",
         "title": "Web cockpit",
         "status": "shipped",
-        "next": "wire live GitHub refs instead of static records"
+        "next": "flip the cockpit-source adapter to a live Convex source at provisioning (data seam in place)"
       },
       {
         "id": "backend_state",
