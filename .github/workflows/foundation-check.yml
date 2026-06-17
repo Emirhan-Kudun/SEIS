@@ -22,4 +22,5 @@ jobs:
         run: |
           npm run check:workspace
           npm run check:foundation
+          npm run check:constitution
           npm run check:access-targets
