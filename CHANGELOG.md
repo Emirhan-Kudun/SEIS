@@ -6,6 +6,16 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Changed
+
+- **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now
+  sources its `--ck-*` palette from `--seis-*` design tokens (prior hex values
+  kept as fallbacks for visual stability), `cockpit.html` loads the tokens, and
+  the static build vendors `@seis/design-tokens` + `@seis/ui` and rewrites the
+  cockpit's references for deploy. `check:design-system` now also verifies this
+  pipeline. NOTE: the visual result was not rendered in this environment and the
+  macOS-only `build-static.mjs` was not executed — review a preview before merge.
+
 ### Added
 
 - **Governance aggregate + surface binding.** Added `npm run check:governance`

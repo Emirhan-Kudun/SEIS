@@ -38,6 +38,12 @@ colors or magic numbers of their own. Consume them together:
 
 ## Surface binding
 
+The **operating cockpit** (`apps/web/cockpit.html` + `src/styles/cockpit.css`)
+now consumes the system: its local `--ck-*` palette is sourced from `--seis-*`
+tokens (with prior hex values as fallbacks), and the build
+(`scripts/build-static.mjs`) vendors both `@seis/design-tokens` and `@seis/ui`
+into `assets/styles/` and rewrites the cockpit's references for deploy.
+
 The `apps/web` surface is bound to this system as the single source of truth:
 `npm run check:design-system` verifies every `--seis-*` token referenced in
 `apps/web` CSS is defined in
