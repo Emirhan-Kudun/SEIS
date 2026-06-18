@@ -12,6 +12,7 @@ mkdirSync(staticDir, { recursive: true });
 
 copyDir("apps/web", staticDir);
 copyFile("packages/design-tokens/seis.tokens.css", join(staticDir, "assets/styles/seis.tokens.css"));
+copyFile("packages/ui/seis.ui.css", join(staticDir, "assets/styles/seis.ui.css"));
 copyDir("docs/reports", join(staticDir, "docs/reports"));
 copyDir("docs/deployment", join(staticDir, "docs/deployment"));
 copyDir("docs/polyglot", join(staticDir, "docs/polyglot"));
@@ -28,6 +29,7 @@ const rewrittenIndex = readFileSync(indexPath, "utf8")
   .replace("../../packages/design-tokens/seis.tokens.css", "./assets/styles/seis.tokens.css")
   .replace("../../docs/reports/zip-analysis-2026-05-24.md", "./docs/reports/zip-analysis-2026-05-24.md");
 writeFileSync(indexPath, rewrittenIndex);
+rewriteCockpitRoute(staticDir);
 rewriteCaseStudyRoutes(staticDir);
 
 writeReleaseFiles(staticDir);
@@ -95,6 +97,15 @@ function writeLocalizedRoutes(targetDir, baseIndex) {
     const localizedIndex = rewriteForLocaleRoute(baseIndex, locale, direction, title);
     writeFileSync(join(localeDir, "index.html"), localizedIndex);
   }
+}
+
+function rewriteCockpitRoute(targetDir) {
+  const cockpitPath = join(targetDir, "cockpit.html");
+  if (!existsSync(cockpitPath)) return;
+  const rewritten = readFileSync(cockpitPath, "utf8")
+    .replace("../../packages/design-tokens/seis.tokens.css", "./assets/styles/seis.tokens.css")
+    .replace("../../packages/ui/seis.ui.css", "./assets/styles/seis.ui.css");
+  writeFileSync(cockpitPath, rewritten);
 }
 
 function rewriteCaseStudyRoutes(targetDir) {

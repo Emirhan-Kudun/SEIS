@@ -50,6 +50,27 @@ for (const file of cssFiles) {
   }
 }
 
+// Pipeline coverage: the static build must vendor the open design-system CSS so
+// it actually ships, and the cockpit must load the tokens. (Verified by static
+// inspection — the build itself uses macOS-only `ditto` and is not run in CI.)
+const buildScript = "scripts/build-static.mjs";
+if (existsSync(buildScript)) {
+  const build = readFileSync(buildScript, "utf8");
+  if (!build.includes("packages/design-tokens/seis.tokens.css")) {
+    failures.push("build-static.mjs must vendor packages/design-tokens/seis.tokens.css");
+  }
+  if (!build.includes("packages/ui/seis.ui.css")) {
+    failures.push("build-static.mjs must vendor packages/ui/seis.ui.css");
+  }
+}
+const cockpit = "apps/web/cockpit.html";
+if (existsSync(cockpit)) {
+  const html = readFileSync(cockpit, "utf8");
+  if (!html.includes("packages/design-tokens/seis.tokens.css")) {
+    failures.push("apps/web/cockpit.html must load the design tokens stylesheet");
+  }
+}
+
 if (failures.length > 0) {
   console.error("Design system check failed (surface ↔ tokens drift):");
   for (const failure of [...new Set(failures)]) console.error(`  - ${failure}`);

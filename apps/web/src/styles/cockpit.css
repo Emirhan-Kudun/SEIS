@@ -1,15 +1,19 @@
-/* SEIS cockpit: dense, operational, dark. Kept separate from the
-   UI-UX Digital Lab theme in styles.css on purpose. */
+/* SEIS cockpit: dense, operational, dark.
+   Now token-driven: the local --ck-* palette is sourced from the open SEIS
+   Design System tokens (@seis/design-tokens) with the previous hex values as
+   fallbacks, so the cockpit consumes the single source of truth while staying
+   visually stable if tokens fail to load.
+   See ../../../docs/design/seis-design-system.md */
 
 :root {
-  --ck-bg: #0e1116;
-  --ck-surface: #161b22;
-  --ck-border: #2b3340;
-  --ck-text: #e6e9ee;
-  --ck-muted: #9aa4b2;
-  --ck-accent: #5bc0be;
+  --ck-bg: var(--seis-bg, #0e1116);
+  --ck-surface: var(--seis-bg-elevated, #161b22);
+  --ck-border: var(--seis-border, #2b3340);
+  --ck-text: var(--seis-text, #e6e9ee);
+  --ck-muted: var(--seis-text-muted, #9aa4b2);
+  --ck-accent: var(--seis-teal, #5bc0be);
   --ck-ok: #4ade80;
-  --ck-warn: #fbbf24;
+  --ck-warn: var(--seis-gold, #fbbf24);
   --ck-mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
 }
 
