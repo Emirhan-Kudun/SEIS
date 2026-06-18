@@ -15,6 +15,7 @@ const {
 } = require("./ai-routing-policy.cjs");
 
 const policyDoc = "docs/platform/hybrid-ai-routing-policy.md";
+const policyRecord = "content/governance/ai-routing-policy.json";
 const failures = [];
 const ensure = (condition, message) => {
   if (!condition) failures.push(message);
@@ -66,6 +67,49 @@ if (existsSync(policyDoc)) {
     doc.includes("openai") || doc.includes("codex"),
     "policy doc must state the OpenAI/Codex default",
   );
+}
+
+// 6. The machine-readable record must stay in sync with the executable module
+//    (single source of truth: doc + JSON + code must agree).
+ensure(existsSync(policyRecord), `missing ${policyRecord}`);
+if (existsSync(policyRecord)) {
+  let record = null;
+  try {
+    record = JSON.parse(readFileSync(policyRecord, "utf8"));
+  } catch (error) {
+    failures.push(`${policyRecord} is not valid JSON: ${error.message}`);
+  }
+  if (record) {
+    ensure(record.default === DEFAULT_TOOL, "record default must match the executable DEFAULT_TOOL");
+    ensure(
+      JSON.stringify(record.hintCategories) === JSON.stringify(HINT_CATEGORIES),
+      "record hintCategories must match the executable module",
+    );
+    ensure(
+      JSON.stringify(record.runtimeCategories) === JSON.stringify(RUNTIME_CATEGORIES),
+      "record runtimeCategories must match the executable module",
+    );
+    const recordRoutes = Array.isArray(record.routes) ? record.routes : [];
+    ensure(
+      recordRoutes.length === ROUTE_HINTS.length,
+      `record has ${recordRoutes.length} routes but the module has ${ROUTE_HINTS.length}`,
+    );
+    for (const route of ROUTE_HINTS) {
+      const match = recordRoutes.find((entry) => entry.tool === route.tool);
+      ensure(match, `record missing route for ${route.tool}`);
+      if (match) {
+        ensure(
+          match.category === route.category,
+          `record route ${route.tool} category "${match.category}" != module "${route.category}"`,
+        );
+        ensure(
+          JSON.stringify(match.hints) === JSON.stringify(route.hints),
+          `record route ${route.tool} hints must match the module exactly`,
+        );
+      }
+    }
+    ensure(record.doc === policyDoc, "record.doc must point at the policy doc");
+  }
 }
 
 if (failures.length > 0) {

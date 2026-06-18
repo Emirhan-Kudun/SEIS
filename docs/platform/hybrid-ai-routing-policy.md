@@ -49,9 +49,13 @@ This policy is not just prose — it is encoded in
 - Hint-based routes carry the intent-inferable categories (`capability`,
   `privacy`); `cost` and `availability` are runtime operator overrides.
 
+A machine-readable record of the same policy lives at
+[`content/governance/ai-routing-policy.json`](../../content/governance/ai-routing-policy.json).
+
 It is validated in CI by `npm run check:ai-routing-policy` (tools-free coherence:
 OpenAI/Codex default preserved, every route categorized, doc lists all four
-categories). `npm run check:ai-stack` additionally probes local tool presence.
+categories, **and the JSON record matches the executable module exactly**).
+`npm run check:ai-stack` additionally probes local tool presence.
 
 ## Guardrails (unchanged)
 
