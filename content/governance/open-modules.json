@@ -10,6 +10,14 @@
       "license": "MIT",
       "maintainer": "emirhankudun-ux",
       "openedOn": "2026-06-18"
+    },
+    {
+      "path": "packages/ui",
+      "name": "@seis/ui",
+      "license": "MIT",
+      "maintainer": "emirhankudun-ux",
+      "openedOn": "2026-06-18",
+      "partOf": "SEIS Design System"
     }
   ]
 }

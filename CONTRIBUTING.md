@@ -29,6 +29,7 @@ terms of that module's license and this guide.
 > | Path | License | Maintainer |
 > | --- | --- | --- |
 > | [`packages/design-tokens`](./packages/design-tokens) | MIT | emirhankudun-ux |
+> | [`packages/ui`](./packages/ui) | MIT | emirhankudun-ux |
 
 If a path is not listed as an open module, treat it as closed core.
 
