@@ -22,8 +22,13 @@ A module is open **only if it carries its own explicit open-source `LICENSE`**
 registry below. For those modules, external contributions are welcome under the
 terms of that module's license and this guide.
 
-> Open-modules registry: _none yet._ When the first module is opened, add it here
-> as a table (path · license · maintainer) in the same PR that adds its `LICENSE`.
+> Open-modules registry (machine-readable:
+> [`content/governance/open-modules.json`](./content/governance/open-modules.json),
+> enforced by `npm run check:open-modules`):
+>
+> | Path | License | Maintainer |
+> | --- | --- | --- |
+> | [`packages/design-tokens`](./packages/design-tokens) | MIT | emirhankudun-ux |
 
 If a path is not listed as an open module, treat it as closed core.
 

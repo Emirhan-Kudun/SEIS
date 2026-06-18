@@ -8,6 +8,15 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **First open module (hybrid model in practice).** Opened
+  `packages/design-tokens` as the first open-source module (its own MIT
+  `LICENSE` + README), recorded it in the machine-readable
+  `content/governance/open-modules.json` and the `CONTRIBUTING.md` registry, and
+  added `npm run check:open-modules` (every registered module must exist, carry
+  its own LICENSE, and be listed in CONTRIBUTING). Core stays closed.
+- **Documentation link integrity.** Added `npm run check:doc-links` — verifies
+  relative Markdown links in the governance document set resolve. Both checks
+  wired into the foundation CI.
 - **Machine-readable AI routing record.** Added
   `content/governance/ai-routing-policy.json` as the documented record of the
   routing policy; `check:ai-routing-policy` now asserts the JSON, the executable
