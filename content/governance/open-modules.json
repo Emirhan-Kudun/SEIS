@@ -19,5 +19,23 @@
       "openedOn": "2026-06-18",
       "partOf": "SEIS Design System"
     }
+  ],
+  "evaluatedNotOpened": [
+    {
+      "path": "packages/asset-registry",
+      "decision": "keep-closed",
+      "reason": "Contains personal source-archive absolute paths and a proprietary curation policy in legacy-assets.json; not generic or reusable. Open later only after scrubbing personal paths.",
+      "evaluatedOn": "2026-06-18"
+    },
+    {
+      "path": "packages/core",
+      "decision": "keep-closed",
+      "reason": "Closed-code business rules and platform contracts (V14 core)."
+    },
+    {
+      "path": "packages/data",
+      "decision": "keep-closed",
+      "reason": "Proprietary inventory/analytics adapters."
+    }
   ]
 }

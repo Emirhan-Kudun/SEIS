@@ -8,6 +8,14 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Governance aggregate + surface binding.** Added `npm run check:governance`
+  (one entry point running constitution + ai-routing-policy + open-modules +
+  doc-links + design-system; foundation CI now calls it). Added
+  `npm run check:design-system` binding `apps/web` to the design tokens (every
+  `--seis-*` token used must be defined canonically — drift caught in CI).
+  Evaluated `packages/asset-registry`, `core`, `data` and recorded them as
+  **kept-closed** with reasons in `open-modules.json` (asset-registry holds
+  personal source paths; core/data are proprietary).
 - **SEIS Design System (open area).** Opened `packages/ui` as the second open
   module (MIT) with real, dependency-free, accessible CSS primitives
   (`seis.ui.css`: button, field, badge, card, link) built on the open

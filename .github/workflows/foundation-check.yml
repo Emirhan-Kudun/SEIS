@@ -22,8 +22,5 @@ jobs:
         run: |
           npm run check:workspace
           npm run check:foundation
-          npm run check:constitution
-          npm run check:ai-routing-policy
-          npm run check:open-modules
-          npm run check:doc-links
+          npm run check:governance
           npm run check:access-targets
