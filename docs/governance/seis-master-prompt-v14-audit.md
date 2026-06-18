@@ -76,8 +76,14 @@ through the documented resolution gate (no silent strategy flip, per V14 §26).
    remains the operational default; task-based routing exceptions
    (capability/privacy/cost/availability) are allowed and must state their reason.
    See [`docs/platform/hybrid-ai-routing-policy.md`](../platform/hybrid-ai-routing-policy.md).
-3. **Maturity vocabulary (§31, §32) — OPEN.** Two ladders coexist (V14 Stage 0–5
-   vs the evolution-model Levels 1–4). Cross-linked for now; consider unifying.
+3. **Maturity vocabulary (§31, §32) — RESOLVED (mapping).** A canonical mapping
+   declares V14 stages as the strategic horizon and the evolution-model Levels 1–4
+   as the instrumentation of Stages 1–3; Stages 4–5 are uninstrumented horizon.
+   See [`docs/decisions/seis-maturity-model-unification.md`](../decisions/seis-maturity-model-unification.md).
+   The operational model and its CI check are unchanged.
+
+All three V14 divergences are now resolved (two hybrid, one mapping). No
+closed-code control was removed and no operational CI contract was weakened.
 
 ## Suggested next steps (prioritized, not executed)
 

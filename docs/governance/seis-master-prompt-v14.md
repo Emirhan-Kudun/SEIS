@@ -424,10 +424,12 @@ Stage 0 — Seed · Stage 1 — Foundation · Stage 2 — System · Stage 3 — 
 Stage 4 — Ecosystem · Stage 5 — Civilization System. Do not fake maturity. Build
 maturity honestly.
 
-> **SEIS note:** This maturity model is the *philosophical* ladder. The
-> *operational* maturity ladder the repository validates lives in
+> **SEIS note:** These V14 stages are the *strategic horizon*; the *operational*
+> ladder the repository validates lives in
 > [`docs/strategy/seis-evolution-model.md`](../strategy/seis-evolution-model.md).
-> Keep the two coherent rather than competing.
+> Their canonical relationship is now mapped (resolved 2026-06-18): evolution-model
+> Levels 1–4 instrument V14 Stages 1–3; Stages 4–5 are uninstrumented horizon. See
+> [the maturity-model unification ADR](../decisions/seis-maturity-model-unification.md).
 
 ## 33. Prompt and Agent Governance
 

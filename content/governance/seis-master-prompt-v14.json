@@ -61,6 +61,19 @@
     { "stage": 4, "id": "ecosystem" },
     { "stage": 5, "id": "civilization-system" }
   ],
+  "maturityMapping": {
+    "doc": "docs/decisions/seis-maturity-model-unification.md",
+    "operationalModel": "content/development/seis-evolution-model.json",
+    "currentPosition": "stages 1-3 (instrumented by evolution-model levels 1-4)",
+    "stages": [
+      { "stage": 0, "id": "seed", "evolutionLevels": [] },
+      { "stage": 1, "id": "foundation", "evolutionLevels": ["foundation"] },
+      { "stage": 2, "id": "system", "evolutionLevels": ["experience", "automation"] },
+      { "stage": 3, "id": "platform", "evolutionLevels": ["platform"] },
+      { "stage": 4, "id": "ecosystem", "evolutionLevels": [] },
+      { "stage": 5, "id": "civilization-system", "evolutionLevels": [] }
+    ]
+  },
   "sectionCount": 47,
   "sections": [
     { "n": 0, "id": "single-master-prompt-rule" },
@@ -136,9 +149,11 @@
       "id": "maturity-vocabulary",
       "constitution": "V14 §31/§32 — Stage 0..5",
       "repository": "docs/strategy/seis-evolution-model.md — Levels 1..4",
-      "status": "open",
+      "status": "resolved",
       "authoritative": "both",
-      "consequence": "cross-linked pending unification"
+      "resolution": "mapping: V14 stages are the strategic horizon, evolution-model levels instrument stages 1-3; stages 4-5 are uninstrumented horizon",
+      "resolutionAdr": "docs/decisions/seis-maturity-model-unification.md",
+      "consequence": "maturityMapping added; evolution-model and its CI check unchanged"
     }
   ],
   "resolutionGate": "Promote a divergence from open to resolved only via a follow-up ADR that updates either the constitution wording or the operating strategy — never by silently editing one to match the other."
