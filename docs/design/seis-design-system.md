@@ -36,6 +36,14 @@ colors or magic numbers of their own. Consume them together:
   semantic HTML, and `prefers-reduced-motion` support.
 - **Dependency-free.** Pure CSS, no build step, easy to adopt and maintain.
 
+## Surface binding
+
+The `apps/web` surface is bound to this system as the single source of truth:
+`npm run check:design-system` verifies every `--seis-*` token referenced in
+`apps/web` CSS is defined in
+[`packages/design-tokens/seis.tokens.css`](../../packages/design-tokens/seis.tokens.css),
+catching drift in CI without requiring a bundler.
+
 ## Governance
 
 - Both modules are registered in
