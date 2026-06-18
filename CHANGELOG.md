@@ -8,6 +8,12 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Executable AI routing policy.** Tagged each route in
+  `scripts/ai-routing-policy.cjs` with its hybrid-policy category
+  (`capability`/`privacy`), added `explainRoute()` (returns tool + category +
+  reason), and added `npm run check:ai-routing-policy` — a tools-free CI check
+  that the OpenAI/Codex default is preserved and the router stays coherent with
+  `docs/platform/hybrid-ai-routing-policy.md`. Wired into the foundation CI.
 - **SEIS V14 constitution subsystem.** Persisted the Supreme Unified Master
   Prompt V14 as the canonical meta-constitution
   (`docs/governance/seis-master-prompt-v14.md`) with a machine-readable source
