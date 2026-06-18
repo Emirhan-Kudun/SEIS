@@ -6,6 +6,7 @@
   "status": "canonical",
   "adoptedOn": "2026-06-17",
   "doc": "docs/governance/seis-master-prompt-v14.md",
+  "condensedCharter": "docs/governance/seis-operating-charter.md",
   "audit": "docs/governance/seis-master-prompt-v14-audit.md",
   "decisionRecord": "docs/decisions/seis-master-prompt-v14-adoption.md",
   "summary": "Highest-level philosophy and intent layer for SEIS. Sits above operating docs and check contracts; never silently overrides intentional repository strategy.",

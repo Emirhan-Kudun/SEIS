@@ -8,6 +8,7 @@ import { existsSync, readFileSync } from "node:fs";
 
 const modelPath = "content/governance/seis-master-prompt-v14.json";
 const docPath = "docs/governance/seis-master-prompt-v14.md";
+const charterPath = "docs/governance/seis-operating-charter.md";
 const auditPath = "docs/governance/seis-master-prompt-v14-audit.md";
 const adrPath = "docs/decisions/seis-master-prompt-v14-adoption.md";
 const prTemplatePath = ".github/pull_request_template.md";
@@ -25,6 +26,7 @@ const ensure = (condition, message) => {
 for (const path of [
   modelPath,
   docPath,
+  charterPath,
   auditPath,
   adrPath,
   prTemplatePath,
@@ -37,6 +39,7 @@ for (const path of [
 
 const model = existsSync(modelPath) ? readJson(modelPath) : null;
 const doc = readText(docPath);
+const charter = readText(charterPath);
 const readme = readText(readmePath);
 const agents = readText(agentsPath);
 const prTemplate = readText(prTemplatePath);
@@ -51,6 +54,10 @@ if (model) {
   ensure(
     model.decisionRecord === adrPath,
     "model.decisionRecord must point at the adoption ADR",
+  );
+  ensure(
+    model.condensedCharter === charterPath,
+    "model.condensedCharter must point at the condensed operating charter",
   );
 
   const sections = Array.isArray(model.sections) ? model.sections : [];
@@ -101,6 +108,14 @@ if (model) {
 ensure(doc.includes("SEIS Supreme Unified Master Prompt"), "doc missing title");
 ensure(doc.includes("## 0. Single Master Prompt Rule"), "doc missing section 0");
 ensure(doc.includes("## 46. Final Operating Command"), "doc missing section 46");
+
+// The condensed charter must stay bilingual and point back to the canonical V14.
+ensure(charter.includes("## EN — Operating Charter"), "charter missing EN section");
+ensure(charter.includes("## TR — Operasyon Charter"), "charter missing TR section");
+ensure(
+  charter.includes("seis-master-prompt-v14.md"),
+  "charter must reference the canonical V14 constitution",
+);
 
 // Discoverability wiring (V14 §0/§14/§17).
 ensure(

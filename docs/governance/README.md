@@ -7,6 +7,8 @@ focused operating docs + `npm run check:*` contracts enforce concrete rules.
 
 - [SEIS Master Prompt V14](./seis-master-prompt-v14.md) — canonical
   meta-constitution (philosophy + intent).
+- [SEIS Operating Charter](./seis-operating-charter.md) — condensed, bilingual
+  (EN/TR) one-page companion to V14 for fast reference.
 - [V14 repository audit](./seis-master-prompt-v14-audit.md) — how the repo
   currently aligns, gaps, and open divergences.
 - [V14 adoption ADR](../decisions/seis-master-prompt-v14-adoption.md) — the

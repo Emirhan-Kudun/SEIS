@@ -17,6 +17,7 @@ origin repository is preserved with full commit history under the
 ## Start Here
 
 - Operating constitution (V14): [`docs/governance/seis-master-prompt-v14.md`](./docs/governance/seis-master-prompt-v14.md) — and its [repository audit](./docs/governance/seis-master-prompt-v14-audit.md)
+- Operating charter (condensed, EN/TR): [`docs/governance/seis-operating-charter.md`](./docs/governance/seis-operating-charter.md)
 - Governance index: [`docs/governance/README.md`](./docs/governance/README.md)
 - Security policy: [`SECURITY.md`](./SECURITY.md) · Changelog: [`CHANGELOG.md`](./CHANGELOG.md)
 - OpenAI-curated build workbench: [`docs/platform/openai-curated-build-workbench.md`](./docs/platform/openai-curated-build-workbench.md)

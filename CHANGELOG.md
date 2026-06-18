@@ -14,9 +14,12 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   (`content/governance/seis-master-prompt-v14.json`), a repository audit, and an
   adoption ADR recording the open divergences (open-source vs closed-code,
   model-agnostic vs OpenAI-first, maturity vocabulary).
+- **Operating charter** (`docs/governance/seis-operating-charter.md`) — a
+  condensed, bilingual (EN/TR) one-page companion to V14 for fast reference;
+  authoritative source remains V14, no new strategy introduced.
 - **Constitution check** (`npm run check:constitution`) validating the doc, JSON
-  source, audit, ADR, PR template, and discoverability wiring; added to the
-  foundation CI workflow.
+  source, condensed charter, audit, ADR, PR template, and discoverability wiring;
+  added to the foundation CI workflow.
 - **Pull-request template** (`.github/pull_request_template.md`) mirroring
   constitution §36.
 - **Governance index** (`docs/governance/README.md`).
