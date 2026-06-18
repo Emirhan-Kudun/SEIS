@@ -62,28 +62,22 @@ Legend: 🟢 aligned · 🟡 partial / informational · 🔴 divergence or defer
    V14's PR structure (Summary, Motivation, Changes, Validation, Risks, Rollback,
    Related, Next steps), matching the existing issue-template convention.
 
-## Open divergences — maintainer decision required (not changed here)
+## Divergences — resolution status
 
-These are genuine, *intentional* conflicts between V14's aspirational wording and
-the repository's current, deliberately-chosen strategy. They are **not** bugs and
-were **not** silently "fixed" (per V14 §26: no major architectural shift in
-silence).
+Resolved 2026-06-18 via
+[`seis-hybrid-governance-resolution.md`](../decisions/seis-hybrid-governance-resolution.md),
+through the documented resolution gate (no silent strategy flip, per V14 §26).
 
-1. **Open-source vs closed-code (§2, §29, §30).** V14 calls SEIS "open-source
-   oriented"; the repo is closed-code by default (`SEIS_CLOSED_CODE.md`,
-   `check-seis-closed-code.mjs`, closed-code governance workflow). Until resolved,
-   `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` are intentionally deferred.
-   - *Options:* (a) keep closed-code and soften V14 §2/§29/§30 wording to
-     "open-source *capable*"; (b) adopt a public-contribution posture and add the
-     community files; (c) split — closed core, selected open modules.
-2. **Model-agnostic vs OpenAI-first (§7, §10).** V14 says "use the best system for
-   the task"; `AGENTS.md` + `openai-first-plugin-policy.md` set Codex/OpenAI as
-   the primary writer/runtime. 
-   - *Options:* (a) keep OpenAI-first as the *operational default* and read V14
-     §10 as the *capability* statement (they can coexist); (b) rebalance toward
-     true task-based routing.
-3. **Maturity vocabulary (§31, §32).** Two ladders coexist (V14 Stage 0–5 vs the
-   evolution-model Levels 1–4). Cross-linked for now; consider unifying.
+1. **Open-source vs closed-code (§2, §29, §30) — RESOLVED (hybrid).** Closed core
+   by default; selected modules opt into open source via their own `LICENSE`.
+   Community files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` added, scoped to open
+   modules. Closed-code controls unchanged.
+2. **Model-agnostic vs OpenAI-first (§7, §10) — RESOLVED (hybrid).** OpenAI/Codex
+   remains the operational default; task-based routing exceptions
+   (capability/privacy/cost/availability) are allowed and must state their reason.
+   See [`docs/platform/hybrid-ai-routing-policy.md`](../platform/hybrid-ai-routing-policy.md).
+3. **Maturity vocabulary (§31, §32) — OPEN.** Two ladders coexist (V14 Stage 0–5
+   vs the evolution-model Levels 1–4). Cross-linked for now; consider unifying.
 
 ## Suggested next steps (prioritized, not executed)
 

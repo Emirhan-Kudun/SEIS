@@ -116,16 +116,21 @@
       "id": "open-source-vs-closed-code",
       "constitution": "V14 §2/§29/§30 — open-source oriented",
       "repository": "closed-code by default (SEIS_CLOSED_CODE.md, check-seis-closed-code.mjs)",
-      "status": "open",
+      "status": "resolved",
       "authoritative": "repository",
-      "consequence": "CONTRIBUTING.md and CODE_OF_CONDUCT.md intentionally deferred"
+      "resolution": "hybrid: closed core by default, selected modules opt into open source via their own LICENSE; community files added",
+      "resolutionAdr": "docs/decisions/seis-hybrid-governance-resolution.md",
+      "consequence": "CONTRIBUTING.md and CODE_OF_CONDUCT.md added, scoped to open modules"
     },
     {
       "id": "model-agnostic-vs-openai-first",
       "constitution": "V14 §7/§10 — use the best system for the task",
       "repository": "OpenAI/Codex-first (AGENTS.md, docs/platform/openai-first-plugin-policy.md)",
-      "status": "open",
-      "authoritative": "repository"
+      "status": "resolved",
+      "authoritative": "repository",
+      "resolution": "hybrid: OpenAI/Codex default + task-based routing exceptions (capability/privacy/cost/availability)",
+      "resolutionAdr": "docs/decisions/seis-hybrid-governance-resolution.md",
+      "consequence": "docs/platform/hybrid-ai-routing-policy.md added"
     },
     {
       "id": "maturity-vocabulary",

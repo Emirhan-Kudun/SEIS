@@ -247,10 +247,11 @@ Every repository should eventually include, **when appropriate**: `README.md`,
 documentation, decision records, setup guide and troubleshooting guide. Add
 governance gradually but intentionally.
 
-> **SEIS note:** "when appropriate" is load-bearing. SEIS is closed-code by
-> default, so external-contributor artifacts (`CONTRIBUTING.md`,
-> `CODE_OF_CONDUCT.md`) are deferred until the maintainer chooses an
-> open-contribution posture. See the adoption ADR.
+> **SEIS note:** "when appropriate" is load-bearing. SEIS uses a **hybrid**
+> posture (resolved 2026-06-18): closed core by default, selected modules opt
+> into open source. `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` exist and are
+> scoped to open modules. See
+> [the hybrid resolution ADR](../decisions/seis-hybrid-governance-resolution.md).
 
 ## 15. File and Folder Creation Policy
 

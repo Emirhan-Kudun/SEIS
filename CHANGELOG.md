@@ -26,8 +26,20 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 - **Security policy** (`SECURITY.md`) as the disclosure entry point.
 - This changelog.
 
+### Resolved
+
+- **Hybrid governance resolution** (`docs/decisions/seis-hybrid-governance-resolution.md`)
+  resolves two of the three V14 divergences via the documented resolution gate:
+  - *Open-source vs closed-code* → **hybrid**: closed core by default, selected
+    modules opt into open source via their own `LICENSE`. Added `CONTRIBUTING.md`
+    and `CODE_OF_CONDUCT.md` scoped to open modules.
+  - *Model-agnostic vs OpenAI-first* → **hybrid**: OpenAI/Codex stays the default,
+    with task-based routing exceptions. Added
+    `docs/platform/hybrid-ai-routing-policy.md`.
+  - The maturity-vocabulary divergence remains open (cross-linked).
+
 ### Notes
 
-- No existing strategy was changed. Closed-code default and OpenAI/Codex-first
-  routing remain authoritative; divergences with V14 are documented, not
-  resolved.
+- No closed-code control was removed; the OpenAI-first default is unchanged. The
+  hybrid model adds explicit, auditable opt-in paths rather than flipping
+  strategy.
