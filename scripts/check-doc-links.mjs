@@ -15,6 +15,7 @@ const roots = [
   "AGENTS.md",
   "docs/governance",
   "docs/decisions",
+  "docs/design",
   "docs/platform/hybrid-ai-routing-policy.md",
 ];
 

@@ -8,6 +8,12 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **SEIS Design System (open area).** Opened `packages/ui` as the second open
+  module (MIT) with real, dependency-free, accessible CSS primitives
+  (`seis.ui.css`: button, field, badge, card, link) built on the open
+  `@seis/design-tokens`. Added `docs/design/seis-design-system.md` unifying tokens
+  + primitives into one token-driven, accessible, CI-guarded design system. The
+  product core stays closed.
 - **First open module (hybrid model in practice).** Opened
   `packages/design-tokens` as the first open-source module (its own MIT
   `LICENSE` + README), recorded it in the machine-readable

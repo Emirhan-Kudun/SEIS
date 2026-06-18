@@ -1,0 +1,130 @@
+/*
+ * SEIS UI primitives — dependency-free, accessible CSS built on the open
+ * @seis/design-tokens custom properties. Calm, compact, operational.
+ * Open module (MIT) — see ./LICENSE and ../../docs/design/seis-design-system.md
+ *
+ * Requires the design tokens to be loaded first:
+ *   @import "@seis/design-tokens/seis.tokens.css";
+ *   @import "@seis/ui/seis.ui.css";
+ */
+
+/* Base ---------------------------------------------------------------------- */
+.seis {
+  color: var(--seis-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* Shared focus ring — every interactive primitive uses it. */
+.seis-button:focus-visible,
+.seis-field:focus-visible,
+.seis-link:focus-visible {
+  outline: none;
+  box-shadow: var(--seis-focus);
+}
+
+/* Button -------------------------------------------------------------------- */
+.seis-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  min-height: 2.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--seis-text);
+  background: var(--seis-surface);
+  border: 1px solid var(--seis-border);
+  border-radius: var(--seis-radius);
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.seis-button:hover {
+  background: var(--seis-surface-strong);
+}
+
+.seis-button[disabled],
+.seis-button[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.seis-button--primary {
+  color: var(--seis-ink);
+  background: var(--seis-gold);
+  border-color: transparent;
+}
+
+.seis-button--primary:hover {
+  background: color-mix(in srgb, var(--seis-gold) 88%, white);
+}
+
+/* Field --------------------------------------------------------------------- */
+.seis-field {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  min-height: 2.25rem;
+  font: inherit;
+  color: var(--seis-text);
+  background: var(--seis-bg-elevated);
+  border: 1px solid var(--seis-border);
+  border-radius: var(--seis-radius);
+}
+
+.seis-field::placeholder {
+  color: var(--seis-text-muted);
+}
+
+.seis-field[aria-invalid="true"] {
+  border-color: var(--seis-rose);
+}
+
+/* Badge --------------------------------------------------------------------- */
+.seis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--seis-text-soft);
+  background: var(--seis-surface);
+  border: 1px solid var(--seis-border);
+  border-radius: 999px;
+}
+
+.seis-badge--ok { color: var(--seis-teal); }
+.seis-badge--warn { color: var(--seis-gold); }
+.seis-badge--alert { color: var(--seis-rose); }
+
+/* Card ---------------------------------------------------------------------- */
+.seis-card {
+  padding: 1rem;
+  color: var(--seis-text);
+  background: var(--seis-bg-elevated);
+  border: 1px solid var(--seis-border);
+  border-radius: var(--seis-radius);
+}
+
+.seis-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Link ---------------------------------------------------------------------- */
+.seis-link {
+  color: var(--seis-teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect reduced-motion: drop transitions entirely. */
+@media (prefers-reduced-motion: reduce) {
+  .seis-button {
+    transition: none;
+  }
+}
