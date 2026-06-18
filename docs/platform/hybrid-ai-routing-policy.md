@@ -38,6 +38,21 @@ exceptions** model.
 
 These are defaults, not mandates. The maintainer may override per task.
 
+## Executable form
+
+This policy is not just prose — it is encoded in
+[`scripts/ai-routing-policy.cjs`](../../scripts/ai-routing-policy.cjs):
+
+- `chooseAutoTool(intent)` returns the routed tool (default `codex`).
+- `explainRoute(intent)` returns `{ tool, category, reason }` so the
+  "state the reason" rule is satisfied automatically.
+- Hint-based routes carry the intent-inferable categories (`capability`,
+  `privacy`); `cost` and `availability` are runtime operator overrides.
+
+It is validated in CI by `npm run check:ai-routing-policy` (tools-free coherence:
+OpenAI/Codex default preserved, every route categorized, doc lists all four
+categories). `npm run check:ai-stack` additionally probes local tool presence.
+
 ## Guardrails (unchanged)
 
 - No secrets in prompts, logs, commits, or handoffs.

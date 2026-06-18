@@ -11,6 +11,7 @@
     "check:seis-master-prompt-v14": "node scripts/check-seis-master-prompt-v14.mjs",
     "check:release-sync": "node scripts/check-release-sync.cjs",
     "check:ai-stack": "node scripts/check-ai-stack.cjs",
+    "check:ai-routing-policy": "node scripts/check-ai-routing-policy.cjs",
     "check:cloud-environment": "node scripts/check-cloud-environment.cjs",
     "check:plugin-environment-sources": "node scripts/sync-plugin-environment-sources.cjs --check",
     "check:plugin-capability-lanes": "node scripts/create-plugin-capability-lanes.cjs --check",
