@@ -86,6 +86,34 @@ if (model) {
     "model must list maturity stages 0..5",
   );
 
+  // Maturity mapping reconciles V14 stages with the operational evolution model.
+  const mapping = model.maturityMapping;
+  ensure(mapping && typeof mapping === "object", "model must define maturityMapping");
+  if (mapping) {
+    const mapped = Array.isArray(mapping.stages) ? mapping.stages : [];
+    ensure(mapped.length === 6, "maturityMapping must cover all six V14 stages");
+    for (let stage = 0; stage <= 5; stage += 1) {
+      ensure(
+        mapped.some((entry) => entry.stage === stage && Array.isArray(entry.evolutionLevels)),
+        `maturityMapping missing stage ${stage} with evolutionLevels`,
+      );
+    }
+    // Every referenced operational level must be a real evolution-model id.
+    const validLevels = new Set(["foundation", "experience", "automation", "platform"]);
+    for (const entry of mapped) {
+      for (const level of entry.evolutionLevels || []) {
+        ensure(
+          validLevels.has(level),
+          `maturityMapping stage ${entry.stage} references unknown evolution level "${level}"`,
+        );
+      }
+    }
+    ensure(
+      existsSync(mapping.operationalModel || ""),
+      "maturityMapping.operationalModel must point at an existing file",
+    );
+  }
+
   // Divergences must stay honest: each open item names which side is
   // authoritative so no silent strategy flip can hide here.
   const divergences = Array.isArray(model.divergences) ? model.divergences : [];

@@ -36,7 +36,10 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   - *Model-agnostic vs OpenAI-first* → **hybrid**: OpenAI/Codex stays the default,
     with task-based routing exceptions. Added
     `docs/platform/hybrid-ai-routing-policy.md`.
-  - The maturity-vocabulary divergence remains open (cross-linked).
+  - *Maturity vocabulary* → **mapping** (`docs/decisions/seis-maturity-model-unification.md`):
+    V14 Stages are the strategic horizon; evolution-model Levels 1–4 instrument
+    Stages 1–3; Stages 4–5 are uninstrumented horizon. The operational model and
+    its CI check are unchanged. All three V14 divergences are now resolved.
 
 ### Notes
 
