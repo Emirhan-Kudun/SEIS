@@ -8,6 +8,10 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Machine-readable AI routing record.** Added
+  `content/governance/ai-routing-policy.json` as the documented record of the
+  routing policy; `check:ai-routing-policy` now asserts the JSON, the executable
+  module, and the doc stay in sync (single source of truth: doc + JSON + code).
 - **Executable AI routing policy.** Tagged each route in
   `scripts/ai-routing-policy.cjs` with its hybrid-policy category
   (`capability`/`privacy`), added `explainRoute()` (returns tool + category +

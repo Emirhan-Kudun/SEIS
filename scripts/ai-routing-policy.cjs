@@ -1,6 +1,8 @@
 // SEIS AI auto-routing policy (executable form of the hybrid routing decision).
 //
 // Documented policy: docs/platform/hybrid-ai-routing-policy.md
+// Machine-readable:   content/governance/ai-routing-policy.json (kept in sync by
+//                     check:ai-routing-policy — doc + JSON + code must agree)
 // Resolution ADR:     docs/decisions/seis-hybrid-governance-resolution.md
 //
 // Hybrid model: OpenAI/Codex is the default writer/runtime. A different tool is
