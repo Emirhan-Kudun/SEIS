@@ -1,0 +1,15 @@
+{
+  "id": "seis-open-modules",
+  "version": 1,
+  "model": "hybrid: closed core by default; modules listed here are open source via their own LICENSE",
+  "adr": "docs/decisions/seis-hybrid-governance-resolution.md",
+  "modules": [
+    {
+      "path": "packages/design-tokens",
+      "name": "@seis/design-tokens",
+      "license": "MIT",
+      "maintainer": "emirhankudun-ux",
+      "openedOn": "2026-06-18"
+    }
+  ]
+}

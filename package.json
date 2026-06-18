@@ -12,6 +12,8 @@
     "check:release-sync": "node scripts/check-release-sync.cjs",
     "check:ai-stack": "node scripts/check-ai-stack.cjs",
     "check:ai-routing-policy": "node scripts/check-ai-routing-policy.cjs",
+    "check:doc-links": "node scripts/check-doc-links.mjs",
+    "check:open-modules": "node scripts/check-open-modules.cjs",
     "check:cloud-environment": "node scripts/check-cloud-environment.cjs",
     "check:plugin-environment-sources": "node scripts/sync-plugin-environment-sources.cjs --check",
     "check:plugin-capability-lanes": "node scripts/create-plugin-capability-lanes.cjs --check",
