@@ -1,0 +1,23 @@
+# SEIS Architecture
+
+This file is a stable entry point. The architecture lives in the documents below;
+this page only points to them so the canonical `ARCHITECTURE.md` path resolves
+without duplicating content.
+
+## Canonical architecture
+
+- Platform shape and repository boundaries:
+  [`docs/platform/seis-closed-code-architecture.md`](./docs/platform/seis-closed-code-architecture.md)
+- Web and mobile foundation:
+  [`docs/architecture/web-mobile-foundation.md`](./docs/architecture/web-mobile-foundation.md)
+- Animation system:
+  [`docs/architecture/animation-system-plan.md`](./docs/architecture/animation-system-plan.md)
+- Case-study detail route:
+  [`docs/architecture/case-study-detail-route-proposal.md`](./docs/architecture/case-study-detail-route-proposal.md)
+
+## Decisions
+
+Architecture decisions are recorded as ADRs in
+[`docs/decisions`](./docs/decisions). Highest-level direction lives in the
+[SEIS V14 constitution](./docs/governance/seis-master-prompt-v14.md); concrete
+current rules live in [`AGENTS.md`](./AGENTS.md).

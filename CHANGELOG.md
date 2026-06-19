@@ -6,6 +6,20 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Added
+
+- **Foundation path alignment (V14 scan, Phase 1).** Added root `ARCHITECTURE.md`
+  and `ROADMAP.md` as thin pointers to the canonical docs (no content duplicated),
+  and brought both under the `check:doc-links` gate.
+- **Release artifacts policy (Phase 2).** Documented in
+  `docs/deployment/release-artifacts-policy.md` that `releases/*.zip` are
+  intentionally tracked and load-bearing for restore/deploy — not to be deleted.
+- **Sources mirror ADR (Phase 3).** `docs/decisions/sources-vendored-mirror-policy.md`
+  classifies `sources/` as a read-only vendored mirror, not the source of truth.
+- **Closed-code check alias (Phase 4).** Added the `check:seis-closed-code` npm
+  alias for the boundary check already enforced by the
+  `seis-closed-code-governance` workflow.
+
 ### Changed
 
 - **Cockpit status badges use the `@seis/ui` primitive.** `cockpit.js` now emits
