@@ -42,7 +42,9 @@ The **operating cockpit** (`apps/web/cockpit.html` + `src/styles/cockpit.css`)
 now consumes the system: its local `--ck-*` palette is sourced from `--seis-*`
 tokens (with prior hex values as fallbacks), and the build
 (`scripts/build-static.mjs`) vendors both `@seis/design-tokens` and `@seis/ui`
-into `assets/styles/` and rewrites the cockpit's references for deploy.
+into `assets/styles/` and rewrites the cockpit's references for deploy. Its status
+badges, panels, and status tables now use the `@seis/ui` primitives
+(`.seis-badge`, `.seis-card`, `.seis-table`); cockpit CSS only adds density tweaks.
 
 The `apps/web` surface is bound to this system as the single source of truth:
 `npm run check:design-system` verifies every `--seis-*` token referenced in

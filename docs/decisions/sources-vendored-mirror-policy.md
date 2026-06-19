@@ -31,8 +31,11 @@ offline analysis. It is **not** the source of truth for those projects.
 - Reviews and searches can stay in one repository without granting write intent.
 - Drift between a mirror and its upstream is expected; the upstream wins.
 
-## Follow-up (not in this change)
+## Enforcement
 
-A lightweight `check:sources-mirror` script could record each mirror's source
-commit and warn on drift. Deferred until there is a concrete refresh workflow to
-gate.
+`npm run check:sources-mirror` (`scripts/check-sources-mirror.mjs`) records a
+content digest per mirror in
+[`content/governance/sources-mirror.json`](../../content/governance/sources-mirror.json)
+and fails when a mirror's tree drifts from that record, so accidental local edits
+to `sources/` are caught in CI (wired into the foundation-check workflow). A
+legitimate mirror refresh re-runs `npm run check:sources-mirror -- --write`.
