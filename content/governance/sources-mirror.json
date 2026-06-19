@@ -1,0 +1,27 @@
+{
+  "policy": "docs/decisions/sources-vendored-mirror-policy.md",
+  "note": "Read-only vendored mirror digests. Regenerate with: npm run check:sources-mirror -- --write",
+  "generated": "2026-06-19T10:17:51.852Z",
+  "mirrors": {
+    "sources/docs": {
+      "files": 36,
+      "digest": "e96bdee9e4dbaff1eb6f13fa158a59c994b861dd4b2d4846a66334f63fddeb34"
+    },
+    "sources/emirhan-kudun-portfolio": {
+      "files": 210,
+      "digest": "901e8fe4266a168f8e1796b1ceb130244dfa6861b783dff2a915138821391451"
+    },
+    "sources/github-unified-source": {
+      "files": 11,
+      "digest": "af7b75288fe315271107e6bbe5246871745211d15c4d567b243fcc027d288188"
+    },
+    "sources/memories": {
+      "files": 5,
+      "digest": "8d213393703d46c939d1c63d563445adb7047315a6a9c3f676c3bf26881b06d7"
+    },
+    "sources/seis-trusted-marketplace-plugin": {
+      "files": 26,
+      "digest": "c18afac4ca3ffb5bfba6b26570116d2f76586a3370b1ef4967131a563f7c6012"
+    }
+  }
+}

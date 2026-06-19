@@ -103,10 +103,9 @@ body.cockpit {
   align-content: start;
 }
 
+/* Panels wear the @seis/ui .seis-card primitive (see cockpit.html); this only
+   tightens padding for the dense operational layout. */
 .panel {
-  background: var(--ck-surface);
-  border: 1px solid var(--ck-border);
-  border-radius: 8px;
   padding: 12px 14px;
 }
 .panel h2 {
@@ -118,25 +117,15 @@ body.cockpit {
   color: var(--ck-muted);
 }
 
-.status-table {
-  width: 100%;
-  border-collapse: collapse;
+/* Status tables wear the @seis/ui .seis-table primitive (see cockpit.js); this
+   only tightens type and padding for the dense operational layout. */
+body.cockpit .seis-table {
   font-size: 13px;
 }
-.status-table th,
-.status-table td {
-  text-align: left;
+body.cockpit .seis-table th,
+body.cockpit .seis-table td {
   padding: 4px 8px 4px 0;
-  border-bottom: 1px solid var(--ck-border);
-  vertical-align: top;
 }
-.status-table th {
-  color: var(--ck-muted);
-  font-weight: 500;
-  white-space: nowrap;
-}
-.status-table tr:last-child th,
-.status-table tr:last-child td { border-bottom: none; }
 
 .mono { font-family: var(--ck-mono); font-size: 12px; }
 

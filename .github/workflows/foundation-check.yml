@@ -24,3 +24,4 @@ jobs:
           npm run check:foundation
           npm run check:governance
           npm run check:access-targets
+          npm run check:sources-mirror

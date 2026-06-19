@@ -28,7 +28,7 @@
   const statusTable = (rows) =>
     el(
       "table",
-      { class: "status-table" },
+      { class: "seis-table" },
       rows.map(([label, value]) =>
         el("tr", {}, [
           el("th", { scope: "row", text: label }),

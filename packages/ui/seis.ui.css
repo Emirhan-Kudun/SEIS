@@ -115,6 +115,32 @@
   font-weight: 600;
 }
 
+/* Table --------------------------------------------------------------------- */
+.seis-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--seis-text);
+}
+
+.seis-table th,
+.seis-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem 0.4rem 0;
+  border-bottom: 1px solid var(--seis-border);
+  vertical-align: top;
+}
+
+.seis-table th {
+  color: var(--seis-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.seis-table tr:last-child th,
+.seis-table tr:last-child td {
+  border-bottom: none;
+}
+
 /* Link ---------------------------------------------------------------------- */
 .seis-link {
   color: var(--seis-teal);

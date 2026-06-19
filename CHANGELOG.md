@@ -24,6 +24,14 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Cockpit panels & tables wear `@seis/ui` primitives.** `cockpit.html` panels
+  now use `.seis-card` and `cockpit.js` status tables use the new `.seis-table`
+  primitive (added to `packages/ui/seis.ui.css`); cockpit CSS keeps only density
+  tweaks. The bespoke `.panel`/`.status-table` base rules were removed.
+- **`sources/` mirror drift guard.** Added `check:sources-mirror`
+  (`scripts/check-sources-mirror.mjs` + `content/governance/sources-mirror.json`)
+  which records a content digest per vendored mirror and fails on drift, enforcing
+  the read-only mirror ADR. Wired into the foundation-check workflow.
 - **Foundation path alignment (V14 scan, Phase 1).** Added root `ARCHITECTURE.md`
   and `ROADMAP.md` as thin pointers to the canonical docs (no content duplicated),
   and brought both under the `check:doc-links` gate.
