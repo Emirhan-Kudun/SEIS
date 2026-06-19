@@ -28,6 +28,30 @@ closed-unmerged work to rescue; the history is clean. Non-merged PRs:
 
 No PRs were unsafe, duplicate-needing-deletion, or unrecoverable.
 
+### PR #10 rebase assessment (2026-06-19)
+
+#10 is **14 commits behind `main`** (base `8a54181`). A local rebase/merge dry-run
+(`git merge-tree`, no push) shows it is **recoverable**:
+
+- **Real conflicts (2):** `apps/web/src/styles/cockpit.css` (its visual refresh is
+  largely **superseded** by the design-system rework in #19–#24 — reconcile or
+  drop, do not force-apply) and `data/secret-scan-results.json` (trivial data
+  conflict — take `main`'s current scan).
+- **Auto-mergeable overlap (3):** `apps/web/cockpit.html`,
+  `apps/web/src/scripts/cockpit.js`, `package.json`.
+- **Net-new, non-conflicting value (14 files):** roadmap panel
+  (`data/roadmap-status.json`), automation kill-switch
+  (`data/automation-registry.json` + `scripts/check-automation-registry.mjs`),
+  three decision records (error-tracking/rollback-contract/automation-kill-switch),
+  three research notes, and Convex schema/queries + generators
+  (`apps/fullstack/convex/*`).
+
+**Recommendation:** recover the 14 net-new files + the decision records onto a
+fresh branch off current `main`; reconcile cockpit.html/js against the shipped
+design system; drop the superseded cockpit.css refresh; take `main`'s
+secret-scan-results. **Do not** force-push #10's branch without explicit
+authorization (V16 §4); **do not** auto-merge or close #10.
+
 ## Closed PR rescue plan
 
 - **Safe work to recover:** none outstanding — all useful closed PRs already
