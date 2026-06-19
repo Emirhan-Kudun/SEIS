@@ -16,6 +16,10 @@ without duplicating content.
   [`docs/architecture/data-model.md`](./docs/architecture/data-model.md)
 - API & provider-adapter design:
   [`docs/architecture/api-design.md`](./docs/architecture/api-design.md)
+- Component map (module relationships):
+  [`docs/architecture/component-map.md`](./docs/architecture/component-map.md)
+- Deployment topology:
+  [`docs/architecture/deployment-topology.md`](./docs/architecture/deployment-topology.md)
 - Web and mobile foundation:
   [`docs/architecture/web-mobile-foundation.md`](./docs/architecture/web-mobile-foundation.md)
 - Animation system:
