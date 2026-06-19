@@ -2,8 +2,27 @@
 
 Structured, versioned prompts for SEIS AI Core.
 
-Status: **specification** (SEIS Prompt Engine v0.1). Closed-code by default; see
+Status: **executable** (SEIS Prompt Engine v0.1). Closed-code by default; see
 [`open-modules.json`](../../content/governance/open-modules.json).
+
+## Use it
+
+```js
+const { listTemplates, render } = require("@seis/prompt-engine"); // packages/prompt-engine/index.cjs
+render("pr-review", { pr_diff: "...", pr_context: "..." }); // → { text, missing, version }
+```
+
+CLI:
+
+```bash
+npm run prompt                                   # list templates
+npm run prompt -- repository-scan                # render (unfilled placeholders kept)
+npm run prompt -- pr-review pr_diff=... pr_context=...
+```
+
+Templates stay the source of truth ([`prompt-format.md`](./prompt-format.md)); the
+loader substitutes `{{placeholders}}` and reports any left unfilled. Validated by
+`npm run check:prompt-engine` (in `check:governance`).
 
 ## Manages
 
