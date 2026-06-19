@@ -14,7 +14,7 @@ phase starts before the prior gate passes.
 | 0 — Audit | baseline, capacity, gap analysis | docs exist; capacity measured | **done** |
 | 1 — Constitution | charter, spec, this roadmap | docs reviewed | **in progress** |
 | 2 — Architecture | ADRs comparing families (decoder-only / MoE / SSM / hybrid / retrieval / multimodal) with evidence | ADRs under `docs/decisions/` | **in progress** |
-| 3 — Data & tokenizer | provenance/license-tracked data pipeline + tokenizer study | reproducible dataset manifests + tokenizer report | not started |
+| 3 — Data & tokenizer | provenance/license-tracked data pipeline + tokenizer study | reproducible dataset manifests + tokenizer report | **in progress** (governance + study docs landed) |
 | 4 — Nano model | original small model trained from scratch | loss ↓, checkpoint restore, tiny-set overfit, eval runs, resumable | not started |
 | 5 — Training platform | scalable, resumable, tracked training | distributed run reproducible | not started |
 | 6 — Capabilities | measurable curricula (TR/EN, code, repo, math, design, tools, safety) | per-stage eval gates | not started |
@@ -35,7 +35,12 @@ phase starts before the prior gate passes.
 
 ## Next concrete step
 
-Phase 3: data-governance + tokenizer study (provenance/license-tracked). The
-first Phase 2 architecture ADR is recorded at
-[`docs/decisions/ai-model-architecture-family.md`](../decisions/ai-model-architecture-family.md)
-(decoder-only nano start) — docs/reasoning only, no code, no training.
+Phase 3 governance is documented in
+[`SEIS_DATA_GOVERNANCE.md`](./SEIS_DATA_GOVERNANCE.md) +
+[`SEIS_TOKENIZER_STUDY.md`](./SEIS_TOKENIZER_STUDY.md); the Phase 2 architecture
+ADR is at
+[`docs/decisions/ai-model-architecture-family.md`](../decisions/ai-model-architecture-family.md).
+Remaining Phase 3 work (a tokenizer comparison report + recommendation ADR)
+requires representative corpora and is **not** runnable in the CI sandbox. The
+next sandbox-feasible step is the **Phase 4 nano model spec** — docs/code design
+only; no training until hardware is measured (§19).
