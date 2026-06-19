@@ -18,7 +18,7 @@ existing [`lightweight-checks.md`](./lightweight-checks.md) and the governance
 | Accessibility | WCAG 2.2 AA, keyboard, reduced motion | cockpit panels (V16 §28) |
 | Security / permission | authz, secret redaction, capability limits | secret scan, permission tests |
 | Failure-path | cancellation, retry, recovery | automation + remote ops |
-| Research (future) | tokenizer, training smoke, checkpoint restore, prompt regression | SEIS Universe (V16 §18) |
+| Research | nano training smoke + checkpoint restore + determinism | `npm run check:nano` (skip-safe; tokenizer/prompt-regression future, V16 §18) |
 
 ## What to run now
 
@@ -26,6 +26,7 @@ existing [`lightweight-checks.md`](./lightweight-checks.md) and the governance
 npm run check:governance     # constitution, ai-routing-policy, ai-core, open-modules, doc-links, design-system
 npm run check:foundation
 npm run check:workspace
+npm run check:nano            # nano model smoke test (skip-safe if no python3)
 npm test --if-present
 ```
 

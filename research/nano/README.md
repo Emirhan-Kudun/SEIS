@@ -30,6 +30,16 @@ python3 nano_model.py resume --epochs 200 --out runs/ckpt.json
 python3 nano_model.py gen    --out runs/ckpt.json --length 90
 ```
 
+## Regression gate
+
+A deterministic smoke test enforces the pipeline (loss decreases, checkpoint
+round-trips losslessly, fixed-seed determinism):
+
+```bash
+npm run check:nano        # from repo root; skip-safe if python3 is absent
+# or: python3 research/nano/smoke_test.py
+```
+
 ## Observed results (2026-06-19, CPU sandbox)
 
 - **Loss decreases:** `2.9571 → 0.0490` over 400 epochs; `resume` continued to
