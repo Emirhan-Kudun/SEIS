@@ -22,6 +22,7 @@ const consolidation = read("data/github-repository-consolidation.json");
 const workspace = read("integrations/google-workspace.json");
 const securityGates = read("data/security-gate-status.json");
 const languageVersions = read("content/governance/seis-language-versions.json");
+const routerPolicy = read("content/governance/ai-routing-policy.json");
 const sourcesManifest = readFileSync(resolve(root, "sources/README.md"), "utf8");
 
 const laneLabels = {
@@ -112,6 +113,15 @@ const status = {
       status: v.status,
       scope: v.scope,
     })),
+    router: {
+      default: routerPolicy.default,
+      model: routerPolicy.model,
+      routes: routerPolicy.routes.map((r) => ({
+        tool: r.tool,
+        category: r.category,
+        hintCount: r.hints.length,
+      })),
+    },
   },
   workspace: {
     drive: Object.entries(workspace.drive).map(([id, doc]) => ({

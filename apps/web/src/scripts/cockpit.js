@@ -182,6 +182,21 @@
         ]),
       ]),
     ),
+    el("h3", { text: "Model router" }),
+    statusTable([
+      ["Default route", el("span", {}, [badge(status.ai.router.default, "accent")])],
+      [
+        "Exceptions",
+        el(
+          "span",
+          {},
+          status.ai.router.routes.map((r) =>
+            badge(`${r.tool} · ${r.category} (${r.hintCount})`),
+          ),
+        ),
+      ],
+    ]),
+    el("p", { class: "note", text: status.ai.router.model }),
     el(
       "ul",
       { class: "link-list" },

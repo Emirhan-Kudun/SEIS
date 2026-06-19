@@ -189,7 +189,43 @@ window.SEIS_COCKPIT_STATUS = {
         "status": "draft",
         "scope": "Cockpit-facing product intelligence for how AI Core surfaces in apps/web."
       }
-    ]
+    ],
+    "router": {
+      "default": "codex",
+      "model": "hybrid: OpenAI/Codex default + task-based exceptions",
+      "routes": [
+        {
+          "tool": "ollama",
+          "category": "privacy",
+          "hintCount": 6
+        },
+        {
+          "tool": "gemini",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "interpreter",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "aider",
+          "category": "capability",
+          "hintCount": 7
+        },
+        {
+          "tool": "claude",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "kimi",
+          "category": "capability",
+          "hintCount": 5
+        }
+      ]
+    }
   },
   "workspace": {
     "drive": [
