@@ -21,9 +21,18 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   missing `.seis-badge--accent` variant to the design system. NOTE: badge colors
   shift to the design-system palette (e.g. positive = teal); not rendered in this
   environment — review a preview before relying on it.
+- **Remaining cockpit helpers documented as deliberately local.** `.mono`,
+  `.lane-list`, `.link-list`, `.note`, `.count` are recorded (in `cockpit.css` and
+  the design-system doc) as intentional single-surface utilities, not candidates
+  for `@seis/ui` primitives — closing the cockpit ↔ design-system boundary.
 
 ### Added
 
+- **`sources/` upstream-drift tracking.** `sources-mirror.json` now records each
+  mirror's upstream import provenance (repo, branch, commit, date) parsed from
+  `sources/README.md`; `check:sources-mirror` asserts manifest ↔ README stay in
+  sync, and an opt-in `--remote` mode compares the imported commit against the
+  live upstream HEAD to report staleness (not wired into CI).
 - **Cockpit panels & tables wear `@seis/ui` primitives.** `cockpit.html` panels
   now use `.seis-card` and `cockpit.js` status tables use the new `.seis-table`
   primitive (added to `packages/ui/seis.ui.css`); cockpit CSS keeps only density
