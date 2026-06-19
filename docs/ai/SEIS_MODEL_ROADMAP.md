@@ -13,7 +13,7 @@ phase starts before the prior gate passes.
 |---|---|---|---|
 | 0 — Audit | baseline, capacity, gap analysis | docs exist; capacity measured | **done** |
 | 1 — Constitution | charter, spec, this roadmap | docs reviewed | **in progress** |
-| 2 — Architecture | ADRs comparing families (decoder-only / MoE / SSM / hybrid / retrieval / multimodal) with evidence | ADRs under `docs/adr/ai/` | not started |
+| 2 — Architecture | ADRs comparing families (decoder-only / MoE / SSM / hybrid / retrieval / multimodal) with evidence | ADRs under `docs/decisions/` | **in progress** |
 | 3 — Data & tokenizer | provenance/license-tracked data pipeline + tokenizer study | reproducible dataset manifests + tokenizer report | not started |
 | 4 — Nano model | original small model trained from scratch | loss ↓, checkpoint restore, tiny-set overfit, eval runs, resumable | not started |
 | 5 — Training platform | scalable, resumable, tracked training | distributed run reproducible | not started |
@@ -35,5 +35,7 @@ phase starts before the prior gate passes.
 
 ## Next concrete step
 
-Phase 2: open `docs/adr/ai/` with the first architecture-family comparison ADR —
-docs/reasoning only, no code, no training.
+Phase 3: data-governance + tokenizer study (provenance/license-tracked). The
+first Phase 2 architecture ADR is recorded at
+[`docs/decisions/ai-model-architecture-family.md`](../decisions/ai-model-architecture-family.md)
+(decoder-only nano start) — docs/reasoning only, no code, no training.

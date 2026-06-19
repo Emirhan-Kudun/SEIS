@@ -32,7 +32,8 @@ exist yet:
    modalities, context target, success criteria, non-goals →
    `docs/ai/SEIS_MODEL_CONSTITUTION.md`, `SEIS_MODEL_SPECIFICATION.md`.
 2. **Phase 2 — Architecture ADRs** comparing decoder-only / MoE / SSM / hybrid
-   with evidence → `docs/adr/ai/`.
+   with evidence → `docs/decisions/` (started:
+   [`ai-model-architecture-family.md`](../decisions/ai-model-architecture-family.md)).
 3. **Phase 3 — Data & tokenizer governance** (manifests, provenance, licensing).
 4. **Phase 4 — Original nano model**: prove the full loop end-to-end on the
    observed CPU sandbox before any scaling.
