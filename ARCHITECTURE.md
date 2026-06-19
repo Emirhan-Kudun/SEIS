@@ -10,6 +10,8 @@ without duplicating content.
   [`docs/platform/seis-closed-code-architecture.md`](./docs/platform/seis-closed-code-architecture.md)
 - AI Core application layer (model router, agent runtime, prompt engine, evals):
   [`docs/platform/seis-ai-core.md`](./docs/platform/seis-ai-core.md)
+- Command Center operating interface (cockpit module map + evolution):
+  [`docs/architecture/seis-command-center.md`](./docs/architecture/seis-command-center.md)
 - Web and mobile foundation:
   [`docs/architecture/web-mobile-foundation.md`](./docs/architecture/web-mobile-foundation.md)
 - Animation system:
