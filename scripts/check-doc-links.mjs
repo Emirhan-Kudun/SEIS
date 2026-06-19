@@ -13,6 +13,8 @@ const roots = [
   "SECURITY.md",
   "CHANGELOG.md",
   "AGENTS.md",
+  "ARCHITECTURE.md",
+  "ROADMAP.md",
   "docs/governance",
   "docs/decisions",
   "docs/design",

@@ -15,9 +15,26 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   cockpit's references for deploy. `check:design-system` now also verifies this
   pipeline. NOTE: the visual result was not rendered in this environment and the
   macOS-only `build-static.mjs` was not executed — review a preview before merge.
+- **Cockpit status badges use the `@seis/ui` primitive.** `cockpit.js` now emits
+  `.seis-badge` (with `--ok`/`--warn`/`--accent` modifiers) instead of a bespoke
+  `.badge`; the cockpit loads `seis.ui.css` and only tightens density. Added the
+  missing `.seis-badge--accent` variant to the design system. NOTE: badge colors
+  shift to the design-system palette (e.g. positive = teal); not rendered in this
+  environment — review a preview before relying on it.
 
 ### Added
 
+- **Foundation path alignment (V14 scan, Phase 1).** Added root `ARCHITECTURE.md`
+  and `ROADMAP.md` as thin pointers to the canonical docs (no content duplicated),
+  and brought both under the `check:doc-links` gate.
+- **Release artifacts policy (Phase 2).** Documented in
+  `docs/deployment/release-artifacts-policy.md` that `releases/*.zip` are
+  intentionally tracked and load-bearing for restore/deploy — not to be deleted.
+- **Sources mirror ADR (Phase 3).** `docs/decisions/sources-vendored-mirror-policy.md`
+  classifies `sources/` as a read-only vendored mirror, not the source of truth.
+- **Closed-code check alias (Phase 4).** Added the `check:seis-closed-code` npm
+  alias for the boundary check already enforced by the
+  `seis-closed-code-governance` workflow.
 - **Governance aggregate + surface binding.** Added `npm run check:governance`
   (one entry point running constitution + ai-routing-policy + open-modules +
   doc-links + design-system; foundation CI now calls it). Added

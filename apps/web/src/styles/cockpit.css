@@ -140,19 +140,15 @@ body.cockpit {
 
 .mono { font-family: var(--ck-mono); font-size: 12px; }
 
-.badge {
-  display: inline-block;
+/* Badges now use the @seis/ui .seis-badge primitive (see cockpit.js). This only
+   tightens it for the dense operational layout — colors and pill shape come from
+   the design system. */
+body.cockpit .seis-badge {
   padding: 1px 8px;
-  border-radius: 999px;
   font-size: 11px;
   font-family: var(--ck-mono);
-  border: 1px solid var(--ck-border);
-  color: var(--ck-muted);
   white-space: nowrap;
 }
-.badge.ok { color: var(--ck-ok); border-color: rgba(74, 222, 128, 0.4); }
-.badge.warn { color: var(--ck-warn); border-color: rgba(251, 191, 36, 0.4); }
-.badge.accent { color: var(--ck-accent); border-color: rgba(91, 192, 190, 0.4); }
 
 .lane-list { list-style: none; margin: 0; padding: 0; }
 .lane-list li {

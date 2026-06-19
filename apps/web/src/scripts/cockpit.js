@@ -20,7 +20,10 @@
     return node;
   };
 
-  const badge = (text, tone = "") => el("span", { class: `badge ${tone}`.trim(), text });
+  // Wears the @seis/ui badge primitive; tones map to its modifiers.
+  const badgeMod = { ok: "seis-badge--ok", warn: "seis-badge--warn", accent: "seis-badge--accent" };
+  const badge = (text, tone = "") =>
+    el("span", { class: badgeMod[tone] ? `seis-badge ${badgeMod[tone]}` : "seis-badge", text });
 
   const statusTable = (rows) =>
     el(
