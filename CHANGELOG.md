@@ -8,6 +8,12 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Changed
 
+- **Cockpit status badges use the `@seis/ui` primitive.** `cockpit.js` now emits
+  `.seis-badge` (with `--ok`/`--warn`/`--accent` modifiers) instead of a bespoke
+  `.badge`; the cockpit loads `seis.ui.css` and only tightens density. Added the
+  missing `.seis-badge--accent` variant to the design system. NOTE: badge colors
+  shift to the design-system palette (e.g. positive = teal); not rendered in this
+  environment — review a preview before relying on it.
 - **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now
   sources its `--ck-*` palette from `--seis-*` design tokens (prior hex values
   kept as fallbacks for visual stability), `cockpit.html` loads the tokens, and

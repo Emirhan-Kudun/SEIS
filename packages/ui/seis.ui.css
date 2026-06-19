@@ -98,6 +98,7 @@
 .seis-badge--ok { color: var(--seis-teal); }
 .seis-badge--warn { color: var(--seis-gold); }
 .seis-badge--alert { color: var(--seis-rose); }
+.seis-badge--accent { color: var(--seis-teal); border-color: var(--seis-teal); }
 
 /* Card ---------------------------------------------------------------------- */
 .seis-card {
