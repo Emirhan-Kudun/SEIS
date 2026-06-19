@@ -18,7 +18,7 @@ phase starts before the prior gate passes.
 | 4 — Nano model | original small model trained from scratch | loss ↓, checkpoint restore, tiny-set overfit, eval runs, resumable | **done** ([`SEIS_NANO_MODEL.md`](./SEIS_NANO_MODEL.md), [`research/nano/`](../../research/nano/README.md)) |
 | 5 — Training platform | scalable, resumable, tracked training | distributed run reproducible | not started |
 | 6 — Capabilities | measurable curricula (TR/EN, code, repo, math, design, tools, safety) | per-stage eval gates | not started |
-| 7 — Evaluation lab | permanent eval suite + promotion gates | contamination-resistant gates green | not started |
+| 7 — Evaluation lab | permanent eval suite + promotion gates | contamination-resistant gates green | **bootstrapped** (runnable harness + nano regression gate; see [`SEIS_EVALUATION.md`](./SEIS_EVALUATION.md)) |
 | 8 — Universe system | registry, router, inference, tools, observability | end-to-end serving | not started |
 | 9 — Multimodal | text→docs→image→audio→video, incrementally | per-modality gate + safety | not started |
 
