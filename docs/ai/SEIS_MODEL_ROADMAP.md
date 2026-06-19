@@ -15,7 +15,7 @@ phase starts before the prior gate passes.
 | 1 — Constitution | charter, spec, this roadmap | docs reviewed | **in progress** |
 | 2 — Architecture | ADRs comparing families (decoder-only / MoE / SSM / hybrid / retrieval / multimodal) with evidence | ADRs under `docs/decisions/` | **in progress** |
 | 3 — Data & tokenizer | provenance/license-tracked data pipeline + tokenizer study | reproducible dataset manifests + tokenizer report | **in progress** (governance + study docs landed) |
-| 4 — Nano model | original small model trained from scratch | loss ↓, checkpoint restore, tiny-set overfit, eval runs, resumable | not started |
+| 4 — Nano model | original small model trained from scratch | loss ↓, checkpoint restore, tiny-set overfit, eval runs, resumable | **done** ([`SEIS_NANO_MODEL.md`](./SEIS_NANO_MODEL.md), [`research/nano/`](../../research/nano/README.md)) |
 | 5 — Training platform | scalable, resumable, tracked training | distributed run reproducible | not started |
 | 6 — Capabilities | measurable curricula (TR/EN, code, repo, math, design, tools, safety) | per-stage eval gates | not started |
 | 7 — Evaluation lab | permanent eval suite + promotion gates | contamination-resistant gates green | not started |
@@ -42,5 +42,7 @@ ADR is at
 [`docs/decisions/ai-model-architecture-family.md`](../decisions/ai-model-architecture-family.md).
 Remaining Phase 3 work (a tokenizer comparison report + recommendation ADR)
 requires representative corpora and is **not** runnable in the CI sandbox. The
-next sandbox-feasible step is the **Phase 4 nano model spec** — docs/code design
-only; no training until hardware is measured (§19).
+**Phase 4 nano model** is implemented and its gate passed
+([`SEIS_NANO_MODEL.md`](./SEIS_NANO_MODEL.md)). Phase 5+ (scalable training)
+requires real, measured hardware and human approval to start training (§19, §32)
+— not feasible in the ephemeral CI sandbox.

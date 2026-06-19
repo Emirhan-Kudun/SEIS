@@ -42,6 +42,9 @@ id_rsa
 id_ed25519
 *.pem
 
+# SEIS Universe nano research — generated checkpoints/runs (not source)
+research/nano/runs/
+
 # Local sync safety
 .sync-backups/
 .serena/
