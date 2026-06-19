@@ -8,6 +8,7 @@
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
+    "content/governance/seis-language-versions.json",
     "sources/README.md",
     "docs/research/README.md"
   ],
@@ -154,6 +155,38 @@
     "notes": [
       "notes/2026-06-12-backend-state-reference.md",
       "notes/2026-06-13-auth-jwt-reference.md"
+    ]
+  },
+  "ai": {
+    "doc": "docs/platform/seis-ai-core.md",
+    "routerPolicy": "content/governance/ai-routing-policy.json",
+    "note": "Application layer over external providers — no SEIS-owned base model exists yet.",
+    "languageVersions": [
+      {
+        "id": "seis-language-v0.1",
+        "status": "draft",
+        "scope": "Umbrella application layer: external providers + SEIS prompt policy + router + agent roles + evals."
+      },
+      {
+        "id": "seis-model-router-v0.1",
+        "status": "draft",
+        "scope": "Task classification and provider/profile selection."
+      },
+      {
+        "id": "seis-agent-runtime-v0.1",
+        "status": "draft",
+        "scope": "Agent role definitions and input/output contracts."
+      },
+      {
+        "id": "seis-prompt-engine-v0.1",
+        "status": "draft",
+        "scope": "Prompt format, versioning, and templates."
+      },
+      {
+        "id": "seis-command-intelligence-v0.1",
+        "status": "draft",
+        "scope": "Cockpit-facing product intelligence for how AI Core surfaces in apps/web."
+      }
     ]
   },
   "workspace": {

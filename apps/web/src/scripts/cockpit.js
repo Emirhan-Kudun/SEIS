@@ -170,6 +170,29 @@
     }),
   );
 
+  // AI Center panel
+  const aiTone = { active: "ok", draft: "accent", superseded: "warn" };
+  panel("ai").append(
+    statusTable(
+      status.ai.languageVersions.map((v) => [
+        el("span", { class: "mono", text: v.id }),
+        el("span", {}, [
+          badge(v.status, aiTone[v.status] ?? ""),
+          document.createTextNode(` ${v.scope}`),
+        ]),
+      ]),
+    ),
+    el(
+      "ul",
+      { class: "link-list" },
+      [
+        el("li", {}, [el("span", { class: "mono", text: status.ai.doc })]),
+        el("li", {}, [el("span", { class: "mono", text: status.ai.routerPolicy })]),
+      ],
+    ),
+    el("p", { class: "note", text: status.ai.note }),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(
