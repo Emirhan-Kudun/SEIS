@@ -6,6 +6,22 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Changed
+
+- **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now
+  sources its `--ck-*` palette from `--seis-*` design tokens (prior hex values
+  kept as fallbacks for visual stability), `cockpit.html` loads the tokens, and
+  the static build vendors `@seis/design-tokens` + `@seis/ui` and rewrites the
+  cockpit's references for deploy. `check:design-system` now also verifies this
+  pipeline. NOTE: the visual result was not rendered in this environment and the
+  macOS-only `build-static.mjs` was not executed — review a preview before merge.
+- **Cockpit status badges use the `@seis/ui` primitive.** `cockpit.js` now emits
+  `.seis-badge` (with `--ok`/`--warn`/`--accent` modifiers) instead of a bespoke
+  `.badge`; the cockpit loads `seis.ui.css` and only tightens density. Added the
+  missing `.seis-badge--accent` variant to the design system. NOTE: badge colors
+  shift to the design-system palette (e.g. positive = teal); not rendered in this
+  environment — review a preview before relying on it.
+
 ### Added
 
 - **Foundation path alignment (V14 scan, Phase 1).** Added root `ARCHITECTURE.md`
@@ -19,25 +35,6 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 - **Closed-code check alias (Phase 4).** Added the `check:seis-closed-code` npm
   alias for the boundary check already enforced by the
   `seis-closed-code-governance` workflow.
-
-### Changed
-
-- **Cockpit status badges use the `@seis/ui` primitive.** `cockpit.js` now emits
-  `.seis-badge` (with `--ok`/`--warn`/`--accent` modifiers) instead of a bespoke
-  `.badge`; the cockpit loads `seis.ui.css` and only tightens density. Added the
-  missing `.seis-badge--accent` variant to the design system. NOTE: badge colors
-  shift to the design-system palette (e.g. positive = teal); not rendered in this
-  environment — review a preview before relying on it.
-- **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now
-  sources its `--ck-*` palette from `--seis-*` design tokens (prior hex values
-  kept as fallbacks for visual stability), `cockpit.html` loads the tokens, and
-  the static build vendors `@seis/design-tokens` + `@seis/ui` and rewrites the
-  cockpit's references for deploy. `check:design-system` now also verifies this
-  pipeline. NOTE: the visual result was not rendered in this environment and the
-  macOS-only `build-static.mjs` was not executed — review a preview before merge.
-
-### Added
-
 - **Governance aggregate + surface binding.** Added `npm run check:governance`
   (one entry point running constitution + ai-routing-policy + open-modules +
   doc-links + design-system; foundation CI now calls it). Added
