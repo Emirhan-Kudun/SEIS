@@ -32,7 +32,6 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   (`scripts/check-sources-mirror.mjs` + `content/governance/sources-mirror.json`)
   which records a content digest per vendored mirror and fails on drift, enforcing
   the read-only mirror ADR. Wired into the foundation-check workflow.
-
 - **Foundation path alignment (V14 scan, Phase 1).** Added root `ARCHITECTURE.md`
   and `ROADMAP.md` as thin pointers to the canonical docs (no content duplicated),
   and brought both under the `check:doc-links` gate.
