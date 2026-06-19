@@ -1,7 +1,7 @@
 {
   "policy": "docs/decisions/sources-vendored-mirror-policy.md",
   "note": "Read-only vendored mirror digests + import provenance (from sources/README.md). Regenerate with: npm run check:sources-mirror -- --write",
-  "generated": "2026-06-19T10:25:33.727Z",
+  "generated": "2026-06-19T10:27:41.942Z",
   "mirrors": {
     "sources/docs": {
       "files": 36,
