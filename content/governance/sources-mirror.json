@@ -1,27 +1,57 @@
 {
   "policy": "docs/decisions/sources-vendored-mirror-policy.md",
-  "note": "Read-only vendored mirror digests. Regenerate with: npm run check:sources-mirror -- --write",
-  "generated": "2026-06-19T10:17:51.852Z",
+  "note": "Read-only vendored mirror digests + import provenance (from sources/README.md). Regenerate with: npm run check:sources-mirror -- --write",
+  "generated": "2026-06-19T10:25:33.727Z",
   "mirrors": {
     "sources/docs": {
       "files": 36,
-      "digest": "e96bdee9e4dbaff1eb6f13fa158a59c994b861dd4b2d4846a66334f63fddeb34"
+      "digest": "e96bdee9e4dbaff1eb6f13fa158a59c994b861dd4b2d4846a66334f63fddeb34",
+      "upstream": {
+        "repo": "emirhankudun-ux/docs",
+        "branch": "main",
+        "importedCommit": "603c2299e19b8a3c82d45ece995e14ce9698753a",
+        "importedDate": "2026-06-10"
+      }
     },
     "sources/emirhan-kudun-portfolio": {
       "files": 210,
-      "digest": "901e8fe4266a168f8e1796b1ceb130244dfa6861b783dff2a915138821391451"
+      "digest": "901e8fe4266a168f8e1796b1ceb130244dfa6861b783dff2a915138821391451",
+      "upstream": {
+        "repo": "emirhankudun-ux/emirhan-kudun-portfolio",
+        "branch": "codex/seis-ux-cinematic-premium-foundation",
+        "importedCommit": "5497b581b5e23cdb1ca4a55ba1eac373fbb0ae08",
+        "importedDate": "2026-06-10"
+      }
     },
     "sources/github-unified-source": {
       "files": 11,
-      "digest": "af7b75288fe315271107e6bbe5246871745211d15c4d567b243fcc027d288188"
+      "digest": "af7b75288fe315271107e6bbe5246871745211d15c4d567b243fcc027d288188",
+      "upstream": {
+        "repo": "emirhankudun-ux/github-unified-source",
+        "branch": "main",
+        "importedCommit": "8eaa5b11a6bce929782052f7a6fbb1dba95dc386",
+        "importedDate": "2026-06-10"
+      }
     },
     "sources/memories": {
       "files": 5,
-      "digest": "8d213393703d46c939d1c63d563445adb7047315a6a9c3f676c3bf26881b06d7"
+      "digest": "8d213393703d46c939d1c63d563445adb7047315a6a9c3f676c3bf26881b06d7",
+      "upstream": {
+        "repo": "emirhankudun-ux/memories",
+        "branch": "main",
+        "importedCommit": "548be481dc5188e5334ccf9cfe8a86533656df41",
+        "importedDate": "2026-06-10"
+      }
     },
     "sources/seis-trusted-marketplace-plugin": {
       "files": 26,
-      "digest": "c18afac4ca3ffb5bfba6b26570116d2f76586a3370b1ef4967131a563f7c6012"
+      "digest": "c18afac4ca3ffb5bfba6b26570116d2f76586a3370b1ef4967131a563f7c6012",
+      "upstream": {
+        "repo": "emirhankudun-ux/seis-trusted-marketplace-plugin",
+        "branch": "main",
+        "importedCommit": "7768d349e2d2c7e8bd41da8d848f5d6dad43251c",
+        "importedDate": "2026-06-10"
+      }
     }
   }
 }

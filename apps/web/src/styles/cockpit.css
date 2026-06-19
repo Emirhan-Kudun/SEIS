@@ -127,6 +127,11 @@ body.cockpit .seis-table td {
   padding: 4px 8px 4px 0;
 }
 
+/* Deliberately cockpit-local utilities. Reusable components (badge, card, table)
+   live in @seis/ui; the helpers below (.mono, .lane-list, .link-list, .note,
+   .count) are dense single-surface layout/typography utilities, not design-system
+   primitives. Per docs/design/seis-design-system.md, primitives are added only
+   when a real cross-surface need exists — promoting these would be speculative. */
 .mono { font-family: var(--ck-mono); font-size: 12px; }
 
 /* Badges now use the @seis/ui .seis-badge primitive (see cockpit.js). This only

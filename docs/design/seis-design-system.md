@@ -45,6 +45,10 @@ tokens (with prior hex values as fallbacks), and the build
 into `assets/styles/` and rewrites the cockpit's references for deploy. Its status
 badges, panels, and status tables now use the `@seis/ui` primitives
 (`.seis-badge`, `.seis-card`, `.seis-table`); cockpit CSS only adds density tweaks.
+The remaining cockpit helpers (`.mono`, `.lane-list`, `.link-list`, `.note`,
+`.count`) are **deliberately kept cockpit-local** — they are dense single-surface
+layout/typography utilities, not cross-surface components, so promoting them to
+primitives would be speculative.
 
 The `apps/web` surface is bound to this system as the single source of truth:
 `npm run check:design-system` verifies every `--seis-*` token referenced in
