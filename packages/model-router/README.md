@@ -3,8 +3,27 @@
 Application-layer model routing for SEIS AI Core. Classifies a task and selects a
 provider + model profile using a declarative policy — without hardcoding secrets.
 
-Status: **specification** (SEIS Model Router v0.1). Closed-code by default; see
+Status: **consumable** (SEIS Model Router v0.1). Closed-code by default; see
 [`open-modules.json`](../../content/governance/open-modules.json).
+
+## Use it
+
+The package re-exports the canonical routing logic (single source of truth in
+`scripts/ai-routing-policy.cjs`, validated by `npm run check:ai-routing-policy`):
+
+```js
+const { explainRoute } = require("@seis/model-router"); // packages/model-router/index.cjs
+explainRoute("translate this page to Turkish");
+// → { tool: "kimi", category: "capability", reason: 'capability exception matched on "translate"' }
+```
+
+Or from the CLI:
+
+```bash
+npm run route -- "refactor and rename this file"   # → aider (capability)
+npm run route -- "run a private offline model"     # → ollama (privacy)
+npm run route -- "release governance checklist"    # → codex (default)
+```
 
 ## Why it exists
 
