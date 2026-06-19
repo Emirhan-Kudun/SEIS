@@ -36,6 +36,30 @@
       "path": "packages/data",
       "decision": "keep-closed",
       "reason": "Proprietary inventory/analytics adapters."
+    },
+    {
+      "path": "packages/model-router",
+      "decision": "keep-closed",
+      "reason": "SEIS AI Core routing layer; closed by default until the interface stabilises.",
+      "evaluatedOn": "2026-06-19"
+    },
+    {
+      "path": "packages/agent-runtime",
+      "decision": "keep-closed",
+      "reason": "SEIS AI Core agent role contracts; closed by default (V14 core behaviour).",
+      "evaluatedOn": "2026-06-19"
+    },
+    {
+      "path": "packages/prompt-engine",
+      "decision": "keep-closed",
+      "reason": "SEIS prompt system and templates; closed by default until templates stabilise.",
+      "evaluatedOn": "2026-06-19"
+    },
+    {
+      "path": "packages/evals",
+      "decision": "keep-closed",
+      "reason": "SEIS AI Core evaluation criteria; closed by default (V14 core behaviour).",
+      "evaluatedOn": "2026-06-19"
     }
   ]
 }

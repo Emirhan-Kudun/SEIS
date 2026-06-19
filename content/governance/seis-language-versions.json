@@ -1,0 +1,45 @@
+{
+  "id": "seis-language-versions",
+  "version": 1,
+  "doc": "docs/platform/seis-language-versions.md",
+  "concept": "docs/platform/seis-ai-core.md",
+  "model": "application-layer behaviour bundles; not base-model weights",
+  "versions": [
+    {
+      "id": "seis-language-v0.1",
+      "status": "draft",
+      "scope": "Umbrella application layer: external providers + SEIS prompt policy + router + agent roles + evals.",
+      "governs": [
+        "content/governance/ai-routing-policy.json",
+        "packages/model-router",
+        "packages/agent-runtime",
+        "packages/prompt-engine",
+        "packages/evals"
+      ]
+    },
+    {
+      "id": "seis-model-router-v0.1",
+      "status": "draft",
+      "scope": "Task classification and provider/profile selection.",
+      "governs": ["content/governance/ai-routing-policy.json", "packages/model-router"]
+    },
+    {
+      "id": "seis-agent-runtime-v0.1",
+      "status": "draft",
+      "scope": "Agent role definitions and input/output contracts.",
+      "governs": ["packages/agent-runtime"]
+    },
+    {
+      "id": "seis-prompt-engine-v0.1",
+      "status": "draft",
+      "scope": "Prompt format, versioning, and templates.",
+      "governs": ["packages/prompt-engine"]
+    },
+    {
+      "id": "seis-command-intelligence-v0.1",
+      "status": "draft",
+      "scope": "Cockpit-facing product intelligence for how AI Core surfaces in apps/web.",
+      "governs": ["apps/web"]
+    }
+  ]
+}

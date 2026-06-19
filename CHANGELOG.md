@@ -28,6 +28,19 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **SEIS AI Core foundation.** Established the AI-native application layer as a
+  documented, governed subsystem (not a base model). Added the canonical identity
+  ([`docs/platform/seis-ai-core.md`](docs/platform/seis-ai-core.md)) and the
+  language-version concept
+  ([`docs/platform/seis-language-versions.md`](docs/platform/seis-language-versions.md))
+  backed by a machine-readable manifest
+  ([`content/governance/seis-language-versions.json`](content/governance/seis-language-versions.json)).
+  Added specification scaffolding for `packages/model-router`,
+  `packages/agent-runtime`, `packages/prompt-engine`, and `packages/evals`
+  (closed-code by default; recorded in `open-modules.json`), building on the
+  existing hybrid routing policy rather than duplicating it. A new
+  `check:ai-core` validator (wired into `check:governance` / CI) keeps the
+  manifest and its governed paths in sync. ARCHITECTURE.md links the layer.
 - **`sources/` upstream-drift tracking.** `sources-mirror.json` now records each
   mirror's upstream import provenance (repo, branch, commit, date) parsed from
   `sources/README.md`; `check:sources-mirror` asserts manifest ↔ README stay in
