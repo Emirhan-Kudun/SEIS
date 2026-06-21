@@ -13,6 +13,7 @@
     <title>SEIS AI · Hermes</title>
     <link rel="icon" href="./favicon.svg" />
     <link rel="stylesheet" href="./seis-ai.css" />
+    <link rel="stylesheet" href="./seis-ai.enhance.css" />
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="a11y.skip">İçeriğe geç</a>
@@ -23,15 +24,17 @@
           <span class="brand-mark">H</span>
           <span>SEIS AI<small>Hermes Orchestrator</small></span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
           <a href="#capabilities" data-i18n="nav.capabilities">Yetenekler</a>
           <a href="#agents" data-i18n="nav.agents">Alt Ajanlar</a>
           <a href="#plugins" data-i18n="nav.plugins">Eklentiler</a>
           <a href="#pricing" data-i18n="nav.pricing">Fiyatlandırma</a>
+          <a href="#faq" data-i18n="nav.faq">SSS</a>
           <a href="#about" data-i18n="nav.about">Hakkında</a>
           <a href="#contact" data-i18n="nav.contact">İletişim</a>
         </nav>
         <div class="header-actions">
+          <button class="nav-toggle" type="button" aria-label="Menü" aria-controls="site-nav" aria-expanded="false">☰</button>
           <div class="locale-switcher" data-locale-switcher aria-label="Dil / Language">
             <button class="locale-chip" data-lang="tr" type="button" aria-pressed="true">TR</button>
             <button class="locale-chip" data-lang="en" type="button" aria-pressed="false">EN</button>
@@ -61,6 +64,10 @@
               <div><strong>30+</strong><span data-i18n="hero.stat1l">Seçili eklenti</span></div>
               <div><strong>4</strong><span data-i18n="hero.stat2l">Platform şeridi</span></div>
               <div><strong>100%</strong><span data-i18n="hero.stat3l">Kapalı kod çekirdek</span></div>
+            </div>
+            <div class="labs">
+              <span class="label" data-i18n="labs.label">Güvenilir bloklar üzerine kurulu:</span>
+              <b>OpenAI · Codex</b><span class="sep">·</span><b>GitHub</b><span class="sep">·</span><b>Figma</b><span class="sep">·</span><b>Vercel</b><span class="sep">·</span><b>Supabase</b>
             </div>
           </div>
           <div class="hero-visual reveal is-visible" aria-hidden="true">
@@ -235,6 +242,34 @@
         </div>
       </section>
 
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="faq.eyebrow">SSS</p>
+            <h2 data-i18n="faq.h2">Sıkça sorulan sorular.</h2>
+          </div>
+          <div class="faq reveal">
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" data-i18n="faq.q1">Hermes gerçek, dağıtılmış bir ajan mı?</button>
+              <div class="faq-a"><p data-i18n="faq.a1">Buradaki konsol çevrimdışı bir demodur. Hermes, SEIS orkestrasyon konseptidir; üretim, açık yayın kapılarıyla SEIS kapalı kod platformunun arkasında çalışır.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" data-i18n="faq.q2">Hangi yapay zeka modelleri kullanılıyor?</button>
+              <div class="faq-a"><p data-i18n="faq.a2">SEIS önce OpenAI / Codex eklenti ailelerini yönlendirir, ardından her görev için en iyi yeteneğe devreder — akıl yürütme, kod, tasarım, erişim, veri ve güvenlik.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" data-i18n="faq.q3">Kendi depolarımı kullanabilir miyim?</button>
+              <div class="faq-a"><p data-i18n="faq.a3">Evet. Alt ajanlar depo-farkında çalışır ve küçük, geri alınabilir değişiklikler yapar; yayın her zaman güvenlik kapısından geçer.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" data-i18n="faq.q4">İki dilli mi?</button>
+              <div class="faq-a"><p data-i18n="faq.a4">Evet — SEIS operasyon charter'ına uygun olarak Türkçe öncelikli, tam İngilizce kapsama.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- About -->
       <section id="about">
         <div class="wrap">
@@ -287,5 +322,6 @@
     </footer>
 
     <script src="./seis-ai.js" type="module"></script>
+    <script src="./seis-ai.enhance.js" type="module"></script>
   </body>
 </html>
