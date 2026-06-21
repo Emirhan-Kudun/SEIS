@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hermes Console — SEIS orkestratör ajanının çevrimdışı demosu." />
+    <meta name="theme-color" content="#07090b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Hermes Console · SEIS AI</title>
+    <link rel="icon" href="./favicon.svg" />
+    <link rel="stylesheet" href="./seis-ai.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#thread" data-i18n="a11y.skip">İçeriğe geç</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./seis-ai.html">
+          <span class="brand-mark">H</span>
+          <span>SEIS AI<small data-i18n="con.title">Hermes Console</small></span>
+        </a>
+        <div class="header-actions" style="margin-left:auto">
+          <div class="locale-switcher" data-locale-switcher aria-label="Dil / Language">
+            <button class="locale-chip" data-lang="tr" type="button" aria-pressed="true">TR</button>
+            <button class="locale-chip" data-lang="en" type="button" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-sm" href="./seis-ai.html" data-i18n="nav.about">Hakkında</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="console">
+        <aside class="console-rail">
+          <h2 data-i18n="con.rail">Alt ajanlar</h2>
+          <div id="agent-list">
+            <div class="agent-item" data-agent="web"><span class="agent-dot"></span><span><strong>Web</strong><span>cockpit · dashboards</span></span></div>
+            <div class="agent-item" data-agent="android"><span class="agent-dot"></span><span><strong>Android</strong><span>Expo · mobile</span></span></div>
+            <div class="agent-item" data-agent="macos"><span class="agent-dot"></span><span><strong>macOS</strong><span>SwiftUI · desktop</span></span></div>
+            <div class="agent-item" data-agent="fullstack"><span class="agent-dot"></span><span><strong>Full-stack</strong><span>Supabase · Vercel</span></span></div>
+            <div class="agent-item" data-agent="architect"><span class="agent-dot"></span><span><strong>Architect</strong><span>plans · ADRs</span></span></div>
+            <div class="agent-item" data-agent="security"><span class="agent-dot"></span><span><strong>Security</strong><span>scan · review</span></span></div>
+          </div>
+        </aside>
+
+        <section class="console-main" aria-label="Hermes conversation">
+          <div class="console-thread" id="thread"></div>
+          <div class="console-suggest" id="suggest">
+            <button class="chip" type="button" data-i18n="con.s1">Açılış sayfası geliştir</button>
+            <button class="chip" type="button" data-i18n="con.s2">Depomu güvenlik için incele</button>
+            <button class="chip" type="button" data-i18n="con.s3">Mobil uygulama planla</button>
+            <button class="chip" type="button" data-i18n="con.s4">Pano tasarla</button>
+          </div>
+          <form class="console-input" id="form">
+            <label class="skip-link" for="input">Mesaj</label>
+            <input id="input" type="text" autocomplete="off" placeholder="Hermes'ten planlamasını, geliştirmesini veya incelemesini iste…" data-i18n-ph="con.placeholder" />
+            <button class="btn btn-primary" type="submit" data-i18n="con.send">Gönder</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="./seis-ai.js" type="module"></script>
+    <script src="./hermes-console.js" type="module"></script>
+  </body>
+</html>
