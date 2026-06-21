@@ -11,6 +11,8 @@ window.SEIS_COCKPIT_STATUS = {
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "content/governance/seis-language-versions.json",
+    "content/governance/ai-routing-policy.json",
+    "content/ai/nano-status.json",
     "sources/README.md",
     "docs/research/README.md"
   ],
@@ -225,6 +227,13 @@ window.SEIS_COCKPIT_STATUS = {
           "hintCount": 5
         }
       ]
+    },
+    "nano": {
+      "phase": 4,
+      "gate": "passed",
+      "finalLoss": 0.049,
+      "charAccuracy": 1,
+      "note": "toy proof-of-pipeline; not a capable model (V16 §16)"
     }
   },
   "workspace": {

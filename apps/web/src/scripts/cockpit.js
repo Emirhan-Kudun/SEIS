@@ -206,6 +206,16 @@
       ],
     ),
     el("p", { class: "note", text: status.ai.note }),
+    el("h3", { text: "Universe research" }),
+    statusTable([
+      [
+        `Nano model (Phase ${status.ai.nano.phase})`,
+        el("span", {}, [badge(`gate ${status.ai.nano.gate}`, status.ai.nano.gate === "passed" ? "ok" : "warn")]),
+      ],
+      ["Final loss", el("span", { class: "mono", text: String(status.ai.nano.finalLoss) })],
+      ["Char accuracy", el("span", { class: "mono", text: String(status.ai.nano.charAccuracy) })],
+    ]),
+    el("p", { class: "note", text: status.ai.nano.note }),
   );
 
   // Footer gates

@@ -23,6 +23,7 @@ const workspace = read("integrations/google-workspace.json");
 const securityGates = read("data/security-gate-status.json");
 const languageVersions = read("content/governance/seis-language-versions.json");
 const routerPolicy = read("content/governance/ai-routing-policy.json");
+const nanoStatus = read("content/ai/nano-status.json");
 const sourcesManifest = readFileSync(resolve(root, "sources/README.md"), "utf8");
 
 const laneLabels = {
@@ -67,6 +68,8 @@ const status = {
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "content/governance/seis-language-versions.json",
+    "content/governance/ai-routing-policy.json",
+    "content/ai/nano-status.json",
     "sources/README.md",
     "docs/research/README.md",
   ],
@@ -121,6 +124,13 @@ const status = {
         category: r.category,
         hintCount: r.hints.length,
       })),
+    },
+    nano: {
+      phase: nanoStatus.phase,
+      gate: nanoStatus.gate,
+      finalLoss: nanoStatus.metrics.final_loss,
+      charAccuracy: nanoStatus.metrics.char_accuracy,
+      note: nanoStatus.note,
     },
   },
   workspace: {
