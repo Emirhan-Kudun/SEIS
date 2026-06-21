@@ -14,7 +14,7 @@ exist yet:
 
 | Requirement | Present? | First step to close |
 |---|---|---|
-| Architecture specification | no | ADRs under `docs/adr/ai/` comparing families (Phase 2) |
+| Architecture specification | no | ADRs under `docs/decisions/` comparing families (Phase 2) |
 | Tokenizer / tokenization strategy | no | tokenizer research + TR/EN/code efficiency study (Phase 3) |
 | Model configuration | no | model spec doc (Phase 1) |
 | Training pipeline | no | nano training loop, CPU-runnable (Phase 4) |

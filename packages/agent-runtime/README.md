@@ -2,7 +2,7 @@
 
 Role definitions and behaviour contracts for SEIS AI Core agents.
 
-Status: **specification** (SEIS Agent Runtime v0.1). Closed-code by default; see
+Status: **executable** (SEIS Agent Runtime v0.1). Closed-code by default; see
 [`open-modules.json`](../../content/governance/open-modules.json).
 
 This package defines *what each agent is allowed to do*, not a heavy orchestration
@@ -11,7 +11,7 @@ engine. Start with clear contracts; add coordination later only when needed.
 ## Use it
 
 ```js
-const { listAgents, can } = require("@seis/agent-runtime"); // packages/agent-runtime/index.cjs
+const { listAgents, can } = require("./packages/agent-runtime/index.cjs"); // @seis/agent-runtime alias planned
 can("security", "review diffs for secrets"); // → { allowed: true, reason: ... }
 ```
 

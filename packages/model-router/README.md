@@ -12,7 +12,7 @@ The package re-exports the canonical routing logic (single source of truth in
 `scripts/ai-routing-policy.cjs`, validated by `npm run check:ai-routing-policy`):
 
 ```js
-const { explainRoute } = require("@seis/model-router"); // packages/model-router/index.cjs
+const { explainRoute } = require("./packages/model-router/index.cjs"); // @seis/model-router alias planned
 explainRoute("translate this page to Turkish");
 // → { tool: "kimi", category: "capability", reason: 'capability exception matched on "translate"' }
 ```

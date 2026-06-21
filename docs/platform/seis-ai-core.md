@@ -11,7 +11,7 @@ This document is the canonical identity of that layer. It builds on — and does
 not replace — the existing
 [Hybrid AI Routing Policy](./hybrid-ai-routing-policy.md), the
 [OpenAI-first plugin policy](./openai-first-plugin-policy.md), and the
-[SEIS V14 constitution](../governance/seis-master-prompt-v14.md).
+[SEIS V16 constitution](../governance/seis-master-prompt-v16.md).
 
 ## What SEIS AI Core is
 

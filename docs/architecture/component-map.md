@@ -11,8 +11,8 @@ guessed relationships. Pairs with the [data model](./data-model.md),
 ```
 Interfaces      apps/web (cockpit / Command Center)  ·  apps/android  ·  apps/macos
                                   |
-Application     packages/ai-core surface · model-router · agent-runtime ·
-                prompt-engine · evals
+Application     AI Core layer (docs/platform/seis-ai-core.md) =
+                model-router · agent-runtime · prompt-engine · evals
                                   |
 Contracts       packages/core (business rules/types) · shared types
                                   |

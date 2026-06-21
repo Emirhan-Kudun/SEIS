@@ -8,7 +8,7 @@ Status: **executable** (SEIS Prompt Engine v0.1). Closed-code by default; see
 ## Use it
 
 ```js
-const { listTemplates, render } = require("@seis/prompt-engine"); // packages/prompt-engine/index.cjs
+const { listTemplates, render } = require("./packages/prompt-engine/index.cjs"); // @seis/prompt-engine alias planned
 render("pr-review", { pr_diff: "...", pr_context: "..." }); // → { text, missing, version }
 ```
 
