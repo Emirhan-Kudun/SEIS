@@ -10,6 +10,7 @@ const checks = [
   ["ai-core", "scripts/check-ai-core.cjs"],
   ["prompt-engine", "scripts/check-prompt-engine.cjs"],
   ["agent-runtime", "scripts/check-agent-runtime.cjs"],
+  ["evals", "scripts/check-evals.cjs"],
   ["open-modules", "scripts/check-open-modules.cjs"],
   ["doc-links", "scripts/check-doc-links.mjs"],
   ["design-system", "scripts/check-design-system.mjs"],

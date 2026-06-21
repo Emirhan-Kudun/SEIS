@@ -2,8 +2,21 @@
 
 Evaluation criteria for SEIS AI Core outputs.
 
-Status: **specification** (part of SEIS Language v0.1). Closed-code by default;
+Status: **executable** (part of SEIS Language v0.1). Closed-code by default;
 see [`open-modules.json`](../../content/governance/open-modules.json).
+
+## Use it
+
+```js
+const { evaluate } = require("./packages/evals/index.cjs"); // @seis/evals alias planned
+evaluate("output text", { mustInclude: ["rollback"] });
+// → { scores: { safety, quality, completion }, pass, findings }
+```
+
+CLI: `npm run evals -- "text" --must "needle"`. The evaluator scores **safety**
+(no secret/key patterns leaked — values never echoed), **quality** (substantive
+output), and **completion** (required elements present). Self-tested by
+`npm run check:evals` (in `check:governance`).
 
 ## What it scores
 

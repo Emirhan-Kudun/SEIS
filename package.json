@@ -20,6 +20,8 @@
     "check:prompt-engine": "node scripts/check-prompt-engine.cjs",
     "check:agent-runtime": "node scripts/check-agent-runtime.cjs",
     "agents": "node scripts/agents.cjs",
+    "evals": "node scripts/evals.cjs",
+    "check:evals": "node scripts/check-evals.cjs",
     "check:design-system": "node scripts/check-design-system.mjs",
     "check:governance": "node scripts/check-governance.mjs",
     "check:doc-links": "node scripts/check-doc-links.mjs",
