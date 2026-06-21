@@ -8,6 +8,19 @@ Status: **specification** (SEIS Agent Runtime v0.1). Closed-code by default; see
 This package defines *what each agent is allowed to do*, not a heavy orchestration
 engine. Start with clear contracts; add coordination later only when needed.
 
+## Use it
+
+```js
+const { listAgents, can } = require("@seis/agent-runtime"); // packages/agent-runtime/index.cjs
+can("security", "review diffs for secrets"); // → { allowed: true, reason: ... }
+```
+
+CLI: `npm run agents` (list) · `npm run agents -- can <role> "<action>"`.
+Capability checks are least-privilege: a forbidden action is denied, and any
+action not explicitly allowed is denied by default (V16 §13, §26). Role files
+stay the source of truth; validated by `npm run check:agent-runtime`
+(in `check:governance`).
+
 ## Each agent declares
 
 - **role** and **responsibility**
