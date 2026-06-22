@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0c0b">
+<title>Material Films — Video Hero Showcase</title>
+<meta name="description" content="Four full-screen video-hero showcase pages — Nature, Still Life, Materials, and Metal Parts — pairing cinematic looping motion backgrounds with minimalist typography and CTAs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --inter:'Inter',system-ui,-apple-system,sans-serif;
+    --cormorant:'Cormorant Garamond',Georgia,serif;
+    --space:'Space Grotesk','Inter',monospace;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden}
+  body{background:#0a0c0b;color:#fff;font-family:var(--inter);overscroll-behavior:none}
+  canvas{display:block}
+
+  #stage{position:fixed;inset:0}
+  .hero{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s var(--ease),visibility 1.1s;}
+  .hero.active{opacity:1;visibility:visible}
+  .hero canvas{position:absolute;inset:0;width:100%;height:100%}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* cinematic grade overlays */
+  .grade{position:absolute;inset:0;pointer-events:none}
+  .grade.vignette{background:radial-gradient(ellipse at 50% 42%,transparent 40%,rgba(0,0,0,.55) 100%)}
+  .grade.scrim{background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,transparent 26%,transparent 55%,rgba(0,0,0,.6) 100%)}
+  .grade.grain{opacity:.07;mix-blend-mode:overlay;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* content */
+  .content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:0 8vw;max-width:880px;z-index:3}
+  .kicker{font-family:var(--space);font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+    opacity:0;transform:translateY(14px);transition:.9s .2s var(--ease);display:flex;align-items:center;gap:14px}
+  .kicker .line{width:46px;height:1px;background:currentColor;opacity:.6}
+  .title{font-size:clamp(40px,8.2vw,86px);line-height:1.02;font-weight:300;margin:18px 0 0;
+    opacity:0;transform:translateY(22px);transition:1s .35s var(--ease)}
+  .sub{font-size:clamp(14px,2.2vw,17px);font-weight:300;max-width:440px;margin-top:22px;line-height:1.7;opacity:0;
+    transform:translateY(18px);transition:1s .5s var(--ease);color:rgba(255,255,255,.82)}
+  .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;opacity:0;transform:translateY(18px);transition:1s .65s var(--ease)}
+  .active .kicker,.active .title,.active .sub,.active .cta-row{opacity:1;transform:none}
+  .btn{font-family:var(--inter);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    padding:15px 30px;border-radius:2px;cursor:pointer;border:1px solid rgba(255,255,255,.5);
+    background:transparent;color:#fff;transition:.4s var(--ease);position:relative;overflow:hidden}
+  .btn.primary{background:#fff;color:#0a0c0b;border-color:#fff}
+  .btn:hover{transform:translateY(-2px);letter-spacing:.16em}
+  .btn.primary:hover{box-shadow:0 12px 40px rgba(255,255,255,.25)}
+  .btn:not(.primary):hover{background:rgba(255,255,255,.12)}
+
+  /* side nav */
+  #nav{position:fixed;right:34px;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:20px}
+  #nav button{display:flex;align-items:center;gap:12px;color:#fff;background:none;border:none;cursor:pointer;
+    font-family:var(--space);font-size:11px;letter-spacing:.2em;opacity:.45;transition:.4s var(--ease);flex-direction:row-reverse}
+  #nav button .d{width:9px;height:9px;border:1px solid #fff;border-radius:50%;transition:.4s var(--ease)}
+  #nav button .lbl{opacity:0;transform:translateX(8px);transition:.4s var(--ease);white-space:nowrap}
+  #nav button:hover{opacity:.9}
+  #nav button:hover .lbl{opacity:1;transform:none}
+  #nav button.on{opacity:1}
+  #nav button.on .d{background:#fff;transform:scale(1.15);box-shadow:0 0 12px rgba(255,255,255,.6)}
+  #nav button.on .lbl{opacity:1;transform:none}
+  @media(max-width:680px){#nav{right:16px;gap:16px}#nav button .lbl{display:none}}
+
+  /* top bar */
+  #topbar{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+    padding:26px 8vw;font-family:var(--space)}
+  #topbar .brand{font-size:14px;letter-spacing:.34em;text-transform:uppercase;font-weight:500}
+  #topbar .meta{font-size:11px;letter-spacing:.2em;opacity:.6}
+  #counter{position:fixed;left:8vw;bottom:34px;z-index:10;font-family:var(--space);font-size:12px;letter-spacing:.2em;opacity:.7}
+  #counter b{font-size:26px;font-weight:500;vertical-align:-2px}
+  #progress{position:fixed;left:0;bottom:0;height:2px;background:rgba(255,255,255,.85);z-index:11;width:25%;transition:width 1s var(--ease),background 1s}
+
+  /* hint */
+  #hint{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);z-index:10;font-family:var(--space);
+    font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;opacity:.6;display:flex;flex-direction:column;align-items:center;gap:9px;
+    transition:.6s}
+  #hint .mouse{width:20px;height:32px;border:1px solid rgba(255,255,255,.6);border-radius:11px;position:relative}
+  #hint .mouse::before{content:"";position:absolute;left:50%;top:7px;width:2px;height:6px;background:#fff;transform:translateX(-50%);
+    border-radius:2px;animation:wheel 1.6s var(--ease) infinite}
+  @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,9px)}}
+  #hint.gone{opacity:0;pointer-events:none}
+
+  /* info overlay */
+  #info{position:fixed;inset:0;z-index:40;background:rgba(8,9,9,.82);backdrop-filter:blur(14px);
+    display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:.5s var(--ease)}
+  #info.show{display:flex;opacity:1}
+  #info .panel{max-width:560px;width:100%;border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:46px;
+    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));transform:translateY(20px);transition:.6s var(--ease)}
+  #info.show .panel{transform:none}
+  #info .panel .k{font-family:var(--space);font-size:11px;letter-spacing:.4em;text-transform:uppercase;opacity:.6}
+  #info .panel h3{font-family:var(--cormorant);font-size:40px;font-weight:400;margin:10px 0 18px}
+  #info .panel p{font-weight:300;line-height:1.85;color:rgba(255,255,255,.82);font-size:15px;margin-bottom:14px}
+  #info .panel .specs{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap;font-family:var(--space)}
+  #info .panel .specs div{font-size:12px;letter-spacing:.08em}
+  #info .panel .specs b{display:block;font-size:20px;font-weight:500;margin-bottom:3px}
+  #info .x{position:absolute;top:24px;right:30px;font-size:26px;cursor:pointer;opacity:.6;background:none;border:none;color:#fff}
+  #info .x:hover{opacity:1}
+
+  /* theme type variants */
+  .t-nature .title{font-family:var(--cormorant);font-weight:300;letter-spacing:.01em}
+  .t-nature .kicker{color:#bfe3cf}
+  .t-still .title{font-family:var(--cormorant);font-style:italic;font-weight:400}
+  .t-still .kicker{color:#e7cda6}
+  .t-materials .title{font-family:var(--inter);font-weight:600;text-transform:uppercase;letter-spacing:-.01em;line-height:.98}
+  .t-materials .kicker{color:#e3b98f}
+  .t-metal .title{font-family:var(--space);font-weight:500;text-transform:uppercase;letter-spacing:-.02em}
+  .t-metal .kicker{color:#aeb9c4}
+  .noscroll{touch-action:none}
+</style>
+</head>
+<body class="noscroll">
+<div id="stage"></div>
+
+<div id="topbar">
+  <div class="brand">Material&nbsp;Films</div>
+  <div class="meta" id="topmeta">Showreel · 2026</div>
+</div>
+
+<nav id="nav"></nav>
+<div id="counter"><b id="cNum">01</b> <span style="opacity:.5">/ 04</span></div>
+<div id="progress"></div>
+
+<div id="hint"><div class="mouse"></div><span>Scroll · Swipe · Arrows</span></div>
+
+<div id="info"><div class="panel" id="infoPanel"></div></div>
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s),el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* ============================================================
+   HERO DEFINITIONS
+   Each hero has a procedural canvas renderer (always-on, zero
+   load cost, seamless loop). To use real footage in production,
+   set `video:'https://…/clip.mp4'` — it lazy-loads for the
+   active page only and falls back to the canvas if it can't play.
+============================================================ */
+const HEROES=[
+ {key:'nature',cls:'t-nature',navLabel:'Nature',kicker:'I — Forest & Ocean',
+  title:'Where light<br>learns to breathe',
+  sub:'Sunlight filtered through canopy and tide. A study of the living world in motion — green depth, drifting particulate, the slow pulse of water.',
+  ctaPrimary:'Enter the wild',ctaSecondary:'About this film',
+  spec:['Forest canopy','Ocean caustics','Volumetric light'],
+  about:'Nature pairs forest god-rays with ocean caustics — two light behaviours, one continuous loop. The grade leans into living greens and the soft particulate that gives air and water their depth.',
+  video:'', render:renderNature},
+ {key:'still',cls:'t-still',navLabel:'Still Life',kicker:'II — Ceramics & Glassware',
+  title:'The quiet<br>weight of things',
+  sub:'A single beam crosses a shelf of porcelain and glass. Highlights travel slowly across each curve, describing form through nothing but light.',
+  ctaPrimary:'View the collection',ctaSecondary:'About this film',
+  spec:['Specular sweep','Refraction','Museum light'],
+  about:'Still Life is about restraint: a slow specular highlight orbits implied vessels, raking across ceramic and glass to reveal their volume. Dust drifts through a single shaft of window light.',
+  video:'', render:renderStill},
+ {key:'materials',cls:'t-materials',navLabel:'Materials',kicker:'III — Leather & Fabric',
+  title:'Texture you<br>can almost touch',
+  sub:'Raking light travels across woven thread and grained hide, lifting every fibre into relief. Material rendered as landscape.',
+  ctaPrimary:'Feel the surface',ctaSecondary:'About this film',
+  spec:['Woven weave','Raking light','Fibre relief'],
+  about:'Materials uses a moving raking light over a procedural weave so the surface relief reads as the light passes — the same trick photographers use to make leather and fabric feel tactile on screen.',
+  video:'', render:renderMaterials},
+ {key:'metal',cls:'t-metal',navLabel:'Metal Parts',kicker:'IV — Mechanical Gears',
+  title:'Precision<br>in motion',
+  sub:'Interlocking gears turn against brushed steel as a specular band sweeps the teeth. Engineered light, engineered movement.',
+  ctaPrimary:'See the mechanism',ctaSecondary:'About this film',
+  spec:['Meshed gears','Anisotropic sheen','Steel grade'],
+  about:'Metal Parts renders interlocking gears that mesh at correct ratios, lit by an anisotropic sheen band travelling across the metal — the highlight behaviour that reads unmistakably as machined steel.',
+  video:'', render:renderMetal},
+];
+
+/* ---------------- build DOM ---------------- */
+const stage=$('#stage');const nav=$('#nav');
+HEROES.forEach((h,i)=>{
+  const sec=el('div','hero '+h.cls);sec.dataset.key=h.key;
+  const cv=el('canvas');h.canvas=cv;sec.appendChild(cv);
+  ['scrim','grain','vignette'].forEach(g=>sec.appendChild(el('div','grade '+g)));
+  const content=el('div','content');
+  content.innerHTML=`
+    <div class="kicker"><span class="line"></span>${h.kicker}</div>
+    <h1 class="title">${h.title}</h1>
+    <p class="sub">${h.sub}</p>
+    <div class="cta-row">
+      <button class="btn primary" data-act="next">${h.ctaPrimary}</button>
+      <button class="btn" data-act="info">${h.ctaSecondary}</button>
+    </div>`;
+  sec.appendChild(content);stage.appendChild(sec);
+  // nav
+  const nb=el('button',i===0?'on':'');nb.innerHTML=`<span class="lbl">${h.navLabel}</span><span class="d"></span>`;
+  nb.onclick=()=>go(i);nav.appendChild(nb);h.nav=nb;
+  // CTA wiring
+  content.querySelector('[data-act="next"]').onclick=()=>go((current+1)%HEROES.length);
+  content.querySelector('[data-act="info"]').onclick=()=>openInfo(i);
+});
+
+/* ---------------- canvas sizing ---------------- */
+let DPR=Math.min(window.devicePixelRatio||1,2);
+function size(h){const c=h.canvas;const w=window.innerWidth,ht=window.innerHeight;
+  c.width=w*DPR;c.height=ht*DPR;c.style.width=w+'px';c.style.height=ht+'px';
+  const ctx=c.getContext('2d');ctx.setTransform(DPR,0,0,DPR,0,0);h.W=w;h.H=ht;}
+function sizeAll(){DPR=Math.min(window.devicePixelRatio||1,2);HEROES.forEach(size);}
+window.addEventListener('resize',sizeAll);sizeAll();
+
+/* ---------------- animation loop (only active hero) ---------------- */
+let current=0,raf=null,t0=performance.now();
+function loop(now){const h=HEROES[current];const t=(now-t0)/1000;
+  const ctx=h.canvas.getContext('2d');h.render(ctx,h.W,h.H,t);raf=requestAnimationFrame(loop);}
+function startLoop(){cancelAnimationFrame(raf);t0=performance.now();raf=requestAnimationFrame(loop);}
+
+/* ---------------- navigation ---------------- */
+function go(i){
+  i=clamp(i,0,HEROES.length-1);if(i===current){return;}
+  HEROES[current].nav.classList.remove('on');
+  document.querySelectorAll('.hero')[current].classList.remove('active');
+  current=i;
+  document.querySelectorAll('.hero')[current].classList.add('active');
+  HEROES[current].nav.classList.add('on');
+  $('#cNum').textContent=String(i+1).padStart(2,'0');
+  $('#progress').style.width=((i+1)/HEROES.length*100)+'%';
+  $('#progress').style.background=({nature:'#bfe3cf',still:'#e7cda6',materials:'#e3b98f',metal:'#aeb9c4'})[HEROES[i].key];
+  $('#topmeta').textContent=HEROES[i].navLabel+' · 2026';
+  startLoop();maybeVideo(HEROES[i]);
+}
+document.querySelectorAll('.hero')[0].classList.add('active');startLoop();
+
+/* optional real-footage progressive enhancement */
+function maybeVideo(h){
+  if(!h.video||h.videoTried)return;h.videoTried=true;
+  const v=el('video');v.muted=true;v.loop=true;v.playsInline=true;v.autoplay=true;v.preload='auto';
+  v.src=h.video;v.style.opacity=0;v.style.transition='opacity 1.2s';
+  v.addEventListener('canplay',()=>{h.canvas.style.opacity=0;v.style.opacity=1;v.play().catch(()=>{});});
+  v.addEventListener('error',()=>v.remove());
+  h.canvas.parentNode.insertBefore(v,h.canvas.nextSibling);
+}
+
+/* ---------------- input: wheel / keys / swipe ---------------- */
+let wheelLock=false;
+window.addEventListener('wheel',e=>{
+  if($('#info').classList.contains('show'))return;
+  if(wheelLock||Math.abs(e.deltaY)<14)return;wheelLock=true;hideHint();
+  go(current+(e.deltaY>0?1:-1));setTimeout(()=>wheelLock=false,1000);
+},{passive:true});
+window.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){e.preventDefault();hideHint();go(current+1);}
+  else if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();hideHint();go(current-1);}
+  else if(e.key==='Escape')closeInfo();
+  else if(/^[1-4]$/.test(e.key)){hideHint();go(+e.key-1);}
+});
+let ty=0;
+window.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+window.addEventListener('touchend',e=>{
+  if($('#info').classList.contains('show'))return;
+  const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>50){hideHint();go(current+(dy>0?1:-1));}
+},{passive:true});
+function hideHint(){$('#hint').classList.add('gone');}
+setTimeout(hideHint,6000);
+
+/* ---------------- info overlay ---------------- */
+function openInfo(i){const h=HEROES[i];const p=$('#infoPanel');
+  p.innerHTML=`<button class="x" id="infoX">✕</button>
+    <div class="k">${h.kicker}</div><h3>${h.navLabel}</h3>
+    <p>${h.about}</p>
+    <div class="specs">${h.spec.map((s,n)=>`<div><b>0${n+1}</b>${s}</div>`).join('')}</div>`;
+  $('#info').classList.add('show');$('#infoX').onclick=closeInfo;}
+function closeInfo(){$('#info').classList.remove('show');}
+$('#info').addEventListener('click',e=>{if(e.target.id==='info')closeInfo();});
+
+/* ============================================================
+   PROCEDURAL RENDERERS
+============================================================ */
+function bgGrad(ctx,W,H,stops){const g=ctx.createLinearGradient(0,0,0,H);stops.forEach(s=>g.addColorStop(s[0],s[1]));ctx.fillStyle=g;ctx.fillRect(0,0,W,H);}
+
+/* --- Nature: forest god-rays + ocean caustics + drifting motes --- */
+let motes=null;
+function renderNature(ctx,W,H,t){
+  bgGrad(ctx,W,H,[[0,'#0a2a22'],[0.45,'#0f3b2c'],[1,'#04140f']]);
+  // god rays
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  for(let i=0;i<7;i++){
+    const x=W*(0.1+i*0.13)+Math.sin(t*0.15+i)*40;
+    const sway=Math.sin(t*0.2+i*1.3)*0.12;
+    ctx.save();ctx.translate(x,-40);ctx.rotate(0.12+sway);
+    const gw=60+i*8;const g=ctx.createLinearGradient(0,0,0,H*1.2);
+    const a=0.05+0.04*Math.sin(t*0.5+i);
+    g.addColorStop(0,`rgba(190,240,200,${a+0.05})`);g.addColorStop(1,'rgba(120,210,160,0)');
+    ctx.fillStyle=g;ctx.fillRect(-gw/2,0,gw,H*1.3);ctx.restore();
+  }
+  ctx.restore();
+  // ocean caustics (bottom)
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  for(let i=0;i<26;i++){
+    const y=H*0.6+i*((H*0.45)/26);const ph=t*1.2+i*0.5;
+    ctx.beginPath();ctx.strokeStyle=`rgba(140,225,190,${0.04+0.03*Math.sin(ph)})`;ctx.lineWidth=1.4;
+    for(let x=0;x<=W;x+=14){const yy=y+Math.sin(x*0.012+ph)*6+Math.sin(x*0.03-ph*1.5)*3;
+      x===0?ctx.moveTo(x,yy):ctx.lineTo(x,yy);}ctx.stroke();
+  }
+  ctx.restore();
+  // motes
+  if(!motes||motes.length===0){motes=[];for(let i=0;i<70;i++)motes.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+0.4,s:Math.random()*0.4+0.1,o:Math.random()*0.5+0.2});}
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  motes.forEach(m=>{m.y-=m.s;m.x+=Math.sin((t+m.y)*0.3)*0.2;if(m.y<-5){m.y=H+5;m.x=Math.random()*W;}
+    ctx.beginPath();ctx.fillStyle=`rgba(210,250,220,${m.o})`;ctx.arc(m.x,m.y,m.r,0,TAU);ctx.fill();});
+  ctx.restore();
+}
+
+/* --- Still life: warm field, orbiting specular sheen, implied vessels, dust beam --- */
+let dust=null;
+function renderStill(ctx,W,H,t){
+  bgGrad(ctx,W,H,[[0,'#2a2118'],[0.5,'#3a2d20'],[1,'#1c150f']]);
+  // window light shaft (diagonal)
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  const g=ctx.createLinearGradient(W*0.2,0,W*0.7,H);
+  g.addColorStop(0,'rgba(255,228,180,0.10)');g.addColorStop(0.5,'rgba(255,225,170,0.04)');g.addColorStop(1,'rgba(255,225,170,0)');
+  ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(W*0.15,0);ctx.lineTo(W*0.6,0);ctx.lineTo(W*0.85,H);ctx.lineTo(W*0.35,H);ctx.fill();
+  ctx.restore();
+  // implied vessels: soft vertical ellipses on a shelf, with moving rim light
+  const shelfY=H*0.72;const cx0=W*0.5;
+  const vessels=[{x:-0.16,w:0.10,h:0.30,c:'#caa46a'},{x:0.02,w:0.14,h:0.40,c:'#b9c2c4'},{x:0.20,w:0.09,h:0.24,c:'#d8b98a'}];
+  const lightX=cx0+Math.sin(t*0.4)*W*0.28;
+  vessels.forEach(v=>{
+    const vx=cx0+v.x*W,vw=v.w*W,vh=v.h*H;const top=shelfY-vh;
+    const grad=ctx.createLinearGradient(vx-vw,0,vx+vw,0);
+    const lit=clamp(1-Math.abs(lightX-vx)/(W*0.4),0,1);
+    grad.addColorStop(0,'rgba(20,16,12,0.9)');grad.addColorStop(0.5,v.c);grad.addColorStop(1,'rgba(20,16,12,0.9)');
+    ctx.save();ctx.beginPath();ctx.ellipse(vx,top+vh/2,vw,vh/2,0,0,TAU);ctx.fillStyle=grad;ctx.globalAlpha=0.8;ctx.fill();
+    // specular rim
+    ctx.globalAlpha=lit*0.8;ctx.globalCompositeOperation='lighter';
+    const rg=ctx.createRadialGradient(lightX,top+vh*0.35,2,lightX,top+vh*0.35,vw*1.6);
+    rg.addColorStop(0,'rgba(255,245,225,0.9)');rg.addColorStop(1,'rgba(255,245,225,0)');
+    ctx.beginPath();ctx.ellipse(vx,top+vh/2,vw,vh/2,0,0,TAU);ctx.fillStyle=rg;ctx.fill();ctx.restore();
+  });
+  // shelf line
+  ctx.strokeStyle='rgba(255,225,180,0.12)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,shelfY);ctx.lineTo(W,shelfY);ctx.stroke();
+  // dust motes in beam
+  if(!dust){dust=[];for(let i=0;i<60;i++)dust.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+0.3,s:Math.random()*0.25+0.05});}
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  dust.forEach(d=>{d.y+=d.s;d.x+=0.15;if(d.y>H){d.y=-5;}if(d.x>W){d.x=0;}
+    const inBeam=clamp(1-Math.abs((d.x)-(W*0.2+d.y/H*W*0.2+W*0.3))/(W*0.18),0,1);
+    ctx.beginPath();ctx.fillStyle=`rgba(255,235,200,${0.5*inBeam})`;ctx.arc(d.x,d.y,d.r,0,TAU);ctx.fill();});
+  ctx.restore();
+}
+
+/* --- Materials: procedural weave + raking light revealing relief --- */
+function renderMaterials(ctx,W,H,t){
+  bgGrad(ctx,W,H,[[0,'#2c1d12'],[0.5,'#3d2a19'],[1,'#1f140c']]);
+  const cell=Math.max(26,Math.round(W/34));const lx=(0.5+0.5*Math.sin(t*0.5))*W,ly=(0.5+0.5*Math.cos(t*0.37))*H;
+  const base='#7a5230';
+  for(let y=-cell;y<H+cell;y+=cell){
+    for(let x=-cell;x<W+cell;x+=cell){
+      const over=((Math.floor(x/cell)+Math.floor(y/cell))%2===0);
+      // light by distance to raking light
+      const d=Math.hypot(x+cell/2-lx,y+cell/2-ly);const lit=clamp(1-d/(W*0.55),0,1);
+      const sh=over?1:0.72; // over-threads catch more light (relief)
+      const lum=clamp(0.28+lit*0.9*sh,0,1);
+      const col=mix('#1c120a','#d8a062',lum);
+      ctx.fillStyle=col;
+      if(over){roundRect(ctx,x+2,y+cell*0.28,cell-4,cell*0.44,cell*0.2);ctx.fill();}
+      else{roundRect(ctx,x+cell*0.28,y+2,cell*0.44,cell-4,cell*0.2);ctx.fill();}
+    }
+  }
+  // soft raking light bloom
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  const rg=ctx.createRadialGradient(lx,ly,10,lx,ly,W*0.5);
+  rg.addColorStop(0,'rgba(255,210,150,0.22)');rg.addColorStop(1,'rgba(255,210,150,0)');
+  ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);ctx.restore();
+}
+
+/* --- Metal: meshed gears + anisotropic sheen + glints --- */
+function renderMetal(ctx,W,H,t){
+  const g=ctx.createRadialGradient(W*0.5,H*0.4,40,W*0.5,H*0.5,Math.max(W,H)*0.8);
+  g.addColorStop(0,'#3a4047');g.addColorStop(0.6,'#23272c');g.addColorStop(1,'#0d0f12');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  // brushed-steel sheen band sweeping
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  const bx=((t*0.12)%2-0.5)*W;const bg=ctx.createLinearGradient(bx,0,bx+W*0.5,H);
+  bg.addColorStop(0,'rgba(180,200,220,0)');bg.addColorStop(0.5,'rgba(180,200,220,0.10)');bg.addColorStop(1,'rgba(180,200,220,0)');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);ctx.restore();
+  // gears (positioned right-of-centre so they sit behind text)
+  const u=Math.min(W,H);
+  const gears=[
+    {x:W*0.72,y:H*0.42,r:u*0.22,teeth:18,dir:1,sp:0.25},
+    {x:W*0.72+u*0.30,y:H*0.42-u*0.10,r:u*0.13,teeth:11,dir:-1,sp:0.41},
+    {x:W*0.72+u*0.02,y:H*0.42+u*0.34,r:u*0.16,teeth:13,dir:-1,sp:0.345},
+    {x:W*0.50,y:H*0.66,r:u*0.10,teeth:9,dir:1,sp:0.5},
+  ];
+  gears.forEach(gr=>drawGear(ctx,gr.x,gr.y,gr.r,gr.teeth,t*gr.sp*gr.dir));
+  // glints
+  ctx.save();ctx.globalCompositeOperation='lighter';
+  for(let i=0;i<5;i++){const gx=gears[i%gears.length].x,gy=gears[i%gears.length].y;
+    const a=t*1.5+i*1.7;const px=gx+Math.cos(a)*gears[i%gears.length].r,py=gy+Math.sin(a)*gears[i%gears.length].r;
+    const fl=Math.max(0,Math.sin(t*2+i*2));const rg=ctx.createRadialGradient(px,py,0,px,py,18*fl+2);
+    rg.addColorStop(0,`rgba(230,245,255,${0.8*fl})`);rg.addColorStop(1,'rgba(230,245,255,0)');
+    ctx.fillStyle=rg;ctx.beginPath();ctx.arc(px,py,18*fl+2,0,TAU);ctx.fill();}
+  ctx.restore();
+}
+function drawGear(ctx,cx,cy,r,teeth,rot){
+  const inner=r*0.74,hub=r*0.34,hole=r*0.14;const th=r*0.16;
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(rot);
+  // body
+  ctx.beginPath();
+  for(let i=0;i<teeth;i++){
+    const a=i/teeth*TAU,a2=(i+0.5)/teeth*TAU,a3=(i+1)/teeth*TAU;const wob=0.06;
+    ctx.lineTo(Math.cos(a-wob)*(r),Math.sin(a-wob)*(r));
+    ctx.lineTo(Math.cos(a+wob)*(r+th),Math.sin(a+wob)*(r+th));
+    ctx.lineTo(Math.cos(a2-wob)*(r+th),Math.sin(a2-wob)*(r+th));
+    ctx.lineTo(Math.cos(a2+wob)*(r),Math.sin(a2+wob)*(r));
+  }
+  ctx.closePath();
+  const mg=ctx.createRadialGradient(-r*0.3,-r*0.3,r*0.1,0,0,r+th);
+  mg.addColorStop(0,'#6b757f');mg.addColorStop(0.55,'#444b52');mg.addColorStop(1,'#21262b');
+  ctx.fillStyle=mg;ctx.fill();
+  ctx.strokeStyle='rgba(200,215,230,0.25)';ctx.lineWidth=1.2;ctx.stroke();
+  // inner ring
+  ctx.beginPath();ctx.arc(0,0,inner,0,TAU);ctx.strokeStyle='rgba(0,0,0,0.4)';ctx.lineWidth=r*0.06;ctx.stroke();
+  // spokes
+  for(let i=0;i<5;i++){ctx.save();ctx.rotate(i/5*TAU);ctx.beginPath();
+    roundRect(ctx,-r*0.05,-inner*0.92,r*0.1,inner*0.62,r*0.04);ctx.fillStyle='#2b3137';ctx.fill();ctx.restore();}
+  // hub
+  ctx.beginPath();ctx.arc(0,0,hub,0,TAU);const hg=ctx.createRadialGradient(-hub*0.3,-hub*0.3,1,0,0,hub);
+  hg.addColorStop(0,'#7a848d');hg.addColorStop(1,'#30363c');ctx.fillStyle=hg;ctx.fill();
+  ctx.beginPath();ctx.arc(0,0,hole,0,TAU);ctx.fillStyle='#15181b';ctx.fill();
+  ctx.restore();
+}
+
+/* ---------------- small canvas helpers ---------------- */
+function roundRect(ctx,x,y,w,h,r){r=Math.min(r,w/2,h/2);ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function mix(a,b,t){const ca=hex(a),cb=hex(b);
+  return `rgb(${Math.round(ca[0]+(cb[0]-ca[0])*t)},${Math.round(ca[1]+(cb[1]-ca[1])*t)},${Math.round(ca[2]+(cb[2]-ca[2])*t)})`;}
+function hex(h){h=h.replace('#','');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+
+/* go */
+go(0);
+})();
+</script>
+</body>
+</html>

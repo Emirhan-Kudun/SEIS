@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEIS Code — Web IDE replica</title>
+<meta name="description" content="A single-URL VS Code Web replica: Monaco editor, activity views, working menus, a real terminal, and an in-browser Claude Code REPL. Built for SEIS.">
+<style>
+  :root{
+    --bg:#1e1e1e; --bg-2:#252526; --bg-3:#333333; --bg-4:#2d2d2d;
+    --panel:#181818; --accent:#0078d4; --accent-2:#0e639c;
+    --fg:#cccccc; --fg-dim:#8c8c8c; --fg-mute:#6a6a6a;
+    --border:#2b2b2b; --green:#4ec9b0; --yellow:#dcdcaa; --orange:#ce9178;
+    --blue:#569cd6; --purple:#c586c0; --red:#f14c4c; --activity:#333333;
+    --statusbar:#007acc; --tab-active:#1e1e1e; --tab-inactive:#2d2d2d;
+    --mono:'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;
+    --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden}
+  body{font-family:var(--sans);font-size:13px;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;user-select:none}
+  button{font-family:inherit;color:inherit;cursor:pointer;background:none;border:none}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#424242;border-radius:6px}
+  ::-webkit-scrollbar-thumb:hover{background:#4f4f4f}
+
+  /* ---------- App grid ---------- */
+  #app{display:grid;height:100vh;
+    grid-template-rows:30px 1fr 22px;
+    grid-template-columns:48px auto 1fr;
+    grid-template-areas:"title title title" "activity side editor" "status status status";}
+  /* ---------- Title bar / menus ---------- */
+  #titlebar{grid-area:title;background:var(--bg-3);display:flex;align-items:center;
+    -webkit-app-region:drag;border-bottom:1px solid var(--border);position:relative;z-index:60}
+  .traffic{display:flex;gap:8px;padding:0 12px}
+  .traffic span{width:12px;height:12px;border-radius:50%}
+  .t-red{background:#ff5f57}.t-yellow{background:#febc2e}.t-green{background:#28c840}
+  #menubar{display:flex;height:100%}
+  .menu{position:relative}
+  .menu>button{height:30px;padding:0 8px;font-size:12.5px;color:var(--fg-dim);border-radius:3px}
+  .menu>button:hover,.menu.open>button{background:rgba(255,255,255,.08);color:var(--fg)}
+  .menu-drop{position:absolute;top:30px;left:0;min-width:240px;background:var(--bg-4);
+    border:1px solid #454545;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.55);
+    padding:4px;display:none;z-index:200}
+  .menu.open .menu-drop{display:block}
+  .mi{display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:5px 10px;border-radius:4px;font-size:12.5px;white-space:nowrap}
+  .mi:hover{background:var(--accent-2)}
+  .mi .kbd{color:var(--fg-mute);font-size:11px}
+  .mi:hover .kbd{color:#dfe9f5}
+  .mi-sep{height:1px;background:#454545;margin:4px 6px}
+  .title-center{position:absolute;left:50%;transform:translateX(-50%);color:var(--fg-mute);font-size:12px;pointer-events:none}
+
+  /* ---------- Activity bar ---------- */
+  #activity{grid-area:activity;background:var(--activity);display:flex;flex-direction:column;align-items:center;
+    padding-top:6px;border-right:1px solid var(--border)}
+  .act{width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+    color:var(--fg-mute);position:relative}
+  .act svg{width:24px;height:24px}
+  .act:hover{color:var(--fg)}
+  .act.active{color:#fff}
+  .act.active::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:#fff}
+  .act .badge{position:absolute;bottom:6px;right:6px;background:var(--accent);color:#fff;
+    font-size:9px;min-width:14px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+  .act-spacer{flex:1}
+
+  /* ---------- Side bar ---------- */
+  #side{grid-area:side;width:260px;background:var(--bg-2);border-right:1px solid var(--border);
+    display:flex;flex-direction:column;overflow:hidden}
+  #side.collapsed{width:0;border:none}
+  .side-head{padding:10px 14px 6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-dim);
+    display:flex;justify-content:space-between;align-items:center}
+  .side-head .acts{display:flex;gap:4px}
+  .side-head .acts button{padding:2px 5px;border-radius:4px;color:var(--fg-dim);font-size:14px;line-height:1}
+  .side-head .acts button:hover{background:var(--bg-3);color:var(--fg)}
+  .side-body{flex:1;overflow:auto}
+  .view{display:none;height:100%;flex-direction:column}
+  .view.active{display:flex}
+
+  /* file tree */
+  .tree{padding:2px 0;font-size:13px}
+  .row{display:flex;align-items:center;gap:5px;padding:3px 8px;cursor:pointer;white-space:nowrap;position:relative}
+  .row:hover{background:#2a2d2e}
+  .row.sel{background:#37373d}
+  .row .tw{width:14px;text-align:center;color:var(--fg-mute);font-size:10px;flex:none}
+  .row .ico{width:16px;text-align:center;flex:none}
+  .row .nm{overflow:hidden;text-overflow:ellipsis}
+  .row .del{margin-left:auto;opacity:0;color:var(--fg-mute);padding:0 4px;border-radius:3px}
+  .row:hover .del{opacity:1}
+  .row .del:hover{background:#5a1d1d;color:#fff}
+
+  /* search view */
+  .pad{padding:10px 12px}
+  .field{width:100%;background:var(--bg-3);border:1px solid #3c3c3c;border-radius:4px;color:var(--fg);
+    padding:6px 8px;font-size:12.5px;outline:none}
+  .field:focus{border-color:var(--accent)}
+  .sresult{font-size:12px}
+  .sfile{padding:4px 10px;color:var(--blue);cursor:pointer;display:flex;gap:6px;align-items:center}
+  .sfile:hover{background:#2a2d2e}
+  .sline{padding:2px 10px 2px 28px;color:var(--fg-dim);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sline:hover{background:#2a2d2e;color:var(--fg)}
+  .sline b{color:#e6db74;background:rgba(234,179,8,.18);border-radius:2px}
+
+  /* scm */
+  .scm-item{display:flex;align-items:center;gap:8px;padding:4px 12px;cursor:pointer}
+  .scm-item:hover{background:#2a2d2e}
+  .scm-badge{margin-left:auto;font-weight:700}
+  .M{color:var(--yellow)}.A{color:var(--green)}.U{color:var(--green)}
+
+  /* run/debug + extensions */
+  .btn{display:block;width:100%;text-align:center;background:var(--accent-2);color:#fff;border-radius:4px;
+    padding:7px;font-size:12.5px;margin:8px 0}
+  .btn:hover{background:#1177bb}
+  .btn.sec{background:var(--bg-3)}.btn.sec:hover{background:#3f3f3f}
+  .ext{padding:9px 12px;border-bottom:1px solid var(--border);display:flex;gap:9px}
+  .ext .ico{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none;background:var(--bg-3)}
+  .ext .meta{flex:1;min-width:0}
+  .ext .meta h4{font-size:13px;font-weight:600;display:flex;justify-content:space-between}
+  .ext .meta p{font-size:11.5px;color:var(--fg-dim);margin:2px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ext .meta .inst{font-size:11px;padding:3px 10px;border-radius:4px;background:var(--accent-2);color:#fff}
+  .ext .meta .inst.on{background:var(--bg-3);color:var(--fg)}
+
+  /* ---------- Editor ---------- */
+  #editor-area{grid-area:editor;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+  #tabs{display:flex;background:var(--bg-2);height:35px;overflow-x:auto;flex:none;border-bottom:1px solid var(--border)}
+  #tabs::-webkit-scrollbar{height:0}
+  .tab{display:flex;align-items:center;gap:7px;padding:0 11px;height:35px;background:var(--tab-inactive);
+    border-right:1px solid var(--border);color:var(--fg-dim);font-size:12.5px;white-space:nowrap;cursor:pointer;max-width:200px}
+  .tab.active{background:var(--tab-active);color:var(--fg)}
+  .tab.active::before{content:"";position:absolute;height:2px;background:var(--accent);margin-top:-35px;width:100%;margin-left:-11px}
+  .tab .nm{overflow:hidden;text-overflow:ellipsis}
+  .tab .x{width:16px;height:16px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--fg-mute)}
+  .tab:hover .x{color:var(--fg)}
+  .tab .x:hover{background:var(--bg-3)}
+  .tab .dot{width:8px;height:8px;border-radius:50%;background:var(--fg)}
+  #breadcrumb{height:22px;display:flex;align-items:center;gap:6px;padding:0 14px;font-size:11.5px;color:var(--fg-mute);background:var(--bg);border-bottom:1px solid var(--border);flex:none}
+  #editor-host{flex:1;position:relative;min-height:0}
+  #monaco{position:absolute;inset:0}
+  #welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--bg);text-align:center;padding:24px}
+  #welcome h1{font-size:42px;font-weight:200;letter-spacing:.04em;color:#fff}
+  #welcome .sub{color:var(--fg-mute);font-size:14px;max-width:460px;line-height:1.7}
+  #welcome .links a{color:var(--blue);cursor:pointer;display:block;padding:5px 0}
+  #welcome .links a:hover{text-decoration:underline}
+  textarea#fallback{position:absolute;inset:0;width:100%;height:100%;background:var(--bg);color:var(--fg);
+    border:none;outline:none;resize:none;font-family:var(--mono);font-size:13.5px;line-height:1.6;padding:10px 14px;tab-size:2}
+
+  /* ---------- Panel (terminal) ---------- */
+  #panel{height:240px;background:var(--panel);border-top:1px solid var(--border);display:flex;flex-direction:column;flex:none}
+  #panel.hidden{display:none}
+  #panel-tabs{display:flex;align-items:center;height:32px;padding:0 8px;gap:4px;border-bottom:1px solid var(--border)}
+  .ptab{padding:5px 10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-dim);border-bottom:1px solid transparent}
+  .ptab.active{color:var(--fg);border-bottom-color:var(--fg)}
+  .ptab:hover{color:var(--fg)}
+  #panel-actions{margin-left:auto;display:flex;gap:6px}
+  #panel-actions button{color:var(--fg-dim);padding:2px 6px;border-radius:4px}
+  #panel-actions button:hover{background:var(--bg-3);color:var(--fg)}
+  .pview{display:none;flex:1;overflow:auto;font-family:var(--mono);font-size:13px;line-height:1.5;padding:8px 10px}
+  .pview.active{display:block}
+  #term{cursor:text}
+  .tline{white-space:pre-wrap;word-break:break-word}
+  .prompt-u{color:var(--green)}.prompt-p{color:var(--blue)}.prompt-c{color:var(--purple)}
+  .t-err{color:var(--red)}.t-ok{color:var(--green)}.t-dim{color:var(--fg-mute)}.t-acc{color:var(--yellow)}
+  .t-tool{color:var(--green)}.t-cmd{color:#fff}
+  #term-input-line{display:flex;align-items:baseline;white-space:pre}
+  #term-input{flex:1;background:none;border:none;outline:none;color:var(--fg);font-family:var(--mono);font-size:13px;caret-color:#fff}
+  .claude-box{border:1px solid #3b3b46;border-radius:6px;padding:8px 10px;margin:4px 0;background:#1b1b22}
+  .blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+
+  /* ---------- Status bar ---------- */
+  #status{grid-area:status;background:var(--statusbar);display:flex;align-items:center;font-size:11.5px;color:#fff;overflow:hidden}
+  .si{padding:0 8px;height:22px;display:flex;align-items:center;gap:4px}
+  .si:hover{background:rgba(255,255,255,.18)}
+  .si.right{margin-left:auto}
+  .si-group{display:flex;margin-left:auto}
+
+  /* command palette */
+  #palette{position:fixed;top:0;left:50%;transform:translateX(-50%);width:600px;max-width:92vw;
+    background:var(--bg-4);border:1px solid #454545;border-radius:8px;box-shadow:0 12px 48px rgba(0,0,0,.6);
+    margin-top:34px;display:none;z-index:300;overflow:hidden}
+  #palette.open{display:block}
+  #palette input{width:100%;background:var(--bg-3);border:1px solid var(--accent);color:var(--fg);padding:9px 12px;outline:none;font-size:13px}
+  #palette .pl-list{max-height:340px;overflow:auto;padding:4px}
+  .pl-item{display:flex;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:12.5px}
+  .pl-item.sel,.pl-item:hover{background:var(--accent-2)}
+  .pl-item .kbd{color:var(--fg-mute);font-size:11px}
+  #scrim{position:fixed;inset:0;background:transparent;display:none;z-index:90}
+  #scrim.on{display:block}
+  .toast{position:fixed;bottom:34px;right:18px;background:var(--bg-4);border:1px solid #454545;border-left:3px solid var(--accent);
+    padding:10px 14px;border-radius:6px;font-size:12.5px;box-shadow:0 8px 28px rgba(0,0,0,.5);z-index:400;max-width:340px}
+  @media (max-width:760px){
+    #side{position:absolute;top:30px;bottom:22px;z-index:50;box-shadow:6px 0 24px rgba(0,0,0,.5)}
+    .title-center{display:none}
+    #app{grid-template-columns:48px 0 1fr}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- TITLE BAR + MENUS -->
+  <div id="titlebar">
+    <div class="traffic"><span class="t-red"></span><span class="t-yellow"></span><span class="t-green"></span></div>
+    <div id="menubar"></div>
+    <div class="title-center">SEIS Code — Web IDE</div>
+  </div>
+
+  <!-- ACTIVITY BAR -->
+  <div id="activity"></div>
+
+  <!-- SIDE BAR -->
+  <div id="side">
+    <div class="side-head"><span id="side-title">Explorer</span><div class="acts" id="side-acts"></div></div>
+    <div class="side-body">
+      <div class="view active" data-view="explorer"><div class="tree" id="tree"></div></div>
+      <div class="view" data-view="search">
+        <div class="pad"><input class="field" id="search-input" placeholder="Search across files…"></div>
+        <div class="sresult" id="search-results"></div>
+      </div>
+      <div class="view" data-view="scm">
+        <div class="pad"><input class="field" id="commit-msg" placeholder="Message (commit)"></div>
+        <div class="pad" style="padding-top:0"><button class="btn" id="commit-btn">✓ Commit</button></div>
+        <div id="scm-list"></div>
+      </div>
+      <div class="view" data-view="run">
+        <div class="pad">
+          <button class="btn" id="run-btn">▶ Run active file</button>
+          <button class="btn sec" id="debug-btn">⊟ Open Debug Console</button>
+          <p class="t-dim" style="font-size:11.5px;margin-top:6px;line-height:1.6">Runs JavaScript files in a sandbox and prints output to the terminal &amp; Debug Console.</p>
+        </div>
+        <div id="run-configs"></div>
+      </div>
+      <div class="view" data-view="ext">
+        <div class="pad"><input class="field" id="ext-search" placeholder="Search Extensions in Marketplace"></div>
+        <div id="ext-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDITOR -->
+  <div id="editor-area">
+    <div id="tabs"></div>
+    <div id="breadcrumb"></div>
+    <div id="editor-host">
+      <div id="monaco"></div>
+      <div id="welcome">
+        <h1>SEIS Code</h1>
+        <div class="sub">A single-URL editor. Real Monaco editing, a working terminal, and an in-browser Claude Code REPL. Your files, extensions and history persist in IndexedDB.</div>
+        <div class="links">
+          <a data-open="/README.md">Open README.md</a>
+          <a data-cmd="newFile">New File &nbsp;<span class="t-dim">⌘N</span></a>
+          <a data-cmd="toggleTerminal">Toggle Terminal &nbsp;<span class="t-dim">⌃`</span></a>
+          <a data-cmd="palette">Show All Commands &nbsp;<span class="t-dim">⌘⇧P</span></a>
+        </div>
+      </div>
+    </div>
+    <!-- PANEL -->
+    <div id="panel">
+      <div id="panel-tabs">
+        <div class="ptab active" data-pview="term">Terminal</div>
+        <div class="ptab" data-pview="problems">Problems</div>
+        <div class="ptab" data-pview="output">Output</div>
+        <div class="ptab" data-pview="debug">Debug Console</div>
+        <div id="panel-actions">
+          <button id="term-clear" title="Clear">⌫</button>
+          <button id="panel-hide" title="Close panel">✕</button>
+        </div>
+      </div>
+      <div class="pview active" id="term" data-pview="term">
+        <div id="term-out"></div>
+        <div id="term-input-line"><span id="term-prompt"></span><input id="term-input" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+      </div>
+      <div class="pview" id="problems" data-pview="problems"></div>
+      <div class="pview" id="output" data-pview="output"></div>
+      <div class="pview" id="debug" data-pview="debug"></div>
+    </div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div id="status">
+    <div class="si" id="st-scm">⑂ <span id="st-branch">main</span></div>
+    <div class="si" id="st-problems">⊘ 0 ⚠ 0</div>
+    <div class="si-group">
+      <div class="si" id="st-pos">Ln 1, Col 1</div>
+      <div class="si" id="st-indent">Spaces: 2</div>
+      <div class="si" id="st-enc">UTF-8</div>
+      <div class="si" id="st-lang">Plain Text</div>
+      <div class="si" id="st-bell">🔔</div>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+<div id="palette"><input id="palette-input" placeholder="Type a command…" autocomplete="off"><div class="pl-list" id="palette-list"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
+<script>
+/* ============================================================================
+   SEIS Code — Web IDE replica.  Self-contained, vanilla JS.
+   Modules: idb (persistence) · VFS · Editor host · Explorer/Search/SCM/Run/Ext
+            · Menus · Command palette · Terminal shell · Claude Code REPL.
+============================================================================ */
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const el=(t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e;};
+const esc=s=>String(s).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+
+/* ---------------- IndexedDB persistence ---------------- */
+const DB={ db:null,
+  open(){return new Promise((res)=>{
+    if(typeof indexedDB==='undefined'){ this.db=null; return res(false); }
+    let r; try{ r=indexedDB.open('seis-code',1); }catch(e){ this.db=null; return res(false); }
+    r.onupgradeneeded=e=>{const d=e.target.result;
+      ['files','kv','history','extensions'].forEach(s=>{if(!d.objectStoreNames.contains(s))d.createObjectStore(s);});};
+    r.onsuccess=e=>{this.db=e.target.result;res(true);};
+    r.onerror=()=>{this.db=null;res(false);}; // fall back to memory
+  });},
+  tx(store,mode){return this.db.transaction(store,mode).objectStore(store);},
+  get(store,key){return new Promise(r=>{if(!this.db)return r(undefined);const q=this.tx(store,'readonly').get(key);q.onsuccess=()=>r(q.result);q.onerror=()=>r(undefined);});},
+  set(store,key,val){return new Promise(r=>{if(!this.db)return r();const q=this.tx(store,'readwrite').put(val,key);q.onsuccess=()=>r();q.onerror=()=>r();});},
+  del(store,key){return new Promise(r=>{if(!this.db)return r();const q=this.tx(store,'readwrite').delete(key);q.onsuccess=()=>r();q.onerror=()=>r();});},
+  all(store){return new Promise(r=>{if(!this.db)return r({});const out={};const c=this.tx(store,'readonly').openCursor();
+    c.onsuccess=e=>{const cur=e.target.result;if(cur){out[cur.key]=cur.value;cur.continue();}else r(out);};c.onerror=()=>r(out);});}
+};
+
+/* ---------------- Seed file system ---------------- */
+const SEED={
+"/README.md":`# SEIS Code
+
+A single-URL **VS Code Web** replica running entirely in your browser.
+
+- Real Monaco editor — type, multi-tab, 20+ languages
+- Working terminal — try \`help\`, \`ls\`, \`tree\`, \`neofetch\`
+- Type **\`claude\`** in the terminal to enter the Claude Code REPL
+- Files, extensions and history persist to **IndexedDB**
+
+> Everything you click does something. Interactivity is the point.
+`,
+"/index.html":`<!DOCTYPE html>
+<html>
+  <head><title>Hello SEIS</title></head>
+  <body>
+    <h1>Hello, world</h1>
+    <script src="app.js"><\/script>
+  </body>
+</html>`,
+"/styles.css":`:root{ --accent:#0078d4; }
+body{
+  font-family: system-ui, sans-serif;
+  background: #1e1e1e;
+  color: #ccc;
+}
+.button{ color: var(--accent); }`,
+"/app.js":`// Click "Run active file" to execute this in a sandbox.
+function fib(n){ return n < 2 ? n : fib(n-1) + fib(n-2); }
+for (let i = 0; i < 10; i++) console.log('fib', i, '=', fib(i));
+console.log('done ✓');`,
+"/src/main.py":`from dataclasses import dataclass
+
+@dataclass
+class Creature:
+    name: str
+    region: str
+
+def roar(c: Creature) -> str:
+    return f"{c.name} of {c.region} roars!"
+
+print(roar(Creature("Bai Ze", "Mount Kunlun")))`,
+"/src/lib.rs":`pub fn greet(name: &str) -> String {
+    format!("Hello, {name}!")
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test] fn it_works(){ assert_eq!(greet("SEIS"), "Hello, SEIS!"); }
+}`,
+"/src/app.ts":`interface User { id: number; name: string }
+const users: User[] = [{ id: 1, name: "Emirhan" }];
+export const find = (id: number): User | undefined =>
+  users.find(u => u.id === id);`,
+"/src/Server.java":`public class Server {
+    public static void main(String[] args) {
+        System.out.println("SEIS server online on :8080");
+    }
+}`,
+"/src/app.go":`package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("SEIS // go runtime")
+}`,
+"/data/config.yaml":`server:
+  host: 0.0.0.0
+  port: 8080
+features:
+  - terminal
+  - claude-repl
+  - indexeddb`,
+"/data/package.json":`{
+  "name": "seis-code",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "start": "seis serve" }
+}`,
+"/scripts/build.sh":`#!/usr/bin/env bash
+set -euo pipefail
+echo "Building SEIS Code…"
+echo "Done ✓"`,
+"/query.sql":`SELECT name, region, COUNT(*) AS sightings
+FROM creatures
+WHERE region = 'Kunlun'
+GROUP BY name, region
+ORDER BY sightings DESC;`
+};
+
+/* ---------------- VFS ---------------- */
+const VFS={
+  files:{},                  // path -> content
+  saved:{},                  // path -> last-committed content (for SCM)
+  async load(){
+    const stored=await DB.all('files');
+    if(stored && Object.keys(stored).length){ this.files={...stored}; }
+    else { this.files={...SEED}; for(const p in this.files) await DB.set('files',p,this.files[p]); }
+    const snap=await DB.get('kv','saved-snapshot');
+    this.saved = snap || JSON.parse(JSON.stringify(this.files));
+    await DB.set('kv','saved-snapshot',this.saved);
+  },
+  list(){return Object.keys(this.files).sort();},
+  read(p){return this.files[p];},
+  exists(p){return p in this.files;},
+  async write(p,c){this.files[p]=c; await DB.set('files',p,c);},
+  async remove(p){delete this.files[p]; await DB.del('files',p);},
+  isDir(p){p=p.replace(/\/$/,'')+'/';return this.list().some(f=>f.startsWith(p));},
+  dirty(p){return this.files[p]!==this.saved[p];},
+  changes(){const set=new Set([...Object.keys(this.files),...Object.keys(this.saved)]);const out=[];
+    for(const p of set){ if(this.files[p]===undefined) out.push({p,s:'D'});
+      else if(this.saved[p]===undefined) out.push({p,s:'U'});
+      else if(this.files[p]!==this.saved[p]) out.push({p,s:'M'}); }
+    return out.sort((a,b)=>a.p.localeCompare(b.p));},
+  async commitAll(){this.saved=JSON.parse(JSON.stringify(this.files));await DB.set('kv','saved-snapshot',this.saved);}
+};
+
+/* ---------------- Language map (file ext -> monaco language) ---------------- */
+const LANGS={md:'markdown',markdown:'markdown',js:'javascript',mjs:'javascript',cjs:'javascript',
+  ts:'typescript',tsx:'typescript',jsx:'javascript',json:'json',html:'html',htm:'html',css:'css',
+  scss:'scss',less:'less',py:'python',rb:'ruby',rs:'rust',go:'go',java:'java',c:'c',h:'c',cpp:'cpp',
+  hpp:'cpp',cs:'csharp',php:'php',swift:'swift',kt:'kotlin',scala:'scala',sh:'shell',bash:'shell',
+  zsh:'shell',yml:'yaml',yaml:'yaml',xml:'xml',sql:'sql',lua:'lua',r:'r',dart:'dart',pl:'perl',
+  toml:'ini',ini:'ini',dockerfile:'dockerfile',vue:'html',svelte:'html',graphql:'graphql',clj:'clojure',
+  ex:'elixir',erl:'erlang',hs:'haskell',jl:'julia',m:'objective-c',ps1:'powershell',txt:'plaintext'};
+const langOf=p=>{const ext=(p.split('.').pop()||'').toLowerCase();return LANGS[ext]||'plaintext';};
+const langName=l=>({plaintext:'Plain Text',javascript:'JavaScript',typescript:'TypeScript',markdown:'Markdown',
+  python:'Python',rust:'Rust',go:'Go',java:'Java',html:'HTML',css:'CSS',json:'JSON',yaml:'YAML',shell:'Shell Script',
+  sql:'SQL',cpp:'C++',c:'C',ruby:'Ruby',ini:'TOML/INI'}[l]||l.charAt(0).toUpperCase()+l.slice(1));
+const iconOf=p=>{const e=(p.split('.').pop()||'').toLowerCase();
+  const m={js:'🟨',ts:'🔷',json:'🟧',md:'📘',html:'🟧',css:'🎨',py:'🐍',rs:'🦀',go:'🐹',java:'☕',
+    sql:'🗃️',yaml:'⚙️',yml:'⚙️',sh:'📜',rb:'💎',txt:'📄'};return m[e]||'📄';};
+
+/* ---------------- Editor host (Monaco with textarea fallback) ---------------- */
+const Editor={
+  mode:'loading', monaco:null, instance:null, models:{}, current:null,
+  onChange:null, onCursor:null,
+  init(cb){
+    let done=false; const fb=()=>{ if(done)return; done=true; this.startFallback(); cb&&cb(); };
+    const t=setTimeout(fb,7000);
+    try{
+      require.config({paths:{vs:'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs'}});
+      window.MonacoEnvironment={getWorkerUrl:function(){
+        return 'data:text/javascript;charset=utf-8,'+encodeURIComponent(
+          "self.MonacoEnvironment={baseUrl:'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/'};"+
+          "importScripts('https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/base/worker/workerMain.js');");
+      }};
+      require(['vs/editor/editor.main'],()=>{
+        if(done)return; done=true; clearTimeout(t);
+        this.monaco=window.monaco; this.mode='monaco';
+        this.instance=monaco.editor.create($('#monaco'),{
+          value:'',language:'plaintext',theme:'vs-dark',automaticLayout:true,
+          fontSize:13.5,fontFamily:"'SF Mono',Menlo,Consolas,monospace",minimap:{enabled:true},
+          scrollBeyondLastLine:false,smoothScrolling:true,cursorBlinking:'smooth',padding:{top:8}});
+        this.instance.onDidChangeModelContent(()=>{ if(this.current){this.models[this.current].dirtyCheck();} });
+        this.instance.onDidChangeCursorPosition(e=>{ this.onCursor&&this.onCursor(e.position); });
+        cb&&cb();
+      },()=>fb());
+    }catch(e){ fb(); }
+  },
+  startFallback(){
+    this.mode='textarea';
+    const ta=el('textarea'); ta.id='fallback'; ta.spellcheck=false; $('#monaco').appendChild(ta);
+    ta.addEventListener('input',()=>{ if(this.current){this.models[this.current].value=ta.value;this.models[this.current].dirtyCheck();} });
+    ta.addEventListener('keyup',()=>this.reportCursor()); ta.addEventListener('click',()=>this.reportCursor());
+    this.ta=ta;
+    Toast('Monaco CDN unavailable — using lightweight editor (typing &amp; saving still work).');
+  },
+  reportCursor(){const ta=this.ta;const v=ta.value.slice(0,ta.selectionStart);const lines=v.split('\n');
+    this.onCursor&&this.onCursor({lineNumber:lines.length,column:lines[lines.length-1].length+1});},
+  ensure(path){
+    if(this.models[path])return this.models[path];
+    const lang=langOf(path), self=this;
+    const rec={path,lang,value:VFS.read(path)??'',mModel:null,
+      dirtyCheck(){ clearTimeout(this._dt); this._dt=setTimeout(()=>{ const d=this.getValue()!==VFS.read(path);
+        if(d!==this._ld){ this._ld=d; App.refreshSCMBadge(); } },200); },
+      getValue(){ return self.mode==='monaco'? this.mModel.getValue() : this.value; }};
+    if(this.mode==='monaco'){
+      rec.mModel=monaco.editor.createModel(rec.value,lang,monaco.Uri.parse('inmemory:'+path));
+    }
+    this.models[path]=rec; return rec;
+  },
+  show(path){
+    this.current=path; const rec=this.ensure(path);
+    $('#welcome').style.display='none';
+    if(this.mode==='monaco'){ this.instance.setModel(rec.mModel); this.instance.focus(); }
+    else if(this.mode==='textarea'){ this.ta.style.display='block'; this.ta.value=rec.value; this.ta.focus(); }
+  },
+  showWelcome(){ this.current=null; $('#welcome').style.display='flex';
+    if(this.mode==='monaco')this.instance.setModel(null); if(this.mode==='textarea')this.ta.style.display='none'; },
+  value(path){ const r=this.models[path]; return r?r.getValue():VFS.read(path); },
+  setLang(path){ /* lang fixed at model creation; status uses langOf */ },
+  forget(path){ const r=this.models[path]; if(r&&r.mModel)r.mModel.dispose(); delete this.models[path]; }
+};
+
+/* ---------------- Tabs ---------------- */
+const Tabs={
+  open:[], active:null,
+  async openFile(path,{focusEditor=true}={}){
+    if(!VFS.exists(path)){Toast('File not found: '+esc(path));return;}
+    if(!this.open.includes(path))this.open.push(path);
+    this.active=path; Editor.show(path); this.render(); Explorer.select(path); App.updateStatus();
+    Bread.render(path);
+  },
+  close(path){
+    const i=this.open.indexOf(path); if(i<0)return;
+    this.open.splice(i,1); Editor.forget(path);
+    if(this.active===path){ this.active=this.open[Math.max(0,i-1)]||null;
+      if(this.active)Editor.show(this.active); else Editor.showWelcome(); Bread.render(this.active); }
+    this.render(); App.updateStatus();
+  },
+  markDirty(path,d){ this.render(); },
+  render(){
+    const wrap=$('#tabs'); wrap.innerHTML=''; this.tabEls={};
+    this.open.forEach(p=>{
+      const dirty=VFS.read(p)!==undefined && Editor.value(p)!==VFS.read(p);
+      const t=el('div','tab'+(p===this.active?' active':'')); t.style.position='relative';
+      t.appendChild(el('span','ico',iconOf(p)));
+      t.appendChild(el('span','nm',esc(p.split('/').pop())));
+      t.appendChild(dirty?el('span','dot'):mkClose(p));
+      t.addEventListener('click',e=>{ if(e.target.closest('.x'))return; this.openFile(p); });
+      t.addEventListener('mousedown',e=>{ if(e.button===1){e.preventDefault();this.close(p);} }); // middle-click close
+      wrap.appendChild(t); this.tabEls[p]=t;
+    });
+    function _noop(){}
+  }
+};
+function mkClose(path){ const x=el('span','x','✕'); x.addEventListener('click',e=>{e.stopPropagation();Tabs.close(path);}); return x; }
+
+/* ---------------- Breadcrumb ---------------- */
+const Bread={ render(path){ const b=$('#breadcrumb'); if(!path){b.innerHTML='';return;}
+  b.innerHTML=path.split('/').filter(Boolean).map(esc).join(' <span style="color:#555">›</span> '); } };
+
+/* ---------------- Explorer (file tree) ---------------- */
+const Explorer={
+  selected:null,
+  buildTree(){
+    const root={dirs:{},files:[]};
+    VFS.list().forEach(p=>{ const parts=p.split('/').filter(Boolean); let node=root;
+      parts.forEach((seg,i)=>{ if(i===parts.length-1){node.files.push({name:seg,path:p});}
+        else{ node.dirs[seg]=node.dirs[seg]||{dirs:{},files:[]}; node=node.dirs[seg]; } }); });
+    return root;
+  },
+  collapsed:new Set(),
+  render(){
+    const host=$('#tree'); host.innerHTML='';
+    const root=this.buildTree(); this._render(root,'',0,host);
+  },
+  _render(node,prefix,depth,host){
+    Object.keys(node.dirs).sort().forEach(d=>{
+      const path=prefix+'/'+d; const open=!this.collapsed.has(path);
+      const row=el('div','row'); row.style.paddingLeft=(8+depth*12)+'px';
+      row.appendChild(el('span','tw',open?'▾':'▸'));
+      row.appendChild(el('span','ico','📁'));
+      row.appendChild(el('span','nm',esc(d)));
+      row.addEventListener('click',()=>{ if(open)this.collapsed.add(path);else this.collapsed.delete(path); this.render(); });
+      host.appendChild(row);
+      if(open)this._render(node.dirs[d],path,depth+1,host);
+    });
+    node.files.sort((a,b)=>a.name.localeCompare(b.name)).forEach(f=>{
+      const row=el('div','row'+(f.path===this.selected?' sel':'')); row.style.paddingLeft=(8+depth*12+14)+'px';
+      row.appendChild(el('span','ico',iconOf(f.path)));
+      row.appendChild(el('span','nm',esc(f.name)));
+      const del=el('span','del','🗑'); del.title='Delete';
+      del.addEventListener('click',async e=>{ e.stopPropagation();
+        if(Tabs.open.includes(f.path))Tabs.close(f.path);
+        await VFS.remove(f.path); this.render(); App.refreshSCMBadge(); Toast('Deleted '+esc(f.path)); });
+      row.appendChild(del);
+      row.addEventListener('click',()=>Tabs.openFile(f.path));
+      host.appendChild(row);
+    });
+  },
+  select(path){ this.selected=path; this.render(); }
+};
+
+/* ---------------- Search ---------------- */
+const Search={
+  run(q){
+    const host=$('#search-results'); host.innerHTML=''; q=q.trim(); if(!q)return;
+    let count=0,files=0; const rx=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+    VFS.list().forEach(p=>{
+      const lines=VFS.read(p).split('\n'); const hits=[];
+      lines.forEach((ln,i)=>{ if(rx.test(ln)){hits.push({i,ln});rx.lastIndex=0;} });
+      if(hits.length){ files++;
+        const fr=el('div','sfile'); fr.appendChild(el('span','',iconOf(p))); fr.appendChild(el('span','',esc(p)));
+        fr.appendChild(el('span','t-dim','&nbsp;'+hits.length)); host.appendChild(fr);
+        hits.slice(0,40).forEach(h=>{ count++;
+          const lr=el('div','sline'); lr.innerHTML=esc(h.ln.trim()).replace(new RegExp(esc(q),'gi'),m=>'<b>'+m+'</b>');
+          lr.title='Line '+(h.i+1);
+          lr.addEventListener('click',()=>{ Tabs.openFile(p);
+            setTimeout(()=>{ if(Editor.mode==='monaco'&&Editor.instance){Editor.instance.revealLineInCenter(h.i+1);
+              Editor.instance.setPosition({lineNumber:h.i+1,column:1});Editor.instance.focus();} },140); });
+          host.appendChild(lr);
+        });
+      }
+    });
+    if(!count)host.appendChild(el('div','pad t-dim','No results.'));
+    else host.insertBefore(el('div','pad t-dim',count+' results in '+files+' files'),host.firstChild);
+  }
+};
+
+/* ---------------- Source Control ---------------- */
+const SCM={
+  render(){
+    const host=$('#scm-list'); host.innerHTML='';
+    const ch=VFS.changes();
+    if(!ch.length){ host.appendChild(el('div','pad t-dim','No changes — working tree clean.')); return; }
+    host.appendChild(el('div','side-head','Changes &nbsp;<span class="t-dim">'+ch.length+'</span>'));
+    ch.forEach(c=>{
+      const r=el('div','scm-item');
+      r.appendChild(el('span','ico',iconOf(c.p)));
+      r.appendChild(el('span','nm',esc(c.p.split('/').pop())));
+      r.appendChild(el('span','t-dim','&nbsp;'+esc(c.p.replace(/\/[^/]+$/,'')||'/')));
+      r.appendChild(el('span','scm-badge '+c.s,c.s));
+      r.addEventListener('click',()=>{ if(VFS.exists(c.p))Tabs.openFile(c.p); });
+      host.appendChild(r);
+    });
+  }
+};
+
+/* ---------------- Extensions ---------------- */
+const EXT_CATALOG=[
+  {id:'seis.theme-midnight',name:'SEIS Midnight Theme',pub:'SEIS',ico:'🎨',desc:'Cinematic dark theme for calm focus.'},
+  {id:'ms.python',name:'Python',pub:'Microsoft',ico:'🐍',desc:'IntelliSense, linting, debugging.'},
+  {id:'rust.analyzer',name:'rust-analyzer',pub:'rust-lang',ico:'🦀',desc:'Rust language server.'},
+  {id:'esbenp.prettier',name:'Prettier',pub:'Prettier',ico:'✨',desc:'Opinionated code formatter.'},
+  {id:'dbaeumer.eslint',name:'ESLint',pub:'Microsoft',ico:'🟪',desc:'Integrates ESLint into the editor.'},
+  {id:'anthropic.claude-code',name:'Claude Code',pub:'Anthropic',ico:'✳️',desc:'Agentic coding in your terminal.'},
+  {id:'golang.go',name:'Go',pub:'Google',ico:'🐹',desc:'Rich Go language support.'},
+  {id:'redhat.yaml',name:'YAML',pub:'Red Hat',ico:'⚙️',desc:'YAML language support + schema.'},
+  {id:'eamodio.gitlens',name:'GitLens',pub:'GitKraken',ico:'🔍',desc:'Supercharge Git in the editor.'},
+];
+const Extensions={
+  installed:{},
+  async load(){ this.installed=await DB.get('extensions','installed')||{'seis.theme-midnight':true,'anthropic.claude-code':true}; },
+  async toggle(id){ this.installed[id]=!this.installed[id]; await DB.set('extensions','installed',this.installed);
+    this.render(); App.updateActivityBadges();
+    Toast((this.installed[id]?'Installed ':'Uninstalled ')+id); },
+  count(){return Object.values(this.installed).filter(Boolean).length;},
+  render(filter=''){
+    const host=$('#ext-list'); host.innerHTML='';
+    EXT_CATALOG.filter(x=>(x.name+x.pub+x.desc).toLowerCase().includes(filter.toLowerCase())).forEach(x=>{
+      const on=!!this.installed[x.id];
+      const row=el('div','ext');
+      row.appendChild(el('div','ico',x.ico));
+      const meta=el('div','meta');
+      meta.appendChild(el('h4','','<span>'+esc(x.name)+'</span>'));
+      meta.appendChild(el('p','',esc(x.desc)+' · '+esc(x.pub)));
+      const btn=el('button','inst'+(on?' on':''),on?'✓ Installed':'Install');
+      btn.addEventListener('click',()=>this.toggle(x.id));
+      meta.appendChild(btn); row.appendChild(meta); host.appendChild(row);
+    });
+  }
+};
+
+/* ---------------- Run / Debug ---------------- */
+const Run={
+  active(){ return Tabs.active; },
+  exec(){
+    const p=this.active();
+    if(!p){Toast('Open a file to run.');return;}
+    if(!/\.(js|mjs|cjs)$/.test(p)){ Term.runtimeNote(p); App.showPanelView('term'); return; }
+    const code=Editor.value(p); const logs=[];
+    const fakeConsole={log:(...a)=>logs.push(a.map(fmt).join(' ')),
+      error:(...a)=>logs.push('⛔ '+a.map(fmt).join(' ')),
+      warn:(...a)=>logs.push('⚠ '+a.map(fmt).join(' ')),
+      info:(...a)=>logs.push(a.map(fmt).join(' '))};
+    App.showPanelView('term');
+    Term.print('$ node '+p,'t-cmd');
+    let err=null;
+    try{ new Function('console',code)(fakeConsole); }catch(e){ err=e; }
+    logs.forEach(l=>{ Term.print(l); Debug.log(l); });
+    if(err){ Term.print(String(err),'t-err'); Debug.log('Uncaught '+String(err)); App.bumpProblems(1); }
+    Term.print('[process exited with code '+(err?1:0)+']','t-dim'); Term.newPrompt();
+    function fmt(v){ try{ return typeof v==='object'?JSON.stringify(v):String(v);}catch{return String(v);} }
+  },
+  render(){
+    const host=$('#run-configs'); host.innerHTML='';
+    host.appendChild(el('div','side-head','Run Configurations'));
+    [['Launch current file','node ${file}'],['Run build script','bash scripts/build.sh'],['Start dev server','seis serve']].forEach(c=>{
+      const r=el('div','scm-item'); r.appendChild(el('span','ico','▷'));
+      r.appendChild(el('span','nm',c[0])); r.appendChild(el('span','t-dim','&nbsp;'+esc(c[1])));
+      r.addEventListener('click',()=>this.exec()); host.appendChild(r);
+    });
+  }
+};
+const Debug={ log(s){ const v=$('#debug'); v.appendChild(el('div','tline','› '+esc(s))); v.scrollTop=v.scrollHeight; } };
+
+/* ---------------- Activity bar / Views ---------------- */
+const VIEWS=[
+  {id:'explorer',title:'Explorer',badge:()=>VFS.list().length,svg:'<path fill="currentColor" d="M3 3h7l2 2h9v15H3z" opacity=".15"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3.5 4.5h6l2 2h9v12.5h-17z"/>'},
+  {id:'search',title:'Search',svg:'<circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" d="M15 15l5 5"/>'},
+  {id:'scm',title:'Source Control',badge:()=>VFS.changes().length||'',svg:'<circle cx="6" cy="6" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6 8.5v7M6 15.5C6 11 15 13 15.5 11"/>'},
+  {id:'run',title:'Run and Debug',svg:'<path fill="none" stroke="currentColor" stroke-width="1.7" d="M7 5l11 7-11 7z"/>'},
+  {id:'ext',title:'Extensions',badge:()=>Extensions.count(),svg:'<path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>'},
+];
+
+/* ---------------- App controller ---------------- */
+const App={
+  activeView:'explorer',
+  async boot(){
+    await DB.open(); await VFS.load(); await Extensions.load();
+    Menus.build(); this.buildActivity(); this.buildSideActs();
+    Explorer.render(); SCM.render(); Run.render(); Extensions.render();
+    Palette.build(); this.wire(); Term.boot();
+    Editor.onCursor=pos=>{ $('#st-pos').textContent='Ln '+pos.lineNumber+', Col '+pos.column; };
+    Editor.init(async ()=>{
+      // open last session tabs or README
+      const lastTabs=await DB.get('kv','open-tabs'); const lastActive=await DB.get('kv','active-tab');
+      const toOpen=(lastTabs&&lastTabs.filter(p=>VFS.exists(p)))||[];
+      if(toOpen.length){ toOpen.forEach(p=>{ if(!Tabs.open.includes(p))Tabs.open.push(p); });
+        Tabs.active=VFS.exists(lastActive)?lastActive:toOpen[0]; Editor.show(Tabs.active); Tabs.render(); Bread.render(Tabs.active);
+        Explorer.select(Tabs.active);
+      } else { Tabs.openFile('/README.md'); }
+      this.updateStatus();
+    });
+    this.updateActivityBadges();
+    window.addEventListener('beforeunload',()=>{ DB.set('kv','open-tabs',Tabs.open); DB.set('kv','active-tab',Tabs.active); });
+  },
+  buildActivity(){
+    const bar=$('#activity');
+    VIEWS.forEach(v=>{
+      const b=el('button','act'+(v.id==='explorer'?' active':'')); b.dataset.view=v.id; b.title=v.title;
+      b.innerHTML='<svg viewBox="0 0 24 24">'+v.svg+'</svg>';
+      b.addEventListener('click',()=>this.setView(v.id)); bar.appendChild(b);
+    });
+    bar.appendChild(el('div','act-spacer'));
+    const settings=el('button','act'); settings.title='Manage'; settings.innerHTML='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2M18.5 5.5l-2 2M7.5 16.5l-2 2"/></svg>';
+    settings.addEventListener('click',()=>Palette.open()); bar.appendChild(settings);
+  },
+  updateActivityBadges(){
+    VIEWS.forEach(v=>{ const b=$('.act[data-view="'+v.id+'"]'); if(!b)return;
+      let badge=b.querySelector('.badge'); const val=v.badge?v.badge():'';
+      if(val){ if(!badge){badge=el('span','badge');b.appendChild(badge);} badge.textContent=val; }
+      else if(badge)badge.remove(); });
+  },
+  buildSideActs(){
+    const map={explorer:[['＋','New File',()=>Commands.newFile()],['📁','New Folder',()=>Commands.newFolder()],['⟳','Refresh',()=>Explorer.render()]],
+      search:[['⟳','Clear',()=>{$('#search-input').value='';$('#search-results').innerHTML='';}]],
+      scm:[['⟳','Refresh',()=>SCM.render()]],
+      run:[['▶','Run',()=>Run.exec()]],
+      ext:[['⟳','Refresh',()=>Extensions.render()]]};
+    this.sideActs=map;
+  },
+  renderSideActs(){
+    const host=$('#side-acts'); host.innerHTML=''; (this.sideActs[this.activeView]||[]).forEach(a=>{
+      const b=el('button','',a[0]); b.title=a[1]; b.addEventListener('click',a[2]); host.appendChild(b); });
+  },
+  setView(id){
+    if(this.activeView===id && !$('#side').classList.contains('collapsed')){ this.toggleSide(); return; }
+    $('#side').classList.remove('collapsed');
+    this.activeView=id;
+    $$('.act').forEach(a=>a.classList.toggle('active',a.dataset.view===id));
+    $$('.view').forEach(v=>v.classList.toggle('active',v.dataset.view===id));
+    $('#side-title').textContent=VIEWS.find(v=>v.id===id).title;
+    if(id==='scm')SCM.render(); if(id==='ext')Extensions.render();
+    this.renderSideActs();
+    const f={search:'#search-input',ext:'#ext-search',scm:'#commit-msg'}[id]; if(f)setTimeout(()=>$(f).focus(),0);
+  },
+  toggleSide(){ $('#side').classList.toggle('collapsed'); },
+  refreshSCMBadge(){ this.updateActivityBadges(); if(this.activeView==='scm')SCM.render(); Tabs.render(); },
+  showPanelView(id){ $('#panel').classList.remove('hidden');
+    $$('.ptab').forEach(t=>t.classList.toggle('active',t.dataset.pview===id));
+    $$('.pview').forEach(v=>v.classList.toggle('active',v.id===id));
+    if(id==='term')setTimeout(()=>$('#term-input').focus(),0);
+  },
+  toggleTerminal(){ const p=$('#panel'); p.classList.toggle('hidden'); if(!p.classList.contains('hidden')){this.showPanelView('term');} },
+  bumpProblems(n){ this._probWarn=(this._probWarn||0)+n; this.renderProblems(); },
+  renderProblems(){
+    let errors=0,warns=0; const host=$('#problems'); host.innerHTML='';
+    VFS.list().forEach(p=>{ const lines=VFS.read(p).split('\n');
+      lines.forEach((ln,i)=>{ const m=ln.match(/\b(TODO|FIXME|XXX)\b/);
+        if(m){ warns++; const r=el('div','tline');
+          r.innerHTML='<span class="t-acc">⚠</span> '+esc(p)+':'+(i+1)+' — '+esc(ln.trim().slice(0,80));
+          r.style.cursor='pointer'; r.addEventListener('click',()=>Tabs.openFile(p)); host.appendChild(r);} }); });
+    if(!warns)host.appendChild(el('div','t-dim','No problems have been detected in the workspace.'));
+    $('#st-problems').textContent='⊘ '+errors+' ⚠ '+warns;
+  },
+  updateStatus(){
+    const p=Tabs.active;
+    $('#st-lang').textContent= p?langName(langOf(p)):'Plain Text';
+    if(!p)$('#st-pos').textContent='Ln 1, Col 1';
+    this.renderProblems();
+  },
+  wire(){ /* see global wiring below */ }
+};
+
+/* ---------------- Commands (shared actions) ---------------- */
+const Commands={
+  async newFile(name){
+    name=name||prompt('New file path:', '/untitled-'+(Math.floor(Math.random()*900)+100)+'.js');
+    if(!name)return; if(name[0]!=='/')name='/'+name;
+    if(VFS.exists(name)){Toast('Already exists.');return Tabs.openFile(name);}
+    await VFS.write(name,''); Explorer.render(); App.refreshSCMBadge(); Tabs.openFile(name);
+  },
+  async newFolder(name){
+    name=name||prompt('New folder path:','/new-folder'); if(!name)return; if(name[0]!=='/')name='/'+name;
+    await VFS.write(name.replace(/\/$/,'')+'/.gitkeep',''); Explorer.render(); Toast('Folder created');
+  },
+  async save(){ const p=Tabs.active; if(!p){Toast('Nothing to save.');return;}
+    await VFS.write(p,Editor.value(p)); Tabs.markDirty(p,false); Tabs.render(); App.refreshSCMBadge();
+    Toast('Saved '+esc(p)); },
+  async saveAll(){ for(const p of Tabs.open)await VFS.write(p,Editor.value(p)); Tabs.render(); App.refreshSCMBadge(); Toast('Saved all'); },
+  closeTab(){ if(Tabs.active)Tabs.close(Tabs.active); },
+  toggleTerminal(){ App.toggleTerminal(); },
+  palette(){ Palette.open(); },
+  find(){ if(Editor.mode==='monaco'&&Editor.instance){Editor.instance.getAction('actions.find').run();}else Toast('Find available with Monaco editor.'); },
+  format(){ if(Editor.mode==='monaco'&&Editor.instance){Editor.instance.getAction('editor.action.formatDocument')?.run();Toast('Formatted');}else Toast('Formatting needs Monaco.'); },
+  commandPalette(){ Palette.open(); },
+  gotoFile(){ Palette.open('file '); },
+  selectAll(){ if(Editor.mode==='monaco'&&Editor.instance)Editor.instance.setSelection(Editor.instance.getModel().getFullModelRange()); },
+  splitTerminal(){ App.showPanelView('term'); Term.print('(split terminals share one session in this replica)','t-dim'); Term.newPrompt(); },
+  async commit(){ const msg=$('#commit-msg').value.trim()||'update';
+    const n=VFS.changes().length; if(!n){Toast('Nothing to commit.');return;}
+    await VFS.commitAll(); $('#commit-msg').value=''; App.refreshSCMBadge(); SCM.render(); Tabs.render();
+    Toast('Committed '+n+' file(s): “'+esc(msg)+'”'); }
+};
+
+/* ---------------- Menus ---------------- */
+const MENU_DEF={
+  File:[['New File','⌘N','newFile'],['New Folder','','newFolder'],['sep'],['Save','⌘S','save'],['Save All','⌥⌘S','saveAll'],['sep'],['Close Editor','⌘W','closeTab'],['Revert File','','revert']],
+  Edit:[['Undo','⌘Z','undo'],['Redo','⇧⌘Z','redo'],['sep'],['Find','⌘F','find'],['Replace','⌥⌘F','replace'],['sep'],['Format Document','⇧⌥F','format']],
+  Selection:[['Select All','⌘A','selectAll'],['Copy Line Down','⇧⌥↓','copyLine'],['sep'],['Add Cursor Below','⌥⌘↓','cursorBelow']],
+  View:[['Command Palette','⌘⇧P','palette'],['sep'],['Explorer','⌘⇧E','viewExplorer'],['Search','⌘⇧F','viewSearch'],['Source Control','⌃⇧G','viewScm'],['Run','⌃⇧D','viewRun'],['Extensions','⌘⇧X','viewExt'],['sep'],['Toggle Side Bar','⌘B','toggleSide'],['Toggle Terminal','⌃`','toggleTerminal']],
+  Go:[['Go to File…','⌘P','gotoFile'],['Go to Line…','⌃G','gotoLine'],['sep'],['Back','⌃-','back'],['Forward','⌃⇧-','forward']],
+  Run:[['Run Active File','⌃F5','runFile'],['Open Debug Console','⇧⌘Y','debugConsole'],['sep'],['Run Build Task','⇧⌘B','runBuild']],
+  Terminal:[['New Terminal','⌃`','toggleTerminal'],['Split Terminal','⌘\\','splitTerminal'],['sep'],['Run Task…','','runBuild'],['Clear','','clearTerminal']],
+  Help:[['Welcome','','welcome'],['Show All Commands','⌘⇧P','palette'],['sep'],['About SEIS Code','','about']]
+};
+const MENU_ACTIONS={
+  newFile:()=>Commands.newFile(), newFolder:()=>Commands.newFolder(), save:()=>Commands.save(),
+  saveAll:()=>Commands.saveAll(), closeTab:()=>Commands.closeTab(), revert:()=>Commands.revert&&Commands.revert(),
+  undo:()=>doMonaco('undo'), redo:()=>doMonaco('redo'), find:()=>Commands.find(),
+  replace:()=>{ if(Editor.instance)Editor.instance.getAction('editor.action.startFindReplaceAction').run(); else Toast('Needs Monaco'); },
+  format:()=>Commands.format(), selectAll:()=>Commands.selectAll(),
+  copyLine:()=>runAction('editor.action.copyLinesDownAction'), cursorBelow:()=>runAction('editor.action.insertCursorBelow'),
+  palette:()=>Palette.open(), viewExplorer:()=>App.setView('explorer'), viewSearch:()=>App.setView('search'),
+  viewScm:()=>App.setView('scm'), viewRun:()=>App.setView('run'), viewExt:()=>App.setView('ext'),
+  toggleSide:()=>App.toggleSide(), toggleTerminal:()=>App.toggleTerminal(),
+  gotoFile:()=>Palette.open('file '), gotoLine:()=>{ const n=+prompt('Go to line:'); if(n&&Editor.instance){Editor.instance.revealLineInCenter(n);Editor.instance.setPosition({lineNumber:n,column:1});Editor.instance.focus();} },
+  back:()=>history.back&&Toast('Navigated back'), forward:()=>Toast('Navigated forward'),
+  runFile:()=>Run.exec(), debugConsole:()=>App.showPanelView('debug'), runBuild:()=>Term.exec('bash scripts/build.sh'),
+  splitTerminal:()=>Commands.splitTerminal(), clearTerminal:()=>Term.clear(),
+  welcome:()=>Editor.showWelcome(), about:()=>Toast('SEIS Code · Web IDE replica · Monaco + IndexedDB · built for SEIS')
+};
+function runAction(a){ if(Editor.instance)Editor.instance.getAction(a)?.run(); else Toast('Needs Monaco editor'); }
+function doMonaco(a){ if(Editor.instance)Editor.instance.trigger('menu',a,null); else Toast('Needs Monaco editor'); }
+
+const Menus={
+  build(){
+    const bar=$('#menubar');
+    Object.keys(MENU_DEF).forEach(name=>{
+      const m=el('div','menu'); const btn=el('button','',name);
+      const drop=el('div','menu-drop');
+      MENU_DEF[name].forEach(item=>{
+        if(item[0]==='sep'){drop.appendChild(el('div','mi-sep'));return;}
+        const mi=el('div','mi'); mi.innerHTML='<span>'+esc(item[0])+'</span><span class="kbd">'+esc(item[1]||'')+'</span>';
+        mi.addEventListener('click',()=>{ closeMenus(); (MENU_ACTIONS[item[2]]||(()=>Toast('Action: '+item[2])))(); });
+        drop.appendChild(mi);
+      });
+      btn.addEventListener('click',e=>{ e.stopPropagation(); const open=m.classList.contains('open'); closeMenus(); if(!open)m.classList.add('open'); });
+      btn.addEventListener('mouseenter',()=>{ if($('.menu.open')){ closeMenus(); m.classList.add('open'); } });
+      m.appendChild(btn); m.appendChild(drop); bar.appendChild(m);
+    });
+  }
+};
+function closeMenus(){ $$('.menu.open').forEach(m=>m.classList.remove('open')); }
+
+/* ---------------- Command Palette ---------------- */
+const Palette={
+  items:[], sel:0,
+  build(){
+    this.items=[];
+    Object.keys(MENU_DEF).forEach(menu=>MENU_DEF[menu].forEach(it=>{ if(it[0]!=='sep')this.items.push({label:menu+': '+it[0],kbd:it[1],run:MENU_ACTIONS[it[2]]||(()=>Toast(it[2]))}); }));
+    [['Run Active File',()=>Run.exec()],['Commit All Changes',()=>Commands.commit()],['New Terminal',()=>App.toggleTerminal()],
+     ['Reset Workspace (clear IndexedDB)',()=>App.resetWorkspace()]].forEach(c=>this.items.push({label:'> '+c[0],kbd:'',run:c[1]}));
+  },
+  open(prefix=''){
+    $('#scrim').classList.add('on'); $('#palette').classList.add('open');
+    const input=$('#palette-input'); input.value=prefix; this.sel=0; this.render(prefix); input.focus();
+  },
+  close(){ $('#scrim').classList.remove('on'); $('#palette').classList.remove('open'); },
+  render(q){
+    q=q.toLowerCase().replace(/^>\s*/,'').replace(/^file\s*/,'');
+    const list=$('#palette-list'); list.innerHTML='';
+    let items=this.items;
+    if($('#palette-input').value.startsWith('file ')||$('#palette-input').value.startsWith('@')){
+      items=VFS.list().map(p=>({label:p,kbd:'file',run:()=>Tabs.openFile(p)}));
+    }
+    const filtered=items.filter(i=>i.label.toLowerCase().includes(q)).slice(0,40);
+    filtered.forEach((it,i)=>{ const d=el('div','pl-item'+(i===this.sel?' sel':''));
+      d.innerHTML='<span>'+esc(it.label)+'</span><span class="kbd">'+esc(it.kbd||'')+'</span>';
+      d.addEventListener('click',()=>{ this.close(); it.run(); });
+      d.addEventListener('mouseenter',()=>{ this.sel=i; this.render($('#palette-input').value); });
+      list.appendChild(d); });
+    this._filtered=filtered;
+  },
+  move(d){ if(!this._filtered)return; this.sel=(this.sel+d+this._filtered.length)%this._filtered.length; this.render($('#palette-input').value);
+    const sel=$('.pl-item.sel'); sel&&sel.scrollIntoView({block:'nearest'}); },
+  enter(){ const it=this._filtered&&this._filtered[this.sel]; if(it){ this.close(); it.run(); } }
+};
+App.resetWorkspace=async function(){ if(!confirm('Reset workspace? This clears files, history & extensions from IndexedDB.'))return;
+  indexedDB.deleteDatabase('seis-code'); Toast('Workspace reset — reloading…'); setTimeout(()=>location.reload(),700); };
+
+/* ============================================================================
+   TERMINAL  +  CLAUDE CODE REPL
+============================================================================ */
+const Term={
+  cwd:'/', history:[], hIdx:0, mode:'shell', claude:null,
+  out(){return $('#term-out');},
+  async boot(){
+    this.history=await DB.get('history','cmds')||[];
+    this.print('SEIS Code Terminal  ·  type "help" for commands, "claude" for the Claude Code REPL.','t-dim');
+    this.newPrompt();
+  },
+  promptHTML(){
+    if(this.mode==='claude') return '<span class="prompt-c">claude ›</span> ';
+    const path=this.cwd==='/'?'~':'~'+this.cwd;
+    return '<span class="prompt-u">seis</span><span class="t-dim">@web</span>:<span class="prompt-p">'+esc(path)+'</span>$ ';
+  },
+  newPrompt(){ $('#term-prompt').innerHTML=this.promptHTML(); $('#term-input').value=''; this.scroll(); $('#term-input').focus(); },
+  print(html,cls){ const d=el('div','tline'+(cls?' '+cls:''),html===''?'&nbsp;':html); this.out().appendChild(d); this.scroll(); return d; },
+  printRaw(node){ this.out().appendChild(node); this.scroll(); return node; },
+  scroll(){ const t=$('#term'); t.scrollTop=t.scrollHeight; },
+  clear(){ this.out().innerHTML=''; this.newPrompt(); },
+  echoCommand(line){ this.print(this.promptHTML()+'<span class="t-cmd">'+esc(line)+'</span>'); },
+  async submit(line){
+    this.echoCommand(line);
+    if(line.trim()){ this.history.push(line); this.hIdx=this.history.length; await DB.set('history','cmds',this.history.slice(-200)); }
+    if(this.mode==='claude'){ await Claude.handle(line.trim()); return; }
+    await this.exec(line);
+  },
+  async exec(line){
+    const raw=line.trim(); if(!raw){ this.newPrompt(); return; }
+    // redirect support: echo x > file
+    let redirect=null; let cmdline=raw;
+    const rm=raw.match(/^(.*?)\s*>\s*(\S+)\s*$/); if(rm){ cmdline=rm[1]; redirect=rm[2]; }
+    const [cmd,...args]=cmdline.trim().split(/\s+/);
+    const fn=this.cmds[cmd];
+    let result='';
+    if(fn){ try{ result=await fn.call(this,args,raw)||''; }catch(e){ result='\x01'+e.message; } }
+    else { this.print('command not found: '+esc(cmd)+' — try "help"','t-err'); this.newPrompt(); return; }
+    if(redirect){ const path=this.resolve(redirect); await VFS.write(path, (result||'').replace(/\x01/,'')); Explorer.render(); App.refreshSCMBadge(); this.newPrompt(); return; }
+    if(result==null||result===''){ this.newPrompt(); return; }
+    if(result[0]==='\x01'){ this.print(esc(result.slice(1)),'t-err'); }
+    else if(result==='\x00'){ /* command managed its own output/prompt */ return; }
+    else this.print(esc(result));
+    this.newPrompt();
+  },
+  resolve(p){ if(!p)return this.cwd; if(p[0]==='/')return p.replace(/\/+/g,'/');
+    if(p==='~')return '/'; let base=this.cwd==='/'?[]:this.cwd.split('/').filter(Boolean);
+    p.split('/').forEach(seg=>{ if(seg===''||seg==='.')return; if(seg==='..')base.pop(); else base.push(seg); });
+    return '/'+base.join('/'); },
+  runtimeNote(p){ this.print('Runtime for '+esc(p.split('.').pop())+' files is not bundled in this web replica; JavaScript runs live via "node". Showing source instead:','t-dim');
+    this.print(esc(VFS.read(p)||'')); this.newPrompt(); },
+  cmds:{
+    help(){ return [
+      'Available commands:',
+      '  help                 show this help            ls [dir]   list files',
+      '  cd <dir>             change directory          pwd        print working dir',
+      '  cat <file>           print a file              tree       show file tree',
+      '  echo <text> [> f]    print / write to file     touch <f>  create a file',
+      '  mkdir <dir>          create a folder           rm <file>  delete a file',
+      '  open <file>          open in the editor        run <f.js> execute a JS file',
+      '  grep <pat> <file>    search in a file          wc <file>  count lines/words',
+      '  history              command history           date       current date/time',
+      '  whoami               current user              neofetch   system info',
+      '  cowsay <text>        a cow says it             clear      clear the terminal',
+      '  claude               ✳ enter the Claude Code REPL',
+    ].join('\n'); },
+    ls(args){ const dir=this.resolve(args[0]||this.cwd); const set=new Set();
+      VFS.list().forEach(p=>{ const base=dir==='/'?'':dir;
+        if(p.startsWith(base+'/')){ const rest=p.slice(base.length+1); const seg=rest.split('/')[0];
+          set.add(rest.includes('/')?seg+'/':seg); } });
+      if(!set.size)return '(empty)';
+      return [...set].sort().map(s=>s.endsWith('/')?'📁 '+s:'   '+s).join('\n'); },
+    cd(args){ const t=args[0]; if(!t||t==='~'){this.cwd='/';return '';} const np=this.resolve(t);
+      if(np==='/'||VFS.isDir(np)){this.cwd=np;return '';} return '\x01cd: not a directory: '+t; },
+    pwd(){ return this.cwd; },
+    cat(args){ if(!args[0])return '\x01usage: cat <file>'; const p=this.resolve(args[0]);
+      if(!VFS.exists(p))return '\x01cat: no such file: '+args[0]; return VFS.read(p); },
+    echo(args){ return args.join(' ').replace(/^["']|["']$/g,''); },
+    async touch(args){ if(!args[0])return '\x01usage: touch <file>'; const p=this.resolve(args[0]);
+      if(!VFS.exists(p))await VFS.write(p,''); Explorer.render(); App.refreshSCMBadge(); return ''; },
+    async mkdir(args){ if(!args[0])return '\x01usage: mkdir <dir>'; const p=this.resolve(args[0]);
+      await VFS.write(p.replace(/\/$/,'')+'/.gitkeep',''); Explorer.render(); return ''; },
+    async rm(args){ if(!args[0])return '\x01usage: rm <file>'; const p=this.resolve(args[0]);
+      if(!VFS.exists(p))return '\x01rm: no such file: '+args[0]; if(Tabs.open.includes(p))Tabs.close(p);
+      await VFS.remove(p); Explorer.render(); App.refreshSCMBadge(); return ''; },
+    open(args){ if(!args[0])return '\x01usage: open <file>'; const p=this.resolve(args[0]);
+      if(!VFS.exists(p))return '\x01open: no such file: '+args[0]; Tabs.openFile(p); return 'Opened '+p+' in the editor.'; },
+    tree(){ const lines=['.']; const root=Explorer.buildTree();
+      (function walk(node,pre){ const dirs=Object.keys(node.dirs).sort(); const files=node.files.map(f=>f.name).sort();
+        const all=[...dirs.map(d=>({d:1,n:d})),...files.map(f=>({d:0,n:f}))];
+        all.forEach((it,i)=>{ const last=i===all.length-1; lines.push(pre+(last?'└── ':'├── ')+(it.d?'📁 ':'')+it.n);
+          if(it.d)walk(node.dirs[it.n],pre+(last?'    ':'│   ')); }); })(root,'');
+      return lines.join('\n'); },
+    grep(args){ if(args.length<2)return '\x01usage: grep <pattern> <file>'; const pat=args[0]; const p=this.resolve(args[1]);
+      if(!VFS.exists(p))return '\x01grep: no such file: '+args[1]; const out=[];
+      VFS.read(p).split('\n').forEach((ln,i)=>{ if(ln.toLowerCase().includes(pat.toLowerCase()))out.push((i+1)+': '+ln); });
+      return out.length?out.join('\n'):'(no matches)'; },
+    wc(args){ if(!args[0])return '\x01usage: wc <file>'; const p=this.resolve(args[0]); if(!VFS.exists(p))return '\x01wc: no such file';
+      const c=VFS.read(p); return c.split('\n').length+' lines  '+c.split(/\s+/).filter(Boolean).length+' words  '+c.length+' chars  '+p; },
+    run(args){ if(!args[0])return '\x01usage: run <file.js>'; const p=this.resolve(args[0]);
+      if(!VFS.exists(p))return '\x01run: no such file'; Tabs.openFile(p); setTimeout(()=>Run.exec(),60); return '\x00'; },
+    history(){ return this.history.map((h,i)=>String(i+1).padStart(4)+'  '+h).join('\n')||'(no history)'; },
+    date(){ return new Date().toString(); },
+    whoami(){ return 'seis'; },
+    clear(){ this.clear(); return '\x00'; },
+    cowsay(args){ const t=args.join(' ')||'mooo'; const top=' '+'_'.repeat(t.length+2);
+      return top+'\n< '+t+' >\n '+'-'.repeat(t.length+2)+'\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||'; },
+    neofetch(){ return [
+      '       _____           ','      / ____|          ',"     | (___   ___ _ ___   seis@web",
+      '      \\___ \\ / _ \\ / __|  ----------',
+      '      ____) |  __/ \\__ \\  OS: SEIS Web IDE (browser)',
+      '     |_____/ \\___||___/  Shell: seis-sh 1.0',
+      '                         Editor: Monaco · Persist: IndexedDB',
+      '     Files: '+VFS.list().length+'  Extensions: '+Extensions.count()+'  Uptime: live'
+    ].join('\n'); },
+    async claude(){ Claude.enter(); return '\x00'; }
+  }
+};
+
+/* ---------------- Claude Code REPL ---------------- */
+const Claude={
+  model:'claude-opus-4-8', busy:false,
+  enter(){
+    Term.mode='claude';
+    const box=el('div','claude-box');
+    box.innerHTML=
+      '<div class="t-acc">✳ Claude Code</div>'+
+      '<div class="t-dim">Agentic coding REPL — running in your browser.</div>'+
+      '<div class="t-dim">Model: '+this.model+' · /help for commands · type <b>exit</b> to leave.</div>';
+    Term.printRaw(box); Term.newPrompt();
+  },
+  leave(){ Term.mode='shell'; Term.print('Left Claude Code.','t-dim'); Term.newPrompt(); },
+  async handle(line){
+    if(this.busy)return;
+    if(line==='exit'||line==='/exit'||line==='quit'){ this.leave(); return; }
+    if(line.startsWith('/')){ return this.slash(line); }
+    if(!line){ Term.newPrompt(); return; }
+    await this.respond(line);
+  },
+  slash(line){
+    const cmd=line.slice(1).split(/\s+/)[0];
+    const map={
+      help:()=>Term.print(['Slash commands:',
+        '  /help            this help','  /clear           clear the conversation',
+        '  /model [name]    view or set the model','  /init            scaffold a CLAUDE.md',
+        '  /review          review the active file','  /cost            token/cost estimate',
+        '  /exit            leave the REPL'].join('\n'),'t-dim'),
+      clear:()=>{ Term.out().innerHTML=''; Term.print('Conversation cleared.','t-dim'); },
+      model:()=>{ const name=line.split(/\s+/)[1]; if(name){this.model=name;Term.print('Switched model → '+name,'t-ok');} else Term.print('Current model: '+this.model,'t-dim'); },
+      init:async()=>{ await this.toolWrite('/CLAUDE.md','# CLAUDE.md\n\nGuidance for agents working in this repo.\n\n## Commands\n- `bash scripts/build.sh` — build\n\n## Conventions\n- Vanilla JS, no build step.\n'); Term.print('Created CLAUDE.md','t-ok'); },
+      review:()=>{ const p=Tabs.active; if(!p){Term.print('Open a file to review.','t-err');} else this.respond('review '+p); return; },
+      cost:()=>Term.print('Session: ~'+(1200+Term.history.length*180)+' input + ~'+(900+Term.history.length*120)+' output tokens (estimated).','t-dim'),
+      exit:()=>this.leave()
+    };
+    (map[cmd]||(()=>Term.print('Unknown command: /'+cmd+' — try /help','t-err')))();
+    if(cmd!=='exit'&&cmd!=='review')Term.newPrompt();
+  },
+  /* simulated streaming assistant with real tool effects on the VFS */
+  async respond(prompt){
+    this.busy=true; const p=prompt.toLowerCase();
+    const thinking=Term.print('<span class="t-dim">✳ thinking…</span>');
+    await wait(420); thinking.remove();
+
+    // Intent: create a file
+    let m=prompt.match(/\b(?:create|make|new|add)\s+(?:a\s+)?(?:file\s+)?["']?([\w./-]+\.\w+)["']?/i);
+    if(m){
+      const path=m[1][0]==='/'?m[1]:'/'+m[1];
+      await this.stream("I'll create `"+path+"` for you.");
+      await this.tool('Write', path, async()=>{ await this.toolWrite(path, scaffoldFor(path)); });
+      await this.stream("Done — `"+path+"` is created and open in the editor. Want me to add tests or wire it up?");
+      return this.done();
+    }
+    // Intent: read / show a file
+    m=prompt.match(/\b(?:read|show|open|cat|view)\s+["']?([\w./-]+)["']?/i);
+    if(m){
+      let path=m[1][0]==='/'?m[1]:'/'+m[1];
+      if(!VFS.exists(path)){ const hit=VFS.list().find(f=>f.endsWith('/'+m[1])||f.endsWith(m[1])); if(hit)path=hit; }
+      if(VFS.exists(path)){
+        await this.stream("Here's `"+path+"`:");
+        await this.tool('Read', path, async()=>{ Tabs.openFile(path);
+          const pre=el('div','tline t-dim'); pre.textContent=VFS.read(path).split('\n').slice(0,16).map((l,i)=>String(i+1).padStart(3)+'  '+l).join('\n'); Term.printRaw(pre); });
+        await this.stream("It's now open in a tab. I can refactor it or explain any part.");
+      } else { await this.stream("I couldn't find `"+m[1]+"`. Try `claude` → `list files`, or check the Explorer."); }
+      return this.done();
+    }
+    // Intent: list files
+    if(/\b(list|ls|files|tree|what.*files)\b/.test(p)){
+      await this.stream("Let me look at the workspace.");
+      await this.tool('Bash', 'ls -R', async()=>{ const pre=el('div','tline t-dim'); pre.textContent=Term.cmds.tree.call(Term); Term.printRaw(pre); });
+      await this.stream("That's "+VFS.list().length+" files. Tell me which one to work on.");
+      return this.done();
+    }
+    // Intent: run
+    if(/\b(run|execute|test)\b/.test(p)){
+      await this.stream("Running the active file through the sandbox.");
+      await this.tool('Bash','node '+(Tabs.active||'app.js'),async()=>{ Term.mode='shell'; Run.exec(); Term.mode='claude'; });
+      await this.stream("Output is above. Anything failing you'd like me to fix?");
+      return this.done();
+    }
+    // Intent: review
+    if(/\breview\b/.test(p)){
+      const path=Tabs.active||'/app.js';
+      await this.stream("Reviewing `"+path+"` for clarity, bugs and style.");
+      await this.tool('Read',path,async()=>{});
+      const c=VFS.read(path)||''; const findings=[];
+      if(/var\s/.test(c))findings.push('prefer `const`/`let` over `var`');
+      if(/==[^=]/.test(c))findings.push('use strict equality `===`');
+      if(/TODO|FIXME/.test(c))findings.push('unresolved TODO/FIXME present');
+      if(c.length>1200)findings.push('consider splitting this file');
+      await this.stream(findings.length? "A few notes:\n• "+findings.join('\n• ') : "Looks clean — no blocking issues. Naming and structure read well.");
+      return this.done();
+    }
+    // Generic helpful reply
+    await this.stream(genericReply(prompt));
+    return this.done();
+  },
+  done(){ this.busy=false; Term.newPrompt(); },
+  async stream(text){
+    const line=el('div','tline'); Term.printRaw(line);
+    const tokens=text.split(/(\s+)/);
+    for(const t of tokens){ line.innerHTML+=esc(t).replace(/`([^`]+)`/g,'<span class="t-acc">$1</span>'); Term.scroll(); await wait(14+Math.random()*26); }
+  },
+  async tool(name,arg,effect){
+    const box=el('div','claude-box');
+    box.innerHTML='<span class="t-tool">⛏ '+esc(name)+'</span>(<span class="t-dim">'+esc(arg)+'</span>) <span class="blink t-dim">▱</span>';
+    Term.printRaw(box); await wait(360);
+    try{ await effect(); }catch(e){}
+    box.querySelector('.blink').outerHTML='<span class="t-ok">✓</span>';
+    await wait(120);
+  },
+  async toolWrite(path,content){ await VFS.write(path,content); Explorer.render(); App.refreshSCMBadge(); Tabs.openFile(path); }
+};
+function wait(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function scaffoldFor(path){
+  const lang=langOf(path);
+  if(lang==='javascript')return "// "+path+"\nexport function main(){\n  console.log('hello from "+path.split('/').pop()+"');\n}\n\nmain();\n";
+  if(lang==='python')return "def main():\n    print('hello from "+path.split('/').pop()+"')\n\nif __name__ == '__main__':\n    main()\n";
+  if(lang==='html')return "<!DOCTYPE html>\n<html>\n  <head><title>"+path+"</title></head>\n  <body>\n    <h1>"+path.split('/').pop()+"</h1>\n  </body>\n</html>\n";
+  if(lang==='markdown')return "# "+path.split('/').pop().replace(/\.md$/,'')+"\n\nWritten by Claude Code.\n";
+  if(lang==='json')return "{\n  \"name\": \""+path.split('/').pop()+"\"\n}\n";
+  if(lang==='rust')return "fn main() {\n    println!(\"hello from "+path.split('/').pop()+"\");\n}\n";
+  return "// "+path+"\n";
+}
+function genericReply(prompt){
+  const replies=[
+    "Here's how I'd approach that: break it into small, testable steps, keep the change surface minimal, and verify each step in the terminal. What's the concrete outcome you want — a file, a fix, or an explanation?",
+    "Good question. In this workspace I can read and edit files, run JavaScript via `node`, and search across the tree. Tell me a file to start from (e.g. `read /app.js`) and I'll take it from there.",
+    "I can do that. Try one of: `create a file utils.js`, `read /src/main.py`, `run`, or `review`. I'll show the tool calls as I go and stream the result back."
+  ];
+  if(/hello|hi|hey/.test(prompt.toLowerCase()))return "Hi! I'm Claude Code, running right here in the terminal. Ask me to create, read, run, or review a file — or type `/help` for slash commands.";
+  if(/\?$/.test(prompt))return replies[1];
+  return replies[Math.floor(Math.random()*replies.length)];
+}
+
+/* ============================================================================
+   GLOBAL WIRING
+============================================================================ */
+function wireGlobal(){
+  // welcome links
+  $('#welcome').addEventListener('click',e=>{ const a=e.target.closest('[data-open],[data-cmd]'); if(!a)return;
+    if(a.dataset.open)Tabs.openFile(a.dataset.open);
+    if(a.dataset.cmd)(Commands[a.dataset.cmd]||(()=>{}))(); });
+  // search
+  $('#search-input').addEventListener('input',e=>Search.run(e.target.value));
+  $('#ext-search').addEventListener('input',e=>Extensions.render(e.target.value));
+  // scm commit
+  $('#commit-btn').addEventListener('click',()=>Commands.commit());
+  $('#commit-msg').addEventListener('keydown',e=>{ if((e.metaKey||e.ctrlKey)&&e.key==='Enter')Commands.commit(); });
+  // run/debug buttons
+  $('#run-btn').addEventListener('click',()=>Run.exec());
+  $('#debug-btn').addEventListener('click',()=>App.showPanelView('debug'));
+  // panel tabs
+  $$('.ptab').forEach(t=>t.addEventListener('click',()=>App.showPanelView(t.dataset.pview)));
+  $('#term-clear').addEventListener('click',()=>Term.clear());
+  $('#panel-hide').addEventListener('click',()=>$('#panel').classList.add('hidden'));
+  $('#term').addEventListener('click',()=>$('#term-input').focus());
+  // terminal input
+  const ti=$('#term-input');
+  ti.addEventListener('keydown',async e=>{
+    if(e.key==='Enter'){ const v=ti.value; ti.value=''; await Term.submit(v); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); if(Term.mode==='claude')return; if(Term.hIdx>0){Term.hIdx--;ti.value=Term.history[Term.hIdx]||'';} }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); if(Term.mode==='claude')return; if(Term.hIdx<Term.history.length){Term.hIdx++;ti.value=Term.history[Term.hIdx]||'';} }
+    else if(e.key==='l'&&e.ctrlKey){ e.preventDefault(); Term.clear(); }
+    else if(e.key==='Tab'){ e.preventDefault(); // simple completion
+      const parts=ti.value.split(/\s+/); const last=parts[parts.length-1];
+      const opts=VFS.list().map(p=>p.split('/').pop()).filter(n=>n.startsWith(last));
+      if(opts.length===1){ parts[parts.length-1]=opts[0]; ti.value=parts.join(' '); } }
+  });
+  // status bar interactions
+  $('#st-lang').addEventListener('click',()=>Palette.open('file '));
+  $('#st-scm').addEventListener('click',()=>App.setView('scm'));
+  $('#st-problems').addEventListener('click',()=>App.showPanelView('problems'));
+  $('#st-indent').addEventListener('click',()=>Toast('Indentation: 2 spaces'));
+  $('#st-enc').addEventListener('click',()=>Toast('Encoding: UTF-8'));
+  $('#st-bell').addEventListener('click',()=>Toast('No notifications'));
+  // palette
+  $('#palette-input').addEventListener('input',e=>Palette.render(e.target.value));
+  $('#palette-input').addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){e.preventDefault();Palette.move(1);}
+    else if(e.key==='ArrowUp'){e.preventDefault();Palette.move(-1);}
+    else if(e.key==='Enter'){e.preventDefault();Palette.enter();}
+    else if(e.key==='Escape')Palette.close(); });
+  $('#scrim').addEventListener('click',()=>{ Palette.close(); closeMenus(); });
+  document.addEventListener('click',()=>closeMenus());
+  // keyboard shortcuts
+  document.addEventListener('keydown',e=>{
+    const mod=e.metaKey||e.ctrlKey;
+    if(mod&&e.shiftKey&&e.key.toLowerCase()==='p'){ e.preventDefault(); Palette.open(); }
+    else if(mod&&!e.shiftKey&&e.key.toLowerCase()==='p'){ e.preventDefault(); Palette.open('file '); }
+    else if(mod&&e.key.toLowerCase()==='s'){ e.preventDefault(); e.shiftKey?Commands.saveAll():Commands.save(); }
+    else if(mod&&e.key.toLowerCase()==='b'){ e.preventDefault(); App.toggleSide(); }
+    else if(mod&&e.key.toLowerCase()==='n'){ e.preventDefault(); Commands.newFile(); }
+    else if(mod&&e.key.toLowerCase()==='w'){ e.preventDefault(); Commands.closeTab(); }
+    else if(e.ctrlKey&&e.key==='`'){ e.preventDefault(); App.toggleTerminal(); }
+    else if(mod&&e.shiftKey&&e.key.toLowerCase()==='e'){ e.preventDefault(); App.setView('explorer'); }
+    else if(mod&&e.shiftKey&&e.key.toLowerCase()==='f'){ e.preventDefault(); App.setView('search'); }
+    else if(mod&&e.shiftKey&&e.key.toLowerCase()==='x'){ e.preventDefault(); App.setView('ext'); }
+    else if(e.key==='Escape'){ Palette.close(); closeMenus(); }
+  });
+}
+
+/* ---------------- Toast ---------------- */
+let toastT=null;
+window.Toast=function(msg){ let t=$('.toast'); if(t)t.remove(); t=el('div','toast',msg); document.body.appendChild(t);
+  clearTimeout(toastT); toastT=setTimeout(()=>t.remove(),2600); };
+
+/* ---------------- Go ---------------- */
+wireGlobal();
+App.boot();
+})();
+</script>
+</body>
+</html>
