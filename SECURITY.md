@@ -37,6 +37,9 @@ credential first, then report.
 
 ## Hardening references
 
+- Threat model: [`docs/security/threat-model.md`](./docs/security/threat-model.md)
 - Security quality gate: [`docs/security/security-quality-gate.md`](./docs/security/security-quality-gate.md)
+- Source basis & provenance: [`docs/provenance/SOURCE_BASIS.md`](./docs/provenance/SOURCE_BASIS.md)
+- Plugin permissions: [`docs/security/plugin-permissions.md`](./docs/security/plugin-permissions.md)
 - Remote access (SSH cloud + VPN): [`docs/deployment/remote-access.md`](./docs/deployment/remote-access.md)
 - Closed-code governance: [`SEIS_CLOSED_CODE.md`](./SEIS_CLOSED_CODE.md)

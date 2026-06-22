@@ -1,0 +1,28 @@
+{
+  "id": "seis-master-prompt-v16",
+  "version": 16,
+  "status": "canonical",
+  "supersedes": "seis-master-prompt-v14",
+  "doc": "docs/governance/seis-master-prompt-v16.md",
+  "adr": "docs/decisions/seis-master-prompt-v16-adoption.md",
+  "note": "Unified master constitution; section index is authoritative for V16 §N citations.",
+  "sections": [
+    "Core Mission", "SEIS Core Identity", "Core Operating Principles",
+    "Source of Truth & Repository Governance", "Source of Truth Priority",
+    "Execution Model", "Universal SEIS Project Structure",
+    "SEIS Command Center Vision", "Command Center Primary Modules", "SEIS AI Core",
+    "What SEIS Language Version Means", "Model Router", "Agent Runtime",
+    "Prompt Engine", "SEIS Universe Original AI Model Research",
+    "Model Ownership Rule", "AI Model Source Authority", "AI Model Research Phases",
+    "Hardware-Aware Execution", "Remote SSH Operating Model",
+    "Clean-Room Engineering", "GitHub PR Rescue & Full Folder Integration",
+    "Strict Security Rules", "Technology Strategy", "Architecture Requirements",
+    "Security Requirements", "Performance & Reliability",
+    "Accessibility & Humane UX", "Observability & Audit", "Testing & Validation",
+    "Documentation Deliverables", "Human Approval Boundaries",
+    "Codex Claude Qwen Collaboration", "Required Delivery Sequence",
+    "Recovery Report Required Before Commit", "Commit Rules", "PR Preparation",
+    "Definition of Done", "Output Format", "Forbidden Behaviors",
+    "Final Execution Order", "Final Command"
+  ]
+}

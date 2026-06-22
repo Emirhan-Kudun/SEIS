@@ -7,6 +7,10 @@ import { spawnSync } from "node:child_process";
 const checks = [
   ["constitution", "scripts/check-seis-master-prompt-v14.mjs"],
   ["ai-routing-policy", "scripts/check-ai-routing-policy.cjs"],
+  ["ai-core", "scripts/check-ai-core.cjs"],
+  ["prompt-engine", "scripts/check-prompt-engine.cjs"],
+  ["agent-runtime", "scripts/check-agent-runtime.cjs"],
+  ["evals", "scripts/check-evals.cjs"],
   ["open-modules", "scripts/check-open-modules.cjs"],
   ["doc-links", "scripts/check-doc-links.mjs"],
   ["design-system", "scripts/check-design-system.mjs"],

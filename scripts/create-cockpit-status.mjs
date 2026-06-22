@@ -21,6 +21,9 @@ const zipInventory = read("data/github-zip-import-inventory.json");
 const consolidation = read("data/github-repository-consolidation.json");
 const workspace = read("integrations/google-workspace.json");
 const securityGates = read("data/security-gate-status.json");
+const languageVersions = read("content/governance/seis-language-versions.json");
+const routerPolicy = read("content/governance/ai-routing-policy.json");
+const nanoStatus = read("content/ai/nano-status.json");
 const sourcesManifest = readFileSync(resolve(root, "sources/README.md"), "utf8");
 
 const laneLabels = {
@@ -64,6 +67,9 @@ const status = {
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
+    "content/governance/seis-language-versions.json",
+    "content/governance/ai-routing-policy.json",
+    "content/ai/nano-status.json",
     "sources/README.md",
     "docs/research/README.md",
   ],
@@ -100,6 +106,34 @@ const status = {
   research: {
     lane: "docs/research",
     notes: researchNotes,
+  },
+  ai: {
+    doc: "docs/platform/seis-ai-core.md",
+    routerPolicy: "content/governance/ai-routing-policy.json",
+    note: "Application layer over external providers — no SEIS-owned base model exists yet.",
+    languageVersions: languageVersions.versions.map((v) => ({
+      id: v.id,
+      status: v.status,
+      scope: v.scope,
+    })),
+    router: {
+      default: routerPolicy.default,
+      model: routerPolicy.model,
+      routes: routerPolicy.routes.map((r) => ({
+        tool: r.tool,
+        category: r.category,
+        hintCount: r.hints.length,
+      })),
+    },
+    nano: {
+      phase: nanoStatus.phase,
+      gate: nanoStatus.gate,
+      model: nanoStatus.model,
+      firstLoss: nanoStatus.metrics.first_loss,
+      finalLoss: nanoStatus.metrics.final_loss,
+      features: nanoStatus.features,
+      note: nanoStatus.note,
+    },
   },
   workspace: {
     drive: Object.entries(workspace.drive).map(([id, doc]) => ({

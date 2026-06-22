@@ -8,6 +8,18 @@ without duplicating content.
 
 - Platform shape and repository boundaries:
   [`docs/platform/seis-closed-code-architecture.md`](./docs/platform/seis-closed-code-architecture.md)
+- AI Core application layer (model router, agent runtime, prompt engine, evals):
+  [`docs/platform/seis-ai-core.md`](./docs/platform/seis-ai-core.md)
+- Command Center operating interface (cockpit module map + evolution):
+  [`docs/architecture/seis-command-center.md`](./docs/architecture/seis-command-center.md)
+- Core data model (conceptual entities):
+  [`docs/architecture/data-model.md`](./docs/architecture/data-model.md)
+- API & provider-adapter design:
+  [`docs/architecture/api-design.md`](./docs/architecture/api-design.md)
+- Component map (module relationships):
+  [`docs/architecture/component-map.md`](./docs/architecture/component-map.md)
+- Deployment topology:
+  [`docs/architecture/deployment-topology.md`](./docs/architecture/deployment-topology.md)
 - Web and mobile foundation:
   [`docs/architecture/web-mobile-foundation.md`](./docs/architecture/web-mobile-foundation.md)
 - Animation system:

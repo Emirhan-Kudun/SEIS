@@ -8,6 +8,9 @@
     "data/github-repository-consolidation.json",
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
+    "content/governance/seis-language-versions.json",
+    "content/governance/ai-routing-policy.json",
+    "content/ai/nano-status.json",
     "sources/README.md",
     "docs/research/README.md"
   ],
@@ -155,6 +158,87 @@
       "notes/2026-06-12-backend-state-reference.md",
       "notes/2026-06-13-auth-jwt-reference.md"
     ]
+  },
+  "ai": {
+    "doc": "docs/platform/seis-ai-core.md",
+    "routerPolicy": "content/governance/ai-routing-policy.json",
+    "note": "Application layer over external providers — no SEIS-owned base model exists yet.",
+    "languageVersions": [
+      {
+        "id": "seis-language-v0.1",
+        "status": "draft",
+        "scope": "Umbrella application layer: external providers + SEIS prompt policy + router + agent roles + evals."
+      },
+      {
+        "id": "seis-model-router-v0.1",
+        "status": "draft",
+        "scope": "Task classification and provider/profile selection."
+      },
+      {
+        "id": "seis-agent-runtime-v0.1",
+        "status": "draft",
+        "scope": "Agent role definitions and input/output contracts."
+      },
+      {
+        "id": "seis-prompt-engine-v0.1",
+        "status": "draft",
+        "scope": "Prompt format, versioning, and templates."
+      },
+      {
+        "id": "seis-command-intelligence-v0.1",
+        "status": "draft",
+        "scope": "Cockpit-facing product intelligence for how AI Core surfaces in apps/web."
+      }
+    ],
+    "router": {
+      "default": "codex",
+      "model": "hybrid: OpenAI/Codex default + task-based exceptions",
+      "routes": [
+        {
+          "tool": "ollama",
+          "category": "privacy",
+          "hintCount": 6
+        },
+        {
+          "tool": "gemini",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "interpreter",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "aider",
+          "category": "capability",
+          "hintCount": 7
+        },
+        {
+          "tool": "claude",
+          "category": "capability",
+          "hintCount": 6
+        },
+        {
+          "tool": "kimi",
+          "category": "capability",
+          "hintCount": 5
+        }
+      ]
+    },
+    "nano": {
+      "phase": 4,
+      "gate": "passed",
+      "model": "seis-nano-v1",
+      "firstLoss": 3.3113,
+      "finalLoss": 0.6619,
+      "features": [
+        "lr-warmup-decay",
+        "temperature-topk-sampling",
+        "resumable-training"
+      ],
+      "note": "richer multi-sentence SEIS corpus; learns structure, not a capable model (V16 §16)"
+    }
   },
   "workspace": {
     "drive": [

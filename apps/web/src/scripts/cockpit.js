@@ -170,6 +170,57 @@
     }),
   );
 
+  // AI Center panel
+  const aiTone = { active: "ok", draft: "accent", superseded: "warn" };
+  panel("ai").append(
+    statusTable(
+      status.ai.languageVersions.map((v) => [
+        el("span", { class: "mono", text: v.id }),
+        el("span", {}, [
+          badge(v.status, aiTone[v.status] ?? ""),
+          document.createTextNode(` ${v.scope}`),
+        ]),
+      ]),
+    ),
+    el("h3", { text: "Model router" }),
+    statusTable([
+      ["Default route", el("span", {}, [badge(status.ai.router.default, "accent")])],
+      [
+        "Exceptions",
+        el(
+          "span",
+          {},
+          status.ai.router.routes.map((r) =>
+            badge(`${r.tool} · ${r.category} (${r.hintCount})`),
+          ),
+        ),
+      ],
+    ]),
+    el("p", { class: "note", text: status.ai.router.model }),
+    el(
+      "ul",
+      { class: "link-list" },
+      [
+        el("li", {}, [el("span", { class: "mono", text: status.ai.doc })]),
+        el("li", {}, [el("span", { class: "mono", text: status.ai.routerPolicy })]),
+      ],
+    ),
+    el("p", { class: "note", text: status.ai.note }),
+    el("h3", { text: "Universe research" }),
+    statusTable([
+      [
+        `Nano model (Phase ${status.ai.nano.phase})`,
+        el("span", {}, [
+          badge(`gate ${status.ai.nano.gate}`, status.ai.nano.gate === "passed" ? "ok" : "warn"),
+          document.createTextNode(` ${status.ai.nano.model}`),
+        ]),
+      ],
+      ["Training loss", el("span", { class: "mono", text: `${status.ai.nano.firstLoss} → ${status.ai.nano.finalLoss}` })],
+      ["Features", el("span", { class: "mono", text: status.ai.nano.features.join(", ") })],
+    ]),
+    el("p", { class: "note", text: status.ai.nano.note }),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(

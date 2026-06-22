@@ -1,0 +1,17 @@
+{
+  "id": "seis-nano-status",
+  "phase": 4,
+  "gate": "passed",
+  "date": "2026-06-21",
+  "model": "seis-nano-v1",
+  "checkpoint": "research/nano/checkpoints/seis-nano-v1.json",
+  "features": ["lr-warmup-decay", "temperature-topk-sampling", "resumable-training"],
+  "note": "richer multi-sentence SEIS corpus; learns structure, not a capable model (V16 §16)",
+  "metrics": {
+    "first_loss": 3.3113,
+    "final_loss": 0.6619,
+    "vocab": 27,
+    "examples": 298,
+    "epochs": 600
+  }
+}
