@@ -128,8 +128,10 @@ const status = {
     nano: {
       phase: nanoStatus.phase,
       gate: nanoStatus.gate,
+      model: nanoStatus.model,
+      firstLoss: nanoStatus.metrics.first_loss,
       finalLoss: nanoStatus.metrics.final_loss,
-      charAccuracy: nanoStatus.metrics.char_accuracy,
+      features: nanoStatus.features,
       note: nanoStatus.note,
     },
   },

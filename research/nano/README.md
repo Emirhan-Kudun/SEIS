@@ -40,16 +40,21 @@ npm run check:nano        # from repo root; skip-safe if python3 is absent
 # or: python3 research/nano/smoke_test.py
 ```
 
-## Observed results (2026-06-19, CPU sandbox)
+## v1 features
 
-- **Loss decreases:** `2.9571 → 0.0490` over 400 epochs; `resume` continued to
-  `0.0410` (training is resumable).
-- **Overfit on tiny set succeeds:** loss approaches 0 (vocab 19, 46 examples).
-- **Checkpoint restore + generation:** `gen` from the saved checkpoint reproduces
-  the corpus (`seis ai core stays calm, modular, and honest.` …).
-- **Deterministic:** two runs with the same seed produced identical
-  `first_loss 2.9842` and `final_loss 0.1980`.
-- **Fast:** ~4 seconds for 400 epochs.
+- LR warmup + linear decay; temperature + top-k sampling
+  (`gen --temp 0.7 --topk 5`); resumable training; a committed trained
+  checkpoint at `checkpoints/seis-nano-v1.json`.
+
+## Observed results (2026-06-21, CPU sandbox — seis-nano-v1)
+
+- **Loss decreases:** `3.3113 → 0.6619` over 600 epochs (hidden 96) on the richer
+  6-sentence SEIS corpus (vocab 27, 298 examples) — ~80% reduction in ~78s.
+- **Learns structure, not verbatim:** greedy generation yields a plausible SEIS
+  phrase; sampling (`--temp 0.7 --topk 5`) yields varied SEIS-flavoured text.
+  This is honest — a 3-char-context nano does not memorise a varied corpus.
+- **Checkpoint restore:** lossless round-trip; `resume` continues training.
+- **Deterministic:** same seed → identical first/final loss.
 
 Checkpoints under `runs/` are generated artifacts and are gitignored.
 

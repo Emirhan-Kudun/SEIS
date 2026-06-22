@@ -231,9 +231,15 @@ window.SEIS_COCKPIT_STATUS = {
     "nano": {
       "phase": 4,
       "gate": "passed",
-      "finalLoss": 0.049,
-      "charAccuracy": 1,
-      "note": "toy proof-of-pipeline; not a capable model (V16 §16)"
+      "model": "seis-nano-v1",
+      "firstLoss": 3.3113,
+      "finalLoss": 0.6619,
+      "features": [
+        "lr-warmup-decay",
+        "temperature-topk-sampling",
+        "resumable-training"
+      ],
+      "note": "richer multi-sentence SEIS corpus; learns structure, not a capable model (V16 §16)"
     }
   },
   "workspace": {

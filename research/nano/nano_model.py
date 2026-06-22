@@ -184,7 +184,23 @@ def model_from_ckpt(blob):
 
 
 # ---- generation -----------------------------------------------------------
-def generate(model, stoi, itos, seed_text, length, rng, greedy=True):
+def _temper(p, temperature, top_k):
+    # Apply temperature, then optional top-k truncation, renormalising each time.
+    if temperature and temperature > 0 and temperature != 1.0:
+        logits = [math.log(max(pi, 1e-12)) / temperature for pi in p]
+        m = max(logits)
+        ex = [math.exp(l - m) for l in logits]
+        s = sum(ex) or 1.0
+        p = [e / s for e in ex]
+    if top_k and 0 < top_k < len(p):
+        keep = set(sorted(range(len(p)), key=lambda k: p[k], reverse=True)[:top_k])
+        masked = [pi if k in keep else 0.0 for k, pi in enumerate(p)]
+        s = sum(masked) or 1.0
+        p = [mi / s for mi in masked]
+    return p
+
+
+def generate(model, stoi, itos, seed_text, length, rng, greedy=True, temperature=1.0, top_k=0):
     out = seed_text
     for _ in range(length):
         ctx = (out[-CONTEXT:] if len(out) >= CONTEXT else out[0] * (CONTEXT - len(out)) + out)
@@ -193,9 +209,9 @@ def generate(model, stoi, itos, seed_text, length, rng, greedy=True):
         if greedy:
             nxt = max(range(len(p)), key=lambda k: p[k])
         else:
-            r, acc = rng.random(), 0.0
-            nxt = len(p) - 1
-            for k, pk in enumerate(p):
+            probs = _temper(p, temperature, top_k)
+            r, acc, nxt = rng.random(), 0.0, len(probs) - 1
+            for k, pk in enumerate(probs):
                 acc += pk
                 if r <= acc:
                     nxt = k
@@ -221,11 +237,17 @@ def run_train(args, resume=False):
         start_epoch = 0
 
     first = None
+    warm = max(1, args.epochs // 10)
     for e in range(args.epochs):
         loss, grads = model.loss_and_grads(xs, ys)
         if first is None:
             first = loss
-        model.step(grads, args.lr)
+        # Linear warmup then linear decay to 10% of base lr.
+        if e < warm:
+            lr_t = args.lr * (e + 1) / warm
+        else:
+            lr_t = args.lr * (1.0 - 0.9 * (e - warm) / max(1, args.epochs - warm))
+        model.step(grads, lr_t)
         if e % max(1, args.epochs // 5) == 0 or e == args.epochs - 1:
             print(f"epoch {start_epoch + e:4d}  loss {loss:.4f}")
     final, _ = model.loss_and_grads(xs, ys)
@@ -241,7 +263,9 @@ def run_gen(args):
     blob = load_ckpt(args.out)
     model = model_from_ckpt(blob)
     rng = random.Random(args.seed)
-    print(generate(model, stoi, itos, text[:CONTEXT], args.length, rng))
+    greedy = args.temp <= 0
+    print(generate(model, stoi, itos, text[:CONTEXT], args.length, rng,
+                   greedy=greedy, temperature=args.temp or 1.0, top_k=args.topk))
 
 
 def main():
@@ -258,6 +282,8 @@ def main():
     g.add_argument("--out", default="runs/ckpt.json")
     g.add_argument("--length", type=int, default=80)
     g.add_argument("--seed", type=int, default=0)
+    g.add_argument("--temp", type=float, default=0.0, help="0 = greedy; >0 = sampling temperature")
+    g.add_argument("--topk", type=int, default=0, help="top-k truncation when sampling")
     args = ap.parse_args()
     if args.cmd == "train":
         run_train(args, resume=False)

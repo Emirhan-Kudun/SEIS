@@ -210,10 +210,13 @@
     statusTable([
       [
         `Nano model (Phase ${status.ai.nano.phase})`,
-        el("span", {}, [badge(`gate ${status.ai.nano.gate}`, status.ai.nano.gate === "passed" ? "ok" : "warn")]),
+        el("span", {}, [
+          badge(`gate ${status.ai.nano.gate}`, status.ai.nano.gate === "passed" ? "ok" : "warn"),
+          document.createTextNode(` ${status.ai.nano.model}`),
+        ]),
       ],
-      ["Final loss", el("span", { class: "mono", text: String(status.ai.nano.finalLoss) })],
-      ["Char accuracy", el("span", { class: "mono", text: String(status.ai.nano.charAccuracy) })],
+      ["Training loss", el("span", { class: "mono", text: `${status.ai.nano.firstLoss} → ${status.ai.nano.finalLoss}` })],
+      ["Features", el("span", { class: "mono", text: status.ai.nano.features.join(", ") })],
     ]),
     el("p", { class: "note", text: status.ai.nano.note }),
   );

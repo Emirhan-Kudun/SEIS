@@ -1,1 +1,6 @@
 seis ai core stays calm, modular, and honest.
+seis routes tasks to the right model and tool.
+seis agents act with clear, least-privilege roles.
+seis prompts are versioned and never leak secrets.
+seis evaluates outputs for safety and quality.
+seis is an ecosystem, and the ecosystem is the product.

@@ -20,9 +20,10 @@ runnable harness.
 npm run eval:nano        # or: python3 research/nano/eval.py
 ```
 
-Observed (2026-06-19): `final_loss 0.0826`, `char_accuracy 1.0`,
-`exact_match true` — expected for a tiny overfit corpus; this confirms the
-harness *measures* an output, not that the model is capable.
+Observed (2026-06-21, seis-nano-v1 on the richer corpus): `final_loss 1.1185`,
+`char_accuracy 0.0983`, `exact_match false` — the harness *measures* real output;
+the partial scores honestly reflect that a 3-char-context nano learns structure
+but does not reproduce a varied corpus verbatim (V16 §16). Not a capability claim.
 
 ## Target evaluation suite (V16 §18 Phase 7)
 
