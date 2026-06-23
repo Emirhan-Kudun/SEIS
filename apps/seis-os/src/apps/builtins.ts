@@ -1,5 +1,6 @@
 import type { AppRegistry } from '../kernel/registry.js';
 import { welcomeApp } from './welcome.js';
+import { codeApp } from './code/index.js';
 import { filesApp } from './files.js';
 import { settingsApp } from './settings-app.js';
 import { monitorApp } from './monitor.js';
@@ -16,5 +17,5 @@ export const SEED_FILES: Record<string, string> = {
 
 /** Register all first-party Phase 0 apps with the kernel registry. */
 export function registerBuiltins(registry: AppRegistry): void {
-  [welcomeApp, filesApp, settingsApp, monitorApp].forEach((app) => registry.register(app));
+  [welcomeApp, codeApp, filesApp, settingsApp, monitorApp].forEach((app) => registry.register(app));
 }

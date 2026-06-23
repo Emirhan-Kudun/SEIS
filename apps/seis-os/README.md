@@ -22,9 +22,23 @@ a real windowing shell over a small service kernel. Stack ratified as **TypeScri
 - **Shell** (`src/shell/seis-desktop.ts`) — wallpaper, menubar (clock, active app, tile,
   theme), the window layer, a macOS-style **dock**, a full-screen **launcher**, and a
   **notification** system.
-- **Built-in apps** (`src/apps/`) — Welcome, Files (edits the virtual FS, persists),
-  Settings (theme/accent/reset), System Monitor (live process list + load graph). Each
-  implements the standard `SeisApp` contract and is lazy-mountable.
+- **Built-in apps** (`src/apps/`) — Welcome, **SEIS Code** (see below), Files (edits the
+  virtual FS, persists), Settings (theme/accent/reset), System Monitor (live process list +
+  load graph). Each implements the standard `SeisApp` contract and is lazy-mountable.
+
+## SEIS Code (Phase 1)
+
+`src/apps/code/` — a real IDE running as a window inside the shell:
+
+- **Monaco editor** loaded from CDN (multi-tab, 20+ languages) with a **textarea fallback**
+  when the CDN is unavailable, so editing always works.
+- **Files through the kernel `fs`** — the explorer, tabs and Save all read/write the OS
+  virtual file system, so files are shared with the Files app and persist across reloads.
+- **Terminal** over that same `fs` (`ls · cat · echo>file · touch · rm · open · run · …`)
+  with `run` executing `.js` in a sandbox and printing output.
+- **Claude Code REPL** (`claude`) — local AI pair programmer: streaming replies, animated
+  tool calls (Read/Write/Bash) that touch the real `fs`, and slash commands
+  (`/help /clear /model /review /exit`). Try “create a file app.js”.
 
 ## Run
 
@@ -44,11 +58,14 @@ layout, files and theme persist to IndexedDB and **restore on reload**.
 ## Verified
 
 - `tsc --noEmit` — clean.
-- `vite build` — succeeds (~52 KB JS / 16.6 KB gzip, ~2 KB CSS — within the per-module budget).
-- jsdom boot test — 12 checks passing (desktop mounts, dock + launcher, windows open/stack,
-  theme persists, no uncaught errors).
+- `vite build` — succeeds (~71 KB JS / 22.7 KB gzip, ~2 KB CSS — Monaco loads from CDN at
+  runtime, not bundled; within the per-module budget).
+- jsdom boot test — 17 checks passing (desktop mounts, dock + launcher, windows open/stack,
+  theme persists; **SEIS Code** opens with editor fallback, terminal `help`, fs-backed
+  explorer, and the `claude` REPL; no uncaught errors).
 
 ## Next (per the roadmap)
 
-Phase 1 — **SEIS Code**: adopt `apps/vscode-web` (Monaco + terminal + IndexedDB + the
-local Claude REPL) as a module inside this shell.
+Phase 2 — **SEIS AI**: a multi-agent runtime (`ai-core`) with the seven agent definitions,
+a tool protocol over kernel intents, and a streaming agent console — promoting the local
+Claude REPL in SEIS Code into a first-class, OS-wide intelligence layer.
