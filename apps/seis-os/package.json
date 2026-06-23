@@ -1,0 +1,20 @@
+{
+  "name": "@seis/os",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "SEIS OS — the AI-native creative operating system shell (Phase 0: kernel + design system + desktop).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lit": "^3.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0"
+  }
+}
