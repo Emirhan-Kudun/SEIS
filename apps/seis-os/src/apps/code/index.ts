@@ -14,6 +14,7 @@ export const codeApp: SeisApp = {
   icon: '⌘',
   tint: '#5b8cff',
   description: 'Editor · terminal · AI',
+  category: 'Dev Tools',
   pinned: true,
   capabilities: ['fs', 'ai'],
   defaultSize: { w: 920, h: 600 },
@@ -65,7 +66,7 @@ export const codeApp: SeisApp = {
           <div class="bar">
             <button class="save">⌘S Save</button>
             <button class="run">▶ Run</button>
-            <button class="ai">✳ AI</button>
+            <button class="aibtn">✳ AI</button>
             <div class="sp"></div>
             <button class="toggle">⌃\` Terminal</button>
           </div>
@@ -210,7 +211,7 @@ export const codeApp: SeisApp = {
     host.querySelector('.save')!.addEventListener('click', () => void save());
     host.querySelector('.run')!.addEventListener('click', () => current && void runFile(current));
     host.querySelector('.toggle')!.addEventListener('click', () => setTerminal(!termVisible));
-    host.querySelector('.ai')!.addEventListener('click', () => {
+    host.querySelector('.aibtn')!.addEventListener('click', () => {
       setTerminal(true);
       ctx.notify('info', 'Type a request to Claude, e.g. “create a file app.js”');
       term.focus();

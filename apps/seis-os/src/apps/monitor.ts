@@ -10,6 +10,7 @@ export const monitorApp: SeisApp = {
   title: 'System Monitor',
   icon: '📊',
   tint: '#ffb84d',
+  category: 'System',
   singleton: true,
   pinned: true,
   defaultSize: { w: 540, h: 440 },

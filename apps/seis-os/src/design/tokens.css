@@ -5,6 +5,7 @@
   /* accent is injected at runtime by SettingsService; this is the fallback */
   --accent: #5b8cff;
   --accent-weak: color-mix(in srgb, var(--accent) 22%, transparent);
+  --wallpaper: radial-gradient(900px 600px at 78% -8%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%), linear-gradient(160deg, #0d1014, #090b0e);
 
   /* surfaces */
   --bg: #0b0d10;

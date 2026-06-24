@@ -37,6 +37,16 @@ export interface Settings {
   setTheme(mode: ThemeMode): Promise<void>;
   getAccent(): string;
   setAccent(hex: string): Promise<void>;
+  getWallpaper(): string;
+  setWallpaper(id: string): Promise<void>;
+  getScale(): number;
+  setScale(scale: number): Promise<void>;
+}
+
+export interface Wallpaper {
+  id: string;
+  name: string;
+  css: string;
 }
 
 /** A window/process: one running instance of an app. */
@@ -70,6 +80,9 @@ export interface AppContext {
   onDispose(fn: () => void): void;
 }
 
+export type AppCategory =
+  | 'System' | 'Productivity' | 'Internet' | 'Media' | 'Dev Tools' | 'Creative' | 'Utilities';
+
 /** The standard shape of every SEIS application (first-party or plugin). */
 export interface SeisApp {
   id: string;
@@ -77,6 +90,7 @@ export interface SeisApp {
   /** Emoji or short glyph used in dock/launcher. */
   icon: string;
   description?: string;
+  category?: AppCategory;
   /** Accent color for the app's icon tile. */
   tint?: string;
   /** Only one instance may exist at a time. */

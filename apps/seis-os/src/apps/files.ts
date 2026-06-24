@@ -5,6 +5,7 @@ export const filesApp: SeisApp = {
   title: 'Files',
   icon: '🗂',
   tint: '#46d39a',
+  category: 'System',
   pinned: true,
   capabilities: ['fs'],
   defaultSize: { w: 760, h: 500 },

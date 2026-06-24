@@ -6,8 +6,9 @@ export const welcomeApp: SeisApp = {
   icon: '✦',
   tint: '#5b8cff',
   description: 'Start here',
+  category: 'System',
   singleton: true,
-  pinned: true,
+  pinned: false,
   defaultSize: { w: 560, h: 440 },
   mount(host, ctx) {
     host.innerHTML = `

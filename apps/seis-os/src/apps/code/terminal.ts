@@ -4,6 +4,17 @@ import { langOf } from './editor.js';
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const esc = (s: string) => s.replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[m] as string);
 
+/** Styles for the Terminal widget (used by SEIS Code and the standalone Terminal app). */
+export const TERM_CSS = `
+.term-out .tline{white-space:pre-wrap;word-break:break-word}
+.term-line{display:flex}.term-prompt{white-space:pre}
+.term-input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:var(--font-mono);font-size:12.5px}
+.t-dim{color:var(--text-mute)}.t-err{color:var(--danger)}.t-ok{color:var(--ok)}
+.t-acc{color:var(--accent)}.t-cmd{color:var(--text)}.t-tool{color:var(--ok)}
+.p-user{color:var(--ok)}.p-path{color:var(--accent)}.p-claude{color:#c08cff}
+.claude-box{border:1px solid var(--border-strong);border-radius:6px;padding:7px 9px;margin:4px 0;background:rgba(255,255,255,.03)}
+`;
+
 /** A working terminal over the kernel virtual fs, with a built-in Claude Code
  *  REPL (local mode): streaming replies, tool calls that touch the real fs,
  *  and slash commands. */

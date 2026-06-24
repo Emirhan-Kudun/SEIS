@@ -123,9 +123,9 @@ export class SeisWindow extends LitElement {
   private applyHostStyle(): void {
     const s = this.style;
     if (this.maximized) {
-      s.left = '8px';
+      s.left = 'calc(var(--rail-w, 0px) + 8px)';
       s.top = 'calc(var(--menubar-h) + 8px)';
-      s.width = 'calc(100% - 16px)';
+      s.width = 'calc(100% - var(--rail-w, 0px) - 16px)';
       s.height = 'calc(100% - var(--menubar-h) - var(--dock-h) - 24px)';
     } else {
       s.left = this.x + 'px';
