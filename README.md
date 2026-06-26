@@ -1,3 +1,34 @@
+<div align="center">
+
+# ◈ SEIS OS
+
+### An AI-native creative operating system that runs in the browser
+
+**[Live demo](#)** · **[SEIS OS app](./apps/seis-os/)** · **[Architecture](./docs/architecture/seis-os-architecture.md)** · **[Landing site](./site/)**
+
+</div>
+
+SEIS OS is a windowing **shell over a service kernel** (windows · intent bus · virtual fs ·
+settings) hosting first-class apps, unified by one design system and one local AI runtime.
+
+| Surface | Where | Highlights |
+|---|---|---|
+| **SEIS OS** | [`apps/seis-os/`](./apps/seis-os/) | Boot → login → desktop · activity rail · dock · 25-app launcher · SEIS AI (7 agents) · SEIS Search · Settings · IndexedDB persistence. TypeScript + Vite + Lit. |
+| **SEIS Code** | [`apps/seis-os/src/apps/code/`](./apps/seis-os/src/apps/code/) | Monaco IDE (offline fallback) · terminal · in-window Claude Code REPL, all over the kernel fs. |
+| **VS Code Web replica** | [`apps/vscode-web/`](./apps/vscode-web/) | Single-file Monaco IDE: 5 activity views · 8 menus · terminal (16+ cmds) · `claude` REPL · IndexedDB. |
+| **Shan Hai Jing gacha** | [`apps/shanhaijing-gacha/`](./apps/shanhaijing-gacha/) | Mobile-first card draws · in-browser ink-style SVG creatures · lore · bestiary. |
+| **Video Hero showcase** | [`apps/video-hero/`](./apps/video-hero/) | Four cinematic procedural-video hero pages (Nature · Still Life · Materials · Metal Parts). |
+
+**Run the OS:** `cd apps/seis-os && npm install && npm run dev` · **Standalone apps:** open `apps/<name>/index.html`.
+
+The roadmap (kernel → Code → AI → Search/Hub → Design/Marketplace → Cloud) lives in the
+[architecture doc](./docs/architecture/seis-os-architecture.md).
+
+> The ecosystem-governance layer that this repository grew from is preserved below and under
+> [`docs/`](./docs/) / [`sources/`](./sources/) (see [`archive/`](./archive/) for the archival plan).
+
+---
+
 # SEIS CLOSED CODE
 
 SEIS is the single `main`-centered closed-code operating repository for the `emirhankudun-ux` platform ecosystem.
