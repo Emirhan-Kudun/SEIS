@@ -31,14 +31,17 @@ drop policy if exists "files are owner-only" on public.files;
 create policy "files are owner-only" on public.files
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
--- auto-provision a profile row when a user signs up
+-- auto-provision a profile row when a user signs up.
+-- security definer + empty search_path (hardened); execute revoked so it can't be
+-- called over the REST RPC surface — only the trigger invokes it.
 create or replace function public.handle_new_user() returns trigger
-  language plpgsql security definer as $$
+  language plpgsql security definer set search_path = '' as $$
 begin
   insert into public.profiles (id, email) values (new.id, new.email)
     on conflict (id) do nothing;
   return new;
 end; $$;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
 
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created

@@ -270,7 +270,8 @@ export class SeisDesktop extends LitElement {
                     @keydown=${(e: KeyboardEvent) => { if (e.key === 'Enter') void this.cloudAuth('in'); }} />
                   ${this.authError ? html`<div style="color:var(--danger);font-size:12px;margin-top:8px">${this.authError}</div>` : ''}
                   <button class="unlock" @click=${() => void this.cloudAuth('in')}>Sign in</button>
-                  <button class="guest" @click=${() => void this.cloudAuth('up')}>Create account</button>`
+                  <button class="guest" @click=${() => void this.cloudAuth('up')}>Create account</button>
+                  <button class="guest" @click=${() => (this.phase = 'desktop')}>Continue as guest</button>`
               : html`
                   <input type="password" placeholder="Password" @keydown=${(e: KeyboardEvent) => { if (e.key === 'Enter') this.phase = 'desktop'; }} />
                   <button class="unlock" @click=${() => (this.phase = 'desktop')}>Unlock</button>
