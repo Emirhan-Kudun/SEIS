@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0c10" />
+<title>SEIS OS — The future of the browser desktop</title>
+<meta name="description" content="SEIS OS is an AI-native creative operating system that runs in the browser: a windowing shell over a service kernel, with a code IDE, a multi-agent AI console, search, and 25+ apps." />
+<meta property="og:title" content="SEIS OS" />
+<meta property="og:description" content="An AI-native creative operating system that runs in the browser." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0c10; --bg2:#0d1117; --fg:#e8ecf2; --dim:#9aa4b2; --mute:#69707d;
+    --accent:#5b8cff; --accent2:#c08cff; --ok:#46d39a; --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.03); --sans:'Inter',system-ui,sans-serif; --disp:'Space Grotesk','Inter',sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:14px;
+    border:1px solid var(--line);cursor:pointer;transition:.3s var(--ease)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(91,140,255,.35)}
+  .btn.ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+  .eyebrow{font-family:var(--disp);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(18px);background:rgba(10,12,16,.6);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;height:62px;gap:24px}
+  nav .logo{font-family:var(--disp);font-weight:700;letter-spacing:.14em;font-size:16px}
+  nav .links{margin-left:auto;display:flex;gap:26px;font-size:14px;color:var(--dim)}
+  nav .links a:hover{color:var(--fg)}
+  @media(max-width:720px){nav .links{display:none}}
+
+  /* hero */
+  .hero{position:relative;padding:160px 0 90px;text-align:center;overflow:hidden}
+  .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.9}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-family:var(--disp);font-size:clamp(44px,8vw,86px);line-height:1.02;font-weight:700;letter-spacing:-.02em;
+    background:linear-gradient(180deg,#fff,#9fb4e8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{font-size:clamp(16px,2.4vw,20px);color:var(--dim);max-width:620px;margin:22px auto 0;font-weight:300}
+  .hero .cta{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+  .hero .badges{display:flex;gap:10px;justify-content:center;margin-top:30px;flex-wrap:wrap;color:var(--mute);font-size:12.5px}
+  .hero .badges span{border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+
+  /* window mock */
+  .shot{margin:50px auto 0;max-width:960px;border-radius:16px;border:1px solid var(--line);overflow:hidden;
+    box-shadow:0 40px 120px rgba(0,0,0,.6);background:var(--bg2);position:relative;z-index:1}
+  .shot .bar{height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .shot .bar i{width:11px;height:11px;border-radius:50%}
+  .shot .bar i:nth-child(1){background:#ff5f57}.shot .bar i:nth-child(2){background:#febc2e}.shot .bar i:nth-child(3){background:#28c840}
+  .shot .bar b{margin-left:12px;font-weight:400;font-size:12px;color:var(--mute);font-family:var(--disp)}
+  .shot .os{display:grid;grid-template-columns:60px 1fr;height:420px}
+  .shot .rail{border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0;background:rgba(255,255,255,.02)}
+  .shot .rail i{width:34px;height:34px;border-radius:10px;background:rgba(91,140,255,.16);display:grid;place-items:center;font-size:16px}
+  .shot .desk{position:relative;padding:18px;background:radial-gradient(700px 400px at 80% 0%,rgba(91,140,255,.22),transparent 60%),linear-gradient(160deg,#0d1117,#090b0e)}
+  .shot .win{position:absolute;border-radius:12px;border:1px solid var(--line);background:rgba(16,19,26,.92);box-shadow:0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(8px)}
+  .shot .win .t{height:26px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 10px;font-size:11px;color:var(--mute);gap:6px}
+  .shot .win .t::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff5f57;box-shadow:14px 0 #febc2e,28px 0 #28c840}
+  .shot .win .b{padding:12px;font-family:'SF Mono',monospace;font-size:11px;color:var(--dim);line-height:1.7}
+  .shot .k{color:var(--accent2)}.shot .s{color:var(--ok)}
+  .shot .w1{left:24px;top:30px;width:300px;height:200px}
+  .shot .w2{right:24px;top:54px;width:300px;height:250px}
+  .shot .w3{left:120px;bottom:18px;width:280px;height:150px}
+
+  /* sections */
+  section{padding:90px 0}
+  .center{text-align:center;max-width:680px;margin:0 auto 56px}
+  .center h2{font-family:var(--disp);font-size:clamp(28px,4.4vw,40px);font-weight:600;letter-spacing:-.01em}
+  .center p{color:var(--dim);margin-top:14px;font-weight:300}
+
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .app{display:block;border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--card);transition:.3s var(--ease)}
+  .app:hover{transform:translateY(-4px);border-color:var(--accent);background:rgba(91,140,255,.06)}
+  .app .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:24px;margin-bottom:16px;
+    background:color-mix(in srgb,var(--tint,var(--accent)) 24%,rgba(255,255,255,.04))}
+  .app h3{font-size:18px;font-weight:600}
+  .app p{color:var(--dim);font-size:13.5px;margin-top:8px;font-weight:300}
+  .app .go{margin-top:14px;font-size:13px;color:var(--accent);font-weight:600}
+
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .fcard{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--card)}
+  .fcard .ic{font-size:22px;margin-bottom:10px}
+  .fcard h4{font-size:15px;font-weight:600}
+  .fcard p{color:var(--dim);font-size:13px;margin-top:6px;font-weight:300}
+
+  /* stack (nods to full-stack reality) */
+  .stack{display:flex;flex-direction:column;gap:6px;max-width:560px;margin:0 auto}
+  .layer{display:flex;align-items:center;gap:12px;padding:11px 18px;border-radius:10px;font-size:13.5px;font-weight:500;
+    border:1px solid var(--line)}
+  .layer small{margin-left:auto;color:rgba(255,255,255,.6);font-weight:400;font-size:11px}
+
+  .cta-band{text-align:center;border:1px solid var(--line);border-radius:24px;padding:60px 24px;margin:40px 0;
+    background:radial-gradient(600px 300px at 50% 0%,rgba(91,140,255,.18),transparent 60%)}
+  .cta-band h2{font-family:var(--disp);font-size:clamp(26px,4vw,38px);font-weight:600}
+  .cta-band p{color:var(--dim);margin:12px auto 26px;max-width:480px;font-weight:300}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--mute);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .reveal{opacity:0;transform:translateY(24px);transition:.8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <span class="logo">◈ SEIS OS</span>
+  <div class="links">
+    <a href="#apps">Apps</a><a href="#features">Features</a><a href="#stack">Engineering</a>
+    <a href="../docs/architecture/seis-os-architecture.md">Docs</a>
+  </div>
+  <a class="btn primary" href="../apps/seis-os/" style="margin-left:18px;padding:9px 18px">Launch OS</a>
+</div></nav>
+
+<header class="hero">
+  <canvas id="bg"></canvas>
+  <div class="wrap">
+    <div class="eyebrow">AI-native · runs in your browser</div>
+    <h1>The desktop,<br>reimagined as one product.</h1>
+    <p class="sub">SEIS OS is a windowing shell over a service kernel — a code IDE, a multi-agent AI console, unified search, and 25+ apps, unified by one design system and one local AI runtime.</p>
+    <div class="cta">
+      <a class="btn primary" href="../apps/seis-os/">▸ Launch SEIS OS</a>
+      <a class="btn ghost" href="#apps">Explore the apps</a>
+    </div>
+    <div class="badges"><span>TypeScript · Vite · Lit</span><span>IndexedDB persistence</span><span>Claude Code REPL</span><span>Interactivity-first</span></div>
+
+    <div class="shot" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><b>seis-os · desktop</b></div>
+      <div class="os">
+        <div class="rail"><i>▦</i><i>🗂</i><i>⌥</i><i>⌘</i><i>✳</i><i>⚙</i></div>
+        <div class="desk">
+          <div class="win w1"><div class="t">SEIS Code</div><div class="b"><span class="k">function</span> fib(n){<br>&nbsp;&nbsp;<span class="k">return</span> n&lt;2?n:fib(n-1)+fib(n-2);<br>}<br><span class="s">▸ ran ✓ · 0,1,1,2,3,5…</span></div></div>
+          <div class="win w2"><div class="t">SEIS AI · Code agent</div><div class="b">✳ create a file app.js<br><span class="s">⛏ Write(app.js) ✓</span><br>Done — open in the editor.<br><br>⛏ Bash(ls) ✓<br>readme.md · app.js · notes.txt</div></div>
+          <div class="win w3"><div class="t">Terminal</div><div class="b">seis:~$ neofetch<br><span class="k">seis@web</span> · SEIS OS<br>apps 25 · kernel live</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">The suite</div><h2>Every clickable thing responds.</h2><p>Five surfaces, one product. Open any of them — interactivity is the point, not decoration.</p></div>
+    <div class="apps">
+      <a class="app reveal" href="../apps/seis-os/" style="--tint:#5b8cff"><div class="ic">◈</div><h3>SEIS OS</h3><p>Boot → login → desktop. Activity rail, dock, a categorized 25-app launcher, windows, theming and workspace persistence.</p><div class="go">Launch the desktop →</div></a>
+      <a class="app reveal" href="../apps/vscode-web/index.html" style="--tint:#5b8cff"><div class="ic">⌘</div><h3>VS Code Web</h3><p>Single-URL Monaco IDE: 5 activity views, 8 menus, a terminal with 16+ commands, and a streaming <code>claude</code> REPL.</p><div class="go">Open the editor →</div></a>
+      <a class="app reveal" href="../apps/shanhaijing-gacha/index.html" style="--tint:#c08cff"><div class="ic">山</div><h3>Shan Hai Jing Gacha</h3><p>Mobile-first card draws with in-browser ink-style creatures, elegant animations, lore and a bestiary.</p><div class="go">Draw a beast →</div></a>
+      <a class="app reveal" href="../apps/video-hero/index.html" style="--tint:#46d39a"><div class="ic">▦</div><h3>Video Hero</h3><p>Four cinematic procedural-video hero pages: Nature, Still Life, Materials, Metal Parts.</p><div class="go">Watch the reel →</div></a>
+      <a class="app reveal" href="../apps/seis-os/" style="--tint:#ffb84d"><div class="ic">✳</div><h3>SEIS AI &amp; Search</h3><p>A 7-agent console with streaming replies and real tool calls, plus unified search across apps, files and the web.</p><div class="go">Meet the agents →</div></a>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Architecture</div><h2>A real kernel, not decorative chrome.</h2><p>Apps never import each other — they call kernel services and talk over an intent bus. That’s what makes it feel like one product.</p></div>
+    <div class="feat">
+      <div class="fcard reveal"><div class="ic">🪟</div><h4>Window manager</h4><p>Open, focus, tile, minimize, maximize — with cascade placement and workspace persistence.</p></div>
+      <div class="fcard reveal"><div class="ic">🔌</div><h4>Intent bus</h4><p>Typed pub/sub + request/response. Cross-app actions are intents, never direct imports.</p></div>
+      <div class="fcard reveal"><div class="ic">🗃️</div><h4>Virtual file system</h4><p>IndexedDB-backed, shared across Files, Code, Notes and the AI agents’ tool calls.</p></div>
+      <div class="fcard reveal"><div class="ic">🎨</div><h4>Design tokens</h4><p>Dark-first tokens that inherit through Shadow DOM. Accent, wallpaper and scaling all live.</p></div>
+      <div class="fcard reveal"><div class="ic">✳</div><h4>Local AI runtime</h4><p>Multi-agent orchestration with streaming and tool calls — cloud runtime arriving as a phase.</p></div>
+      <div class="fcard reveal"><div class="ic">🧩</div><h4>App SDK</h4><p>Every app — first-party or plugin — implements one capability-scoped contract.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="center reveal"><div class="eyebrow">Built for production</div><h2>Full-stack isn’t just a frontend.</h2><p>SEIS is engineered toward the whole stack — the frontend you see is one layer of many on the roadmap.</p></div>
+    <div class="stack">
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(91,140,255,.22),transparent)">Frontend — shell · apps · design system <small>shipped</small></div>
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(124,108,255,.20),transparent)">Local runtime — kernel · fs · IndexedDB <small>shipped</small></div>
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(192,140,255,.18),transparent)">AI — multi-agent orchestration + tools <small>shipped (local)</small></div>
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(70,211,154,.18),transparent)">Backend — auth · Postgres · storage <small>in progress</small></div>
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(255,184,77,.16),transparent)">Cloud — deploy · sync · agent runtime <small>in progress</small></div>
+      <div class="layer reveal" style="background:linear-gradient(90deg,rgba(255,93,93,.16),transparent)">Ops — CI/CD · monitoring · backups <small>planned</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Open it. Click anything.</h2>
+      <p>The whole thing runs in your browser, persists locally, and responds to every interaction.</p>
+      <a class="btn primary" href="../apps/seis-os/">▸ Launch SEIS OS</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>◈ SEIS OS · built in the browser</span><span>TypeScript · Vite · Lit · IndexedDB</span></div></footer>
+
+<script>
+  // hero particle/constellation background
+  const cv = document.getElementById('bg'), g = cv.getContext('2d');
+  let W, H, pts;
+  function size(){ W = cv.width = cv.offsetWidth * devicePixelRatio; H = cv.height = cv.offsetHeight * devicePixelRatio;
+    pts = Array.from({length: Math.min(70, (W*H)/26000|0)}, () => ({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25})); }
+  size(); addEventListener('resize', size);
+  function loop(){ g.clearRect(0,0,W,H);
+    for(const p of pts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1; }
+    for(let i=0;i<pts.length;i++){ for(let j=i+1;j<pts.length;j++){ const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<140*devicePixelRatio){ g.strokeStyle='rgba(91,140,255,'+(.16*(1-d/(140*devicePixelRatio)))+')'; g.lineWidth=devicePixelRatio; g.beginPath(); g.moveTo(a.x,a.y); g.lineTo(b.x,b.y); g.stroke(); } } }
+    for(const p of pts){ g.fillStyle='rgba(150,180,255,.6)'; g.beginPath(); g.arc(p.x,p.y,1.4*devicePixelRatio,0,7); g.fill(); }
+    requestAnimationFrame(loop); }
+  loop();
+  // scroll reveal
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%6*0.05)+'s'; io.observe(el); });
+</script>
+</body>
+</html>

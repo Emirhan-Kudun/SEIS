@@ -1,0 +1,76 @@
+/* SEIS design tokens — dark-first. Single source of truth for the look & feel.
+   Custom properties inherit through Shadow DOM, so every Lit component reads
+   these via var(). Light theme overrides only what must change. */
+:root {
+  /* accent is injected at runtime by SettingsService; this is the fallback */
+  --accent: #5b8cff;
+  --accent-weak: color-mix(in srgb, var(--accent) 22%, transparent);
+  --wallpaper: radial-gradient(900px 600px at 78% -8%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%), linear-gradient(160deg, #0d1014, #090b0e);
+
+  /* surfaces */
+  --bg: #0b0d10;
+  --bg-grad-1: #0d1014;
+  --bg-grad-2: #090b0e;
+  --surface: rgba(22, 26, 32, 0.72);
+  --surface-2: rgba(30, 35, 42, 0.92);
+  --elev: rgba(16, 19, 24, 0.86);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* text */
+  --text: #e8ecf2;
+  --text-dim: #a8b0bd;
+  --text-mute: #6b7480;
+
+  /* semantic */
+  --danger: #ff5d5d;
+  --warn: #ffb84d;
+  --ok: #46d39a;
+
+  /* type */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* scale */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px;
+  --radius-1: 6px; --radius-2: 10px; --radius-3: 16px; --radius-4: 22px;
+
+  /* elevation */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+  /* motion (respect reduced-motion below) */
+  --ease: cubic-bezier(0.2, 0.8, 0.25, 1);
+  --dur-1: 0.12s;
+  --dur-2: 0.22s;
+  --dur-3: 0.4s;
+
+  --dock-h: 70px;
+  --menubar-h: 30px;
+}
+
+:root[data-theme='light'] {
+  --bg: #eef1f6;
+  --bg-grad-1: #f4f6fb;
+  --bg-grad-2: #e6eaf2;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-2: rgba(255, 255, 255, 0.95);
+  --elev: rgba(255, 255, 255, 0.9);
+  --border: rgba(10, 14, 20, 0.1);
+  --border-strong: rgba(10, 14, 20, 0.18);
+  --text: #161a20;
+  --text-dim: #4a525e;
+  --text-mute: #8a929e;
+  --shadow-2: 0 8px 24px rgba(20, 30, 50, 0.16);
+  --shadow-3: 0 24px 60px rgba(20, 30, 50, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0s;
+    --dur-2: 0s;
+    --dur-3: 0s;
+  }
+}
