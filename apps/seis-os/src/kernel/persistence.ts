@@ -95,13 +95,24 @@ export class Persistence {
 
 /** Virtual file system over the persistence 'fs' store. */
 export class VirtualFS implements FileSystem {
+  /** Optional hook fired after every write (used to sync to the cloud). */
+  onWrite: ((path: string, content: string) => void) | null = null;
+
   constructor(private store: Persistence) {}
 
   async read(path: string): Promise<string | undefined> {
     return this.store.get<string>('fs', normalize(path));
   }
   async write(path: string, content: string): Promise<void> {
-    return this.store.set('fs', normalize(path), content);
+    const p = normalize(path);
+    await this.store.set('fs', p, content);
+    this.onWrite?.(p, content);
+  }
+  /** Write many files without firing onWrite (used when hydrating from the cloud). */
+  async hydrate(files: Record<string, string>): Promise<void> {
+    for (const [path, content] of Object.entries(files)) {
+      await this.store.set('fs', normalize(path), content);
+    }
   }
   async remove(path: string): Promise<void> {
     return this.store.delete('fs', normalize(path));

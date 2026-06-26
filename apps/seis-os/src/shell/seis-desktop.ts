@@ -35,6 +35,7 @@ export class SeisDesktop extends LitElement {
     running: { state: true },
     toasts: { state: true },
     theme: { state: true },
+    authError: { state: true },
   };
 
   kernel!: Kernel;
@@ -51,6 +52,7 @@ export class SeisDesktop extends LitElement {
   running: string[] = [];
   toasts: Toast[] = [];
   theme: ThemeMode = 'dark';
+  authError = '';
 
   static override styles = css`
     :host { position: absolute; inset: 0; overflow: hidden; display: block; --rail-w: 76px; }
@@ -193,7 +195,21 @@ export class SeisDesktop extends LitElement {
       if (e.key === 'Escape') this.launcherOpen = false;
     });
 
-    setTimeout(() => (this.phase = 'lock'), 1100);
+    setTimeout(() => {
+      this.phase = this.kernel.cloud.getSession().user ? 'desktop' : 'lock';
+    }, 1100);
+  }
+
+  private async cloudAuth(mode: 'in' | 'up'): Promise<void> {
+    const email = (this.renderRoot.querySelector('#lk-email') as HTMLInputElement | null)?.value ?? '';
+    const pass = (this.renderRoot.querySelector('#lk-pass') as HTMLInputElement | null)?.value ?? '';
+    const res = mode === 'in' ? await this.kernel.cloud.signIn(email, pass) : await this.kernel.cloud.signUp(email, pass);
+    if (res.error) {
+      this.authError = res.error;
+      return;
+    }
+    this.authError = '';
+    this.phase = 'desktop';
   }
 
   protected override updated(): void {
@@ -239,16 +255,26 @@ export class SeisDesktop extends LitElement {
         <div class="boot"><div class="mark">◈ SEIS</div><div class="bar"><i></i></div></div>`;
     }
     if (this.phase === 'lock') {
+      const cloud = this.kernel.cloud.isConfigured();
       return html`<div class="wallpaper"></div>
         <div class="lock">
           <div class="clock-xl">${this.clock}</div>
           <div class="date-xl">${this.dateStr}</div>
           <div class="card">
             <div class="avatar">🦊</div>
-            <div class="who">Emirhan</div>
-            <input type="password" placeholder="Password" @keydown=${(e: KeyboardEvent) => { if (e.key === 'Enter') this.phase = 'desktop'; }} />
-            <button class="unlock" @click=${() => (this.phase = 'desktop')}>Unlock</button>
-            <button class="guest" @click=${() => (this.phase = 'desktop')}>Guest Session</button>
+            <div class="who">${cloud ? 'Sign in to SEIS Cloud' : 'Emirhan'}</div>
+            ${cloud
+              ? html`
+                  <input id="lk-email" type="email" placeholder="Email" />
+                  <input id="lk-pass" type="password" placeholder="Password" style="margin-top:8px"
+                    @keydown=${(e: KeyboardEvent) => { if (e.key === 'Enter') void this.cloudAuth('in'); }} />
+                  ${this.authError ? html`<div style="color:var(--danger);font-size:12px;margin-top:8px">${this.authError}</div>` : ''}
+                  <button class="unlock" @click=${() => void this.cloudAuth('in')}>Sign in</button>
+                  <button class="guest" @click=${() => void this.cloudAuth('up')}>Create account</button>`
+              : html`
+                  <input type="password" placeholder="Password" @keydown=${(e: KeyboardEvent) => { if (e.key === 'Enter') this.phase = 'desktop'; }} />
+                  <button class="unlock" @click=${() => (this.phase = 'desktop')}>Unlock</button>
+                  <button class="guest" @click=${() => (this.phase = 'desktop')}>Guest Session</button>`}
           </div>
         </div>`;
     }
