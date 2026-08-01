@@ -26,6 +26,10 @@ focused operating docs + `npm run check:*` contracts enforce concrete rules.
 - [iCloud ↔ GitHub workspace ingestion](./icloud-github-workspace-ingestion.md)
 - [UI/UX digital lab master directive](./ui-ux-digital-lab-master-directive.md)
 - [UI/UX digital lab automation brief](./ui-ux-digital-lab-automation-brief.md)
+- [Universal Goal-Tracking Runtime (v2.0.0)](./goal-tracking-runtime.md) — the
+  continuity/evidence discipline AI coding agents operate under for
+  long-running, multi-session work; checkpoint contract lives at
+  [`tasks/checkpoints/README.md`](../../tasks/checkpoints/README.md).
 
 ## Precedence
 
