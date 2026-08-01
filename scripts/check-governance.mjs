@@ -10,6 +10,8 @@ const checks = [
   ["open-modules", "scripts/check-open-modules.cjs"],
   ["doc-links", "scripts/check-doc-links.mjs"],
   ["design-system", "scripts/check-design-system.mjs"],
+  ["icon-system", "scripts/check-icon-system.mjs"],
+  ["app-shell-contracts", "scripts/check-app-shell-contracts.mjs"],
 ];
 
 let failed = 0;

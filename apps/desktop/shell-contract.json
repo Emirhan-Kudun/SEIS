@@ -1,0 +1,64 @@
+{
+  "name": "SEIS desktop shell contract",
+  "date": "2026-08-01",
+  "platform": "cross_platform_shared",
+  "status": "contract_committed_macos_reference_windows_linux_pending",
+  "purpose": "One shared inspector contract for macOS, Windows, and Linux so the three desktop lanes stop diverging into separate apps: same views, same entities, same data contract, same icons. macOS already ships the reference implementation; Windows and Linux implement this same contract next (see docs/architecture/desktop-shell-unification.md).",
+  "data_contract": {
+    "source": "apps/fullstack/state-model.json",
+    "rule": "Views consume the same entity shapes as the web cockpit and the macOS inspector; no per-OS-only state."
+  },
+  "views": [
+    {
+      "view_id": "branch_status",
+      "title": "Branch Status",
+      "entities": ["repositories", "source_branches"],
+      "purpose": "Canonical branch mirror and full-history source refs.",
+      "icon": "packages/design-tokens/icons/branch-status.svg"
+    },
+    {
+      "view_id": "plugin_status",
+      "title": "Plugin Status",
+      "entities": ["plugin_registry", "plugin_lanes"],
+      "purpose": "Installed plugin counts and lane assignment.",
+      "icon": "packages/design-tokens/icons/plugin-status.svg"
+    },
+    {
+      "view_id": "zip_audit",
+      "title": "Zip Audit",
+      "entities": ["governance_gates"],
+      "purpose": "iCloud zip inventory status and the no-large-binaries gate.",
+      "icon": "packages/design-tokens/icons/zip-audit.svg"
+    },
+    {
+      "view_id": "workspace_links",
+      "title": "Workspace",
+      "entities": ["workspace_links"],
+      "purpose": "Drive docs and Calendar reviews opened in the browser.",
+      "icon": "packages/design-tokens/icons/workspace-links.svg"
+    }
+  ],
+  "navigation": {
+    "kind": "sidebar",
+    "order": ["branch_status", "plugin_status", "zip_audit", "workspace_links"]
+  },
+  "platforms": {
+    "macos": {
+      "status": "reference_implementation",
+      "ui": "SwiftUI",
+      "scaffold": "apps/macos/SEISInspector/ContentView.swift"
+    },
+    "windows": {
+      "status": "contract_defined_implementation_pending",
+      "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
+      "scaffold": null
+    },
+    "linux": {
+      "status": "contract_defined_implementation_pending",
+      "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
+      "scaffold": null
+    }
+  },
+  "scaffold": "apps/macos/SEISInspector/ContentView.swift",
+  "safety": "No destructive actions (repo or archive deletion) are exposed in the UI; gates render read-only."
+}

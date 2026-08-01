@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Validates the mobile shell and macOS inspector contracts: structure,
-// entity references into apps/fullstack/state-model.json, and scaffold paths.
+// Validates the mobile, macOS, and shared desktop shell contracts: structure,
+// entity references into apps/fullstack/state-model.json, scaffold paths, and
+// (where a view declares one) that its icon is a real, visual, non-text SVG.
 import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,6 +17,7 @@ const knownEntities = new Set(Object.keys(stateModel.entities));
 const contracts = [
   { path: "apps/android/shell-contract.json", unitsKey: "screens", idKey: "screen_id" },
   { path: "apps/macos/inspector-contract.json", unitsKey: "views", idKey: "view_id" },
+  { path: "apps/desktop/shell-contract.json", unitsKey: "views", idKey: "view_id" },
 ];
 
 for (const { path, unitsKey, idKey } of contracts) {
@@ -35,6 +37,20 @@ for (const { path, unitsKey, idKey } of contracts) {
     for (const entity of unit.entities ?? []) {
       if (!knownEntities.has(entity)) {
         errors.push(`${path}: ${unit[idKey]}: unknown entity ${entity}`);
+      }
+    }
+    if (unit.icon) {
+      const iconPath = resolve(root, unit.icon);
+      if (!existsSync(iconPath)) {
+        errors.push(`${path}: ${unit[idKey]}: icon not found: ${unit.icon}`);
+      } else {
+        const svg = readFileSync(iconPath, "utf8");
+        if (!/^\s*<svg[\s>]/.test(svg)) {
+          errors.push(`${path}: ${unit[idKey]}: icon is not an SVG: ${unit.icon}`);
+        }
+        if (/<text[\s>]/i.test(svg)) {
+          errors.push(`${path}: ${unit[idKey]}: icon must be visual, not text: ${unit.icon}`);
+        }
       }
     }
   }

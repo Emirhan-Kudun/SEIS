@@ -1,0 +1,67 @@
+{
+  "id": "seis-icon-system",
+  "version": 1,
+  "rule": "Every SEIS logo and icon is a visual mark (SVG). None may render as a text glyph standing in for a logo. Enforced by scripts/check-icon-system.mjs.",
+  "palette": {
+    "background": "#080a0c",
+    "gold": "#d6b16a",
+    "teal": "#62c7b8"
+  },
+  "icons": [
+    {
+      "id": "mark",
+      "role": "master",
+      "file": "packages/design-tokens/icons/mark.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Canonical SEIS brand mark: ring + connective bars, gold on near-black, teal accent."
+    },
+    {
+      "id": "favicon",
+      "role": "derivative",
+      "derivesFrom": "mark",
+      "file": "apps/web/favicon.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Browser tab / bookmark icon for the SEIS web cockpit."
+    },
+    {
+      "id": "apple-touch-icon",
+      "role": "derivative",
+      "derivesFrom": "mark",
+      "file": "apps/web/public/icons/apple-touch-icon.svg",
+      "viewBox": "0 0 180 180",
+      "purpose": "iOS/iPadOS home-screen icon size (180x180 Apple spec), same mark scaled up."
+    },
+    {
+      "id": "branch-status",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/branch-status.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Repository/branch state view across the app-shell contracts (macOS, desktop).",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "plugin-status",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/plugin-status.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Plugin/module registry view across the app-shell contracts.",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "zip-audit",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/zip-audit.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Archive/zip governance-gate view across the app-shell contracts.",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "workspace-links",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/workspace-links.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Workspace/external-link view across the app-shell contracts.",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    }
+  ]
+}

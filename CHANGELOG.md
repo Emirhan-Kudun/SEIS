@@ -6,6 +6,37 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Added
+
+- **SEIS icon system (visual only, never text).** New
+  `packages/design-tokens/icons/` (part of the existing open `@seis/design-tokens`
+  module): the canonical brand mark plus four module glyphs (branch status,
+  plugin status, zip audit, workspace links), each a real SVG pictogram with
+  an accessible name. `icon-manifest.json` registers every icon (including
+  `apps/web/favicon.svg` and `apps/web/public/icons/apple-touch-icon.svg`) and
+  the new `check:icon-system` enforces, in CI via `check:governance`, that
+  every icon's `viewBox` matches its manifest entry, every color is a
+  canonical `--seis-*` token, and none contains a `<text>` element — a
+  permanent, automated guarantee that a SEIS logo or icon can never regress
+  into a text glyph. Design background:
+  `docs/design/icon-system-research.md`.
+- **Shared desktop shell contract (macOS + Windows + Linux).** Added
+  `apps/desktop/shell-contract.json` as the one shared contract the three
+  desktop platforms implement, instead of `apps/macos` being its own island:
+  macOS (`apps/macos/SEISInspector`) is recorded as the
+  `reference_implementation`; Windows and Linux are honestly recorded as
+  `contract_defined_implementation_pending` with a plan (wrap the existing
+  `apps/web` cockpit rather than rewrite per OS) — no Windows/Linux app is
+  claimed to exist. `apps/macos/inspector-contract.json` gained per-view
+  `icon` fields (from the new icon system) and a pointer at the shared
+  contract; its previously-required fields are unchanged. See
+  `docs/architecture/desktop-shell-unification.md`.
+- **`check:app-shell-contracts` wired into CI for the first time.** The
+  script already validated the Android and macOS contracts but was not run
+  anywhere automatically; it now also validates the new desktop contract and
+  (new) that every view's `icon`, where declared, is a real, visual,
+  non-`<text>` SVG. Added to the `check:governance` aggregate.
+
 ### Changed
 
 - **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now

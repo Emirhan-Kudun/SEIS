@@ -2,6 +2,12 @@
 
 The macOS lane is for local desktop tools around SEIS: repo inspection, archive audit, plugin management, and data review.
 
+This lane is now the **reference implementation** of the shared
+[`apps/desktop/shell-contract.json`](../desktop/shell-contract.json), which
+also covers Windows and Linux (both `contract_defined_implementation_pending`
+today — see [`apps/desktop/README.md`](../desktop/README.md)). The four views
+below stay identical across all three platforms, including their icons.
+
 ## Initial Direction
 
 - use SwiftUI for first-party desktop surfaces
