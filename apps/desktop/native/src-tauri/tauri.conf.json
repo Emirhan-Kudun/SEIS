@@ -1,0 +1,32 @@
+{
+  "build": {
+    "distDir": "../../../web",
+    "devPath": "../../../web"
+  },
+  "package": {
+    "productName": "SEIS Inspector",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "title": "SEIS Inspector",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "bundle": {
+      "active": true,
+      "identifier": "com.seis.inspector",
+      "targets": ["deb", "appimage", "msi", "nsis"]
+    },
+    "allowlist": {
+      "shell": { "open": true }
+    },
+    "security": {
+      "csp": null
+    }
+  }
+}

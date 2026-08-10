@@ -21,12 +21,13 @@ for the full decision and research background
 | Platform | Status | Notes |
 | --- | --- | --- |
 | macOS | **Reference implementation** | [`apps/macos/SEISInspector/ContentView.swift`](../macos/SEISInspector/ContentView.swift), SwiftUI, already scaffolded. |
-| Windows | Contract defined, implementation **pending** | Plan: wrap the existing `apps/web` cockpit (same views, same entities) in a native shell — not a rewrite. No code yet. |
-| Linux | Contract defined, implementation **pending** | Same plan as Windows. No code yet. |
+| Windows | Shell **scaffolded**, build pending | [`apps/desktop/native/src-tauri`](./native/src-tauri), a Tauri shell that loads the existing `apps/web/cockpit.html`. Source-level scaffold only — not yet compiled or shipped. |
+| Linux | Shell **scaffolded**, build pending | Same Tauri scaffold as Windows (one source tree targets both). Source-level scaffold only — not yet compiled or shipped. |
 
 Nothing here claims a Windows or Linux build exists. `shell-contract.json`
-records `contract_defined_implementation_pending` for both, and that is the
-truthful state.
+records `shell_scaffolded_build_pending` for both, and that is the truthful
+state: real source files exist, but no toolchain has compiled them and no
+installer has been produced or tested on either OS.
 
 ## Shared views
 
@@ -38,11 +39,17 @@ Branch Status, Plugin Status, Zip Audit, Workspace.
 
 ## Next steps (tracked, not claimed done)
 
-1. Decide the Windows/Linux shell technology against the plan above (likely a
-   thin native wrapper around `apps/web/cockpit.html`, since it already
-   implements the same contract — no new UI framework needed for a first cut).
-2. Scaffold that wrapper once decided; keep `shell-contract.json` as the
-   single source of truth for its views.
-3. Extend `npm run check:app-shell-contracts` per-platform status assertions
-   as real scaffolds land (it already validates icon presence and the
-   visual-not-text rule for every view in this contract).
+1. ~~Decide the Windows/Linux shell technology~~: [Tauri](https://tauri.app),
+   wrapping `apps/web/cockpit.html` — see
+   [`native/README.md`](./native/README.md) for why.
+2. ~~Scaffold that wrapper~~: [`native/src-tauri`](./native/src-tauri).
+   `shell-contract.json` stays the single source of truth for its views;
+   `platforms.windows.scaffold` and `platforms.linux.scaffold` both point at
+   this scaffold's `src/main.rs`.
+3. ~~Extend `npm run check:app-shell-contracts` per-platform status
+   assertions~~: it now also validates that every `platforms.*.scaffold`
+   path exists and that every platform declares a `status`.
+4. Install the Rust/Tauri toolchain and actually build the scaffold on
+   Windows and Linux, then flip `platforms.windows.status` /
+   `platforms.linux.status` from `shell_scaffolded_build_pending` to
+   `reference_implementation` once verified.

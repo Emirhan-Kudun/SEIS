@@ -2,7 +2,7 @@
   "name": "SEIS desktop shell contract",
   "date": "2026-08-01",
   "platform": "cross_platform_shared",
-  "status": "contract_committed_macos_reference_windows_linux_pending",
+  "status": "contract_committed_macos_reference_windows_linux_scaffolded",
   "purpose": "One shared inspector contract for macOS, Windows, and Linux so the three desktop lanes stop diverging into separate apps: same views, same entities, same data contract, same icons. macOS already ships the reference implementation; Windows and Linux implement this same contract next (see docs/architecture/desktop-shell-unification.md).",
   "data_contract": {
     "source": "apps/fullstack/state-model.json",
@@ -49,14 +49,16 @@
       "scaffold": "apps/macos/SEISInspector/ContentView.swift"
     },
     "windows": {
-      "status": "contract_defined_implementation_pending",
+      "status": "shell_scaffolded_build_pending",
       "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
-      "scaffold": null
+      "ui": "Tauri",
+      "scaffold": "apps/desktop/native/src-tauri/src/main.rs"
     },
     "linux": {
-      "status": "contract_defined_implementation_pending",
+      "status": "shell_scaffolded_build_pending",
       "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
-      "scaffold": null
+      "ui": "Tauri",
+      "scaffold": "apps/desktop/native/src-tauri/src/main.rs"
     }
   },
   "scaffold": "apps/macos/SEISInspector/ContentView.swift",

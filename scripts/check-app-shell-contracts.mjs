@@ -57,6 +57,12 @@ for (const { path, unitsKey, idKey } of contracts) {
   if (contract.scaffold && !existsSync(resolve(root, contract.scaffold))) {
     errors.push(`${path}: scaffold not found: ${contract.scaffold}`);
   }
+  for (const [platformName, platform] of Object.entries(contract.platforms ?? {})) {
+    if (!platform.status) errors.push(`${path}: platforms.${platformName}: missing status`);
+    if (platform.scaffold && !existsSync(resolve(root, platform.scaffold))) {
+      errors.push(`${path}: platforms.${platformName}: scaffold not found: ${platform.scaffold}`);
+    }
+  }
   if (contract.navigation) {
     const ids = new Set(units.map((unit) => unit[idKey]));
     for (const id of contract.navigation.order ?? []) {
