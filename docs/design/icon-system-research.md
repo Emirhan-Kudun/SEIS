@@ -63,5 +63,8 @@ real-world bug.
 
 - No new visual language, no gradients/3D/mascot — out of scope per the
   research above and V14's anti-bloat rule (§44).
-- No claim that Windows/Linux apps exist yet — the shell contract records
-  their status honestly as `contract_defined_implementation_pending`.
+- No claim that a Windows/Linux app is built or shipped yet — the shell
+  contract records their status honestly as
+  `shell_scaffolded_build_pending`: a real Tauri source scaffold exists
+  (`apps/desktop/native/src-tauri`), but it has not been compiled or
+  distributed on either OS.

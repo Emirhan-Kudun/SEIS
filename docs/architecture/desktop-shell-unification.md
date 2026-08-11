@@ -18,20 +18,27 @@ platform implements *that* contract instead of inventing its own:
 
 - **macOS** already does, via `apps/macos/SEISInspector` (SwiftUI) — recorded
   as the `reference_implementation`.
-- **Windows** and **Linux** are recorded as `contract_defined_implementation_pending`.
-  The plan is to wrap the already-working `apps/web` cockpit — which already
+- **Windows** and **Linux** are recorded as `shell_scaffolded_build_pending`.
+  The plan — wrap the already-working `apps/web` cockpit, which already
   renders the same four views against the same
-  `apps/fullstack/state-model.json` entities — in a thin native shell,
-  rather than hand-writing two more native UIs. This follows the research in
+  `apps/fullstack/state-model.json` entities, in a thin native shell rather
+  than hand-writing two more native UIs — is now a real source scaffold:
+  [`apps/desktop/native/src-tauri`](../../apps/desktop/native/src-tauri), a
+  [Tauri](https://tauri.app) project whose webview loads
+  `apps/web/cockpit.html` directly. This follows the research in
   [`docs/design/icon-system-research.md`](../design/icon-system-research.md):
   cross-platform desktop projects that succeed share one
   logic/design/data contract and let each OS render it appropriately, rather
   than forcing a rewrite per platform.
-- No specific Windows/Linux shell technology (Tauri, WebView2 host, etc.) is
-  chosen yet — that requires a follow-up decision once someone actually
-  builds it, and is out of scope for this change. Recording a technology
-  choice without a working scaffold would be exactly the kind of unverified
-  claim SEIS governance prohibits.
+- Tauri was chosen over Electron: it ships a small native binary with no
+  bundled Chromium runtime (fits SEIS's no-large-binaries /
+  `check:secret-scan` governance posture), and one Tauri source tree
+  naturally targets both Windows and Linux, matching this doc's own
+  one-contract-many-platforms goal. The scaffold is source-only — no
+  `Cargo.lock`, no CI build step, no installer; see
+  [`apps/desktop/native/README.md`](../../apps/desktop/native/README.md) for
+  what "scaffolded" honestly means here and what's still required to call it
+  a `reference_implementation`.
 
 Icons for the four shared views come from the new
 [`packages/design-tokens/icons`](../../packages/design-tokens/icons) system —

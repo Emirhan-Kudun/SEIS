@@ -36,6 +36,14 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   anywhere automatically; it now also validates the new desktop contract and
   (new) that every view's `icon`, where declared, is a real, visual,
   non-`<text>` SVG. Added to the `check:governance` aggregate.
+- **Windows/Linux desktop shell, scaffolded.** Added
+  `apps/desktop/native/src-tauri` — a source-level Tauri project that loads
+  `apps/web/cockpit.html` instead of a new UI, per the plan already recorded
+  in `apps/desktop/README.md`. `shell-contract.json`'s
+  `platforms.windows`/`platforms.linux` now point at this scaffold and record
+  `shell_scaffolded_build_pending` (real source exists; not yet compiled or
+  shipped on either OS). `check:app-shell-contracts` now also validates every
+  `platforms.*.scaffold` path and requires a `status` per platform.
 
 ### Changed
 
