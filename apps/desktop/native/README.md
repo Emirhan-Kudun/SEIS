@@ -4,7 +4,7 @@ This is the source-level project for the Windows and Linux lanes described in
 [`../shell-contract.json`](../shell-contract.json) and
 [`../README.md`](../README.md): a thin [Tauri](https://tauri.app) shell that
 loads the existing [`apps/web/cockpit.html`](../../web/cockpit.html) instead
-of reimplementing its four views in a new UI framework.
+of reimplementing its six panels in a new UI framework.
 
 Tauri was chosen over Electron because it ships a small native binary (no
 bundled Chromium runtime), which fits this repo's no-large-binaries /
@@ -15,34 +15,59 @@ naturally targets both Windows and Linux from the same source tree — so
 
 ## Status, honestly
 
-**Linux: build-verified.** This project has actually been compiled and run
-— not just written — on Ubuntu 24.04: `cargo build` produces a real ELF
-binary at `src-tauri/target/debug/seis-desktop-shell`, and running it under
-`xvfb-run` opens a native WebKitGTK window that renders
-`apps/web/cockpit.html`'s markup, styles, and JS. `Cargo.lock` is committed,
-as is standard for a Tauri application (not a library).
+**Linux: `reference_implementation`, screenshot-verified.** This project
+has been compiled and run — not just written — on Ubuntu 24.04: `cargo
+build` produces a real ELF binary at
+`src-tauri/target/debug/seis-desktop-shell`, and running it under
+`xvfb-run` opens a native WebKitGTK window that renders `cockpit.html` with
+the full SEIS design-system styling and all six of its panels populated
+with real, embedded data (repository, plugin lanes, build workbench,
+workspace ops, source safety, research memory). This was confirmed with an
+actual screenshot (`xwd` + ImageMagick under Xvfb), not just absence of
+error output. `Cargo.lock` is committed, as is standard for a Tauri
+application (not a library).
 
-**Known gap (not yet reference-implementation parity):** several of the
-cockpit's data-driven panels come up empty. `apps/web/app.js` fetches data
-with paths like `../../data/gap-closure-register.json`, which only resolve
-correctly when the page is served from two directories below a root that
-also contains `data/` and `content/` (the layout `apps/web/` has inside the
-full SEIS checkout). This scaffold's `distDir` bundles only `apps/web/` in
-isolation, so those relative fetches 404 and fall back to `index.html`. The
-shell chrome, navigation, and styling all render correctly; the JSON-backed
-panel content does not yet. Fixing this needs either a small Rust-side
-custom asset handler that also serves `data/` and `content/` at the right
-relative paths, or a build step that stages `apps/web/` alongside copies of
-those two directories (similar to what `scripts/build-static.mjs` already
-does for the static-hosting deploy target) before pointing `distDir` at the
-staged output. Neither is done here — this scaffold intentionally stayed a
-single-directory `distDir` for now.
+**Getting here took two real bug fixes, not one.** The first attempt at
+this (an earlier commit) reported success after seeing the window open
+without errors — but it had never set `tauri.windows[0].url`, so it was
+silently loading `apps/web/index.html` (the marketing/portfolio landing
+page) instead of `cockpit.html` (the page this shell-contract is actually
+about). That page's script, `app.js`, does have unrelated relative-fetch
+problems (`../../data/gap-closure-register.json` and similar, which assume
+being served from two directories above a root containing `data/` and
+`content/`) — a real bug, just attributed to the wrong page. `cockpit.html`
+itself has no such fetch calls at all (`src/data/cockpit-status.js` embeds
+its data directly); its only external dependencies are two CSS links,
+`../../packages/design-tokens/seis.tokens.css` and
+`../../packages/ui/seis.ui.css`. Those needed solving too — see below.
 
 **Windows: unscaffolded further than the shared source.** The same
 `src-tauri` project targets Windows from this one source tree (Tauri v1's
 Windows backend uses WebView2 instead of WebKitGTK, selected automatically
 by the target triple), but no Windows build has been attempted or verified
 — this repo's tooling only runs on Linux.
+
+## How the CSS-path gap was actually solved
+
+`cockpit.html` references `../../packages/design-tokens/seis.tokens.css`
+and `../../packages/ui/seis.ui.css`, relative to its real location
+(`apps/web/cockpit.html`) — two levels up lands on the repo root's
+`packages/` directory. Browsers clamp `..` at the document root instead of
+erroring on it, so it turns out the exact nesting depth doesn't matter:
+as long as `packages/design-tokens/` and `packages/ui/` exist as
+**top-level siblings** of wherever `cockpit.html` itself sits, the same
+relative path resolves correctly no matter how many `../` segments it
+uses.
+
+[`stage-assets.mjs`](./stage-assets.mjs) does exactly that: it copies
+`apps/web/*` and both `packages/*` directories (a combined ~5MB — `data/`
+and `content/` are deliberately **not** staged, since `cockpit.html` never
+needs them) into `dist-stage/`, and `tauri.conf.json`'s `build.distDir` /
+`build.devPath` point at that staged directory instead of `apps/web`
+directly. `tauri.windows[0].url` is set explicitly to `"cockpit.html"` so
+the shell loads the right page instead of defaulting to `index.html`.
+`dist-stage/` is gitignored — it's a generated build input, regenerated by
+running the script, never committed.
 
 ## Building it yourself (Linux)
 
@@ -69,6 +94,7 @@ sudo ln -sf /usr/lib/x86_64-linux-gnu/libjavascriptcoregtk-4.1.so \
             /usr/lib/x86_64-linux-gnu/libjavascriptcoregtk-4.0.so
 sudo ldconfig
 
+node apps/desktop/native/stage-assets.mjs   # (re)generate dist-stage/
 cd apps/desktop/native/src-tauri
 cargo build
 xvfb-run -a ./target/debug/seis-desktop-shell   # headless smoke test
@@ -83,25 +109,29 @@ normally against your own X/Wayland session.
 
 ```
 native/
+├── stage-assets.mjs       # copies apps/web + packages/{design-tokens,ui} into dist-stage/
+├── dist-stage/            # generated, gitignored — the Tauri distDir points here
 └── src-tauri/
     ├── Cargo.toml          # Rust package + Tauri dependency
     ├── Cargo.lock          # committed: this is an application, not a library
     ├── build.rs            # required by tauri::generate_context!() — calls tauri_build::build()
-    ├── tauri.conf.json     # points distDir/devPath at apps/web; bundle.icon set
+    ├── tauri.conf.json     # distDir/devPath -> ../dist-stage; windows[0].url -> cockpit.html
     ├── icons/               # real PNGs rasterized from packages/design-tokens/icons/mark.svg
     └── src/main.rs          # minimal Tauri entrypoint, no custom UI code
 ```
 
 ## Next steps
 
-1. Solve the `data/` / `content/` relative-path gap above so the cockpit's
-   panels show real data inside the shell, not just its chrome — that's the
-   real bar for calling this a `reference_implementation`, not just
-   "compiles and opens a window."
-2. Attempt and verify a Windows build (WebView2 backend) — currently
+1. Attempt and verify a Windows build (WebView2 backend) — currently
    entirely unverified.
-3. Wire a Linux build into CI once step 1 is solved (`cargo build` /
-   `cargo tauri build` produces `.deb`/`.AppImage` from this same source
-   tree); document the pkg-config workaround above in that CI step too,
-   since GitHub's `ubuntu-latest` runners hit the same webkit2gtk-4.1-only
-   gap.
+2. Wire a Linux build into CI (`cargo build`, after running
+   `stage-assets.mjs`); document the pkg-config workaround above in that CI
+   step too, since GitHub's `ubuntu-latest` runners hit the same
+   webkit2gtk-4.1-only gap.
+3. Consider whether `shell-contract.json`'s four abstract `view_id`s
+   (`branch_status`/`plugin_status`/`zip_audit`/`workspace_links`) should
+   be reconciled with `cockpit.html`'s actual six panels
+   (repository/plugins/build/workspace/security/research), or whether the
+   contract's views are meant as a cross-platform minimum rather than an
+   exact map of every concrete UI. Pre-existing looseness, not resolved
+   here.

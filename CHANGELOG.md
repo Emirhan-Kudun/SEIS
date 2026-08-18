@@ -65,6 +65,25 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   JSON-backed panels don't yet load data inside the shell (a documented,
   understood relative-path gap, not yet fixed). Not claiming
   `reference_implementation` on either platform.
+- **Correction: the previous entry verified the wrong page.** The shell had
+  no `tauri.windows[0].url` set, so it was silently loading
+  `apps/web/index.html` (the marketing/portfolio page) instead of
+  `cockpit.html` (the page `shell-contract.json` is actually about) — the
+  "JSON-backed panels don't load" gap above belongs to `index.html`'s
+  `app.js`, not to the cockpit. `cockpit.html` itself has no such fetch
+  calls at all; its only external dependency is two CSS links
+  (`../../packages/design-tokens/seis.tokens.css`,
+  `../../packages/ui/seis.ui.css`). Fixed both: `tauri.windows[0].url` now
+  points at `cockpit.html`, and new `apps/desktop/native/stage-assets.mjs`
+  stages `packages/design-tokens`/`packages/ui` alongside `apps/web/` (a
+  ~5MB copy, not `data/`/`content/`, which the cockpit never needs) so
+  those two links resolve. Re-verified with an actual screenshot (`xwd` +
+  ImageMagick under `xvfb-run`): the shell renders `cockpit.html` fully
+  styled, with all six panels showing real embedded data — arguably more
+  functionally complete than the macOS reference implementation (a nav
+  list plus a static placeholder pane). `shell-contract.json`'s
+  `platforms.linux.status` is now `reference_implementation`; Windows is
+  unaffected (`shell_scaffolded_build_pending`, still unverified).
 
 ### Changed
 

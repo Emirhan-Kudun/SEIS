@@ -63,9 +63,10 @@ real-world bug.
 
 - No new visual language, no gradients/3D/mascot — out of scope per the
   research above and V14's anti-bloat rule (§44).
-- No claim that a Windows or Linux app is shipped or fully working yet — the
-  shell contract records their status honestly: Windows is
-  `shell_scaffolded_build_pending` (source exists, unverified); Linux is
-  `build_verified_data_wiring_pending` (it compiles and its window opens
-  under Ubuntu 24.04, but several data-driven panels don't yet load their
-  content — see `apps/desktop/native/README.md`).
+- No claim that a Windows app is shipped or working — the shell contract
+  records `platforms.windows.status` honestly as
+  `shell_scaffolded_build_pending` (source exists, entirely unverified; no
+  Windows toolchain available in this environment). Linux is
+  `reference_implementation`, on real evidence: compiled, run, and
+  screenshot-verified under Ubuntu 24.04 — see
+  `apps/desktop/native/README.md`.

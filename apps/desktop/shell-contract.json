@@ -2,7 +2,7 @@
   "name": "SEIS desktop shell contract",
   "date": "2026-08-01",
   "platform": "cross_platform_shared",
-  "status": "contract_committed_macos_reference_windows_scaffolded_linux_build_verified",
+  "status": "contract_committed_macos_and_linux_reference_windows_scaffolded",
   "purpose": "One shared inspector contract for macOS, Windows, and Linux so the three desktop lanes stop diverging into separate apps: same views, same entities, same data contract, same icons. macOS already ships the reference implementation; Windows and Linux implement this same contract next (see docs/architecture/desktop-shell-unification.md).",
   "data_contract": {
     "source": "apps/fullstack/state-model.json",
@@ -55,11 +55,11 @@
       "scaffold": "apps/desktop/native/src-tauri/src/main.rs"
     },
     "linux": {
-      "status": "build_verified_data_wiring_pending",
+      "status": "reference_implementation",
       "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
       "ui": "Tauri",
       "scaffold": "apps/desktop/native/src-tauri/src/main.rs",
-      "verification": "Compiled and launched under Xvfb on Ubuntu 24.04 (see apps/desktop/native/README.md): the shell window opens and WebKit renders apps/web/cockpit.html's markup and styles. Known gap: several views' data (e.g. gap-closure-register.json) fail to load because app.js's relative fetch paths (../../data/...) assume serving from two directories above apps/web, which this scaffold's single-directory distDir does not provide — not yet reference-implementation parity."
+      "verification": "Compiled and launched under Xvfb on Ubuntu 24.04 (see apps/desktop/native/README.md): the shell window opens loading apps/web/cockpit.html (an earlier revision defaulted to index.html instead, a real bug now fixed via tauri.windows[0].url), fully styled via the design-system CSS (staged alongside apps/web by stage-assets.mjs so cockpit.html's own ../../packages/... links resolve), with all six cockpit panels rendering their real embedded data. Screenshot-verified, not just log-verified. Caveat: cockpit.html's own panel structure (repository/plugins/build/workspace/security/research) predates this contract and doesn't line up one-to-one with this contract's four view_ids below (branch_status/plugin_status/zip_audit/workspace_links) — that taxonomy gap existed in the original 'wrap the cockpit' plan and is unchanged by this work, not newly introduced or newly hidden."
     }
   },
   "scaffold": "apps/macos/SEISInspector/ContentView.swift",

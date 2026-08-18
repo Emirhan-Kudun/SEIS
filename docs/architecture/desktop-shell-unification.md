@@ -17,10 +17,11 @@ that defines the views, entities, data contract, and icons once. Every
 platform implements *that* contract instead of inventing its own:
 
 - **macOS** already does, via `apps/macos/SEISInspector` (SwiftUI) — recorded
-  as the `reference_implementation`.
-- **Windows** is recorded as `shell_scaffolded_build_pending`; **Linux** as
-  `build_verified_data_wiring_pending`. The plan — wrap the already-working
-  `apps/web` cockpit, which already renders the same four views against the
+  as the `reference_implementation`. It's a nav list plus a static
+  placeholder detail pane, no real data binding.
+- **Windows** is recorded as `shell_scaffolded_build_pending`; **Linux** is
+  now also `reference_implementation`. The plan — wrap the already-working
+  `apps/web` cockpit, which already renders the same views against the
   same `apps/fullstack/state-model.json` entities, in a thin native shell
   rather than hand-writing two more native UIs — is a real source project:
   [`apps/desktop/native/src-tauri`](../../apps/desktop/native/src-tauri), a
@@ -34,12 +35,16 @@ platform implements *that* contract instead of inventing its own:
   bundled Chromium runtime (fits SEIS's no-large-binaries /
   `check:secret-scan` governance posture), and one Tauri source tree
   naturally targets both Windows and Linux, matching this doc's own
-  one-contract-many-platforms goal. On Linux this has been compiled and run
-  (`cargo build`, then launched headlessly under `xvfb-run` on Ubuntu 24.04):
-  a real WebKitGTK window opens and renders the cockpit's markup and styles.
-  It is not yet a `reference_implementation` — several JSON-backed panels
-  don't load their data inside the shell, a relative-path limitation
-  documented with a concrete fix path in
+  one-contract-many-platforms goal. On Linux this has been compiled, run,
+  and **screenshot-verified** (`cargo build`, launched headlessly under
+  `xvfb-run` on Ubuntu 24.04, captured with `xwd`): a real WebKitGTK window
+  opens `cockpit.html` fully styled with the design-system CSS and all six
+  panels showing real, embedded data — arguably more functionally complete
+  than the macOS reference implementation. Getting there required fixing a
+  real bug an earlier pass at this had missed (the window silently loaded
+  the wrong page, `index.html`, instead of `cockpit.html`) and staging
+  `packages/design-tokens`/`packages/ui` alongside the cockpit so its own
+  CSS links resolve — both documented in
   [`apps/desktop/native/README.md`](../../apps/desktop/native/README.md).
   Windows remains source-only and unverified.
 
@@ -59,9 +64,9 @@ platforms.
 - `apps/macos/inspector-contract.json` gained an `icon` field per view and a
   pointer at the shared contract; its required fields and `views` array are
   unchanged, so nothing that already passed stops passing.
-- This is a contract-and-documentation change plus a verified Linux build of
-  the shell — not a Windows application, and not a Linux build with full
-  data parity yet. Neither is claimed.
+- This is a contract-and-documentation change plus a screenshot-verified
+  Linux build of the shell — not a Windows application. That is not
+  claimed.
 
 ## Rollback
 

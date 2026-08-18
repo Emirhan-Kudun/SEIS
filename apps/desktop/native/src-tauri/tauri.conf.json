@@ -1,7 +1,7 @@
 {
   "build": {
-    "distDir": "../../../web",
-    "devPath": "../../../web"
+    "distDir": "../dist-stage",
+    "devPath": "../dist-stage"
   },
   "package": {
     "productName": "SEIS Inspector",
@@ -11,6 +11,7 @@
     "windows": [
       {
         "title": "SEIS Inspector",
+        "url": "cockpit.html",
         "width": 1200,
         "height": 800,
         "resizable": true,

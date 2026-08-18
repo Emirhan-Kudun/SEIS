@@ -20,15 +20,15 @@ for the full decision and research background
 
 | Platform | Status | Notes |
 | --- | --- | --- |
-| macOS | **Reference implementation** | [`apps/macos/SEISInspector/ContentView.swift`](../macos/SEISInspector/ContentView.swift), SwiftUI, already scaffolded. |
+| macOS | **Reference implementation** | [`apps/macos/SEISInspector/ContentView.swift`](../macos/SEISInspector/ContentView.swift), SwiftUI. A nav list plus a static placeholder detail pane — no real data binding. |
 | Windows | Shell **scaffolded**, build pending | [`apps/desktop/native/src-tauri`](./native/src-tauri), a Tauri shell that loads the existing `apps/web/cockpit.html`. Source-level scaffold only — not yet compiled or tested on Windows. |
-| Linux | **Build verified**, data-wiring pending | Same source tree as Windows. Actually compiled and run under `xvfb-run` on Ubuntu 24.04: the shell window opens and renders the cockpit's markup/styles. Several JSON-backed panels come up empty — see [`native/README.md`](./native/README.md#status-honestly) for the specific relative-path gap and how to reproduce the build. |
+| Linux | **Reference implementation** | Same source tree as Windows. Compiled and run under `xvfb-run` on Ubuntu 24.04, **screenshot-verified**: the shell renders `cockpit.html` with full design-system styling and all six panels showing real, embedded data. See [`native/README.md`](./native/README.md#status-honestly) for how this was built and confirmed, including a real bug the first attempt at this had (loading the wrong page). |
 
-Nothing here claims a finished Windows build, or full data parity on Linux.
-`shell-contract.json` now distinguishes the two honestly: Windows stays
-`shell_scaffolded_build_pending`; Linux is `build_verified_data_wiring_pending`
-— real compiled proof it runs, with a named, undone piece of work before it
-could be called a `reference_implementation`.
+Nothing here claims a finished Windows build. `shell-contract.json` records
+Linux as `reference_implementation` on real, screenshot-verified evidence —
+not merely "it compiled" — while Windows stays
+`shell_scaffolded_build_pending` (entirely unverified, no Windows toolchain
+available in this environment).
 
 ## Shared views
 
@@ -54,10 +54,15 @@ Branch Status, Plugin Status, Zip Audit, Workspace.
    on Linux (Ubuntu 24.04, headless via `xvfb-run`) — see
    [`native/README.md`](./native/README.md) for the exact steps and the
    pkg-config workaround this required. Windows still unattempted.
-5. Fix the `data/`/`content/` relative-path gap documented in
-   `native/README.md` so the cockpit's panels render real data inside the
-   shell — that, not just "opens a window," is the bar for
-   `reference_implementation`.
-6. Attempt and verify a Windows build; wire a Linux build into CI once step
-   5 lands (CI's `ubuntu-latest` runners will need the same webkit2gtk-4.1
-   workaround documented in `native/README.md`).
+5. ~~Fix the relative-path gap so the cockpit's panels render real data
+   inside the shell~~: done — `native/stage-assets.mjs` stages
+   `packages/design-tokens` and `packages/ui` alongside `apps/web/` so
+   `cockpit.html`'s own CSS links resolve, and `tauri.windows[0].url` now
+   points at `cockpit.html` instead of defaulting to `index.html`. Verified
+   with a screenshot, not just log output.
+6. Attempt and verify a Windows build; wire a Linux build into CI (CI's
+   `ubuntu-latest` runners will need the same webkit2gtk-4.1 workaround
+   documented in `native/README.md`).
+7. Decide whether to reconcile `shell-contract.json`'s four abstract
+   `view_id`s with `cockpit.html`'s actual six panels — a pre-existing
+   looseness in the "wrap the cockpit" plan, unchanged by this work.
