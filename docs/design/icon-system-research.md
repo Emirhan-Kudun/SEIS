@@ -63,8 +63,9 @@ real-world bug.
 
 - No new visual language, no gradients/3D/mascot — out of scope per the
   research above and V14's anti-bloat rule (§44).
-- No claim that a Windows/Linux app is built or shipped yet — the shell
-  contract records their status honestly as
-  `shell_scaffolded_build_pending`: a real Tauri source scaffold exists
-  (`apps/desktop/native/src-tauri`), but it has not been compiled or
-  distributed on either OS.
+- No claim that a Windows or Linux app is shipped or fully working yet — the
+  shell contract records their status honestly: Windows is
+  `shell_scaffolded_build_pending` (source exists, unverified); Linux is
+  `build_verified_data_wiring_pending` (it compiles and its window opens
+  under Ubuntu 24.04, but several data-driven panels don't yet load their
+  content — see `apps/desktop/native/README.md`).

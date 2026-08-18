@@ -18,11 +18,11 @@ platform implements *that* contract instead of inventing its own:
 
 - **macOS** already does, via `apps/macos/SEISInspector` (SwiftUI) — recorded
   as the `reference_implementation`.
-- **Windows** and **Linux** are recorded as `shell_scaffolded_build_pending`.
-  The plan — wrap the already-working `apps/web` cockpit, which already
-  renders the same four views against the same
-  `apps/fullstack/state-model.json` entities, in a thin native shell rather
-  than hand-writing two more native UIs — is now a real source scaffold:
+- **Windows** is recorded as `shell_scaffolded_build_pending`; **Linux** as
+  `build_verified_data_wiring_pending`. The plan — wrap the already-working
+  `apps/web` cockpit, which already renders the same four views against the
+  same `apps/fullstack/state-model.json` entities, in a thin native shell
+  rather than hand-writing two more native UIs — is a real source project:
   [`apps/desktop/native/src-tauri`](../../apps/desktop/native/src-tauri), a
   [Tauri](https://tauri.app) project whose webview loads
   `apps/web/cockpit.html` directly. This follows the research in
@@ -34,11 +34,14 @@ platform implements *that* contract instead of inventing its own:
   bundled Chromium runtime (fits SEIS's no-large-binaries /
   `check:secret-scan` governance posture), and one Tauri source tree
   naturally targets both Windows and Linux, matching this doc's own
-  one-contract-many-platforms goal. The scaffold is source-only — no
-  `Cargo.lock`, no CI build step, no installer; see
-  [`apps/desktop/native/README.md`](../../apps/desktop/native/README.md) for
-  what "scaffolded" honestly means here and what's still required to call it
-  a `reference_implementation`.
+  one-contract-many-platforms goal. On Linux this has been compiled and run
+  (`cargo build`, then launched headlessly under `xvfb-run` on Ubuntu 24.04):
+  a real WebKitGTK window opens and renders the cockpit's markup and styles.
+  It is not yet a `reference_implementation` — several JSON-backed panels
+  don't load their data inside the shell, a relative-path limitation
+  documented with a concrete fix path in
+  [`apps/desktop/native/README.md`](../../apps/desktop/native/README.md).
+  Windows remains source-only and unverified.
 
 Icons for the four shared views come from the new
 [`packages/design-tokens/icons`](../../packages/design-tokens/icons) system —
@@ -56,8 +59,9 @@ platforms.
 - `apps/macos/inspector-contract.json` gained an `icon` field per view and a
   pointer at the shared contract; its required fields and `views` array are
   unchanged, so nothing that already passed stops passing.
-- This is a contract-and-documentation change. It does not create a Windows
-  or Linux application, and does not claim to.
+- This is a contract-and-documentation change plus a verified Linux build of
+  the shell — not a Windows application, and not a Linux build with full
+  data parity yet. Neither is claimed.
 
 ## Rollback
 

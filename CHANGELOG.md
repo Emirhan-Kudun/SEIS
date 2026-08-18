@@ -44,6 +44,27 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
   `shell_scaffolded_build_pending` (real source exists; not yet compiled or
   shipped on either OS). `check:app-shell-contracts` now also validates every
   `platforms.*.scaffold` path and requires a `status` per platform.
+- **Linux desktop shell, build-verified.** `apps/desktop/native/src-tauri`
+  now actually compiles (`cargo build`) and runs: launched headlessly under
+  `xvfb-run` on Ubuntu 24.04, the shell opens a real WebKitGTK window and
+  renders `apps/web/cockpit.html`'s markup and styles. This needed three
+  real fixes the prior scaffold-only commit was missing: a `build.rs`
+  calling `tauri_build::build()` (required by `tauri::generate_context!()`
+  but never added), real app icon PNGs rasterized from
+  `packages/design-tokens/icons/mark.svg` (Tauri's codegen hardcodes a
+  lookup for `icons/icon.png` regardless of bundler config), and
+  `Cargo.lock` (now committed, standard for an application). Also
+  discovered and documented: Tauri v1's `webkit2gtk` crate only looks for
+  the `webkit2gtk-4.0`/`javascriptcoregtk-4.0` pkg-config names, which
+  Ubuntu 24.04 no longer ships (only 4.1) — building it there needs
+  pkg-config/`.so` symlinks aliasing 4.0 to 4.1, documented in
+  `apps/desktop/native/README.md`. `shell-contract.json`'s
+  `platforms.linux.status` is now `build_verified_data_wiring_pending`,
+  distinct from `platforms.windows.status` (`shell_scaffolded_build_pending`,
+  still unverified) — verified that the shell chrome renders, but several
+  JSON-backed panels don't yet load data inside the shell (a documented,
+  understood relative-path gap, not yet fixed). Not claiming
+  `reference_implementation` on either platform.
 
 ### Changed
 

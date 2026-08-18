@@ -21,13 +21,14 @@ for the full decision and research background
 | Platform | Status | Notes |
 | --- | --- | --- |
 | macOS | **Reference implementation** | [`apps/macos/SEISInspector/ContentView.swift`](../macos/SEISInspector/ContentView.swift), SwiftUI, already scaffolded. |
-| Windows | Shell **scaffolded**, build pending | [`apps/desktop/native/src-tauri`](./native/src-tauri), a Tauri shell that loads the existing `apps/web/cockpit.html`. Source-level scaffold only — not yet compiled or shipped. |
-| Linux | Shell **scaffolded**, build pending | Same Tauri scaffold as Windows (one source tree targets both). Source-level scaffold only — not yet compiled or shipped. |
+| Windows | Shell **scaffolded**, build pending | [`apps/desktop/native/src-tauri`](./native/src-tauri), a Tauri shell that loads the existing `apps/web/cockpit.html`. Source-level scaffold only — not yet compiled or tested on Windows. |
+| Linux | **Build verified**, data-wiring pending | Same source tree as Windows. Actually compiled and run under `xvfb-run` on Ubuntu 24.04: the shell window opens and renders the cockpit's markup/styles. Several JSON-backed panels come up empty — see [`native/README.md`](./native/README.md#status-honestly) for the specific relative-path gap and how to reproduce the build. |
 
-Nothing here claims a Windows or Linux build exists. `shell-contract.json`
-records `shell_scaffolded_build_pending` for both, and that is the truthful
-state: real source files exist, but no toolchain has compiled them and no
-installer has been produced or tested on either OS.
+Nothing here claims a finished Windows build, or full data parity on Linux.
+`shell-contract.json` now distinguishes the two honestly: Windows stays
+`shell_scaffolded_build_pending`; Linux is `build_verified_data_wiring_pending`
+— real compiled proof it runs, with a named, undone piece of work before it
+could be called a `reference_implementation`.
 
 ## Shared views
 
@@ -49,7 +50,14 @@ Branch Status, Plugin Status, Zip Audit, Workspace.
 3. ~~Extend `npm run check:app-shell-contracts` per-platform status
    assertions~~: it now also validates that every `platforms.*.scaffold`
    path exists and that every platform declares a `status`.
-4. Install the Rust/Tauri toolchain and actually build the scaffold on
-   Windows and Linux, then flip `platforms.windows.status` /
-   `platforms.linux.status` from `shell_scaffolded_build_pending` to
-   `reference_implementation` once verified.
+4. ~~Install the Rust/Tauri toolchain and actually build the scaffold~~: done
+   on Linux (Ubuntu 24.04, headless via `xvfb-run`) — see
+   [`native/README.md`](./native/README.md) for the exact steps and the
+   pkg-config workaround this required. Windows still unattempted.
+5. Fix the `data/`/`content/` relative-path gap documented in
+   `native/README.md` so the cockpit's panels render real data inside the
+   shell — that, not just "opens a window," is the bar for
+   `reference_implementation`.
+6. Attempt and verify a Windows build; wire a Linux build into CI once step
+   5 lands (CI's `ubuntu-latest` runners will need the same webkit2gtk-4.1
+   workaround documented in `native/README.md`).
