@@ -60,9 +60,12 @@ Branch Status, Plugin Status, Zip Audit, Workspace.
    `cockpit.html`'s own CSS links resolve, and `tauri.windows[0].url` now
    points at `cockpit.html` instead of defaulting to `index.html`. Verified
    with a screenshot, not just log output.
-6. Attempt and verify a Windows build; wire a Linux build into CI (CI's
-   `ubuntu-latest` runners will need the same webkit2gtk-4.1 workaround
-   documented in `native/README.md`).
-7. Decide whether to reconcile `shell-contract.json`'s four abstract
+6. ~~Wire a Linux build into CI~~: done —
+   [`.github/workflows/desktop-shell-linux-build.yml`](../../.github/workflows/desktop-shell-linux-build.yml)
+   builds the shell and headlessly smoke-tests it under Xvfb on
+   `ubuntu-latest`, using the webkit2gtk-4.1 workaround documented in
+   `native/README.md`, on every push/PR touching the desktop shell.
+7. Attempt and verify a Windows build — still entirely unattempted.
+8. Decide whether to reconcile `shell-contract.json`'s four abstract
    `view_id`s with `cockpit.html`'s actual six panels — a pre-existing
    looseness in the "wrap the cockpit" plan, unchanged by this work.

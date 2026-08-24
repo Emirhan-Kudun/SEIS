@@ -8,6 +8,19 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Linux desktop shell build wired into CI.** New
+  `.github/workflows/desktop-shell-linux-build.yml`: on any push/PR touching
+  `apps/desktop/`, `apps/web/`, `packages/design-tokens/`, or `packages/ui/`,
+  installs the Rust toolchain and GTK/WebKit dev packages, applies the
+  documented webkit2gtk-4.0→4.1 pkg-config/`.so` symlink workaround, runs
+  `stage-assets.mjs`, builds with `cargo build --locked`, and headlessly
+  smoke-tests the resulting binary under `xvfb-run` (treats a clean exit or
+  a timeout-while-still-running as success; any other exit code fails the
+  job). This is real regression coverage for the shell verified manually
+  earlier — closes the "wire a Linux build into CI" item both
+  `apps/desktop/README.md` and `apps/desktop/native/README.md` listed as an
+  open next step.
+
 - **SEIS icon system (visual only, never text).** New
   `packages/design-tokens/icons/` (part of the existing open `@seis/design-tokens`
   module): the canonical brand mark plus four module glyphs (branch status,

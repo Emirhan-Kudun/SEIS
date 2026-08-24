@@ -101,9 +101,14 @@ xvfb-run -a ./target/debug/seis-desktop-shell   # headless smoke test
 ```
 
 This is a real, if inelegant, workaround, not something to paper over: it's
-recorded here so the next person (or CI) doesn't have to rediscover it. On a
-real desktop (not headless CI), drop `xvfb-run -a` and the window opens
-normally against your own X/Wayland session.
+recorded here so the next person doesn't have to rediscover it — and it
+already is wired into CI: see
+[`.github/workflows/desktop-shell-linux-build.yml`](../../../.github/workflows/desktop-shell-linux-build.yml),
+which builds this project and headlessly smoke-tests the resulting binary
+under Xvfb on every push/PR that touches `apps/desktop/`, `apps/web/`,
+`packages/design-tokens/`, or `packages/ui/`. On a real desktop (not
+headless CI), drop `xvfb-run -a` and the window opens normally against your
+own X/Wayland session.
 
 ## Layout
 
@@ -124,10 +129,11 @@ native/
 
 1. Attempt and verify a Windows build (WebView2 backend) — currently
    entirely unverified.
-2. Wire a Linux build into CI (`cargo build`, after running
-   `stage-assets.mjs`); document the pkg-config workaround above in that CI
-   step too, since GitHub's `ubuntu-latest` runners hit the same
-   webkit2gtk-4.1-only gap.
+2. ~~Wire a Linux build into CI~~: done —
+   [`.github/workflows/desktop-shell-linux-build.yml`](../../../.github/workflows/desktop-shell-linux-build.yml)
+   stages the assets, builds with `cargo build --locked`, and headlessly
+   smoke-tests the binary under Xvfb, all on `ubuntu-latest` with the same
+   pkg-config workaround documented above.
 3. Consider whether `shell-contract.json`'s four abstract `view_id`s
    (`branch_status`/`plugin_status`/`zip_audit`/`workspace_links`) should
    be reconciled with `cockpit.html`'s actual six panels
