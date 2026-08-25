@@ -37,6 +37,20 @@
       "entities": ["workspace_links"],
       "purpose": "Drive docs and Calendar reviews opened in the browser.",
       "icon": "packages/design-tokens/icons/workspace-links.svg"
+    },
+    {
+      "view_id": "build_workbench",
+      "title": "Build Workbench",
+      "entities": ["build_workbench"],
+      "purpose": "Cross-repo build order and per-module delivery status for the SEIS platform build-out.",
+      "icon": "packages/design-tokens/icons/build-workbench.svg"
+    },
+    {
+      "view_id": "research_memory",
+      "title": "Research Memory",
+      "entities": ["research_memory"],
+      "purpose": "Durable research notes captured under docs/research, indexed for quick recall.",
+      "icon": "packages/design-tokens/icons/research-memory.svg"
     }
   ],
   "safety": "No destructive actions (repo or archive deletion) are exposed in the UI; gates render read-only.",

@@ -62,6 +62,22 @@
       "viewBox": "0 0 64 64",
       "purpose": "Workspace/external-link view across the app-shell contracts.",
       "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "build-workbench",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/build-workbench.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Build-order and per-module delivery-status view across the app-shell contracts.",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "research-memory",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/research-memory.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Research-notes index view across the app-shell contracts.",
+      "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
     }
   ]
 }

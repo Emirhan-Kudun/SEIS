@@ -36,11 +36,25 @@
       "entities": ["workspace_links"],
       "purpose": "Drive docs and Calendar reviews opened in the browser.",
       "icon": "packages/design-tokens/icons/workspace-links.svg"
+    },
+    {
+      "view_id": "build_workbench",
+      "title": "Build Workbench",
+      "entities": ["build_workbench"],
+      "purpose": "Cross-repo build order and per-module delivery status for the SEIS platform build-out.",
+      "icon": "packages/design-tokens/icons/build-workbench.svg"
+    },
+    {
+      "view_id": "research_memory",
+      "title": "Research Memory",
+      "entities": ["research_memory"],
+      "purpose": "Durable research notes captured under docs/research, indexed for quick recall.",
+      "icon": "packages/design-tokens/icons/research-memory.svg"
     }
   ],
   "navigation": {
     "kind": "sidebar",
-    "order": ["branch_status", "plugin_status", "zip_audit", "workspace_links"]
+    "order": ["branch_status", "plugin_status", "zip_audit", "workspace_links", "build_workbench", "research_memory"]
   },
   "platforms": {
     "macos": {
@@ -59,7 +73,7 @@
       "plan": "Wrap the existing apps/web cockpit (already implements these four views against the same entities) in a native shell rather than writing a new UI from scratch.",
       "ui": "Tauri",
       "scaffold": "apps/desktop/native/src-tauri/src/main.rs",
-      "verification": "Compiled and launched under Xvfb on Ubuntu 24.04 (see apps/desktop/native/README.md): the shell window opens loading apps/web/cockpit.html (an earlier revision defaulted to index.html instead, a real bug now fixed via tauri.windows[0].url), fully styled via the design-system CSS (staged alongside apps/web by stage-assets.mjs so cockpit.html's own ../../packages/... links resolve), with all six cockpit panels rendering their real embedded data. Screenshot-verified, not just log-verified. Caveat: cockpit.html's own panel structure (repository/plugins/build/workspace/security/research) predates this contract and doesn't line up one-to-one with this contract's four view_ids below (branch_status/plugin_status/zip_audit/workspace_links) — that taxonomy gap existed in the original 'wrap the cockpit' plan and is unchanged by this work, not newly introduced or newly hidden."
+      "verification": "Compiled and launched under Xvfb on Ubuntu 24.04 (see apps/desktop/native/README.md): the shell window opens loading apps/web/cockpit.html (an earlier revision defaulted to index.html instead, a real bug now fixed via tauri.windows[0].url), fully styled via the design-system CSS (staged alongside apps/web by stage-assets.mjs so cockpit.html's own ../../packages/... links resolve), with all six cockpit panels rendering their real embedded data. Screenshot-verified, not just log-verified. The contract's view taxonomy was reconciled with cockpit.html's six panels after this build was verified: build_workbench and research_memory were added as views (backed by new build_workbench/research_memory entities in apps/fullstack/state-model.json) alongside the original branch_status/plugin_status/zip_audit/workspace_links, so the six view_ids now map 1:1 onto cockpit.html's six panels (repository/plugins/build/workspace/security/research). This adds contract entries only; it does not re-verify the Linux build against the two new views beyond confirming cockpit.html already rendered their underlying data before the taxonomy gap was closed."
     }
   },
   "scaffold": "apps/macos/SEISInspector/ContentView.swift",

@@ -8,6 +8,28 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Desktop shell view taxonomy reconciled with the cockpit's six panels.**
+  `apps/desktop/shell-contract.json` and `apps/macos/inspector-contract.json`
+  had four abstract views (`branch_status`/`plugin_status`/`zip_audit`/
+  `workspace_links`) that didn't map 1:1 onto `apps/web/cockpit.html`'s six
+  real panels — a gap both contracts' docs explicitly flagged as
+  "pre-existing, not resolved here." Added two new views, `build_workbench`
+  and `research_memory`, backed by two new entities of the same names in
+  `apps/fullstack/state-model.json`, seeded from data that already flows
+  through `scripts/create-cockpit-status.mjs`
+  (`data/openai-curated-build-workbench-2026-06-05.json` and
+  `docs/research/README.md`) — no new data invented, just registered as
+  formal entities. Two new icons, `packages/design-tokens/icons/{build-
+  workbench,research-memory}.svg`, follow the existing four icons'
+  ring-plus-glyph visual pattern and pass `check:icon-system`.
+  `ContentView.swift` gained matching nav rows (still placeholder detail
+  panes, no new data binding claimed on macOS). `npm run
+  check:app-shell-contracts` / `check:icon-system` / `check:governance` all
+  still pass. This is a contract-and-icon change only — it does not
+  re-verify the Linux Tauri build against the two new views; the earlier
+  screenshot already showed `cockpit.html` rendering their underlying data
+  before this taxonomy gap was closed.
+
 - **Linux desktop shell build wired into CI.** New
   `.github/workflows/desktop-shell-linux-build.yml`: on any push/PR touching
   `apps/desktop/`, `apps/web/`, `packages/design-tokens/`, or `packages/ui/`,

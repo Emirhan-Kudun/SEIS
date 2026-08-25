@@ -48,12 +48,12 @@ platform implements *that* contract instead of inventing its own:
   [`apps/desktop/native/README.md`](../../apps/desktop/native/README.md).
   Windows remains source-only and unverified.
 
-Icons for the four shared views come from the new
+Icons for the shared views come from the new
 [`packages/design-tokens/icons`](../../packages/design-tokens/icons) system —
 visual SVG glyphs, never text — chosen to match the SF Symbols already used
 by the macOS scaffold (`arrow.triangle.branch`, `puzzlepiece.extension`,
-`archivebox`, `link`) so the same four concepts read identically across
-platforms.
+`archivebox`, `link`, `hammer`, `book`) so the same concepts read identically
+across platforms.
 
 ## Consequences
 
@@ -67,6 +67,24 @@ platforms.
 - This is a contract-and-documentation change plus a screenshot-verified
   Linux build of the shell — not a Windows application. That is not
   claimed.
+
+## Addendum (2026-08-25): view-taxonomy reconciliation
+
+The original four shared views (`branch_status`/`plugin_status`/`zip_audit`/
+`workspace_links`) didn't map onto all six of `cockpit.html`'s panels — a
+looseness this doc and `apps/desktop/native/README.md` both flagged as
+"pre-existing, not resolved here." That gap is now closed: `build_workbench`
+and `research_memory` were added as views in `shell-contract.json` and
+`inspector-contract.json`, backed by two new entities of the same names in
+`apps/fullstack/state-model.json`, seeded from data that already flows
+through `scripts/create-cockpit-status.mjs`
+(`data/openai-curated-build-workbench-2026-06-05.json` and
+`docs/research/README.md`) — no new data was invented. `ContentView.swift`
+gained matching nav-list rows, keeping macOS's existing "placeholder detail
+pane, no real data binding" framing unchanged. This is a contract/data-model
+change only; it does not re-verify the Linux Tauri build, since the
+underlying `cockpit.html` page and its embedded data were unchanged and
+already screenshot-verified.
 
 ## Rollback
 

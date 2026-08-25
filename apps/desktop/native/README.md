@@ -134,10 +134,12 @@ native/
    stages the assets, builds with `cargo build --locked`, and headlessly
    smoke-tests the binary under Xvfb, all on `ubuntu-latest` with the same
    pkg-config workaround documented above.
-3. Consider whether `shell-contract.json`'s four abstract `view_id`s
-   (`branch_status`/`plugin_status`/`zip_audit`/`workspace_links`) should
-   be reconciled with `cockpit.html`'s actual six panels
-   (repository/plugins/build/workspace/security/research), or whether the
-   contract's views are meant as a cross-platform minimum rather than an
-   exact map of every concrete UI. Pre-existing looseness, not resolved
-   here.
+3. ~~Consider whether `shell-contract.json`'s four abstract `view_id`s
+   should be reconciled with `cockpit.html`'s actual six panels~~: done —
+   `build_workbench` and `research_memory` were added as views (see
+   `../README.md` and `../shell-contract.json`), so all six `view_id`s now
+   map 1:1 onto `cockpit.html`'s six panels. This was a contract change, not
+   a rebuild: the Linux binary described above was not recompiled or
+   re-screenshotted specifically for this change, since the underlying page
+   (`cockpit.html`) and its embedded data were already unchanged and already
+   confirmed rendering in the earlier screenshot.

@@ -32,11 +32,14 @@ available in this environment).
 
 ## Shared views
 
-All four views are defined once in `shell-contract.json`, reference the same
+All six views are defined once in `shell-contract.json`, reference the same
 entities from [`apps/fullstack/state-model.json`](../fullstack/state-model.json),
 and point at the same visual icon (never text) from
 [`packages/design-tokens/icons`](../../packages/design-tokens/icons):
-Branch Status, Plugin Status, Zip Audit, Workspace.
+Branch Status, Plugin Status, Zip Audit, Workspace, Build Workbench, Research
+Memory — a 1:1 map onto `cockpit.html`'s six panels (repository, plugins,
+security, workspace ops, build, research), reconciled from the original four
+(see step 8 below).
 
 ## Next steps (tracked, not claimed done)
 
@@ -66,6 +69,15 @@ Branch Status, Plugin Status, Zip Audit, Workspace.
    `ubuntu-latest`, using the webkit2gtk-4.1 workaround documented in
    `native/README.md`, on every push/PR touching the desktop shell.
 7. Attempt and verify a Windows build — still entirely unattempted.
-8. Decide whether to reconcile `shell-contract.json`'s four abstract
-   `view_id`s with `cockpit.html`'s actual six panels — a pre-existing
-   looseness in the "wrap the cockpit" plan, unchanged by this work.
+8. ~~Decide whether to reconcile `shell-contract.json`'s four abstract
+   `view_id`s with `cockpit.html`'s actual six panels~~: done — added
+   `build_workbench` and `research_memory` as views (with new matching
+   entities in `apps/fullstack/state-model.json`, backed by real,
+   already-generated data from `data/openai-curated-build-workbench-*.json`
+   and `docs/research/README.md`) and new icons
+   (`build-workbench.svg`/`research-memory.svg`), mirrored into
+   `apps/macos/inspector-contract.json` and `ContentView.swift`'s nav list.
+   This is a contract-and-icon change, not a re-verification of the Linux
+   build against the two new views specifically — the earlier screenshot
+   already showed cockpit.html rendering their underlying data before this
+   taxonomy gap was closed.
