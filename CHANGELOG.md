@@ -8,6 +8,29 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Technology registry — scoped honestly to what actually exists.** A
+  product brief circulated proposing SEIS as a "Full Technology Edition"
+  spanning a game engine, Digital Human engine, robotics, aerospace, and
+  quantum computing, organized under a canonical Technology/Capability/Tool
+  Registry. None of those subsystems exist in this repository. Rather than
+  fabricate placeholder entries for them, adopted the registry *pattern*
+  scoped to what's real today: new `apps/fullstack/technology-registry.json`
+  catalogs SEIS's seven actual internal components (both desktop shells,
+  the web cockpit, the icon-governance system, the app-shell-contract
+  validator, the plugin-capability catalog, the backend state model), each
+  with the brief's requested fields (domain, maturity, implementation
+  class, provenance, tests, rollback, etc.), filled honestly — several
+  `tests`/`benchmarks` fields say "None yet" because that's true. New
+  `scripts/check-technology-registry.mjs` (wired into `npm run
+  check:technology-registry` and `check:governance`) enforces required
+  fields, enum membership, real provenance paths, and — the key
+  anti-fabrication gate — that the registry's `domains_with_no_entries`
+  disclaimer stays exactly in sync with which of the 16 canonical domains
+  actually have zero real entries (currently 12 of 16). See
+  `docs/decisions/technology-registry-adoption.md` for the full reasoning;
+  this does not commit SEIS to building any of the brief's aspirational
+  subsystems.
+
 - **Desktop shell view taxonomy reconciled with the cockpit's six panels.**
   `apps/desktop/shell-contract.json` and `apps/macos/inspector-contract.json`
   had four abstract views (`branch_status`/`plugin_status`/`zip_audit`/

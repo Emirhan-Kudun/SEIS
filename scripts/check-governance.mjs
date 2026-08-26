@@ -12,6 +12,7 @@ const checks = [
   ["design-system", "scripts/check-design-system.mjs"],
   ["icon-system", "scripts/check-icon-system.mjs"],
   ["app-shell-contracts", "scripts/check-app-shell-contracts.mjs"],
+  ["technology-registry", "scripts/check-technology-registry.mjs"],
 ];
 
 let failed = 0;

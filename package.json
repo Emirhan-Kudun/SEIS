@@ -77,6 +77,7 @@
     "automation:cockpit-status": "node scripts/create-cockpit-status.mjs",
     "check:cockpit-status": "node scripts/create-cockpit-status.mjs --check",
     "check:backend-state-model": "node scripts/check-backend-state-model.mjs",
+    "check:technology-registry": "node scripts/check-technology-registry.mjs",
     "check:workspace-operations": "node scripts/check-workspace-operations.mjs",
     "check:security-gate": "node scripts/check-security-gate.mjs",
     "security:secret-scan": "node scripts/security-secret-scan.mjs",
