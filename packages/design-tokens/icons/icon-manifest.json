@@ -78,6 +78,14 @@
       "viewBox": "0 0 64 64",
       "purpose": "Research-notes index view across the app-shell contracts.",
       "usedBy": ["apps/macos/inspector-contract.json", "apps/desktop/shell-contract.json"]
+    },
+    {
+      "id": "technology-registry",
+      "role": "module-glyph",
+      "file": "packages/design-tokens/icons/technology-registry.svg",
+      "viewBox": "0 0 64 64",
+      "purpose": "Technology-registry panel glyph in the web cockpit. Cockpit-only addition, not part of the shell-contract view taxonomy (see docs/decisions/technology-registry-adoption.md).",
+      "usedBy": ["apps/web/cockpit.html"]
     }
   ]
 }

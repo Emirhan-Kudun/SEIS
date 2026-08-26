@@ -6,6 +6,23 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Changed
+
+- **Visual polish pass on the web cockpit, token-driven and restrained.**
+  The real SEIS brand mark (`packages/design-tokens/icons/mark.svg`) now
+  sits next to the "SEIS" wordmark in the topbar, and every one of the
+  cockpit's seven panels gets its own governed module icon in its header
+  (the six existing shell-contract icons, plus a new
+  `technology-registry.svg` — ring + 2×2 grid glyph, registered in
+  `icon-manifest.json`, passing `check:icon-system`) instead of a bare
+  text label. Panels also gain a subtle resting shadow for depth. No new
+  colors, no gradients, no animation — consistent with
+  `docs/design/seis-design-system.md`'s "calm & compact, restraint over
+  noise" principle; every icon is decorative (`aria-hidden`, empty `alt`)
+  since the heading text already carries the accessible name.
+  Screenshot-verified with headless Chromium: all 7 panel icons and the
+  brand mark render correctly, zero console errors.
+
 ### Fixed
 
 - **Stale "Suggested next steps" in the V14 constitution audit.**
