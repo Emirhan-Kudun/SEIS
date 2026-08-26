@@ -19,6 +19,17 @@
     <header class="cockpit-topbar" aria-label="System status">
       <a class="cockpit-brand" href="./index.html">SEIS</a>
       <div class="topbar-stats" id="topbar-stats" role="status"></div>
+      <div class="cockpit-search">
+        <label class="sr-only" for="cockpit-search-input">Search this cockpit's panels</label>
+        <input
+          type="search"
+          id="cockpit-search-input"
+          placeholder="Search this cockpit… (⌘K)"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <span id="cockpit-search-count" class="cockpit-search-count" aria-live="polite"></span>
+      </div>
     </header>
 
     <div class="cockpit-shell">

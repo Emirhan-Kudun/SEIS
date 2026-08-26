@@ -8,6 +8,19 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Real, client-side search bar in the cockpit topbar.** More concept
+  mockups circulated showing a "Search anything in SEIS ⌘K" command bar.
+  No such cross-repo search index exists, so built the honest version:
+  `apps/web/cockpit.html`'s topbar gains a search input (⌘K / Ctrl+K to
+  focus, Escape to clear) that filters the rows already rendered across
+  all seven panels by substring match — pure client-side text filtering
+  over real content, no fabricated search index or live telemetry.
+  Screenshot- and interaction-verified with headless Chromium: the
+  keyboard shortcut focuses the input, typing "tauri" correctly narrows
+  the technology-registry panel to its one matching row while emptying
+  unrelated panels, the topbar reports "1 of 41 rows match," and Escape
+  clears the query — all with zero console errors.
+
 - **Technology registry surfaced as a real cockpit panel.** Following up on
   the technology-registry addition below: `apps/web/cockpit.html` gains a
   seventh panel, "Technology registry," rendering the same seven real
