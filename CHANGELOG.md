@@ -6,6 +6,29 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Added
+
+- **Android mobile shell gains a Research screen and full build-order
+  detail.** `apps/android/shell-contract.json` declared only 3 of the
+  6 canonical shell views (status, build_review, plugin_health) — the
+  same taxonomy gap already fixed on desktop/macOS, now propagated to
+  mobile. New `ResearchMemoryScreen.tsx` (entity `research_memory`);
+  `BuildReviewScreen.tsx` now also renders the full
+  `workbench.buildOrder`/`modules` list (id, status) instead of just the
+  sprint goal, and its contract entry gained the `build_workbench`
+  entity. Wired into `App.tsx`'s bottom-tab navigator and the contract's
+  `screens`/`navigation.order`. `src/data/status.ts`'s `CockpitStatus`
+  type gained the `research` and `technology` fields the generated
+  bundle already carried but the type didn't declare (the same kind of
+  staleness just fixed in the V14 audit doc, caught before it caused a
+  real type error). Genuinely verified — not just written: ran a real
+  `npm install` + `npm run typecheck` (`tsc --noEmit`) in
+  `apps/android/SEISMobile`, which compiled clean; the transient
+  `node_modules`/lockfile were removed afterward since this repo commits
+  no lockfiles anywhere (consistent with the existing "node_modules not
+  vendored" scaffold framing). `check:app-shell-contracts` and
+  `check:governance` both still pass.
+
 ### Changed
 
 - **Visual polish pass on the web cockpit, token-driven and restrained.**
