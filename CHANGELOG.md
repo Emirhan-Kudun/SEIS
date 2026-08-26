@@ -6,6 +6,18 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- **CI's "test" job was a silent no-op.** `.github/workflows/ci.yml` runs
+  `npm test --if-present`, but `package.json` had no `test` script — so
+  the job always reported "success" while validating nothing, a false
+  signal exactly like the vitest-workspace gap fixed earlier in the
+  portfolio repo this session. Added a real `test` script:
+  `check:cockpit-status && check:backend-state-model && check:secret-scan`
+  — three stable checks not currently enforced by any other CI workflow
+  in this repo. Verified both `npm test` and the exact CI invocation
+  (`npm test --if-present`) actually run and pass.
+
 ### Added
 
 - **Android mobile shell gains a Research screen and full build-order

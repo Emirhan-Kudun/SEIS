@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Low-pressure AI-native creative engineering workspace.",
   "scripts": {
+    "test": "npm run check:cockpit-status && npm run check:backend-state-model && npm run check:secret-scan",
     "check:workspace": "node scripts/check-workspace.cjs",
     "check:foundation": "node scripts/check-foundation.mjs",
     "check:constitution": "node scripts/check-seis-master-prompt-v14.mjs",
