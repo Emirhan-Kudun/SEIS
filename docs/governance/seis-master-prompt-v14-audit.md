@@ -85,14 +85,31 @@ through the documented resolution gate (no silent strategy flip, per V14 §26).
 All three V14 divergences are now resolved (two hybrid, one mapping). No
 closed-code control was removed and no operational CI contract was weakened.
 
-## Suggested next steps (prioritized, not executed)
+## Suggested next steps — status update (2026-08-26)
 
-1. Resolve divergence #1 (open vs closed) — it gates the §14/§29 community files.
-2. Decide whether to add a top-level `SECURITY.md` disclosure entry point even
-   under closed-code (recommended; security is non-negotiable per §19).
-3. Decide whether to start a `CHANGELOG.md` (§14) now that releases exist
-   (`releases/`, `release/`).
-4. Unify the two maturity vocabularies (§31/§32) into one canonical ladder.
+All four items below were still marked "not executed" here even though the
+"Divergences — resolution status" section above already recorded them as
+resolved (and the underlying files/ADRs exist in the repo). That was a stale,
+self-contradictory audit doc — not a claim anyone acted on falsely, just this
+section never getting updated when the work landed elsewhere. Corrected:
+
+1. ~~Resolve divergence #1 (open vs closed)~~ — **done.** See "Divergences —
+   resolution status" #1 above and
+   [`seis-hybrid-governance-resolution.md`](../decisions/seis-hybrid-governance-resolution.md);
+   `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` exist at the repo root.
+2. ~~Add a top-level `SECURITY.md` disclosure entry point~~ — **done.**
+   [`SECURITY.md`](../../SECURITY.md) exists at the repo root and names a real
+   disclosure contact.
+3. ~~Start a `CHANGELOG.md`~~ — **done.** [`CHANGELOG.md`](../../CHANGELOG.md)
+   exists at the repo root and is kept current (Keep a Changelog format,
+   `[Unreleased]` section maintained per change).
+4. ~~Unify the two maturity vocabularies (§31/§32)~~ — **done.** See
+   "Divergences — resolution status" #3 above and
+   [`seis-maturity-model-unification.md`](../decisions/seis-maturity-model-unification.md).
+
+No open items remain from this audit's original suggestions. A future audit
+pass should re-run against the current repo state rather than assume this
+one's suggestions are still pending.
 
 ## Validation performed for this audit
 

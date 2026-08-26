@@ -6,6 +6,18 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Stale "Suggested next steps" in the V14 constitution audit.**
+  `docs/governance/seis-master-prompt-v14-audit.md` listed four items
+  (resolve the open/closed divergence, add `SECURITY.md`, start
+  `CHANGELOG.md`, unify the two maturity vocabularies) as "not executed" —
+  but the same document's own "Divergences — resolution status" section
+  already recorded three of them resolved, and all four files/ADRs exist
+  in the repo today. Corrected the section to reflect reality with
+  pointers to where each was actually done, instead of leaving a
+  self-contradictory audit doc in place.
+
 ### Added
 
 - **Real, client-side search bar in the cockpit topbar.** More concept
