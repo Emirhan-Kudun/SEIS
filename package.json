@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Low-pressure AI-native creative engineering workspace.",
   "scripts": {
+    "test": "npm run check:cockpit-status && npm run check:backend-state-model && npm run check:secret-scan",
     "check:workspace": "node scripts/check-workspace.cjs",
     "check:foundation": "node scripts/check-foundation.mjs",
     "check:constitution": "node scripts/check-seis-master-prompt-v14.mjs",
@@ -13,6 +14,8 @@
     "check:ai-stack": "node scripts/check-ai-stack.cjs",
     "check:ai-routing-policy": "node scripts/check-ai-routing-policy.cjs",
     "check:design-system": "node scripts/check-design-system.mjs",
+    "check:icon-system": "node scripts/check-icon-system.mjs",
+    "check:app-shell-contracts": "node scripts/check-app-shell-contracts.mjs",
     "check:governance": "node scripts/check-governance.mjs",
     "check:doc-links": "node scripts/check-doc-links.mjs",
     "check:open-modules": "node scripts/check-open-modules.cjs",
@@ -75,9 +78,9 @@
     "automation:cockpit-status": "node scripts/create-cockpit-status.mjs",
     "check:cockpit-status": "node scripts/create-cockpit-status.mjs --check",
     "check:backend-state-model": "node scripts/check-backend-state-model.mjs",
+    "check:technology-registry": "node scripts/check-technology-registry.mjs",
     "check:workspace-operations": "node scripts/check-workspace-operations.mjs",
     "check:security-gate": "node scripts/check-security-gate.mjs",
-    "check:app-shell-contracts": "node scripts/check-app-shell-contracts.mjs",
     "security:secret-scan": "node scripts/security-secret-scan.mjs",
     "check:secret-scan": "node scripts/security-secret-scan.mjs --check"
   },

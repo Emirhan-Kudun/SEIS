@@ -35,6 +35,12 @@ Import the stylesheet and consume the variables:
 focus tokens on `:root` (with `color-scheme: dark`). Accent colors: gold, teal,
 rose. All tokens are namespaced `--seis-*`.
 
+## Icons
+
+[`icons/`](./icons) holds the SEIS visual mark and a small set of module
+glyphs — SVG only, checked by `npm run check:icon-system` so a logo or icon
+can never regress into a text glyph. See [`icons/README.md`](./icons/README.md).
+
 ## Contributing
 
 External contributions are welcome here under the MIT license and the SEIS

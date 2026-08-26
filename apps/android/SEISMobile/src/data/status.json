@@ -9,7 +9,8 @@
     "integrations/google-workspace.json",
     "data/security-gate-status.json",
     "sources/README.md",
-    "docs/research/README.md"
+    "docs/research/README.md",
+    "apps/fullstack/technology-registry.json"
   ],
   "branch": {
     "canonicalRepository": "Emirhan-Kudun/SEIS",
@@ -223,5 +224,61 @@
       "label": "Automation expansion",
       "state": "blocked"
     }
-  ]
+  ],
+  "technology": {
+    "scopeNote": "This registry intentionally does not contain entries for game engines, 3D/rendering pipelines, digital-human systems, robotics, aerospace, quantum computing, or any of the other domains sometimes discussed as long-term direction for SEIS. Those are not implemented in this repository and are not represented here. Adding an entry to this registry is a claim that the thing exists and works as described — see docs/decisions/technology-registry-adoption.md.",
+    "domainsCovered": 4,
+    "domainsTotal": 16,
+    "entries": [
+      {
+        "id": "desktop-shell-tauri",
+        "name": "SEIS Desktop Shell (Tauri)",
+        "domain": "Platform, Mobile, Web and XR",
+        "maturity": "Beta",
+        "status": "Linux is reference_implementation (screenshot-verified). Windows is shell_scaffolded_build_pending (source exists, entirely unverified — no Windows toolchain available in this environment). See apps/desktop/shell-contract.json for the authoritative per-platform status."
+      },
+      {
+        "id": "macos-inspector-swiftui",
+        "name": "SEIS macOS Inspector (SwiftUI)",
+        "domain": "Platform, Mobile, Web and XR",
+        "maturity": "Prototype",
+        "status": "reference_implementation per apps/macos/inspector-contract.json — a nav list and a static placeholder pane, no real data binding. Not a claim of a shipped, data-bound app."
+      },
+      {
+        "id": "seis-web-cockpit",
+        "name": "SEIS Web Cockpit",
+        "domain": "Platform, Mobile, Web and XR",
+        "maturity": "Beta",
+        "status": "In active use as the data source both desktop shells wrap; six panels (repository, plugins, build, workspace, security, research) render real embedded data generated from data/ and docs/research/ sources."
+      },
+      {
+        "id": "icon-governance-system",
+        "name": "SEIS Icon Governance System",
+        "domain": "Creation",
+        "maturity": "Stable",
+        "status": "Stable and enforced: validates viewBox drift, non-canonical colors, missing accessible names, and text-as-icon regressions across 9 registered icons as of 2026-08-25."
+      },
+      {
+        "id": "app-shell-contract-validator",
+        "name": "App Shell Contract Validator",
+        "domain": "Governance, Research and Operations",
+        "maturity": "Stable",
+        "status": "Stable and enforced across three contracts (Android, macOS, desktop) as of 2026-08-25: validates required fields, entity references, icon visual-only rule, scaffold paths, and per-platform status presence."
+      },
+      {
+        "id": "plugin-capability-catalog",
+        "name": "SEIS Plugin Capability Catalog",
+        "domain": "Governance, Research and Operations",
+        "maturity": "Stable",
+        "status": "Stable and CI-enforced; groups the real external plugin/MCP ecosystem into governed capability families with explicit activation gates."
+      },
+      {
+        "id": "backend-state-model",
+        "name": "SEIS Backend State Model",
+        "domain": "Data and Knowledge",
+        "maturity": "Beta",
+        "status": "model_committed_backend_not_provisioned — the entity shapes are real and consumed by the static cockpit bundle; no live Convex/Postgres backend has been provisioned."
+      }
+    ]
+  }
 }

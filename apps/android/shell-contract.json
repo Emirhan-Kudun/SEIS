@@ -3,7 +3,7 @@
   "date": "2026-06-12",
   "platform": "expo_react_native",
   "status": "scaffold_committed_install_pending",
-  "purpose": "Mobile surface for SEIS status, build review, and plugin health.",
+  "purpose": "Mobile surface for SEIS status, build review, plugin health, and research memory.",
   "scaffold": "apps/android/SEISMobile/App.tsx",
   "data_contract": {
     "source": "apps/fullstack/state-model.json",
@@ -20,19 +20,25 @@
     {
       "screen_id": "build_review",
       "title": "Build Review",
-      "entities": ["workspace_links"],
-      "purpose": "Weekly build review event, Drive operating docs, and backlog mirror."
+      "entities": ["workspace_links", "build_workbench"],
+      "purpose": "Weekly build review event, Drive operating docs, backlog mirror, and full build-order module status."
     },
     {
       "screen_id": "plugin_health",
       "title": "Plugin Health",
       "entities": ["plugin_registry", "plugin_lanes"],
       "purpose": "Installed counts, lane breakdown, and OpenAI-first policy compliance."
+    },
+    {
+      "screen_id": "research_memory",
+      "title": "Research",
+      "entities": ["research_memory"],
+      "purpose": "Durable research notes captured under docs/research, indexed for quick recall."
     }
   ],
   "navigation": {
     "kind": "bottom_tabs",
-    "order": ["status", "build_review", "plugin_health"]
+    "order": ["status", "build_review", "plugin_health", "research_memory"]
   },
   "scaffold_plan": {
     "template": "Expo SDK 51 blank-typescript (hand-authored under SEISMobile/)",

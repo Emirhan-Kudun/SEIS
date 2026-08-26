@@ -30,6 +30,14 @@ export interface WorkspaceDoc {
   url: string;
 }
 
+export interface TechnologyEntry {
+  id: string;
+  name: string;
+  domain: string;
+  maturity: string;
+  status: string;
+}
+
 export interface CockpitStatus {
   branch: {
     canonicalRepository: string;
@@ -39,12 +47,17 @@ export interface CockpitStatus {
   };
   plugins: { installedEnabled: number; notInstalled: number; policy: string; lanes: PluginLane[] };
   workbench: { goal: string; buildOrder: string[]; modules: WorkbenchModule[] };
+  research: { lane: string; notes: string[] };
   workspace: {
     drive: WorkspaceDoc[];
     calendar: { title: string; recurrence: string; url: string };
   };
   safety: { consolidatedSources: string[]; fullHistoryBranches: number };
   gates: Gate[];
+  // Cockpit-only in the web UI (packages/design-tokens/icons/icon-manifest.json
+  // scopes its icon to apps/web/cockpit.html); present here because it comes
+  // from the same generated bundle, not rendered by any mobile screen (yet).
+  technology: { scopeNote: string; domainsCovered: number; domainsTotal: number; entries: TechnologyEntry[] };
 }
 
 export const status = raw as unknown as CockpitStatus;

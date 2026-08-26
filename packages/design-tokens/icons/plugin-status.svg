@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Plugin status">
+  <title>Plugin status</title>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#62c7b8" stroke-width="3"/>
+  <path d="M46 32L39 44H25L18 32L25 20H39Z" fill="none" stroke="#d6b16a" stroke-width="4" stroke-linejoin="round"/>
+</svg>

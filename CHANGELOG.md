@@ -6,6 +6,232 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- **CI's "test" job was a silent no-op.** `.github/workflows/ci.yml` runs
+  `npm test --if-present`, but `package.json` had no `test` script — so
+  the job always reported "success" while validating nothing, a false
+  signal exactly like the vitest-workspace gap fixed earlier in the
+  portfolio repo this session. Added a real `test` script:
+  `check:cockpit-status && check:backend-state-model && check:secret-scan`
+  — three stable checks not currently enforced by any other CI workflow
+  in this repo. Verified both `npm test` and the exact CI invocation
+  (`npm test --if-present`) actually run and pass.
+
+### Added
+
+- **Android mobile shell gains a Research screen and full build-order
+  detail.** `apps/android/shell-contract.json` declared only 3 of the
+  6 canonical shell views (status, build_review, plugin_health) — the
+  same taxonomy gap already fixed on desktop/macOS, now propagated to
+  mobile. New `ResearchMemoryScreen.tsx` (entity `research_memory`);
+  `BuildReviewScreen.tsx` now also renders the full
+  `workbench.buildOrder`/`modules` list (id, status) instead of just the
+  sprint goal, and its contract entry gained the `build_workbench`
+  entity. Wired into `App.tsx`'s bottom-tab navigator and the contract's
+  `screens`/`navigation.order`. `src/data/status.ts`'s `CockpitStatus`
+  type gained the `research` and `technology` fields the generated
+  bundle already carried but the type didn't declare (the same kind of
+  staleness just fixed in the V14 audit doc, caught before it caused a
+  real type error). Genuinely verified — not just written: ran a real
+  `npm install` + `npm run typecheck` (`tsc --noEmit`) in
+  `apps/android/SEISMobile`, which compiled clean; the transient
+  `node_modules`/lockfile were removed afterward since this repo commits
+  no lockfiles anywhere (consistent with the existing "node_modules not
+  vendored" scaffold framing). `check:app-shell-contracts` and
+  `check:governance` both still pass.
+
+### Changed
+
+- **Visual polish pass on the web cockpit, token-driven and restrained.**
+  The real SEIS brand mark (`packages/design-tokens/icons/mark.svg`) now
+  sits next to the "SEIS" wordmark in the topbar, and every one of the
+  cockpit's seven panels gets its own governed module icon in its header
+  (the six existing shell-contract icons, plus a new
+  `technology-registry.svg` — ring + 2×2 grid glyph, registered in
+  `icon-manifest.json`, passing `check:icon-system`) instead of a bare
+  text label. Panels also gain a subtle resting shadow for depth. No new
+  colors, no gradients, no animation — consistent with
+  `docs/design/seis-design-system.md`'s "calm & compact, restraint over
+  noise" principle; every icon is decorative (`aria-hidden`, empty `alt`)
+  since the heading text already carries the accessible name.
+  Screenshot-verified with headless Chromium: all 7 panel icons and the
+  brand mark render correctly, zero console errors.
+
+### Fixed
+
+- **Stale "Suggested next steps" in the V14 constitution audit.**
+  `docs/governance/seis-master-prompt-v14-audit.md` listed four items
+  (resolve the open/closed divergence, add `SECURITY.md`, start
+  `CHANGELOG.md`, unify the two maturity vocabularies) as "not executed" —
+  but the same document's own "Divergences — resolution status" section
+  already recorded three of them resolved, and all four files/ADRs exist
+  in the repo today. Corrected the section to reflect reality with
+  pointers to where each was actually done, instead of leaving a
+  self-contradictory audit doc in place.
+
+### Added
+
+- **Real, client-side search bar in the cockpit topbar.** More concept
+  mockups circulated showing a "Search anything in SEIS ⌘K" command bar.
+  No such cross-repo search index exists, so built the honest version:
+  `apps/web/cockpit.html`'s topbar gains a search input (⌘K / Ctrl+K to
+  focus, Escape to clear) that filters the rows already rendered across
+  all seven panels by substring match — pure client-side text filtering
+  over real content, no fabricated search index or live telemetry.
+  Screenshot- and interaction-verified with headless Chromium: the
+  keyboard shortcut focuses the input, typing "tauri" correctly narrows
+  the technology-registry panel to its one matching row while emptying
+  unrelated panels, the topbar reports "1 of 41 rows match," and Escape
+  clears the query — all with zero console errors.
+
+- **Technology registry surfaced as a real cockpit panel.** Following up on
+  the technology-registry addition below: `apps/web/cockpit.html` gains a
+  seventh panel, "Technology registry," rendering the same seven real
+  entries from `apps/fullstack/technology-registry.json` (name, domain,
+  maturity badge) plus its honesty disclaimer (4 of 16 domains covered,
+  and why). `scripts/create-cockpit-status.mjs` now also reads the
+  technology registry and includes it in the generated
+  `apps/web/src/data/cockpit-status.js` / `apps/android/SEISMobile/src/data/status.json`
+  bundles. Screenshot-verified with a real headless Chromium render (not
+  just log output): the panel renders correctly, matches the existing
+  panels' visual style, and produced zero console errors.
+
+- **Technology registry — scoped honestly to what actually exists.** A
+  product brief circulated proposing SEIS as a "Full Technology Edition"
+  spanning a game engine, Digital Human engine, robotics, aerospace, and
+  quantum computing, organized under a canonical Technology/Capability/Tool
+  Registry. None of those subsystems exist in this repository. Rather than
+  fabricate placeholder entries for them, adopted the registry *pattern*
+  scoped to what's real today: new `apps/fullstack/technology-registry.json`
+  catalogs SEIS's seven actual internal components (both desktop shells,
+  the web cockpit, the icon-governance system, the app-shell-contract
+  validator, the plugin-capability catalog, the backend state model), each
+  with the brief's requested fields (domain, maturity, implementation
+  class, provenance, tests, rollback, etc.), filled honestly — several
+  `tests`/`benchmarks` fields say "None yet" because that's true. New
+  `scripts/check-technology-registry.mjs` (wired into `npm run
+  check:technology-registry` and `check:governance`) enforces required
+  fields, enum membership, real provenance paths, and — the key
+  anti-fabrication gate — that the registry's `domains_with_no_entries`
+  disclaimer stays exactly in sync with which of the 16 canonical domains
+  actually have zero real entries (currently 12 of 16). See
+  `docs/decisions/technology-registry-adoption.md` for the full reasoning;
+  this does not commit SEIS to building any of the brief's aspirational
+  subsystems.
+
+- **Desktop shell view taxonomy reconciled with the cockpit's six panels.**
+  `apps/desktop/shell-contract.json` and `apps/macos/inspector-contract.json`
+  had four abstract views (`branch_status`/`plugin_status`/`zip_audit`/
+  `workspace_links`) that didn't map 1:1 onto `apps/web/cockpit.html`'s six
+  real panels — a gap both contracts' docs explicitly flagged as
+  "pre-existing, not resolved here." Added two new views, `build_workbench`
+  and `research_memory`, backed by two new entities of the same names in
+  `apps/fullstack/state-model.json`, seeded from data that already flows
+  through `scripts/create-cockpit-status.mjs`
+  (`data/openai-curated-build-workbench-2026-06-05.json` and
+  `docs/research/README.md`) — no new data invented, just registered as
+  formal entities. Two new icons, `packages/design-tokens/icons/{build-
+  workbench,research-memory}.svg`, follow the existing four icons'
+  ring-plus-glyph visual pattern and pass `check:icon-system`.
+  `ContentView.swift` gained matching nav rows (still placeholder detail
+  panes, no new data binding claimed on macOS). `npm run
+  check:app-shell-contracts` / `check:icon-system` / `check:governance` all
+  still pass. This is a contract-and-icon change only — it does not
+  re-verify the Linux Tauri build against the two new views; the earlier
+  screenshot already showed `cockpit.html` rendering their underlying data
+  before this taxonomy gap was closed.
+
+- **Linux desktop shell build wired into CI.** New
+  `.github/workflows/desktop-shell-linux-build.yml`: on any push/PR touching
+  `apps/desktop/`, `apps/web/`, `packages/design-tokens/`, or `packages/ui/`,
+  installs the Rust toolchain and GTK/WebKit dev packages, applies the
+  documented webkit2gtk-4.0→4.1 pkg-config/`.so` symlink workaround, runs
+  `stage-assets.mjs`, builds with `cargo build --locked`, and headlessly
+  smoke-tests the resulting binary under `xvfb-run` (treats a clean exit or
+  a timeout-while-still-running as success; any other exit code fails the
+  job). This is real regression coverage for the shell verified manually
+  earlier — closes the "wire a Linux build into CI" item both
+  `apps/desktop/README.md` and `apps/desktop/native/README.md` listed as an
+  open next step.
+
+- **SEIS icon system (visual only, never text).** New
+  `packages/design-tokens/icons/` (part of the existing open `@seis/design-tokens`
+  module): the canonical brand mark plus four module glyphs (branch status,
+  plugin status, zip audit, workspace links), each a real SVG pictogram with
+  an accessible name. `icon-manifest.json` registers every icon (including
+  `apps/web/favicon.svg` and `apps/web/public/icons/apple-touch-icon.svg`) and
+  the new `check:icon-system` enforces, in CI via `check:governance`, that
+  every icon's `viewBox` matches its manifest entry, every color is a
+  canonical `--seis-*` token, and none contains a `<text>` element — a
+  permanent, automated guarantee that a SEIS logo or icon can never regress
+  into a text glyph. Design background:
+  `docs/design/icon-system-research.md`.
+- **Shared desktop shell contract (macOS + Windows + Linux).** Added
+  `apps/desktop/shell-contract.json` as the one shared contract the three
+  desktop platforms implement, instead of `apps/macos` being its own island:
+  macOS (`apps/macos/SEISInspector`) is recorded as the
+  `reference_implementation`; Windows and Linux are honestly recorded as
+  `contract_defined_implementation_pending` with a plan (wrap the existing
+  `apps/web` cockpit rather than rewrite per OS) — no Windows/Linux app is
+  claimed to exist. `apps/macos/inspector-contract.json` gained per-view
+  `icon` fields (from the new icon system) and a pointer at the shared
+  contract; its previously-required fields are unchanged. See
+  `docs/architecture/desktop-shell-unification.md`.
+- **`check:app-shell-contracts` wired into CI for the first time.** The
+  script already validated the Android and macOS contracts but was not run
+  anywhere automatically; it now also validates the new desktop contract and
+  (new) that every view's `icon`, where declared, is a real, visual,
+  non-`<text>` SVG. Added to the `check:governance` aggregate.
+- **Windows/Linux desktop shell, scaffolded.** Added
+  `apps/desktop/native/src-tauri` — a source-level Tauri project that loads
+  `apps/web/cockpit.html` instead of a new UI, per the plan already recorded
+  in `apps/desktop/README.md`. `shell-contract.json`'s
+  `platforms.windows`/`platforms.linux` now point at this scaffold and record
+  `shell_scaffolded_build_pending` (real source exists; not yet compiled or
+  shipped on either OS). `check:app-shell-contracts` now also validates every
+  `platforms.*.scaffold` path and requires a `status` per platform.
+- **Linux desktop shell, build-verified.** `apps/desktop/native/src-tauri`
+  now actually compiles (`cargo build`) and runs: launched headlessly under
+  `xvfb-run` on Ubuntu 24.04, the shell opens a real WebKitGTK window and
+  renders `apps/web/cockpit.html`'s markup and styles. This needed three
+  real fixes the prior scaffold-only commit was missing: a `build.rs`
+  calling `tauri_build::build()` (required by `tauri::generate_context!()`
+  but never added), real app icon PNGs rasterized from
+  `packages/design-tokens/icons/mark.svg` (Tauri's codegen hardcodes a
+  lookup for `icons/icon.png` regardless of bundler config), and
+  `Cargo.lock` (now committed, standard for an application). Also
+  discovered and documented: Tauri v1's `webkit2gtk` crate only looks for
+  the `webkit2gtk-4.0`/`javascriptcoregtk-4.0` pkg-config names, which
+  Ubuntu 24.04 no longer ships (only 4.1) — building it there needs
+  pkg-config/`.so` symlinks aliasing 4.0 to 4.1, documented in
+  `apps/desktop/native/README.md`. `shell-contract.json`'s
+  `platforms.linux.status` is now `build_verified_data_wiring_pending`,
+  distinct from `platforms.windows.status` (`shell_scaffolded_build_pending`,
+  still unverified) — verified that the shell chrome renders, but several
+  JSON-backed panels don't yet load data inside the shell (a documented,
+  understood relative-path gap, not yet fixed). Not claiming
+  `reference_implementation` on either platform.
+- **Correction: the previous entry verified the wrong page.** The shell had
+  no `tauri.windows[0].url` set, so it was silently loading
+  `apps/web/index.html` (the marketing/portfolio page) instead of
+  `cockpit.html` (the page `shell-contract.json` is actually about) — the
+  "JSON-backed panels don't load" gap above belongs to `index.html`'s
+  `app.js`, not to the cockpit. `cockpit.html` itself has no such fetch
+  calls at all; its only external dependency is two CSS links
+  (`../../packages/design-tokens/seis.tokens.css`,
+  `../../packages/ui/seis.ui.css`). Fixed both: `tauri.windows[0].url` now
+  points at `cockpit.html`, and new `apps/desktop/native/stage-assets.mjs`
+  stages `packages/design-tokens`/`packages/ui` alongside `apps/web/` (a
+  ~5MB copy, not `data/`/`content/`, which the cockpit never needs) so
+  those two links resolve. Re-verified with an actual screenshot (`xwd` +
+  ImageMagick under `xvfb-run`): the shell renders `cockpit.html` fully
+  styled, with all six panels showing real embedded data — arguably more
+  functionally complete than the macOS reference implementation (a nav
+  list plus a static placeholder pane). `shell-contract.json`'s
+  `platforms.linux.status` is now `reference_implementation`; Windows is
+  unaffected (`shell_scaffolded_build_pending`, still unverified).
+
 ### Changed
 
 - **Cockpit consumes the design system.** `apps/web/src/styles/cockpit.css` now

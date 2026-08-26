@@ -170,6 +170,29 @@
     }),
   );
 
+  // Technology registry panel
+  const maturityTone = (maturity) =>
+    ["Stable", "LTS"].includes(maturity) ? "ok" : ["Beta", "Alpha"].includes(maturity) ? "accent" : "warn";
+  panel("technology").append(
+    el(
+      "ul",
+      { class: "lane-list" },
+      status.technology.entries.map((entry) =>
+        el("li", {}, [
+          el("span", {}, [
+            el("span", { class: "mono", text: entry.name }),
+            document.createTextNode(` — ${entry.domain}`),
+          ]),
+          badge(entry.maturity, maturityTone(entry.maturity)),
+        ]),
+      ),
+    ),
+    el("p", {
+      class: "note",
+      text: `${status.technology.domainsCovered} of ${status.technology.domainsTotal} technology domains have real, registered entries. ${status.technology.scopeNote}`,
+    }),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(
@@ -180,4 +203,38 @@
       ]),
     ),
   );
+
+  // Search: client-side filter over the rows this page already rendered
+  // above. Scoped honestly to "this cockpit's panels" — it does not search
+  // anything outside this page (no live index, no cross-repo search).
+  const searchInput = document.getElementById("cockpit-search-input");
+  const searchCount = document.getElementById("cockpit-search-count");
+  if (searchInput && searchCount) {
+    const rowSelector = ".cockpit-grid .seis-table tr, .cockpit-grid .lane-list li, .cockpit-grid .link-list li";
+    const applyFilter = () => {
+      const query = searchInput.value.trim().toLowerCase();
+      const rows = document.querySelectorAll(rowSelector);
+      let total = 0;
+      let visible = 0;
+      for (const row of rows) {
+        total += 1;
+        const matches = !query || row.textContent.toLowerCase().includes(query);
+        row.classList.toggle("search-hidden", !matches);
+        if (matches) visible += 1;
+      }
+      searchCount.textContent = query ? `${visible} of ${total} rows match` : "";
+    };
+    searchInput.addEventListener("input", applyFilter);
+    document.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      } else if (event.key === "Escape" && document.activeElement === searchInput) {
+        searchInput.value = "";
+        applyFilter();
+        searchInput.blur();
+      }
+    });
+  }
 })();

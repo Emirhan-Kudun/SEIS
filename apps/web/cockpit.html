@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SEIS operating cockpit: repository, plugin, workspace, build, and security status from local SEIS records.">
+    <meta name="description" content="SEIS operating cockpit: repository, plugin, workspace, build, security, research, and technology-registry status from local SEIS records.">
     <meta name="theme-color" content="#0e1116">
     <meta name="color-scheme" content="dark">
     <meta name="robots" content="noindex, nofollow">
@@ -17,8 +17,22 @@
     <a class="skip-link" href="#cockpit-main">Skip to content</a>
 
     <header class="cockpit-topbar" aria-label="System status">
-      <a class="cockpit-brand" href="./index.html">SEIS</a>
+      <a class="cockpit-brand" href="./index.html">
+        <img class="cockpit-brand-mark" src="../../packages/design-tokens/icons/mark.svg" alt="" aria-hidden="true">
+        SEIS
+      </a>
       <div class="topbar-stats" id="topbar-stats" role="status"></div>
+      <div class="cockpit-search">
+        <label class="sr-only" for="cockpit-search-input">Search this cockpit's panels</label>
+        <input
+          type="search"
+          id="cockpit-search-input"
+          placeholder="Search this cockpit… (⌘K)"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <span id="cockpit-search-count" class="cockpit-search-count" aria-live="polite"></span>
+      </div>
     </header>
 
     <div class="cockpit-shell">
@@ -29,37 +43,43 @@
         <a href="#panel-build">Build</a>
         <a href="#panel-security">Security</a>
         <a href="#panel-research">Research</a>
+        <a href="#panel-technology">Technology</a>
       </nav>
 
       <main id="cockpit-main" class="cockpit-grid">
         <section class="seis-card panel" id="panel-repository" aria-labelledby="repository-title">
-          <h2 id="repository-title">Repository</h2>
+          <h2 id="repository-title"><img class="panel-icon" src="../../packages/design-tokens/icons/branch-status.svg" alt="" aria-hidden="true">Repository</h2>
           <div data-panel="repository"></div>
         </section>
 
         <section class="seis-card panel" id="panel-plugins" aria-labelledby="plugins-title">
-          <h2 id="plugins-title">Plugin lanes</h2>
+          <h2 id="plugins-title"><img class="panel-icon" src="../../packages/design-tokens/icons/plugin-status.svg" alt="" aria-hidden="true">Plugin lanes</h2>
           <div data-panel="plugins"></div>
         </section>
 
         <section class="seis-card panel" id="panel-build" aria-labelledby="build-title">
-          <h2 id="build-title">Build workbench</h2>
+          <h2 id="build-title"><img class="panel-icon" src="../../packages/design-tokens/icons/build-workbench.svg" alt="" aria-hidden="true">Build workbench</h2>
           <div data-panel="build"></div>
         </section>
 
         <section class="seis-card panel" id="panel-workspace" aria-labelledby="workspace-title">
-          <h2 id="workspace-title">Workspace ops</h2>
+          <h2 id="workspace-title"><img class="panel-icon" src="../../packages/design-tokens/icons/workspace-links.svg" alt="" aria-hidden="true">Workspace ops</h2>
           <div data-panel="workspace"></div>
         </section>
 
         <section class="seis-card panel" id="panel-security" aria-labelledby="security-title">
-          <h2 id="security-title">Source safety</h2>
+          <h2 id="security-title"><img class="panel-icon" src="../../packages/design-tokens/icons/zip-audit.svg" alt="" aria-hidden="true">Source safety</h2>
           <div data-panel="security"></div>
         </section>
 
         <section class="seis-card panel" id="panel-research" aria-labelledby="research-title">
-          <h2 id="research-title">Research memory</h2>
+          <h2 id="research-title"><img class="panel-icon" src="../../packages/design-tokens/icons/research-memory.svg" alt="" aria-hidden="true">Research memory</h2>
           <div data-panel="research"></div>
+        </section>
+
+        <section class="seis-card panel" id="panel-technology" aria-labelledby="technology-title">
+          <h2 id="technology-title"><img class="panel-icon" src="../../packages/design-tokens/icons/technology-registry.svg" alt="" aria-hidden="true">Technology registry</h2>
+          <div data-panel="technology"></div>
         </section>
       </main>
     </div>

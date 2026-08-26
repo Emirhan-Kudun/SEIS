@@ -15,6 +15,8 @@ let inspectorViews: [InspectorView] = [
     .init(id: "plugin_status", title: "Plugin Status", systemImage: "puzzlepiece.extension"),
     .init(id: "zip_audit", title: "Zip Audit", systemImage: "archivebox"),
     .init(id: "workspace_links", title: "Workspace", systemImage: "link"),
+    .init(id: "build_workbench", title: "Build Workbench", systemImage: "hammer"),
+    .init(id: "research_memory", title: "Research Memory", systemImage: "book"),
 ]
 
 struct ContentView: View {

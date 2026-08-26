@@ -86,6 +86,25 @@
         "SEIS_CLOSED_CODE.md"
       ],
       "sync_rule": "Gate state changes require a decision record entry before edit."
+    },
+    "build_workbench": {
+      "description": "Cross-repo build order and per-module delivery status for the SEIS platform's own build-out (the cockpit's \"build\" panel).",
+      "fields": {
+        "goal": "string — sprint_1 goal statement",
+        "buildOrder": "string[] — module ids in dependency/build sequence",
+        "modules": "array of {id, lane, path, deliverable, status} — one entry per platform module (web_cockpit, backend_state, mobile_shell, macos_inspector, workspace_ops, research_memory, security_quality_gate)"
+      },
+      "seed_sources": ["data/openai-curated-build-workbench-2026-06-05.json"],
+      "sync_rule": "scripts/create-cockpit-status.mjs overrides a module's status via its moduleStatusOverrides map when the module has shipped further than the source file reflects; keep that map and this entity's modules in sync when a module status changes."
+    },
+    "research_memory": {
+      "description": "Index of durable research notes captured under docs/research/ (the cockpit's \"research memory\" panel).",
+      "fields": {
+        "lane": "string — repo-relative path of the research lane (docs/research)",
+        "notes": "string[] — repo-relative paths of individual research note files"
+      },
+      "seed_sources": ["docs/research/README.md"],
+      "sync_rule": "Adding a note means adding a row to docs/research/README.md's notes table; scripts/create-cockpit-status.mjs regenerates this list from that table by regex, so it never needs a hand-edit here."
     }
   },
   "consumer_contract": {

@@ -4,6 +4,7 @@
   "platform": "swiftui",
   "status": "contract_committed_scaffold_started",
   "purpose": "Local desktop inspector for SEIS repo state, plugin cache, zip audits, and workspace links.",
+  "unified_contract": "apps/desktop/shell-contract.json",
   "data_contract": {
     "source": "apps/fullstack/state-model.json",
     "rule": "Views consume the same entity shapes as the web cockpit; the inspector reads local SEIS JSON records directly."
@@ -13,25 +14,43 @@
       "view_id": "branch_status",
       "title": "Branch Status",
       "entities": ["repositories", "source_branches"],
-      "purpose": "Canonical branch mirror and full-history source refs."
+      "purpose": "Canonical branch mirror and full-history source refs.",
+      "icon": "packages/design-tokens/icons/branch-status.svg"
     },
     {
       "view_id": "plugin_status",
       "title": "Plugin Status",
       "entities": ["plugin_registry", "plugin_lanes"],
-      "purpose": "Installed plugin counts and lane assignment."
+      "purpose": "Installed plugin counts and lane assignment.",
+      "icon": "packages/design-tokens/icons/plugin-status.svg"
     },
     {
       "view_id": "zip_audit",
       "title": "Zip Audit",
       "entities": ["governance_gates"],
-      "purpose": "iCloud zip inventory status and the no-large-binaries gate."
+      "purpose": "iCloud zip inventory status and the no-large-binaries gate.",
+      "icon": "packages/design-tokens/icons/zip-audit.svg"
     },
     {
       "view_id": "workspace_links",
       "title": "Workspace",
       "entities": ["workspace_links"],
-      "purpose": "Drive docs and Calendar reviews opened in the browser."
+      "purpose": "Drive docs and Calendar reviews opened in the browser.",
+      "icon": "packages/design-tokens/icons/workspace-links.svg"
+    },
+    {
+      "view_id": "build_workbench",
+      "title": "Build Workbench",
+      "entities": ["build_workbench"],
+      "purpose": "Cross-repo build order and per-module delivery status for the SEIS platform build-out.",
+      "icon": "packages/design-tokens/icons/build-workbench.svg"
+    },
+    {
+      "view_id": "research_memory",
+      "title": "Research Memory",
+      "entities": ["research_memory"],
+      "purpose": "Durable research notes captured under docs/research, indexed for quick recall.",
+      "icon": "packages/design-tokens/icons/research-memory.svg"
     }
   ],
   "safety": "No destructive actions (repo or archive deletion) are exposed in the UI; gates render read-only.",
