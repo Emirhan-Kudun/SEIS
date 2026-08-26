@@ -170,6 +170,29 @@
     }),
   );
 
+  // Technology registry panel
+  const maturityTone = (maturity) =>
+    ["Stable", "LTS"].includes(maturity) ? "ok" : ["Beta", "Alpha"].includes(maturity) ? "accent" : "warn";
+  panel("technology").append(
+    el(
+      "ul",
+      { class: "lane-list" },
+      status.technology.entries.map((entry) =>
+        el("li", {}, [
+          el("span", {}, [
+            el("span", { class: "mono", text: entry.name }),
+            document.createTextNode(` — ${entry.domain}`),
+          ]),
+          badge(entry.maturity, maturityTone(entry.maturity)),
+        ]),
+      ),
+    ),
+    el("p", {
+      class: "note",
+      text: `${status.technology.domainsCovered} of ${status.technology.domainsTotal} technology domains have real, registered entries. ${status.technology.scopeNote}`,
+    }),
+  );
+
   // Footer gates
   const gateTone = { enforced: "accent", open: "ok", blocked: "warn" };
   document.getElementById("gate-list").append(

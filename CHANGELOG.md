@@ -8,6 +8,18 @@ entries rather than semantic versions while the ecosystem is pre-1.0.
 
 ### Added
 
+- **Technology registry surfaced as a real cockpit panel.** Following up on
+  the technology-registry addition below: `apps/web/cockpit.html` gains a
+  seventh panel, "Technology registry," rendering the same seven real
+  entries from `apps/fullstack/technology-registry.json` (name, domain,
+  maturity badge) plus its honesty disclaimer (4 of 16 domains covered,
+  and why). `scripts/create-cockpit-status.mjs` now also reads the
+  technology registry and includes it in the generated
+  `apps/web/src/data/cockpit-status.js` / `apps/android/SEISMobile/src/data/status.json`
+  bundles. Screenshot-verified with a real headless Chromium render (not
+  just log output): the panel renders correctly, matches the existing
+  panels' visual style, and produced zero console errors.
+
 - **Technology registry — scoped honestly to what actually exists.** A
   product brief circulated proposing SEIS as a "Full Technology Edition"
   spanning a game engine, Digital Human engine, robotics, aerospace, and

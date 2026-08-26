@@ -44,6 +44,8 @@ const fullHistoryBranches = [...sourcesManifest.matchAll(/^\| `sources\/[^`]*[^/
 const researchIndex = readFileSync(resolve(root, "docs/research/README.md"), "utf8");
 const researchNotes = [...researchIndex.matchAll(/^\| \[`(notes\/[^`]+)`\]/gim)].map((m) => m[1]);
 
+const technologyRegistry = read("apps/fullstack/technology-registry.json");
+
 const moduleStatusOverrides = {
   web_cockpit: "first_milestone_shipped",
   backend_state: "model_committed",
@@ -66,6 +68,7 @@ const status = {
     "data/security-gate-status.json",
     "sources/README.md",
     "docs/research/README.md",
+    "apps/fullstack/technology-registry.json",
   ],
   branch: {
     canonicalRepository: "Emirhan-Kudun/SEIS",
@@ -130,6 +133,18 @@ const status = {
     label: gate.label,
     state: gate.state,
   })),
+  technology: {
+    scopeNote: technologyRegistry.scope_note,
+    domainsCovered: technologyRegistry.domain_taxonomy.length - technologyRegistry.domains_with_no_entries.length,
+    domainsTotal: technologyRegistry.domain_taxonomy.length,
+    entries: technologyRegistry.entries.map((entry) => ({
+      id: entry.id,
+      name: entry.name,
+      domain: entry.domain,
+      maturity: entry.maturity,
+      status: entry.status,
+    })),
+  },
 };
 
 const banner =
